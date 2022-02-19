@@ -1,4 +1,0 @@
-[submodule "sdk-php"]
-    path = sdk-php
-    url = git@github.com:hellosign/hellosign-php-sdk.git
-    branch = openapi
