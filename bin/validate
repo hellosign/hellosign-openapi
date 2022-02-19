@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# instructions:
+#   install openapi-cli: `npm i -g @redocly/openapi-cli`
+#   run this script
+
+set -e
+DIR=$(cd `dirname $0` && pwd)
+ROOT_DIR="${DIR}/../.."
+
+openapi lint \
+  --format=stylish \
+  --max-problems=1000 \
+  "${ROOT_DIR}/web/openapi-v3.yaml" \
