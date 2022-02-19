@@ -25,8 +25,7 @@ $cc1->setRole("Accounting")
     ->setEmailAddress("accounting@example.com");
 
 $customField1 = new HelloSignSDK\Model\SubCustomField();
-$customField1
-    ->setName("Cost")
+$customField1->setName("Cost")
     ->setValue("$20,000")
     ->setEditor("Client")
     ->setRequired(true);
