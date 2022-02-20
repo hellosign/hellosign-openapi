@@ -7690,7 +7690,7 @@ components:
             custom_fields:
               -
                 name: company
-                vlaue: 'ABC Corp'
+                value: 'ABC Corp'
           -
             signers:
               -
@@ -7701,7 +7701,7 @@ components:
             custom_fields:
               -
                 name: company
-                vlaue: '123 LLC'
+                value: '123 LLC'
         ccs:
           -
             role: Accounting
@@ -7739,7 +7739,7 @@ components:
             custom_fields:
               -
                 name: company
-                vlaue: 'ABC Corp'
+                value: 'ABC Corp'
           -
             signers:
               -
@@ -7750,7 +7750,7 @@ components:
             custom_fields:
               -
                 name: company
-                vlaue: '123 LLC'
+                value: '123 LLC'
         ccs:
           -
             role: Accounting

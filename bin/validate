@@ -6,9 +6,9 @@
 
 set -e
 DIR=$(cd `dirname $0` && pwd)
-ROOT_DIR="${DIR}/../.."
+ROOT_DIR="${DIR}/.."
 
 openapi lint \
   --format=stylish \
   --max-problems=1000 \
-  "${ROOT_DIR}/web/openapi-v3.yaml" \
+  "${ROOT_DIR}/openapi.yaml" \
