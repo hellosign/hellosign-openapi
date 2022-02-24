@@ -4217,6 +4217,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -4236,6 +4237,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         test_mode:
           description: |-
             Whether this is a test, the signature request will not be legally
@@ -4245,6 +4247,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
       type: object
     SignatureRequestBulkSendWithTemplateRequest:
       required:
@@ -4311,6 +4314,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -4330,6 +4334,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         test_mode:
           description: |-
             Whether this is a test, the signature request will not be legally
@@ -4339,6 +4344,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
       type: object
     SignatureRequestCreateEmbeddedRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -4457,6 +4463,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -4480,6 +4487,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         test_mode:
           description: |-
             Whether this is a test, the signature request will not be legally
@@ -4489,6 +4497,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
         use_text_tags:
           description: |-
             Send with a value of `true` if you wish to enable
@@ -4562,6 +4571,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -4585,6 +4595,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         test_mode:
           description: |-
             Whether this is a test, the signature request will not be legally
@@ -4594,6 +4605,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -4732,6 +4744,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -4758,6 +4771,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         test_mode:
           description: |-
             Whether this is a test, the signature request will not be legally
@@ -4767,6 +4781,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
         use_text_tags:
           description: |-
             Send with a value of `true` if you wish to enable
@@ -4836,6 +4851,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -4862,6 +4878,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         test_mode:
           description: |-
             Whether this is a test, the signature request will not be legally
@@ -4871,6 +4888,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -5311,6 +5329,7 @@ components:
               - template_access
               - team_access
               - api_app_access
+              - universal_signature_request_access
               - ''
       type: object
     SubOptions:
@@ -5595,6 +5614,7 @@ components:
         message:
           description: 'The default template email message.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -5629,6 +5649,7 @@ components:
         subject:
           description: 'The template title (alias).'
           type: string
+          maxLength: 200
         test_mode:
           description: |-
             Whether this is a test, the signature request created from this draft
@@ -5691,9 +5712,11 @@ components:
         message:
           description: 'The new default template email message.'
           type: string
+          maxLength: 5000
         subject:
           description: 'The new default template email subject.'
           type: string
+          maxLength: 100
         test_mode:
           description: |-
             Whether this is a test, the signature request created from this draft
@@ -5811,6 +5834,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -5837,6 +5861,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 200
         test_mode:
           description: |-
             Whether this is a test, the signature request created from this draft
@@ -6026,6 +6051,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -6071,6 +6097,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 200
         test_mode:
           description: |-
             Whether this is a test, the signature request created from this draft
@@ -6201,6 +6228,7 @@ components:
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
+          maxLength: 5000
         metadata:
           description: |-
             Key-value data that should be attached to the signature request. This
@@ -6262,6 +6290,7 @@ components:
         subject:
           description: 'The subject in the email that will be sent to the signers.'
           type: string
+          maxLength: 255
         template_ids:
           description: |-
             Use `template_ids` to create a SignatureRequest from one or more
@@ -6278,6 +6307,7 @@ components:
         title:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
+          maxLength: 255
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
