@@ -17,8 +17,8 @@ paths:
     post:
       tags:
         - Account
-      summary: 'Signs up for a new HelloSign Account.'
-      description: 'Creates a new HelloSign Account that is associated with the specified `email_address`.'
+      summary: '__translate__AccountCreate::_SUMMARY'
+      description: '__translate__AccountCreate::_DESCRIPTION'
       operationId: accountCreate
       requestBody:
         required: true
@@ -32,7 +32,7 @@ paths:
               oauth:
                 $ref: '#/components/examples/AccountCreateRequestOAuthExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -43,7 +43,7 @@ paths:
                   $ref: '#/components/examples/AccountCreateResponseExample'
                 oauth:
                   $ref: '#/components/examples/AccountCreateOAuthResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -85,7 +85,7 @@ paths:
       description: 'Returns the properties and settings of your Account.'
       operationId: accountGet
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -94,7 +94,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountGetResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -145,7 +145,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/AccountUpdateRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -154,7 +154,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       callbacks:
         accountCallback:
@@ -165,7 +165,7 @@ paths:
               requestBody:
                 $ref: '#/components/requestBodies/EventCallbackAccountRequest'
               responses:
-                200:
+                '200':
                   $ref: '#/components/responses/EventCallbackResponse'
       security:
         -
@@ -219,7 +219,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/AccountVerifyRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -230,7 +230,7 @@ paths:
                   $ref: '#/components/examples/AccountVerifyFoundResponseExample'
                 not_found:
                   $ref: '#/components/examples/AccountVerifyNotFoundResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -287,7 +287,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/ApiAppCreateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -296,7 +296,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppCreateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       callbacks:
         apiAppCallback:
@@ -307,7 +307,7 @@ paths:
               requestBody:
                 $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
               responses:
-                200:
+                '200':
                   $ref: '#/components/responses/EventCallbackResponse'
       security:
         -
@@ -358,7 +358,7 @@ paths:
             type: string
           example: 0dd3b823a682527788c4e40cb7b6f7e9
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -367,7 +367,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppGetResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -435,7 +435,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/ApiAppUpdateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -444,7 +444,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppUpdateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -494,9 +494,9 @@ paths:
             type: string
           example: 0dd3b823a682527788c4e40cb7b6f7e9
       responses:
-        204:
+        '204':
           description: 'successful operation'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -558,7 +558,7 @@ paths:
             type: integer
             default: 20
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -567,7 +567,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppListResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -620,7 +620,7 @@ paths:
             type: string
           example: 6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -629,7 +629,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobGetResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -689,7 +689,7 @@ paths:
             type: integer
             default: 20
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -698,7 +698,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobListResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -762,7 +762,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/EmbeddedEditUrlRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -771,7 +771,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/EmbeddedEditUrlResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -825,7 +825,7 @@ paths:
             type: string
           example: 50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -834,7 +834,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/EmbeddedSignUrlResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -887,7 +887,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/OAuthTokenGenerateRequestExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -947,7 +947,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/OAuthTokenRefreshRequestExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1009,7 +1009,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/ReportCreateRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1018,7 +1018,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ReportCreateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1081,7 +1081,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1090,7 +1090,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1151,7 +1151,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1160,7 +1160,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1241,11 +1241,11 @@ paths:
             type: string
           example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
-            application/json: []
-        400:
+            application/json: {  }
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1310,7 +1310,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1319,7 +1319,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1382,7 +1382,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1391,7 +1391,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1482,7 +1482,7 @@ paths:
             type: boolean
             default: false
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1491,7 +1491,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestFilesResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1545,7 +1545,7 @@ paths:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1554,7 +1554,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestGetResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1640,7 +1640,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1649,7 +1649,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestListResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1706,7 +1706,7 @@ paths:
             type: string
           example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1715,7 +1715,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestReleaseHoldResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1780,7 +1780,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestRemindRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1789,7 +1789,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestRemindResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1851,11 +1851,11 @@ paths:
             type: string
           example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
-            application/json: []
-        400:
+            application/json: {  }
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1915,7 +1915,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1924,7 +1924,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1988,7 +1988,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendWithTemplateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -1997,7 +1997,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendWithTemplateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2065,7 +2065,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/SignatureRequestUpdateRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2074,7 +2074,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestUpdateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2131,7 +2131,7 @@ paths:
               account_id:
                 $ref: '#/components/examples/TeamAddMemberRequestAccountIdExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2140,7 +2140,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamAddMemberResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2193,7 +2193,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/TeamCreateRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2202,7 +2202,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamCreateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2246,9 +2246,9 @@ paths:
         member (yourself).
       operationId: teamDelete
       responses:
-        200:
+        '200':
           description: 'successful operation'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2293,7 +2293,7 @@ paths:
         "not_found" will be returned.
       operationId: teamGet
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2302,9 +2302,9 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamGetResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
-        404:
+        '404':
           description: 'not found'
           content:
             application/json:
@@ -2359,7 +2359,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/TeamUpdateRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2368,7 +2368,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamUpdateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2427,7 +2427,7 @@ paths:
               account_id:
                 $ref: '#/components/examples/TeamRemoveMemberRequestAccountIdExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2436,7 +2436,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamRemoveMemberResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2498,7 +2498,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/TemplateAddUserRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2507,7 +2507,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateAddUserResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2572,7 +2572,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2581,7 +2581,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2632,11 +2632,11 @@ paths:
             type: string
           example: 5de8179668f2033afac48da1868d0093bf133266
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
-            application/json: []
-        400:
+            application/json: {  }
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2726,7 +2726,7 @@ paths:
             type: boolean
             default: false
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2735,7 +2735,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateFilesResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2786,7 +2786,7 @@ paths:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2795,7 +2795,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateGetResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2877,7 +2877,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2886,7 +2886,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateListResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2946,7 +2946,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/TemplateRemoveUserRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -2955,7 +2955,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateRemoveUserResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3047,7 +3047,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/TemplateUpdateFilesRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -3056,7 +3056,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateUpdateFilesResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3124,7 +3124,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -3133,7 +3133,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3205,7 +3205,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -3214,7 +3214,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3283,7 +3283,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateRequestFormDataExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -3292,7 +3292,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateResponseExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3362,7 +3362,7 @@ paths:
               default_example:
                 $ref: '#/components/examples/UnclaimedDraftEditAndResendRequestDefaultExample'
       responses:
-        200:
+        '200':
           description: 'successful operation'
           content:
             application/json:
@@ -3371,7 +3371,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftEditAndResendExample'
-        400:
+        '400':
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3413,19 +3413,13 @@ components:
         - email_address
       properties:
         client_id:
-          description: |-
-            Used when creating a new account and requesting OAuth authorization.
-
-            See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
+          description: '__translate__AccountCreate::CLIENT_ID'
           type: string
         client_secret:
-          description: |-
-            Used when creating a new account and requesting OAuth authorization.
-
-            See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
+          description: '__translate__AccountCreate::CLIENT_SECRET'
           type: string
         email_address:
-          description: 'The email address to create a new Account for.'
+          description: '__translate__AccountCreate::EMAIL_ADDRESS'
           type: string
           format: email
       type: object
@@ -4228,7 +4222,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
           type: string
@@ -4325,7 +4319,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
           type: string
@@ -4474,7 +4468,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signers:
           description: 'Add Signers to your Signature Request.'
           type: array
@@ -4582,7 +4576,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -4755,7 +4749,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signers:
           description: 'Add Signers to your Signature Request.'
           type: array
@@ -4862,7 +4856,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -5625,7 +5619,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         show_preview:
           description: |-
             This allows the requester to enable the editor/preview experience.
@@ -5845,7 +5839,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         signers:
           description: 'Add Signers to your Unclaimed Draft Signature Request.'
           type: array
@@ -6062,7 +6056,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         requester_email_address:
           description: |-
             The email address of the user that should be designated as the requester
@@ -6239,7 +6233,7 @@ components:
             characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {  }
         preview_only:
           description: |-
             This allows the requester to enable the preview experience experience.
@@ -8768,7 +8762,7 @@ components:
           email_address: some_user@hellosign.com
     AccountVerifyNotFoundResponseExample:
       summary: 'Account Not Found'
-      value: []
+      value: {}
     ApiAppCreateResponseExample:
       summary: 'API App'
       value:
@@ -9011,7 +9005,7 @@ components:
             original_title: 'Purchase Agreement'
             subject: 'Purchase Agreement'
             message: 'Please sign and return.'
-            metadata: []
+            metadata: {}
             created_at: 1570471067
             is_complete: true
             is_declined: false
@@ -9074,7 +9068,7 @@ components:
             message: 'Please sign this NDA as soon as possible.'
             updated_at: 1570471067
             is_embedded: false
-            metadata: []
+            metadata: {}
             signer_roles:
               -
                 name: 'Outside Vendor'
@@ -9139,7 +9133,7 @@ components:
           original_title: 'The NDA we talked about'
           subject: 'The NDA we talked about'
           message: 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.'
-          metadata: []
+          metadata: {}
           created_at: 1570471067
           is_complete: false
           is_declined: false
@@ -9186,7 +9180,7 @@ components:
           title: 'Purchase Order'
           original_title: 'Purchase Order'
           subject: 'Purchase Order'
-          metadata: []
+          metadata: {}
           message: 'Glad we could come to an agreement.'
           is_complete: false
           is_declined: false
@@ -9227,7 +9221,7 @@ components:
           original_title: 'Purchase Agreement'
           subject: 'Purchase Agreement'
           message: 'Please sign and return.'
-          metadata: []
+          metadata: {}
           created_at: 1570471067
           is_complete: true
           is_declined: false
@@ -9290,7 +9284,7 @@ components:
             original_title: FHA
             subject: FHA
             message: 'Let me know if you two have any questions.'
-            metadata: []
+            metadata: {}
             created_at: 1570471067
             is_complete: false
             is_declined: false
@@ -9334,7 +9328,7 @@ components:
             original_title: 'Purchase Agreement'
             subject: 'Purchase Agreement'
             message: 'Please sign and return.'
-            metadata: []
+            metadata: {}
             is_complete: true
             is_declined: false
             has_error: false
@@ -9412,7 +9406,7 @@ components:
           title: ok
           original_title: ok
           subject: ok
-          metadata: []
+          metadata: {}
           message: null
           created_at: 1570471067
           is_complete: false
@@ -9498,7 +9492,7 @@ components:
           title: 'Purchase Order'
           original_title: 'Purchase Order'
           subject: 'Purchase Order'
-          metadata: []
+          metadata: {}
           message: 'Glad we could come to an agreement.'
           created_at: 1570471067
           is_complete: false
@@ -9703,7 +9697,7 @@ components:
           message: 'Please sign this NDA as soon as possible.'
           updated_at: 1570471067
           is_embedded: false
-          metadata: []
+          metadata: {}
           signer_roles:
             -
               name: 'Outside Vendor'
@@ -9802,7 +9796,7 @@ components:
           message: 'Please sign this NDA as soon as possible.'
           updated_at: 1570471067
           is_embedded: false
-          metadata: []
+          metadata: {}
           signer_roles:
             -
               name: 'Outside Vendor'
@@ -9915,7 +9909,7 @@ components:
             message: ''
             updated_at: 1570471067
             is_embedded: false
-            metadata: []
+            metadata: {}
             signer_roles:
               -
                 name: Client
@@ -9940,7 +9934,7 @@ components:
             message: 'Please sign this NDA as soon as possible.'
             updated_at: 1329478947
             is_embedded: false
-            metadata: []
+            metadata: {}
             signer_roles:
               -
                 name: 'Outside Vendor'
@@ -9977,7 +9971,7 @@ components:
           message: 'Please sign this NDA as soon as possible.'
           updated_at: 1570471067
           is_embedded: false
-          metadata: []
+          metadata: {}
           signer_roles:
             -
               name: 'Outside Vendor'

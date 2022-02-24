@@ -1,0 +1,11 @@
+"AccountCreate::_DESCRIPTION": Creates a new HelloSign Account that is associated with the specified `email_address`.
+"AccountCreate::_SUMMARY": Signs up for a new HelloSign Account.
+"AccountCreate::CLIENT_ID": |-
+  Used when creating a new account and requesting OAuth authorization.
+
+  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
+"AccountCreate::CLIENT_SECRET": |-
+  Used when creating a new account and requesting OAuth authorization.
+
+  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
+"AccountCreate::EMAIL_ADDRESS": The email address to create a new Account for.

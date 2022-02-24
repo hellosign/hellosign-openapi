@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+WORKINGDIR="/app/openapi"
+LANGUAGE="${1:-en}"
+
+printf "Language chosen: ${LANGUAGE}\n"
+
+printf "\nInstalling composer dependencies ...\n"
+mkdir -p "${PWD}/vendor"
+bash "${PWD}/bin/php" composer install
+printf "\n"
+
+printf "\nCreating translated OpenAPI file ...\n"
+bash "${PWD}/bin/php" ./bin/generate-oas.php
+printf "\n"
+
+printf "Success!\n"
