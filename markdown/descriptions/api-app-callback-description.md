@@ -1,0 +1,5 @@
+This type of callback URL is set up at the API app level. API apps are used to identify a partner integration and configure embedded flows ([embedded signign](https://app.hellosign.com/api/embeddedSigningWalkthrough), [embedded requesting](https://app.hellosign.com/api/embeddedRequestingWalkthrough), and [embedded templates](https://app.hellosign.com/api/embeddedTemplatesWalkthrough)) and [OAuth providers](https://app.hellosign.com/api/oauthWalkthrough)
+        
+All events that involve signature requests created by an API app are reported to this URL. The event will include a `client_id` field to indicate which app the event is being reported for, which allows multiple API apps to share the same callback URL.
+
+You can manage your apps and their callbacks from the [settings page](https://app.hellosign.com/home/myAccount#api).
