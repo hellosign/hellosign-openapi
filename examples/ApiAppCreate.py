@@ -24,7 +24,7 @@ with ApiClient(configuration) as api_client:
         primary_button_text_color="#ffffff",
     )
 
-    custom_logo_file = [open('./CustomLogoFile.png', 'rb')],
+    custom_logo_file = open('./CustomLogoFile.png', 'rb')
 
     data = models.ApiAppCreateRequest(
         name="My Production App",
