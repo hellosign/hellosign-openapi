@@ -77,6 +77,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/AccountCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountCreate.py
   /account:
     get:
       tags:
@@ -129,6 +134,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/AccountGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountGet.py
     put:
       tags:
         - Account
@@ -199,6 +209,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/AccountUpdate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountUpdate.py
   /account/verify:
     post:
       tags:
@@ -261,6 +276,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/AccountVerify.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/AccountVerify.py
   /api_app:
     post:
       tags:
@@ -338,6 +358,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/ApiAppCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/ApiAppCreate.py
   '/api_app/{client_id}':
     get:
       tags:
@@ -398,6 +423,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/ApiAppGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/ApiAppGet.py
     put:
       tags:
         - 'Api App'
@@ -472,6 +502,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/ApiAppUpdate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/ApiAppUpdate.py
     delete:
       tags:
         - 'Api App'
@@ -524,6 +559,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/ApiAppDelete.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/ApiAppDelete.py
   /api_app/list:
     get:
       tags:
@@ -590,6 +630,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/ApiAppList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/ApiAppList.py
   '/bulk_send_job/{bulk_send_job_id}':
     get:
       tags:
@@ -651,6 +696,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/BulkSendJobGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/BulkSendJobGet.py
   /bulk_send_job/list:
     get:
       tags:
@@ -718,6 +768,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/BulkSendJobList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/BulkSendJobList.py
   '/embedded/edit_url/{template_id}':
     post:
       tags:
@@ -787,6 +842,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/EmbeddedEditUrl.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EmbeddedEditUrl.py
   '/embedded/sign_url/{signature_id}':
     get:
       tags:
@@ -847,6 +907,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/EmbeddedSignUrl.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EmbeddedSignUrl.py
   /oauth/token:
     post:
       tags:
@@ -903,6 +968,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/OauthTokenGenerate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/OauthTokenGenerate.py
   '/oauth/token?refresh':
     post:
       tags:
@@ -959,6 +1029,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/OauthTokenRefresh.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/OauthTokenRefresh.py
   /report/create:
     post:
       tags:
@@ -1016,6 +1091,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/ReportCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/ReportCreate.py
   /signature_request/bulk_create_embedded_with_template:
     post:
       tags:
@@ -1079,6 +1159,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.py
   /signature_request/bulk_send_with_template:
     post:
       tags:
@@ -1146,6 +1231,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestBulkSendWithTemplate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestBulkSendWithTemplate.py
   '/signature_request/cancel/{signature_request_id}':
     post:
       tags:
@@ -1202,6 +1292,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestCancel.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestCancel.py
   /signature_request/create_embedded:
     post:
       tags:
@@ -1268,6 +1363,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestCreateEmbedded.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestCreateEmbedded.py
   /signature_request/create_embedded_with_template:
     post:
       tags:
@@ -1334,6 +1434,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -1419,6 +1524,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestFiles.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestFiles.py
   '/signature_request/{signature_request_id}':
     get:
       tags:
@@ -1480,6 +1590,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestGet.py
   /signature_request/list:
     get:
       tags:
@@ -1560,6 +1675,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestList.py
   '/signature_request/release_hold/{signature_request_id}':
     post:
       tags:
@@ -1620,6 +1740,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestReleaseHold.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestReleaseHold.py
   '/signature_request/remind/{signature_request_id}':
     post:
       tags:
@@ -1690,6 +1815,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestRemind.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestRemind.py
   '/signature_request/remove/{signature_request_id}':
     post:
       tags:
@@ -1742,6 +1872,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestRemove.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestRemove.py
   /signature_request/send:
     post:
       tags:
@@ -1811,6 +1946,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestSend.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestSend.py
   /signature_request/send_with_template:
     post:
       tags:
@@ -1880,6 +2020,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestSendWithTemplate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestSendWithTemplate.py
   '/signature_request/update/{signature_request_id}':
     post:
       tags:
@@ -1949,6 +2094,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/SignatureRequestUpdate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestUpdate.py
   /team/add_member:
     put:
       tags:
@@ -2011,6 +2161,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TeamAddMember.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamAddMember.py
   /team/create:
     post:
       tags:
@@ -2071,6 +2226,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TeamCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamCreate.py
   /team/destroy:
     delete:
       tags:
@@ -2115,6 +2275,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TeamDelete.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamDelete.py
   /team:
     get:
       tags:
@@ -2173,6 +2338,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TeamGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamGet.py
     put:
       tags:
         - Team
@@ -2232,6 +2402,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TeamUpdate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamUpdate.py
   /team/remove_member:
     post:
       tags:
@@ -2294,6 +2469,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TeamRemoveMember.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamRemoveMember.py
   '/template/add_user/{template_id}':
     post:
       tags:
@@ -2363,6 +2543,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateAddUser.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateAddUser.py
   /template/create_embedded_draft:
     post:
       tags:
@@ -2435,6 +2620,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateCreateEmbeddedDraft.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateCreateEmbeddedDraft.py
   '/template/delete/{template_id}':
     post:
       tags:
@@ -2490,6 +2680,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateDelete.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateDelete.py
   '/template/files/{template_id}':
     get:
       tags:
@@ -2573,6 +2768,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateFiles.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateFiles.py
   '/template/{template_id}':
     get:
       tags:
@@ -2633,6 +2833,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateGet.py
   /template/list:
     get:
       tags:
@@ -2713,6 +2918,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateList.py
   '/template/remove_user/{template_id}':
     post:
       tags:
@@ -2782,6 +2992,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateRemoveUser.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateRemoveUser.py
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -2857,6 +3072,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/TemplateUpdateFiles.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateUpdateFiles.py
   /unclaimed_draft/create:
     post:
       tags:
@@ -2929,6 +3149,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/UnclaimedDraftCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/UnclaimedDraftCreate.py
   /unclaimed_draft/create_embedded:
     post:
       tags:
@@ -3002,6 +3227,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/UnclaimedDraftCreateEmbedded.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/UnclaimedDraftCreateEmbedded.py
   /unclaimed_draft/create_embedded_with_template:
     post:
       tags:
@@ -3068,6 +3298,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
   '/unclaimed_draft/edit_and_resend/{signature_request_id}':
     post:
       tags:
@@ -3138,6 +3373,11 @@ paths:
           label: Ruby
           source:
             $ref: examples/UnclaimedDraftEditAndResend.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/UnclaimedDraftEditAndResend.py
 components:
   schemas:
     AccountCreateRequest:
