@@ -4157,7 +4157,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
           type: string
@@ -4236,7 +4236,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
           type: string
@@ -4352,7 +4352,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signers:
           description: 'Add Signers to your Signature Request.'
           type: array
@@ -4437,7 +4437,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -4572,7 +4572,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signers:
           description: 'Add Signers to your Signature Request.'
           type: array
@@ -4660,7 +4660,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -5313,7 +5313,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         show_preview:
           description: |-
             This allows the requester to enable the editor/preview experience.
@@ -5486,7 +5486,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         signers:
           description: 'Add Signers to your Unclaimed Draft Signature Request.'
           type: array
@@ -5638,7 +5638,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         requester_email_address:
           description: 'The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.'
           type: string
@@ -5766,7 +5766,7 @@ components:
             Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
           type: object
           maxItems: 10
-          additionalProperties: []
+          additionalProperties: {}
         preview_only:
           description: |-
             This allows the requester to enable the preview experience experience.
@@ -6000,7 +6000,7 @@ components:
             type: string
         charges_users:
           description: 'Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.'
-          type: string
+          type: boolean
       type: object
       nullable: true
       x-internal: true

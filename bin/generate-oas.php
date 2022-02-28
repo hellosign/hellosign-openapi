@@ -148,6 +148,7 @@ class GenerateOas
         // An empty JSON response of `{}` can't be represented as a PHP array
         $yaml = str_replace('value: []', 'value: {}', $yaml);
         $yaml = str_replace('metadata: []', 'metadata: {}', $yaml);
+        $yaml = str_replace('additionalProperties: []', 'additionalProperties: {}', $yaml);
         $yaml = str_replace('application/json: []', 'application/json: {}', $yaml);
 
         file_put_contents($file, $yaml);
