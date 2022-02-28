@@ -42,7 +42,7 @@ cc_1 = HelloSign::SubCC.new
 cc_1.role = "Accounting"
 cc_1.email_address = "accounting@example.com"
 
-data = HelloSign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest.new
+data = HelloSign::SignatureRequestBulkSendWithTemplateRequest.new
 data.client_id = "1a659d9ad95bccd307ecad78d72192f8"
 data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
 data.subject = "Purchase Order"

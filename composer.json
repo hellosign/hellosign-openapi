@@ -1,0 +1,10 @@
+{
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "require": {
+        "symfony/yaml": "^5.4"
+    }
+}
