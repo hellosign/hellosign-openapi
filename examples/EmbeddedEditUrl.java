@@ -11,22 +11,28 @@ import java.util.Arrays;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
+
+        EmbeddedApi api = new EmbeddedApi(defaultClient);
+
+        EmbeddedEditUrlRequest data = new EmbeddedEditUrlRequest()
+            .ccRoles(Arrays.asList(""))
+            .mergeFields(new ArrayList<>());
 
         String templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-        EmbeddedApi apiInstance = new EmbeddedApi(defaultClient);
-        EmbeddedEditUrlRequest request = new EmbeddedEditUrlRequest().ccRoles(Arrays.asList("")).mergeFields(new ArrayList<>());
         try {
-            EmbeddedEditUrlResponse result = apiInstance.embeddedEditUrl(templateId, request);
+            EmbeddedEditUrlResponse result = api.embeddedEditUrl(templateId, data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

@@ -16,27 +16,39 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
+        ApiAppApi api = new ApiAppApi(defaultClient);
+
+        SubOAuth oauth = new SubOAuth()
+            .callbackUrl("https://example.com/oauth")
+            .scopes(Arrays.asList(ScopesEnum.BASIC_ACCOUNT_INFO, ScopesEnum.REQUEST_SIGNATURE));
+
+        SubWhiteLabelingOptions whiteLabelingOptions = new SubWhiteLabelingOptions()
+            .primaryButtonColor("#00b3e6")
+            .primaryButtonTextColor("#ffffff");
+
+        File customLogoFile = new File("CustomLogoFile.png");
+
+        ApiAppUpdateRequest data = new ApiAppUpdateRequest()
+            .name("My Production App")
+            .domains(Collections.singletonList("example.com"))
+            .oauth(oauth)
+            .whiteLabelingOptions(whiteLabelingOptions)
+            .customLogoFile(customLogoFile);
+
         String clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-        
-        ApiAppApi apiInstance = new ApiAppApi(defaultClient);
-        ApiAppUpdateRequest request = new ApiAppUpdateRequest()
-                .name("My Production App")
-                .domains(Collections.singletonList("example.com"))
-                .oauth(new SubOAuth().callbackUrl("https://example.com/oauth")
-                        .scopes(Arrays.asList(ScopesEnum.BASIC_ACCOUNT_INFO, ScopesEnum.REQUEST_SIGNATURE)))
-                .whiteLabelingOptions(new SubWhiteLabelingOptions()
-                        .primaryButtonColor("#00b3e6").primaryButtonTextColor("#ffffff"))
-                .customLogoFile(new File("CustomLogoFile.png"));
 
         try {
-            ApiAppGetResponse result = apiInstance.apiAppUpdate(clientId, request);
+            ApiAppGetResponse result = api.apiAppUpdate(clientId, data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

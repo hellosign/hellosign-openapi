@@ -13,32 +13,37 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        UnclaimedDraftApi apiInstance = new UnclaimedDraftApi(defaultClient);
+        UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
         SubUnclaimedDraftEmbeddedTemplateSigner signer = new SubUnclaimedDraftEmbeddedTemplateSigner()
-                .role("Client")
-                .name("George")
-                .emailAddress("george@example.com");
+            .role("Client")
+            .name("George")
+            .emailAddress("george@example.com");
 
-        SubCC cc1 = new SubCC().role("Accounting").emailAddress("accouting@email.com");
+        SubCC cc1 = new SubCC()
+            .role("Accounting")
+            .emailAddress("accouting@email.com");
 
-        UnclaimedDraftCreateEmbeddedWithTemplateRequest request = new UnclaimedDraftCreateEmbeddedWithTemplateRequest()
-                .clientId("1a659d9ad95bccd307ecad78d72192f8")
-                .templateIds(Arrays.asList("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-                .requesterEmailAddress("jack@hellosign.com")
-                .signers(Arrays.asList(signer))
-                .ccs(Arrays.asList(cc1))
-                .testMode(true);
+        UnclaimedDraftCreateEmbeddedWithTemplateRequest data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest()
+            .clientId("1a659d9ad95bccd307ecad78d72192f8")
+            .templateIds(Arrays.asList("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
+            .requesterEmailAddress("jack@hellosign.com")
+            .signers(Arrays.asList(signer))
+            .ccs(Arrays.asList(cc1))
+            .testMode(true);
 
         try {
-            UnclaimedDraftCreateResponse result = apiInstance.unclaimedDraftCreateEmbeddedWithTemplate(request);
+            UnclaimedDraftCreateResponse result = api.unclaimedDraftCreateEmbeddedWithTemplate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

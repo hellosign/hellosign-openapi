@@ -12,23 +12,26 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        UnclaimedDraftApi apiInstance = new UnclaimedDraftApi(defaultClient);
+        UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
-        UnclaimedDraftCreateEmbeddedRequest request = new UnclaimedDraftCreateEmbeddedRequest()
-                .clientId("ec64a202072370a737edf4a0eb7f4437")
-                .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
-                .requesterEmailAddress("jack@hellosign.com")
-                .testMode(true);
-        
+        UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
+            .clientId("ec64a202072370a737edf4a0eb7f4437")
+            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .requesterEmailAddress("jack@hellosign.com")
+            .testMode(true);
+
         try {
-            UnclaimedDraftCreateResponse result = apiInstance.unclaimedDraftCreateEmbedded(request);
+            UnclaimedDraftCreateResponse result = api.unclaimedDraftCreateEmbedded(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

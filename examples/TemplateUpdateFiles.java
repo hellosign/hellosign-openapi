@@ -11,22 +11,25 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        TemplateApi apiInstance = new TemplateApi(defaultClient);
+        TemplateApi api = new TemplateApi(defaultClient);
+
+        TemplateUpdateFilesRequest data = new TemplateUpdateFilesRequest()
+            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"));
 
         String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
-        TemplateUpdateFilesRequest request = new TemplateUpdateFilesRequest()
-                .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"));
-
         try {
-            TemplateUpdateFilesResponse result = apiInstance.templateUpdateFiles(templateId, request);
+            TemplateUpdateFilesResponse result = api.templateUpdateFiles(templateId, data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

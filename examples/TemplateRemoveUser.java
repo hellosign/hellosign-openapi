@@ -10,21 +10,25 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        TemplateApi apiInstance = new TemplateApi(defaultClient);
+        TemplateApi api = new TemplateApi(defaultClient);
+
+        TemplateRemoveUserRequest data = new TemplateRemoveUserRequest()
+            .emailAddress("george@hellosign.com");
 
         String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
-        TemplateRemoveUserRequest request = new TemplateRemoveUserRequest().emailAddress("george@hellosign.com");
-
         try {
-            TemplateGetResponse result = apiInstance.templateRemoveUser(templateId, request);
+            TemplateGetResponse result = api.templateRemoveUser(templateId, data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

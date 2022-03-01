@@ -11,19 +11,22 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
-        
-        SignatureRequestApi apiInstance = new SignatureRequestApi(defaultClient);
+
+        SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
         String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try {
-            FileResponse result = apiInstance.signatureRequestFiles(signatureRequestId, "pdf", false, false);
+            FileResponse result = api.signatureRequestFiles(signatureRequestId, "pdf", false, false);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

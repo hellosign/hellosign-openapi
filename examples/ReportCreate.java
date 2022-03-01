@@ -14,21 +14,25 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        ReportApi apiInstance = new ReportApi(defaultClient);
-        ReportCreateRequest request = new ReportCreateRequest()
-                .startDate("09/01/2020")
-                .endDate("09/01/2020")
-                .reportType(Arrays.asList(ReportTypeEnum.USER_ACTIVITY, ReportTypeEnum.DOCUMENT_STATUS));
+        ReportApi api = new ReportApi(defaultClient);
+
+        ReportCreateRequest data = new ReportCreateRequest()
+            .startDate("09/01/2020")
+            .endDate("09/01/2020")
+            .reportType(Arrays.asList(ReportTypeEnum.USER_ACTIVITY, ReportTypeEnum.DOCUMENT_STATUS));
 
         try {
-            ReportCreateResponse result = apiInstance.reportCreate(request);
+            ReportCreateResponse result = api.reportCreate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

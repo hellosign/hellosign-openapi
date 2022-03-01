@@ -11,19 +11,22 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
+
+        ApiAppApi api = new ApiAppApi(defaultClient);
 
         String clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-        ApiAppApi apiInstance = new ApiAppApi(defaultClient);
-
         try {
-            apiInstance.apiAppDelete(clientId);
+            api.apiAppDelete(clientId);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());

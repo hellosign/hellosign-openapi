@@ -14,19 +14,22 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
+
+        EmbeddedApi api = new EmbeddedApi(defaultClient);
 
         String signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
 
-        EmbeddedApi apiInstance = new EmbeddedApi(defaultClient);
-
         try {
-            EmbeddedSignUrlResponse result = apiInstance.embeddedSignUrl(signatureId);
+            EmbeddedSignUrlResponse result = api.embeddedSignUrl(signatureId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

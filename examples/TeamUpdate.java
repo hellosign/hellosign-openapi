@@ -10,19 +10,22 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        TeamApi apiInstance = new TeamApi(defaultClient);
-        TeamUpdateRequest request = new TeamUpdateRequest()
-                .name("New Team Name");
+        TeamApi api = new TeamApi(defaultClient);
+        TeamUpdateRequest data = new TeamUpdateRequest()
+            .name("New Team Name");
 
         try {
-            TeamGetResponse result = apiInstance.teamUpdate(request);
+            TeamGetResponse result = api.teamUpdate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

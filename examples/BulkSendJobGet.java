@@ -11,18 +11,22 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
+        BulkSendJobApi api = new BulkSendJobApi(defaultClient);
+
         String bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-        BulkSendJobApi apiInstance = new BulkSendJobApi(defaultClient);
 
         try {
-            BulkSendJobGetResponse result = apiInstance.bulkSendJobGet(bulkSendJobId);
+            BulkSendJobGetResponse result = api.bulkSendJobGet(bulkSendJobId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

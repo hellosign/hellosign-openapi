@@ -11,17 +11,23 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        AccountApi apiInstance = new AccountApi(defaultClient);
-        AccountCreateRequest accountCreateRequest = new AccountCreateRequest().emailAddress("newuser@hellosign.com");
+        AccountApi api = new AccountApi(defaultClient);
+
+        AccountCreateRequest data = new AccountCreateRequest()
+            .emailAddress("newuser@hellosign.com");
+
         try {
-            AccountCreateResponse result = apiInstance.accountCreate(accountCreateRequest);
+            AccountCreateResponse result = api.accountCreate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

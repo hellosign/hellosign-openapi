@@ -11,35 +11,51 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient.getAuthentication("api_key");
+        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+            .getAuthentication("api_key");
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient.getAuthentication("oauth2");
+/*      HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+            .getAuthentication("oauth2");
+
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");*/
 
-        TemplateApi apiInstance = new TemplateApi(defaultClient);
-        
-        SubTemplateRole role1 = new SubTemplateRole().name("Client").order(0);
-        SubTemplateRole role2 = new SubTemplateRole().name("Witness").order(1);
-        SubMergeField mergeField1 = new SubMergeField().name("Full Name").type(SubMergeField.TypeEnum.TEXT);
-        SubMergeField mergeField2 = new SubMergeField().name("Is Registered?").type(SubMergeField.TypeEnum.CHECKBOX);
-        SubFieldOptions subFieldOptions = new SubFieldOptions().dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+        TemplateApi api = new TemplateApi(defaultClient);
 
-        TemplateCreateEmbeddedDraftRequest request = new TemplateCreateEmbeddedDraftRequest()
-                .clientId("37dee8d8440c66d54cfa05d92c160882")
-                .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
-                .title("Test Template")
-                .subject("Please sign this document")
-                .message("For your approval")
-                .signerRoles(List.of(role1, role2))
-                .ccRoles(List.of("Manager"))
-                .mergeFields(List.of(mergeField1, mergeField2))
-                .fieldOptions(subFieldOptions)
-                .testMode(true);
+        SubTemplateRole role1 = new SubTemplateRole()
+            .name("Client")
+            .order(0);
+
+        SubTemplateRole role2 = new SubTemplateRole()
+            .name("Witness")
+            .order(1);
+
+        SubMergeField mergeField1 = new SubMergeField()
+            .name("Full Name")
+            .type(SubMergeField.TypeEnum.TEXT);
+
+        SubMergeField mergeField2 = new SubMergeField()
+            .name("Is Registered?")
+            .type(SubMergeField.TypeEnum.CHECKBOX);
+
+        SubFieldOptions subFieldOptions = new SubFieldOptions()
+            .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+
+        TemplateCreateEmbeddedDraftRequest data = new TemplateCreateEmbeddedDraftRequest()
+            .clientId("37dee8d8440c66d54cfa05d92c160882")
+            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .title("Test Template")
+            .subject("Please sign this document")
+            .message("For your approval")
+            .signerRoles(List.of(role1, role2))
+            .ccRoles(List.of("Manager"))
+            .mergeFields(List.of(mergeField1, mergeField2))
+            .fieldOptions(subFieldOptions)
+            .testMode(true);
 
         try {
-            TemplateCreateEmbeddedDraftResponse result = apiInstance.templateCreateEmbeddedDraft(request);
+            TemplateCreateEmbeddedDraftResponse result = api.templateCreateEmbeddedDraft(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

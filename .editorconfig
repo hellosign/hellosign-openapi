@@ -1,3 +1,6 @@
 [{*.html,*.md,*.json,*.css,*.yml,*.yaml}]
 indent_style = space
 indent_size = 2
+
+[{*.java,*.php}]
+indent_size = 4
