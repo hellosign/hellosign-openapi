@@ -40,7 +40,7 @@ public class Example {
 
         ApiAppCreateRequest data = new ApiAppCreateRequest()
             .name("My Production App")
-            .domains(Collections.singletonList("example.com))
+            .domains(Collections.singletonList("example.com"))
             .oauth(oauth)
             .whiteLabelingOptions(whiteLabelingOptions)
             .customLogoFile(customLogoFile);
