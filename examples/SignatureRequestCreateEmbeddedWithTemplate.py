@@ -1,6 +1,6 @@
 from pprint import pprint
 
-from hellosign_openapi_python_sdk import \
+from hellosign_sdk import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
