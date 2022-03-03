@@ -4339,6 +4339,10 @@ components:
           description: '_t__SignatureRequestSend::HIDE_TEXT_TAGS'
           type: boolean
           default: false
+        is_qualified_signature:
+          description: '_t__SignatureRequestSend::IS_QUALIFIED_SIGNATURE'
+          type: boolean
+          default: false
         message:
           description: '_t__SignatureRequestSend::MESSAGE'
           type: string
@@ -4414,6 +4418,10 @@ components:
           type: array
           items:
             type: string
+        is_qualified_signature:
+          description: '_t__SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE'
+          type: boolean
+          default: false
         message:
           description: '_t__SignatureRequestSendWithTemplate::MESSAGE'
           type: string
@@ -5533,7 +5541,7 @@ components:
             type: string
         charges_users:
           description: '_t__ApiAppResponseOAuth::CHARGES_USERS'
-          type: boolean
+          type: string
       type: object
       nullable: true
       x-internal: true
