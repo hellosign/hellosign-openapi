@@ -9662,6 +9662,26 @@ tags:
   -
     name: OAuth
     description: 'OAuth 2.0'
+  -
+    name: 'Callbacks and Events'
+    description:
+      $ref: ./markdown/sidebar-sections/callbacks-ref-docs.md
+  -
+    name: 'Warnings and Errors'
+    description:
+      $ref: ./markdown/sidebar-sections/warnings-and-errors-ref-docs.md
+  -
+    name: Constants
+    description:
+      $ref: ./markdown/sidebar-sections/constants-ref-docs.md
+  -
+    name: Search
+    description:
+      $ref: ./markdown/sidebar-sections/search-ref-docs.md
+  -
+    name: 'White Labeling'
+    description:
+      $ref: ./markdown/sidebar-sections/white-labeling-ref-docs.md
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'
