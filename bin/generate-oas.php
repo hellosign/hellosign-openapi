@@ -23,17 +23,6 @@ class GenerateOas
     protected const TRANSLATE_PREPEND = '_t__';
 
     /**
-     * We expect markdown key strings to look like
-     * "_md__OpenApi::TAG"
-     */
-    protected const MARKDOWN_PREPEND = '_md__';
-
-    protected const PREPENDS = [
-        self::TRANSLATE_PREPEND,
-        self::MARKDOWN_PREPEND,
-    ];
-
-    /**
      * Contains translations from default language "en"
      *
      * @var Array<string, string>
@@ -179,55 +168,30 @@ class GenerateOas
                 continue;
             }
 
-            $translationString = '';
-            foreach (self::PREPENDS as $prepend) {
-                if (strpos($v, $prepend) !== 0) {
-                    continue;
-                }
-
-                $translationString = str_replace($prepend, '', $v);
-                if (array_key_exists($translationString, $this->translations)) {
-                    $data[$k] = $this->getTranslation($prepend, $translationString, $this->translations);
-                    $this->translated['translated'][] = $translationString;
-                    // We found translation, move on to next data
-                    continue 2;
-                }
-
-                if (array_key_exists($translationString, $this->fallback_translations)) {
-                    $data[$k] = $this->getTranslation($prepend, $translationString, $this->fallback_translations);
-                    $this->translated['fallback'][] = $translationString;
-                    // We found fallback translation, move on to next data
-                    continue 2;
-                }
+            if (strpos($v, self::TRANSLATE_PREPEND) !== 0) {
+                continue;
             }
 
-            if (!empty($translationString)) {
-                $this->translated['untranslated'][] = $translationString;
+            $translationString = str_replace(self::TRANSLATE_PREPEND, '', $v);
+
+            if (array_key_exists($translationString, $this->translations)) {
+                $data[$k] = $this->translations[$translationString];
+                $this->translated['translated'][] = $translationString;
+
+                continue;
             }
+
+            if (array_key_exists($translationString, $this->fallback_translations)) {
+                $data[$k] = $this->fallback_translations[$translationString];
+                $this->translated['fallback'][] = $translationString;
+
+                continue;
+            }
+
+            $this->translated['untranslated'][] = $translationString;
         }
 
         return $data;
-    }
-
-    /**
-     * @param string $prepend
-     * @param string $translationString
-     * @param array $translations
-     * @return array|mixed|void
-     */
-    protected function getTranslation(string $prepend, string $translationString, array $translations)
-    {
-        switch ($prepend) {
-            case self::MARKDOWN_PREPEND:
-                // Using $ref property to embed markdown
-                return [
-                    '$ref' => $translations[$translationString]
-                ];
-            case self::TRANSLATE_PREPEND:
-                return $translations[$translationString];
-            default:
-                return $translationString;
-        }
     }
 }
 
