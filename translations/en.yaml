@@ -48,6 +48,11 @@
 "OpenApi::TAG::TEAM::DESCRIPTION": Contains information about your team and its members
 "OpenApi::TAG::TEMPLATE::DESCRIPTION": Contains information about the templates you and your team have created
 "OpenApi::TAG::UNCLAIMED_DRAFT::DESCRIPTION": A group of documents that a user can take ownership of via the claim URL
+"OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION": "./markdown/sidebar-sections/warnings-and-errors-ref-docs.md"
+"OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION": "./markdown/sidebar-sections/callbacks-ref-docs.md"
+"OpenApi::TAG::CONSTANTS::DESCRIPTION": "./markdown/sidebar-sections/constants-ref-docs.md"
+"OpenApi::TAG::SEARCH::DESCRIPTION": "./markdown/sidebar-sections/search-ref-docs.md"
+"OpenApi::TAG::WHITE_LABELING::DESCRIPTION": "./markdown/sidebar-sections/white-labeling-ref-docs.md"
 
 ##################
 # Request Models #
@@ -339,9 +344,9 @@
 "SignatureRequestRemove::SUMMARY": Remove access to a completed SignatureRequest.
 "SignatureRequestRemove::DESCRIPTION": |-
   Removes your access to a completed signature request. This action is **not reversible**.
-  
+
   The signature request must be fully executed by all parties (signed or declined to sign). Other parties will continue to maintain access to the completed signature request document(s).
-  
+
   Unlike /signature_request/cancel, this endpoint is synchronous and your access will be immediately removed. Upon successful removal, this endpoint will return a 200 OK response.
 "SignatureRequestRemove::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to remove.
 
@@ -386,15 +391,15 @@
 "SignatureRequestSendWithTemplate::CLIENT_ID": The client ID of the ApiApp you want to associate with this request.
 "SignatureRequestSendWithTemplate::FILE": |-
   **file** or **file_url** is required, but not both.
-  
+
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
 "SignatureRequestSendWithTemplate::FILE_URL": |-
   **file_url** or **file** is required, but not both.
-  
+
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
-  
+
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
 "SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE": |-
   Send with a value of `true` if you wish to enable 
@@ -444,7 +449,7 @@
 "TeamRemoveMember::DESCRIPTION": Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
 "TeamRemoveMember::ACCOUNT_ID": The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.
 "TeamRemoveMember::EMAIL_ADDRESS": The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.
-"TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS": |- 
+"TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS": |-
   The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.
 
   **Note**: Only available for Enterprise plans.
@@ -651,11 +656,11 @@
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URL": |-
   **file** or **file_url** is required, but not both.
-  
+
   Append additional files to the signature request. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough). Text tags for signers not on the template(s) will be ignored.
-  
+
   Use `file_url[]` to have HelloSign download the file(s).
-  
+
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](https://app.hellosign.com/api/reference#release_on-hold_signature_request) the request from hold when ready to send. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
@@ -886,7 +891,7 @@
 "Sub::SignatureRequestSigner::DESCRIPTION": Add Signers to your Signature Request.
 "Sub::SignatureRequestSigner::GROUP": |-
   Name of group. Use this value across multiple signers to group them together. Any of the signers is eligible to sign for the entire group.
-  
+
   Grouped signers will not use the `order`, `pin`, or `sms_phone_number` fields.
 "Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestSigner::SIGNER_NAME": The name of the signer.
