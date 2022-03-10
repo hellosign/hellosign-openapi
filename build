@@ -13,7 +13,11 @@ bash "${PWD}/bin/php" composer install
 printf "\n"
 
 printf "\nCreating translated OpenAPI file ...\n"
-bash "${PWD}/bin/php" ./bin/generate-oas.php
+bash "${PWD}/bin/php" ./bin/generate-translated-oas.php
+printf "\n"
+
+printf "\nCreating SDK-specific OpenAPI file ...\n"
+bash "${PWD}/bin/php" ./bin/generate-sdk-oas.php
 printf "\n"
 
 printf "Success!\n"
