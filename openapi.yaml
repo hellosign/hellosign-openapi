@@ -4541,10 +4541,10 @@ components:
           default: false
         is_qualified_signature:
           description: |-
-            Send with a value of `true` if you wish to enable 
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), 
-            which requires a face-to-face call to verify the signer's identity.<br> 
-            **Note**: QES is only available on the Premium API plan as an add-on purchase. 
+            Send with a value of `true` if you wish to enable
+            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
+            which requires a face-to-face call to verify the signer's identity.<br>
+            **Note**: QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -4638,10 +4638,10 @@ components:
             type: string
         is_qualified_signature:
           description: |-
-            Send with a value of `true` if you wish to enable 
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), 
+            Send with a value of `true` if you wish to enable
+            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
             which requires a face-to-face call to verify the signer's identity.<br>
-            **Note**: QES is only available on the Premium API plan as an add-on purchase. 
+            **Note**: QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
