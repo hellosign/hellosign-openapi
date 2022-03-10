@@ -1300,7 +1300,7 @@ paths:
     post:
       tags:
         - 'Signature Request'
-      summary: 'Send Embedded Signature Request'
+      summary: 'Create Embedded Signature Request'
       description: 'Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.'
       operationId: signatureRequestCreateEmbedded
       requestBody:
@@ -1371,7 +1371,7 @@ paths:
     post:
       tags:
         - 'Signature Request'
-      summary: 'Send Embedded Signature Request with Template'
+      summary: 'Create Embedded Signature Request with Template'
       description: 'Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.'
       operationId: signatureRequestCreateEmbeddedWithTemplate
       requestBody:
@@ -1442,7 +1442,7 @@ paths:
     get:
       tags:
         - 'Signature Request'
-      summary: 'Get Files'
+      summary: 'Download Files'
       description: |-
         Obtain a copy of the current documents specified by the `signature_request_id` parameter.
 
@@ -2496,7 +2496,7 @@ paths:
     post:
       tags:
         - Template
-      summary: 'Add User Access to Template'
+      summary: 'Add User to Template'
       description: 'Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.'
       operationId: templateAddUser
       parameters:
@@ -2707,7 +2707,7 @@ paths:
     get:
       tags:
         - Template
-      summary: 'Template Files'
+      summary: 'Get Template Files'
       description: |-
         Obtain a copy of the current documents specified by the `template_id` parameter.
 
@@ -3027,7 +3027,7 @@ paths:
     post:
       tags:
         - Template
-      summary: 'Template Files'
+      summary: 'Update Template Files'
       description: |-
         Overlays a new file with the overlay of an existing template. The new file(s) must:
 
@@ -3119,7 +3119,7 @@ paths:
     post:
       tags:
         - 'Unclaimed Draft'
-      summary: 'Unclaimed Draft Create'
+      summary: 'Create Unclaimed Draft'
       description: 'Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the "Sign and send" or the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.'
       operationId: unclaimedDraftCreate
       requestBody:
@@ -3196,7 +3196,7 @@ paths:
     post:
       tags:
         - 'Unclaimed Draft'
-      summary: 'Unclaimed Draft Create Embedded'
+      summary: 'Create Embedded Unclaimed Draft'
       description: |-
         Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
@@ -3277,7 +3277,7 @@ paths:
     post:
       tags:
         - 'Unclaimed Draft'
-      summary: 'Unclaimed Draft Create Embedded With Template'
+      summary: 'Create Embedded Unclaimed Draft with Template'
       description: |-
         Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
@@ -3351,7 +3351,7 @@ paths:
     post:
       tags:
         - 'Unclaimed Draft'
-      summary: 'Unclaimed Draft Edit and Resend'
+      summary: 'Edit and Resend Unclaimed Draft'
       description: |-
         Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.
 
@@ -9661,7 +9661,7 @@ externalDocs:
 x-webhooks:
   accountCallback:
     post:
-      summary: '_t__OpenApi::ACCOUNT_CALLBACK::SUMMARY'
+      summary: 'Account Callbacks'
       operationId: accountUpdateEventCallback
       description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
       tags:
@@ -9673,7 +9673,7 @@ x-webhooks:
           $ref: '#/components/responses/EventCallbackResponse'
   apiAppCallback:
     post:
-      summary: '_t__OpenApi::APP_CALLBACK::SUMMARY'
+      summary: 'App Callbacks'
       description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
       operationId: apiAppCreateEventCallback
       tags:
