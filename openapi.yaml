@@ -166,17 +166,6 @@ paths:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
         400:
           $ref: '#/components/responses/Error400Response'
-      callbacks:
-        accountCallback:
-          '{$request.body#/callback_url}':
-            post:
-              summary: 'Event Callback Request (us to you)'
-              operationId: accountUpdateEventCallback
-              requestBody:
-                $ref: '#/components/requestBodies/EventCallbackAccountRequest'
-              responses:
-                200:
-                  $ref: '#/components/responses/EventCallbackResponse'
       security:
         -
           api_key: []
@@ -318,17 +307,6 @@ paths:
                   $ref: '#/components/examples/ApiAppCreateResponseExample'
         400:
           $ref: '#/components/responses/Error400Response'
-      callbacks:
-        apiAppCallback:
-          '{$request.body#/callback_url}':
-            post:
-              summary: 'Event Callback Request (us to you)'
-              operationId: apiAppCreateEventCallback
-              requestBody:
-                $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
-              responses:
-                200:
-                  $ref: '#/components/responses/EventCallbackResponse'
       security:
         -
           api_key: []
@@ -4563,10 +4541,10 @@ components:
           default: false
         is_qualified_signature:
           description: |-
-            Send with a value of `true` if you wish to enable 
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), 
-            which requires a face-to-face call to verify the signer's identity.<br> 
-            **Note**: QES is only available on the Premium API plan as an add-on purchase. 
+            Send with a value of `true` if you wish to enable
+            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
+            which requires a face-to-face call to verify the signer's identity.<br>
+            **Note**: QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -4660,10 +4638,10 @@ components:
             type: string
         is_qualified_signature:
           description: |-
-            Send with a value of `true` if you wish to enable 
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), 
+            Send with a value of `true` if you wish to enable
+            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
             which requires a face-to-face call to verify the signer's identity.<br>
-            **Note**: QES is only available on the Premium API plan as an add-on purchase. 
+            **Note**: QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -9685,3 +9663,30 @@ tags:
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'
+x-webhooks:
+  accountCallback:
+    post:
+      summary: 'Account Callbacks'
+      operationId: accountUpdateEventCallback
+      description:
+        $ref: ./markdown/descriptions/account-callback-description.md
+      tags:
+        - 'Callbacks and Events'
+      requestBody:
+        $ref: '#/components/requestBodies/EventCallbackAccountRequest'
+      responses:
+        200:
+          $ref: '#/components/responses/EventCallbackResponse'
+  apiAppCallback:
+    post:
+      summary: 'App Callbacks'
+      description:
+        $ref: ./markdown/descriptions/api-app-callback-description.md
+      operationId: apiAppCreateEventCallback
+      tags:
+        - 'Callbacks and Events'
+      requestBody:
+        $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
+      responses:
+        200:
+          $ref: '#/components/responses/EventCallbackResponse'
