@@ -1,0 +1,12 @@
+referenceDocs:
+  showConsole: true
+  pathInMiddlePanel: true
+  # temporary, makes find in page easier for development
+  ctrlFHijack: false
+  # sets docs to generate a unique page per endpoint
+  pagination: item
+  requiredPropsFirst: true
+  # limits number of languages in sample bar, rest get pushed to menu
+  samplesTabsMaxCount: 3
+  # set to "all" if looking for deeply nested parameters or descriptions, I typically set to 1
+  # schemaExpansionLevel: 1

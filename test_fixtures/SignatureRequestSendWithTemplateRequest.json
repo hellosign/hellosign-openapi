@@ -16,6 +16,7 @@
         "required": true
       }
     ],
+    "is_qualified_signature": false,
     "message": "Glad we could come to an agreement.",
     "metadata": {
       "field1": "value1"

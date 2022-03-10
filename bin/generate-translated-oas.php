@@ -14,7 +14,7 @@ set_error_handler(function ($level, $msg) {
     exit(1);
 });
 
-class GenerateOas
+class GenerateTranslatedOas
 {
     /**
      * We expect translation key strings to look like
@@ -197,7 +197,7 @@ class GenerateOas
 
 $language = $argv[1] ?? 'en';
 
-$generate = new GenerateOas($language);
+$generate = new GenerateTranslatedOas($language);
 $generate->run();
 
 $results = $generate->getResults();

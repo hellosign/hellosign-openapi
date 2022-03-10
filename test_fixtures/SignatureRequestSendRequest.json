@@ -89,6 +89,7 @@
       ]
     ],
     "hide_text_tags": true,
+    "is_qualified_signature": false,
     "message": "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
     "metadata": {
       "custom_id": 1234,
@@ -144,6 +145,7 @@
     "allow_decline": false,
     "allow_reassign": false,
     "hide_text_tags": false,
+    "is_qualified_signature": false,
     "test_mode": false,
     "use_text_tags": false
   },
@@ -162,6 +164,7 @@
     "allow_decline": false,
     "allow_reassign": false,
     "hide_text_tags": false,
+    "is_qualified_signature": false,
     "test_mode": false,
     "use_text_tags": false
   }

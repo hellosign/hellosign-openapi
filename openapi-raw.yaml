@@ -166,17 +166,6 @@ paths:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
         '400':
           $ref: '#/components/responses/Error400Response'
-      callbacks:
-        accountCallback:
-          '{$request.body#/callback_url}':
-            post:
-              summary: 'Event Callback Request (us to you)'
-              operationId: accountUpdateEventCallback
-              requestBody:
-                $ref: '#/components/requestBodies/EventCallbackAccountRequest'
-              responses:
-                '200':
-                  $ref: '#/components/responses/EventCallbackResponse'
       security:
         -
           api_key: []
@@ -315,17 +304,6 @@ paths:
                   $ref: '#/components/examples/ApiAppCreateResponseExample'
         '400':
           $ref: '#/components/responses/Error400Response'
-      callbacks:
-        apiAppCallback:
-          '{$request.body#/callback_url}':
-            post:
-              summary: 'Event Callback Request (us to you)'
-              operationId: apiAppCreateEventCallback
-              requestBody:
-                $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
-              responses:
-                '200':
-                  $ref: '#/components/responses/EventCallbackResponse'
       security:
         -
           api_key: []
@@ -4339,6 +4317,10 @@ components:
           description: '_t__SignatureRequestSend::HIDE_TEXT_TAGS'
           type: boolean
           default: false
+        is_qualified_signature:
+          description: '_t__SignatureRequestSend::IS_QUALIFIED_SIGNATURE'
+          type: boolean
+          default: false
         message:
           description: '_t__SignatureRequestSend::MESSAGE'
           type: string
@@ -4414,6 +4396,10 @@ components:
           type: array
           items:
             type: string
+        is_qualified_signature:
+          description: '_t__SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE'
+          type: boolean
+          default: false
         message:
           description: '_t__SignatureRequestSendWithTemplate::MESSAGE'
           type: string
@@ -9136,6 +9122,46 @@ tags:
   -
     name: OAuth
     description: '_t__OpenApi::TAG::OAUTH::DESCRIPTION'
+  -
+    name: 'Callbacks and Events'
+    description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
+  -
+    name: 'Warnings and Errors'
+    description: '_md__OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION'
+  -
+    name: Constants
+    description: '_md__OpenApi::TAG::CONSTANTS::DESCRIPTION'
+  -
+    name: Search
+    description: '_md__OpenApi::TAG::SEARCH::DESCRIPTION'
+  -
+    name: 'White Labeling'
+    description: '_md__OpenApi::TAG::WHITE_LABELING::DESCRIPTION'
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'
+x-webhooks:
+  accountCallback:
+    post:
+      summary: '_t__OpenApi::ACCOUNT_CALLBACK::SUMMARY'
+      operationId: accountUpdateEventCallback
+      description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
+      tags:
+        - 'Callbacks and Events'
+      requestBody:
+        $ref: '#/components/requestBodies/EventCallbackAccountRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/EventCallbackResponse'
+  apiAppCallback:
+    post:
+      summary: '_t__OpenApi::APP_CALLBACK::SUMMARY'
+      description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
+      operationId: apiAppCreateEventCallback
+      tags:
+        - 'Callbacks and Events'
+      requestBody:
+        $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/EventCallbackResponse'
