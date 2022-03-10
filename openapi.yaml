@@ -5996,7 +5996,7 @@ components:
             type: string
         charges_users:
           description: 'Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.'
-          type: string
+          type: boolean
       type: object
       nullable: true
       x-internal: true
@@ -9642,34 +9642,28 @@ tags:
     description: 'OAuth 2.0'
   -
     name: 'Callbacks and Events'
-    description:
-      $ref: ./markdown/sidebar-sections/callbacks-ref-docs.md
+    description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
   -
     name: 'Warnings and Errors'
-    description:
-      $ref: ./markdown/sidebar-sections/warnings-and-errors-ref-docs.md
+    description: '_md__OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION'
   -
     name: Constants
-    description:
-      $ref: ./markdown/sidebar-sections/constants-ref-docs.md
+    description: '_md__OpenApi::TAG::CONSTANTS::DESCRIPTION'
   -
     name: Search
-    description:
-      $ref: ./markdown/sidebar-sections/search-ref-docs.md
+    description: '_md__OpenApi::TAG::SEARCH::DESCRIPTION'
   -
     name: 'White Labeling'
-    description:
-      $ref: ./markdown/sidebar-sections/white-labeling-ref-docs.md
+    description: '_md__OpenApi::TAG::WHITE_LABELING::DESCRIPTION'
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'
 x-webhooks:
   accountCallback:
     post:
-      summary: 'Account Callbacks'
+      summary: '_t__OpenApi::ACCOUNT_CALLBACK::SUMMARY'
       operationId: accountUpdateEventCallback
-      description:
-        $ref: ./markdown/descriptions/account-callback-description.md
+      description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -9679,9 +9673,8 @@ x-webhooks:
           $ref: '#/components/responses/EventCallbackResponse'
   apiAppCallback:
     post:
-      summary: 'App Callbacks'
-      description:
-        $ref: ./markdown/descriptions/api-app-callback-description.md
+      summary: '_t__OpenApi::APP_CALLBACK::SUMMARY'
+      description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
       operationId: apiAppCreateEventCallback
       tags:
         - 'Callbacks and Events'
