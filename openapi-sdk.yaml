@@ -5996,7 +5996,7 @@ components:
             type: string
         charges_users:
           description: 'Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.'
-          type: string
+          type: boolean
       type: object
       nullable: true
       x-internal: true

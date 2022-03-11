@@ -5519,7 +5519,7 @@ components:
             type: string
         charges_users:
           description: '_t__ApiAppResponseOAuth::CHARGES_USERS'
-          type: string
+          type: boolean
       type: object
       nullable: true
       x-internal: true
