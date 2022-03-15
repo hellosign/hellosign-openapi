@@ -9617,7 +9617,8 @@ x-webhooks:
     post:
       summary: 'Account Callbacks'
       operationId: accountUpdateEventCallback
-      description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
+      description:
+        $ref: ./markdown/descriptions/account-callback-description.md
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -9628,7 +9629,8 @@ x-webhooks:
   apiAppCallback:
     post:
       summary: 'App Callbacks'
-      description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
+      description:
+        $ref: ./markdown/descriptions/api-app-callback-description.md
       operationId: apiAppCreateEventCallback
       tags:
         - 'Callbacks and Events'

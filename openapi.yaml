@@ -9642,19 +9642,24 @@ tags:
     description: 'OAuth 2.0'
   -
     name: 'Callbacks and Events'
-    description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
+    description:
+      $ref: ./markdown/sidebar-sections/callbacks-ref-docs.md
   -
     name: 'Warnings and Errors'
-    description: '_md__OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION'
+    description:
+      $ref: ./markdown/sidebar-sections/warnings-and-errors-ref-docs.md
   -
     name: Constants
-    description: '_md__OpenApi::TAG::CONSTANTS::DESCRIPTION'
+    description:
+      $ref: ./markdown/sidebar-sections/constants-ref-docs.md
   -
     name: Search
-    description: '_md__OpenApi::TAG::SEARCH::DESCRIPTION'
+    description:
+      $ref: ./markdown/sidebar-sections/search-ref-docs.md
   -
     name: 'White Labeling'
-    description: '_md__OpenApi::TAG::WHITE_LABELING::DESCRIPTION'
+    description:
+      $ref: ./markdown/sidebar-sections/white-labeling-ref-docs.md
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'
@@ -9663,7 +9668,8 @@ x-webhooks:
     post:
       summary: 'Account Callbacks'
       operationId: accountUpdateEventCallback
-      description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
+      description:
+        $ref: ./markdown/descriptions/account-callback-description.md
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -9674,7 +9680,8 @@ x-webhooks:
   apiAppCallback:
     post:
       summary: 'App Callbacks'
-      description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
+      description:
+        $ref: ./markdown/descriptions/api-app-callback-description.md
       operationId: apiAppCreateEventCallback
       tags:
         - 'Callbacks and Events'

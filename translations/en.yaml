@@ -48,6 +48,12 @@
 "OpenApi::TAG::TEAM::DESCRIPTION": Contains information about your team and its members
 "OpenApi::TAG::TEMPLATE::DESCRIPTION": Contains information about the templates you and your team have created
 "OpenApi::TAG::UNCLAIMED_DRAFT::DESCRIPTION": A group of documents that a user can take ownership of via the claim URL
+"OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION": "./markdown/sidebar-sections/warnings-and-errors-ref-docs.md"
+"OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION": "./markdown/sidebar-sections/callbacks-ref-docs.md"
+"OpenApi::TAG::CONSTANTS::DESCRIPTION": "./markdown/sidebar-sections/constants-ref-docs.md"
+"OpenApi::TAG::SEARCH::DESCRIPTION": "./markdown/sidebar-sections/search-ref-docs.md"
+"OpenApi::TAG::WHITE_LABELING::DESCRIPTION": "./markdown/sidebar-sections/white-labeling-ref-docs.md"
+
 
 "OpenApi::ACCOUNT_CALLBACK::SUMMARY": Account Callbacks
 "OpenApi::ACCOUNT_CALLBACK::DESCRIPTION": "./markdown/descriptions/account-callback-description.md"
