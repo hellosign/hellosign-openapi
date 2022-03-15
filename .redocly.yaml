@@ -1,3 +1,12 @@
+# Entry point for pushing changes via Redocly CLI
+apiDefinitions:
+  hellosign: ./openapi.yaml
+
+# Optimize performance for US customers
+region: us
+
+
+# Theme and configuration for the reference docs
 referenceDocs:
   showConsole: true
   # Limits number of languages in sample bar, rest get pushed to menu
