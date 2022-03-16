@@ -6172,6 +6172,13 @@ components:
       x-internal: true
     ErrorResponse:
       required:
+        - error
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorResponseError'
+      type: object
+    ErrorResponseError:
+      required:
         - error_msg
         - error_name
       properties:
