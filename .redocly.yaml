@@ -5,7 +5,6 @@ apiDefinitions:
 # Optimize performance for US customers
 region: us
 
-
 # Theme and configuration for the reference docs
 referenceDocs:
   showConsole: true
@@ -21,8 +20,24 @@ referenceDocs:
   searchMaxDepth: 4
   # Boosts search for terms found in endpoint titles
   searchOperationTitleBoost: 5
+  
+  # Makes it easier to read endpoint paths
+  hideHostname: true
+  # Allows us to send POST requests. Using Redocly's proxy until we configure HelloSign's
+  corsProxyUrl: https://cors.redoc.ly
 
-  # Looking for something nested? Turn on the settings below and find in page
+
+  # WIP: Generating curl samples. Currently malformed.
+  # # Only include required params in generated samples (unless specified in OAS)
+  # onlyRequiredInSamples: true
+  # # Set default sample selection to curl
+  # defaultSampleLanguage: curl
+  # # Add samples for curl
+  # generateCodeSamples: 
+  #   languages:
+  #     -  lang: curl
+
+  # Looking for something deeply nested? Turn on the settings below and use find in page
   # pagination: none
   # ctrlFHijack: false
   # schemaExpansionLevel: all
