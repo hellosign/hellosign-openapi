@@ -6451,16 +6451,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     SignatureRequestGetResponse:
       properties:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     SignatureRequestListResponse:
