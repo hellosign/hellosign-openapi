@@ -193,7 +193,7 @@
   - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional)
   - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)
 
-      **Note**: Not available in test mode and requires a Platinum plan or higher.
+      **Note**: Not available in test mode and requires a Standard plan or higher.
   - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
       You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -227,7 +227,7 @@
   - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional)
   - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)
 
-      **Note**: Not available in test mode and requires a Platinum plan or higher.
+      **Note**: Not available in test mode and requires a Standard plan or higher.
   - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
       You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -726,7 +726,7 @@
 "Sub::BulkSigner::SMS_PHONE_NUMBER": |-
   An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-  **Note**: Not available in test mode and requires a Platinum plan or higher.
+  **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::CC::DESCRIPTION": Add CC email recipients. Required when a CC role exists for the Template.
 "Sub::CC::EMAIL_ADDRESS": The email address of the CC recipient.
@@ -751,7 +751,7 @@
 "Sub::FieldOptions::DATE_FORMAT": |-
   Allows requester to specify the date format (see list of allowed [formats](https://app.hellosign.com/api/reference#DateFormats))
 
-  **Note**: Only available for Platinum and higher.
+  **Note**: Only available for Premium and higher.
 
 "Sub::FormFieldGroup::DESCRIPTION": Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
 "Sub::FormFieldGroup::GROUP_ID_LABEL": ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.
@@ -907,7 +907,7 @@
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER": |-
   An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-  **Note**: Not available in test mode and requires a Platinum plan or higher.
+  **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -921,7 +921,7 @@
 "Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER": |-
   An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-  **Note**: Not available in test mode and requires a Platinum plan or higher.
+  **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.

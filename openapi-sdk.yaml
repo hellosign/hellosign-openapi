@@ -3609,7 +3609,7 @@ components:
           description: |-
             An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
+            **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
       type: object
     SubFormFieldsPerDocumentTypeEnum:
@@ -3869,7 +3869,7 @@ components:
           description: |-
             An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
+            **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
       type: object
     SubSignatureRequestEmbeddedSigner:
@@ -3896,7 +3896,7 @@ components:
           description: |-
             An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
+            **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
       type: object
     SubSignatureRequestTemplateSigner:
@@ -3927,7 +3927,7 @@ components:
           description: |-
             An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
+            **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
       type: object
     SubSignatureRequestEmbeddedTemplateSigner:
@@ -3955,7 +3955,7 @@ components:
           description: |-
             An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
+            **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
       type: object
     SubUnclaimedDraftSigner:
@@ -4088,7 +4088,7 @@ components:
             - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional)
             - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)
 
-                **Note**: Not available in test mode and requires a Platinum plan or higher.
+                **Note**: Not available in test mode and requires a Standard plan or higher.
             - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
                 You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -4170,7 +4170,7 @@ components:
             - `pin`: the 4- to 12-character access code that will secure this signer's signature page (optional)
             - `sms_phone_number`: An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page. (optional)
 
-                **Note**: Not available in test mode and requires a Platinum plan or higher.
+                **Note**: Not available in test mode and requires a Standard plan or higher.
             - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
                 You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -4792,7 +4792,7 @@ components:
           description: |-
             Allows requester to specify the date format (see list of allowed [formats](https://app.hellosign.com/api/reference#DateFormats))
 
-            **Note**: Only available for Platinum and higher.
+            **Note**: Only available for Premium and higher.
           type: string
           enum:
             - 'MM / DD / YYYY'
