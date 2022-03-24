@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "Team does not exist",
+    "error_name": "not_found"
+  }
+}
