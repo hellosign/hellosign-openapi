@@ -200,14 +200,14 @@
         "order": 1
       },
       {
-        "group": "Group 1",
+        "email_address": "s3@example.com",
         "name": "Signer 3",
-        "email_address": "s3@example.com"
+        "order": 2
       },
       {
-        "group": "Group 1",
+        "email_address": "s4@example.com",
         "name": "Signer 4",
-        "email_address": "s4@example.com"
+        "order": 3
       }
     ],
     "signing_options": {
