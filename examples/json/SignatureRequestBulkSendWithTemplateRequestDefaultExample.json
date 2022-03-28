@@ -1,0 +1,48 @@
+{
+  "template_ids": [
+    "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+  ],
+  "subject": "Purchase Order",
+  "message": "Glad we could come to an agreement.",
+  "signer_list": [
+    {
+      "signers": [
+        {
+          "role": "Client",
+          "name": "George",
+          "email_address": "george@example.com",
+          "pin": "d79a3td"
+        }
+      ],
+      "custom_fields": [
+        {
+          "name": "company",
+          "value": "ABC Corp"
+        }
+      ]
+    },
+    {
+      "signers": [
+        {
+          "role": "Client",
+          "name": "Mary",
+          "email_address": "mary@example.com",
+          "pin": "gd9as5b"
+        }
+      ],
+      "custom_fields": [
+        {
+          "name": "company",
+          "value": "123 LLC"
+        }
+      ]
+    }
+  ],
+  "ccs": [
+    {
+      "role": "Accounting",
+      "email_address": "accounting@example.com"
+    }
+  ],
+  "test_mode": true
+}

@@ -1,0 +1,10 @@
+{
+  "unclaimed_draft": {
+    "claim_url": "https://embedded.hellosign.com/prep-and-send/embedded-request?cached_params_token=30c4d8df776038c2fa5f7094c3718937",
+    "signing_redirect_url": null,
+    "expires_at": 1414093891,
+    "test_mode": true,
+    "signature_request_id": "340e9843ac552b5170ee9c374d67e312f53ca129",
+    "requesting_redirect_url": null
+  }
+}
