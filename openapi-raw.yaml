@@ -5734,10 +5734,6 @@ components:
         num_pages:
           description: '_t__ListInfoResponse::NUM_PAGES'
           type: integer
-        num_response:
-          nullable: true
-          description: '_t__ListInfoResponse::NUM_RESPONSE'
-          type: integer
         num_results:
           nullable: true
           description: '_t__ListInfoResponse::NUM_RESULTS'

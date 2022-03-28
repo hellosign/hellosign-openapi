@@ -6199,10 +6199,6 @@ components:
         num_pages:
           description: 'Total number of pages available'
           type: integer
-        num_response:
-          nullable: true
-          description: 'Total number of objects available'
-          type: integer
         num_results:
           nullable: true
           description: 'Total number of objects available'

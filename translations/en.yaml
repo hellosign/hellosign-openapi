@@ -993,7 +993,6 @@
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
 "ListInfoResponse::NUM_PAGES": Total number of pages available
-"ListInfoResponse::NUM_RESPONSE": Total number of objects available
 "ListInfoResponse::NUM_RESULTS": Total number of objects available
 "ListInfoResponse::PAGE": Number of the page being returned
 "ListInfoResponse::PAGE_SIZE": Objects returned per page
