@@ -718,15 +718,10 @@
 "Sub::BulkCustomField::NAME": The name of the custom field. Must be the field's `name` or `api_id`.
 "Sub::BulkCustomField::VALUE": The value of the custom field.
 
-"Sub::BulkSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document
-"Sub::BulkSigner::EMAIL_ADDRESS": The email address of the signer.
-"Sub::BulkSigner::NAME": The name of the signer.
-"Sub::BulkSigner::PIN": The 4- to 12-character access code that will secure this signer's signature page.
-"Sub::BulkSigner::ROLE": Must match the single existing role in chosen Template(s). Currently only templates with a single role are supported. All signers must have the same `role` value.
-"Sub::BulkSigner::SMS_PHONE_NUMBER": |-
-  An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+"Sub::BulkSigner::DESCRIPTION": |-
+  Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.
 
-  **Note**: Not available in test mode and requires a Standard plan or higher.
+  Currently only templates with a single role are supported. All signers must have the same `role` value.
 
 "Sub::CC::DESCRIPTION": Add CC email recipients. Required when a CC role exists for the Template.
 "Sub::CC::EMAIL_ADDRESS": The email address of the CC recipient.
@@ -896,10 +891,6 @@
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
 
 "Sub::SignatureRequestSigner::DESCRIPTION": Add Signers to your Signature Request.
-"Sub::SignatureRequestSigner::GROUP": |-
-  Name of group. Use this value across multiple signers to group them together. Any of the signers is eligible to sign for the entire group.
-
-  Grouped signers will not use the `order`, `pin`, or `sms_phone_number` fields.
 "Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestSigner::SIGNER_NAME": The name of the signer.
 "Sub::SignatureRequestSigner::SIGNER_ORDER": The order the signer is required to sign in.
@@ -913,11 +904,7 @@
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestTemplateSigner::NAME": The name of the signer.
 "Sub::SignatureRequestTemplateSigner::PIN": The 4- to 12-character access code that will secure this signer's signature page.
-"Sub::SignatureRequestTemplateSigner::ROLE": Must match an existing role in chosen Template(s). Multiple signers cannot share the same role.
-"Sub::SignatureRequestTemplateSigner::ROLE_GROUPED": |-
-  Must match an existing role in chosen Template(s). If multiple signers share the same `role` name they will be grouped together. Any of these grouped signers is eligible to sign for the entire group.
-
-  Grouped signers will not use the `pin` or `sms_phone_number` fields.
+"Sub::SignatureRequestTemplateSigner::ROLE": Must match an existing role in chosen Template(s).
 "Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER": |-
   An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
@@ -942,7 +929,7 @@
 "Sub::UnclaimedDraftSigner::ORDER": The order the signer is required to sign in.
 
 "Sub::UnclaimedDraftTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
-"Sub::UnclaimedDraftTemplateSigner::ROLE": Must match an existing role in chosen Template(s). Multiple signers cannot share the same `role`.
+"Sub::UnclaimedDraftTemplateSigner::ROLE": Must match an existing role in chosen Template(s).
 "Sub::UnclaimedDraftTemplateSigner::NAME": The name of the signer filling the role of `role`.
 "Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS": The email address of the signer filling the role of `role`.
 

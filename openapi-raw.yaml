@@ -1871,8 +1871,6 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendRequestDefaultExample'
-              grouped_signers:
-                $ref: '#/components/examples/SignatureRequestSendRequestGroupedSignersExample'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendRequest'
@@ -1945,8 +1943,6 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendWithTemplateRequestDefaultExample'
-              grouped_signers:
-                $ref: '#/components/examples/SignatureRequestSendWithTemplateRequestGroupedSignersExample'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
@@ -3488,43 +3484,6 @@ components:
           type: boolean
           default: false
       type: object
-    SubBulkSignerListCustomField:
-      required:
-        - name
-        - value
-      properties:
-        name:
-          description: '_t__Sub::BulkCustomField::NAME'
-          type: string
-        value:
-          description: '_t__Sub::BulkCustomField::VALUE'
-          type: string
-      type: object
-    SubBulkSignerListSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: '_t__Sub::BulkSigner::ROLE'
-          type: string
-        name:
-          description: '_t__Sub::BulkSigner::NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::BulkSigner::EMAIL_ADDRESS'
-          type: string
-          format: email
-        pin:
-          description: '_t__Sub::BulkSigner::PIN'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: '_t__Sub::BulkSigner::SMS_PHONE_NUMBER'
-          type: string
-      type: object
     SubFormFieldsPerDocumentTypeEnum:
       type: string
       enum:
@@ -3749,156 +3708,6 @@ components:
               type: string
               default: checkbox-merge
           type: object
-    SubSignatureRequestSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        name:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS'
-          type: string
-          format: email
-        group:
-          description: '_t__Sub::SignatureRequestSigner::GROUP'
-          type: string
-        order:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
-          type: integer
-        pin:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
-          type: string
-      type: object
-    SubSignatureRequestEmbeddedSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        name:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS'
-          type: string
-          format: email
-        order:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
-          type: integer
-        pin:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
-          type: string
-      type: object
-    SubSignatureRequestTemplateSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: '_t__Sub::SignatureRequestTemplateSigner::ROLE_GROUPED'
-          type: string
-        name:
-          description: '_t__Sub::SignatureRequestTemplateSigner::NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS'
-          type: string
-          format: email
-        pin:
-          description: '_t__Sub::SignatureRequestTemplateSigner::PIN'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: '_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER'
-          type: string
-      type: object
-    SubSignatureRequestEmbeddedTemplateSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: '_t__Sub::SignatureRequestTemplateSigner::ROLE'
-          type: string
-        name:
-          description: '_t__Sub::SignatureRequestTemplateSigner::NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS'
-          type: string
-          format: email
-        pin:
-          description: '_t__Sub::SignatureRequestTemplateSigner::PIN'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: '_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER'
-          type: string
-      type: object
-    SubUnclaimedDraftSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        email_address:
-          description: '_t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS'
-          type: string
-          format: email
-        name:
-          description: '_t__Sub::UnclaimedDraftSigner::NAME'
-          type: string
-        order:
-          description: '_t__Sub::UnclaimedDraftSigner::ORDER'
-          type: integer
-      type: object
-    SubUnclaimedDraftEmbeddedSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        email_address:
-          description: '_t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS'
-          type: string
-          format: email
-        name:
-          description: '_t__Sub::UnclaimedDraftSigner::NAME'
-          type: string
-        order:
-          description: '_t__Sub::UnclaimedDraftSigner::ORDER'
-          type: integer
-      type: object
-    SubUnclaimedDraftEmbeddedTemplateSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: '_t__Sub::UnclaimedDraftTemplateSigner::ROLE'
-          type: string
-        name:
-          description: '_t__Sub::UnclaimedDraftTemplateSigner::NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS'
-          type: string
-          format: email
-      type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -4153,7 +3962,7 @@ components:
           description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestEmbeddedSigner'
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -4225,7 +4034,7 @@ components:
           description: '_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestEmbeddedTemplateSigner'
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -4477,7 +4286,19 @@ components:
           description: '_t__Sub::BulkSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubBulkSignerListSigner'
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+      type: object
+    SubBulkSignerListCustomField:
+      required:
+        - name
+        - value
+      properties:
+        name:
+          description: '_t__Sub::BulkCustomField::NAME'
+          type: string
+        value:
+          description: '_t__Sub::BulkCustomField::VALUE'
+          type: string
       type: object
     SubCC:
       required:
@@ -4734,6 +4555,88 @@ components:
           description: '_t__Sub::Options::CAN_INSERT_EVERYWHERE'
           type: boolean
           default: false
+      type: object
+    SubSignatureRequestSigner:
+      required:
+        - name
+        - email_address
+      properties:
+        name:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_NAME'
+          type: string
+        email_address:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS'
+          type: string
+          format: email
+        order:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
+          type: integer
+        pin:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
+          type: string
+          maxLength: 12
+          minLength: 4
+        sms_phone_number:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
+          type: string
+      type: object
+    SubSignatureRequestTemplateSigner:
+      required:
+        - role
+        - name
+        - email_address
+      properties:
+        role:
+          description: '_t__Sub::SignatureRequestTemplateSigner::ROLE'
+          type: string
+        name:
+          description: '_t__Sub::SignatureRequestTemplateSigner::NAME'
+          type: string
+        email_address:
+          description: '_t__Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS'
+          type: string
+          format: email
+        pin:
+          description: '_t__Sub::SignatureRequestTemplateSigner::PIN'
+          type: string
+          maxLength: 12
+          minLength: 4
+        sms_phone_number:
+          description: '_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER'
+          type: string
+      type: object
+    SubUnclaimedDraftSigner:
+      required:
+        - name
+        - email_address
+      properties:
+        email_address:
+          description: '_t__Sub::UnclaimedDraftSigner::EMAIL_ADDRESS'
+          type: string
+          format: email
+        name:
+          description: '_t__Sub::UnclaimedDraftSigner::NAME'
+          type: string
+        order:
+          description: '_t__Sub::UnclaimedDraftSigner::ORDER'
+          type: integer
+      type: object
+    SubUnclaimedDraftTemplateSigner:
+      required:
+        - role
+        - name
+        - email_address
+      properties:
+        role:
+          description: '_t__Sub::UnclaimedDraftTemplateSigner::ROLE'
+          type: string
+        name:
+          description: '_t__Sub::UnclaimedDraftTemplateSigner::NAME'
+          type: string
+        email_address:
+          description: '_t__Sub::UnclaimedDraftTemplateSigner::EMAIL_ADDRESS'
+          type: string
+          format: email
       type: object
     SubTemplateRole:
       properties:
@@ -5203,7 +5106,7 @@ components:
           description: '_t__Sub::UnclaimedDraftSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubUnclaimedDraftEmbeddedSigner'
+            $ref: '#/components/schemas/SubUnclaimedDraftSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         signing_redirect_url:
@@ -5315,7 +5218,7 @@ components:
           description: '_t__Sub::UnclaimedDraftTemplateSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubUnclaimedDraftEmbeddedTemplateSigner'
+            $ref: '#/components/schemas/SubUnclaimedDraftTemplateSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         signing_redirect_url:
@@ -6626,10 +6529,6 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestSendRequestDefaultExample.json
-    SignatureRequestSendRequestGroupedSignersExample:
-      summary: 'Grouped Signers Example'
-      value:
-        $ref: examples/json/SignatureRequestSendRequestGroupedSignersExample.json
     SignatureRequestSendFormDataExample:
       summary: 'With File Example'
       value:
@@ -6638,10 +6537,6 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestSendWithTemplateRequestDefaultExample.json
-    SignatureRequestSendWithTemplateRequestGroupedSignersExample:
-      summary: 'Grouped Signers Example'
-      value:
-        $ref: examples/json/SignatureRequestSendWithTemplateRequestGroupedSignersExample.json
     SignatureRequestSendWithTemplateRequestFormDataExample:
       summary: 'With File Example'
       value:
