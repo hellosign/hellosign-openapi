@@ -25,7 +25,7 @@ public class Example {
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
-        SubUnclaimedDraftEmbeddedTemplateSigner signer = new SubUnclaimedDraftEmbeddedTemplateSigner()
+        SubUnclaimedDraftTemplateSigner signer = new SubUnclaimedDraftTemplateSigner()
             .role("Client")
             .name("George")
             .emailAddress("george@example.com");

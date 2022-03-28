@@ -25,12 +25,12 @@ public class Example {
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
-        SubSignatureRequestEmbeddedSigner signer1 = new SubSignatureRequestEmbeddedSigner()
+        SubSignatureRequestSigner signer1 = new SubSignatureRequestSigner()
             .emailAddress("jack@example.com")
             .name("Jack")
             .order(0);
 
-        SubSignatureRequestEmbeddedSigner signer2 = new SubSignatureRequestEmbeddedSigner()
+        SubSignatureRequestSigner signer2 = new SubSignatureRequestSigner()
             .emailAddress("jill@example.com")
             .name("Jill")
             .order(1);
