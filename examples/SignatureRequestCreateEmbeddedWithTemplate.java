@@ -15,7 +15,7 @@ public class Example {
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
-        SubSignatureRequestEmbeddedTemplateSigner signer1 = new SubSignatureRequestEmbeddedTemplateSigner()
+        SubSignatureRequestTemplateSigner signer1 = new SubSignatureRequestTemplateSigner()
             .role("Client")
             .name("George");
 

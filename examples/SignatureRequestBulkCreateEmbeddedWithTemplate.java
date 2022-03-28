@@ -25,7 +25,7 @@ public class Example {
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
-        SubBulkSignerListSigner signerList1Signer = new SubBulkSignerListSigner()
+        SubSignatureRequestTemplateSigner signerList1Signer = new SubSignatureRequestTemplateSigner()
             .role("Client")
             .name("George")
             .emailAddress("george@example.com")
@@ -39,7 +39,7 @@ public class Example {
             .signers(Arrays.asList(signerList1Signer))
             .customFields(Arrays.asList(signerList1CustomFields));
 
-        SubBulkSignerListSigner signerList2Signer = new SubBulkSignerListSigner()
+        SubSignatureRequestTemplateSigner signerList2Signer = new SubSignatureRequestTemplateSigner()
             .role("Client")
             .name("Mary")
             .emailAddress("mary@example.com")
