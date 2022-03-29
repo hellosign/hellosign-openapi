@@ -42,24 +42,19 @@
 "OpenApi::TAG::API_APP::DESCRIPTION": Contains information about an API App
 "OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION": Contains information about bulk sent signature requests
 "OpenApi::TAG::EMBEDDED::DESCRIPTION": An object that contains necessary information to set up embedded signing
-"OpenApi::TAG::OAUTH::DESCRIPTION": OAuth 2.0
 "OpenApi::TAG::REPORT::DESCRIPTION": Provides insights into your team's user activity and document status
 "OpenApi::TAG::SIGNATURE_REQUEST::DESCRIPTION": Contains information regarding documents that need to be signed
 "OpenApi::TAG::TEAM::DESCRIPTION": Contains information about your team and its members
 "OpenApi::TAG::TEMPLATE::DESCRIPTION": Contains information about the templates you and your team have created
 "OpenApi::TAG::UNCLAIMED_DRAFT::DESCRIPTION": A group of documents that a user can take ownership of via the claim URL
-"OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION": "./markdown/sidebar-sections/warnings-and-errors-ref-docs.md"
-"OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION": "./markdown/sidebar-sections/callbacks-ref-docs.md"
-"OpenApi::TAG::CONSTANTS::DESCRIPTION": "./markdown/sidebar-sections/constants-ref-docs.md"
-"OpenApi::TAG::SEARCH::DESCRIPTION": "./markdown/sidebar-sections/search-ref-docs.md"
-"OpenApi::TAG::WHITE_LABELING::DESCRIPTION": "./markdown/sidebar-sections/white-labeling-ref-docs.md"
-
+"OpenApi::TAG::OAUTH::DESCRIPTION": ./markdown/en/tags/oauth-tag-description.md
+"OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION": ./markdown/en/tags/callbacks-tag-description.md
 
 "OpenApi::ACCOUNT_CALLBACK::SUMMARY": Account Callbacks
-"OpenApi::ACCOUNT_CALLBACK::DESCRIPTION": "./markdown/descriptions/account-callback-description.md"
+"OpenApi::ACCOUNT_CALLBACK::DESCRIPTION": ./markdown/en/descriptions/account-callback-description.md
 
 "OpenApi::APP_CALLBACK::SUMMARY": App Callbacks
-"OpenApi::APP_CALLBACK::DESCRIPTION": "./markdown/descriptions/api-app-callback-description.md"
+"OpenApi::APP_CALLBACK::DESCRIPTION": ./markdown/en/descriptions/api-app-callback-description.md
 
 ##################
 # Request Models #

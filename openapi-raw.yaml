@@ -6953,22 +6953,10 @@ tags:
     description: '_t__OpenApi::TAG::API_APP::DESCRIPTION'
   -
     name: OAuth
-    description: '_t__OpenApi::TAG::OAUTH::DESCRIPTION'
+    description: '_md__OpenApi::TAG::OAUTH::DESCRIPTION'
   -
     name: 'Callbacks and Events'
     description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
-  -
-    name: 'Warnings and Errors'
-    description: '_md__OpenApi::TAG::WARNINGS_AND_ERRORS::DESCRIPTION'
-  -
-    name: Constants
-    description: '_md__OpenApi::TAG::CONSTANTS::DESCRIPTION'
-  -
-    name: Search
-    description: '_md__OpenApi::TAG::SEARCH::DESCRIPTION'
-  -
-    name: 'White Labeling'
-    description: '_md__OpenApi::TAG::WHITE_LABELING::DESCRIPTION'
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'

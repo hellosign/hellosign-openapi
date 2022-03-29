@@ -1,4 +1,6 @@
-# Entry point for pushing changes via Redocly CLI
+# Note: this configuration is now set at a Portal level. 
+# But, keeping this file here allows for testing Reference docs by themselves.
+
 apiDefinitions:
   hellosign: ./openapi.yaml
 
