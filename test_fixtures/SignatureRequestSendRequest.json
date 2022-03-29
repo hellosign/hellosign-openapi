@@ -53,7 +53,7 @@
         "actions": [
           {
             "field_id": "api_id_2",
-            "hidden": 1,
+            "hidden": true,
             "type": "change-field-visibility"
           }
         ]
@@ -71,7 +71,7 @@
         "actions": [
           {
             "field_id": "api_id_3",
-            "hidden": 1,
+            "hidden": true,
             "type": "change-field-visibility"
           }
         ]
@@ -92,7 +92,7 @@
         "actions": [
           {
             "group_id": "radio_group_1",
-            "hidden": 1,
+            "hidden": true,
             "type": "change-group-visibility"
           }
         ]
@@ -109,7 +109,7 @@
           "width": 120,
           "height": 30,
           "required": true,
-          "signer": 1,
+          "signer": "1",
           "page": 1
         },
         {
@@ -121,7 +121,7 @@
           "width": 120,
           "height": 30,
           "required": true,
-          "signer": 1,
+          "signer": "1",
           "page": 1
         },
         {
@@ -138,7 +138,7 @@
           "width": 120,
           "height": 30,
           "required": true,
-          "signer": 1,
+          "signer": "1",
           "page": 1
         },
         {
@@ -150,7 +150,7 @@
           "width": 120,
           "height": 30,
           "required": true,
-          "signer": 1,
+          "signer": "1",
           "page": 1
         },
         {
@@ -262,3 +262,4 @@
     "use_text_tags": false
   }
 }
+
