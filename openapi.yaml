@@ -7459,7 +7459,7 @@ tags:
     description: 'Contains information about an API App'
   -
     name: OAuth
-    description: 'OAuth 2.0'
+    description: 'OAuth 2.0, soon to be replaced with link to markdown file'
   -
     name: 'Callbacks and Events'
     description:
