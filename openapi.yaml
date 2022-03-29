@@ -7580,7 +7580,7 @@ tags:
     description: 'Contains information about an API App'
   -
     name: OAuth
-    description: 'OAuth 2.0'
+    description: 'OAuth 2.0 -- this description will be replaced soon'
   -
     name: 'Callbacks and Events'
     description:

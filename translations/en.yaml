@@ -42,7 +42,7 @@
 "OpenApi::TAG::API_APP::DESCRIPTION": Contains information about an API App
 "OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION": Contains information about bulk sent signature requests
 "OpenApi::TAG::EMBEDDED::DESCRIPTION": An object that contains necessary information to set up embedded signing
-"OpenApi::TAG::OAUTH::DESCRIPTION": OAuth 2.0
+"OpenApi::TAG::OAUTH::DESCRIPTION": OAuth 2.0 -- this description will be replaced soon
 "OpenApi::TAG::REPORT::DESCRIPTION": Provides insights into your team's user activity and document status
 "OpenApi::TAG::SIGNATURE_REQUEST::DESCRIPTION": Contains information regarding documents that need to be signed
 "OpenApi::TAG::TEAM::DESCRIPTION": Contains information about your team and its members
