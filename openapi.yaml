@@ -43,7 +43,7 @@ paths:
                   $ref: '#/components/examples/AccountCreateResponseExample'
                 oauth:
                   $ref: '#/components/examples/AccountCreateOAuthResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -99,7 +99,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -164,7 +164,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -234,7 +234,7 @@ paths:
                   $ref: '#/components/examples/AccountVerifyFoundResponseExample'
                 not_found:
                   $ref: '#/components/examples/AccountVerifyNotFoundResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -305,7 +305,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -370,7 +370,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -449,7 +449,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -506,7 +506,7 @@ paths:
       responses:
         204:
           description: 'successful operation'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -577,7 +577,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -642,7 +642,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -714,7 +714,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -769,7 +769,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 5de8179668f2033afac48da1868d0093bf133266
+          example: f57db65d3f933b5316d398057a36176831451a35
       requestBody:
         required: true
         content:
@@ -789,7 +789,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/EmbeddedEditUrlResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -854,7 +854,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/EmbeddedSignUrlResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1044,7 +1044,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ReportCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1115,7 +1115,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1186,7 +1186,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1250,13 +1250,13 @@ paths:
           required: true
           schema:
             type: string
-          example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       responses:
         200:
           description: 'successful operation'
           content:
             application/json: {}
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1328,7 +1328,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1399,7 +1399,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1493,7 +1493,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestFilesResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1559,7 +1559,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1607,7 +1607,7 @@ paths:
       description: |-
         Returns a list of SignatureRequests that you can access. This includes SignatureRequests you have sent as well as received, but not ones that you have been CCed on.
 
-        Take a look at our [search guide](https://app.hellosign.com/api/reference#Search) to learn more about querying signature requests.
+        Take a look at our [search guide](/api/reference/search/) to learn more about querying signature requests.
       operationId: signatureRequestList
       parameters:
         -
@@ -1647,7 +1647,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1692,7 +1692,7 @@ paths:
       tags:
         - 'Signature Request'
       summary: 'Release On-Hold Signature Request'
-      description: 'Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](https://app.hellosign.com/api/reference#UnclaimedDraft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.'
+      description: 'Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.'
       operationId: signatureRequestReleaseHold
       parameters:
         -
@@ -1702,7 +1702,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       responses:
         200:
           description: 'successful operation'
@@ -1713,7 +1713,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestReleaseHoldResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1770,7 +1770,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       requestBody:
         required: true
         content:
@@ -1790,7 +1790,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestRemindResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1850,13 +1850,13 @@ paths:
           required: true
           schema:
             type: string
-          example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       responses:
         200:
           description: 'successful operation'
           content:
             application/json: {}
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1908,8 +1908,6 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendRequestDefaultExample'
-              grouped_signers:
-                $ref: '#/components/examples/SignatureRequestSendRequestGroupedSignersExample'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendRequest'
@@ -1926,7 +1924,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1982,8 +1980,6 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendWithTemplateRequestDefaultExample'
-              grouped_signers:
-                $ref: '#/components/examples/SignatureRequestSendWithTemplateRequestGroupedSignersExample'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
@@ -2000,7 +1996,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2058,7 +2054,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       requestBody:
         required: true
         content:
@@ -2078,7 +2074,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2145,7 +2141,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamAddMemberResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2210,7 +2206,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2259,7 +2255,7 @@ paths:
       responses:
         200:
           description: 'successful operation'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2315,7 +2311,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
         404:
           description: 'not found'
@@ -2386,7 +2382,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2453,7 +2449,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamRemoveMemberResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2527,7 +2523,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateAddUserResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2604,7 +2600,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2658,13 +2654,13 @@ paths:
           required: true
           schema:
             type: string
-          example: 5de8179668f2033afac48da1868d0093bf133266
+          example: f57db65d3f933b5316d398057a36176831451a35
       responses:
         200:
           description: 'successful operation'
           content:
             application/json: {}
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2723,7 +2719,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 5de8179668f2033afac48da1868d0093bf133266
+          example: f57db65d3f933b5316d398057a36176831451a35
         -
           name: file_type
           in: query
@@ -2757,7 +2753,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateFilesResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2822,7 +2818,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2869,7 +2865,7 @@ paths:
       description: |-
         Returns a list of the Templates that are accessible by you.
 
-        Take a look at our [search guide](https://app.hellosign.com/api/reference#Search) to learn more about querying templates.
+        Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
       operationId: templateList
       parameters:
         -
@@ -2910,7 +2906,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2964,7 +2960,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 21f920ec2b7f4b6bb64d3ed79f26303843046536
+          example: f57db65d3f933b5316d398057a36176831451a35
       requestBody:
         required: true
         content:
@@ -2984,7 +2980,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateRemoveUserResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3050,7 +3046,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 5de8179668f2033afac48da1868d0093bf133266
+          example: f57db65d3f933b5316d398057a36176831451a35
       requestBody:
         required: true
         content:
@@ -3076,7 +3072,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateUpdateFilesResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3153,7 +3149,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3233,7 +3229,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3308,7 +3304,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3365,7 +3361,7 @@ paths:
           required: true
           schema:
             type: string
-          example: 2f9781e1a83jdja934d808c153c2e1d3df6f8f2f
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
       requestBody:
         required: true
         content:
@@ -3385,7 +3381,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftEditAndResendExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3572,46 +3568,6 @@ components:
           type: boolean
           default: false
       type: object
-    SubBulkSignerListCustomField:
-      required:
-        - name
-        - value
-      properties:
-        name:
-          description: 'The name of the custom field. Must be the field''s `name` or `api_id`.'
-          type: string
-        value:
-          description: 'The value of the custom field.'
-          type: string
-      type: object
-    SubBulkSignerListSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: 'Must match the single existing role in chosen Template(s). Currently only templates with a single role are supported. All signers must have the same `role` value.'
-          type: string
-        name:
-          description: 'The name of the signer.'
-          type: string
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        pin:
-          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
-
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
-          type: string
-      type: object
     SubFormFieldsPerDocumentTypeEnum:
       type: string
       enum:
@@ -3644,10 +3600,10 @@ components:
               description: 'Placeholder value for text field.'
               type: string
             auto_fill_type:
-              description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](https://app.hellosign.com/api/reference#AutoFillTypes) to learn more about the possible values.'
+              description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
               type: string
             masked:
-              description: 'Masks entered data. For more information see [Masking sensitive information](https://app.hellosign.com/api/reference#:~:text=Masking%20sensitive%20information). `true` for masking the data in a text field, otherwise `false`.'
+              description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
               type: boolean
             validation_type:
               description: |-
@@ -3839,174 +3795,6 @@ components:
               type: string
               default: checkbox-merge
           type: object
-    SubSignatureRequestSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        name:
-          description: 'The name of the signer.'
-          type: string
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        group:
-          description: |-
-            Name of group. Use this value across multiple signers to group them together. Any of the signers is eligible to sign for the entire group.
-
-            Grouped signers will not use the `order`, `pin`, or `sms_phone_number` fields.
-          type: string
-        order:
-          description: 'The order the signer is required to sign in.'
-          type: integer
-        pin:
-          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
-
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
-          type: string
-      type: object
-    SubSignatureRequestEmbeddedSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        name:
-          description: 'The name of the signer.'
-          type: string
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        order:
-          description: 'The order the signer is required to sign in.'
-          type: integer
-        pin:
-          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
-
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
-          type: string
-      type: object
-    SubSignatureRequestTemplateSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: |-
-            Must match an existing role in chosen Template(s). If multiple signers share the same `role` name they will be grouped together. Any of these grouped signers is eligible to sign for the entire group.
-
-            Grouped signers will not use the `pin` or `sms_phone_number` fields.
-          type: string
-        name:
-          description: 'The name of the signer.'
-          type: string
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        pin:
-          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
-
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
-          type: string
-      type: object
-    SubSignatureRequestEmbeddedTemplateSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: 'Must match an existing role in chosen Template(s). Multiple signers cannot share the same role.'
-          type: string
-        name:
-          description: 'The name of the signer.'
-          type: string
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        pin:
-          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
-
-            **Note**: Not available in test mode and requires a Platinum plan or higher.
-          type: string
-      type: object
-    SubUnclaimedDraftSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        name:
-          description: 'The name of the signer.'
-          type: string
-        order:
-          description: 'The order the signer is required to sign in.'
-          type: integer
-      type: object
-    SubUnclaimedDraftEmbeddedSigner:
-      required:
-        - name
-        - email_address
-      properties:
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        name:
-          description: 'The name of the signer.'
-          type: string
-        order:
-          description: 'The order the signer is required to sign in.'
-          type: integer
-      type: object
-    SubUnclaimedDraftEmbeddedTemplateSigner:
-      required:
-        - role
-        - name
-        - email_address
-      properties:
-        role:
-          description: 'Must match an existing role in chosen Template(s). Multiple signers cannot share the same `role`.'
-          type: string
-        name:
-          description: 'The name of the signer filling the role of `role`.'
-          type: string
-        email_address:
-          description: 'The email address of the signer filling the role of `role`.'
-          type: string
-          format: email
-      type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -4302,7 +4090,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -4335,7 +4123,7 @@ components:
           description: 'Add Signers to your Signature Request.'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestEmbeddedSigner'
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -4420,7 +4208,7 @@ components:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestEmbeddedTemplateSigner'
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -4518,7 +4306,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -4734,7 +4522,19 @@ components:
           description: 'Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document'
           type: array
           items:
-            $ref: '#/components/schemas/SubBulkSignerListSigner'
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+      type: object
+    SubBulkSignerListCustomField:
+      required:
+        - name
+        - value
+      properties:
+        name:
+          description: 'The name of the custom field. Must be the field''s `name` or `api_id`.'
+          type: string
+        value:
+          description: 'The value of the custom field.'
+          type: string
       type: object
     SubCC:
       required:
@@ -4790,7 +4590,7 @@ components:
       properties:
         date_format:
           description: |-
-            Allows requester to specify the date format (see list of allowed [formats](https://app.hellosign.com/api/reference#DateFormats))
+            Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))
 
             **Note**: Only available for Platinum and higher.
           type: string
@@ -4825,8 +4625,8 @@ components:
           description: |-
             Examples: `require_0-1` `require_1` `require_1-ormore`
 
-            - Check out the list of [acceptable `requirement` checkbox type values](https://app.hellosign.com/api/reference#CheckboxFieldGrouping).
-            - Check out the list of [acceptable `requirement` radio type fields](https://app.hellosign.com/api/reference#RadioFieldGrouping).
+            - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping).
+            - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping).
             - Radio groups require **at least** two fields per group.
           type: string
       type: object
@@ -4954,7 +4754,7 @@ components:
       description: |-
         The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-        **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+        **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
         * Text Field use `SubFormFieldsPerDocumentText`
         * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -5067,6 +4867,94 @@ components:
           type: boolean
           default: false
       type: object
+    SubSignatureRequestSigner:
+      required:
+        - name
+        - email_address
+      properties:
+        name:
+          description: 'The name of the signer.'
+          type: string
+        email_address:
+          description: 'The email address of the signer.'
+          type: string
+          format: email
+        order:
+          description: 'The order the signer is required to sign in.'
+          type: integer
+        pin:
+          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
+          type: string
+          maxLength: 12
+          minLength: 4
+        sms_phone_number:
+          description: |-
+            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+
+            **Note**: Not available in test mode and requires a Platinum plan or higher.
+          type: string
+      type: object
+    SubSignatureRequestTemplateSigner:
+      required:
+        - role
+        - name
+        - email_address
+      properties:
+        role:
+          description: 'Must match an existing role in chosen Template(s). Multiple signers cannot share the same role.'
+          type: string
+        name:
+          description: 'The name of the signer.'
+          type: string
+        email_address:
+          description: 'The email address of the signer.'
+          type: string
+          format: email
+        pin:
+          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
+          type: string
+          maxLength: 12
+          minLength: 4
+        sms_phone_number:
+          description: |-
+            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+
+            **Note**: Not available in test mode and requires a Platinum plan or higher.
+          type: string
+      type: object
+    SubUnclaimedDraftSigner:
+      required:
+        - name
+        - email_address
+      properties:
+        email_address:
+          description: 'The email address of the signer.'
+          type: string
+          format: email
+        name:
+          description: 'The name of the signer.'
+          type: string
+        order:
+          description: 'The order the signer is required to sign in.'
+          type: integer
+      type: object
+    SubUnclaimedDraftTemplateSigner:
+      required:
+        - role
+        - name
+        - email_address
+      properties:
+        role:
+          description: 'Must match an existing role in chosen Template(s). Multiple signers cannot share the same `role`.'
+          type: string
+        name:
+          description: 'The name of the signer filling the role of `role`.'
+          type: string
+        email_address:
+          description: 'The email address of the signer filling the role of `role`.'
+          type: string
+          format: email
+      type: object
     SubTemplateRole:
       properties:
         name:
@@ -5113,7 +5001,7 @@ components:
       description: |-
         An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)
 
-        Take a look at our [white labeling guide](https://app.hellosign.com/api/reference#WhiteLabeling) to learn more.
+        Take a look at our [white labeling guide](/api/reference/white-labeling/) to learn more.
       properties:
         header_background_color:
           type: string
@@ -5277,7 +5165,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -5450,7 +5338,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -5594,7 +5482,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -5616,7 +5504,7 @@ components:
           type: boolean
           default: false
         hold_request:
-          description: 'The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](https://app.hellosign.com/api/reference#release_on-hold_signature_request) the request from hold when ready to send. Defaults to `false`.'
+          description: 'The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.'
           type: boolean
           default: false
         is_for_embedded_signing:
@@ -5650,7 +5538,7 @@ components:
           description: 'Add Signers to your Unclaimed Draft Signature Request.'
           type: array
           items:
-            $ref: '#/components/schemas/SubUnclaimedDraftEmbeddedSigner'
+            $ref: '#/components/schemas/SubUnclaimedDraftSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         signing_redirect_url:
@@ -5744,7 +5632,7 @@ components:
           items:
             type: string
         hold_request:
-          description: 'The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](https://app.hellosign.com/api/reference#release_on-hold_signature_request) the request from hold when ready to send. Defaults to `false`.'
+          description: 'The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.'
           type: boolean
           default: false
         is_for_embedded_signing:
@@ -5792,7 +5680,7 @@ components:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
           items:
-            $ref: '#/components/schemas/SubUnclaimedDraftEmbeddedTemplateSigner'
+            $ref: '#/components/schemas/SubUnclaimedDraftTemplateSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         signing_redirect_url:
@@ -6172,6 +6060,13 @@ components:
       x-internal: true
     ErrorResponse:
       required:
+        - error
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorResponseError'
+      type: object
+    ErrorResponseError:
+      required:
         - error_msg
         - error_name
       properties:
@@ -6300,10 +6195,6 @@ components:
       properties:
         num_pages:
           description: 'Total number of pages available'
-          type: integer
-        num_response:
-          nullable: true
-          description: 'Total number of objects available'
           type: integer
         num_results:
           nullable: true
@@ -6444,16 +6335,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     SignatureRequestGetResponse:
       properties:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     SignatureRequestListResponse:
@@ -6610,10 +6501,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TeamGetResponse:
@@ -6894,7 +6781,7 @@ components:
           description: 'The name of the form field group.'
           type: string
         rule:
-          description: 'The rule used to validate checkboxes in the form field group. See [checkbox field grouping](https://app.hellosign.com/api/reference#CheckboxFieldGrouping).'
+          description: 'The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).'
           type: string
       type: object
       x-internal: true
@@ -6908,7 +6795,7 @@ components:
           description: 'The name of the form field.'
           type: string
         type:
-          description: 'The type of this form field. See [field types](https://app.hellosign.com/api/reference#FieldTypes).'
+          description: 'The type of this form field. See [field types](/api/reference/constants/#field-types).'
           type: string
           enum:
             - checkbox
@@ -7024,2489 +6911,419 @@ components:
     AccountCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        email_address: newuser@hellosign.com
+        $ref: examples/json/AccountCreateRequestDefaultExample.json
     AccountCreateRequestOAuthExample:
       summary: 'OAuth Example'
       value:
-        email_address: newuser@hellosign.com
-        client_id: cc91c61d00f8bb2ece1428035716b
-        client_secret: 1d14434088507ffa390e6f5528465
+        $ref: examples/json/AccountCreateRequestOAuthExample.json
     AccountUpdateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        callback_url: 'https://www.example.com/callback'
+        $ref: examples/json/AccountUpdateRequestDefaultExample.json
     AccountVerifyRequestDefaultExample:
       summary: 'Default Example'
       value:
-        email_address: some_user@hellosign.com
+        $ref: examples/json/AccountVerifyRequestDefaultExample.json
     ApiAppCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        name: 'My Production App'
-        domains:
-          - example.com
-        oauth:
-          callback_url: 'https://example.com/oauth'
-          scopes:
-            - basic_account_info
-            - request_signature
-        white_labeling_options:
-          primary_button_color: '#00b3e6'
-          primary_button_text_color: '#ffffff'
+        $ref: examples/json/ApiAppCreateRequestDefaultExample.json
     ApiAppCreateRequestFormDataExample:
       summary: 'With Custom Logo File Example'
       value:
-        name: 'My Production App'
-        domains:
-          - example.com
-        oauth:
-          callback_url: 'https://example.com/oauth'
-          scopes:
-            - basic_account_info
-            - request_signature
-        white_labeling_options:
-          primary_button_color: '#00b3e6'
-          primary_button_text_color: '#ffffff'
-        custom_logo_file: '@CustomLogoFile.png'
+        $ref: examples/json/ApiAppCreateRequestFormDataExample.json
     ApiAppUpdateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        name: 'New Name'
-        callback_url: 'http://example.com/hellosign'
-        white_labeling_options:
-          primary_button_color: '#00b3e6'
-          primary_button_text_color: '#ffffff'
+        $ref: examples/json/ApiAppUpdateRequestDefaultExample.json
     ApiAppUpdateRequestFormDataExample:
       summary: 'With Custom Logo File Example'
       value:
-        name: 'New Name'
-        callback_url: 'http://example.com/hellosign'
-        white_labeling_options:
-          primary_button_color: '#00b3e6'
-          primary_button_text_color: '#ffffff'
-        custom_logo_file: '@CustomLogoFile.png'
+        $ref: examples/json/ApiAppUpdateRequestFormDataExample.json
     EmbeddedEditUrlRequestDefaultExample:
       summary: 'Default Example'
       value:
-        cc_roles:
-          - ''
-        merge_fields: []
+        $ref: examples/json/EmbeddedEditUrlRequestDefaultExample.json
     OAuthTokenGenerateRequestExample:
       summary: 'OAuth Token Generate Example'
       value:
-        state: 900e06e2
-        code: 1b0d28d90c86c141
-        grant_type: authorization_code
-        client_id: cc91c61d00f8bb2ece1428035716b
-        client_secret: 1d14434088507ffa390e6f5528465
+        $ref: examples/json/OAuthTokenGenerateRequestExample.json
     OAuthTokenRefreshRequestExample:
       summary: 'OAuth Token Refresh Example'
       value:
-        grant_type: refresh_token
-        refresh_token: hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3
+        $ref: examples/json/OAuthTokenRefreshRequestExample.json
     ReportCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        start_date: 09/01/2020
-        end_date: 09/01/2020
-        report_type:
-          - user_activity
-          - document_status
+        $ref: examples/json/ReportCreateRequestDefaultExample.json
     SignatureRequestBulkCreateEmbeddedWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: 1a659d9ad95bccd307ecad78d72192f8
-        template_ids:
-          - c26b8a16784a872da37ea946b9ddec7c1e11dff6
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signer_list:
-          -
-            signers:
-              -
-                role: Client
-                name: George
-                email_address: george@example.com
-                pin: d79a3td
-            custom_fields:
-              -
-                name: company
-                value: 'ABC Corp'
-          -
-            signers:
-              -
-                role: Client
-                name: Mary
-                email_address: mary@example.com
-                pin: gd9as5b
-            custom_fields:
-              -
-                name: company
-                value: '123 LLC'
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        test_mode: true
+        $ref: examples/json/SignatureRequestBulkCreateEmbeddedWithTemplateRequestDefaultExample.json
     SignatureRequestBulkCreateEmbeddedWithTemplateRequestFormDataExample:
       summary: 'With Signer File Example'
       value:
-        client_id: 1a659d9ad95bccd307ecad78d72192f8
-        template_ids:
-          - c26b8a16784a872da37ea946b9ddec7c1e11dff6
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signer_file: '@SignerFile.csv'
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        test_mode: true
+        $ref: examples/json/SignatureRequestBulkCreateEmbeddedWithTemplateRequestFormDataExample.json
     SignatureRequestBulkSendWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        template_ids:
-          - c26b8a16784a872da37ea946b9ddec7c1e11dff6
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signer_list:
-          -
-            signers:
-              -
-                role: Client
-                name: George
-                email_address: george@example.com
-                pin: d79a3td
-            custom_fields:
-              -
-                name: company
-                value: 'ABC Corp'
-          -
-            signers:
-              -
-                role: Client
-                name: Mary
-                email_address: mary@example.com
-                pin: gd9as5b
-            custom_fields:
-              -
-                name: company
-                value: '123 LLC'
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        test_mode: true
+        $ref: examples/json/SignatureRequestBulkSendWithTemplateRequestDefaultExample.json
     SignatureRequestBulkSendWithTemplateRequestFormDataExample:
       summary: 'With Signer File Example'
       value:
-        template_ids:
-          - c26b8a16784a872da37ea946b9ddec7c1e11dff6
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signer_file: '@SignerFile.csv'
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        test_mode: true
+        $ref: examples/json/SignatureRequestBulkSendWithTemplateRequestFormDataExample.json
     SignatureRequestCreateEmbeddedRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        title: 'NDA with Acme Co.'
-        subject: 'The NDA we talked about'
-        message: |-
-          Please sign this NDA and then we can discuss more. Let me know if you
-          have any questions.
-        signers:
-          -
-            email_address: jack@example.com
-            name: Jack
-            order: 0
-          -
-            email_address: jill@example.com
-            name: Jill
-            order: 1
-        cc_email_addresses:
-          - lawyer@hellosign.com
-          - lawyer@example.com
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
+        $ref: examples/json/SignatureRequestCreateEmbeddedRequestDefaultExample.json
     SignatureRequestCreateEmbeddedRequestFormDataExample:
       summary: 'With File Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        title: 'NDA with Acme Co.'
-        subject: 'The NDA we talked about'
-        message: |-
-          Please sign this NDA and then we can discuss more. Let me know if you
-          have any questions.
-        signers:
-          -
-            email_address: jack@example.com
-            name: Jack
-            order: 0
-          -
-            email_address: jill@example.com
-            name: Jill
-            order: 1
-        cc_email_addresses:
-          - lawyer@hellosign.com
-          - lawyer@example.com
-        file:
-          - '@NDA.pdf'
-          - '@AppendixA.pdf'
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
+        $ref: examples/json/SignatureRequestCreateEmbeddedRequestFormDataExample.json
     SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        template_ids:
-          - c26b8a16784a872da37ea946b9ddec7c1e11dff6
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
+        $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample.json
     SignatureRequestCreateEmbeddedWithTemplateRequestFormDataExample:
       summary: 'With Signer File Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        template_ids:
-          - c26b8a16784a872da37ea946b9ddec7c1e11dff6
-        file:
-          - '@NDA.pdf'
-          - '@AppendixA.pdf'
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
+        $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestFormDataExample.json
     SignatureRequestRemindRequestDefaultExample:
       summary: 'Default Example'
       value:
-        email_address: john@example.com
+        $ref: examples/json/SignatureRequestRemindRequestDefaultExample.json
     SignatureRequestSendRequestDefaultExample:
       summary: 'Default Example'
       value:
-        title: 'NDA with Acme Co.'
-        subject: 'The NDA we talked about'
-        message: |-
-          Please sign this NDA and then we can discuss more. Let me know if you
-          have any questions.
-        signers:
-          -
-            email_address: jack@example.com
-            name: Jack
-            order: 0
-          -
-            email_address: jill@example.com
-            name: Jill
-            order: 1
-        cc_email_addresses:
-          - lawyer@hellosign.com
-          - lawyer@example.com
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        metadata:
-          custom_id: 1234
-          custom_text: 'NDA #9'
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        test_mode: true
-    SignatureRequestSendRequestGroupedSignersExample:
-      summary: 'Grouped Signers Example'
-      value:
-        title: 'NDA with Acme Co.'
-        subject: 'The NDA we talked about'
-        message: |-
-          Please sign this NDA and then we can discuss more. Let me know if you
-          have any questions.
-        signers:
-          -
-            email_address: owner@example.com
-            name: Owner
-            order: 0
-          -
-            group: 'Authorized signatory'
-            email_address: jill@example.com
-            name: Jill
-          -
-            group: 'Authorized signatory'
-            email_address: jack@example.com
-            name: Jack
-        cc_email_addresses:
-          - lawyer@hellosign.com
-          - lawyer@example.com
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        metadata:
-          custom_id: 1234
-          custom_text: 'NDA #9'
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        test_mode: true
+        $ref: examples/json/SignatureRequestSendRequestDefaultExample.json
     SignatureRequestSendFormDataExample:
       summary: 'With File Example'
       value:
-        title: 'NDA with Acme Co.'
-        subject: 'The NDA we talked about'
-        message: |-
-          Please sign this NDA and then we can discuss more. Let me know if you
-          have any questions.
-        signers:
-          -
-            email_address: jack@example.com
-            name: Jack
-            order: 0
-          -
-            email_address: jill@example.com
-            name: Jill
-            order: 1
-        cc_email_addresses:
-          - lawyer@hellosign.com
-          - lawyer@example.com
-        file:
-          - '@NDA.pdf'
-          - '@AppendixA.pdf'
-        metadata:
-          custom_id: 1234
-          custom_text: 'NDA #9'
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        test_mode: true
+        $ref: examples/json/SignatureRequestSendFormDataExample.json
     SignatureRequestSendWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        template_ids:
-          - 61a832ff0d8423f91d503e76bfbcc750f7417c78
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        custom_fields:
-          -
-            name: Cost
-            value: '$20,000'
-            editor: Client
-            required: true
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
-    SignatureRequestSendWithTemplateRequestGroupedSignersExample:
-      summary: 'Grouped Signers Example'
-      value:
-        template_ids:
-          - 61a832ff0d8423f91d503e76bfbcc750f7417c78
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-          -
-            role: Owner
-            name: Jack
-            email_address: jill@example.com
-          -
-            role: Owner
-            name: jill
-            email_address: jill@example.com
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        custom_fields:
-          -
-            name: Cost
-            value: '$20,000'
-            editor: Client
-            required: true
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
+        $ref: examples/json/SignatureRequestSendWithTemplateRequestDefaultExample.json
     SignatureRequestSendWithTemplateRequestFormDataExample:
       summary: 'With File Example'
       value:
-        template_ids:
-          - 61a832ff0d8423f91d503e76bfbcc750f7417c78
-        subject: 'Purchase Order'
-        message: 'Glad we could come to an agreement.'
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-        file:
-          - '@NDA.pdf'
-          - '@AppendixA.pdf'
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@example.com
-        custom_fields:
-          -
-            name: Cost
-            value: '$20,000'
-            editor: Client
-            required: true
-        signing_options:
-          draw: true
-          type: true
-          upload: true
-          phone: false
-          default_type: draw
-        test_mode: true
+        $ref: examples/json/SignatureRequestSendWithTemplateRequestFormDataExample.json
     SignatureRequestUpdateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        email_address: john@example.com
-        signature_id: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
+        $ref: examples/json/SignatureRequestUpdateRequestDefaultExample.json
     TeamAddMemberRequestEmailAddressExample:
       summary: 'Email Address Example'
       value:
-        email_address: george@example.com
+        $ref: examples/json/TeamAddMemberRequestEmailAddressExample.json
     TeamAddMemberRequestAccountIdExample:
       summary: 'Account ID Example'
       value:
-        account_id: f57db65d3f933b5316d398057a36176831451a35
+        $ref: examples/json/TeamAddMemberRequestAccountIdExample.json
     TeamCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        name: 'New Team Name'
+        $ref: examples/json/TeamCreateRequestDefaultExample.json
     TeamRemoveMemberRequestEmailAddressExample:
       summary: 'Email Address Example'
       value:
-        email_address: teammate@hellosign.com
-        new_owner_email_address: new_teammate@hellosign.com
+        $ref: examples/json/TeamRemoveMemberRequestEmailAddressExample.json
     TeamRemoveMemberRequestAccountIdExample:
       summary: 'Account ID Example'
       value:
-        account_id: f57db65d3f933b5316d398057a36176831451a35
+        $ref: examples/json/TeamRemoveMemberRequestAccountIdExample.json
     TeamUpdateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        name: 'New Team Name'
+        $ref: examples/json/TeamUpdateRequestDefaultExample.json
     TemplateAddUserRequestDefaultExample:
       summary: 'Default Example'
       value:
-        email_address: george@hellosign.com
+        $ref: examples/json/TemplateAddUserRequestDefaultExample.json
     TemplateCreateEmbeddedDraftRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: 37dee8d8440c66d54cfa05d92c160882
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        title: 'Test Template'
-        subject: 'Please sign this document'
-        message: 'For your approval'
-        signer_roles:
-          -
-            name: Client
-            order: 0
-          -
-            name: Witness
-            order: 1
-        cc_roles:
-          - Manager
-        merge_fields:
-          -
-            name: 'Full Name'
-            type: text
-          -
-            name: 'Is Registered?'
-            type: checkbox
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        test_mode: true
+        $ref: examples/json/TemplateCreateEmbeddedDraftRequestDefaultExample.json
     TemplateCreateEmbeddedDraftRequestFormFieldsPerDocumentExample:
       summary: 'Form Fields Per Document Example'
       value:
-        client_id: 37dee8d8440c66d54cfa05d92c160882
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        title: 'Test Template'
-        subject: 'Please sign this document'
-        message: 'For your approval'
-        signer_roles:
-          -
-            name: Client
-            order: 0
-          -
-            name: Witness
-            order: 1
-        cc_roles:
-          - Manager
-        merge_fields:
-          -
-            name: 'Full Name'
-            type: text
-          -
-            name: 'Is Registered?'
-            type: checkbox
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              placeholder: ''
-              type: text
-              x: 112
-              'y': 328
-              width: 100
-              height: 16
-              required: true
-              signer: 1
-              page: 1
-              validation_type: numbers_only
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: signature
-              x: 530
-              'y': 415
-              width: 120
-              height: 30
-              required: true
-              signer: 0
-              page: 1
-        test_mode: true
+        $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormFieldsPerDocumentExample.json
     TemplateCreateEmbeddedDraftRequestFormFieldGroupsExample:
       summary: 'Form Fields Per Document and Groups Example'
       value:
-        client_id: 37dee8d8440c66d54cfa05d92c160882
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        title: 'Test Template'
-        subject: 'Please sign this document'
-        message: 'For your approval'
-        signer_roles:
-          -
-            name: Client
-            order: 0
-          -
-            name: Witness
-            order: 1
-        cc_roles:
-          - Manager
-        merge_fields:
-          -
-            name: 'Full Name'
-            type: text
-          -
-            name: 'Is Registered?'
-            type: checkbox
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              type: radio
-              x: 112
-              'y': 328
-              width: 18
-              height: 18
-              required: false
-              group: RadioItemGroup1
-              checked: 1
-              signer: 0
-              page: 1
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: radio
-              x: 112
-              'y': 370
-              width: 18
-              height: 18
-              required: false
-              group: RadioItemGroup1
-              checked: 0
-              signer: 0
-              page: 1
-        form_field_groups:
-          -
-            group_id: RadioItemGroup1
-            group_label: 'Radio Item Group 1'
-            requirement: require_0-1
-        test_mode: true
+        $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormFieldGroupsExample.json
     TemplateCreateEmbeddedDraftRequestFormFieldRulesExample:
       summary: 'Form Fields Per Document and Rules Example'
       value:
-        client_id: 37dee8d8440c66d54cfa05d92c160882
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        title: 'Test Template'
-        subject: 'Please sign this document'
-        message: 'For your approval'
-        signer_roles:
-          -
-            name: Client
-            order: 0
-          -
-            name: Witness
-            order: 1
-        cc_roles:
-          - Manager
-        merge_fields:
-          -
-            name: 'Full Name'
-            type: text
-          -
-            name: 'Is Registered?'
-            type: checkbox
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              type: text
-              x: 112
-              'y': 328
-              width: 100
-              height: 16
-              required: true
-              signer: 0
-              page: 1
-              validation_type: numbers_only
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: signature
-              x: 530
-              'y': 415
-              width: 120
-              height: 30
-              required: true
-              signer: 0
-              page: 1
-        form_field_rules:
-          -
-            id: rule_1
-            trigger_operator: AND
-            triggers:
-              -
-                id: uniqueIdHere_1
-                operator: is
-                value: foo
-            actions:
-              -
-                field_id: uniqueIdHere_2
-                hidden: 1
-                type: change-field-visibility
-        test_mode: true
+        $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormFieldRulesExample.json
     TemplateCreateEmbeddedDraftRequestFormDataExample:
       summary: 'With File Example'
       value:
-        client_id: 37dee8d8440c66d54cfa05d92c160882
-        file:
-          - '@NDA.pdf'
-        title: 'Test Template'
-        subject: 'Please sign this document'
-        message: 'For your approval'
-        signer_roles:
-          -
-            name: Client
-            order: 0
-          -
-            name: Witness
-            order: 1
-        cc_roles:
-          - Manager
-        merge_fields:
-          -
-            name: 'Full Name'
-            type: text
-          -
-            name: 'Is Registered?'
-            type: checkbox
-        field_options:
-          date_format: 'DD - MM - YYYY'
-        test_mode: true
+        $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormDataExample.json
     TemplateRemoveUserRequestDefaultExample:
       summary: 'Default Example'
       value:
-        email_address: george@hellosign.com
+        $ref: examples/json/TemplateRemoveUserRequestDefaultExample.json
     TemplateUpdateFilesRequestDefaultExample:
       summary: 'Default Example'
       value:
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
+        $ref: examples/json/TemplateUpdateFilesRequestDefaultExample.json
     TemplateUpdateFilesRequestFormDataExample:
       summary: 'With File Example'
       value:
-        file:
-          - '@NDA.pdf'
+        $ref: examples/json/TemplateUpdateFilesRequestFormDataExample.json
     UnclaimedDraftCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateRequestDefaultExample.json
     UnclaimedDraftCreateRequestFormFieldsPerDocumentExample:
       summary: 'Form Fields Per Document Example'
       value:
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              placeholder: ''
-              type: text
-              x: 112
-              'y': 328
-              width: 100
-              height: 16
-              required: true
-              signer: 1
-              page: 1
-              validation_type: numbers_only
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: signature
-              x: 530
-              'y': 415
-              width: 120
-              height: 30
-              required: true
-              signer: 0
-              page: 1
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateRequestFormFieldsPerDocumentExample.json
     UnclaimedDraftCreateRequestFormFieldGroupsExample:
       summary: 'Form Fields Per Document and Groups Example'
       value:
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              type: radio
-              x: 112
-              'y': 328
-              width: 18
-              height: 18
-              required: false
-              group: RadioItemGroup1
-              checked: 1
-              signer: 0
-              page: 1
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: radio
-              x: 112
-              'y': 370
-              width: 18
-              height: 18
-              required: false
-              group: RadioItemGroup1
-              checked: 0
-              signer: 0
-              page: 1
-        form_field_groups:
-          -
-            group_id: RadioItemGroup1
-            group_label: 'Radio Item Group 1'
-            requirement: require_0-1
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateRequestFormFieldGroupsExample.json
     UnclaimedDraftCreateRequestFormFieldRulesExample:
       summary: 'Form Fields Per Document and Rules Example'
       value:
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              type: text
-              x: 112
-              'y': 328
-              width: 100
-              height: 16
-              required: true
-              signer: 0
-              page: 1
-              validation_type: numbers_only
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: signature
-              x: 530
-              'y': 415
-              width: 120
-              height: 30
-              required: true
-              signer: 0
-              page: 1
-        form_field_rules:
-          -
-            id: rule_1
-            trigger_operator: AND
-            triggers:
-              -
-                id: uniqueIdHere_1
-                operator: is
-                value: foo
-            actions:
-              -
-                field_id: uniqueIdHere_2
-                hidden: 1
-                type: change-field-visibility
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateRequestFormFieldRulesExample.json
     UnclaimedDraftCreateRequestFormDataExample:
       summary: 'With File Example'
       value:
-        file:
-          - '@NDA.pdf'
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateRequestFormDataExample.json
     UnclaimedDraftCreateEmbeddedRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        requester_email_address: jack@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestDefaultExample.json
     UnclaimedDraftCreateEmbeddedRequestFormFieldsPerDocumentExample:
       summary: 'Form Fields Per Document Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              placeholder: ''
-              type: text
-              x: 112
-              'y': 328
-              width: 100
-              height: 16
-              required: true
-              signer: 1
-              page: 1
-              validation_type: numbers_only
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: signature
-              x: 530
-              'y': 415
-              width: 120
-              height: 30
-              required: true
-              signer: 0
-              page: 1
-        requester_email_address: jack@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestFormFieldsPerDocumentExample.json
     UnclaimedDraftCreateEmbeddedRequestFormFieldGroupsExample:
       summary: 'Form Fields Per Document and Groups Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              type: radio
-              x: 112
-              'y': 328
-              width: 18
-              height: 18
-              required: false
-              group: RadioItemGroup1
-              checked: 1
-              signer: 0
-              page: 1
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: radio
-              x: 112
-              'y': 370
-              width: 18
-              height: 18
-              required: false
-              group: RadioItemGroup1
-              checked: 0
-              signer: 0
-              page: 1
-        form_field_groups:
-          -
-            group_id: RadioItemGroup1
-            group_label: 'Radio Item Group 1'
-            requirement: require_0-1
-        requester_email_address: jack@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestFormFieldGroupsExample.json
     UnclaimedDraftCreateEmbeddedRequestFormFieldRulesExample:
       summary: 'Form Fields Per Document and Rules Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        file_url:
-          - 'https://app.hellosign.com/docs/example_signature_request.pdf'
-        form_fields_per_document:
-          -
-            -
-              api_id: uniqueIdHere_1
-              name: ''
-              type: text
-              x: 112
-              'y': 328
-              width: 100
-              height: 16
-              required: true
-              signer: 0
-              page: 1
-              validation_type: numbers_only
-            -
-              api_id: uniqueIdHere_2
-              name: ''
-              type: signature
-              x: 530
-              'y': 415
-              width: 120
-              height: 30
-              required: true
-              signer: 0
-              page: 1
-        form_field_rules:
-          -
-            id: rule_1
-            trigger_operator: AND
-            triggers:
-              -
-                id: uniqueIdHere_1
-                operator: is
-                value: foo
-            actions:
-              -
-                field_id: uniqueIdHere_2
-                hidden: 1
-                type: change-field-visibility
-        requester_email_address: jack@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestFormFieldRulesExample.json
     UnclaimedDraftCreateEmbeddedRequestFormDataExample:
       summary: 'With File Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        file:
-          - '@NDA.pdf'
-        requester_email_address: jack@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestFormDataExample.json
     UnclaimedDraftCreateEmbeddedWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        template_ids:
-          - 61a832ff0d8423f91d503e76bfbcc750f7417c78
-        requester_email_address: jack@hellosign.com
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedWithTemplateRequestDefaultExample.json
     UnclaimedDraftCreateEmbeddedWithTemplateRequestFormDataExample:
       summary: 'With File Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        template_ids:
-          - 61a832ff0d8423f91d503e76bfbcc750f7417c78
-        file:
-          - '@NDA.pdf'
-        requester_email_address: jack@hellosign.com
-        signers:
-          -
-            role: Client
-            name: George
-            email_address: george@example.com
-        ccs:
-          -
-            role: Accounting
-            email_address: accounting@hellosign.com
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedWithTemplateRequestFormDataExample.json
     UnclaimedDraftEditAndResendRequestDefaultExample:
       summary: 'Default Example'
       value:
-        client_id: b6b8e7deaf8f0b95c029dca049356d4a2cf9710a
-        test_mode: false
+        $ref: examples/json/UnclaimedDraftEditAndResendRequestDefaultExample.json
     AccountGetResponseExample:
       summary: 'Account Get'
       value:
-        account:
-          account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-          email_address: me@hellosign.com
-          is_locked: false
-          is_paid_hs: true
-          is_paid_hf: false
-          quotas:
-            api_signature_requests_left: 1250
-            documents_left: null
-            templates_left: null
-          callback_url: null
-          role_code: null
+        $ref: examples/json/AccountGetResponseExample.json
     AccountCreateResponseExample:
       summary: 'Account Create'
       value:
-        account:
-          account_id: a2b31224f7e6fb5581d2f8cbd91cf65fa2f86aae
-          email_address: newuser@hellosign.com
-          is_paid_hs: false
-          is_paid_hf: false
-          is_locked: false
-          quotas:
-            templates_left: 0
-            api_signature_requests_left: 0
-            documents_left: 3
-          callback_url: null
-          role_code: null
+        $ref: examples/json/AccountCreateResponseExample.json
     AccountCreateOAuthResponseExample:
       summary: 'Account Create with OAuth Authorization'
       value:
-        account:
-          account_id: b4680b45053c7601ca1eee3b126eca6b2b0a0219
-          email_address: jill@example.com
-          callback_url: null
-          role_code: null
-        oauth_data:
-          access_token: NWNiOTMxOGFkOGVjMDhhNTAxZN2NkNjgxMjMwOWJiYTEzZTBmZGUzMjMThhMzYyMzc=
-          token_type: Bearer
-          refresh_token: hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3
-          expires_in: 86400
+        $ref: examples/json/AccountCreateOAuthResponseExample.json
     AccountUpdateResponseExample:
       summary: 'Account Update'
       value:
-        account:
-          account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-          email_address: me@hellosign.com
-          is_locked: false
-          is_paid_hs: true
-          is_paid_hf: false
-          quotas:
-            api_signature_requests_left: 1250
-            documents_left: null
-            templates_left: null
-          callback_url: 'https://www.example.com/callback'
-          role_code: null
+        $ref: examples/json/AccountUpdateResponseExample.json
     AccountVerifyFoundResponseExample:
       summary: 'Account Found'
       value:
-        account:
-          email_address: some_user@hellosign.com
+        $ref: examples/json/AccountVerifyFoundResponseExample.json
     AccountVerifyNotFoundResponseExample:
       summary: 'Account Not Found'
-      value: {}
+      value:
+        $ref: examples/json/AccountVerifyNotFoundResponseExample.json
     ApiAppCreateResponseExample:
       summary: 'API App'
       value:
-        api_app:
-          callback_url: null
-          client_id: 0dd3b823a682527788c4e40cb7b6f7e9
-          created_at: 1436232339
-          domain: example.com
-          is_approved: false
-          name: 'My Production App'
-          oauth:
-            callback_url: 'http://example.com/oauth'
-            scopes:
-              - basic_account_info
-              - request_signature
-            secret: 98891a1b59f312d04cd88e4e0c498d75
-          owner_account:
-            account_id: dc5deeb9e10b044c591ef2475aafad1d1d3bd888
-            email_address: john@example.com
-          white_labeling_options:
-            primary_button_color: '#00b3e6'
-            primary_button_text_color: '#ffffff'
+        $ref: examples/json/ApiAppCreateResponseExample.json
     ApiAppGetResponseExample:
       summary: 'API App'
       value:
-        api_app:
-          callback_url: null
-          client_id: 0dd3b823a682527788c4e40cb7b6f7e9
-          created_at: 1436232339
-          domain: example.com
-          is_approved: true
-          name: 'My Production App'
-          oauth:
-            callback_url: 'http://example.com/oauth'
-            scopes:
-              - basic_account_info
-              - request_signature
-            secret: 98891a1b59f312d04cd88e4e0c498d75
-          owner_account:
-            account_id: dc5deeb9e10b044c591ef2475aafad1d1d3bd888
-            email_address: john@example.com
+        $ref: examples/json/ApiAppGetResponseExample.json
     ApiAppListResponseExample:
       summary: 'API App List'
       value:
-        api_apps:
-          -
-            callback_url: null
-            client_id: 0dd3b823a682527788c4e40cb7b6f7e9
-            created_at: 1436232339
-            domain: example.com
-            is_approved: true
-            name: 'My Production App'
-            oauth:
-              callback_url: 'http://example.com/oauth'
-              scopes:
-                - basic_account_info
-                - request_signature
-              secret: 98891a1b59f312d04cd88e4e0c498d75
-            owner_account:
-              account_id: dc5deeb9e10b044c591ef2475aafad1d1d3bd888
-              email_address: john@example.com
-          -
-            callback_url: null
-            client_id: bff6d867fafcca27554cf89b1ca98793
-            created_at: 1433458421
-            domain: example.com
-            is_approved: false
-            name: 'My Other App'
-            oauth: null
-            owner_account:
-              account_id: dc5deeb9e10b044c591ef2475aafad1d1d3bd888
-              email_address: john@example.com
-        list_info:
-          num_pages: 1
-          num_results: 2
-          page: 1
-          page_size: 20
+        $ref: examples/json/ApiAppListResponseExample.json
     ApiAppUpdateResponseExample:
       summary: 'API App Update'
       value:
-        api_app:
-          callback_url: 'http://example.com/hellosign'
-          client_id: 0dd3b823a682527788c4e40cb7b6f7e9
-          created_at: 1436232339
-          domain: example.com
-          is_approved: false
-          name: 'New Name'
-          oauth:
-            callback_url: 'http://example.com/oauth'
-            scopes:
-              - basic_account_info
-              - request_signature
-            secret: 98891a1b59f312d04cd88e4e0c498d75
-          owner_account:
-            account_id: dc5deeb9e10b044c591ef2475aafad1d1d3bd888
-            email_address: john@example.com
-          white_labeling_options:
-            primary_button_color: '#00b3e6'
-            primary_button_text_color: '#ffffff'
+        $ref: examples/json/ApiAppUpdateResponseExample.json
     BulkSendJobGetResponseExample:
       summary: 'Bulk Send Job'
       value:
-        bulk_send_job:
-          bulk_send_job_id: 6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174
-          total: 1
-          is_creator: true
-          created_at: 1532640962
-        list_info:
-          page: 1
-          num_pages: 1
-          num_results: 1
-          page_size: 20
-        signature_requests:
-          -
-            signature_request_id: fa5c8a0b0f492d768749333ad6fcc214c111e967
-            title: 'Purchase Agreement'
-            subject: 'Purchase Agreement'
-            message: 'Please sign and return.'
-            is_complete: true
-            is_declined: false
-            has_error: false
-            custom_fields: []
-            response_data:
-              -
-                api_id: 80c678_1
-                name: 'Needs Express Shipping'
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                value: true
-                type: checkbox
-              -
-                api_id: 80c678_2
-                name: 'Shipping Address'
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                value: '1212 Park Avenue'
-                type: text
-              -
-                api_id: 80c678_3
-                name: DateSigned
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                value: 09/01/2012
-                type: text
-            signing_url: null
-            signing_redirect_url: null
-            details_url: 'https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967'
-            requester_email_address: me@hellosign.com
-            signatures:
-              -
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                signer_email_address: john@example.com
-                signer_name: 'John Doe'
-                signer_role: null
-                order: null
-                status_code: signed
-                signed_at: 1346521550
-                last_viewed_at: 1346521483
-                last_reminded_at: null
-                has_pin: false
-            cc_email_addresses: []
-            bulk_send_job_id: 6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174
+        $ref: examples/json/BulkSendJobGetResponseExample.json
     BulkSendJobListResponseExample:
       summary: 'Bulk Send Job List'
       value:
-        list_info:
-          page: 1
-          num_pages: 1
-          num_results: 2
-          page_size: 20
-        bulk_send_jobs:
-          -
-            bulk_send_job_id: fef03f144d9384737a98ff2ca6c1fd9d7bc2239a
-            total: 250
-            is_creator: false
-            created_at: 1532740871
-          -
-            bulk_send_job_id: 6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174
-            total: 1
-            is_creator: true
-            created_at: 1532640962
+        $ref: examples/json/BulkSendJobListResponseExample.json
     EmbeddedEditUrlResponseExample:
       summary: 'Embedded Edit URL'
       value:
-        embedded:
-          edit_url: 'https://app.hellosign.com/editor/embeddedTemplate?token=70ca8e5779c9a931125db09f3170efc1&amp;root_snapshot_guids[]=a97ce534aec6cbe09e70cdd55112e31bd320ed00&amp;edited_template_guid=61a832ff0d8423f91d503e76bfbcc750f7417c78&amp;guid=56ecaf0659aa29215d2ee489c0c88ff8c9496099&amp;force_signer_input=1'
-          expires_at: 1634313821
+        $ref: examples/json/EmbeddedEditUrlResponseExample.json
     EmbeddedSignUrlResponseExample:
       summary: 'Embedded Sign URL'
       value:
-        embedded:
-          sign_url: 'https://app.hellosign.com/editor/embeddedSign?signature_id=50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b&amp;token=b6b8e7deaf8f0b95c029dca049356d4a2cf9710a'
-          expires_at: 1634313821
+        $ref: examples/json/EmbeddedSignUrlResponseExample.json
     ErrorResponseExample:
       summary: 'Error Response Example'
       value:
-        error_msg: 'This value should not be blank'
-        error_path: 'cc_email_addresses[0]'
-        error_name: bad_request
+        $ref: examples/json/ErrorResponseExample.json
     EventCallbackAccountRequestExample:
       summary: 'Event Callback Account Example'
       value:
-        json:
-          account_guid: 63522885f9261e2b04eea043933ee7313eb674fd
-          client_id: null
-          event:
-            event_time: '1348177752'
-            event_type: account_confirmed
-            event_hash: 3a31324d1919d7cdc849ff407adf38fc01e01107d9400b028ff8c892469ca947
-            event_metadata:
-              related_signature_id: ad4d8a769b555fa5ef38691465d426682bf2c992
-              reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
-              reported_for_app_id: null
-          account:
-            account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-            email_address: me@hellosign.com
-            is_locked: false
-            is_paid_hs: true
-            is_paid_hf: false
-            quotas:
-              api_signature_requests_left: 1250
-              documents_left: null
-              templates_left: null
-            callback_url: null
-            role_code: null
+        $ref: examples/json/EventCallbackAccountRequestExample.json
     EventCallbackSignatureRequestExample:
       summary: 'Event Callback Signature Request Example'
       value:
-        json:
-          account_guid: 63522885f9261e2b04eea043933ee7313eb674fd
-          client_id: null
-          event:
-            event_time: '1348177752'
-            event_type: signature_request_sent
-            event_hash: 3a31324d1919d7cdc849ff407adf38fc01e01107d9400b028ff8c892469ca947
-            event_metadata:
-              related_signature_id: ad4d8a769b555fa5ef38691465d426682bf2c992
-              reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
-              reported_for_app_id: null
-          signature_request:
-            signature_request_id: fa5c8a0b0f492d768749333ad6fcc214c111e967
-            title: 'Purchase Agreement'
-            original_title: 'Purchase Agreement'
-            subject: 'Purchase Agreement'
-            message: 'Please sign and return.'
-            metadata: {}
-            created_at: 1570471067
-            is_complete: true
-            is_declined: false
-            has_error: false
-            custom_fields: []
-            response_data:
-              -
-                api_id: 80c678_1
-                name: 'Needs Express Shipping'
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                value: true
-                type: checkbox
-              -
-                api_id: 80c678_2
-                name: 'Shipping Address'
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                value: '1212 Park Avenue'
-                type: text
-              -
-                api_id: 80c678_3
-                name: DateSigned
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                value: 09/01/2012
-                type: text
-            signing_url: null
-            signing_redirect_url: null
-            details_url: 'https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967'
-            requester_email_address: me@hellosign.com
-            signatures:
-              -
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                signer_email_address: john@example.com
-                signer_name: 'John Doe'
-                signer_role: null
-                order: null
-                status_code: signed
-                signed_at: 1346521550
-                last_viewed_at: 1346521483
-                last_reminded_at: null
-                has_pin: false
-                has_sms_auth: false
-            cc_email_addresses: []
+        $ref: examples/json/EventCallbackSignatureRequestExample.json
     EventCallbackTemplateRequestExample:
       summary: 'Event Callback Template Example'
       value:
-        json:
-          account_guid: 63522885f9261e2b04eea043933ee7313eb674fd
-          client_id: null
-          event:
-            event_time: '1348177752'
-            event_type: template_created
-            event_hash: 3a31324d1919d7cdc849ff407adf38fc01e01107d9400b028ff8c892469ca947
-            event_metadata:
-              related_signature_id: null
-              reported_for_account_id: 63522885f9261e2b04eea043933ee7313eb674fd
-              reported_for_app_id: null
-          template:
-            template_id: f57db65d3f933b5316d398057a36176831451a35
-            title: 'Mutual NDA'
-            message: 'Please sign this NDA as soon as possible.'
-            updated_at: 1570471067
-            is_embedded: false
-            metadata: {}
-            signer_roles:
-              -
-                name: 'Outside Vendor'
-                order: 0
-              -
-                name: 'Internal Manager'
-                order: 1
-            cc_roles:
-              -
-                name: 'Corporate Attorney'
-            documents:
-              -
-                index: 0
-                name: mutual_nda.pdf
-                field_groups:
-                  - { name: group1, rule: require_1-ormore }
-                form_fields:
-                  - { api_id: b65e03_10, name: DepartmentA, type: checkbox, x: 117, 'y': 19, width: 15, height: 15, required: false, group: group1 }
-                  - { api_id: b65e03_11, name: DepartmentB, type: checkbox, x: 118, 'y': 41, width: 15, height: 15, required: false, group: group1 }
-                  - { api_id: 0ec7a7_1, name: VendorName, type: text, x: 160, 'y': 141, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_2, name: VendorTitle, type: text, x: 160, 'y': 181, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_3, name: ManagerName, type: text, x: 160, 'y': 221, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_4, name: ManagerTitle, type: text, x: 160, 'y': 251, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_5, name: DateSigned, type: date_signed, x: 523, 'y': 28, width: 105, height: 16, required: true, group: null }
-                custom_fields:
-                  - { name: 'Effective Date', type: text }
-            accounts:
-              -
-                account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-                email_address: me@hellosign.com
+        $ref: examples/json/EventCallbackTemplateRequestExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:
-        access_token: NWNiOTMxOGFkOGVjMDhhNTAxZN2NkNjgxMjMwOWJiYTEzZTBmZGUzMjMThhMzYyMzc=
-        token_type: Bearer
-        refresh_token: hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3
-        expires_in: 86400
-        state: 900e06e2
+        $ref: examples/json/OAuthTokenGenerateResponseExample.json
     OAuthTokenRefreshResponseExample:
       summary: 'Refresh an existing OAuth token'
       value:
-        access_token: MDZhYzBlMGI1YzQ0ZjI1ZjYzYmUyNmMzZWQ5ZGNmOGYyNmQxMmMyMmQ2NmNiY2M3NW=
-        expires_in: 86400
-        refresh_token: hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3
-        token_type: Bearer
+        $ref: examples/json/OAuthTokenRefreshResponseExample.json
     ReportCreateResponseExample:
       summary: Report
       value:
-        report:
-          success: 'Your request is being processed. You will receive an email when the report is ready.'
-          start_date: 09/01/2020
-          end_date: 09/02/2020
-          report_type:
-            - user_activity
-            - document_status
+        $ref: examples/json/ReportCreateResponseExample.json
     SignatureRequestCreateEmbeddedResponseExample:
       summary: 'Create Embedded Signature Request'
       value:
-        signature_request:
-          signature_request_id: a9f4825edef25f47e7b4c14ce8100d81d1693160
-          title: 'NDA with Acme Co.'
-          original_title: 'The NDA we talked about'
-          subject: 'The NDA we talked about'
-          message: 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.'
-          metadata: {}
-          created_at: 1570471067
-          is_complete: false
-          is_declined: false
-          has_error: false
-          custom_fields: []
-          response_data: []
-          signing_url: 'https://app.hellosign.com/sign/a9f4825edef25f47e7b4c14ce8100d81d1693160'
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=a9f4825edef25f47e7b4c14ce8100d81d1693160'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              signer_email_address: jack@example.com
-              signer_name: Jack
-              signer_role: null
-              order: 0
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-            -
-              signature_id: 616629ed37f8588d28600be17ab5d6b7
-              signer_email_address: jill@example.com
-              signer_name: Jill
-              signer_role: null
-              order: 1
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses:
-            - lawyer@hellosign.com
-            - lawyer@example.com
+        $ref: examples/json/SignatureRequestCreateEmbeddedResponseExample.json
     SignatureRequestCreateEmbeddedWithTemplateResponseExample:
       summary: 'Create Embedded Signature Request With Template'
       value:
-        signature_request:
-          signature_request_id: 17d163069282df5eb63857d31ff4a3bffa9e46c0
-          title: 'Purchase Order'
-          original_title: 'Purchase Order'
-          subject: 'Purchase Order'
-          metadata: {}
-          message: 'Glad we could come to an agreement.'
-          is_complete: false
-          is_declined: false
-          has_error: false
-          custom_fields:
-            -
-              name: Cost
-              value: '$20,000'
-              type: text
-              editor: Client
-              required: true
-          response_data: []
-          signing_url: 'https://app.hellosign.com/sign/17d163069282df5eb63857d31ff4a3bffa9e46c0'
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=17d163069282df5eb63857d31ff4a3bffa9e46c0'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              signer_email_address: george@example.com
-              signer_name: George
-              signer_role: Client
-              order: null
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses:
-            - accounting@hellosign.com
+        $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateResponseExample.json
     SignatureRequestGetResponseExample:
       summary: 'Get Signature Request'
       value:
-        signature_request:
-          signature_request_id: fa5c8a0b0f492d768749333ad6fcc214c111e967
-          title: 'Purchase Agreement'
-          original_title: 'Purchase Agreement'
-          subject: 'Purchase Agreement'
-          message: 'Please sign and return.'
-          metadata: {}
-          created_at: 1570471067
-          is_complete: true
-          is_declined: false
-          has_error: false
-          custom_fields: []
-          response_data:
-            -
-              api_id: 80c678_1
-              name: 'Needs Express Shipping'
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              value: true
-              type: checkbox
-            -
-              api_id: 80c678_2
-              name: 'Shipping Address'
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              value: '1212 Park Avenue'
-              type: text
-            -
-              api_id: 80c678_3
-              name: DateSigned
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              value: 09/01/2012
-              type: text
-          signing_url: null
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              signer_email_address: john@example.com
-              signer_name: 'John Doe'
-              signer_role: null
-              order: null
-              status_code: signed
-              signed_at: 1346521550
-              last_viewed_at: 1346521483
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses: []
+        $ref: examples/json/SignatureRequestGetResponseExample.json
     SignatureRequestFilesResponseExample:
       summary: 'Signature Requests Files'
       value:
-        file_url: 'https://s3.amazonaws.com/hellofax_uploads/super_groups/2016/03/18/9aba07a585d7e223b4f137c8981c5e5892893c00/merged-completed.pdf?AWSAccessKeyId=AKIAJWEWDFQHQMBECJZA&amp;Expires=1452868903&amp;Signature=M%2FNDS%2BQre8xjPvzm7fHf%2BjO8Zbc%3D'
-        expires_at: 1458605123
+        $ref: examples/json/SignatureRequestFilesResponseExample.json
     SignatureRequestListResponseExample:
       summary: 'List Signature Requests'
       value:
-        list_info:
-          page: 1
-          num_pages: 1
-          num_results: 2
-          page_size: 20
-        signature_requests:
-          -
-            signature_request_id: d10338cad145e1cb68afc828
-            title: FHA
-            original_title: FHA
-            subject: FHA
-            message: 'Let me know if you two have any questions.'
-            metadata: {}
-            created_at: 1570471067
-            is_complete: false
-            is_declined: false
-            has_error: false
-            custom_fields: []
-            response_data: []
-            signing_url: 'https://app.hellosign.com/sign/d10338cad145e1cb68afc828'
-            signing_redirect_url: null
-            details_url: 'https://app.hellosign.com/home/manage?guid=d10338cad145e1cb68afc828'
-            requester_email_address: me@hellosign.com
-            signatures:
-              -
-                signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-                signer_email_address: george-jetson@example.com
-                signer_name: 'George Jetson'
-                signer_role: null
-                order: 0
-                status_code: awaiting_signature
-                signed_at: null
-                last_viewed_at: null
-                last_reminded_at: null
-                has_pin: false
-                has_sms_auth: false
-              -
-                signature_id: 616629ed37f8588d28600be17ab5d6b7
-                signer_email_address: jane-jetson@example.com
-                signer_name: 'Jane Jetson'
-                signer_role: null
-                order: 1
-                status_code: awaiting_signature
-                signed_at: null
-                last_viewed_at: null
-                last_reminded_at: null
-                has_pin: false
-                has_sms_auth: false
-            cc_email_addresses:
-              - stan@example.com
-          -
-            signature_request_id: fa5c8a0b0f492d768749333a
-            title: 'Purchase Agreement'
-            original_title: 'Purchase Agreement'
-            subject: 'Purchase Agreement'
-            message: 'Please sign and return.'
-            metadata: {}
-            is_complete: true
-            is_declined: false
-            has_error: false
-            custom_fields: []
-            response_data:
-              -
-                api_id: uniqueIdHere_1
-                name: 'Needs Express Shipping'
-                signature_id: 5687fb7bd5aaacb1689728762b600c74
-                value: true
-                type: checkbox
-              -
-                api_id: uniqueIdHere_2
-                name: 'Shipping Address'
-                signature_id: 5687fb7bd5aaacb1689728762b600c74
-                value: '1212 Park Avenue'
-                type: text
-              -
-                api_id: uniqueIdHere_3
-                name: DateSigned
-                signature_id: 5687fb7bd5aaacb1689728762b600c74
-                value: 09/01/2012
-                type: date_signed
-            signing_url: null
-            signing_redirect_url: null
-            details_url: 'https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333a'
-            requester_email_address: me@hellosign.com
-            signatures:
-              -
-                signature_id: 5687fb7bd5aaacb1689728762b600c74
-                signer_email_address: john@example.com
-                signer_name: 'John Doe'
-                signer_role: null
-                order: null
-                status_code: signed
-                signed_at: 1346521550
-                last_viewed_at: 1346521483
-                last_reminded_at: null
-            cc_email_addresses: []
+        $ref: examples/json/SignatureRequestListResponseExample.json
     SignatureRequestReleaseHoldResponseExample:
       summary: 'Send Signature Release Hold'
       value:
-        signature_request:
-          signature_request_id: fa5c8a0b0f492d768749333ad6fcc214c111e967
-          title: ok
-          subject: ok
-          message: null
-          is_complete: false
-          is_declined: false
-          has_error: false
-          custom_fields: []
-          response_data: []
-          signing_url: 'https://app.hellosign.com/sign/fa5c8a0b0f492d768749333ad6fcc214c111e967'
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 5687fb7bd5aaacb1689728762b600c74
-              signer_email_address: john@example.com
-              signer_name: 'John Doe'
-              order: 0
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: 1346616433
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses: []
+        $ref: examples/json/SignatureRequestReleaseHoldResponseExample.json
     SignatureRequestRemindResponseExample:
       summary: 'Send Signature Request Reminder'
       value:
-        signature_request:
-          signature_request_id: 2f9781e1a8e2045224d808c153c2e1d3df6f8f2f
-          title: ok
-          original_title: ok
-          subject: ok
-          metadata: {}
-          message: null
-          created_at: 1570471067
-          is_complete: false
-          is_declined: false
-          has_error: false
-          custom_fields: []
-          response_data: []
-          signing_url: 'https://app.hellosign.com/sign/2f9781e1a8e2045224d808c153c2e1d3df6f8f2f'
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=2f9781e1a8e2045224d808c153c2e1d3df6f8f2f'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 5687fb7bd5aaacb1689728762b600c74
-              signer_email_address: john@example.com
-              signer_name: 'John Doe'
-              order: 0
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: 1346616433
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses: []
+        $ref: examples/json/SignatureRequestRemindResponseExample.json
     SignatureRequestSendResponseExample:
       summary: 'Send Signature Request'
       value:
-        signature_request:
-          signature_request_id: 2b388914e3ae3b738bd4e2ee2850c677e6dc53d2
-          title: 'NDA with Acme Co.'
-          original_title: 'The NDA we talked about'
-          subject: 'The NDA we talked about'
-          message: 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.'
-          test_mode: true
-          metadata:
-            custom_id: '1234'
-            custom_text: 'NDA #9'
-          created_at: 1570471067
-          is_complete: false
-          is_declined: false
-          has_error: false
-          custom_fields: []
-          response_data: []
-          signing_url: 'https://app.hellosign.com/sign/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2'
-          signing_redirect_url: null
-          final_copy_uri: /v3/signature_request/final_copy/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2
-          files_url: 'https://api.hellosign.com/v3/signature_request/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2'
-          details_url: 'https://app.hellosign.com/home/manage?guid=2b388914e3ae3b738bd4e2ee2850c677e6dc53d2'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              signer_email_address: jack@example.com
-              signer_name: Jack
-              signer_role: null
-              order: 0
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-            -
-              signature_id: 616629ed37f8588d28600be17ab5d6b7
-              signer_email_address: jill@example.com
-              signer_name: Jill
-              signer_role: null
-              order: 1
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses:
-            - lawyer1@hellosign.com
-            - lawyer2@example.com
+        $ref: examples/json/SignatureRequestSendResponseExample.json
     SignatureRequestSendWithTemplateResponseExample:
       summary: 'Send Signature Request With Template'
       value:
-        signature_request:
-          signature_request_id: 17d163069282df5eb63857d31ff4a3bffa9e46c0
-          title: 'Purchase Order'
-          original_title: 'Purchase Order'
-          subject: 'Purchase Order'
-          metadata: {}
-          message: 'Glad we could come to an agreement.'
-          created_at: 1570471067
-          is_complete: false
-          is_declined: false
-          has_error: false
-          custom_fields:
-            -
-              name: Cost
-              value: '$20,000'
-              type: text
-              editor: Client
-              required: true
-          response_data: []
-          signing_url: 'https://app.hellosign.com/sign/17d163069282df5eb63857d31ff4a3bffa9e46c0'
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=17d163069282df5eb63857d31ff4a3bffa9e46c0'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 10ab1cd037d9b6cba7975d61ff428c8d
-              signer_email_address: george@example.com
-              signer_name: George
-              signer_role: Client
-              order: null
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses:
-            - accounting@hellosign.com
+        $ref: examples/json/SignatureRequestSendWithTemplateResponseExample.json
     SignatureRequestUpdateResponseExample:
       summary: 'Signature Request Update'
       value:
-        signature_request:
-          signature_request_id: fa5c8a0b0f492d768749333ad6fcc214c111e967
-          title: 'Purchase Agreement'
-          subject: 'Purchase Agreement'
-          message: 'Please sign and return.'
-          created_at: 1570471067
-          is_complete: true
-          has_error: false
-          custom_fields: []
-          signing_url: null
-          signing_redirect_url: null
-          details_url: 'https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967'
-          requester_email_address: me@hellosign.com
-          signatures:
-            -
-              signature_id: 78caf2a1d01cd39cea2bc1cbb340dac3
-              signer_email_address: danaerys@mereen.gov.ws
-              signer_name: 'Danaerys Stormborn'
-              signer_role: null
-              order: null
-              status_code: awaiting_signature
-              signed_at: null
-              last_viewed_at: null
-              last_reminded_at: null
-              has_pin: false
-              has_sms_auth: false
-          cc_email_addresses: []
+        $ref: examples/json/SignatureRequestUpdateResponseExample.json
     SignatureRequestBulkSendWithTemplateResponseExample:
       summary: 'Send Signature Request With Template'
       value:
-        bulk_send_job:
-          bulk_send_job_id: 4bce667844dc3711d05e7aa4a1b5a6b64b738b2b
-          total: 1
-          is_creator: true
-          created_at: 1532640962
+        $ref: examples/json/SignatureRequestBulkSendWithTemplateResponseExample.json
     SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample:
       summary: 'Bulk Send Create Embedded Signature Request With Template'
       value:
-        bulk_send_job:
-          bulk_send_job_id: ccaf88244ef006b6e31ebba5ed4cb53b3131d9ac
-          total: 3
-          is_creator: true
-          created_at: 1543556038
+        $ref: examples/json/SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample.json
     TeamAddMemberResponseExample:
       summary: 'Team Add Member'
       value:
-        team:
-          name: 'New Team Name'
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
-              is_locked: false
-              is_paid_hs: true
-              is_paid_hf: false
-              quotas:
-                templates_left: null
-                documents_left: null
-                api_signature_requests_left: 1250
-              role_code: a
-          invited_accounts:
-            -
-              account_id: 8e239b5a50eac117fdd9a0e2359620aa57cb2463
-              email_address: george@hellofax.com
-              is_locked: false
-              is_paid_hs: false
-              is_paid_hf: false
-              quotas:
-                templates_left: 0
-                documents_left: 3
-                api_signature_requests_left: 0
+        $ref: examples/json/TeamAddMemberResponseExample.json
     TeamCreateResponseExample:
       summary: 'Team Create'
       value:
-        team:
-          name: 'New Team Name'
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
-              is_locked: false
-              is_paid_hs: true
-              is_paid_hf: false
-              quotas:
-                templates_left: null
-                documents_left: null
-                api_signature_requests_left: 1250
-              role_code: a
-          invited_accounts: []
+        $ref: examples/json/TeamCreateResponseExample.json
     TeamGetResponseExample:
       summary: 'Team Get'
       value:
-        team:
-          name: 'Team HelloSign'
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
-              is_locked: false
-              is_paid_hs: true
-              is_paid_hf: false
-              quotas:
-                templates_left: null
-                documents_left: null
-                api_signature_requests_left: 1250
-              role_code: a
-            -
-              account_id: d3d3d7b98d80b67d07740df7cdfd1f49fa8e2b82
-              email_address: teammate@hellosign.com
-              is_locked: false
-              is_paid_hs: true
-              is_paid_hf: false
-              quotas:
-                templates_left: null
-                documents_left: null
-                api_signature_requests_left: 1250
-              role_code: m
-          invited_accounts: []
+        $ref: examples/json/TeamGetResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:
-        team:
-          name: 'Team HelloSign'
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
-              is_locked: false
-              is_paid_hs: true
-              is_paid_hf: false
-              quotas:
-                templates_left: null
-                documents_left: null
-                api_signature_requests_left: 1250
-              role_code: a
-          invited_accounts: []
+        $ref: examples/json/TeamRemoveMemberResponseExample.json
     TeamUpdateResponseExample:
       summary: 'Team Update'
       value:
-        team:
-          name: 'New Team Name'
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
-              is_locked: false
-              is_paid_hs: true
-              is_paid_hf: false
-              quotas:
-                templates_left: null
-                documents_left: null
-                api_signature_requests_left: 1250
-              role_code: a
-          invited_accounts: []
+        $ref: examples/json/TeamUpdateResponseExample.json
     TeamDoesNotExistResponseExample:
       summary: 'Team Does Not Exist'
       value:
-        error:
-          error_msg: 'Team does not exist'
-          error_name: not_found
+        $ref: examples/json/TeamDoesNotExistResponseExample.json
     TemplateAddUserResponseExample:
       summary: 'Add User to Template'
       value:
-        template:
-          template_id: 21f920ec2b7f4b6bb64d3ed79f26303843046536
-          title: 'Mutual NDA'
-          message: 'Please sign this NDA as soon as possible.'
-          updated_at: 1570471067
-          is_embedded: false
-          metadata: {}
-          signer_roles:
-            -
-              name: 'Outside Vendor'
-              order: 0
-            -
-              name: 'Internal Manager'
-              order: 1
-          cc_roles:
-            -
-              name: 'Corporate Attorney'
-          documents:
-            -
-              index: 0
-              name: mutual_nda.pdf
-              field_groups: []
-              form_fields:
-                -
-                  api_id: 0ec7a7_1
-                  name: VendorName
-                  type: text
-                  x: 160
-                  'y': 141
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_2
-                  name: VendorTitle
-                  type: text
-                  x: 160
-                  'y': 181
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_3
-                  name: ManagerName
-                  type: text
-                  x: 160
-                  'y': 221
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_4
-                  name: ManagerTitle
-                  type: text
-                  x: 160
-                  'y': 251
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_5
-                  name: DateSigned
-                  type: date_signed
-                  x: 523
-                  'y': 28
-                  width: 105
-                  height: 16
-                  required: true
-                  group: null
-              custom_fields:
-                -
-                  name: 'Effective Date'
-                  type: text
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
-            -
-              account_id: ''
-              email_address: teammate@hellosign.com
+        $ref: examples/json/TemplateAddUserResponseExample.json
     TemplateCreateEmbeddedDraftResponseExample:
       summary: 'Create Embedded Draft Template'
       value:
-        template:
-          template_id: 61a832ff0d8423f91d503e76bfbcc750f7417c78
-          edit_url: 'https://app.hellosign.com/editor/embeddedTemplate?token=8d80ead273a0405d6844005a20beb99b&amp;root_snapshot_guids%5B0%5D=74cc144a76afa5bdca3378278e9a6ac3c2947c92&amp;snapshot_access_guids%5B0%5D=9ceac764&amp;guid=61a832ff0d8423f91d503e76bfbcc750f7417c78'
-          expires_at: 1427306768
+        $ref: examples/json/TemplateCreateEmbeddedDraftResponseExample.json
     TemplateFilesResponseExample:
       summary: 'Template Files'
       value:
-        file_url: 'https://s3.amazonaws.com/hellofax_uploads/super_groups/2016/03/18/9aba07a585d7e223b4f137c8981c5e5892893c00/merged-completed.pdf?AWSAccessKeyId=AKIAJWEWDFQHQMBECJZA&amp;Expires=1452868903&amp;Signature=M%2FNDS%2BQre8xjPvzm7fHf%2BjO8Zbc%3D'
-        expires_at: 1458605123
+        $ref: examples/json/TemplateFilesResponseExample.json
     TemplateGetResponseExample:
       summary: 'Get Template'
       value:
-        template:
-          template_id: f57db65d3f933b5316d398057a36176831451a35
-          title: 'Mutual NDA'
-          message: 'Please sign this NDA as soon as possible.'
-          updated_at: 1570471067
-          is_embedded: false
-          metadata: {}
-          signer_roles:
-            -
-              name: 'Outside Vendor'
-              order: 0
-            -
-              name: 'Internal Manager'
-              order: 1
-          cc_roles:
-            -
-              name: 'Corporate Attorney'
-          documents:
-            -
-              index: 0
-              name: mutual_nda.pdf
-              field_groups:
-                -
-                  name: group1
-                  rule: require_1-ormore
-              form_fields:
-                -
-                  api_id: b65e03_10
-                  name: DepartmentA
-                  type: checkbox
-                  x: 117
-                  'y': 19
-                  width: 15
-                  height: 15
-                  required: false
-                  group: group1
-                -
-                  api_id: b65e03_11
-                  name: DepartmentB
-                  type: checkbox
-                  x: 118
-                  'y': 41
-                  width: 15
-                  height: 15
-                  required: false
-                  group: group1
-                -
-                  api_id: 0ec7a7_1
-                  name: VendorName
-                  type: text
-                  x: 160
-                  'y': 141
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_2
-                  name: VendorTitle
-                  type: text
-                  x: 160
-                  'y': 181
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_3
-                  name: ManagerName
-                  type: text
-                  x: 160
-                  'y': 221
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_4
-                  name: ManagerTitle
-                  type: text
-                  x: 160
-                  'y': 251
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_5
-                  name: DateSigned
-                  type: date_signed
-                  x: 523
-                  'y': 28
-                  width: 105
-                  height: 16
-                  required: true
-                  group: null
-              custom_fields:
-                -
-                  name: 'Effective Date'
-                  type: text
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
+        $ref: examples/json/TemplateGetResponseExample.json
     TemplateListResponseExample:
       summary: 'List Templates'
       value:
-        list_info:
-          page: 1
-          num_pages: 1
-          num_results: 2
-          page_size: 20
-        templates:
-          -
-            template_id: c26b8a16784a872da37ea946b9ddec7c1e11dff6
-            title: 'Purchase order'
-            message: ''
-            updated_at: 1570471067
-            is_embedded: false
-            metadata: {}
-            signer_roles:
-              -
-                name: Client
-            cc_roles:
-              -
-                name: Accounting
-            documents:
-              -
-                index: 0
-                name: purchase_order.pdf
-                field_groups: []
-                form_fields: []
-                custom_fields:
-                  - { name: Cost, type: text }
-            accounts:
-              -
-                account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-                email_address: me@hellosign.com
-          -
-            template_id: 21f920ec2b7f4b6bb64d3ed79f26303843046536
-            title: 'Mutual NDA'
-            message: 'Please sign this NDA as soon as possible.'
-            updated_at: 1329478947
-            is_embedded: false
-            metadata: {}
-            signer_roles:
-              -
-                name: 'Outside Vendor'
-                order: 0
-              -
-                name: 'Internal Manager'
-                order: 1
-            cc_roles:
-              -
-                name: 'Corporate Attorney'
-            documents:
-              -
-                index: 0
-                name: mutual_nda.pdf
-                field_groups: []
-                form_fields:
-                  - { api_id: 0ec7a7_1, name: VendorName, type: text, x: 160, 'y': 141, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_2, name: VendorTitle, type: text, x: 160, 'y': 181, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_3, name: ManagerName, type: text, x: 160, 'y': 221, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_4, name: ManagerTitle, type: text, x: 160, 'y': 251, width: 80, height: 30, required: true, group: null }
-                  - { api_id: 0ec7a7_5, name: DateSigned, type: date_signed, x: 523, 'y': 28, width: 105, height: 16, required: true, group: null }
-                custom_fields:
-                  - { name: 'Effective Date', type: text }
-            accounts:
-              -
-                account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-                email_address: me@hellosign.com
+        $ref: examples/json/TemplateListResponseExample.json
     TemplateRemoveUserResponseExample:
       summary: 'Remove User from Template'
       value:
-        template:
-          template_id: 21f920ec2b7f4b6bb64d3ed79f26303843046536
-          title: 'Mutual NDA'
-          message: 'Please sign this NDA as soon as possible.'
-          updated_at: 1570471067
-          is_embedded: false
-          metadata: {}
-          signer_roles:
-            -
-              name: 'Outside Vendor'
-              order: 0
-            -
-              name: 'Internal Manager'
-              order: 1
-          cc_roles:
-            -
-              name: 'Corporate Attorney'
-          documents:
-            -
-              index: 0
-              name: mutual_nda.pdf
-              field_groups: []
-              form_fields:
-                -
-                  api_id: 0ec7a7_1
-                  name: VendorName
-                  type: text
-                  x: 160
-                  'y': 141
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_2
-                  name: VendorTitle
-                  type: text
-                  x: 160
-                  'y': 181
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_3
-                  name: ManagerName
-                  type: text
-                  x: 160
-                  'y': 221
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_4
-                  name: ManagerTitle
-                  type: text
-                  x: 160
-                  'y': 251
-                  width: 80
-                  height: 30
-                  required: true
-                  group: null
-                -
-                  api_id: 0ec7a7_5
-                  name: DateSigned
-                  type: date_signed
-                  x: 523
-                  'y': 28
-                  width: 105
-                  height: 16
-                  required: true
-                  group: null
-              custom_fields:
-                -
-                  name: 'Effective Date'
-                  type: text
-          accounts:
-            -
-              account_id: 5008b25c7f67153e57d5a357b1687968068fb465
-              email_address: me@hellosign.com
+        $ref: examples/json/TemplateRemoveUserResponseExample.json
     TemplateUpdateFilesResponseExample:
       summary: 'Update Template Files'
       value:
-        template:
-          template_id: f57db65d3f933122019888057a36176831451a35
+        $ref: examples/json/TemplateUpdateFilesResponseExample.json
     UnclaimedDraftCreateResponseExample:
       summary: 'Unclaimed Draft Create'
       value:
-        unclaimed_draft:
-          claim_url: 'https://app.hellosign.com/send/resendDocs?root_snapshot_guids[]=7f967b7d06e154394eab693febedf61e8ebe49eb&amp;snapshot_access_guids[]=fb848631&amp;root_snapshot_guids[]=7aedaf31e12edf9f2672a0b2ddf028aca670e101&amp;snapshot_access_guids[]=f398ef87'
-          signing_redirect_url: null
-          expires_at: 1414093891
-          test_mode: true
+        $ref: examples/json/UnclaimedDraftCreateResponseExample.json
     UnclaimedDraftCreateEmbeddedResponseExample:
       summary: 'Unclaimed Draft Create Embedded'
       value:
-        unclaimed_draft:
-          claim_url: 'https://embedded.hellosign.com/prep-and-send/embedded-request?cached_params_token=30c4d8df776038c2fa5f7094c3718937'
-          signing_redirect_url: null
-          expires_at: 1414093891
-          test_mode: true
-          signature_request_id: 340e9843ac552b5170ee9c374d67e312f53ca129
-          requesting_redirect_url: null
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedResponseExample.json
     UnclaimedDraftCreateEmbeddedWithTemplateResponseExample:
       summary: 'Unclaimed Draft Create Embedded With Template'
       value:
-        unclaimed_draft:
-          claim_url: 'https://embedded.hellosign.com/prep-and-send/embedded-request?cached_params_token=30c4d8df776038c2fa5f7094c3718937'
-          signature_request_id: 8e55b3880c62497791dda0f3b4181cfd95f7ddb4
-          signing_redirect_url: null
-          requesting_redirect_url: null
-          test_mode: true
+        $ref: examples/json/UnclaimedDraftCreateEmbeddedWithTemplateResponseExample.json
     UnclaimedDraftEditAndResendExample:
       summary: 'Unclaimed Draft Edit and Resend'
       value:
-        unclaimed_draft:
-          claim_url: 'https://embedded.hellosign.com/prep-and-send/embedded-request?cached_params_token=30c4d8df776038c2fa5f7094c3718937'
-          signature_request_id: 8e55b3880c62497791dda0f3b4181cfd95f7ddb4
-          signing_redirect_url: null
-          requesting_redirect_url: null
-          test_mode: true
-          expires_at: 1414093891
+        $ref: examples/json/UnclaimedDraftEditAndResendExample.json
   requestBodies:
     EventCallbackAccountRequest:
       description: 'Account Callback Payloads'
@@ -9639,27 +7456,12 @@ tags:
     description: 'Contains information about an API App'
   -
     name: OAuth
-    description: 'OAuth 2.0'
+    description:
+      $ref: 'OAuth 2.0'
   -
     name: 'Callbacks and Events'
     description:
       $ref: ./markdown/sidebar-sections/callbacks-ref-docs.md
-  -
-    name: 'Warnings and Errors'
-    description:
-      $ref: ./markdown/sidebar-sections/warnings-and-errors-ref-docs.md
-  -
-    name: Constants
-    description:
-      $ref: ./markdown/sidebar-sections/constants-ref-docs.md
-  -
-    name: Search
-    description:
-      $ref: ./markdown/sidebar-sections/search-ref-docs.md
-  -
-    name: 'White Labeling'
-    description:
-      $ref: ./markdown/sidebar-sections/white-labeling-ref-docs.md
 externalDocs:
   description: 'HelloSign API Reference'
   url: 'https://app.hellosign.com/api/reference'
