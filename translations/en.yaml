@@ -328,14 +328,14 @@
 "SignatureRequestList::DESCRIPTION": |-
   Returns a list of SignatureRequests that you can access. This includes SignatureRequests you have sent as well as received, but not ones that you have been CCed on.
 
-  Take a look at our [search guide](https://app.hellosign.com/api/reference#Search) to learn more about querying signature requests.
+  Take a look at our [search guide](/api/reference/search/) to learn more about querying signature requests.
 "SignatureRequestList::ACCOUNT_ID": Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.
 "SignatureRequestList::PAGE": Which page number of the SignatureRequest List to return. Defaults to `1`.
 "SignatureRequestList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
 "SignatureRequestList::QUERY": String that includes search terms and/or fields to be used to filter the SignatureRequest objects.
 
 "SignatureRequestReleaseHold::SUMMARY": Release On-Hold Signature Request
-"SignatureRequestReleaseHold::DESCRIPTION": Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](https://app.hellosign.com/api/reference#UnclaimedDraft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.
+"SignatureRequestReleaseHold::DESCRIPTION": Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.
 "SignatureRequestReleaseHold::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to release.
 
 "SignatureRequestRemind::SUMMARY": Send Request Reminder
@@ -528,7 +528,7 @@
 "TemplateList::DESCRIPTION": |-
   Returns a list of the Templates that are accessible by you.
 
-  Take a look at our [search guide](https://app.hellosign.com/api/reference#Search) to learn more about querying templates.
+  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
 "TemplateList::ACCOUNT_ID": Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.
 "TemplateList::PAGE": Which page number of the Template List to return. Defaults to `1`.
 "TemplateList::PAGE_SIZE": "`Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
@@ -625,7 +625,7 @@
 
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
 "UnclaimedDraftCreateEmbedded::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
-"UnclaimedDraftCreateEmbedded::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](https://app.hellosign.com/api/reference#release_on-hold_signature_request) the request from hold when ready to send. Defaults to `false`.
+"UnclaimedDraftCreateEmbedded::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
 "UnclaimedDraftCreateEmbedded::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbedded::MESSAGE": The custom message in the email that will be sent to the signers.
 "UnclaimedDraftCreateEmbedded::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.
@@ -669,7 +669,7 @@
   Use `file_url[]` to have HelloSign download the file(s).
 
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
-"UnclaimedDraftCreateEmbeddedWithTemplate::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](https://app.hellosign.com/api/reference#release_on-hold_signature_request) the request from hold when ready to send. Defaults to `false`.
+"UnclaimedDraftCreateEmbeddedWithTemplate::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "UnclaimedDraftCreateEmbeddedWithTemplate::PREVIEW_ONLY": |-
@@ -744,7 +744,7 @@
 
 "Sub::FieldOptions::DESCRIPTION": This allows the requester to specify field options for a signature request.
 "Sub::FieldOptions::DATE_FORMAT": |-
-  Allows requester to specify the date format (see list of allowed [formats](https://app.hellosign.com/api/reference#DateFormats))
+  Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))
 
   **Note**: Only available for Premium and higher.
 
@@ -754,8 +754,8 @@
 "Sub::FormFieldGroup::REQUIREMENT": |-
   Examples: `require_0-1` `require_1` `require_1-ormore`
 
-  - Check out the list of [acceptable `requirement` checkbox type values](https://app.hellosign.com/api/reference#CheckboxFieldGrouping).
-  - Check out the list of [acceptable `requirement` radio type fields](https://app.hellosign.com/api/reference#RadioFieldGrouping).
+  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping).
+  - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping).
   - Radio groups require **at least** two fields per group.
 
 "Sub::FormFieldRule::DESCRIPTION": Conditional Logic rules for fields defined in `form_fields_per_document`.
@@ -825,7 +825,7 @@
 "Sub::FormFieldsPerDocument::DESCRIPTION": |-
   The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
 
-  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](https://app.hellosign.com/api/reference#FormFieldsPerDocument) for these field types.
+  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
   * Text Field use `SubFormFieldsPerDocumentText`
   * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -839,7 +839,7 @@
   * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
 "Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS": This class extends `SubFormFieldsPerDocumentBase`.
 "Sub::FormFieldsPerDocument::API_ID": An identifier for the field that is unique across all documents in the request.
-"Sub::FormFieldsPerDocument::AUTO_FILL_TYPE": Auto fill type for populating fields automatically. Check out the list of [auto fill types](https://app.hellosign.com/api/reference#AutoFillTypes) to learn more about the possible values.
+"Sub::FormFieldsPerDocument::AUTO_FILL_TYPE": Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
 "Sub::FormFieldsPerDocument::CHECKED_CHECKBOX": "`true` for checking the checkbox field by default, otherwise `false`."
 "Sub::FormFieldsPerDocument::CHECKED_RADIO": "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
@@ -847,7 +847,7 @@
 "Sub::FormFieldsPerDocument::CONTENT_URL": Link URL.
 "Sub::FormFieldsPerDocument::GROUP": String referencing group defined in `form_field_groups` parameter.
 "Sub::FormFieldsPerDocument::HEIGHT": Size of the field in pixels.
-"Sub::FormFieldsPerDocument::MASKED": Masks entered data. For more information see [Masking sensitive information](https://app.hellosign.com/api/reference#:~:text=Masking%20sensitive%20information). `true` for masking the data in a text field, otherwise `false`.
+"Sub::FormFieldsPerDocument::MASKED": Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.
 "Sub::FormFieldsPerDocument::NAME": Display name for the field.
 "Sub::FormFieldsPerDocument::OPTIONS": Array of string values representing dropdown values.
 "Sub::FormFieldsPerDocument::PAGE": |-
@@ -858,7 +858,7 @@
 "Sub::FormFieldsPerDocument::PLACEHOLDER": Placeholder value for text field.
 "Sub::FormFieldsPerDocument::REQUIRED": Whether this field is required.
 "Sub::FormFieldsPerDocument::SIGNER": Signer index identified by the offset `%i%` in the `signers[%i%]` parameter, indicating which signer should fill out the field. If your type is `text-merge` you can set this to `sender`, so the field is non-editable by any signer.
-"Sub::FormFieldsPerDocument::TYPE": One of the [Type](https://app.hellosign.com/api/reference#FieldTypes) options.
+"Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE": A checkbox field that has default value set by the api. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
 "Sub::FormFieldsPerDocument::TYPE_DATE_SIGNED": A date. Use the `SubFormFieldsPerDocumentDateSigned` class.
@@ -936,7 +936,7 @@
 "Sub::WhiteLabelingOptions::DESCRIPTION": |-
   An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)
 
-  Take a look at our [white labeling guide](https://app.hellosign.com/api/reference#WhiteLabeling) to learn more.
+  Take a look at our [white labeling guide](/api/reference/white-labeling/) to learn more.
 
 ###################
 # Response Models #
@@ -1145,7 +1145,7 @@
 
 "TemplateResponseDocumentFieldGroup::DESCRIPTION": An array of Form Field Group objects.
 "TemplateResponseDocumentFieldGroup::NAME": The name of the form field group.
-"TemplateResponseDocumentFieldGroup::RULE": The rule used to validate checkboxes in the form field group. See [checkbox field grouping](https://app.hellosign.com/api/reference#CheckboxFieldGrouping).
+"TemplateResponseDocumentFieldGroup::RULE": The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
 
 "TemplateResponseDocumentFormField::DESCRIPTION": An array of Form Field objects containing the name and type of each named textbox and checkmark field.
 "TemplateResponseDocumentFormField::API_ID": A unique id for the form field.
@@ -1153,7 +1153,7 @@
 "TemplateResponseDocumentFormField::HEIGHT": The height in pixels of this form field.
 "TemplateResponseDocumentFormField::NAME": The name of the form field.
 "TemplateResponseDocumentFormField::REQUIRED": Boolean showing whether or not this field is required.
-"TemplateResponseDocumentFormField::TYPE": The type of this form field. See [field types](https://app.hellosign.com/api/reference#FieldTypes).
+"TemplateResponseDocumentFormField::TYPE": The type of this form field. See [field types](/api/reference/constants/#field-types).
 "TemplateResponseDocumentFormField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
