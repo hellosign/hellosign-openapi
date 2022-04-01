@@ -7438,7 +7438,7 @@ x-webhooks:
       summary: 'Account Callbacks'
       operationId: accountUpdateEventCallback
       description:
-        $ref: ./markdown/descriptions/account-callback-description.md
+        $ref: ./markdown/en/descriptions/account-callback-description.md
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -7450,7 +7450,7 @@ x-webhooks:
     post:
       summary: 'App Callbacks'
       description:
-        $ref: ./markdown/descriptions/api-app-callback-description.md
+        $ref: ./markdown/en/descriptions/api-app-callback-description.md
       operationId: apiAppCreateEventCallback
       tags:
         - 'Callbacks and Events'
