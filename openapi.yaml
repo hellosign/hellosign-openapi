@@ -43,7 +43,7 @@ paths:
                   $ref: '#/components/examples/AccountCreateResponseExample'
                 oauth:
                   $ref: '#/components/examples/AccountCreateOAuthResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -99,7 +99,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -164,7 +164,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -234,7 +234,7 @@ paths:
                   $ref: '#/components/examples/AccountVerifyFoundResponseExample'
                 not_found:
                   $ref: '#/components/examples/AccountVerifyNotFoundResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -305,7 +305,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -370,7 +370,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -449,7 +449,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -506,7 +506,7 @@ paths:
       responses:
         204:
           description: 'successful operation'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -577,7 +577,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ApiAppListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -642,7 +642,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -714,7 +714,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -789,7 +789,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/EmbeddedEditUrlResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -854,7 +854,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/EmbeddedSignUrlResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1044,7 +1044,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/ReportCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1115,7 +1115,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1186,7 +1186,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1256,7 +1256,7 @@ paths:
           description: 'successful operation'
           content:
             application/json: {}
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1328,7 +1328,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1399,7 +1399,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1493,7 +1493,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestFilesResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1559,7 +1559,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1647,7 +1647,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1713,7 +1713,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestReleaseHoldResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1790,7 +1790,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestRemindResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1856,7 +1856,7 @@ paths:
           description: 'successful operation'
           content:
             application/json: {}
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1924,7 +1924,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -1996,7 +1996,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2074,7 +2074,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2141,7 +2141,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamAddMemberResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2206,7 +2206,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2255,7 +2255,7 @@ paths:
       responses:
         200:
           description: 'successful operation'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2311,7 +2311,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
         404:
           description: 'not found'
@@ -2382,7 +2382,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamUpdateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2449,7 +2449,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TeamRemoveMemberResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2523,7 +2523,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateAddUserResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2600,7 +2600,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2660,7 +2660,7 @@ paths:
           description: 'successful operation'
           content:
             application/json: {}
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2753,7 +2753,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateFilesResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2818,7 +2818,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateGetResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2906,7 +2906,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateListResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -2980,7 +2980,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateRemoveUserResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3072,7 +3072,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/TemplateUpdateFilesResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3149,7 +3149,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3229,7 +3229,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3304,7 +3304,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateResponseExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
@@ -3381,7 +3381,7 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftEditAndResendExample'
-        400:
+        4XX:
           $ref: '#/components/responses/Error400Response'
       security:
         -
