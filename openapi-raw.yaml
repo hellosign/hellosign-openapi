@@ -6190,9 +6190,7 @@ components:
           description: '_t__TemplateResponseAccount::IS_PAID_HF'
           type: boolean
         quotas:
-          type: array
-          items:
-            $ref: '#/components/schemas/TemplateResponseAccountQuota'
+          $ref: '#/components/schemas/TemplateResponseAccountQuota'
       type: object
       x-internal: true
     TemplateResponseAccountQuota:
