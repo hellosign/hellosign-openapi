@@ -1,0 +1,1 @@
+An object that contains necessary information to set up embedded signing

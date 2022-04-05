@@ -1,0 +1,1 @@
+Contains information about an account and its settings
