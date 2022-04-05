@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "Unauthorized user. No credentials supplied.",
+    "error_name": "unauthorized"
+  }
+}

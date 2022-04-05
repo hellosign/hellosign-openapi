@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "Too many requests.",
+    "error_name": "exceeded_rate"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "An identical request is already being processed.",
+    "error_name": "conflict"
+  }
+}

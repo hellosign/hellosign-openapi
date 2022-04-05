@@ -1,0 +1,7 @@
+{
+  "error": {
+    "error_msg": "This value should not be blank",
+    "error_path": "cc_email_addresses[0]",
+    "error_name": "bad_request",
+  }
+}
