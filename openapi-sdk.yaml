@@ -6664,9 +6664,7 @@ components:
           description: 'Returns true if the user has a paid HelloFax account.'
           type: boolean
         quotas:
-          type: array
-          items:
-            $ref: '#/components/schemas/TemplateResponseAccountQuota'
+          $ref: '#/components/schemas/TemplateResponseAccountQuota'
       type: object
       x-internal: true
     TemplateResponseAccountQuota:
