@@ -6924,31 +6924,31 @@ security:
 tags:
   -
     name: Account
-    description: '_t__OpenApi::TAG::ACCOUNT::DESCRIPTION'
+    description: '_md__OpenApi::TAG::ACCOUNT::DESCRIPTION'
   -
     name: 'Signature Request'
-    description: '_t__OpenApi::TAG::SIGNATURE_REQUEST::DESCRIPTION'
+    description: '_md__OpenApi::TAG::SIGNATURE_REQUEST::DESCRIPTION'
   -
     name: Template
-    description: '_t__OpenApi::TAG::TEMPLATE::DESCRIPTION'
+    description: '_md__OpenApi::TAG::TEMPLATE::DESCRIPTION'
   -
     name: 'Bulk Send Job'
-    description: '_t__OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION'
+    description: '_md__OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION'
   -
     name: Report
-    description: '_t__OpenApi::TAG::REPORT::DESCRIPTION'
+    description: '_md__OpenApi::TAG::REPORT::DESCRIPTION'
   -
     name: Team
-    description: '_t__OpenApi::TAG::TEAM::DESCRIPTION'
+    description: '_md__OpenApi::TAG::TEAM::DESCRIPTION'
   -
     name: 'Unclaimed Draft'
-    description: '_t__OpenApi::TAG::UNCLAIMED_DRAFT::DESCRIPTION'
+    description: '_md__OpenApi::TAG::UNCLAIMED_DRAFT::DESCRIPTION'
   -
     name: Embedded
-    description: '_t__OpenApi::TAG::EMBEDDED::DESCRIPTION'
+    description: '_md__OpenApi::TAG::EMBEDDED::DESCRIPTION'
   -
     name: 'Api App'
-    description: '_t__OpenApi::TAG::API_APP::DESCRIPTION'
+    description: '_md__OpenApi::TAG::API_APP::DESCRIPTION'
   -
     name: OAuth
     description: '_md__OpenApi::TAG::OAUTH::DESCRIPTION'

@@ -1,0 +1,1 @@
+Contains information about bulk sent signature requests

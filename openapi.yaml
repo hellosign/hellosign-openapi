@@ -7430,31 +7430,40 @@ security:
 tags:
   -
     name: Account
-    description: 'Contains information about an account and its settings'
+    description:
+      $ref: ./markdown/en/tags/account-tag-description.md
   -
     name: 'Signature Request'
-    description: 'Contains information regarding documents that need to be signed'
+    description:
+      $ref: ./markdown/en/tags/signature-request-tag-description.md
   -
     name: Template
-    description: 'Contains information about the templates you and your team have created'
+    description:
+      $ref: ./markdown/en/tags/template-tag-description.md
   -
     name: 'Bulk Send Job'
-    description: 'Contains information about bulk sent signature requests'
+    description:
+      $ref: ./markdown/en/tags/bulk-send-job-tag-description.md
   -
     name: Report
-    description: 'Provides insights into your team''s user activity and document status'
+    description:
+      $ref: ./markdown/en/tags/report-tag-description.md
   -
     name: Team
-    description: 'Contains information about your team and its members'
+    description:
+      $ref: ./markdown/en/tags/team-tag-description.md
   -
     name: 'Unclaimed Draft'
-    description: 'A group of documents that a user can take ownership of via the claim URL'
+    description:
+      $ref: ./markdown/en/tags/unclaimed-draft-tag-description.md
   -
     name: Embedded
-    description: 'An object that contains necessary information to set up embedded signing'
+    description:
+      $ref: ./markdown/en/tags/embedded-tag-description.md
   -
     name: 'Api App'
-    description: 'Contains information about an API App'
+    description:
+      $ref: ./markdown/en/tags/api-app-tag-description.md
   -
     name: OAuth
     description:

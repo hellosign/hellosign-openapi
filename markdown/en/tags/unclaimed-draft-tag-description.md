@@ -1,0 +1,1 @@
+A group of documents that a user can take ownership of via the claim URL

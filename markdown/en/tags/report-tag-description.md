@@ -1,0 +1,1 @@
+Provides insights into your team's user activity and document status
