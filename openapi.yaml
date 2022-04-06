@@ -44,7 +44,7 @@ paths:
                 oauth:
                   $ref: '#/components/examples/AccountCreateOAuthResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -100,7 +100,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/AccountGetResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -165,7 +165,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -235,7 +235,7 @@ paths:
                 not_found:
                   $ref: '#/components/examples/AccountVerifyNotFoundResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -306,7 +306,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/ApiAppCreateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -371,7 +371,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/ApiAppGetResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -450,7 +450,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/ApiAppUpdateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -507,7 +507,7 @@ paths:
         204:
           description: 'successful operation'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -578,7 +578,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/ApiAppListResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -643,7 +643,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobGetResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -715,7 +715,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/BulkSendJobListResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -790,7 +790,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/EmbeddedEditUrlResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -855,7 +855,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/EmbeddedSignUrlResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1045,7 +1045,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/ReportCreateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1116,7 +1116,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1187,7 +1187,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1257,7 +1257,7 @@ paths:
           content:
             application/json: {}
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1329,7 +1329,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1400,7 +1400,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1494,7 +1494,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestFilesResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1560,7 +1560,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestGetResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1648,7 +1648,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestListResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1714,7 +1714,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestReleaseHoldResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1791,7 +1791,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestRemindResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1857,7 +1857,7 @@ paths:
           content:
             application/json: {}
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1924,8 +1924,18 @@ paths:
               examples:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendResponseExample'
-        4XX:
+        400:
           $ref: '#/components/responses/Error400Response'
+        401:
+          $ref: '#/components/responses/Error401Response'
+        402:
+          $ref: '#/components/responses/Error402Response'
+        409:
+          $ref: '#/components/responses/Error409Response'
+        429:
+          $ref: '#/components/responses/Error429Response'
+        4XX:
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -1997,7 +2007,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestSendWithTemplateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2075,7 +2085,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/SignatureRequestUpdateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2142,7 +2152,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TeamAddMemberResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2207,7 +2217,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TeamCreateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2256,7 +2266,7 @@ paths:
         200:
           description: 'successful operation'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2312,7 +2322,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TeamGetResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
         404:
           description: 'not found'
           content:
@@ -2383,7 +2393,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TeamUpdateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2450,7 +2460,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TeamRemoveMemberResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2524,7 +2534,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateAddUserResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2601,7 +2611,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2661,7 +2671,7 @@ paths:
           content:
             application/json: {}
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2754,7 +2764,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateFilesResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2819,7 +2829,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateGetResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2907,7 +2917,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateListResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -2981,7 +2991,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateRemoveUserResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -3073,7 +3083,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/TemplateUpdateFilesResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -3150,7 +3160,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -3230,7 +3240,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -3305,7 +3315,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateResponseExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -3382,7 +3392,7 @@ paths:
                 default_example:
                   $ref: '#/components/examples/UnclaimedDraftEditAndResendExample'
         4XX:
-          $ref: '#/components/responses/Error400Response'
+          $ref: '#/components/responses/Error4XXResponse'
       security:
         -
           api_key: []
@@ -6892,15 +6902,105 @@ components:
           type: string
       type: object
   responses:
-    Error400Response:
-      description: 'failed operation'
+    Error4XXResponse:
+      description: failed_operation
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
           examples:
-            default_example:
-              $ref: '#/components/examples/ErrorResponseExample'
+            Error4XXResponseExample:
+              summary: 'Error 4XX Family Example'
+              value:
+                $ref: examples/json/Error4XXResponseExample.json
+    Error400Response:
+      description: bad_request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error400ResponseExample:
+              summary: 'Error 400 HTTP_BAD_REQUEST Example'
+              value:
+                $ref: examples/json/Error400ResponseExample.json
+    Error401Response:
+      description: unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error401ResponseExample:
+              summary: 'Error 401 HTTP_UNAUTHORIZED Example'
+              value:
+                $ref: examples/json/Error401ResponseExample.json
+    Error402Response:
+      description: payment_required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error402ResponseExample:
+              summary: 'Error 402 HTTP_PAYMENT_REQUIRED Example'
+              value:
+                $ref: examples/json/Error402ResponseExample.json
+    Error403Response:
+      description: forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error403ResponseExample:
+              summary: 'Error 403 HTTP_FORBIDDEN Example'
+              value:
+                $ref: examples/json/Error403ResponseExample.json
+    Error404Response:
+      description: not_found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error404ResponseExample:
+              summary: 'Error 404 HTTP_NOT_FOUND Example'
+              value:
+                $ref: examples/json/Error404ResponseExample.json
+    Error409Response:
+      description: conflict
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error409ResponseExample:
+              summary: 'Error 409 HTTP_CONFLICT Example'
+              value:
+                $ref: examples/json/Error409ResponseExample.json
+    Error410Response:
+      description: deleted
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error410ResponseExample:
+              summary: 'Error 410 HTTP_GONE Example'
+              value:
+                $ref: examples/json/Error410ResponseExample.json
+    Error429Response:
+      description: exceeded_rate
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Error429ResponseExample:
+              summary: 'Error 429 HTTP_TOO_MANY_REQUESTS Example'
+              value:
+                $ref: examples/json/Error429ResponseExample.json
     EventCallbackResponse:
       description: 'successful operation'
       content:
@@ -7181,10 +7281,6 @@ components:
       summary: 'Embedded Sign URL'
       value:
         $ref: examples/json/EmbeddedSignUrlResponseExample.json
-    ErrorResponseExample:
-      summary: 'Error Response Example'
-      value:
-        $ref: examples/json/ErrorResponseExample.json
     EventCallbackAccountRequestExample:
       summary: 'Event Callback Account Example'
       value:

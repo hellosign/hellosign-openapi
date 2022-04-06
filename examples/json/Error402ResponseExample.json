@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "You must upgrade to make additional requests.",
+    "error_name": "payment_required"
+  }
+}

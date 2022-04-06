@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "A paid API plan is required to access this endpoint.",
+    "error_name": "forbidden"
+  }
+}
