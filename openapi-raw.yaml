@@ -5874,6 +5874,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseCustomField'
+        attachments:
+          nullable: true
+          type: array
+          items:
+            $ref: '#/components/schemas/SignatureRequestResponseAttachment'
         response_data:
           nullable: true
           type: array
@@ -5907,6 +5912,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    SignatureRequestResponseAttachment:
+      description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
+      required:
+        - id
+        - signer
+        - name
+        - required
+      properties:
+        id:
+          description: '_t__SignatureRequestResponseAttachment::ID'
+          type: string
+        signer:
+          description: '_t__SignatureRequestResponseAttachment::SIGNER'
+          type: string
+        name:
+          description: '_t__SignatureRequestResponseAttachment::NAME'
+          type: string
+        instructions:
+          description: '_t__SignatureRequestResponseAttachment::INSTRUCTIONS'
+          type: string
+        required:
+          description: '_t__SignatureRequestResponseAttachment::REQUIRED'
+          type: boolean
+        uploaded_at:
+          description: '_t__SignatureRequestResponseAttachment::UPLOADED_AT'
+          type: integer
       type: object
       x-internal: true
     SignatureRequestResponseCustomField:
