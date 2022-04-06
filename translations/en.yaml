@@ -1167,3 +1167,13 @@
 "UnclaimedDraft::SIGNATURE_REQUEST_ID": The ID of the signature request that is represented by this UnclaimedDraft.
 "UnclaimedDraft::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "UnclaimedDraft::TEST_MODE": Whether this is a test draft. Signature requests made from test drafts have no legal value.
+
+"Error::400": Error 400 bad_request
+"Error::401": Error 401 unauthorized
+"Error::402": Error 402 payment_required
+"Error::403": Error 403 forbidden
+"Error::404": Error 404 not_found
+"Error::409": Error 409 conflict
+"Error::410": Error 410 deleted
+"Error::429": Error 429 exceeded_rate
+"Error::4XX": Error 4XX failed_operation
