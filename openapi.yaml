@@ -8315,7 +8315,7 @@ tags:
     description:
       $ref: ./markdown/en/tags/callbacks-tag-description.md
 externalDocs:
-  description: 'HelloSign API Reference'
+  description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
 x-webhooks:
   accountCallback:

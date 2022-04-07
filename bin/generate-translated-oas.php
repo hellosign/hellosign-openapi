@@ -262,7 +262,7 @@ foreach ($results['untranslated'] as $result) {
     echo "{$result}\n";
 }
 if (empty($results['untranslated'])) {
-    echo "No unstranslated strings\n";
+    echo "No untranslated strings\n";
 }
 
 echo "\n---------------------\n";

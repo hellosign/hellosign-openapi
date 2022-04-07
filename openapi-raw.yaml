@@ -7798,7 +7798,7 @@ tags:
     name: 'Callbacks and Events'
     description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
 externalDocs:
-  description: 'HelloSign API Reference'
+  description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
 x-webhooks:
   accountCallback:

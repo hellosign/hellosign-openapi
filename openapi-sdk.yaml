@@ -8270,7 +8270,7 @@ security:
       - basic_account_info
       - request_signature
 externalDocs:
-  description: 'HelloSign API Reference'
+  description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
 x-webhooks:
   accountCallback:
