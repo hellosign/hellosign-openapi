@@ -4368,6 +4368,10 @@ components:
           description: 'This allows the requester to enable the editor/preview experience.'
           type: boolean
           default: false
+        show_progress_stepper:
+          description: 'This allows the requester to hide the editor''s progress stepper.'
+          type: boolean
+          default: true
         skip_signer_roles:
           description: |-
             If signer roles are already provided, the user will not be prompted to edit them.
@@ -6028,6 +6032,10 @@ components:
             - `show_preview=false`: Allows requesters to disable the editor/preview experience.
           type: boolean
           default: false
+        show_progress_stepper:
+          description: 'This allows the requester to hide the editor''s progress stepper.'
+          type: boolean
+          default: true
         signer_roles:
           type: array
           items:
@@ -6193,6 +6201,10 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
+        show_progress_stepper:
+          description: 'This allows the requester to hide the editor''s progress stepper.'
+          type: boolean
+          default: true
         signers:
           description: 'Add Signers to your Unclaimed Draft Signature Request.'
           type: array
@@ -6356,6 +6368,10 @@ components:
             - `show_preview=true`: Allows requesters to enable the editor/preview experience.
             - `show_preview=false`: Allows requesters to disable the editor/preview experience.
           type: boolean
+        show_progress_stepper:
+          description: 'This allows the requester to hide the editor''s progress stepper.'
+          type: boolean
+          default: true
         signers:
           description: 'Add Signers to your Unclaimed Draft Signature Request.'
           type: array
@@ -6498,6 +6514,10 @@ components:
             - `show_preview=false`: Allows requesters to disable the editor/preview experience.
           type: boolean
           default: false
+        show_progress_stepper:
+          description: 'This allows the requester to hide the editor''s progress stepper.'
+          type: boolean
+          default: true
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -6550,6 +6570,10 @@ components:
         requesting_redirect_url:
           description: 'The URL you want signers redirected to after they successfully request a signature.'
           type: string
+        show_progress_stepper:
+          description: 'This allows the requester to hide the editor''s progress stepper.'
+          type: boolean
+          default: true
         signing_redirect_url:
           description: 'The URL you want signers redirected to after they successfully sign.'
           type: string
