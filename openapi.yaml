@@ -4369,7 +4369,7 @@ components:
           type: boolean
           default: false
         show_progress_stepper:
-          description: 'This allows the requester to hide the editor''s progress stepper.'
+          description: 'Displays the steps involved when sending out a signature request if `true`.'
           type: boolean
           default: true
         skip_signer_roles:
@@ -6033,7 +6033,7 @@ components:
           type: boolean
           default: false
         show_progress_stepper:
-          description: 'This allows the requester to hide the editor''s progress stepper.'
+          description: 'Displays the steps involved when sending out a signature request if `true`.'
           type: boolean
           default: true
         signer_roles:
@@ -6202,7 +6202,7 @@ components:
           maxItems: 10
           additionalProperties: {}
         show_progress_stepper:
-          description: 'This allows the requester to hide the editor''s progress stepper.'
+          description: 'Displays the steps involved when sending out a signature request if `true`.'
           type: boolean
           default: true
         signers:
@@ -6369,7 +6369,7 @@ components:
             - `show_preview=false`: Allows requesters to disable the editor/preview experience.
           type: boolean
         show_progress_stepper:
-          description: 'This allows the requester to hide the editor''s progress stepper.'
+          description: 'Displays the steps involved when sending out a signature request if `true`.'
           type: boolean
           default: true
         signers:
@@ -6515,7 +6515,7 @@ components:
           type: boolean
           default: false
         show_progress_stepper:
-          description: 'This allows the requester to hide the editor''s progress stepper.'
+          description: 'Displays the steps involved when sending out a signature request if `true`.'
           type: boolean
           default: true
         signers:
@@ -6571,7 +6571,7 @@ components:
           description: 'The URL you want signers redirected to after they successfully request a signature.'
           type: string
         show_progress_stepper:
-          description: 'This allows the requester to hide the editor''s progress stepper.'
+          description: 'Displays the steps involved when sending out a signature request if `true`.'
           type: boolean
           default: true
         signing_redirect_url:
