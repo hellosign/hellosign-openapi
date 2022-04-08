@@ -131,7 +131,7 @@
 "EmbeddedEditUrl::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "EmbeddedEditUrl::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "EmbeddedEditUrl::PREVIEW_ONLY": |-
-  This allows the requester to enable the preview experience experience.
+  This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
 
   **Note**: This parameter overwrites `show_preview=true` (if set).
 "EmbeddedEditUrl::SHOW_PREVIEW": This allows the requester to enable the editor/preview experience.
@@ -668,7 +668,7 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "UnclaimedDraftCreateEmbeddedWithTemplate::PREVIEW_ONLY": |-
-  This allows the requester to enable the preview experience experience.
+  This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
 
   - `preview_only=true`: Allows requesters to enable the preview only experience.
   - `preview_only=false`: Allows requesters to disable the preview only experience.
