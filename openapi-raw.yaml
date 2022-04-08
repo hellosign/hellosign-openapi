@@ -4677,6 +4677,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCC'
+        client_id:
+          description: '_t__SignatureRequestBulkSendWithTemplate::CLIENT_ID'
+          type: string
         custom_fields:
           description: '_t__Sub::CustomField::DESCRIPTION'
           type: array

@@ -240,6 +240,7 @@
 "SignatureRequestBulkSendWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestBulkSendWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestBulkSendWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"SignatureRequestBulkSendWithTemplate::CLIENT_ID" : The client ID of the Api App you want to associate with this request.
 
 "SignatureRequestCancel::SUMMARY": Cancel Incomplete Signature Request
 "SignatureRequestCancel::DESCRIPTION": |-
