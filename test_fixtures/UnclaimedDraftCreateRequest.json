@@ -92,6 +92,7 @@
       "custom_id": 1234,
       "custom_text": "NDA #9"
     },
+    "show_progress_stepper": true,
     "signers": [
       {
         "email_address": "s1@example.com",

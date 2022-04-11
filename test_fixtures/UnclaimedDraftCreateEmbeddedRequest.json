@@ -123,6 +123,7 @@
       "default_type": "draw"
     },
     "signing_redirect_url": "https://example.com/redirect",
+    "show_progress_stepper": true,
     "skip_me_now": true,
     "subject": "The NDA we talked about",
     "test_mode": true,

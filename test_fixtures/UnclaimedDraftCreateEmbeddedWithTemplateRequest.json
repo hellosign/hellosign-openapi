@@ -55,6 +55,7 @@
       "phone": false,
       "default_type": "draw"
     },
+    "show_progress_stepper": true,
     "skip_me_now": true,
     "subject": "The NDA we talked about",
     "template_ids": [

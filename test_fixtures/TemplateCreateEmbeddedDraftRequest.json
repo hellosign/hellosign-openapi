@@ -99,6 +99,7 @@
       "custom_text": "NDA #9"
     },
     "show_preview": true,
+    "show_progress_stepper": true,
     "signer_roles": [
       {
         "name": "Client",
