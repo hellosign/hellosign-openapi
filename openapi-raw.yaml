@@ -4290,6 +4290,10 @@ components:
           description: '_t__EmbeddedEditUrl::SHOW_PREVIEW'
           type: boolean
           default: false
+        show_progress_stepper:
+          description: '_t__EmbeddedEditUrl::SHOW_PROGRESS_STEPPER'
+          type: boolean
+          default: true
         skip_signer_roles:
           description: '_t__EmbeddedEditUrl::SKIP_SIGNER_ROLES'
           type: boolean
@@ -5668,6 +5672,10 @@ components:
           description: '_t__TemplateCreateEmbeddedDraft::SHOW_PREVIEW'
           type: boolean
           default: false
+        show_progress_stepper:
+          description: '_t__TemplateCreateEmbeddedDraft::SHOW_PROGRESS_STEPPER'
+          type: boolean
+          default: true
         signer_roles:
           type: array
           items:
@@ -5795,6 +5803,10 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
+        show_progress_stepper:
+          description: '_t__UnclaimedDraftCreate::SHOW_PROGRESS_STEPPER'
+          type: boolean
+          default: true
         signers:
           description: '_t__Sub::UnclaimedDraftSigner::DESCRIPTION'
           type: array
@@ -5924,6 +5936,10 @@ components:
         show_preview:
           description: '_t__UnclaimedDraftCreateEmbedded::SHOW_PREVIEW'
           type: boolean
+        show_progress_stepper:
+          description: '_t__UnclaimedDraftCreateEmbedded::SHOW_PROGRESS_STEPPER'
+          type: boolean
+          default: true
         signers:
           description: '_t__Sub::UnclaimedDraftSigner::DESCRIPTION'
           type: array
@@ -6036,6 +6052,10 @@ components:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SHOW_PREVIEW'
           type: boolean
           default: false
+        show_progress_stepper:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SHOW_PROGRESS_STEPPER'
+          type: boolean
+          default: true
         signers:
           description: '_t__Sub::UnclaimedDraftTemplateSigner::DESCRIPTION'
           type: array
@@ -6088,6 +6108,10 @@ components:
         requesting_redirect_url:
           description: '_t__UnclaimedDraftEditAndResend::REQUESTING_REDIRECT_URL'
           type: string
+        show_progress_stepper:
+          description: '_t__UnclaimedDraftEditAndResend::SHOW_PROGRESS_STEPPER'
+          type: boolean
+          default: true
         signing_redirect_url:
           description: '_t__UnclaimedDraftEditAndResend::SIGNING_REDIRECT_URL'
           type: string
