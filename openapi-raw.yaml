@@ -5638,6 +5638,14 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
+        force_signer_roles:
+          description: '_t__TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES'
+          type: boolean
+          default: false
+        force_subject_message:
+          description: '_t__TemplateCreateEmbeddedDraft::FORCE_SUBJECT_MESSAGE'
+          type: boolean
+          default: false
         form_field_groups:
           description: '_t__Sub::FormFieldGroup::DESCRIPTION'
           type: array
@@ -5933,6 +5941,9 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::REQUESTER_EMAIL_ADDRESS'
           type: string
           format: email
+        requesting_redirect_url:
+          description: '_t__UnclaimedDraftCreateEmbedded::REQUESTING_REDIRECT_URL'
+          type: string
         show_preview:
           description: '_t__UnclaimedDraftCreateEmbedded::SHOW_PREVIEW'
           type: boolean
@@ -6020,6 +6031,14 @@ components:
           type: array
           items:
             type: string
+        force_signer_roles:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SIGNER_ROLES'
+          type: boolean
+          default: false
+        force_subject_message:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SUBJECT_MESSAGE'
+          type: boolean
+          default: false
         hold_request:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::HOLD_REQUEST'
           type: boolean
