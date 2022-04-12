@@ -4263,6 +4263,25 @@ components:
           type: string
           format: email
       type: object
+    SfdcData:
+      x-undocumented: true
+      properties:
+        first_name: 
+          description: 'First name of person in SFDC'
+          type: string
+        last_name: 
+          description: 'Last name of person in SFDC'
+          type: string
+        sfdc_org_id: 
+          description: 'org id for sfdc'
+          type: string
+        sfdc_user_email: 
+          description: 'email for user in SFDC'
+          type: string
+        sfdc_user_id: 
+          description: 'user id for user in SFDC'
+          type: string
+      type: object
     AccountUpdateRequest:
       properties:
         callback_url:
@@ -6442,6 +6461,8 @@ components:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
           default: false
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
