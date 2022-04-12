@@ -4856,6 +4856,8 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         signers:
           description: '_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION'
           type: array
@@ -5044,6 +5046,8 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         signers:
           description: '_t__Sub::SignatureRequestTemplateSigner::DESCRIPTION'
           type: array
@@ -5382,6 +5386,20 @@ components:
           type: boolean
           default: false
       type: object
+    SfdcData:
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        sfdc_org_id:
+          type: string
+        sfdc_user_email:
+          type: string
+        sfdc_user_id:
+          type: string
+      type: object
+      x-undocumented: true
     SubSignatureRequestSigner:
       required:
         - name
@@ -5811,6 +5829,8 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         show_progress_stepper:
           description: '_t__UnclaimedDraftCreate::SHOW_PROGRESS_STEPPER'
           type: boolean
@@ -5899,14 +5919,6 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        force_signer_page:
-          description: '_t__UnclaimedDraftCreateEmbedded::FORCE_SIGNER_PAGE'
-          type: boolean
-          default: false
-        force_subject_message:
-          description: '_t__UnclaimedDraftCreateEmbedded::FORCE_SUBJECT_MESSAGE'
-          type: boolean
-          default: false
         form_field_groups:
           description: '_t__Sub::FormFieldGroup::DESCRIPTION'
           type: array
@@ -5952,6 +5964,8 @@ components:
         requesting_redirect_url:
           description: '_t__UnclaimedDraftCreateEmbedded::REQUESTING_REDIRECT_URL'
           type: string
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         show_preview:
           description: '_t__UnclaimedDraftCreateEmbedded::SHOW_PREVIEW'
           type: boolean
@@ -6075,6 +6089,8 @@ components:
         requesting_redirect_url:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::REQUESTING_REDIRECT_URL'
           type: string
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         show_preview:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SHOW_PREVIEW'
           type: boolean

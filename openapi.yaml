@@ -4263,25 +4263,6 @@ components:
           type: string
           format: email
       type: object
-    SfdcData:
-      x-undocumented: true
-      properties:
-        first_name: 
-          description: 'First name of person in SFDC'
-          type: string
-        last_name: 
-          description: 'Last name of person in SFDC'
-          type: string
-        sfdc_org_id: 
-          description: 'org id for sfdc'
-          type: string
-        sfdc_user_email: 
-          description: 'email for user in SFDC'
-          type: string
-        sfdc_user_id: 
-          description: 'user id for user in SFDC'
-          type: string
-      type: object
     AccountUpdateRequest:
       properties:
         callback_url:
@@ -5049,6 +5030,8 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -5290,6 +5273,8 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -5715,6 +5700,20 @@ components:
           type: boolean
           default: false
       type: object
+    SfdcData:
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        sfdc_org_id:
+          type: string
+        sfdc_user_email:
+          type: string
+        sfdc_user_id:
+          type: string
+      type: object
+      x-undocumented: true
     SubSignatureRequestSigner:
       required:
         - name
@@ -6231,6 +6230,8 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         show_progress_stepper:
           description: 'When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.'
           type: boolean
@@ -6332,14 +6333,6 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        force_signer_page:
-          description: 'Provide users the ability to review/edit the signers.'
-          type: boolean
-          default: false
-        force_subject_message:
-          description: 'Provide users the ability to review/edit the subject and message.'
-          type: boolean
-          default: false
         form_field_groups:
           description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
           type: array
@@ -6402,6 +6395,8 @@ components:
         requesting_redirect_url:
           description: 'The URL you want signers redirected to after they successfully request a signature.'
           type: string
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         show_preview:
           description: |-
             This allows the requester to enable the editor/preview experience.
@@ -6461,8 +6456,6 @@ components:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
           default: false
-        sfdc_data:
-          $ref: '#/components/schemas/SfdcData'
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -6557,6 +6550,8 @@ components:
         requesting_redirect_url:
           description: 'The URL you want signers redirected to after they successfully request a signature.'
           type: string
+        sfdc_data:
+          $ref: '#/components/schemas/SfdcData'
         show_preview:
           description: |-
             This allows the requester to enable the editor/preview experience.
