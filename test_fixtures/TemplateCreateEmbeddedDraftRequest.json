@@ -27,6 +27,8 @@
     "file_url": [
       "https://app.hellosign.com/docs/example_signature_request.pdf"
     ],
+    "force_signer_roles": false,
+    "force_subject_message": false,
     "form_field_groups": [
       {
         "group_id": "RadioGroup1",
