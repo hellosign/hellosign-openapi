@@ -5399,7 +5399,6 @@ components:
         sfdc_user_id:
           type: string
       type: object
-      x-undocumented: true
     SubSignatureRequestSigner:
       required:
         - name

@@ -8,8 +8,8 @@ const decorators = {
         SchemaProperties: {
           leave(properties) {
             for (const propertyName of Object.keys(properties)) {
-              if (properties[propertyName]['x-undocumented']) {
-                delete properties[propertyName];
+              if (propertyName === "sfdc_data") {
+                delete properties[propertyName]
               }
             }
           }
