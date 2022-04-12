@@ -6313,6 +6313,14 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
+        force_signer_page:
+          description: 'Provide users the ability to review/edit the signers.'
+          type: boolean
+          default: false
+        force_subject_message:
+          description: 'Provide users the ability to review/edit the subject and message.'
+          type: boolean
+          default: false
         form_field_groups:
           description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
           type: array

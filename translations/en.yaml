@@ -625,8 +625,8 @@
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
-"UnclaimedDraftCreateEmbedded::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
-"UnclaimedDraftCreateEmbedded::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
+"UnclaimedDraftCreateEmbedded::FORCE_SIGNER_PAGE": Provide users the ability to review/edit the signers.
+"UnclaimedDraftCreateEmbedded::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the subject and message.
 "UnclaimedDraftCreateEmbedded::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
 "UnclaimedDraftCreateEmbedded::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
 "UnclaimedDraftCreateEmbedded::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.

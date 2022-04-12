@@ -5899,6 +5899,14 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
+        force_signer_page:
+          description: '_t__UnclaimedDraftCreateEmbedded::FORCE_SIGNER_PAGE'
+          type: boolean
+          default: false
+        force_subject_message:
+          description: '_t__UnclaimedDraftCreateEmbedded::FORCE_SUBJECT_MESSAGE'
+          type: boolean
+          default: false
         form_field_groups:
           description: '_t__Sub::FormFieldGroup::DESCRIPTION'
           type: array
