@@ -6590,9 +6590,8 @@ components:
         editor_options:
           $ref: '#/components/schemas/SubEditorOptions'
         is_for_embedded_signing:
-          description: 'The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.'
+          description: 'The request created from this draft will also be signable in embedded mode if set to `true`.'
           type: boolean
-          default: false
         requester_email_address:
           description: 'The email address of the user that should be designated as the requester of this draft. If not set, original requester''s email address will be used.'
           type: string

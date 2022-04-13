@@ -709,7 +709,7 @@
 "UnclaimedDraftEditAndResend::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.
 "UnclaimedDraftEditAndResend::SIGNATURE_REQUEST_ID": The ID of the signature request to edit and resend.
 "UnclaimedDraftEditAndResend::CLIENT_ID": Client id of the app you're using to create this draft. Visit our [embedded page](https://app.hellosign.com/api/embeddedSigningWalkthrough) to learn more about this parameter.
-"UnclaimedDraftEditAndResend::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
+"UnclaimedDraftEditAndResend::IS_FOR_EMBEDDED_SIGNING": The request created from this draft will also be signable in embedded mode if set to `true`.
 "UnclaimedDraftEditAndResend::REQUESTING_REDIRECT_URL": The URL you want signers redirected to after they successfully request a signature.
 "UnclaimedDraftEditAndResend::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
 "UnclaimedDraftEditAndResend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
