@@ -6127,7 +6127,6 @@ components:
         is_for_embedded_signing:
           description: '_t__UnclaimedDraftEditAndResend::IS_FOR_EMBEDDED_SIGNING'
           type: boolean
-          default: false
         requester_email_address:
           description: '_t__UnclaimedDraftEditAndResend::REQUESTER_EMAIL_ADDRESS'
           type: string
