@@ -5030,8 +5030,6 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
-        sfdc_data:
-          $ref: '#/components/schemas/SfdcData'
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -5273,8 +5271,6 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
-        sfdc_data:
-          $ref: '#/components/schemas/SfdcData'
         signers:
           description: 'Add Signers to your Templated-based Signature Request.'
           type: array
@@ -5699,19 +5695,6 @@ components:
           description: 'Determines if signers can use "Insert Everywhere" when signing a document.'
           type: boolean
           default: false
-      type: object
-    SfdcData:
-      properties:
-        first_name:
-          type: string
-        last_name:
-          type: string
-        sfdc_org_id:
-          type: string
-        sfdc_user_email:
-          type: string
-        sfdc_user_id:
-          type: string
       type: object
     SubSignatureRequestSigner:
       required:
@@ -6229,8 +6212,6 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
-        sfdc_data:
-          $ref: '#/components/schemas/SfdcData'
         show_progress_stepper:
           description: 'When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.'
           type: boolean
@@ -6394,8 +6375,6 @@ components:
         requesting_redirect_url:
           description: 'The URL you want signers redirected to after they successfully request a signature.'
           type: string
-        sfdc_data:
-          $ref: '#/components/schemas/SfdcData'
         show_preview:
           description: |-
             This allows the requester to enable the editor/preview experience.
@@ -6549,8 +6528,6 @@ components:
         requesting_redirect_url:
           description: 'The URL you want signers redirected to after they successfully request a signature.'
           type: string
-        sfdc_data:
-          $ref: '#/components/schemas/SfdcData'
         show_preview:
           description: |-
             This allows the requester to enable the editor/preview experience.
@@ -8371,6 +8348,51 @@ security:
       - api_app_access
       - basic_account_info
       - request_signature
+tags:
+  -
+    name: Account
+    description:
+      $ref: ./markdown/en/tags/account-tag-description.md
+  -
+    name: 'Signature Request'
+    description:
+      $ref: ./markdown/en/tags/signature-request-tag-description.md
+  -
+    name: Template
+    description:
+      $ref: ./markdown/en/tags/template-tag-description.md
+  -
+    name: 'Bulk Send Job'
+    description:
+      $ref: ./markdown/en/tags/bulk-send-job-tag-description.md
+  -
+    name: Report
+    description:
+      $ref: ./markdown/en/tags/report-tag-description.md
+  -
+    name: Team
+    description:
+      $ref: ./markdown/en/tags/team-tag-description.md
+  -
+    name: 'Unclaimed Draft'
+    description:
+      $ref: ./markdown/en/tags/unclaimed-draft-tag-description.md
+  -
+    name: Embedded
+    description:
+      $ref: ./markdown/en/tags/embedded-tag-description.md
+  -
+    name: 'Api App'
+    description:
+      $ref: ./markdown/en/tags/api-app-tag-description.md
+  -
+    name: OAuth
+    description:
+      $ref: ./markdown/en/tags/oauth-tag-description.md
+  -
+    name: 'Callbacks and Events'
+    description:
+      $ref: ./markdown/en/tags/callbacks-tag-description.md
 externalDocs:
   description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'

@@ -47,6 +47,8 @@ class GenerateSdkOas
         $this->loadOpenAPIFile();
         $this->removeTags();
         $this->saveSdkOpenAPIFile();
+
+        $this->loadOpenAPIFile();
         $this->removeSfdc();
         $this->saveOpenApiFile();
     }
