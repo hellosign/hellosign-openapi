@@ -4,14 +4,6 @@
 apiDefinitions:
   hellosign: ./openapi.yaml
 
-lint:
-  extends:
-    - recommended
-  plugins:
-    - 'bin/plugins/schema-cleanup.js'
-  decorators:
-    hs-custom/remove-internal-schema-properties: error
-
 # Optimize performance for US customers
 region: us
 
