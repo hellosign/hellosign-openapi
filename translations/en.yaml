@@ -1045,6 +1045,7 @@
 "SignatureRequestResponse::SIGNING_REDIRECT_URL": The URL you want the signer redirected to after they successfully sign.
 "SignatureRequestResponse::SIGNING_URL": The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing HelloSign accounts as they will be required to log in before signing.
 "SignatureRequestResponse::SUBJECT": The subject in the email that was initially sent to the signers.
+"SignatureRequestResponse::TEMPLATE_IDS": Templates IDs used in this SignatureRequest (if any).
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
 "SignatureRequestResponse::TITLE": The title the specified Account uses for the SignatureRequest.
 

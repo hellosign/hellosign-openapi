@@ -6731,6 +6731,11 @@ components:
           nullable: true
           description: '_t__SignatureRequestResponse::SIGNING_REDIRECT_URL'
           type: string
+        template_ids:
+          description: '_t__SignatureRequestResponse::TEMPLATE_IDS'
+          type: array
+          items:
+            type: string
         custom_fields:
           nullable: true
           type: array
