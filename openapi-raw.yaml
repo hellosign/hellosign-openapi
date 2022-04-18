@@ -5774,6 +5774,9 @@ components:
           items:
             type: string
             format: email
+        client_id:
+          description: '_t__UnclaimedDraftCreate::CLIENT_ID'
+          type: string
         custom_fields:
           description: '_t__Sub::CustomField::DESCRIPTION'
           type: array

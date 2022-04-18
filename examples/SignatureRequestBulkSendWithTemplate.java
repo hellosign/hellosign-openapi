@@ -58,7 +58,6 @@ public class Example {
             .emailAddress("accouting@email.com");
 
         SignatureRequestBulkSendWithTemplateRequest data = new SignatureRequestBulkSendWithTemplateRequest()
-            .clientId("ec64a202072370a737edf4a0eb7f4437")
             .templateIds(Arrays.asList("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
             .subject("Purchase Order")
             .message("Glad we could come to an agreement.")
