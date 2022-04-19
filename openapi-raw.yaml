@@ -6741,6 +6741,7 @@ components:
           description: '_t__SignatureRequestResponse::SIGNING_REDIRECT_URL'
           type: string
         template_ids:
+          nullable: true
           description: '_t__SignatureRequestResponse::TEMPLATE_IDS'
           type: array
           items:
@@ -6807,13 +6808,15 @@ components:
         name:
           description: '_t__SignatureRequestResponseAttachment::NAME'
           type: string
-        instructions:
-          description: '_t__SignatureRequestResponseAttachment::INSTRUCTIONS'
-          type: string
         required:
           description: '_t__SignatureRequestResponseAttachment::REQUIRED'
           type: boolean
+        instructions:
+          nullable: true
+          description: '_t__SignatureRequestResponseAttachment::INSTRUCTIONS'
+          type: string
         uploaded_at:
+          nullable: true
           description: '_t__SignatureRequestResponseAttachment::UPLOADED_AT'
           type: integer
       type: object

@@ -53,6 +53,25 @@
     "cc_email_addresses": [
       "lawyer1@hellosign.com",
       "lawyer2@example.com"
-    ]
+    ],
+    "attachments": [
+      {
+        "id": "id_1",
+        "signer": "1",
+        "name": "Attachment #1",
+        "required": true,
+        "instructions": "Instructions #1",
+        "uploaded_at": 1650398513
+      },
+      {
+        "id": "id_2",
+        "signer": "2",
+        "name": "Attachment #2",
+        "required": true,
+        "instructions": null,
+        "uploaded_at": null
+      }
+    ],
+    "template_ids": null
   }
 }

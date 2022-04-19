@@ -7206,6 +7206,7 @@ components:
           description: 'The URL you want the signer redirected to after they successfully sign.'
           type: string
         template_ids:
+          nullable: true
           description: 'Templates IDs used in this SignatureRequest (if any).'
           type: array
           items:
@@ -7272,13 +7273,15 @@ components:
         name:
           description: 'The name of this attachment.'
           type: string
-        instructions:
-          description: 'Instructions for Signer.'
-          type: string
         required:
           description: 'A boolean value denoting if this attachment is required.'
           type: boolean
+        instructions:
+          nullable: true
+          description: 'Instructions for Signer.'
+          type: string
         uploaded_at:
+          nullable: true
           description: 'Timestamp when attachment was uploaded by Signer.'
           type: integer
       type: object
