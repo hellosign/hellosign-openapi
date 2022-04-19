@@ -4187,17 +4187,11 @@ components:
           description: '_t__AccountCreate::EMAIL_ADDRESS'
           type: string
           format: email
-        locale:
-          description: '_t__AccountCreate::LOCALE'
-          type: string
       type: object
     AccountUpdateRequest:
       properties:
         callback_url:
           description: '_t__AccountUpdate::CALLBACK_URL'
-          type: string
-        locale:
-          description: '_t__AccountUpdate::LOCALE'
           type: string
       type: object
     AccountVerifyRequest:

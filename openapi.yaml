@@ -4262,17 +4262,11 @@ components:
           description: 'The email address to create a new Account for.'
           type: string
           format: email
-        locale:
-          description: 'The locale used in this Account.'
-          type: string
       type: object
     AccountUpdateRequest:
       properties:
         callback_url:
           description: 'The URL that HelloSign should POST events to.'
-          type: string
-        locale:
-          description: 'The locale used in this Account.'
           type: string
       type: object
     AccountVerifyRequest:
