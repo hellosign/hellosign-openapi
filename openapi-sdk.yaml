@@ -4263,7 +4263,7 @@ components:
           type: string
           format: email
         locale:
-          description: 'The locale used in this Account.'
+          description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
       type: object
     AccountUpdateRequest:
@@ -4272,7 +4272,7 @@ components:
           description: 'The URL that HelloSign should POST events to.'
           type: string
         locale:
-          description: 'The locale used in this Account.'
+          description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
       type: object
     AccountVerifyRequest:

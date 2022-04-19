@@ -71,7 +71,7 @@
 
   See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
 "AccountCreate::EMAIL_ADDRESS": The email address to create a new Account for.
-"AccountCreate::LOCALE": The locale used in this Account.
+"AccountCreate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
@@ -79,7 +79,7 @@
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account.
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
-"AccountUpdate::LOCALE": The locale used in this Account.
+"AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountVerify::SUMMARY": Verify Account
 "AccountVerify::DESCRIPTION": |-
