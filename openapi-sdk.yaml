@@ -5883,6 +5883,10 @@ components:
         text_color2:
           type: string
           default: '#FFFFFF'
+        reset_to_default:
+          description: 'Resets white labeling options to defaults. Only useful when updating an API App.'
+          type: boolean
+          default: false
       type: object
     TeamAddMemberRequest:
       properties:
