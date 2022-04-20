@@ -948,6 +948,7 @@
   An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)
 
   Take a look at our [white labeling guide](/api/reference/white-labeling/) to learn more.
+"Sub::WhiteLabelingOptions::RESET_TO_DEFAULT": Resets white labeling options to defaults. Only useful when updating an API App.
 
 ###################
 # Response Models #
@@ -967,7 +968,7 @@
 "ApiAppResponse::CALLBACK_URL": The app's callback URL (for events)
 "ApiAppResponse::CLIENT_ID": The app's client id
 "ApiAppResponse::CREATED_AT": The time that the app was created
-"ApiAppResponse::DOMAIN": The domain name associated with the app
+"ApiAppResponse::DOMAINS": The domain name(s) associated with the app
 "ApiAppResponse::NAME": The name of the app
 "ApiAppResponse::IS_APPROVED": Boolean to indicate if the app has been approved
 

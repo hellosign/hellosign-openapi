@@ -5557,6 +5557,9 @@ components:
         text_color2:
           type: string
           default: '#FFFFFF'
+        reset_to_default:
+          description: '_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT'
+          type: boolean
       type: object
     TeamAddMemberRequest:
       properties:
@@ -6240,9 +6243,11 @@ components:
         created_at:
           description: '_t__ApiAppResponse::CREATED_AT'
           type: integer
-        domain:
-          description: '_t__ApiAppResponse::DOMAIN'
-          type: string
+        domains:
+          description: '_t__ApiAppResponse::DOMAINS'
+          type: array
+          items:
+            type: string
         name:
           description: '_t__ApiAppResponse::NAME'
           type: string
