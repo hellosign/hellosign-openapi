@@ -88,6 +88,7 @@
         }
       ]
     ],
+    "hide_text_tags": false,
     "message": "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
     "metadata": {
       "field1": "value1"
