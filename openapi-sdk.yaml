@@ -6705,9 +6705,11 @@ components:
         created_at:
           description: 'The time that the app was created'
           type: integer
-        domain:
-          description: 'The domain name associated with the app'
-          type: string
+        domains:
+          description: 'The domain name(s) associated with the app'
+          type: array
+          items:
+            type: string
         name:
           description: 'The name of the app'
           type: string

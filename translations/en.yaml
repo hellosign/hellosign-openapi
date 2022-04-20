@@ -967,7 +967,7 @@
 "ApiAppResponse::CALLBACK_URL": The app's callback URL (for events)
 "ApiAppResponse::CLIENT_ID": The app's client id
 "ApiAppResponse::CREATED_AT": The time that the app was created
-"ApiAppResponse::DOMAIN": The domain name associated with the app
+"ApiAppResponse::DOMAINS": The domain name(s) associated with the app
 "ApiAppResponse::NAME": The name of the app
 "ApiAppResponse::IS_APPROVED": Boolean to indicate if the app has been approved
 

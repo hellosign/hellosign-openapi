@@ -6240,9 +6240,11 @@ components:
         created_at:
           description: '_t__ApiAppResponse::CREATED_AT'
           type: integer
-        domain:
-          description: '_t__ApiAppResponse::DOMAIN'
-          type: string
+        domains:
+          description: '_t__ApiAppResponse::DOMAINS'
+          type: array
+          items:
+            type: string
         name:
           description: '_t__ApiAppResponse::NAME'
           type: string
