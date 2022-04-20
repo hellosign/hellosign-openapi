@@ -4781,6 +4781,10 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        hide_text_tags:
+          description: '_t__SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS'
+          type: boolean
+          default: false
         message:
           description: '_t__SignatureRequestCreateEmbedded::MESSAGE'
           type: string
@@ -4810,7 +4814,7 @@ components:
           type: string
           maxLength: 255
         use_text_tags:
-          description: '_t__SignatureRequestCreateEmbedded::USE_PREEXISTING_FIELDS'
+          description: '_t__SignatureRequestCreateEmbedded::USE_TEXT_TAGS'
           type: boolean
           default: false
       type: object
