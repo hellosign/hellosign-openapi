@@ -5560,7 +5560,6 @@ components:
         reset_to_default:
           description: '_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT'
           type: boolean
-          default: false
       type: object
     TeamAddMemberRequest:
       properties:
