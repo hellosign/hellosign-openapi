@@ -6731,10 +6731,6 @@ components:
           $ref: '#/components/schemas/ApiAppResponseOwnerAccount'
         white_labeling_options:
           $ref: '#/components/schemas/ApiAppResponseWhiteLabelingOptions'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     ApiAppGetResponse:
@@ -6849,10 +6845,6 @@ components:
         created_at:
           description: 'Time that the BulkSendJob was created.'
           type: integer
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     BulkSendJobGetResponse:
@@ -6923,10 +6915,6 @@ components:
           type: string
         expires_at:
           type: integer
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     EmbeddedSignUrlResponse:
@@ -6945,10 +6933,6 @@ components:
           type: string
         expires_at:
           type: integer
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     ErrorResponse:
@@ -7135,10 +7119,6 @@ components:
             enum:
               - user_activity
               - document_status
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     ReportCreateResponse:
