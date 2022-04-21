@@ -7482,16 +7482,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponse:
       properties:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponseTemplate:
