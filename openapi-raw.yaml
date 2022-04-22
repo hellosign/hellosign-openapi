@@ -5611,6 +5611,10 @@ components:
           description: '_t__TemplateAddUser::EMAIL_ADDRESS'
           type: string
           format: email
+        skip_notification:
+          description: '_t__TemplateAddUser::SKIP_NOTIFICATION'
+          type: boolean
+          default: false
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
@@ -7008,16 +7012,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponse:
       properties:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponseTemplate:
