@@ -5940,6 +5940,10 @@ components:
           description: 'The id or email address of the Account to give access to the Template. The account id prevails if both are provided.'
           type: string
           format: email
+        skip_notification:
+          description: 'If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.'
+          type: boolean
+          default: false
       type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
