@@ -5941,7 +5941,7 @@ components:
           type: string
           format: email
         skip_notification:
-          description: 'If set to `true`, the user receives an email notification when a template has been shared with them. Defaults to `false`.'
+          description: 'If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.'
           type: boolean
           default: false
       type: object

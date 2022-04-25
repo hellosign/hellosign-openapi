@@ -469,7 +469,7 @@
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": The id or email address of the Account to give access to the Template. The account id prevails if both are provided.
 "TemplateAddUser::EMAIL_ADDRESS": The id or email address of the Account to give access to the Template. The account id prevails if both are provided.
-"TemplateAddUser::SKIP_NOTIFICATION": If set to `true`, the user receives an email notification when a template has been shared with them. Defaults to `false`.
+"TemplateAddUser::SKIP_NOTIFICATION": If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
 "TemplateAddUser::TEMPLATE_ID": The id of the Template to give the Account access to.
 
 "TemplateCreateEmbeddedDraft::SUMMARY": Create Embedded Template Draft
