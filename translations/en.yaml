@@ -179,7 +179,7 @@
 "SignatureRequestBulkCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.
 
-  **NOTE**: Only available for Gold plan and higher.
+  **NOTE**: Only available for Standard plan and higher.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
@@ -214,7 +214,7 @@
 "SignatureRequestBulkSendWithTemplate::DESCRIPTION": |-
   Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.
 
-  **NOTE**: Only available for Gold plan and higher.
+  **NOTE**: Only available for Standard plan and higher.
 "SignatureRequestBulkSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestBulkSendWithTemplate::SIGNER_FILE": |-
@@ -264,7 +264,7 @@
 "SignatureRequestCreateEmbedded::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Gold plan and higher.
+  **Note**: Only available for Premium plan.
 "SignatureRequestCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestCreateEmbedded::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbedded::FILE": |-
@@ -363,7 +363,7 @@
 "SignatureRequestSend::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Gold plan and higher.
+  **Note**: Only available for Premium plan and higher.
 "SignatureRequestSend::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestSend::CLIENT_ID": The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSend::FILE": |-
@@ -478,7 +478,7 @@
 "TemplateCreateEmbeddedDraft::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Gold plan and higher.
+  **Note**: Only available for Premium plan and higher.
 "TemplateCreateEmbeddedDraft::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
 "TemplateCreateEmbeddedDraft::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
 "TemplateCreateEmbeddedDraft::FILE": |-
@@ -614,7 +614,7 @@
 "UnclaimedDraftCreateEmbedded::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Gold plan and higher.
+  **Note**: Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "UnclaimedDraftCreateEmbedded::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbedded::FILE": |-
@@ -660,7 +660,7 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Gold plan and higher.
+  **Note**: Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE": |-
   **file** or **file_url** is required, but not both.
