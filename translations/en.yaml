@@ -1161,6 +1161,12 @@
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentCustomField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentCustomField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field.
+"TemplateResponseDocumentCustomField::API_ID": The unique ID for this field.
+"TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
+"TemplateResponseDocumentCustomField::FONT_SIZE": Font size used in this form field's text.
 
 "TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in custom field.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
@@ -1180,6 +1186,17 @@
 "TemplateResponseDocumentFormField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
+
+"TemplateResponseDocumentStaticField::DESCRIPTION": An array of Static Field objects containing the name and type of each named textbox and checkmark field.
+"TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
+"TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
+"TemplateResponseDocumentStaticField::NAME": The name of the static field.
+"TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentStaticField::WIDTH": The width in pixels of this static field.
+"TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
 
 "TemplateResponseSignerRole::DESCRIPTION": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseSignerRole::NAME": The name of the Role.

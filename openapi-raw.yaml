@@ -7159,6 +7159,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
+        static_fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
@@ -7167,6 +7171,24 @@ components:
         name:
           description: '_t__TemplateResponseDocumentCustomField::NAME'
           type: string
+        signer:
+          description: '_t__TemplateResponseDocumentCustomField::SIGNER'
+          type: string
+        api_id:
+          description: '_t__TemplateResponseDocumentCustomField::API_ID'
+          type: string
+        is_multiline:
+          description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
+          type: boolean
+        original_font_size:
+          description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
+          type: integer
+        font_family:
+          description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
+          type: string
+        font_size:
+          description: '_t__TemplateResponseDocumentCustomField::FONT_SIZE'
+          type: integer
         type:
           description: '_t__TemplateResponseDocumentCustomField::TYPE'
           type: string
@@ -7268,6 +7290,50 @@ components:
         group:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::GROUP'
+          type: string
+      type: object
+      x-internal: true
+    TemplateResponseDocumentStaticField:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
+      properties:
+        api_id:
+          description: '_t__TemplateResponseDocumentStaticField::API_ID'
+          type: string
+        name:
+          description: '_t__TemplateResponseDocumentStaticField::NAME'
+          type: string
+        type:
+          description: '_t__TemplateResponseDocumentStaticField::TYPE'
+          type: string
+          enum:
+            - checkbox
+            - checkbox-merge
+            - date_signed
+            - dropdown
+            - hyperlink
+            - initials
+            - signature
+            - radio
+            - text
+            - text-merge
+        x:
+          description: '_t__TemplateResponseDocumentStaticField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseDocumentStaticField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseDocumentStaticField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseDocumentStaticField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseDocumentStaticField::REQUIRED'
+          type: boolean
+        group:
+          nullable: true
+          description: '_t__TemplateResponseDocumentStaticField::GROUP'
           type: string
       type: object
       x-internal: true
