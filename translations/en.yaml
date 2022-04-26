@@ -439,8 +439,12 @@
 
 "TeamAddMember::SUMMARY": Add User to Team
 "TeamAddMember::DESCRIPTION": Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
-"TeamAddMember::ACCOUNT_ID": Account id of the user to invite to your Team. The account id prevails if both account id and email are provided.
-"TeamAddMember::EMAIL_ADDRESS": Email address of the user to invite to your Team. The account id prevails if both account id and email are provided.
+"TeamAddMember::ACCOUNT_ID": |-
+  **account_id** or **email_address** is required. If both are provided, The account id prevails. 
+  Account id of the user to invite to your Team.
+"TeamAddMember::EMAIL_ADDRESS": |-
+  **account_id** or **email_address** is required, If both are provided, The account id prevails. 
+  Email address of the user to invite to your Team.
 
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.

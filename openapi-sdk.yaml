@@ -5894,10 +5894,14 @@ components:
     TeamAddMemberRequest:
       properties:
         account_id:
-          description: 'Account id of the user to invite to your Team. The account id prevails if both account id and email are provided.'
+          description: |-
+            **account_id** or **email_address** is required. If both are provided, The account id prevails. 
+            Account id of the user to invite to your Team.
           type: string
         email_address:
-          description: 'Email address of the user to invite to your Team. The account id prevails if both account id and email are provided.'
+          description: |-
+            **account_id** or **email_address** is required, If both are provided, The account id prevails. 
+            Email address of the user to invite to your Team.
           type: string
           format: email
       type: object
