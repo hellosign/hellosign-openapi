@@ -5663,15 +5663,22 @@ components:
       x-internal: true
       x-base-class: true
     SubMergeField:
-      description: 'The merge fields that can be placed on the template''s document(s) by the user editing the template. These are typically fields that can be pre-populated by your application when using the resulting template to send a signature request. Each merge field object must have two parameters: name and type. Names must be unique and type can only be "text" or "checkbox". Existing fields for removed merge fields will not be removed from the document, but will default to empty if no custom field is supplied with the signature request. To remove all merge fields, pass in an empty json array. For use in a POST request.'
+      required:
+        - name
+        - type
       properties:
         name:
+          description: 'The name of the merge field. Must be unique.'
           type: string
         type:
+          description: 'The type of merge field. Must be either `text` or `checkbox`.'
           type: string
           enum:
             - text
             - checkbox
+          x-enumDescriptions:
+            text: 'Sets merge [field type](/api/reference/constants/#field-types) to text'
+            checkbox: 'Sets merge [field type](/api/reference/constants/#field-types) to checkbox'
       type: object
     SubOAuth:
       properties:
@@ -6037,6 +6044,10 @@ components:
             items:
               $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
+          description: |-
+            Adding merge fields to the embedded template allows the user editing the template to place those fields on the document(s) in the template. Merge fields can be used to pre-fill data about the signer(s) by passing values from your app in the `custom_fields` parameter of signature requests made using that template.
+            If the signature request using that template *does not* pass a value into a merge field, then the field defaults to empty but remains on the document.
+            **Note**: each merge field `name` must be unique. 
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'

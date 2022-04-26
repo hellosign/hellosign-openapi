@@ -5349,15 +5349,22 @@ components:
       x-internal: true
       x-base-class: true
     SubMergeField:
-      description: '_t__Sub::MergeField::DESCRIPTION'
+      required:
+        - name
+        - type
       properties:
         name:
+          description: '_t__Sub::MergeField::NAME'
           type: string
         type:
+          description: '_t__Sub::MergeField::TYPE'
           type: string
           enum:
             - text
             - checkbox
+          x-enumDescriptions:
+            text: '_t__Sub::MergeField::EnumDescriptions::TEXT'
+            checkbox: '_t__Sub::MergeField::EnumDescriptions::CHECKBOX'
       type: object
     SubOAuth:
       properties:
@@ -5681,6 +5688,7 @@ components:
             items:
               $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
+          description: '_t__TemplateCreateEmbeddedDraft::MERGE_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'
