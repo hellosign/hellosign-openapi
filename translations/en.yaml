@@ -132,6 +132,10 @@
 "EmbeddedEditUrl::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
 "EmbeddedEditUrl::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "EmbeddedEditUrl::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
+"EmbeddedEditUrl::MERGE_FIELDS": |-
+  Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  
+    
+  Remove all merge fields on the template by passing an empty array `[]`.
 "EmbeddedEditUrl::PREVIEW_ONLY": |-
   This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
 
@@ -495,6 +499,9 @@
   Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "TemplateCreateEmbeddedDraft::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
+"TemplateCreateEmbeddedDraft::MERGE_FIELDS": |-
+  Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
+  If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
 "TemplateCreateEmbeddedDraft::MESSAGE": The default template email message.
 "TemplateCreateEmbeddedDraft::SHOW_PREVIEW": |-
   This allows the requester to enable the editor/preview experience.
@@ -890,9 +897,12 @@
 "Sub::FormFieldsPerDocument::X": Location coordinates of the field in pixels.
 "Sub::FormFieldsPerDocument::Y": Location coordinates of the field in pixels.
 
-"Sub::MergeField::DESCRIPTION": |-
-  The merge fields that can be placed on the template's document(s) by the user editing the template. These are typically fields that can be pre-populated by your application when using the resulting template to send a signature request. Each merge field object must have two parameters: name and type. Names must be unique and type can only be "text" or "checkbox". Existing fields for removed merge fields will not be removed from the document, but will default to empty if no custom field is supplied with the signature request. To remove all merge fields, pass in an empty json array. For use in a POST request.
+"Sub::MergeField::NAME": The name of the merge field. Must be unique.
+"Sub::MergeField::TYPE": The type of merge field.
+"Sub::MergeField::EnumDescriptions::TEXT": Sets merge [field type](/api/reference/constants/#field-types) to `text`.
+"Sub::MergeField::EnumDescriptions::CHECKBOX": Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.
 
+  
 "Sub::Metadata::DESCRIPTION": |-
   Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
