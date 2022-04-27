@@ -4360,6 +4360,10 @@ components:
           type: boolean
           default: false
         merge_fields:
+          description: |-
+            Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  
+              
+            Remove all merge fields on the template by passing an empty array `[]`.
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'
@@ -5671,14 +5675,14 @@ components:
           description: 'The name of the merge field. Must be unique.'
           type: string
         type:
-          description: 'The type of merge field. Must be either `text` or `checkbox`.'
+          description: 'The type of merge field.'
           type: string
           enum:
             - text
             - checkbox
           x-enumDescriptions:
-            text: 'Sets merge [field type](/api/reference/constants/#field-types) to text'
-            checkbox: 'Sets merge [field type](/api/reference/constants/#field-types) to checkbox'
+            text: 'Sets merge [field type](/api/reference/constants/#field-types) to `text`.'
+            checkbox: 'Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.'
       type: object
     SubOAuth:
       properties:
@@ -6045,9 +6049,8 @@ components:
               $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
           description: |-
-            Adding merge fields to the embedded template allows the user editing the template to place those fields on the document(s) in the template. Merge fields can be used to pre-fill data about the signer(s) by passing values from your app in the `custom_fields` parameter of signature requests made using that template.
-            If the signature request using that template *does not* pass a value into a merge field, then the field defaults to empty but remains on the document.
-            **Note**: each merge field `name` must be unique. 
+            Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
+            If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'

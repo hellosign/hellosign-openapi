@@ -4285,6 +4285,7 @@ components:
           type: boolean
           default: false
         merge_fields:
+          description: '_t__EmbeddedEditUrl::MERGE_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'

@@ -133,10 +133,9 @@
 "EmbeddedEditUrl::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "EmbeddedEditUrl::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "EmbeddedEditUrl::MERGE_FIELDS": |-
-  Override or add merge fields to the embedded template allows the user editing the template to place those fields on the document(s) in the template. Merge fields can be used to pre-fill data about the signer(s) by passing values from your app in the `custom_fields` parameter of signature requests made using that template.
-  If the signature request using that template *does not* pass a value into a merge field, then the field defaults to empty but remains on the document.
-  **Note**: each merge field `name` must be unique. 
-
+  Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  
+    
+  Remove all merge fields on the template by passing an empty array `[]`.
 "EmbeddedEditUrl::PREVIEW_ONLY": |-
   This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
 
@@ -501,9 +500,8 @@
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "TemplateCreateEmbeddedDraft::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "TemplateCreateEmbeddedDraft::MERGE_FIELDS": |-
-  Adding merge fields to the embedded template allows the user editing the template to place those fields on the document(s) in the template. Merge fields can be used to pre-fill data about the signer(s) by passing values from your app in the `custom_fields` parameter of signature requests made using that template.
-  If the signature request using that template *does not* pass a value into a merge field, then the field defaults to empty but remains on the document.
-  **Note**: each merge field `name` must be unique. 
+  Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
+  If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
 "TemplateCreateEmbeddedDraft::MESSAGE": The default template email message.
 "TemplateCreateEmbeddedDraft::SHOW_PREVIEW": |-
   This allows the requester to enable the editor/preview experience.
@@ -900,9 +898,9 @@
 "Sub::FormFieldsPerDocument::Y": Location coordinates of the field in pixels.
 
 "Sub::MergeField::NAME": The name of the merge field. Must be unique.
-"Sub::MergeField::TYPE": The type of merge field. Must be either `text` or `checkbox`. 
-"Sub::MergeField::EnumDescriptions::TEXT": Sets merge [field type](/api/reference/constants/#field-types) to text
-"Sub::MergeField::EnumDescriptions::CHECKBOX": Sets merge [field type](/api/reference/constants/#field-types) to checkbox
+"Sub::MergeField::TYPE": The type of merge field.
+"Sub::MergeField::EnumDescriptions::TEXT": Sets merge [field type](/api/reference/constants/#field-types) to `text`.
+"Sub::MergeField::EnumDescriptions::CHECKBOX": Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.
 
   
 "Sub::Metadata::DESCRIPTION": |-
