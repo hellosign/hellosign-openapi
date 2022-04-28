@@ -7220,9 +7220,14 @@ components:
             type: string
         custom_fields:
           nullable: true
+          description: |-
+            An array of Custom Field objects containing the name and type of each custom field.
+
+            * Text Field uses `SignatureRequestResponseCustomFieldText`
+            * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
           type: array
           items:
-            $ref: '#/components/schemas/SignatureRequestResponseCustomField'
+            $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         attachments:
           nullable: true
           type: array
@@ -7293,19 +7298,23 @@ components:
           type: integer
       type: object
       x-internal: true
-    SignatureRequestResponseCustomField:
-      description: 'An array of Custom Field objects containing the name and type of each custom field.'
+    SignatureRequestResponseCustomFieldTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+    SignatureRequestResponseCustomFieldBase:
+      description: |-
+        An array of Custom Field objects containing the name and type of each custom field.
+
+        * Text Field uses `SignatureRequestResponseCustomFieldText`
+        * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+      required:
+        - name
+        - type
       properties:
         name:
           description: 'The name of the Custom Field.'
-          type: string
-        type:
-          description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
-          enum:
-            - text
-            - checkbox
-        value:
-          description: 'A text string for text fields or true/false for checkbox fields'
           type: string
         required:
           description: 'A boolean value denoting if this field is required.'
@@ -7317,7 +7326,51 @@ components:
           description: 'The name of the Role that is able to edit this field.'
           type: string
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/SignatureRequestResponseCustomFieldText'
+          checkbox: '#/components/schemas/SignatureRequestResponseCustomFieldCheckbox'
       x-internal: true
+      x-base-class: true
+    SignatureRequestResponseCustomFieldText:
+      description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
+              type: string
+              default: text
+            value:
+              description: 'A text string for text fields'
+              type: string
+          type: object
+    SignatureRequestResponseCustomFieldCheckbox:
+      description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
+              type: string
+              default: checkbox
+            value:
+              description: 'A true/false for checkbox fields'
+              type: boolean
+          type: object
     SignatureRequestResponseData:
       description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
       properties:

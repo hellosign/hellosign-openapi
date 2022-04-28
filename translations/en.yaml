@@ -1064,13 +1064,19 @@
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
 "SignatureRequestResponse::TITLE": The title the specified Account uses for the SignatureRequest.
 
-"SignatureRequestResponseCustomField::DESCRIPTION": An array of Custom Field objects containing the name and type of each custom field.
+"SignatureRequestResponseCustomField::DESCRIPTION": |-
+  An array of Custom Field objects containing the name and type of each custom field.
+
+  * Text Field uses `SignatureRequestResponseCustomFieldText`
+  * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+"SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS": This class extends `SignatureRequestResponseCustomFieldBase`.
 "SignatureRequestResponseCustomField::API_ID": The unique ID for this field.
 "SignatureRequestResponseCustomField::EDITOR": The name of the Role that is able to edit this field.
 "SignatureRequestResponseCustomField::NAME": The name of the Custom Field.
 "SignatureRequestResponseCustomField::REQUIRED": A boolean value denoting if this field is required.
 "SignatureRequestResponseCustomField::TYPE": The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
-"SignatureRequestResponseCustomField::VALUE": A text string for text fields or true/false for checkbox fields
+"SignatureRequestResponseCustomField::VALUE_TEXT": A text string for text fields
+"SignatureRequestResponseCustomField::VALUE_CHECKBOX": A true/false for checkbox fields
 
 "SignatureRequestResponseAttachment::DESCRIPTION": Signer attachments.
 "SignatureRequestResponseAttachment::ID": The unique ID for this attachment.

@@ -6750,9 +6750,10 @@ components:
             type: string
         custom_fields:
           nullable: true
+          description: '_t__SignatureRequestResponseCustomField::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SignatureRequestResponseCustomField'
+            $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         attachments:
           nullable: true
           type: array
@@ -6823,19 +6824,19 @@ components:
           type: integer
       type: object
       x-internal: true
-    SignatureRequestResponseCustomField:
+    SignatureRequestResponseCustomFieldTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+    SignatureRequestResponseCustomFieldBase:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION'
+      required:
+        - name
+        - type
       properties:
         name:
           description: '_t__SignatureRequestResponseCustomField::NAME'
-          type: string
-        type:
-          description: '_t__SignatureRequestResponseCustomField::TYPE'
-          enum:
-            - text
-            - checkbox
-        value:
-          description: '_t__SignatureRequestResponseCustomField::VALUE'
           type: string
         required:
           description: '_t__SignatureRequestResponseCustomField::REQUIRED'
@@ -6847,7 +6848,51 @@ components:
           description: '_t__SignatureRequestResponseCustomField::EDITOR'
           type: string
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/SignatureRequestResponseCustomFieldText'
+          checkbox: '#/components/schemas/SignatureRequestResponseCustomFieldCheckbox'
       x-internal: true
+      x-base-class: true
+    SignatureRequestResponseCustomFieldText:
+      description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseCustomField::TYPE'
+              type: string
+              default: text
+            value:
+              description: '_t__SignatureRequestResponseCustomField::VALUE_TEXT'
+              type: string
+          type: object
+    SignatureRequestResponseCustomFieldCheckbox:
+      description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseCustomField::TYPE'
+              type: string
+              default: checkbox
+            value:
+              description: '_t__SignatureRequestResponseCustomField::VALUE_CHECKBOX'
+              type: boolean
+          type: object
     SignatureRequestResponseData:
       description: '_t__SignatureRequestResponseData::DESCRIPTION'
       properties:
