@@ -5690,25 +5690,18 @@ components:
           description: 'The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)'
           type: string
         scopes:
-          description: 'A list of OAuth scopes to be granted to the app. (Required if `oauth[callback_url]` is provided).'
+          description: 'A list of [OAuth scopes](/api/reference/tag/OAuth/) to be granted to the app. (Required if `oauth[callback_url]` is provided).'
           type: array
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
-              - ''
       type: object
     SubOptions:
       properties:
@@ -5996,7 +5989,7 @@ components:
         allow_ccs:
           description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.'
           type: boolean
-          default: false
+          default: true
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -6325,7 +6318,7 @@ components:
         allow_ccs:
           description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.'
           type: boolean
-          default: false
+          default: true
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
