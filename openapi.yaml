@@ -5984,7 +5984,7 @@ components:
         allow_ccs:
           description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.'
           type: boolean
-          default: false
+          default: true
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -6313,7 +6313,7 @@ components:
         allow_ccs:
           description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.'
           type: boolean
-          default: false
+          default: true
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean

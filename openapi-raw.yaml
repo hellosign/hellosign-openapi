@@ -5642,7 +5642,7 @@ components:
         allow_ccs:
           description: '_t__TemplateCreateEmbeddedDraft::ALLOW_CCS'
           type: boolean
-          default: false
+          default: true
         allow_reassign:
           description: '_t__TemplateCreateEmbeddedDraft::ALLOW_REASSIGN'
           type: boolean
@@ -5897,7 +5897,7 @@ components:
         allow_ccs:
           description: '_t__UnclaimedDraftCreateEmbedded::ALLOW_CCS'
           type: boolean
-          default: false
+          default: true
         allow_decline:
           description: '_t__UnclaimedDraftCreateEmbedded::ALLOW_DECLINE'
           type: boolean
