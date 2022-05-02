@@ -4276,6 +4276,10 @@ components:
       type: object
     AccountUpdateRequest:
       properties:
+        account_id:
+          nullable: true
+          description: 'Account ID.'
+          type: string
         callback_url:
           description: 'The URL that HelloSign should POST events to.'
           type: string
