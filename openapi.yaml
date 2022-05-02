@@ -107,7 +107,7 @@ paths:
       parameters:
         -
           name: account_id
-          in: path
+          in: query
           description: 'Account ID'
           required: false
           schema:

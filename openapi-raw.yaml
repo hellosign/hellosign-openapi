@@ -107,7 +107,7 @@ paths:
       parameters:
         -
           name: account_id
-          in: path
+          in: query
           description: '_t__AccountGet::ACCOUNT_ID'
           required: false
           schema:
