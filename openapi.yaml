@@ -104,6 +104,14 @@ paths:
       summary: 'Get Account'
       description: 'Returns the properties and settings of your Account.'
       operationId: accountGet
+      parameters:
+        -
+          name: account_id
+          in: path
+          description: 'Account ID'
+          required: false
+          schema:
+            type: string
       responses:
         200:
           description: 'successful operation'

@@ -75,6 +75,7 @@
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
+"AccountGet::ACCOUNT_ID": Account ID
 
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account.
