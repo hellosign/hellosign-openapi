@@ -6200,6 +6200,8 @@ components:
         callback_url:
           nullable: true
           type: string
+        should_send_outbound_conf_emails:
+          type: boolean
         role_code:
           nullable: true
           type: string
