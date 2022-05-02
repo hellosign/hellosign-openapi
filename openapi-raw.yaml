@@ -5385,6 +5385,7 @@ components:
               - template_access
               - team_access
               - api_app_access
+              - ''
       type: object
     SubOptions:
       properties:

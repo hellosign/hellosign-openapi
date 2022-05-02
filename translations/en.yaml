@@ -921,7 +921,7 @@
   Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::OAuth::CALLBACK_URL": The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
-"Sub::OAuth::SCOPES": A list of [OAuth scopes](/api/reference/tag/OAuth/) to be granted to the app. (Required if `oauth[callback_url]` is provided).
+"Sub::OAuth::SCOPES": A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
 
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
 

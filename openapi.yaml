@@ -5690,7 +5690,7 @@ components:
           description: 'The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)'
           type: string
         scopes:
-          description: 'A list of [OAuth scopes](/api/reference/tag/OAuth/) to be granted to the app. (Required if `oauth[callback_url]` is provided).'
+          description: 'A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).'
           type: array
           items:
             type: string
@@ -5702,6 +5702,7 @@ components:
               - template_access
               - team_access
               - api_app_access
+              - ''
       type: object
     SubOptions:
       properties:
