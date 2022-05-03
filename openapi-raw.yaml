@@ -6260,6 +6260,7 @@ components:
       type: object
       x-internal: true
     ApiAppResponse:
+      description: '_t__ApiAppResponse::DESCRIPTION'
       properties:
         callback_url:
           nullable: true
@@ -6691,6 +6692,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponse:
+      description: '_t__SignatureRequestResponse::DESCRIPTION'
       properties:
         test_mode:
           nullable: true

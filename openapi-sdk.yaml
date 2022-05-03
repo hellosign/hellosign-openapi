@@ -6742,6 +6742,7 @@ components:
       type: object
       x-internal: true
     ApiAppResponse:
+      description: 'Contains information about an API App.'
       properties:
         callback_url:
           nullable: true
@@ -7173,6 +7174,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponse:
+      description: 'Contains information regarding documents that need to be signed.'
       properties:
         test_mode:
           nullable: true
