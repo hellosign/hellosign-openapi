@@ -1,7 +1,5 @@
 {
   "json": {
-    "account_guid": "63522885f9261e2b04eea043933ee7313eb674fd",
-    "client_id": null,
     "event": {
       "event_time": "1348177752",
       "event_type": "template_created",
