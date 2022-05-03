@@ -5695,19 +5695,13 @@ components:
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
               - ''
       type: object
     SubOptions:
@@ -6984,13 +6978,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         signature_request:
@@ -7010,13 +6997,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         account:
@@ -7027,6 +7007,7 @@ components:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
     EventCallbackRequestEvent:
+      description: 'Basic information about the event that occurred.'
       required:
         - event_time
         - event_type
@@ -7034,8 +7015,10 @@ components:
         - event_metadata
       properties:
         event_time:
+          description: 'Time the event was created (using Unix time).'
           type: string
         event_type:
+          description: 'Type of callback event that was triggered.'
           type: string
           enum:
             - account_confirmed
@@ -7059,23 +7042,29 @@ components:
             - template_created
             - template_error
         event_hash:
+          description: 'Generated hash used to verify source of event data.'
           type: string
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
     EventCallbackRequestEventMetadata:
+      description: 'Specific metadata about the event.'
       properties:
         related_signature_id:
           nullable: true
+          description: 'Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.'
           type: string
         reported_for_account_id:
           nullable: true
+          description: 'Account ID the event was reported for.'
           type: string
         reported_for_app_id:
           nullable: true
+          description: 'App ID the event was reported for.'
           type: string
         event_message:
           nullable: true
+          description: 'Message about a declined or failed (due to error) signature flow.'
           type: string
       type: object
     FileResponse:
@@ -8189,18 +8178,26 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    EventCallbackAccountRequestExample:
-      summary: 'Event Callback Account Example'
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
       value:
-        $ref: examples/json/EventCallbackAccountRequestExample.json
-    EventCallbackSignatureRequestExample:
-      summary: 'Event Callback Signature Request Example'
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: 'Example: template_created'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestExample.json
-    EventCallbackTemplateRequestExample:
-      summary: 'Event Callback Template Example'
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackApiAppAccountConfirmedExample:
+      summary: 'Example: account_confirmed'
       value:
-        $ref: examples/json/EventCallbackTemplateRequestExample.json
+        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
+    EventCallbackApiAppSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
+      value:
+        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
+    EventCallbackApiAppTemplateCreatedExample:
+      summary: 'Example: template_created'
+      value:
+        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:
@@ -8331,50 +8328,54 @@ components:
         $ref: examples/json/UnclaimedDraftEditAndResendExample.json
   requestBodies:
     EventCallbackAccountRequest:
-      description: 'Account Callback Payloads'
+      description: |-
+        **Account Callback Payloads --**  
+              Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/operation/accountUpdate) and passing a `callback_url`.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
             signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
     EventCallbackApiAppRequest:
-      description: 'API App Callback Payloads'
+      description: |-
+        **Api App Callback Payloads --**  
+        Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/operation/apiAppUpdate) and passing a `callback_url`.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json

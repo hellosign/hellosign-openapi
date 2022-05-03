@@ -5378,19 +5378,13 @@ components:
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
               - ''
       type: object
     SubOptions:
@@ -6514,13 +6508,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         signature_request:
@@ -6540,13 +6527,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         account:
@@ -6557,6 +6537,7 @@ components:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
     EventCallbackRequestEvent:
+      description: '_t__EventCallbackRequestEvent::DESCRIPTION'
       required:
         - event_time
         - event_type
@@ -6564,8 +6545,10 @@ components:
         - event_metadata
       properties:
         event_time:
+          description: '_t__EventCallbackRequestEvent::EVENT_TIME'
           type: string
         event_type:
+          description: '_t__EventCallbackRequestEvent::EVENT_TYPE'
           type: string
           enum:
             - account_confirmed
@@ -6589,23 +6572,29 @@ components:
             - template_created
             - template_error
         event_hash:
+          description: '_t__EventCallbackRequestEvent::EVENT_HASH'
           type: string
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
     EventCallbackRequestEventMetadata:
+      description: '_t__EventCallbackRequestEventMetadata::DESCRIPTION'
       properties:
         related_signature_id:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID'
           type: string
         reported_for_account_id:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID'
           type: string
         reported_for_app_id:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID'
           type: string
         event_message:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE'
           type: string
       type: object
     FileResponse:
@@ -7702,18 +7691,26 @@ components:
       summary: '_t__Error::4XX'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    EventCallbackAccountRequestExample:
-      summary: '_t__EventCallbackAccountRequestExample::SUMMARY'
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackAccountRequestExample.json
-    EventCallbackSignatureRequestExample:
-      summary: '_t__EventCallbackSignatureRequestExample::SUMMARY'
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestExample.json
-    EventCallbackTemplateRequestExample:
-      summary: '_t__EventCallbackTemplateRequestExample::SUMMARY'
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackApiAppAccountConfirmedExample:
+      summary: '_t__EventCallbackApiAppAccountConfirmedExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackTemplateRequestExample.json
+        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
+    EventCallbackApiAppSignatureRequestSentExample:
+      summary: '_t__EventCallbackApiAppSignatureRequestSentExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
+    EventCallbackApiAppTemplateCreatedExample:
+      summary: '_t__EventCallbackApiAppTemplateCreatedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: '_t__OAuthTokenGenerateResponseExample::SUMMARY'
       value:
@@ -7850,18 +7847,18 @@ components:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
             signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
@@ -7872,22 +7869,22 @@ components:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
