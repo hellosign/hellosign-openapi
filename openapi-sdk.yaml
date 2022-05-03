@@ -104,6 +104,14 @@ paths:
       summary: 'Get Account'
       description: 'Returns the properties and settings of your Account.'
       operationId: accountGet
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: 'Account ID'
+          required: false
+          schema:
+            type: string
       responses:
         200:
           description: 'successful operation'
@@ -4268,6 +4276,10 @@ components:
       type: object
     AccountUpdateRequest:
       properties:
+        account_id:
+          nullable: true
+          description: 'Account ID.'
+          type: string
         callback_url:
           description: 'The URL that HelloSign should POST events to.'
           type: string
@@ -6668,6 +6680,8 @@ components:
         callback_url:
           nullable: true
           type: string
+        should_send_outbound_conf_emails:
+          type: boolean
         role_code:
           nullable: true
           type: string
