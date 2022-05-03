@@ -5019,7 +5019,7 @@ components:
           description: 'Client id of the app you''re using to create this embedded signature request. Used for security purposes.'
           type: string
         custom_fields:
-          description: 'An array defining values and options for custom fields. Required when defining when a custom field exists in the Template.'
+          description: 'An array defining values and options for custom fields. Required when a custom field exists in the Template.'
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
@@ -5251,7 +5251,7 @@ components:
           description: 'Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.'
           type: string
         custom_fields:
-          description: 'An array defining values and options for custom fields. Required when defining when a custom field exists in the Template.'
+          description: 'An array defining values and options for custom fields. Required when a custom field exists in the Template.'
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
@@ -5411,7 +5411,7 @@ components:
       properties:
         editor:
           description: |-
-            The RoleName allowed to edit the custom field (optional, but required if `required = true`).
+            The role (specified in `signers`) allowed to edit the custom field (optional, but required if `required = true`).
 
             **Note**: Editable `custom_fields` are only supported for single signer requests or the first signer of ordered signature requests. If more than one signer is assigned to the unordered signature request, any editor value is ignored and the field will not be editable.
           type: string
@@ -5760,7 +5760,7 @@ components:
         - email_address
       properties:
         role:
-          description: 'Must match an existing role in chosen Template(s).'
+          description: 'Must match an existing role in chosen Template(s). It''s case-sensitive.'
           type: string
         name:
           description: 'The name of the signer.'
@@ -6513,7 +6513,7 @@ components:
           description: 'Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.'
           type: string
         custom_fields:
-          description: 'An array defining values and options for custom fields. Required when defining when a custom field exists in the Template.'
+          description: 'An array defining values and options for custom fields. Required when a custom field exists in the Template.'
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
