@@ -5358,7 +5358,7 @@ components:
           default: false
         signer_index:
           description: |-
-            The signer's unique number, see `signers[%i%][name]` for more details.
+            The signer's index in the `signers` parameter (0-based indexing).
 
             **NOTE**: Only one signer can be assigned per attachment.
           type: integer
@@ -5622,7 +5622,10 @@ components:
         * Text Merge Field use `SubFormFieldsPerDocumentTextMerge`
         * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
       required:
+        - api_id
         - type
+        - page
+        - required
         - signer
         - width
         - height
@@ -5649,7 +5652,7 @@ components:
           description: 'Whether this field is required.'
           type: boolean
         signer:
-          description: 'Signer index identified by the offset `%i%` in the `signers[%i%]` parameter, indicating which signer should fill out the field. If your type is `text-merge` you can set this to `sender`, so the field is non-editable by any signer.'
+          description: 'Signer index identified by the offset in the `signers` parameter (0-based indexing), indicating which signer should fill out the field. If your type is `text-merge` you can set this to `sender`, so the field is non-editable by any signer.'
           type: string
         type:
           type: string

@@ -5309,7 +5309,10 @@ components:
     SubFormFieldsPerDocumentBase:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
       required:
+        - api_id
         - type
+        - page
+        - required
         - signer
         - width
         - height

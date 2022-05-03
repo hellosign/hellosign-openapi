@@ -744,7 +744,7 @@
 "Sub::Attachment::NAME": The name of attachment.
 "Sub::Attachment::REQUIRED": Determines if the attachment must be uploaded.
 "Sub::Attachment::SIGNER_INDEX": |-
-  The signer's unique number, see `signers[%i%][name]` for more details.
+  The signer's index in the `signers` parameter (0-based indexing).
 
   **NOTE**: Only one signer can be assigned per attachment.
 
@@ -891,7 +891,7 @@
   - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
 "Sub::FormFieldsPerDocument::PLACEHOLDER": Placeholder value for text field.
 "Sub::FormFieldsPerDocument::REQUIRED": Whether this field is required.
-"Sub::FormFieldsPerDocument::SIGNER": Signer index identified by the offset `%i%` in the `signers[%i%]` parameter, indicating which signer should fill out the field. If your type is `text-merge` you can set this to `sender`, so the field is non-editable by any signer.
+"Sub::FormFieldsPerDocument::SIGNER": Signer index identified by the offset in the `signers` parameter (0-based indexing), indicating which signer should fill out the field. If your type is `text-merge` you can set this to `sender`, so the field is non-editable by any signer.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE": A checkbox field that has default value set by the api. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
