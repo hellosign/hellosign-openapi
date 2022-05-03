@@ -1012,7 +1012,7 @@
 
 "EventCallbackAccountRequest::DESCRIPTION": |-
   **Account Callback Payloads --**  
-        Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/operation/accountUpdate) and passing a `callback_url`.
+        Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
 "EventCallbackAccountSignatureRequestSentExample::SUMMARY": |-
   Example: signature_request_sent
 "EventCallbackAccountTemplateCreatedExample::SUMMARY": |-
@@ -1025,7 +1025,7 @@
   Example: template_created
 "EventCallbackApiAppRequest::DESCRIPTION": |-
   **Api App Callback Payloads --**  
-  Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/operation/apiAppUpdate) and passing a `callback_url`.
+  Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
 "EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
 "EventCallbackRequestEvent::EVENT_TIME": Time the event was created (using Unix time).
 "EventCallbackRequestEvent::EVENT_TYPE": Type of callback event that was triggered.
