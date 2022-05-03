@@ -1145,6 +1145,7 @@
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+"TeamResponse::DESCRIPTION": Contains information about your team and its members
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template

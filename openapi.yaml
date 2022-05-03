@@ -7498,6 +7498,7 @@ components:
       type: object
       x-internal: true
     TeamResponse:
+      description: 'Contains information about your team and its members'
       properties:
         name:
           description: 'The name of your Team'
