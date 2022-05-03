@@ -104,6 +104,14 @@ paths:
       summary: '_t__AccountGet::SUMMARY'
       description: '_t__AccountGet::DESCRIPTION'
       operationId: accountGet
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: '_t__AccountGet::ACCOUNT_ID'
+          required: false
+          schema:
+            type: string
       responses:
         '200':
           description: 'successful operation'
@@ -4193,6 +4201,10 @@ components:
       type: object
     AccountUpdateRequest:
       properties:
+        account_id:
+          nullable: true
+          description: '_t__AccountUpdate::ACCOUNT_ID'
+          type: string
         callback_url:
           description: '_t__AccountUpdate::CALLBACK_URL'
           type: string
@@ -6186,6 +6198,8 @@ components:
         callback_url:
           nullable: true
           type: string
+        should_send_outbound_conf_emails:
+          type: boolean
         role_code:
           nullable: true
           type: string

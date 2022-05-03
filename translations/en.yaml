@@ -75,9 +75,11 @@
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
+"AccountGet::ACCOUNT_ID": Account ID
 
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account.
+"AccountUpdate::ACCOUNT_ID": Account ID.
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
@@ -443,8 +445,14 @@
 
 "TeamAddMember::SUMMARY": Add User to Team
 "TeamAddMember::DESCRIPTION": Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
-"TeamAddMember::ACCOUNT_ID": The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.
-"TeamAddMember::EMAIL_ADDRESS": The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.
+"TeamAddMember::ACCOUNT_ID": |-
+  `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+  
+  Account id of the user to invite to your Team.
+"TeamAddMember::EMAIL_ADDRESS": |-
+  `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+  
+  Email address of the user to invite to your Team.
 
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
@@ -458,8 +466,14 @@
 
 "TeamRemoveMember::SUMMARY": Remove User from Team
 "TeamRemoveMember::DESCRIPTION": Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
-"TeamRemoveMember::ACCOUNT_ID": The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.
-"TeamRemoveMember::EMAIL_ADDRESS": The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.
+"TeamRemoveMember::ACCOUNT_ID": |-
+  **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+  
+  Account id to remove from your Team.
+"TeamRemoveMember::EMAIL_ADDRESS": |-
+  **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+  
+  Email address of the Account to remove from your Team.
 "TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS": |-
   The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.
 
@@ -909,7 +923,7 @@
   Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::OAuth::CALLBACK_URL": The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
-"Sub::OAuth::SCOPES": A list of OAuth scopes to be granted to the app. (Required if `oauth[callback_url]` is provided).
+"Sub::OAuth::SCOPES": A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
 
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
 
