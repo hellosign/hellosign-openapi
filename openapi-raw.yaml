@@ -5378,19 +5378,13 @@ components:
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
               - ''
       type: object
     SubOptions:

@@ -5690,24 +5690,18 @@ components:
           description: 'The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)'
           type: string
         scopes:
-          description: 'A list of OAuth scopes to be granted to the app. (Required if `oauth[callback_url]` is provided).'
+          description: 'A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).'
           type: array
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
               - ''
       type: object
     SubOptions:
@@ -5905,10 +5899,16 @@ components:
     TeamAddMemberRequest:
       properties:
         account_id:
-          description: 'The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.'
+          description: |-
+            `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+
+            Account id of the user to invite to your Team.
           type: string
         email_address:
-          description: 'The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.'
+          description: |-
+            `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+
+            Email address of the user to invite to your Team.
           type: string
           format: email
       type: object
@@ -5922,10 +5922,16 @@ components:
     TeamRemoveMemberRequest:
       properties:
         account_id:
-          description: 'The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.'
+          description: |-
+            **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+
+            Account id to remove from your Team.
           type: string
         email_address:
-          description: 'The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.'
+          description: |-
+            **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+
+            Email address of the Account to remove from your Team.
           type: string
           format: email
         new_owner_email_address:
