@@ -4871,6 +4871,7 @@ components:
       description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
+        - signers
       properties:
         file:
           description: |-
@@ -5000,6 +5001,7 @@ components:
       required:
         - client_id
         - template_ids
+        - signers
       properties:
         template_ids:
           description: 'Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.'

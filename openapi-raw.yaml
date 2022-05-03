@@ -4737,6 +4737,7 @@ components:
       description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
+        - signers
       properties:
         file:
           description: '_t__SignatureRequestCreateEmbedded::FILE'
@@ -4836,6 +4837,7 @@ components:
       required:
         - client_id
         - template_ids
+        - signers
       properties:
         template_ids:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS'
