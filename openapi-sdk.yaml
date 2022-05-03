@@ -6849,6 +6849,7 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
+      description: 'Contains information about Signature Requests sent in bulk.'
       properties:
         bulk_send_job_id:
           nullable: true
