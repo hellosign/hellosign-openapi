@@ -1150,6 +1150,7 @@
 "TemplateResponseDocument::DESCRIPTION": An array describing each document associated with this Template. Includes form field data for each document.
 "TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last.
 "TemplateResponseDocument::NAME": Name of the associated file.
+"TemplateResponseDocument::STATIC_FIELDS": An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.
 
 "TemplateResponseDocumentCustomField::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseDocumentCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
@@ -1187,7 +1188,14 @@
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
 
-"TemplateResponseDocumentStaticField::DESCRIPTION": An array of Static Field objects containing the name and type of each named textbox and checkmark field.
+"TemplateResponseDocumentStaticField::NAME": The name of the static field.
+"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentStaticField::SIGNER": The signer of the Static Field.
+"TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::WIDTH": The width in pixels of this static field.
+"TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
+"TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
 "TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 "TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
