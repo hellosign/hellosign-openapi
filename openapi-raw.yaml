@@ -4791,9 +4791,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS'
           type: boolean
@@ -4968,9 +4966,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__SignatureRequestSend::HIDE_TEXT_TAGS'
           type: boolean
@@ -5309,6 +5305,7 @@ components:
     SubFormFieldsPerDocumentBase:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
       required:
+        - document
         - type
         - signer
         - width
@@ -5316,6 +5313,9 @@ components:
         - x
         - 'y'
       properties:
+        document:
+          description: '_t__Sub::FormFieldsPerDocument::DOCUMENT'
+          type: int
         api_id:
           description: '_t__Sub::FormFieldsPerDocument::API_ID'
           type: string
@@ -5691,9 +5691,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
           description: '_t__TemplateCreateEmbeddedDraft::MERGE_FIELDS'
           type: array
@@ -5830,9 +5828,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__UnclaimedDraftCreate::HIDE_TEXT_TAGS'
           type: boolean
@@ -5956,9 +5952,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__UnclaimedDraftCreateEmbedded::HIDE_TEXT_TAGS'
           type: boolean

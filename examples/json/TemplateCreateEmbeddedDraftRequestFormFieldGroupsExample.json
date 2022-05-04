@@ -33,36 +33,36 @@
     "date_format": "DD - MM - YYYY"
   },
   "form_fields_per_document": [
-    [
-      {
-        "api_id": "uniqueIdHere_1",
-        "name": "",
-        "type": "radio",
-        "x": 112,
-        "y": 328,
-        "width": 18,
-        "height": 18,
-        "required": false,
-        "group": "RadioItemGroup1",
-        "checked": 1,
-        "signer": 0,
-        "page": 1
-      },
-      {
-        "api_id": "uniqueIdHere_2",
-        "name": "",
-        "type": "radio",
-        "x": 112,
-        "y": 370,
-        "width": 18,
-        "height": 18,
-        "required": false,
-        "group": "RadioItemGroup1",
-        "checked": 0,
-        "signer": 0,
-        "page": 1
-      }
-    ]
+    {
+      "document": 0,
+      "api_id": "uniqueIdHere_1",
+      "name": "",
+      "type": "radio",
+      "x": 112,
+      "y": 328,
+      "width": 18,
+      "height": 18,
+      "required": false,
+      "group": "RadioItemGroup1",
+      "checked": 1,
+      "signer": 0,
+      "page": 1
+    },
+    {
+      "document": 0,
+      "api_id": "uniqueIdHere_2",
+      "name": "",
+      "type": "radio",
+      "x": 112,
+      "y": 370,
+      "width": 18,
+      "height": 18,
+      "required": false,
+      "group": "RadioItemGroup1",
+      "checked": 0,
+      "signer": 0,
+      "page": 1
+    }
   ],
   "form_field_groups": [
     {
