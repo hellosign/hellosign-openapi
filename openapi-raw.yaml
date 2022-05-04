@@ -5315,7 +5315,7 @@ components:
       properties:
         document:
           description: '_t__Sub::FormFieldsPerDocument::DOCUMENT'
-          type: int
+          type: integer
         api_id:
           description: '_t__Sub::FormFieldsPerDocument::API_ID'
           type: string

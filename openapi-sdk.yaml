@@ -5628,7 +5628,7 @@ components:
       properties:
         document:
           description: 'Represents the integer index of the `file` or `file_url` document the field should be attached to.'
-          type: int
+          type: integer
         api_id:
           description: 'An identifier for the field that is unique across all documents in the request.'
           type: string
