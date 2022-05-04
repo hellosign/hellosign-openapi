@@ -1198,13 +1198,6 @@
 "TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
 "TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
-"TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
-"TemplateResponseDocumentStaticField::NAME": The name of the static field.
-"TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
-"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
-"TemplateResponseDocumentStaticField::WIDTH": The width in pixels of this static field.
-"TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
-"TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
 
 "TemplateResponseSignerRole::DESCRIPTION": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseSignerRole::NAME": The name of the Role.
