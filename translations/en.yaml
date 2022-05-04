@@ -1167,7 +1167,6 @@
 "TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
-"TemplateResponseDocumentCustomField::FONT_SIZE": Font size used in this form field's text.
 
 "TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in custom field.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.

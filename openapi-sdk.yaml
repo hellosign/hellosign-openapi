@@ -5973,7 +5973,7 @@ components:
         allow_ccs:
           description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.'
           type: boolean
-          default: false
+          default: true
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -6299,7 +6299,7 @@ components:
         allow_ccs:
           description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.'
           type: boolean
-          default: false
+          default: true
         allow_decline:
           description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
           type: boolean
@@ -7634,6 +7634,8 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
         static_fields:
+          nullable: true
+          description: 'An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
@@ -7645,30 +7647,15 @@ components:
         name:
           description: 'The name of the Custom Field.'
           type: string
-        signer:
-          description: 'The signer of the Custom Field.'
-          type: string
-        api_id:
-          description: 'The unique ID for this field.'
-          type: string
-        is_multiline:
-          description: 'Whether this form field is multiline text.'
-          type: boolean
-        original_font_size:
-          description: 'Original font size used in this form field''s text.'
-          type: integer
-        font_family:
-          description: 'Font family used in this form field''s text.'
-          type: string
-        font_size:
-          description: 'Font size used in this form field''s text.'
-          type: integer
         type:
           description: 'The type of this Custom Field. Only `text` and `checkbox` are currently supported.'
           type: string
           enum:
             - text
             - checkbox
+        signer:
+          description: 'The signer of the Custom Field.'
+          type: string
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -7684,12 +7671,27 @@ components:
         required:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
+        api_id:
+          description: 'The unique ID for this field.'
+          type: string
         group:
           nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: 'Whether this form field is multiline text.'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: 'Original font size used in this form field''s text.'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: 'Font family used in this form field''s text.'
+          type: string
         named_form_fields:
           nullable: true
           description: 'Use `form_fields` under the `documents` array instead.'
@@ -7768,28 +7770,16 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentStaticField:
-      description: 'An array of Static Field objects containing the name and type of each named textbox and checkmark field.'
       properties:
-        api_id:
-          description: 'A unique id for the static field.'
-          type: string
         name:
           description: 'The name of the static field.'
           type: string
         type:
           description: 'The type of this static field. See [field types](/api/reference/constants/#field-types).'
           type: string
-          enum:
-            - checkbox
-            - checkbox-merge
-            - date_signed
-            - dropdown
-            - hyperlink
-            - initials
-            - signature
-            - radio
-            - text
-            - text-merge
+        signer:
+          description: 'The signer of the Static Field.'
+          type: string
         x:
           description: 'The horizontal offset in pixels for this static field.'
           type: integer
@@ -7805,6 +7795,9 @@ components:
         required:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
+        api_id:
+          description: 'A unique id for the static field.'
+          type: string
         group:
           nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
