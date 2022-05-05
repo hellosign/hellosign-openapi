@@ -916,7 +916,7 @@
 "Sub::MergeField::EnumDescriptions::TEXT": Sets merge [field type](/api/reference/constants/#field-types) to `text`.
 "Sub::MergeField::EnumDescriptions::CHECKBOX": Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.
 
-  
+
 "Sub::Metadata::DESCRIPTION": |-
   Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
@@ -1048,7 +1048,7 @@
 "EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID": Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
 "EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID": Account ID the event was reported for.
 "EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID": App ID the event was reported for.
-"EventCallbackRequestEventMetadata::EVENT_MESSAGE": Message about a declined or failed (due to error) signature flow. 
+"EventCallbackRequestEventMetadata::EVENT_MESSAGE": Message about a declined or failed (due to error) signature flow.
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
@@ -1181,10 +1181,15 @@
 "TemplateResponse::IS_LOCKED": "`true` if you exceed Template quota; these can only be used in test mode. `false` if the template is included with the Template quota; these can be used at any time."
 "TemplateResponse::MESSAGE": The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::METADATA": The metadata attached to the template.
+"TemplateResponse::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateResponse::CC_ROLES": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateResponse::DOCUMENTS": An array describing each document associated with this Template. Includes form field data for each document.
+"TemplateResponse::CUSTOM_FIELDS": An array of Custom Field objects.
+"TemplateResponse::NAMED_FORM_FIELDS": An array of Named Form Field objects.
+"TemplateResponse::ACCOUNTS": An array of the Accounts that can use this Template.
 "TemplateResponse::TITLE": The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
 
-"TemplateResponseAccount::DESCRIPTION": An array of the Accounts that can use this Template.
 "TemplateResponseAccount::ACCOUNT_ID": The id of the Account.
 "TemplateResponseAccount::EMAIL_ADDRESS": The email address associated with the Account.
 "TemplateResponseAccount::IS_LOCKED": Returns true if the user has been locked out of their account by a team admin.
@@ -1195,15 +1200,14 @@
 "TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
 "TemplateResponseAccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
 "TemplateResponseAccountQuota::TEMPLATES_LEFT": API templates remaining.
+"TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 
-"TemplateResponseCCRole::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseCCRole::TEMPLATES_LEFT": The name of the Role.
 
-"TemplateResponseDocument::DESCRIPTION": An array describing each document associated with this Template. Includes form field data for each document.
 "TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last.
 "TemplateResponseDocument::NAME": Name of the associated file.
 
-"TemplateResponseDocumentCustomField::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateResponseDocumentCustomField::DESCRIPTION": An array of Document Custom Field objects.
 "TemplateResponseDocumentCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 "TemplateResponseDocumentCustomField::HEIGHT": The height in pixels of this form field.
 "TemplateResponseDocumentCustomField::NAME": The name of the Custom Field.
@@ -1213,6 +1217,29 @@
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentCustomField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentCustomField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field.
+"TemplateResponseDocumentCustomField::API_ID": The unique ID for this field.
+"TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
+"TemplateResponseDocumentCustomField::FONT_SIZE": Font size used in this form field's text.
+"TemplateResponseDocumentCustomField::AVG_TEXT_LENGTH": Average text length in this field.
+
+"TemplateResponseNamedFormField::NAME": The name of the Named Form Field.
+"TemplateResponseNamedFormField::TYPE": The type of this Named Form Field. Only `text` and `checkbox` are currently supported.
+"TemplateResponseNamedFormField::SIGNER": The signer of the Named Form Field.
+"TemplateResponseNamedFormField::X": The horizontal offset in pixels for this form field.
+"TemplateResponseNamedFormField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseNamedFormField::WIDTH": The width in pixels of this form field.
+"TemplateResponseNamedFormField::HEIGHT": The height in pixels of this form field.
+"TemplateResponseNamedFormField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseNamedFormField::API_ID": The unique ID for this field.
+"TemplateResponseNamedFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseNamedFormField::FONT_SIZE": Font size used in this form field's text.
+"TemplateResponseNamedFormField::AVG_TEXT_LENGTH": Average text length in this field.
+"TemplateResponseNamedFormField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseNamedFormField::FONT_FAMILY": Font family used in this form field's text.
 
 "TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in custom field.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
@@ -1233,7 +1260,17 @@
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
 
-"TemplateResponseSignerRole::DESCRIPTION": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateResponseDocumentStaticField::NAME": The name of the static field.
+"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentStaticField::SIGNER": The signer of the Static Field.
+"TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::WIDTH": The width in pixels of this static field.
+"TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
+"TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
+"TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+
 "TemplateResponseSignerRole::NAME": The name of the Role.
 "TemplateResponseSignerRole::ORDER": If signer order is assigned this is the 0-based index for this role.
 
