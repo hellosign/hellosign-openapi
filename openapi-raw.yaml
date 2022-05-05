@@ -5305,7 +5305,7 @@ components:
     SubFormFieldsPerDocumentBase:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
       required:
-        - document
+        - document_index
         - type
         - signer
         - width
