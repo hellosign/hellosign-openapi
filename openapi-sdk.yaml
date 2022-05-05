@@ -7723,7 +7723,7 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
@@ -7735,17 +7735,6 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseCustomFieldAvgTextLength:
-      description: 'Average text length in this field.'
-      properties:
-        num_lines:
-          description: 'Number of lines.'
-          type: integer
-        num_chars_per_line:
-          description: 'Number of character per line.'
           type: integer
       type: object
       x-internal: true
@@ -7808,7 +7797,7 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
@@ -7820,17 +7809,6 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseDocumentCustomFieldAvgTextLength:
-      description: 'Average text length in this field.'
-      properties:
-        num_lines:
-          description: 'Number of lines.'
-          type: integer
-        num_chars_per_line:
-          description: 'Number of character per line.'
           type: integer
       type: object
       x-internal: true
@@ -7889,7 +7867,7 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
@@ -7904,18 +7882,7 @@ components:
           type: string
       type: object
       x-internal: true
-    TemplateResponseDocumentFormFieldAvgTextLength:
-      description: 'Average text length in this field.'
-      properties:
-        num_lines:
-          description: 'Number of lines.'
-          type: integer
-        num_chars_per_line:
-          description: 'Number of character per line.'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseDocumentNamedFormFieldAvgTextLength:
+    TemplateResponseFieldAvgTextLength:
       description: 'Average text length in this field.'
       properties:
         num_lines:
@@ -7960,7 +7927,7 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentNamedFormFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'

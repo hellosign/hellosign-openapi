@@ -1238,10 +1238,6 @@
 "TemplateResponseCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseCustomField::FONT_FAMILY": Font family used in this form field's text.
 
-"TemplateResponseCustomFieldAvgTextLength::DESCRIPTION": Average text length in this field.
-"TemplateResponseCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
-"TemplateResponseCustomFieldAvgTextLength::NUM_LINES": Number of lines.
-
 "TemplateResponseNamedFormField::NAME": The name of the Named Form Field.
 "TemplateResponseNamedFormField::TYPE": The type of this Named Form Field. Only `text` and `checkbox` are currently supported.
 "TemplateResponseNamedFormField::SIGNER": The signer of the Named Form Field.
@@ -1256,13 +1252,9 @@
 "TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseNamedFormField::FONT_FAMILY": Font family used in this form field's text.
 
-"TemplateResponseNamedFormFieldAvgTextLength::DESCRIPTION": Average text length in this field.
-"TemplateResponseNamedFormFieldTextLength::NUM_CHARS_PER_LINE": Number of character per line.
-"TemplateResponseNamedFormFieldTextLength::NUM_LINES": Number of lines.
-
-"TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in this field.
-"TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
-"TemplateResponseDocumentCustomFieldAvgTextLength::NUM_LINES": Number of lines.
+"TemplateResponseFieldAvgTextLength::DESCRIPTION": Average text length in this field.
+"TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
+"TemplateResponseFieldAvgTextLength::NUM_LINES": Number of lines.
 
 "TemplateResponseDocumentFieldGroup::NAME": The name of the form field group.
 "TemplateResponseDocumentFieldGroup::RULE": The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).

@@ -7224,7 +7224,7 @@ components:
           description: '_t__TemplateResponseCustomField::GROUP'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseCustomField::IS_MULTILINE'
@@ -7236,17 +7236,6 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseCustomField::FONT_FAMILY'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseCustomFieldAvgTextLength:
-      description: '_t__TemplateResponseCustomFieldAvgTextLength::DESCRIPTION'
-      properties:
-        num_lines:
-          description: '_t__TemplateResponseCustomFieldAvgTextLength::NUM_LINES'
-          type: integer
-        num_chars_per_line:
-          description: '_t__TemplateResponseCustomFieldAvgTextLength::NUM_CHARS_PER_LINE'
           type: integer
       type: object
       x-internal: true
@@ -7309,7 +7298,7 @@ components:
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
@@ -7321,17 +7310,6 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseDocumentCustomFieldAvgTextLength:
-      description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION'
-      properties:
-        num_lines:
-          description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::NUM_LINES'
-          type: integer
-        num_chars_per_line:
-          description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE'
           type: integer
       type: object
       x-internal: true
@@ -7390,7 +7368,7 @@ components:
           description: '_t__TemplateResponseDocumentFormField::GROUP'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
@@ -7405,25 +7383,14 @@ components:
           type: string
       type: object
       x-internal: true
-    TemplateResponseDocumentFormFieldAvgTextLength:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
+    TemplateResponseFieldAvgTextLength:
+      description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
       properties:
         num_lines:
-          description: '_t__TemplateResponseDocumentFormField::NUM_LINES'
+          description: '_t__TemplateResponseFieldAvgTextLength::NUM_LINES'
           type: integer
         num_chars_per_line:
-          description: '_t__TemplateResponseDocumentFormField::NUM_CHARS_PER_LINE'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseDocumentNamedFormFieldAvgTextLength:
-      description: '_t__TemplateResponseNamedFormFieldAvgTextLength::DESCRIPTION'
-      properties:
-        num_lines:
-          description: '_t__TemplateResponseNamedFormFieldTextLength::NUM_LINES'
-          type: integer
-        num_chars_per_line:
-          description: '_t__TemplateResponseNamedFormFieldTextLength::NUM_CHARS_PER_LINE'
+          description: '_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE'
           type: integer
       type: object
       x-internal: true
@@ -7461,7 +7428,7 @@ components:
           description: '_t__TemplateResponseNamedFormField::GROUP'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentNamedFormFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
