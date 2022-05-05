@@ -485,8 +485,8 @@
 
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
-"TemplateAddUser::ACCOUNT_ID": The id or email address of the Account to give access to the Template. The account id prevails if both are provided.
-"TemplateAddUser::EMAIL_ADDRESS": The id or email address of the Account to give access to the Template. The account id prevails if both are provided.
+"TemplateAddUser::ACCOUNT_ID": The id of the Account to give access to the Template. <u>Note</u> The account id prevails if email address is also provided.
+"TemplateAddUser::EMAIL_ADDRESS": The email address of the Account to give access to the Template. <u>Note</u> The account id prevails if it is also provided.
 "TemplateAddUser::SKIP_NOTIFICATION": If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
 "TemplateAddUser::TEMPLATE_ID": The id of the Template to give the Account access to.
 
@@ -523,6 +523,7 @@
   - `show_preview=true`: Allows requesters to enable the editor/preview experience.
   - `show_preview=false`: Allows requesters to disable the editor/preview experience.
 "TemplateCreateEmbeddedDraft::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+"TemplateCreateEmbeddedDraft::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateCreateEmbeddedDraft::SKIP_ME_NOW": Disables the "Me (Now)" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::SUBJECT": The template title (alias).
 "TemplateCreateEmbeddedDraft::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
@@ -574,7 +575,7 @@
 
   This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.
 
-  Overlaying new files is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the request passes initial validation checks.
+  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.
 
   It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 

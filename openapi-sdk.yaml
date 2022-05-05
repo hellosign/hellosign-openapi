@@ -3754,7 +3754,7 @@ paths:
 
         This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.
 
-        Overlaying new files is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the request passes initial validation checks.
+        Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.
 
         It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
@@ -5951,10 +5951,10 @@ components:
     TemplateAddUserRequest:
       properties:
         account_id:
-          description: 'The id or email address of the Account to give access to the Template. The account id prevails if both are provided.'
+          description: 'The id of the Account to give access to the Template. <u>Note</u> The account id prevails if email address is also provided.'
           type: string
         email_address:
-          description: 'The id or email address of the Account to give access to the Template. The account id prevails if both are provided.'
+          description: 'The email address of the Account to give access to the Template. <u>Note</u> The account id prevails if it is also provided.'
           type: string
           format: email
         skip_notification:
@@ -6085,6 +6085,7 @@ components:
           type: boolean
           default: true
         signer_roles:
+          description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
           type: array
           items:
             $ref: '#/components/schemas/SubTemplateRole'
