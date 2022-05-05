@@ -1195,6 +1195,7 @@
 "TemplateResponseAccount::IS_LOCKED": Returns true if the user has been locked out of their account by a team admin.
 "TemplateResponseAccount::IS_PAID_HS": Returns true if the user has a paid HelloSign account.
 "TemplateResponseAccount::IS_PAID_HF": Returns true if the user has a paid HelloFax account.
+"TemplateResponseAccount::QUOTAS": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 
 "TemplateResponseAccountQuota::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
@@ -1219,12 +1220,27 @@
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentCustomField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentCustomField::Y": The vertical offset in pixels for this form field.
-"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field.
 "TemplateResponseDocumentCustomField::API_ID": The unique ID for this field.
 "TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
-"TemplateResponseDocumentCustomField::AVG_TEXT_LENGTH": Average text length in this field.
+
+"TemplateResponseCustomField::NAME": The name of the Custom Field.
+"TemplateResponseCustomField::TYPE": The type of this Custom Field. Only `text` and `checkbox` are currently supported.
+"TemplateResponseCustomField::X": The horizontal offset in pixels for this form field.
+"TemplateResponseCustomField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseCustomField::WIDTH": The width in pixels of this form field.
+"TemplateResponseCustomField::HEIGHT": The height in pixels of this form field.
+"TemplateResponseCustomField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseCustomField::API_ID": The unique ID for this field.
+"TemplateResponseCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseCustomField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseCustomField::FONT_FAMILY": Font family used in this form field's text.
+
+"TemplateResponseCustomFieldAvgTextLength::DESCRIPTION": Average text length in this field.
+"TemplateResponseCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
+"TemplateResponseCustomFieldAvgTextLength::NUM_LINES": Number of lines.
 
 "TemplateResponseNamedFormField::NAME": The name of the Named Form Field.
 "TemplateResponseNamedFormField::TYPE": The type of this Named Form Field. Only `text` and `checkbox` are currently supported.
@@ -1236,11 +1252,15 @@
 "TemplateResponseNamedFormField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseNamedFormField::API_ID": The unique ID for this field.
 "TemplateResponseNamedFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
-"TemplateResponseNamedFormField::AVG_TEXT_LENGTH": Average text length in this field.
 "TemplateResponseNamedFormField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseNamedFormField::FONT_FAMILY": Font family used in this form field's text.
 
+"TemplateResponseNamedFormFieldAvgTextLength::DESCRIPTION": Average text length in this field.
+"TemplateResponseNamedFormFieldTextLength::NUM_CHARS_PER_LINE": Number of character per line.
+"TemplateResponseNamedFormFieldTextLength::NUM_LINES": Number of lines.
+
+"TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in this field.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_LINES": Number of lines.
 
@@ -1261,6 +1281,10 @@
 "TemplateResponseDocumentFormField::AVG_TEXT_LENGTH": Average text length in this field.
 "TemplateResponseDocumentFormField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseDocumentFormField::FONT_FAMILY": Font family used in this form field's text.
+
+"TemplateResponseDocumentFormField::DESCRIPTION": Average text length in this field.
+"TemplateResponseDocumentFormField::NUM_LINES": Number of lines.
+"TemplateResponseDocumentFormField::NUM_CHARS_PER_LINE": Number of character per line.
 
 "TemplateResponseDocumentStaticField::NAME": The name of the static field.
 "TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).

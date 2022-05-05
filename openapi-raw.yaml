@@ -7193,9 +7193,61 @@ components:
     TemplateResponseCustomField:
       properties:
         name:
+          description: '_t__TemplateResponseCustomField::NAME'
           type: string
         type:
+          description: '_t__TemplateResponseCustomField::TYPE'
           type: string
+          enum:
+            - text
+            - checkbox
+        x:
+          description: '_t__TemplateResponseCustomField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseCustomField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseCustomField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseCustomField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseCustomField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseCustomField::API_ID'
+          type: string
+        group:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::GROUP'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseCustomFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::IS_MULTILINE'
+          type: string
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::FONT_FAMILY'
+          type: integer
+      type: object
+      x-internal: true
+    TemplateResponseCustomFieldAvgTextLength:
+      description: '_t__TemplateResponseCustomFieldAvgTextLength::DESCRIPTION'
+      properties:
+        num_lines:
+          description: '_t__TemplateResponseCustomFieldAvgTextLength::NUM_LINES'
+          type: integer
+        num_chars_per_line:
+          description: '_t__TemplateResponseCustomFieldAvgTextLength::NUM_CHARS_PER_LINE'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -7228,9 +7280,6 @@ components:
         name:
           description: '_t__TemplateResponseDocumentCustomField::NAME'
           type: string
-        signer:
-          description: '_t__TemplateResponseDocumentCustomField::SIGNER'
-          type: string
         type:
           description: '_t__TemplateResponseDocumentCustomField::TYPE'
           type: string
@@ -7262,12 +7311,15 @@ components:
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
         isMultiline:
+          nullable: true
           description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
           type: string
         originalFontSize:
+          nullable: true
           description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
           type: integer
         fontFamily:
+          nullable: true
           description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
           type: integer
       type: object
@@ -7284,7 +7336,6 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentFieldGroup:
-      description: '_t__TemplateResponseDocumentFieldGroup::DESCRIPTION'
       properties:
         name:
           description: '_t__TemplateResponseDocumentFieldGroup::NAME'
@@ -7338,15 +7389,16 @@ components:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::GROUP'
           type: string
-        originalFontSize:
-          description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
-          type: integer
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
           type: boolean
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+          type: integer
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
@@ -7354,18 +7406,24 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentFormFieldAvgTextLength:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
       properties:
         num_lines:
+          description: '_t__TemplateResponseDocumentFormField::NUM_LINES'
           type: integer
         num_chars_per_line:
+          description: '_t__TemplateResponseDocumentFormField::NUM_CHARS_PER_LINE'
           type: integer
       type: object
       x-internal: true
     TemplateResponseDocumentNamedFormFieldAvgTextLength:
+      description: '_t__TemplateResponseNamedFormFieldAvgTextLength::DESCRIPTION'
       properties:
         num_lines:
+          description: '_t__TemplateResponseNamedFormFieldTextLength::NUM_LINES'
           type: integer
         num_chars_per_line:
+          description: '_t__TemplateResponseNamedFormFieldTextLength::NUM_CHARS_PER_LINE'
           type: integer
       type: object
       x-internal: true
@@ -7409,6 +7467,7 @@ components:
           description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
           type: boolean
         originalFontSize:
+          nullable: true
           description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
           type: integer
         fontFamily:
