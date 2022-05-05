@@ -7706,17 +7706,17 @@ components:
           description: 'Document ordering, the lowest index is displayed first and the highest last.'
           type: integer
         field_groups:
-          description: '_t__TemplateResponseDocument::FIELD_GROUPS'
+          description: 'An array of Form Field Group objects.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFieldGroup'
         form_fields:
-          description: '_t__TemplateResponseDocument::FORM_FIELDS'
+          description: 'An array of Form Field objects containing the name and type of each named textbox and checkmark field.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFormField'
         custom_fields:
-          description: '_t__TemplateResponseDocument::CUSTOM_FIELDS'
+          description: 'An array of Document Custom Field objects.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
@@ -7772,7 +7772,7 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentCustomFieldAvgTextLength:
-      description: 'Average text length in custom field.'
+      description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION'
       properties:
         num_lines:
           description: 'Number of lines.'
@@ -7783,7 +7783,7 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentFieldGroup:
-      description: 'An array of Form Field Group objects.'
+      description: '_t__TemplateResponseDocumentFieldGroup::DESCRIPTION'
       properties:
         name:
           description: 'The name of the form field group.'
@@ -7816,7 +7816,7 @@ components:
             - text
             - text-merge
         signer:
-          description: '_t__TemplateResponseDocumentFormField::SIGNER'
+          description: 'The signer of the Form Field.'
           type: string
         x:
           description: 'The horizontal offset in pixels for this form field.'
@@ -7838,17 +7838,17 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         originalFontSize:
-          description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+          description: 'Original font size used in this form field''s text.'
           type: integer
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldAvgTextLength'
         isMultiline:
           nullable: true
-          description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
+          description: 'Whether this form field is multiline text.'
           type: boolean
         fontFamily:
           nullable: true
-          description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
+          description: 'Font family used in this form field''s text.'
           type: string
       type: object
       x-internal: true
