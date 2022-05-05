@@ -5,7 +5,7 @@
   ],
   "form_fields_per_document": [
     {
-      "document": 0,
+      "document_index": 0,
       "api_id": "uniqueIdHere_1",
       "name": "",
       "type": "text",
@@ -19,7 +19,7 @@
       "validation_type": "numbers_only"
     },
     {
-      "document": 0,
+      "document_index": 0,
       "api_id": "uniqueIdHere_2",
       "name": "",
       "type": "signature",

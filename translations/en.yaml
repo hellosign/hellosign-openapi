@@ -879,7 +879,7 @@
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
 "Sub::FormFieldsPerDocument::CONTENT_HYPERLINK": Link Text.
 "Sub::FormFieldsPerDocument::CONTENT_URL": Link URL.
-"Sub::FormFieldsPerDocument::DOCUMENT": Represents the integer index of the `file` or `file_url` document the field should be attached to.
+"Sub::FormFieldsPerDocument::DOCUMENT_INDEX": Represents the integer index of the `file` or `file_url` document the field should be attached to.
 "Sub::FormFieldsPerDocument::GROUP": String referencing group defined in `form_field_groups` parameter.
 "Sub::FormFieldsPerDocument::HEIGHT": Size of the field in pixels.
 "Sub::FormFieldsPerDocument::MASKED": Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.

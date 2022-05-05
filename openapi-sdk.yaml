@@ -5626,7 +5626,7 @@ components:
         - x
         - 'y'
       properties:
-        document:
+        document_index:
           description: 'Represents the integer index of the `file` or `file_url` document the field should be attached to.'
           type: integer
         api_id:

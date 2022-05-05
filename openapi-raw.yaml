@@ -5313,8 +5313,8 @@ components:
         - x
         - 'y'
       properties:
-        document:
-          description: '_t__Sub::FormFieldsPerDocument::DOCUMENT'
+        document_index:
+          description: '_t__Sub::FormFieldsPerDocument::DOCUMENT_INDEX'
           type: integer
         api_id:
           description: '_t__Sub::FormFieldsPerDocument::API_ID'
