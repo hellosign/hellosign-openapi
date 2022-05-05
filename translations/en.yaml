@@ -1005,9 +1005,31 @@
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL
 
-"EventCallbackAccountRequestExample::SUMMARY": Event Callback Account Example
-"EventCallbackAccountRequest::DESCRIPTION": Account Callback Payloads
-"EventCallbackApiAppRequest::DESCRIPTION": API App Callback Payloads
+"EventCallbackAccountRequest::DESCRIPTION": |-
+  **Account Callback Payloads --**  
+        Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
+"EventCallbackAccountSignatureRequestSentExample::SUMMARY": |-
+  Example: signature_request_sent
+"EventCallbackAccountTemplateCreatedExample::SUMMARY": |-
+  Example: template_created
+"EventCallbackApiAppAccountConfirmedExample::SUMMARY": |-
+  Example: account_confirmed
+"EventCallbackApiAppSignatureRequestSentExample::SUMMARY": |-
+  Example: signature_request_sent
+"EventCallbackApiAppTemplateCreatedExample::SUMMARY": |-
+  Example: template_created
+"EventCallbackApiAppRequest::DESCRIPTION": |-
+  **Api App Callback Payloads --**  
+  Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
+"EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
+"EventCallbackRequestEvent::EVENT_TIME": Time the event was created (using Unix time).
+"EventCallbackRequestEvent::EVENT_TYPE": Type of callback event that was triggered.
+"EventCallbackRequestEvent::EVENT_HASH": Generated hash used to verify source of event data.
+"EventCallbackRequestEventMetadata::DESCRIPTION": Specific metadata about the event.
+"EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID": Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
+"EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID": Account ID the event was reported for.
+"EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID": App ID the event was reported for.
+"EventCallbackRequestEventMetadata::EVENT_MESSAGE": Message about a declined or failed (due to error) signature flow. 
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
