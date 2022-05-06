@@ -1077,7 +1077,7 @@
 
 "SignatureRequestResponse::CC_EMAIL_ADDRESSES": A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
 "SignatureRequestResponse::CREATED_AT": Time the signature request was created.
-"SignatureRequestResponse::DESCRIPTION": Contains information regarding documents that need to be signed.
+"SignatureRequestResponse::DESCRIPTION": Contains information about a signature request.
 "SignatureRequestResponse::DETAILS_URL": The URL where the requester and the signers can view the current status of the SignatureRequest.
 "SignatureRequestResponse::FINAL_COPY_URI": (Deprecated) The relative URI where the PDF copy of the finalized documents can be downloaded. Only present when `is_complete = true`. This will be removed at some point; use the files_url instead.
 "SignatureRequestResponse::FILES_URL": The URL where a copy of the request's documents can be downloaded.
