@@ -6838,6 +6838,9 @@ components:
         - name
         - type
       properties:
+        type:
+          description: '_t__SignatureRequestResponseCustomField::TYPE'
+          type: string
         name:
           description: '_t__SignatureRequestResponseCustomField::NAME'
           type: string
