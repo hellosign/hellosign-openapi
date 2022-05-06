@@ -5403,9 +5403,9 @@ components:
       properties:
         editor:
           description: |-
-            The role (specified in `signers`) allowed to edit the custom field (optional, but required if `required = true`).
+            Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.
 
-            **Note**: Editable `custom_fields` are only supported for single signer requests or the first signer of ordered signature requests. If more than one signer is assigned to the unordered signature request, any editor value is ignored and the field will not be editable.
+            **Note**: Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
           type: string
         name:
           description: 'The name, or "Field Label," of the custom field (the field''s API ID can be used here as well).'
