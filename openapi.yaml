@@ -104,6 +104,14 @@ paths:
       summary: 'Get Account'
       description: 'Returns the properties and settings of your Account.'
       operationId: accountGet
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: 'Account ID'
+          required: false
+          schema:
+            type: string
       responses:
         200:
           description: 'successful operation'
@@ -1320,7 +1328,7 @@ paths:
       description: |-
         Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.
 
-        **NOTE**: Only available for Gold plan and higher.
+        **NOTE**: Only available for Standard plan and higher.
       operationId: signatureRequestBulkCreateEmbeddedWithTemplate
       requestBody:
         required: true
@@ -1412,7 +1420,7 @@ paths:
       description: |-
         Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.
 
-        **NOTE**: Only available for Gold plan and higher.
+        **NOTE**: Only available for Standard plan and higher.
       operationId: signatureRequestBulkSendWithTemplate
       requestBody:
         required: true
@@ -4268,6 +4276,10 @@ components:
       type: object
     AccountUpdateRequest:
       properties:
+        account_id:
+          nullable: true
+          description: 'Account ID.'
+          type: string
         callback_url:
           description: 'The URL that HelloSign should POST events to.'
           type: string
@@ -4360,6 +4372,10 @@ components:
           type: boolean
           default: false
         merge_fields:
+          description: |-
+            Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  
+              
+            Remove all merge fields on the template by passing an empty array `[]`.
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'
@@ -4885,7 +4901,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **Note**: Only available for Gold plan and higher.
+            **Note**: Only available for Premium plan.
           type: boolean
           default: false
         attachments:
@@ -5105,7 +5121,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **Note**: Only available for Gold plan and higher.
+            **Note**: Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -5663,15 +5679,22 @@ components:
       x-internal: true
       x-base-class: true
     SubMergeField:
-      description: 'The merge fields that can be placed on the template''s document(s) by the user editing the template. These are typically fields that can be pre-populated by your application when using the resulting template to send a signature request. Each merge field object must have two parameters: name and type. Names must be unique and type can only be "text" or "checkbox". Existing fields for removed merge fields will not be removed from the document, but will default to empty if no custom field is supplied with the signature request. To remove all merge fields, pass in an empty json array. For use in a POST request.'
+      required:
+        - name
+        - type
       properties:
         name:
+          description: 'The name of the merge field. Must be unique.'
           type: string
         type:
+          description: 'The type of merge field.'
           type: string
           enum:
             - text
             - checkbox
+          x-enumDescriptions:
+            text: 'Sets merge [field type](/api/reference/constants/#field-types) to `text`.'
+            checkbox: 'Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.'
       type: object
     SubOAuth:
       properties:
@@ -5679,24 +5702,18 @@ components:
           description: 'The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)'
           type: string
         scopes:
-          description: 'A list of OAuth scopes to be granted to the app. (Required if `oauth[callback_url]` is provided).'
+          description: 'A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).'
           type: array
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
               - ''
       type: object
     SubOptions:
@@ -5894,10 +5911,16 @@ components:
     TeamAddMemberRequest:
       properties:
         account_id:
-          description: 'The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.'
+          description: |-
+            `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+
+            Account id of the user to invite to your Team.
           type: string
         email_address:
-          description: 'The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.'
+          description: |-
+            `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+
+            Email address of the user to invite to your Team.
           type: string
           format: email
       type: object
@@ -5911,10 +5934,16 @@ components:
     TeamRemoveMemberRequest:
       properties:
         account_id:
-          description: 'The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.'
+          description: |-
+            **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+
+            Account id to remove from your Team.
           type: string
         email_address:
-          description: 'The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.'
+          description: |-
+            **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+
+            Email address of the Account to remove from your Team.
           type: string
           format: email
         new_owner_email_address:
@@ -5978,7 +6007,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **Note**: Only available for Gold plan and higher.
+            **Note**: Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -6037,6 +6066,9 @@ components:
             items:
               $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
+          description: |-
+            Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
+            If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'
@@ -6308,7 +6340,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **Note**: Only available for Gold plan and higher.
+            **Note**: Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -6466,7 +6498,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **Note**: Only available for Gold plan and higher.
+            **Note**: Only available for Premium plan and higher.
           type: boolean
           default: false
         ccs:
@@ -6648,6 +6680,8 @@ components:
         callback_url:
           nullable: true
           type: string
+        should_send_outbound_conf_emails:
+          type: boolean
         role_code:
           nullable: true
           type: string
@@ -6970,13 +7004,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         signature_request:
@@ -6996,13 +7023,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         account:
@@ -7013,6 +7033,7 @@ components:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
     EventCallbackRequestEvent:
+      description: 'Basic information about the event that occurred.'
       required:
         - event_time
         - event_type
@@ -7020,8 +7041,10 @@ components:
         - event_metadata
       properties:
         event_time:
+          description: 'Time the event was created (using Unix time).'
           type: string
         event_type:
+          description: 'Type of callback event that was triggered.'
           type: string
           enum:
             - account_confirmed
@@ -7045,23 +7068,29 @@ components:
             - template_created
             - template_error
         event_hash:
+          description: 'Generated hash used to verify source of event data.'
           type: string
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
     EventCallbackRequestEventMetadata:
+      description: 'Specific metadata about the event.'
       properties:
         related_signature_id:
           nullable: true
+          description: 'Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.'
           type: string
         reported_for_account_id:
           nullable: true
+          description: 'Account ID the event was reported for.'
           type: string
         reported_for_app_id:
           nullable: true
+          description: 'App ID the event was reported for.'
           type: string
         event_message:
           nullable: true
+          description: 'Message about a declined or failed (due to error) signature flow.'
           type: string
       type: object
     FileResponse:
@@ -7206,9 +7235,14 @@ components:
             type: string
         custom_fields:
           nullable: true
+          description: |-
+            An array of Custom Field objects containing the name and type of each custom field.
+
+            * Text Field uses `SignatureRequestResponseCustomFieldText`
+            * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
           type: array
           items:
-            $ref: '#/components/schemas/SignatureRequestResponseCustomField'
+            $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         attachments:
           nullable: true
           type: array
@@ -7279,19 +7313,23 @@ components:
           type: integer
       type: object
       x-internal: true
-    SignatureRequestResponseCustomField:
-      description: 'An array of Custom Field objects containing the name and type of each custom field.'
+    SignatureRequestResponseCustomFieldTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+    SignatureRequestResponseCustomFieldBase:
+      description: |-
+        An array of Custom Field objects containing the name and type of each custom field.
+
+        * Text Field uses `SignatureRequestResponseCustomFieldText`
+        * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+      required:
+        - name
+        - type
       properties:
         name:
           description: 'The name of the Custom Field.'
-          type: string
-        type:
-          description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
-          enum:
-            - text
-            - checkbox
-        value:
-          description: 'A text string for text fields or true/false for checkbox fields'
           type: string
         required:
           description: 'A boolean value denoting if this field is required.'
@@ -7303,7 +7341,51 @@ components:
           description: 'The name of the Role that is able to edit this field.'
           type: string
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/SignatureRequestResponseCustomFieldText'
+          checkbox: '#/components/schemas/SignatureRequestResponseCustomFieldCheckbox'
       x-internal: true
+      x-base-class: true
+    SignatureRequestResponseCustomFieldText:
+      description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
+              type: string
+              default: text
+            value:
+              description: 'A text string for text fields'
+              type: string
+          type: object
+    SignatureRequestResponseCustomFieldCheckbox:
+      description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
+              type: string
+              default: checkbox
+            value:
+              description: 'A true/false for checkbox fields'
+              type: boolean
+          type: object
     SignatureRequestResponseData:
       description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
       properties:
@@ -8181,18 +8263,26 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    EventCallbackAccountRequestExample:
-      summary: 'Event Callback Account Example'
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
       value:
-        $ref: examples/json/EventCallbackAccountRequestExample.json
-    EventCallbackSignatureRequestExample:
-      summary: 'Event Callback Signature Request Example'
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: 'Example: template_created'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestExample.json
-    EventCallbackTemplateRequestExample:
-      summary: 'Event Callback Template Example'
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackApiAppAccountConfirmedExample:
+      summary: 'Example: account_confirmed'
       value:
-        $ref: examples/json/EventCallbackTemplateRequestExample.json
+        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
+    EventCallbackApiAppSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
+      value:
+        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
+    EventCallbackApiAppTemplateCreatedExample:
+      summary: 'Example: template_created'
+      value:
+        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:
@@ -8323,50 +8413,54 @@ components:
         $ref: examples/json/UnclaimedDraftEditAndResendExample.json
   requestBodies:
     EventCallbackAccountRequest:
-      description: 'Account Callback Payloads'
+      description: |-
+        **Account Callback Payloads --**  
+              Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
             signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
     EventCallbackApiAppRequest:
-      description: 'API App Callback Payloads'
+      description: |-
+        **Api App Callback Payloads --**  
+        Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json

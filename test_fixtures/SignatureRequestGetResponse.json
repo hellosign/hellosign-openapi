@@ -11,7 +11,38 @@
       "is_complete": false,
       "is_declined": false,
       "has_error": false,
-      "custom_fields": [],
+      "custom_fields": [
+        {
+          "name": "textbox1",
+          "type": "text",
+          "value": "hi mum",
+          "editor": "Client1",
+          "required": true,
+          "api_id": "textbox___1"
+        },
+        {
+          "name": "checkbox1",
+          "type": "checkbox",
+          "value": true,
+          "editor": "Client1",
+          "required": true,
+          "api_id": "checkbox___1"
+        },
+        {
+          "name": "textbox2",
+          "type": "text",
+          "value": "hi mum",
+          "editor": "Client2",
+          "required": true
+        },
+        {
+          "name": "checkbox2",
+          "type": "checkbox",
+          "value": true,
+          "editor": "Client2",
+          "required": true
+        }
+      ],
       "response_data": [],
       "signing_url": "https://app.hellosign.com/sign/a9f4825edef25f47e7b4c14ce8100d81d1693160",
       "details_url": "https://app.hellosign.com/home/manage?guid=a9f4825edef25f47e7b4c14ce8100d81d1693160",
