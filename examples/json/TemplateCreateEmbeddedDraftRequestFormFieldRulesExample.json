@@ -33,33 +33,33 @@
     "date_format": "DD - MM - YYYY"
   },
   "form_fields_per_document": [
-    [
-      {
-        "api_id": "uniqueIdHere_1",
-        "name": "",
-        "type": "text",
-        "x": 112,
-        "y": 328,
-        "width": 100,
-        "height": 16,
-        "required": true,
-        "signer": 0,
-        "page": 1,
-        "validation_type": "numbers_only"
-      },
-      {
-        "api_id": "uniqueIdHere_2",
-        "name": "",
-        "type": "signature",
-        "x": 530,
-        "y": 415,
-        "width": 120,
-        "height": 30,
-        "required": true,
-        "signer": 0,
-        "page": 1
-      }
-    ]
+    {
+      "document_index": 0,
+      "api_id": "uniqueIdHere_1",
+      "name": "",
+      "type": "text",
+      "x": 112,
+      "y": 328,
+      "width": 100,
+      "height": 16,
+      "required": true,
+      "signer": 0,
+      "page": 1,
+      "validation_type": "numbers_only"
+    },
+    {
+      "document_index": 0,
+      "api_id": "uniqueIdHere_2",
+      "name": "",
+      "type": "signature",
+      "x": 530,
+      "y": 415,
+      "width": 120,
+      "height": 30,
+      "required": true,
+      "signer": 0,
+      "page": 1
+    }
   ],
   "form_field_rules": [
     {
