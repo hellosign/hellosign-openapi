@@ -3570,7 +3570,7 @@ paths:
         -
           name: page_size
           in: query
-          description: '`Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
           schema:
             type: integer
             default: 20
