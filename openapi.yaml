@@ -7328,6 +7328,9 @@ components:
         - name
         - type
       properties:
+        type:
+          description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
+          type: string
         name:
           description: 'The name of the Custom Field.'
           type: string
