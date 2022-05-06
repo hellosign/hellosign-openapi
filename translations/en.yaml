@@ -986,6 +986,19 @@
 "AccountUpdateResponseExample::SUMMARY": Account Update
 "AccountVerifyFoundResponseExample::SUMMARY": Account Found
 "AccountVerifyNotFoundResponseExample::SUMMARY": Account Not Found
+"Account::ACCOUNT_ID": The id of the Account
+"Account::EMAIL_ADDRESS": The email address associated with the Account.
+"Account::CALLBACK_URL": The URL that HelloSign events will be POSTed to.
+"Account::IS_LOCKED": Returns true if the user has been locked out of their account by a team admin.
+"Account::IS_PAID_HS": Returns true if the user has a paid HelloSign account.
+"Account::IS_PAID_HF": Returns true if the user has a paid HelloFax account.
+"Account::ROLE_CODE": The membership role for the team. a = Admin, m = Member.
+"Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+"Account::QUOTA": An object detailing remaining monthly quotas.
+"AccountQuota::TEMPLATES_LEFT": API templates remaining.
+"AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
+"AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
+"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verification requests remaining.
 
 "ApiAppCreateResponseExample::SUMMARY": API App
 "ApiAppGetResponseExample::SUMMARY": API App
