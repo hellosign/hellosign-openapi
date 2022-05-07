@@ -70,7 +70,7 @@
   Used when creating a new account with OAuth authorization.
 
   See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
-"AccountCreate::EMAIL_ADDRESS": The email address to create a new Account for.
+"AccountCreate::EMAIL_ADDRESS": The email address which will be associated with the new Account.
 "AccountCreate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
@@ -988,17 +988,17 @@
 "AccountVerifyNotFoundResponseExample::SUMMARY": Account Not Found
 "Account::ACCOUNT_ID": The id of the Account
 "Account::EMAIL_ADDRESS": The email address associated with the Account.
-"Account::CALLBACK_URL": The URL that HelloSign events will be POSTed to.
+"Account::CALLBACK_URL": The URL that HelloSign events will POST to.
 "Account::IS_LOCKED": Returns true if the user has been locked out of their account by a team admin.
 "Account::IS_PAID_HS": Returns true if the user has a paid HelloSign account.
 "Account::IS_PAID_HF": Returns true if the user has a paid HelloFax account.
-"Account::ROLE_CODE": The membership role for the team. a = Admin, m = Member.
+"Account::ROLE_CODE": The membership role for the team.
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
-"Account::QUOTA": An object detailing remaining monthly quotas.
+"Account::QUOTA": Details concerning remaining monthly quotas.
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
 "AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
 "AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
-"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verification requests remaining.
+"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications  remaining.
 
 "ApiAppCreateResponseExample::SUMMARY": API App
 "ApiAppGetResponseExample::SUMMARY": API App
