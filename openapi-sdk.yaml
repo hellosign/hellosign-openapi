@@ -442,7 +442,7 @@ paths:
         -
           name: client_id
           in: path
-          description: 'The client id of the Api App to retrieve.'
+          description: 'The client id of the API App to retrieve.'
           required: true
           schema:
             type: string
@@ -525,7 +525,7 @@ paths:
         -
           name: client_id
           in: path
-          description: 'The client id of the Api App to update.'
+          description: 'The client id of the API App to update.'
           required: true
           schema:
             type: string
@@ -623,7 +623,7 @@ paths:
         -
           name: client_id
           in: path
-          description: 'The client id of the Api App to delete.'
+          description: 'The client id of the API App to delete.'
           required: true
           schema:
             type: string
@@ -698,7 +698,7 @@ paths:
         -
           name: page
           in: query
-          description: 'Which page number of the Api App List to return. Defaults to `1`.'
+          description: 'Which page number of the API App List to return. Defaults to `1`.'
           schema:
             type: integer
             default: 1
@@ -711,7 +711,7 @@ paths:
             default: 20
       responses:
         200:
-          description: 'successful operation'
+          description: 'Contains a list of API Apps.'
           content:
             application/json:
               schema:
@@ -2018,7 +2018,7 @@ paths:
             type: string
       responses:
         200:
-          description: 'successful operation'
+          description: 'Contains a list of SignatureRequests.'
           content:
             application/json:
               schema:
@@ -4328,7 +4328,7 @@ components:
     ApiAppUpdateRequest:
       properties:
         callback_url:
-          description: 'The URL at which the Api App should receive event callbacks.'
+          description: 'The URL at which the API App should receive event callbacks.'
           type: string
         custom_logo_file:
           description: 'An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)'
@@ -4837,7 +4837,7 @@ components:
           items:
             $ref: '#/components/schemas/SubCC'
         client_id:
-          description: 'The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.'
+          description: 'The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.'
           type: string
         custom_fields:
           description: |-
@@ -5141,7 +5141,7 @@ components:
             type: string
             format: email
         client_id:
-          description: 'The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.'
+          description: 'The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.'
           type: string
         custom_fields:
           description: |-
@@ -5350,6 +5350,7 @@ components:
           type: string
       type: object
     SubAttachment:
+      description: 'An Attachment.'
       required:
         - name
         - signer_index
@@ -5720,6 +5721,7 @@ components:
             checkbox: 'Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.'
       type: object
     SubOAuth:
+      description: 'OAuth related parameters.'
       properties:
         callback_url:
           description: 'The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)'
@@ -5740,6 +5742,7 @@ components:
               - ''
       type: object
     SubOptions:
+      description: 'Additional options supported by API App.'
       properties:
         can_insert_everywhere:
           description: 'Determines if signers can use "Insert Everywhere" when signing a document.'
@@ -6893,6 +6896,7 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
+      description: '_t__BulkSendJobResponse::DESCRIPTION'
       properties:
         bulk_send_job_id:
           nullable: true
@@ -7126,6 +7130,7 @@ components:
       type: object
       x-internal: true
     ListInfoResponse:
+      description: 'Contains a ListInfo object'
       properties:
         num_pages:
           description: 'Total number of pages available'
@@ -7189,7 +7194,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponse:
-      description: 'Contains information regarding documents that need to be signed.'
+      description: 'Contains information about a signature request.'
       properties:
         test_mode:
           nullable: true
@@ -8467,7 +8472,7 @@ components:
               contentType: application/json
     EventCallbackApiAppRequest:
       description: |-
-        **Api App Callback Payloads --**  
+        **API App Callback Payloads --**  
         Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
       content:
         application/json:

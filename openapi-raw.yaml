@@ -708,7 +708,7 @@ paths:
             default: 20
       responses:
         '200':
-          description: 'successful operation'
+          description: '_t__ApiAppListResponse::DESCRIPTION'
           content:
             application/json:
               schema:
@@ -1989,7 +1989,7 @@ paths:
             type: string
       responses:
         '200':
-          description: 'successful operation'
+          description: '_t__SignatureRequestListResponse::DESCRIPTION'
           content:
             application/json:
               schema:
@@ -5104,6 +5104,7 @@ components:
           type: string
       type: object
     SubAttachment:
+      description: '_t__Sub::Attachment::DESCRIPTION'
       required:
         - name
         - signer_index
@@ -5385,6 +5386,7 @@ components:
             checkbox: '_t__Sub::MergeField::EnumDescriptions::CHECKBOX'
       type: object
     SubOAuth:
+      description: '_t__Sub::OAuth::DESCRIPTION'
       properties:
         callback_url:
           description: '_t__Sub::OAuth::CALLBACK_URL'
@@ -5405,6 +5407,7 @@ components:
               - ''
       type: object
     SubOptions:
+      description: '_t__Sub::Options::DESCRIPTION'
       properties:
         can_insert_everywhere:
           description: '_t__Sub::Options::CAN_INSERT_EVERYWHERE'
@@ -6387,6 +6390,7 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
+      description: '_t__BulkSendJobResponse::DESCRIPTION'
       properties:
         bulk_send_job_id:
           nullable: true
@@ -6620,6 +6624,7 @@ components:
       type: object
       x-internal: true
     ListInfoResponse:
+      description: '_t__ListInfoResponse::DESCRIPTION'
       properties:
         num_pages:
           description: '_t__ListInfoResponse::NUM_PAGES'

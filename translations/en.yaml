@@ -99,21 +99,21 @@
 
 "ApiAppDelete::SUMMARY": Delete API App
 "ApiAppDelete::DESCRIPTION": Deletes an API App. Can only be invoked for apps you own.
-"ApiAppDelete::CLIENT_ID": The client id of the Api App to delete.
+"ApiAppDelete::CLIENT_ID": The client id of the API App to delete.
 
 "ApiAppGet::SUMMARY": Get API App
 "ApiAppGet::DESCRIPTION": Returns an object with information about an API App.
-"ApiAppGet::CLIENT_ID": The client id of the Api App to retrieve.
+"ApiAppGet::CLIENT_ID": The client id of the API App to retrieve.
 
 "ApiAppList::SUMMARY": List API Apps
 "ApiAppList::DESCRIPTION": Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
-"ApiAppList::PAGE": Which page number of the Api App List to return. Defaults to `1`.
+"ApiAppList::PAGE": Which page number of the API App List to return. Defaults to `1`.
 "ApiAppList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
 
 "ApiAppUpdate::SUMMARY": Update API App
 "ApiAppUpdate::DESCRIPTION": Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
-"ApiAppUpdate::CALLBACK_URL": The URL at which the Api App should receive event callbacks.
-"ApiAppUpdate::CLIENT_ID": The client id of the Api App to update.
+"ApiAppUpdate::CALLBACK_URL": The URL at which the API App should receive event callbacks.
+"ApiAppUpdate::CLIENT_ID": The client id of the API App to update.
 "ApiAppUpdate::CUSTOM_LOGO_FILE": An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
 "ApiAppUpdate::DOMAINS": The domain names the ApiApp will be associated with.
 "ApiAppUpdate::NAME": The name you want to assign to the ApiApp.
@@ -249,7 +249,7 @@
 "SignatureRequestBulkSendWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestBulkSendWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestBulkSendWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
-"SignatureRequestBulkSendWithTemplate::CLIENT_ID" : The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.
+"SignatureRequestBulkSendWithTemplate::CLIENT_ID" : The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 
 "SignatureRequestCancel::SUMMARY": Cancel Incomplete Signature Request
 "SignatureRequestCancel::DESCRIPTION": |-
@@ -366,7 +366,7 @@
 
   **Note**: Only available for Premium plan and higher.
 "SignatureRequestSend::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
-"SignatureRequestSend::CLIENT_ID": The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.
+"SignatureRequestSend::CLIENT_ID": The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSend::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
   
@@ -726,6 +726,7 @@
 "UnclaimedDraftEditAndResend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "UnclaimedDraftEditAndResend::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 
+"Sub::Attachment::DESCRIPTION": An Attachment.
 "Sub::Attachment::INSTRUCTIONS": The instructions for uploading the attachment.
 "Sub::Attachment::NAME": The name of attachment.
 "Sub::Attachment::REQUIRED": Determines if the attachment must be uploaded.
@@ -917,9 +918,11 @@
   Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::OAuth::CALLBACK_URL": The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
+"Sub::OAuth::DESCRIPTION": OAuth related parameters.
 "Sub::OAuth::SCOPES": A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
 
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
+"Sub::Options::DESCRIPTION": Additional options supported by API App.
 
 "Sub::SignatureRequestSigner::DESCRIPTION": Add Signers to your Signature Request.
 "Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS": The email address of the signer.
@@ -993,6 +996,8 @@
 "ApiAppResponse::NAME": The name of the app
 "ApiAppResponse::IS_APPROVED": Boolean to indicate if the app has been approved
 
+"ApiAppListResponse::DESCRIPTION": Contains a list of API Apps.
+
 "ApiAppResponseOAuth::DESCRIPTION": An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
 "ApiAppResponseOAuth::CALLBACK_URL": The app's OAuth callback URL.
 "ApiAppResponseOAuth::CHARGES_USERS": Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
@@ -1033,7 +1038,7 @@
 "EventCallbackApiAppTemplateCreatedExample::SUMMARY": |-
   Example: template_created
 "EventCallbackApiAppRequest::DESCRIPTION": |-
-  **Api App Callback Payloads --**  
+  **API App Callback Payloads --**  
   Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
 "EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
 "EventCallbackRequestEvent::EVENT_TIME": Time the event was created (using Unix time).
@@ -1047,6 +1052,7 @@
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
+"ListInfoResponse::DESCRIPTION": Contains a ListInfo object
 "ListInfoResponse::NUM_PAGES": Total number of pages available
 "ListInfoResponse::NUM_RESULTS": Total number of objects available
 "ListInfoResponse::PAGE": Number of the page being returned
@@ -1152,6 +1158,8 @@
 "SignatureRequestResponseSignatures::SIGNER_NAME": The name of the signer.
 "SignatureRequestResponseSignatures::SIGNER_ROLE": The role of the signer.
 "SignatureRequestResponseSignatures::STATUS_CODE": "The current status of the signature. eg: awaiting_signature, signed, declined."
+
+"SignatureRequestListResponse::DESCRIPTION": Contains a list of SignatureRequests.
 
 "TeamAddMemberResponseExample::SUMMARY": Team Add Member
 "TeamCreateResponseExample::SUMMARY": Team Create
