@@ -6184,24 +6184,33 @@ components:
     AccountResponse:
       properties:
         account_id:
+          description: '_t__Account::ACCOUNT_ID'
           type: string
         email_address:
+          description: '_t__Account::EMAIL_ADDRESS'
           type: string
         is_locked:
+          description: '_t__Account::IS_LOCKED'
           type: boolean
         is_paid_hs:
+          description: '_t__Account::IS_PAID_HS'
           type: boolean
         is_paid_hf:
+          description: '_t__Account::IS_PAID_HF'
           type: boolean
         quotas:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
           nullable: true
+          description: '_t__Account::CALLBACK_URL'
           type: string
-        should_send_outbound_conf_emails:
-          type: boolean
         role_code:
           nullable: true
+          description: '_t__Account::ROLE_CODE'
+          type: string
+        locale:
+          nullable: true
+          description: '_t__Account::LOCALE'
           type: string
       type: object
       x-internal: true
@@ -6240,19 +6249,28 @@ components:
     AccountVerifyResponseAccount:
       properties:
         email_address:
+          description: '_t__Account::EMAIL_ADDRESS'
           type: string
       type: object
       x-internal: true
     AccountResponseQuotas:
+      description: '_t__Account::QUOTA'
       properties:
         api_signature_requests_left:
           nullable: true
+          description: '_t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT'
           type: integer
         documents_left:
           nullable: true
+          description: '_t__AccountQuota::DOCUMENTS_LEFT'
           type: integer
         templates_left:
           nullable: true
+          description: '_t__AccountQuota::TEMPLATES_LEFT'
+          type: integer
+        sms_verifications_left:
+          nullable: true
+          description: '_t__AccountQuota::SMS_VERIFICATIONS_LEFT'
           type: integer
       type: object
       x-internal: true

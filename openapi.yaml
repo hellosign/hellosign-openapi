@@ -181,7 +181,7 @@ paths:
       tags:
         - Account
       summary: 'Update Account'
-      description: 'Updates the properties and settings of your Account.'
+      description: 'Updates the properties and settings of your Account. Currently only allows for updates to the Callback URL and locale.'
       operationId: accountUpdate
       requestBody:
         required: true
@@ -4256,13 +4256,13 @@ components:
       properties:
         client_id:
           description: |-
-            Used when creating a new account and requesting OAuth authorization.
+            Used when creating a new account with OAuth authorization.
 
             See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
           type: string
         client_secret:
           description: |-
-            Used when creating a new account and requesting OAuth authorization.
+            Used when creating a new account with OAuth authorization.
 
             See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
           type: string
@@ -6666,24 +6666,33 @@ components:
     AccountResponse:
       properties:
         account_id:
+          description: 'The id of the Account'
           type: string
         email_address:
+          description: 'The email address associated with the Account.'
           type: string
         is_locked:
+          description: 'Returns true if the user has been locked out of their account by a team admin.'
           type: boolean
         is_paid_hs:
+          description: 'Returns true if the user has a paid HelloSign account.'
           type: boolean
         is_paid_hf:
+          description: 'Returns true if the user has a paid HelloFax account.'
           type: boolean
         quotas:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
           nullable: true
+          description: 'The URL that HelloSign events will be POSTed to.'
           type: string
-        should_send_outbound_conf_emails:
-          type: boolean
         role_code:
           nullable: true
+          description: 'The membership role for the team. a = Admin, m = Member.'
+          type: string
+        locale:
+          nullable: true
+          description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
       type: object
       x-internal: true
@@ -6722,19 +6731,28 @@ components:
     AccountVerifyResponseAccount:
       properties:
         email_address:
+          description: 'The email address associated with the Account.'
           type: string
       type: object
       x-internal: true
     AccountResponseQuotas:
+      description: 'An object detailing remaining monthly quotas.'
       properties:
         api_signature_requests_left:
           nullable: true
+          description: 'API signature requests remaining.'
           type: integer
         documents_left:
           nullable: true
+          description: 'Signature requests remaining.'
           type: integer
         templates_left:
           nullable: true
+          description: 'API templates remaining.'
+          type: integer
+        sms_verifications_left:
+          nullable: true
+          description: 'SMS verification requests remaining.'
           type: integer
       type: object
       x-internal: true
