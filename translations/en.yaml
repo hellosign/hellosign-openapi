@@ -1083,7 +1083,6 @@
 "SignatureRequestResponse::CREATED_AT": Time the signature request was created.
 "SignatureRequestResponse::DESCRIPTION": Contains information about signature requests.
 "SignatureRequestResponse::DETAILS_URL": The URL where the requester and the signers can view the current status of the SignatureRequest.
-"SignatureRequestResponse::FINAL_COPY_URI": (Deprecated) The relative URI where the PDF copy of the finalized documents can be downloaded. Only present when `is_complete = true`. This will be removed at some point; use the files_url instead.
 "SignatureRequestResponse::FILES_URL": The URL where a copy of the request's documents can be downloaded.
 "SignatureRequestResponse::HAS_ERROR": Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
 "SignatureRequestResponse::IS_COMPLETE": Whether or not the SignatureRequest has been fully executed by all signers.

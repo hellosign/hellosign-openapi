@@ -6729,9 +6729,6 @@ components:
         has_error:
           description: '_t__SignatureRequestResponse::HAS_ERROR'
           type: boolean
-        final_copy_uri:
-          description: '_t__SignatureRequestResponse::FINAL_COPY_URI'
-          type: string
         files_url:
           description: '_t__SignatureRequestResponse::FILES_URL'
           type: string
