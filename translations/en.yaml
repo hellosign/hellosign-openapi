@@ -75,9 +75,11 @@
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
+"AccountGet::ACCOUNT_ID": Account ID
 
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account.
+"AccountUpdate::ACCOUNT_ID": Account ID.
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
@@ -443,8 +445,14 @@
 
 "TeamAddMember::SUMMARY": Add User to Team
 "TeamAddMember::DESCRIPTION": Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
-"TeamAddMember::ACCOUNT_ID": The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.
-"TeamAddMember::EMAIL_ADDRESS": The id or email address of the Account of the user to invite to your Team. The account id prevails if both are provided.
+"TeamAddMember::ACCOUNT_ID": |-
+  `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+  
+  Account id of the user to invite to your Team.
+"TeamAddMember::EMAIL_ADDRESS": |-
+  `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+  
+  Email address of the user to invite to your Team.
 
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
@@ -458,8 +466,14 @@
 
 "TeamRemoveMember::SUMMARY": Remove User from Team
 "TeamRemoveMember::DESCRIPTION": Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
-"TeamRemoveMember::ACCOUNT_ID": The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.
-"TeamRemoveMember::EMAIL_ADDRESS": The ID or email address of the Account to remove from your Team. The account ID prevails if both are provided.
+"TeamRemoveMember::ACCOUNT_ID": |-
+  **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+  
+  Account id to remove from your Team.
+"TeamRemoveMember::EMAIL_ADDRESS": |-
+  **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+  
+  Email address of the Account to remove from your Team.
 "TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS": |-
   The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.
 
@@ -843,7 +857,7 @@
   - `none`
 
 "Sub::FormFieldsPerDocument::DESCRIPTION": |-
-  The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
+  The fields that should appear on the document, expressed as an array of objects.
 
   **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -865,6 +879,7 @@
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
 "Sub::FormFieldsPerDocument::CONTENT_HYPERLINK": Link Text.
 "Sub::FormFieldsPerDocument::CONTENT_URL": Link URL.
+"Sub::FormFieldsPerDocument::DOCUMENT_INDEX": Represents the integer index of the `file` or `file_url` document the field should be attached to.
 "Sub::FormFieldsPerDocument::GROUP": String referencing group defined in `form_field_groups` parameter.
 "Sub::FormFieldsPerDocument::HEIGHT": Size of the field in pixels.
 "Sub::FormFieldsPerDocument::MASKED": Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.
@@ -909,7 +924,7 @@
   Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::OAuth::CALLBACK_URL": The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
-"Sub::OAuth::SCOPES": A list of OAuth scopes to be granted to the app. (Required if `oauth[callback_url]` is provided).
+"Sub::OAuth::SCOPES": A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
 
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
 
@@ -1011,9 +1026,31 @@
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL
 
-"EventCallbackAccountRequestExample::SUMMARY": Event Callback Account Example
-"EventCallbackAccountRequest::DESCRIPTION": Account Callback Payloads
-"EventCallbackApiAppRequest::DESCRIPTION": API App Callback Payloads
+"EventCallbackAccountRequest::DESCRIPTION": |-
+  **Account Callback Payloads --**  
+        Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
+"EventCallbackAccountSignatureRequestSentExample::SUMMARY": |-
+  Example: signature_request_sent
+"EventCallbackAccountTemplateCreatedExample::SUMMARY": |-
+  Example: template_created
+"EventCallbackApiAppAccountConfirmedExample::SUMMARY": |-
+  Example: account_confirmed
+"EventCallbackApiAppSignatureRequestSentExample::SUMMARY": |-
+  Example: signature_request_sent
+"EventCallbackApiAppTemplateCreatedExample::SUMMARY": |-
+  Example: template_created
+"EventCallbackApiAppRequest::DESCRIPTION": |-
+  **Api App Callback Payloads --**  
+  Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
+"EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
+"EventCallbackRequestEvent::EVENT_TIME": Time the event was created (using Unix time).
+"EventCallbackRequestEvent::EVENT_TYPE": Type of callback event that was triggered.
+"EventCallbackRequestEvent::EVENT_HASH": Generated hash used to verify source of event data.
+"EventCallbackRequestEventMetadata::DESCRIPTION": Specific metadata about the event.
+"EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID": Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
+"EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID": Account ID the event was reported for.
+"EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID": App ID the event was reported for.
+"EventCallbackRequestEventMetadata::EVENT_MESSAGE": Message about a declined or failed (due to error) signature flow. 
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
@@ -1167,6 +1204,7 @@
 "TemplateResponseDocument::DESCRIPTION": An array describing each document associated with this Template. Includes form field data for each document.
 "TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last.
 "TemplateResponseDocument::NAME": Name of the associated file.
+"TemplateResponseDocument::STATIC_FIELDS": An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.
 
 "TemplateResponseDocumentCustomField::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseDocumentCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
@@ -1178,6 +1216,11 @@
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentCustomField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentCustomField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field.
+"TemplateResponseDocumentCustomField::API_ID": The unique ID for this field.
+"TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
 
 "TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in custom field.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
@@ -1197,6 +1240,17 @@
 "TemplateResponseDocumentFormField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
+
+"TemplateResponseDocumentStaticField::NAME": The name of the static field.
+"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentStaticField::SIGNER": The signer of the Static Field.
+"TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::WIDTH": The width in pixels of this static field.
+"TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
+"TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
+"TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 
 "TemplateResponseSignerRole::DESCRIPTION": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseSignerRole::NAME": The name of the Role.

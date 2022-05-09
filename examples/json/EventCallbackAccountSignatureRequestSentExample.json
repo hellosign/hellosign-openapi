@@ -1,7 +1,5 @@
 {
   "json": {
-    "account_guid": "63522885f9261e2b04eea043933ee7313eb674fd",
-    "client_id": null,
     "event": {
       "event_time": "1348177752",
       "event_type": "signature_request_sent",
@@ -16,39 +14,19 @@
       "signature_request_id": "fa5c8a0b0f492d768749333ad6fcc214c111e967",
       "title": "Purchase Agreement",
       "original_title": "Purchase Agreement",
-      "subject": "Purchase Agreement",
+      "subject": "Purchase Agreement we talked about",
       "message": "Please sign and return.",
       "metadata": {},
       "created_at": 1570471067,
-      "is_complete": true,
+      "is_complete": false,
       "is_declined": false,
       "has_error": false,
       "custom_fields": [],
-      "response_data": [
-        {
-          "api_id": "80c678_1",
-          "name": "Needs Express Shipping",
-          "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
-          "value": true,
-          "type": "checkbox"
-        },
-        {
-          "api_id": "80c678_2",
-          "name": "Shipping Address",
-          "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
-          "value": "1212 Park Avenue",
-          "type": "text"
-        },
-        {
-          "api_id": "80c678_3",
-          "name": "DateSigned",
-          "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
-          "value": "09/01/2012",
-          "type": "text"
-        }
-      ],
+      "response_data": [],
       "signing_url": null,
       "signing_redirect_url": null,
+      "final_copy_uri": "/v3/signature_request/final_copy/2d055d5449f2bf016f5cbf0cf967bdd2bc42494f",
+      "files_url": "https://api.hellosign.com/v3/signature_request/files/2d055d5449fcbf016f5ebf0cf967bdd2bc42494f",
       "details_url": "https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967",
       "requester_email_address": "me@hellosign.com",
       "signatures": [
@@ -66,7 +44,9 @@
           "has_sms_auth": false
         }
       ],
-      "cc_email_addresses": []
+      "cc_email_addresses": [],
+      "template_ids": null,
+      "client_id": null
     }
   }
 }

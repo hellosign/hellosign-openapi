@@ -104,6 +104,14 @@ paths:
       summary: '_t__AccountGet::SUMMARY'
       description: '_t__AccountGet::DESCRIPTION'
       operationId: accountGet
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: '_t__AccountGet::ACCOUNT_ID'
+          required: false
+          schema:
+            type: string
       responses:
         '200':
           description: 'successful operation'
@@ -4193,6 +4201,10 @@ components:
       type: object
     AccountUpdateRequest:
       properties:
+        account_id:
+          nullable: true
+          description: '_t__AccountUpdate::ACCOUNT_ID'
+          type: string
         callback_url:
           description: '_t__AccountUpdate::CALLBACK_URL'
           type: string
@@ -4779,9 +4791,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS'
           type: boolean
@@ -4956,9 +4966,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__SignatureRequestSend::HIDE_TEXT_TAGS'
           type: boolean
@@ -5297,6 +5305,7 @@ components:
     SubFormFieldsPerDocumentBase:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
       required:
+        - document_index
         - type
         - signer
         - width
@@ -5304,6 +5313,9 @@ components:
         - x
         - 'y'
       properties:
+        document_index:
+          description: '_t__Sub::FormFieldsPerDocument::DOCUMENT_INDEX'
+          type: integer
         api_id:
           description: '_t__Sub::FormFieldsPerDocument::API_ID'
           type: string
@@ -5378,19 +5390,13 @@ components:
           items:
             type: string
             enum:
-              - access_docs
-              - access_reusable_forms
-              - manage_docs
               - request_signature
-              - send_docs
               - basic_account_info
-              - signatures
               - account_access
               - signature_request_access
               - template_access
               - team_access
               - api_app_access
-              - universal_signature_request_access
               - ''
       type: object
     SubOptions:
@@ -5685,9 +5691,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
           description: '_t__TemplateCreateEmbeddedDraft::MERGE_FIELDS'
           type: array
@@ -5824,9 +5828,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__UnclaimedDraftCreate::HIDE_TEXT_TAGS'
           type: boolean
@@ -5950,9 +5952,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: '_t__UnclaimedDraftCreateEmbedded::HIDE_TEXT_TAGS'
           type: boolean
@@ -6192,6 +6192,8 @@ components:
         callback_url:
           nullable: true
           type: string
+        should_send_outbound_conf_emails:
+          type: boolean
         role_code:
           nullable: true
           type: string
@@ -6515,13 +6517,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         signature_request:
@@ -6541,13 +6536,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         account:
@@ -6558,6 +6546,7 @@ components:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
     EventCallbackRequestEvent:
+      description: '_t__EventCallbackRequestEvent::DESCRIPTION'
       required:
         - event_time
         - event_type
@@ -6565,8 +6554,10 @@ components:
         - event_metadata
       properties:
         event_time:
+          description: '_t__EventCallbackRequestEvent::EVENT_TIME'
           type: string
         event_type:
+          description: '_t__EventCallbackRequestEvent::EVENT_TYPE'
           type: string
           enum:
             - account_confirmed
@@ -6590,23 +6581,29 @@ components:
             - template_created
             - template_error
         event_hash:
+          description: '_t__EventCallbackRequestEvent::EVENT_HASH'
           type: string
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
     EventCallbackRequestEventMetadata:
+      description: '_t__EventCallbackRequestEventMetadata::DESCRIPTION'
       properties:
         related_signature_id:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID'
           type: string
         reported_for_account_id:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID'
           type: string
         reported_for_app_id:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID'
           type: string
         event_message:
           nullable: true
+          description: '_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE'
           type: string
       type: object
     FileResponse:
@@ -6836,6 +6833,9 @@ components:
         - name
         - type
       properties:
+        type:
+          description: '_t__SignatureRequestResponseCustomField::TYPE'
+          type: string
         name:
           description: '_t__SignatureRequestResponseCustomField::NAME'
           type: string
@@ -7214,6 +7214,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
+        static_fields:
+          nullable: true
+          description: '_t__TemplateResponseDocument::STATIC_FIELDS'
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
@@ -7228,6 +7234,9 @@ components:
           enum:
             - text
             - checkbox
+        signer:
+          description: '_t__TemplateResponseDocumentCustomField::SIGNER'
+          type: string
         x:
           description: '_t__TemplateResponseDocumentCustomField::X'
           type: integer
@@ -7243,12 +7252,27 @@ components:
         required:
           description: '_t__TemplateResponseDocumentCustomField::REQUIRED'
           type: boolean
+        api_id:
+          description: '_t__TemplateResponseDocumentCustomField::API_ID'
+          type: string
         group:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
           type: string
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
+          type: string
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
@@ -7323,6 +7347,41 @@ components:
         group:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::GROUP'
+          type: string
+      type: object
+      x-internal: true
+    TemplateResponseDocumentStaticField:
+      properties:
+        name:
+          description: '_t__TemplateResponseDocumentStaticField::NAME'
+          type: string
+        type:
+          description: '_t__TemplateResponseDocumentStaticField::TYPE'
+          type: string
+        signer:
+          description: '_t__TemplateResponseDocumentStaticField::SIGNER'
+          type: string
+        x:
+          description: '_t__TemplateResponseDocumentStaticField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseDocumentStaticField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseDocumentStaticField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseDocumentStaticField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseDocumentStaticField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseDocumentStaticField::API_ID'
+          type: string
+        group:
+          nullable: true
+          description: '_t__TemplateResponseDocumentStaticField::GROUP'
           type: string
       type: object
       x-internal: true
@@ -7703,18 +7762,26 @@ components:
       summary: '_t__Error::4XX'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    EventCallbackAccountRequestExample:
-      summary: '_t__EventCallbackAccountRequestExample::SUMMARY'
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackAccountRequestExample.json
-    EventCallbackSignatureRequestExample:
-      summary: '_t__EventCallbackSignatureRequestExample::SUMMARY'
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestExample.json
-    EventCallbackTemplateRequestExample:
-      summary: '_t__EventCallbackTemplateRequestExample::SUMMARY'
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackApiAppAccountConfirmedExample:
+      summary: '_t__EventCallbackApiAppAccountConfirmedExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackTemplateRequestExample.json
+        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
+    EventCallbackApiAppSignatureRequestSentExample:
+      summary: '_t__EventCallbackApiAppSignatureRequestSentExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
+    EventCallbackApiAppTemplateCreatedExample:
+      summary: '_t__EventCallbackApiAppTemplateCreatedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: '_t__OAuthTokenGenerateResponseExample::SUMMARY'
       value:
@@ -7851,18 +7918,18 @@ components:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
             signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
@@ -7873,22 +7940,22 @@ components:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
