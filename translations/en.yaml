@@ -1016,6 +1016,7 @@
 "BulkSendJobGetResponseExample::SUMMARY": Bulk Send Job
 "BulkSendJobListResponseExample::SUMMARY": Bulk Send Job List
 "BulkSendJobResponse::BULK_SEND_JOB_ID": The id of the BulkSendJob.
+"BulkSendJobResponse::DESCRIPTION": Contains information about Signature Requests sent in bulk.
 "BulkSendJobResponse::TOTAL": The total amount of SignatureRequests queued for sending.
 "BulkSendJobResponse::IS_CREATOR": True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.
 "BulkSendJobResponse::CREATED_AT": Time that the BulkSendJob was created.
