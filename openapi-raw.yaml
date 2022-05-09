@@ -5104,7 +5104,6 @@ components:
           type: string
       type: object
     SubAttachment:
-      description: '_t__Sub::Attachment::DESCRIPTION'
       required:
         - name
         - signer_index
@@ -6305,6 +6304,7 @@ components:
     ApiAppListResponse:
       properties:
         api_apps:
+          description: '_t__ApiAppResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/ApiAppResponse'
@@ -6765,15 +6765,18 @@ components:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         attachments:
           nullable: true
+          description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
         response_data:
           nullable: true
+          description: '_t__SignatureRequestResponseData::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseData'
         signatures:
+          description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
@@ -6792,6 +6795,7 @@ components:
     SignatureRequestListResponse:
       properties:
         signature_requests:
+          description: '_t__SignatureRequestResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponse'

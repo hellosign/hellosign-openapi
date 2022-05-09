@@ -726,7 +726,6 @@
 "UnclaimedDraftEditAndResend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "UnclaimedDraftEditAndResend::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 
-"Sub::Attachment::DESCRIPTION": An Attachment.
 "Sub::Attachment::INSTRUCTIONS": The instructions for uploading the attachment.
 "Sub::Attachment::NAME": The name of attachment.
 "Sub::Attachment::REQUIRED": Determines if the attachment must be uploaded.
@@ -990,13 +989,11 @@
 "ApiAppUpdateResponseExample::SUMMARY": API App Update
 "ApiAppResponse::CALLBACK_URL": The app's callback URL (for events)
 "ApiAppResponse::CLIENT_ID": The app's client id
-"ApiAppResponse::DESCRIPTION": Contains information about an API App.
+"ApiAppResponse::DESCRIPTION": Contains information about API Apps.
 "ApiAppResponse::CREATED_AT": The time that the app was created
 "ApiAppResponse::DOMAINS": The domain name(s) associated with the app
 "ApiAppResponse::NAME": The name of the app
 "ApiAppResponse::IS_APPROVED": Boolean to indicate if the app has been approved
-
-"ApiAppListResponse::DESCRIPTION": Contains a list of API Apps.
 
 "ApiAppResponseOAuth::DESCRIPTION": An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
 "ApiAppResponseOAuth::CALLBACK_URL": The app's OAuth callback URL.
@@ -1084,7 +1081,7 @@
 
 "SignatureRequestResponse::CC_EMAIL_ADDRESSES": A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
 "SignatureRequestResponse::CREATED_AT": Time the signature request was created.
-"SignatureRequestResponse::DESCRIPTION": Contains information about a signature request.
+"SignatureRequestResponse::DESCRIPTION": Contains information about signature requests.
 "SignatureRequestResponse::DETAILS_URL": The URL where the requester and the signers can view the current status of the SignatureRequest.
 "SignatureRequestResponse::FINAL_COPY_URI": (Deprecated) The relative URI where the PDF copy of the finalized documents can be downloaded. Only present when `is_complete = true`. This will be removed at some point; use the files_url instead.
 "SignatureRequestResponse::FILES_URL": The URL where a copy of the request's documents can be downloaded.
@@ -1142,7 +1139,7 @@
   - `checkbox-merge`: A checkbox field that has default value set by the api
 "SignatureRequestResponseData::VALUE": The value of the form field.
 
-"SignatureRequestResponseSignatures::DESCRIPTION": An array of signature obects, 1 for each signer.
+"SignatureRequestResponseSignatures::DESCRIPTION": An array of signature objects, 1 for each signer.
 "SignatureRequestResponseSignatures::DECLINE_REASON": The reason provided by the signer for declining the request.
 "SignatureRequestResponseSignatures::ERROR": Error message pertaining to this signer, or null.
 "SignatureRequestResponseSignatures::HAS_PIN": Boolean to indicate whether this signature requires a PIN to access.
@@ -1159,8 +1156,6 @@
 "SignatureRequestResponseSignatures::SIGNER_NAME": The name of the signer.
 "SignatureRequestResponseSignatures::SIGNER_ROLE": The role of the signer.
 "SignatureRequestResponseSignatures::STATUS_CODE": "The current status of the signature. eg: awaiting_signature, signed, declined."
-
-"SignatureRequestListResponse::DESCRIPTION": Contains a list of SignatureRequests.
 
 "TeamAddMemberResponseExample::SUMMARY": Team Add Member
 "TeamCreateResponseExample::SUMMARY": Team Create

@@ -711,7 +711,7 @@ paths:
             default: 20
       responses:
         200:
-          description: 'Contains a list of API Apps.'
+          description: '_t__ApiAppListResponse::DESCRIPTION'
           content:
             application/json:
               schema:
@@ -2018,7 +2018,7 @@ paths:
             type: string
       responses:
         200:
-          description: 'Contains a list of SignatureRequests.'
+          description: '_t__SignatureRequestListResponse::DESCRIPTION'
           content:
             application/json:
               schema:
@@ -5350,7 +5350,6 @@ components:
           type: string
       type: object
     SubAttachment:
-      description: 'An Attachment.'
       required:
         - name
         - signer_index
@@ -6765,7 +6764,7 @@ components:
       type: object
       x-internal: true
     ApiAppResponse:
-      description: 'Contains information about an API App.'
+      description: 'Contains information about API Apps.'
       properties:
         callback_url:
           nullable: true
@@ -6811,6 +6810,7 @@ components:
     ApiAppListResponse:
       properties:
         api_apps:
+          description: 'Contains information about API Apps.'
           type: array
           items:
             $ref: '#/components/schemas/ApiAppResponse'
@@ -6896,7 +6896,7 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
-      description: '_t__BulkSendJobResponse::DESCRIPTION'
+      description: 'Contains information about Signature Requests sent in bulk.'
       properties:
         bulk_send_job_id:
           nullable: true
@@ -7194,7 +7194,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponse:
-      description: 'Contains information about a signature request.'
+      description: 'Contains information about signature requests.'
       properties:
         test_mode:
           nullable: true
@@ -7275,15 +7275,18 @@ components:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         attachments:
           nullable: true
+          description: 'Signer attachments.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
         response_data:
           nullable: true
+          description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseData'
         signatures:
+          description: 'An array of signature objects, 1 for each signer.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
@@ -7302,6 +7305,7 @@ components:
     SignatureRequestListResponse:
       properties:
         signature_requests:
+          description: 'Contains information about signature requests.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponse'
@@ -7461,7 +7465,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponseSignatures:
-      description: 'An array of signature obects, 1 for each signer.'
+      description: 'An array of signature objects, 1 for each signer.'
       properties:
         signature_id:
           description: 'Signature identifier.'
