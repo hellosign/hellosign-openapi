@@ -989,11 +989,13 @@
 "ApiAppUpdateResponseExample::SUMMARY": API App Update
 "ApiAppResponse::CALLBACK_URL": The app's callback URL (for events)
 "ApiAppResponse::CLIENT_ID": The app's client id
-"ApiAppResponse::DESCRIPTION": Contains information about API Apps.
+"ApiAppResponse::DESCRIPTION": Contains information about an API App.
 "ApiAppResponse::CREATED_AT": The time that the app was created
 "ApiAppResponse::DOMAINS": The domain name(s) associated with the app
 "ApiAppResponse::NAME": The name of the app
 "ApiAppResponse::IS_APPROVED": Boolean to indicate if the app has been approved
+
+"ApiAppListResponse::DESCRIPTION": Contains information about API Apps.
 
 "ApiAppResponseOAuth::DESCRIPTION": An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
 "ApiAppResponseOAuth::CALLBACK_URL": The app's OAuth callback URL.
@@ -1081,7 +1083,7 @@
 
 "SignatureRequestResponse::CC_EMAIL_ADDRESSES": A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
 "SignatureRequestResponse::CREATED_AT": Time the signature request was created.
-"SignatureRequestResponse::DESCRIPTION": Contains information about signature requests.
+"SignatureRequestResponse::DESCRIPTION": Contains information about a signature request.
 "SignatureRequestResponse::DETAILS_URL": The URL where the requester and the signers can view the current status of the SignatureRequest.
 "SignatureRequestResponse::FILES_URL": The URL where a copy of the request's documents can be downloaded.
 "SignatureRequestResponse::HAS_ERROR": Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
@@ -1098,6 +1100,8 @@
 "SignatureRequestResponse::TEMPLATE_IDS": Templates IDs used in this SignatureRequest (if any).
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
 "SignatureRequestResponse::TITLE": The title the specified Account uses for the SignatureRequest.
+
+"SignatureRequestListResponse::DESCRIPTION": Contains information about signature requests.
 
 "SignatureRequestResponseCustomField::DESCRIPTION": |-
   An array of Custom Field objects containing the name and type of each custom field.

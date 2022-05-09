@@ -708,7 +708,7 @@ paths:
             default: 20
       responses:
         '200':
-          description: '_t__ApiAppListResponse::DESCRIPTION'
+          description: 'successful operation'
           content:
             application/json:
               schema:
@@ -1989,7 +1989,7 @@ paths:
             type: string
       responses:
         '200':
-          description: '_t__SignatureRequestListResponse::DESCRIPTION'
+          description: 'successful operation'
           content:
             application/json:
               schema:
@@ -6304,7 +6304,7 @@ components:
     ApiAppListResponse:
       properties:
         api_apps:
-          description: '_t__ApiAppResponse::DESCRIPTION'
+          description: '_t__ApiAppListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/ApiAppResponse'
@@ -6792,7 +6792,7 @@ components:
     SignatureRequestListResponse:
       properties:
         signature_requests:
-          description: '_t__SignatureRequestResponse::DESCRIPTION'
+          description: '_t__SignatureRequestListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponse'

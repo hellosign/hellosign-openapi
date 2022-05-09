@@ -711,7 +711,7 @@ paths:
             default: 20
       responses:
         200:
-          description: '_t__ApiAppListResponse::DESCRIPTION'
+          description: 'successful operation'
           content:
             application/json:
               schema:
@@ -2018,7 +2018,7 @@ paths:
             type: string
       responses:
         200:
-          description: '_t__SignatureRequestListResponse::DESCRIPTION'
+          description: 'successful operation'
           content:
             application/json:
               schema:
@@ -6764,7 +6764,7 @@ components:
       type: object
       x-internal: true
     ApiAppResponse:
-      description: 'Contains information about API Apps.'
+      description: 'Contains information about an API App.'
       properties:
         callback_url:
           nullable: true
@@ -7194,7 +7194,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponse:
-      description: 'Contains information about signature requests.'
+      description: 'Contains information about a signature request.'
       properties:
         test_mode:
           nullable: true
