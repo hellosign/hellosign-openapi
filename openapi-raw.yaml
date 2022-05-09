@@ -6381,6 +6381,7 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
+      description: '_t__BulkSendJobResponse::DESCRIPTION'
       properties:
         bulk_send_job_id:
           nullable: true
