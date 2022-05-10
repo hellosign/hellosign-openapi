@@ -75,19 +75,17 @@
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
-"AccountGet::ACCOUNT_ID": Account ID
+"AccountGet::ACCOUNT_ID": The ID of the Account
 
 "AccountUpdate::SUMMARY": Update Account
-"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the Callback URL and locale.
-"AccountUpdate::ACCOUNT_ID": Account ID.
+"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/tag/Callbacks-and-Events) and locale.
+"AccountUpdate::ACCOUNT_ID": The ID of the Account
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountVerify::SUMMARY": Verify Account
 "AccountVerify::DESCRIPTION": |-
   Verifies whether an HelloSign Account exists for the given email address.
-
-  **NOTE** This method is restricted to paid API users.
 "AccountVerify::EMAIL_ADDRESS": Email address to run the verification for.
 
 "ApiAppCreate::SUMMARY": Create API App
@@ -986,12 +984,14 @@
 "AccountUpdateResponseExample::SUMMARY": Account Update
 "AccountVerifyFoundResponseExample::SUMMARY": Account Found
 "AccountVerifyNotFoundResponseExample::SUMMARY": Account Not Found
-"Account::ACCOUNT_ID": The id of the Account
+"AccountResponse::DESCRIPTION": Contains the Account information
+"AccountVerifyResponse::DESCRIPTION": Contains the verified Account's information.
+"Account::ACCOUNT_ID": The ID of the Account
 "Account::EMAIL_ADDRESS": The email address associated with the Account.
-"Account::CALLBACK_URL": The URL that HelloSign events will POST to.
-"Account::IS_LOCKED": Returns true if the user has been locked out of their account by a team admin.
-"Account::IS_PAID_HS": Returns true if the user has a paid HelloSign account.
-"Account::IS_PAID_HF": Returns true if the user has a paid HelloFax account.
+"Account::CALLBACK_URL": The URL that HelloSign events will `POST` to.
+"Account::IS_LOCKED": Returns `true` if the user has been locked out of their account by a team admin.
+"Account::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
+"Account::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
 "Account::ROLE_CODE": The membership role for the team.
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
@@ -1072,7 +1072,11 @@
 
 "OAuthTokenGenerateResponseExample::SUMMARY": Retrieving the OAuth token
 "OAuthTokenRefreshResponseExample::SUMMARY": Refresh an existing OAuth token
-"OAuthTokenResponse::EXPIRES_IN": in seconds
+"OAuthTokenResponse::ACCESS_TOKEN": The token used for Oauth authorization
+"OAuthTokenResponse::TOKEN_TYPE": The authorization method to use with the token
+"OAuthTokenResponse::REFRESH_TOKEN": The token used to refresh an expired `access` token
+"OAuthTokenResponse::EXPIRES_IN": Number of seconds until the `access` token expires
+"OAuthTokenResponse::STATE": Token used for session verification
 
 "ReportCreateResponseExample::SUMMARY": Report
 "ReportResponse::END_DATE": The (inclusive) end date for the report data in MM/DD/YYYY format.

@@ -6182,6 +6182,14 @@ components:
           default: false
       type: object
     AccountResponse:
+      description: '_t__AccountResponse::DESCRIPTION'
+      required:
+        - account_id
+        - email_address
+        - is_locked
+        - is_paid_hs
+        - is_paid_hf
+        - quotas
       properties:
         account_id:
           description: '_t__Account::ACCOUNT_ID'
@@ -6247,6 +6255,7 @@ components:
       type: object
       x-internal: true
     AccountVerifyResponseAccount:
+      description: '_t__AccountVerifyResponse::DESCRIPTION'
       properties:
         email_address:
           description: '_t__Account::EMAIL_ADDRESS'
@@ -6655,18 +6664,27 @@ components:
       type: object
       x-internal: true
     OAuthTokenResponse:
+      required:
+        - access_token
+        - token_type
+        - refresh_token
+        - expires_in
       properties:
         access_token:
+          description: '_t__OAuthTokenResponse::ACCESS_TOKEN'
           type: string
         token_type:
+          description: '_t__OAuthTokenResponse::TOKEN_TYPE'
           type: string
         refresh_token:
+          description: '_t__OAuthTokenResponse::REFRESH_TOKEN'
           type: string
         expires_in:
           description: '_t__OAuthTokenResponse::EXPIRES_IN'
           type: integer
         state:
           nullable: true
+          description: '_t__OAuthTokenResponse::STATE'
           type: string
       type: object
       x-internal: true
