@@ -181,7 +181,7 @@ paths:
       tags:
         - Account
       summary: 'Update Account'
-      description: 'Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/Callbacks-and-Events) and locale.'
+      description: 'Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.'
       operationId: accountUpdate
       requestBody:
         required: true

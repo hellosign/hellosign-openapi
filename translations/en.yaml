@@ -78,7 +78,7 @@
 "AccountGet::ACCOUNT_ID": The ID of the Account
 
 "AccountUpdate::SUMMARY": Update Account
-"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/Callbacks-and-Events) and locale.
+"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 "AccountUpdate::ACCOUNT_ID": The ID of the Account
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
