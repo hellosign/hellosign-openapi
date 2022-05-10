@@ -4737,6 +4737,7 @@ components:
       description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
+        - signers
       properties:
         file:
           description: '_t__SignatureRequestCreateEmbedded::FILE'
@@ -4834,6 +4835,7 @@ components:
       required:
         - client_id
         - template_ids
+        - signers
       properties:
         template_ids:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS'
@@ -5306,7 +5308,10 @@ components:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
       required:
         - document_index
+        - api_id
         - type
+        - page
+        - required
         - signer
         - width
         - height
@@ -5380,6 +5385,7 @@ components:
             checkbox: '_t__Sub::MergeField::EnumDescriptions::CHECKBOX'
       type: object
     SubOAuth:
+      description: '_t__Sub::OAuth::DESCRIPTION'
       properties:
         callback_url:
           description: '_t__Sub::OAuth::CALLBACK_URL'
@@ -5400,6 +5406,7 @@ components:
               - ''
       type: object
     SubOptions:
+      description: '_t__Sub::Options::DESCRIPTION'
       properties:
         can_insert_everywhere:
           description: '_t__Sub::Options::CAN_INSERT_EVERYWHERE'
@@ -6251,6 +6258,7 @@ components:
       type: object
       x-internal: true
     ApiAppResponse:
+      description: '_t__ApiAppResponse::DESCRIPTION'
       properties:
         callback_url:
           nullable: true
@@ -6296,6 +6304,7 @@ components:
     ApiAppListResponse:
       properties:
         api_apps:
+          description: '_t__ApiAppListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/ApiAppResponse'
@@ -6615,6 +6624,7 @@ components:
       type: object
       x-internal: true
     ListInfoResponse:
+      description: '_t__ListInfoResponse::DESCRIPTION'
       properties:
         num_pages:
           description: '_t__ListInfoResponse::NUM_PAGES'
@@ -6678,6 +6688,7 @@ components:
       type: object
       x-internal: true
     SignatureRequestResponse:
+      description: '_t__SignatureRequestResponse::DESCRIPTION'
       properties:
         test_mode:
           nullable: true
@@ -6718,9 +6729,6 @@ components:
         has_error:
           description: '_t__SignatureRequestResponse::HAS_ERROR'
           type: boolean
-        final_copy_uri:
-          description: '_t__SignatureRequestResponse::FINAL_COPY_URI'
-          type: string
         files_url:
           description: '_t__SignatureRequestResponse::FILES_URL'
           type: string
@@ -6754,15 +6762,18 @@ components:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         attachments:
           nullable: true
+          description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
         response_data:
           nullable: true
+          description: '_t__SignatureRequestResponseData::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseData'
         signatures:
+          description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
@@ -6781,6 +6792,7 @@ components:
     SignatureRequestListResponse:
       properties:
         signature_requests:
+          description: '_t__SignatureRequestListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponse'
@@ -6987,6 +6999,7 @@ components:
       type: object
       x-internal: true
     TeamResponse:
+      description: '_t__TeamResponse::DESCRIPTION'
       properties:
         name:
           description: '_t__Team::NAME'
