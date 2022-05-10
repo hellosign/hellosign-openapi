@@ -181,7 +181,7 @@ paths:
       tags:
         - Account
       summary: 'Update Account'
-      description: 'Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/tag/Callbacks-and-Events) and locale.'
+      description: 'Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/Callbacks-and-Events) and locale.'
       operationId: accountUpdate
       requestBody:
         required: true
@@ -7150,20 +7150,20 @@ components:
         - expires_in
       properties:
         access_token:
-          description: 'The token used for Oauth authorization'
+          description: 'The access token used for sending API calls on behalf of the user that authorized the API App.'
           type: string
         token_type:
-          description: 'The authorization method to use with the token'
+          description: 'The authorization method used with the token. Passed in the `Authorization` header of the HTTP request as `Bearer <hs-oauth-access-token>`.'
           type: string
         refresh_token:
-          description: 'The token used to refresh an expired `access` token'
+          description: 'The long-lived refresh token used to refresh an expired `access_token` without forcing the user through another OAuth approval flow (unless the apps `access_scope` has changed or the user revoked their authorization).'
           type: string
         expires_in:
-          description: 'Number of seconds until `access` token expires'
+          description: 'Number of seconds until the `access_token` expires. Uses epoch time.'
           type: integer
         state:
           nullable: true
-          description: 'Token used for session verification'
+          description: 'The string that was passed back with `state` during the initial authorization step.'
           type: string
       type: object
       x-internal: true

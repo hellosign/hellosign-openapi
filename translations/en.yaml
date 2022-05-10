@@ -78,7 +78,7 @@
 "AccountGet::ACCOUNT_ID": The ID of the Account
 
 "AccountUpdate::SUMMARY": Update Account
-"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/tag/Callbacks-and-Events) and locale.
+"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/Callbacks-and-Events) and locale.
 "AccountUpdate::ACCOUNT_ID": The ID of the Account
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
@@ -1072,11 +1072,11 @@
 
 "OAuthTokenGenerateResponseExample::SUMMARY": Retrieving the OAuth token
 "OAuthTokenRefreshResponseExample::SUMMARY": Refresh an existing OAuth token
-"OAuthTokenResponse::ACCESS_TOKEN": The token used for Oauth authorization
-"OAuthTokenResponse::TOKEN_TYPE": The authorization method to use with the token
-"OAuthTokenResponse::REFRESH_TOKEN": The token used to refresh an expired `access` token
-"OAuthTokenResponse::EXPIRES_IN": Number of seconds until the `access` token expires
-"OAuthTokenResponse::STATE": Token used for session verification
+"OAuthTokenResponse::ACCESS_TOKEN": The access token used for sending API calls on behalf of the user that authorized the API App.
+"OAuthTokenResponse::TOKEN_TYPE": The authorization method used with the token. Passed in the `Authorization` header of the HTTP request as `Bearer <hs-oauth-access-token>`.
+"OAuthTokenResponse::REFRESH_TOKEN": The long-lived refresh token used to refresh an expired `access_token` without forcing the user through another OAuth approval flow (unless the apps `access_scope` has changed or the user revoked their authorization).
+"OAuthTokenResponse::EXPIRES_IN": Number of seconds until the `access_token` expires. Uses epoch time.
+"OAuthTokenResponse::STATE": The string that was passed back with `state` during the initial authorization step.
 
 "ReportCreateResponseExample::SUMMARY": Report
 "ReportResponse::END_DATE": The (inclusive) end date for the report data in MM/DD/YYYY format.
