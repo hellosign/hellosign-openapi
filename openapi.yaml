@@ -104,6 +104,14 @@ paths:
       summary: 'Get Account'
       description: 'Returns the properties and settings of your Account.'
       operationId: accountGet
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: 'Account ID'
+          required: false
+          schema:
+            type: string
       responses:
         200:
           description: 'successful operation'
@@ -4268,6 +4276,10 @@ components:
       type: object
     AccountUpdateRequest:
       properties:
+        account_id:
+          nullable: true
+          description: 'Account ID.'
+          type: string
         callback_url:
           description: 'The URL that HelloSign should POST events to.'
           type: string
@@ -4951,9 +4963,7 @@ components:
             * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: |-
             Enables automatic Text Tag removal when set to true.
@@ -5171,9 +5181,7 @@ components:
             * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: |-
             Enables automatic Text Tag removal when set to true.
@@ -5625,6 +5633,7 @@ components:
         * Text Merge Field use `SubFormFieldsPerDocumentTextMerge`
         * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
       required:
+        - document_index
         - type
         - signer
         - width
@@ -5632,6 +5641,9 @@ components:
         - x
         - 'y'
       properties:
+        document_index:
+          description: 'Represents the integer index of the `file` or `file_url` document the field should be attached to.'
+          type: integer
         api_id:
           description: 'An identifier for the field that is unique across all documents in the request.'
           type: string
@@ -6064,9 +6076,7 @@ components:
             * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
           description: |-
             Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
@@ -6253,9 +6263,7 @@ components:
             * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: 'Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.'
           type: boolean
@@ -6414,9 +6422,7 @@ components:
             * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         hide_text_tags:
           description: 'Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.'
           type: boolean
@@ -6693,6 +6699,8 @@ components:
         callback_url:
           nullable: true
           type: string
+        should_send_outbound_conf_emails:
+          type: boolean
         role_code:
           nullable: true
           type: string
@@ -6880,6 +6888,7 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
+      description: 'Contains information about Signature Requests sent in bulk.'
       properties:
         bulk_send_job_id:
           nullable: true
@@ -7015,13 +7024,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         signature_request:
@@ -7041,13 +7043,6 @@ components:
       required:
         - event
       properties:
-        account_guid:
-          type: string
-          deprecated: true
-        client_id:
-          nullable: true
-          type: string
-          deprecated: true
         event:
           $ref: '#/components/schemas/EventCallbackRequestEvent'
         account:
@@ -7058,6 +7053,7 @@ components:
           $ref: '#/components/schemas/TemplateResponse'
       type: object
     EventCallbackRequestEvent:
+      description: 'Basic information about the event that occurred.'
       required:
         - event_time
         - event_type
@@ -7065,8 +7061,10 @@ components:
         - event_metadata
       properties:
         event_time:
+          description: 'Time the event was created (using Unix time).'
           type: string
         event_type:
+          description: 'Type of callback event that was triggered.'
           type: string
           enum:
             - account_confirmed
@@ -7090,23 +7088,29 @@ components:
             - template_created
             - template_error
         event_hash:
+          description: 'Generated hash used to verify source of event data.'
           type: string
         event_metadata:
           $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
       type: object
     EventCallbackRequestEventMetadata:
+      description: 'Specific metadata about the event.'
       properties:
         related_signature_id:
           nullable: true
+          description: 'Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.'
           type: string
         reported_for_account_id:
           nullable: true
+          description: 'Account ID the event was reported for.'
           type: string
         reported_for_app_id:
           nullable: true
+          description: 'App ID the event was reported for.'
           type: string
         event_message:
           nullable: true
+          description: 'Message about a declined or failed (due to error) signature flow.'
           type: string
       type: object
     FileResponse:
@@ -7344,6 +7348,9 @@ components:
         - name
         - type
       properties:
+        type:
+          description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
+          type: string
         name:
           description: 'The name of the Custom Field.'
           type: string
@@ -7786,6 +7793,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
+        static_fields:
+          nullable: true
+          description: 'An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
@@ -7799,6 +7812,9 @@ components:
           enum:
             - text
             - checkbox
+        signer:
+          description: 'The signer of the Custom Field.'
+          type: string
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -7835,6 +7851,15 @@ components:
           nullable: true
           description: 'Font family used in this form field''s text.'
           type: integer
+        named_form_fields:
+          nullable: true
+          description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
+          type: object
+          deprecated: true
+        reusable_form_id:
+          nullable: true
+          type: string
+          deprecated: true
       type: object
       x-internal: true
     TemplateResponseDocumentFieldGroup:
@@ -7904,6 +7929,41 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
+          type: string
+      type: object
+      x-internal: true
+    TemplateResponseDocumentStaticField:
+      properties:
+        name:
+          description: 'The name of the static field.'
+          type: string
+        type:
+          description: 'The type of this static field. See [field types](/api/reference/constants/#field-types).'
+          type: string
+        signer:
+          description: 'The signer of the Static Field.'
+          type: string
+        x:
+          description: 'The horizontal offset in pixels for this static field.'
+          type: integer
+        'y':
+          description: 'The vertical offset in pixels for this static field.'
+          type: integer
+        width:
+          description: 'The width in pixels of this static field.'
+          type: integer
+        height:
+          description: 'The height in pixels of this static field.'
+          type: integer
+        required:
+          description: 'Boolean showing whether or not this field is required.'
+          type: boolean
+        api_id:
+          description: 'A unique id for the static field.'
+          type: string
+        group:
+          nullable: true
+          description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
       type: object
       x-internal: true
@@ -8343,18 +8403,26 @@ components:
       summary: 'Error 4XX failed_operation'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    EventCallbackAccountRequestExample:
-      summary: '_t__EventCallbackAccountRequestExample::SUMMARY'
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
       value:
-        $ref: examples/json/EventCallbackAccountRequestExample.json
-    EventCallbackSignatureRequestExample:
-      summary: 'Event Callback Signature Request Example'
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: 'Example: template_created'
       value:
-        $ref: examples/json/EventCallbackSignatureRequestExample.json
-    EventCallbackTemplateRequestExample:
-      summary: 'Event Callback Template Example'
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackApiAppAccountConfirmedExample:
+      summary: 'Example: account_confirmed'
       value:
-        $ref: examples/json/EventCallbackTemplateRequestExample.json
+        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
+    EventCallbackApiAppSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
+      value:
+        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
+    EventCallbackApiAppTemplateCreatedExample:
+      summary: 'Example: template_created'
+      value:
+        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:
@@ -8493,18 +8561,18 @@ components:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackAccountRequest'
           examples:
             signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
@@ -8517,22 +8585,22 @@ components:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/EventCallbackApiAppRequest'
           examples:
-            account_example:
-              $ref: '#/components/examples/EventCallbackAccountRequestExample'
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackSignatureRequestExample'
-            template_example:
-              $ref: '#/components/examples/EventCallbackTemplateRequestExample'
+            account_confirmed_example:
+              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+            signature_request_sent_example:
+              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+            template_created_example:
+              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
           encoding:
             json:
               contentType: application/json
