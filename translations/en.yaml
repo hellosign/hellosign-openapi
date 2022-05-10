@@ -144,14 +144,6 @@
   **Note**: This parameter overwrites `show_preview=true` (if set).
 "EmbeddedEditUrl::SHOW_PREVIEW": This allows the requester to enable the editor/preview experience.
 "EmbeddedEditUrl::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
-"EmbeddedEditUrl::SKIP_SIGNER_ROLES": |-
-  If signer roles are already provided, the user will not be prompted to edit them.
-
-  **Note**: this parameter will be deprecated in May 2020 and skipping the signer roles screen will become the default behavior. To enforce showing the signer roles screen, use the `force_signer_roles` parameter.
-"EmbeddedEditUrl::SKIP_SUBJECT_MESSAGE": |-
-  If the subject and message has already been provided, the user will not be prompted to edit them.
-
-  **Note**: this parameter will be deprecated in May 2020 and skipping the subject message screen will become the default behavior. To enforce showing the subject message screen, use the `force_subject_message` parameter.
 "EmbeddedEditUrl::TEMPLATE_ID": The id of the template to edit.
 "EmbeddedEditUrl::TEST_MODE": Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
 
@@ -697,7 +689,7 @@
   - `preview_only=false`: Allows requesters to disable the preview only experience.
 
   **Note**: This parameter overwrites `show_preview=1` (if set).
-"UnclaimedDraftCreateEmbeddedWithTemplate::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.
+"UnclaimedDraftCreateEmbeddedWithTemplate::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft.
 "UnclaimedDraftCreateEmbeddedWithTemplate::REQUESTING_REDIRECT_URL": The URL you want signers redirected to after they successfully request a signature.
 "UnclaimedDraftCreateEmbeddedWithTemplate::SHOW_PREVIEW": |-
   This allows the requester to enable the editor/preview experience.
@@ -1024,6 +1016,14 @@
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL
 
+"EmbeddedSignUrlResponseEmbedded::DESCRIPTION": An object that contains necessary information to set up embedded signing.
+"EmbeddedSignUrlResponseEmbedded::SIGN_URL": A signature url that can be opened in an iFrame.
+"EmbeddedSignUrlResponseEmbedded::EXPIRES_AT": When the link expires.
+
+"EmbeddedEditUrlResponseEmbedded::DESCRIPTION": An embedded template object.
+"EmbeddedEditUrlResponseEmbedded::EDIT_URL": A template url that can be opened in an iFrame.
+"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT":  When the link expires.
+
 "EventCallbackAccountRequest::DESCRIPTION": |-
   **Account Callback Payloads --**  
         Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
@@ -1264,11 +1264,12 @@
 "UnclaimedDraftEditAndResendExample::SUMMARY": Unclaimed Draft Edit and Resend
 "UnclaimedDraft::CLAIM_URL": The URL to be used to claim this UnclaimedDraft.
 "UnclaimedDraft::EXPIRES_AT": When the link expires.
-"UnclaimedDraft::ONE_CLICK_URL": One-Click Login URL
 "UnclaimedDraft::REQUESTING_REDIRECT_URL": The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
 "UnclaimedDraft::SIGNATURE_REQUEST_ID": The ID of the signature request that is represented by this UnclaimedDraft.
 "UnclaimedDraft::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "UnclaimedDraft::TEST_MODE": Whether this is a test draft. Signature requests made from test drafts have no legal value.
+
+"UnclaimedDraftResponse::DESCRIPTION": A group of documents that a user can take ownership of via the claim URL.
 
 "Error::400": Error 400 bad_request
 "Error::401": Error 401 unauthorized

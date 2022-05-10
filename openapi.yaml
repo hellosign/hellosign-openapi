@@ -4394,20 +4394,6 @@ components:
           description: 'When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.'
           type: boolean
           default: true
-        skip_signer_roles:
-          description: |-
-            If signer roles are already provided, the user will not be prompted to edit them.
-
-            **Note**: this parameter will be deprecated in May 2020 and skipping the signer roles screen will become the default behavior. To enforce showing the signer roles screen, use the `force_signer_roles` parameter.
-          type: boolean
-          default: false
-        skip_subject_message:
-          description: |-
-            If the subject and message has already been provided, the user will not be prompted to edit them.
-
-            **Note**: this parameter will be deprecated in May 2020 and skipping the subject message screen will become the default behavior. To enforce showing the subject message screen, use the `force_subject_message` parameter.
-          type: boolean
-          default: false
         test_mode:
           description: 'Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.'
           type: boolean
@@ -6607,7 +6593,7 @@ components:
           type: boolean
           default: false
         requester_email_address:
-          description: 'The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.'
+          description: 'The email address of the user that should be designated as the requester of this draft.'
           type: string
           format: email
         requesting_redirect_url:
@@ -6976,10 +6962,13 @@ components:
       type: object
       x-internal: true
     EmbeddedEditUrlResponseEmbedded:
+      description: 'An embedded template object.'
       properties:
         edit_url:
+          description: 'A template url that can be opened in an iFrame.'
           type: string
         expires_at:
+          description: 'When the link expires.'
           type: integer
       type: object
       x-internal: true
@@ -6994,10 +6983,13 @@ components:
       type: object
       x-internal: true
     EmbeddedSignUrlResponseEmbedded:
+      description: 'An object that contains necessary information to set up embedded signing.'
       properties:
         sign_url:
+          description: 'A signature url that can be opened in an iFrame.'
           type: string
         expires_at:
+          description: 'When the link expires.'
           type: integer
       type: object
       x-internal: true
@@ -7933,6 +7925,7 @@ components:
       type: object
       x-internal: true
     UnclaimedDraftResponse:
+      description: 'A group of documents that a user can take ownership of via the claim URL.'
       properties:
         signature_request_id:
           nullable: true
@@ -7940,9 +7933,6 @@ components:
           type: string
         claim_url:
           description: 'The URL to be used to claim this UnclaimedDraft.'
-          type: string
-        one_click_url:
-          description: 'One-Click Login URL'
           type: string
         signing_redirect_url:
           nullable: true
