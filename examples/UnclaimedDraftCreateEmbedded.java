@@ -22,7 +22,7 @@ public class Example {
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		/*
+		*/
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 

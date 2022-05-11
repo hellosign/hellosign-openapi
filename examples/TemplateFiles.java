@@ -20,7 +20,7 @@ public class Example {
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		/*
+		*/
 
         TemplateApi api = new TemplateApi(defaultClient);
 

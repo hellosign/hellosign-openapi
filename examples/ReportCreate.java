@@ -24,7 +24,7 @@ public class Example {
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		/*
+		*/
 
         ReportApi api = new ReportApi(defaultClient);
 
