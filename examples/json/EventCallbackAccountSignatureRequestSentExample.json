@@ -25,7 +25,6 @@
       "response_data": [],
       "signing_url": null,
       "signing_redirect_url": null,
-      "final_copy_uri": "/v3/signature_request/final_copy/2d055d5449f2bf016f5cbf0cf967bdd2bc42494f",
       "files_url": "https://api.hellosign.com/v3/signature_request/files/2d055d5449fcbf016f5ebf0cf967bdd2bc42494f",
       "details_url": "https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967",
       "requester_email_address": "me@hellosign.com",

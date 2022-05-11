@@ -18,7 +18,6 @@
     "response_data": [],
     "signing_url": "https://app.hellosign.com/sign/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
     "signing_redirect_url": null,
-    "final_copy_uri": "/v3/signature_request/final_copy/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
     "files_url": "https://api.hellosign.com/v3/signature_request/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
     "details_url": "https://app.hellosign.com/home/manage?guid=2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
     "requester_email_address": "me@hellosign.com",

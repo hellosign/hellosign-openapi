@@ -97,21 +97,21 @@
 
 "ApiAppDelete::SUMMARY": Delete API App
 "ApiAppDelete::DESCRIPTION": Deletes an API App. Can only be invoked for apps you own.
-"ApiAppDelete::CLIENT_ID": The client id of the Api App to delete.
+"ApiAppDelete::CLIENT_ID": The client id of the API App to delete.
 
 "ApiAppGet::SUMMARY": Get API App
 "ApiAppGet::DESCRIPTION": Returns an object with information about an API App.
-"ApiAppGet::CLIENT_ID": The client id of the Api App to retrieve.
+"ApiAppGet::CLIENT_ID": The client id of the API App to retrieve.
 
 "ApiAppList::SUMMARY": List API Apps
 "ApiAppList::DESCRIPTION": Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
-"ApiAppList::PAGE": Which page number of the Api App List to return. Defaults to `1`.
+"ApiAppList::PAGE": Which page number of the API App List to return. Defaults to `1`.
 "ApiAppList::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.
 
 "ApiAppUpdate::SUMMARY": Update API App
 "ApiAppUpdate::DESCRIPTION": Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
-"ApiAppUpdate::CALLBACK_URL": The URL at which the Api App should receive event callbacks.
-"ApiAppUpdate::CLIENT_ID": The client id of the Api App to update.
+"ApiAppUpdate::CALLBACK_URL": The URL at which the API App should receive event callbacks.
+"ApiAppUpdate::CLIENT_ID": The client id of the API App to update.
 "ApiAppUpdate::CUSTOM_LOGO_FILE": An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
 "ApiAppUpdate::DOMAINS": The domain names the ApiApp will be associated with.
 "ApiAppUpdate::NAME": The name you want to assign to the ApiApp.
@@ -247,7 +247,7 @@
 "SignatureRequestBulkSendWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestBulkSendWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestBulkSendWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
-"SignatureRequestBulkSendWithTemplate::CLIENT_ID" : The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.
+"SignatureRequestBulkSendWithTemplate::CLIENT_ID" : The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 
 "SignatureRequestCancel::SUMMARY": Cancel Incomplete Signature Request
 "SignatureRequestCancel::DESCRIPTION": |-
@@ -255,7 +255,7 @@
 
   The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.
 
-  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
+  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.
 
   To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
@@ -272,18 +272,17 @@
 "SignatureRequestCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestCreateEmbedded::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbedded::FILE": |-
-  **file** or **file_url** is required, but not both.
-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbedded::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
-
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
-"SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to disabled, or `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
+  This endpoint requires either **file** or **file_url[]**, but not both.
+"SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS": |-
+  Enables automatic Text Tag removal when set to true.
+
+  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
 "SignatureRequestCreateEmbedded::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
@@ -295,17 +294,13 @@
 "SignatureRequestCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE": |-
-  **file** or **file_url** is required, but not both.
-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
-
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
@@ -369,20 +364,19 @@
 
   **Note**: Only available for Premium plan and higher.
 "SignatureRequestSend::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
-"SignatureRequestSend::CLIENT_ID": The client id of the Api App you want to associate with this request. Used to apply the branding and callback url defined for the app.
+"SignatureRequestSend::CLIENT_ID": The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSend::FILE": |-
-  **file** or **file_url** is required, but not both.
-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSend::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
-
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
-"SignatureRequestSend::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
+  This endpoint requires either **file** or **file_url[]**, but not both.
+"SignatureRequestSend::HIDE_TEXT_TAGS": |-
+  Enables automatic Text Tag removal when set to true.
+
+  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
 "SignatureRequestSend::IS_QUALIFIED_SIGNATURE": |-
     Send with a value of `true` if you wish to enable
     [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
@@ -401,17 +395,13 @@
 "SignatureRequestSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestSendWithTemplate::CLIENT_ID": Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSendWithTemplate::FILE": |-
-  **file** or **file_url** is required, but not both.
-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSendWithTemplate::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
-
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE": |-
   Send with a value of `true` if you wish to enable
   [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
@@ -498,17 +488,13 @@
 "TemplateCreateEmbeddedDraft::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
 "TemplateCreateEmbeddedDraft::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
 "TemplateCreateEmbeddedDraft::FILE": |-
-  **file** or **file_url** is required, but not both.
-
-  Use `file[]` to indicate the uploaded file(s) to use for the template
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  Use `file[]` to indicate the uploaded file(s) to send for signature.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
+  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Use `file_url[]` to have HelloSign download the file(s) to use for the template.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "TemplateCreateEmbeddedDraft::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "TemplateCreateEmbeddedDraft::MERGE_FIELDS": |-
@@ -742,7 +728,7 @@
 "Sub::Attachment::NAME": The name of attachment.
 "Sub::Attachment::REQUIRED": Determines if the attachment must be uploaded.
 "Sub::Attachment::SIGNER_INDEX": |-
-  The signer's unique number, see `signers[%i%][name]` for more details.
+  The signer's index in the `signers` parameter (0-based indexing).
 
   **NOTE**: Only one signer can be assigned per attachment.
 
@@ -759,16 +745,20 @@
 "Sub::CC::EMAIL_ADDRESS": The email address of the CC recipient.
 "Sub::CC::ROLE": Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.
 
-"Sub::CustomField::DESCRIPTION": An array defining values and options for custom fields. Required when defining pre-set values in `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro).
+"Sub::CustomField::DESCRIPTION": |-
+  When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
+  
+  Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.
+  
+  For using pre-filled on repeatable signature requests, merge fields are added to templates in the HelloSign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
 "Sub::CustomField::EDITOR": |-
-  The RoleName allowed to edit the custom field (optional, but required if `required = true`).
+  Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.
 
-  **Note**: Editable `custom_fields` are only supported for single signer requests or the first signer of ordered signature requests. If more than one signer is assigned to the unordered signature request, any editor value is ignored and the field will not be editable.
-"Sub::CustomField::INSTRUCTIONS": The instructions for uploading the attachment.
-"Sub::CustomField::NAME": The name, or "Field Label," of the custom field (the field's API ID can be used here as well).
-"Sub::CustomField::REQUIRED": A boolean describing if this field is required
-"Sub::CustomField::TEMPLATE": An array defining values and options for custom fields. Required when defining when a custom field exists in the Template.
-"Sub::CustomField::VALUE": The value of the custom field
+  **Note**: Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
+"Sub::CustomField::NAME": The name of a custom field. When working with pre-filled data, the custom field's name must have a matching merge field name or the field will remain empty on the document during signing.
+"Sub::CustomField::REQUIRED": Used to set an editable merge field when working with pre-filled data. When `true`, the custom field must specify a signer role in `editor`.
+"Sub::CustomField::TEMPLATE": An array defining values and options for custom fields. Required when a custom field exists in the Template.
+"Sub::CustomField::VALUE": The string that resolves (aka "pre-fills") to the merge field on the final document(s) used for signing.
 
 "Sub::EditorOptions::DESCRIPTION": This allows the requester to specify editor options when a preparing a document
 "Sub::EditorOptions::ALLOW_EDIT_DOCUMENTS": Allows requesters to edit documents, including delete and add
@@ -855,7 +845,7 @@
   - `none`
 
 "Sub::FormFieldsPerDocument::DESCRIPTION": |-
-  The fields that should appear on the document, expressed as a 2-dimensional JSON array serialized to a string. The main array represents documents, with each containing an array of form fields. One document array is required for each file provided by the `file[]` parameter. In the case of a file with no fields, an empty list must be specified.
+  The fields that should appear on the document, expressed as an array of objects.
 
   **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -877,6 +867,7 @@
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
 "Sub::FormFieldsPerDocument::CONTENT_HYPERLINK": Link Text.
 "Sub::FormFieldsPerDocument::CONTENT_URL": Link URL.
+"Sub::FormFieldsPerDocument::DOCUMENT_INDEX": Represents the integer index of the `file` or `file_url` document the field should be attached to.
 "Sub::FormFieldsPerDocument::GROUP": String referencing group defined in `form_field_groups` parameter.
 "Sub::FormFieldsPerDocument::HEIGHT": Size of the field in pixels.
 "Sub::FormFieldsPerDocument::MASKED": Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.
@@ -889,10 +880,13 @@
   - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
 "Sub::FormFieldsPerDocument::PLACEHOLDER": Placeholder value for text field.
 "Sub::FormFieldsPerDocument::REQUIRED": Whether this field is required.
-"Sub::FormFieldsPerDocument::SIGNER": Signer index identified by the offset `%i%` in the `signers[%i%]` parameter, indicating which signer should fill out the field. If your type is `text-merge` you can set this to `sender`, so the field is non-editable by any signer.
+"Sub::FormFieldsPerDocument::SIGNER": |-
+  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
+  
+  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
-"Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE": A checkbox field that has default value set by the api. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
+"Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE": A checkbox field that has default value set using pre-filled data. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
 "Sub::FormFieldsPerDocument::TYPE_DATE_SIGNED": A date. Use the `SubFormFieldsPerDocumentDateSigned` class.
 "Sub::FormFieldsPerDocument::TYPE_DROPDOWN": An input field for dropdowns. Use the `SubFormFieldsPerDocumentDropdown` class.
 "Sub::FormFieldsPerDocument::TYPE_HYPERLINK": A hyperlink field. Use the `SubFormFieldsPerDocumentHyperlink` class.
@@ -900,7 +894,7 @@
 "Sub::FormFieldsPerDocument::TYPE_RADIO": An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.
 "Sub::FormFieldsPerDocument::TYPE_SIGNATURE": A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.
 "Sub::FormFieldsPerDocument::TYPE_TEXT": A text input field. Use the `SubFormFieldsPerDocumentText` class.
-"Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE": A text field that has default text set by the api. Use the `SubFormFieldsPerDocumentTextMerge` class.
+"Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE": A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
 "Sub::FormFieldsPerDocument::VALIDATION_TYPE": |-
   Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
 
@@ -921,9 +915,11 @@
   Each request can include up to 10 metadata keys, with key names up to 40 characters long and values up to 1000 characters long.
 
 "Sub::OAuth::CALLBACK_URL": The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
+"Sub::OAuth::DESCRIPTION": OAuth related parameters.
 "Sub::OAuth::SCOPES": A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
 
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
+"Sub::Options::DESCRIPTION": Additional options supported by API App.
 
 "Sub::SignatureRequestSigner::DESCRIPTION": Add Signers to your Signature Request.
 "Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS": The email address of the signer.
@@ -939,7 +935,7 @@
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestTemplateSigner::NAME": The name of the signer.
 "Sub::SignatureRequestTemplateSigner::PIN": The 4- to 12-character access code that will secure this signer's signature page.
-"Sub::SignatureRequestTemplateSigner::ROLE": Must match an existing role in chosen Template(s).
+"Sub::SignatureRequestTemplateSigner::ROLE": Must match an existing role in chosen Template(s). It's case-sensitive.
 "Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER": |-
   An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
 
@@ -1006,10 +1002,13 @@
 "ApiAppUpdateResponseExample::SUMMARY": API App Update
 "ApiAppResponse::CALLBACK_URL": The app's callback URL (for events)
 "ApiAppResponse::CLIENT_ID": The app's client id
+"ApiAppResponse::DESCRIPTION": Contains information about an API App.
 "ApiAppResponse::CREATED_AT": The time that the app was created
 "ApiAppResponse::DOMAINS": The domain name(s) associated with the app
 "ApiAppResponse::NAME": The name of the app
 "ApiAppResponse::IS_APPROVED": Boolean to indicate if the app has been approved
+
+"ApiAppListResponse::DESCRIPTION": Contains information about API Apps.
 
 "ApiAppResponseOAuth::DESCRIPTION": An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
 "ApiAppResponseOAuth::CALLBACK_URL": The app's OAuth callback URL.
@@ -1029,6 +1028,7 @@
 "BulkSendJobGetResponseExample::SUMMARY": Bulk Send Job
 "BulkSendJobListResponseExample::SUMMARY": Bulk Send Job List
 "BulkSendJobResponse::BULK_SEND_JOB_ID": The id of the BulkSendJob.
+"BulkSendJobResponse::DESCRIPTION": Contains information about Signature Requests sent in bulk.
 "BulkSendJobResponse::TOTAL": The total amount of SignatureRequests queued for sending.
 "BulkSendJobResponse::IS_CREATOR": True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.
 "BulkSendJobResponse::CREATED_AT": Time that the BulkSendJob was created.
@@ -1051,7 +1051,7 @@
 "EventCallbackApiAppTemplateCreatedExample::SUMMARY": |-
   Example: template_created
 "EventCallbackApiAppRequest::DESCRIPTION": |-
-  **Api App Callback Payloads --**  
+  **API App Callback Payloads --**  
   Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
 "EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
 "EventCallbackRequestEvent::EVENT_TIME": Time the event was created (using Unix time).
@@ -1065,6 +1065,7 @@
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
+"ListInfoResponse::DESCRIPTION": Contains a ListInfo object
 "ListInfoResponse::NUM_PAGES": Total number of pages available
 "ListInfoResponse::NUM_RESULTS": Total number of objects available
 "ListInfoResponse::PAGE": Number of the page being returned
@@ -1099,8 +1100,8 @@
 
 "SignatureRequestResponse::CC_EMAIL_ADDRESSES": A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
 "SignatureRequestResponse::CREATED_AT": Time the signature request was created.
+"SignatureRequestResponse::DESCRIPTION": Contains information about a signature request.
 "SignatureRequestResponse::DETAILS_URL": The URL where the requester and the signers can view the current status of the SignatureRequest.
-"SignatureRequestResponse::FINAL_COPY_URI": (Deprecated) The relative URI where the PDF copy of the finalized documents can be downloaded. Only present when `is_complete = true`. This will be removed at some point; use the files_url instead.
 "SignatureRequestResponse::FILES_URL": The URL where a copy of the request's documents can be downloaded.
 "SignatureRequestResponse::HAS_ERROR": Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
 "SignatureRequestResponse::IS_COMPLETE": Whether or not the SignatureRequest has been fully executed by all signers.
@@ -1116,6 +1117,8 @@
 "SignatureRequestResponse::TEMPLATE_IDS": Templates IDs used in this SignatureRequest (if any).
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
 "SignatureRequestResponse::TITLE": The title the specified Account uses for the SignatureRequest.
+
+"SignatureRequestListResponse::DESCRIPTION": Contains information about signature requests.
 
 "SignatureRequestResponseCustomField::DESCRIPTION": |-
   An array of Custom Field objects containing the name and type of each custom field.
@@ -1156,7 +1159,7 @@
   - `checkbox-merge`: A checkbox field that has default value set by the api
 "SignatureRequestResponseData::VALUE": The value of the form field.
 
-"SignatureRequestResponseSignatures::DESCRIPTION": An array of signature obects, 1 for each signer.
+"SignatureRequestResponseSignatures::DESCRIPTION": An array of signature objects, 1 for each signer.
 "SignatureRequestResponseSignatures::DECLINE_REASON": The reason provided by the signer for declining the request.
 "SignatureRequestResponseSignatures::ERROR": Error message pertaining to this signer, or null.
 "SignatureRequestResponseSignatures::HAS_PIN": Boolean to indicate whether this signature requires a PIN to access.
@@ -1182,6 +1185,7 @@
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+"TeamResponse::DESCRIPTION": Contains information about your team and its members
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template
@@ -1219,6 +1223,7 @@
 "TemplateResponseDocument::DESCRIPTION": An array describing each document associated with this Template. Includes form field data for each document.
 "TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last.
 "TemplateResponseDocument::NAME": Name of the associated file.
+"TemplateResponseDocument::STATIC_FIELDS": An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.
 
 "TemplateResponseDocumentCustomField::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseDocumentCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
@@ -1230,6 +1235,11 @@
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentCustomField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentCustomField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field.
+"TemplateResponseDocumentCustomField::API_ID": The unique ID for this field.
+"TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
 
 "TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in custom field.
 "TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
@@ -1249,6 +1259,17 @@
 "TemplateResponseDocumentFormField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
+
+"TemplateResponseDocumentStaticField::NAME": The name of the static field.
+"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentStaticField::SIGNER": The signer of the Static Field.
+"TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
+"TemplateResponseDocumentStaticField::WIDTH": The width in pixels of this static field.
+"TemplateResponseDocumentStaticField::HEIGHT": The height in pixels of this static field.
+"TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
+"TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 
 "TemplateResponseSignerRole::DESCRIPTION": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseSignerRole::NAME": The name of the Role.
