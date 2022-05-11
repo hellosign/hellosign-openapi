@@ -4444,6 +4444,9 @@ components:
             auto_fill_type:
               description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
               type: string
+            link_id:
+              description: 'Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.'
+              type: string
             masked:
               description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
               type: boolean
@@ -6686,14 +6689,6 @@ components:
           default: false
       type: object
     AccountResponse:
-      description: 'Contains the Account information'
-      required:
-        - account_id
-        - email_address
-        - is_locked
-        - is_paid_hs
-        - is_paid_hf
-        - quotas
       properties:
         account_id:
           description: 'The ID of the Account'
@@ -6759,7 +6754,6 @@ components:
       type: object
       x-internal: true
     AccountVerifyResponseAccount:
-      description: 'Contains the verified Account''s information.'
       properties:
         email_address:
           description: 'The email address associated with the Account.'
@@ -7172,27 +7166,18 @@ components:
       type: object
       x-internal: true
     OAuthTokenResponse:
-      required:
-        - access_token
-        - token_type
-        - refresh_token
-        - expires_in
       properties:
         access_token:
-          description: 'The access token used for sending API calls on behalf of the user that authorized the API App.'
           type: string
         token_type:
-          description: 'The authorization method used with the token. Passed in the `Authorization` header of the HTTP request as `Bearer <hs-oauth-access-token>`.'
           type: string
         refresh_token:
-          description: 'The long-lived refresh token used to refresh an expired `access_token` without forcing the user through another OAuth approval flow (unless the apps `access_scope` has changed or the user revoked their authorization).'
           type: string
         expires_in:
           description: 'Number of seconds until the `access_token` expires. Uses epoch time.'
           type: integer
         state:
           nullable: true
-          description: 'The string that was passed back with `state` during the initial authorization step.'
           type: string
       type: object
       x-internal: true
