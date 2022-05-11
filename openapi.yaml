@@ -6420,7 +6420,7 @@ components:
           type: boolean
           default: false
         hold_request:
-          description: 'The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.'
+          description: 'The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.'
           type: boolean
           default: false
         is_for_embedded_signing:
@@ -6531,26 +6531,18 @@ components:
           $ref: '#/components/schemas/SubFieldOptions'
         file:
           description: |-
-            **file** or **file_url** is required, but not both.
+            Use `file[]` to append additional files to the signature request being created from the template. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-            Append additional files to the signature request. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough). Text tags for signers not on the template(s) will be ignored.
-
-            Use `file[]` to pass the uploaded file(s).
-
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            **file** or **file_url[]** is required, but not both.
           type: array
           items:
             type: string
             format: binary
         file_url:
           description: |-
-            **file** or **file_url** is required, but not both.
+            Use file_url[] to append additional files to the signature request being created from the template. HelloSign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-            Append additional files to the signature request. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough). Text tags for signers not on the template(s) will be ignored.
-
-            Use `file_url[]` to have HelloSign download the file(s).
-
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            **file** or **file_url[]** is required, but not both.
           type: array
           items:
             type: string
