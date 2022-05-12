@@ -7959,9 +7959,6 @@ components:
         claim_url:
           description: 'The URL to be used to claim this UnclaimedDraft.'
           type: string
-        one_click_url:
-          description: 'One-Click Login URL'
-          type: string
         signing_redirect_url:
           nullable: true
           description: 'The URL you want signers redirected to after they successfully sign.'

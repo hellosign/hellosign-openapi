@@ -46,13 +46,20 @@ class GenerateSdkOas
     {
         $this->loadOpenAPIFile();
         $this->remove();
-
+        $this->removeOneClickUrl();
         $this->saveOpenAPIFile();
     }
 
     protected function remove(): void
     {
         unset($this->openapi['tags']);
+    }
+
+    protected function removeOneClickUrl(): void
+    {
+        unset(
+            $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
+        );
     }
 
     /**
