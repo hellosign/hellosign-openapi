@@ -46,10 +46,8 @@ class GenerateSdkOas
     {
         $this->loadOpenAPIFile();
         $this->removeTags();
-        $this->saveSdkOpenAPIFile();
-
-        $this->loadOpenAPIFile();
         $this->removeSfdc();
+        $this->removeOneClickUrl();
         $this->saveOpenApiFile();
     }
 
@@ -67,6 +65,13 @@ class GenerateSdkOas
             $this->openapi['components']['schemas']['UnclaimedDraftCreateEmbeddedRequest']['properties']['sfdc_data'],
             $this->openapi['components']['schemas']['UnclaimedDraftCreateEmbeddedWithTemplateRequest']['properties']['sfdc_data'],
             $this->openapi['components']['schemas']['SfdcData'],
+        );
+    }
+
+    protected function removeOneClickUrl(): void
+    {
+        unset(
+            $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
         );
     }
 
