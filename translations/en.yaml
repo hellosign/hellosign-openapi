@@ -63,31 +63,29 @@
 "AccountCreate::DESCRIPTION": Creates a new HelloSign Account that is associated with the specified `email_address`.
 "AccountCreate::SUMMARY": Create Account
 "AccountCreate::CLIENT_ID": |-
-  Used when creating a new account and requesting OAuth authorization.
+  Used when creating a new account with OAuth authorization.
 
   See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
 "AccountCreate::CLIENT_SECRET": |-
-  Used when creating a new account and requesting OAuth authorization.
+  Used when creating a new account with OAuth authorization.
 
   See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
-"AccountCreate::EMAIL_ADDRESS": The email address to create a new Account for.
+"AccountCreate::EMAIL_ADDRESS": The email address which will be associated with the new Account.
 "AccountCreate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
-"AccountGet::ACCOUNT_ID": Account ID
+"AccountGet::ACCOUNT_ID": The ID of the Account
 
 "AccountUpdate::SUMMARY": Update Account
-"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account.
-"AccountUpdate::ACCOUNT_ID": Account ID.
+"AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
+"AccountUpdate::ACCOUNT_ID": The ID of the Account
 "AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountVerify::SUMMARY": Verify Account
 "AccountVerify::DESCRIPTION": |-
   Verifies whether an HelloSign Account exists for the given email address.
-
-  **NOTE** This method is restricted to paid API users.
 "AccountVerify::EMAIL_ADDRESS": Email address to run the verification for.
 
 "ApiAppCreate::SUMMARY": Create API App
@@ -983,6 +981,21 @@
 "AccountUpdateResponseExample::SUMMARY": Account Update
 "AccountVerifyFoundResponseExample::SUMMARY": Account Found
 "AccountVerifyNotFoundResponseExample::SUMMARY": Account Not Found
+"AccountResponse::DESCRIPTION": Contains the Account information
+"AccountVerifyResponse::DESCRIPTION": Contains the verified Account's information.
+"Account::ACCOUNT_ID": The ID of the Account
+"Account::EMAIL_ADDRESS": The email address associated with the Account.
+"Account::CALLBACK_URL": The URL that HelloSign events will `POST` to.
+"Account::IS_LOCKED": Returns `true` if the user has been locked out of their account by a team admin.
+"Account::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
+"Account::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
+"Account::ROLE_CODE": The membership role for the team.
+"Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+"Account::QUOTA": Details concerning remaining monthly quotas.
+"AccountQuota::TEMPLATES_LEFT": API templates remaining.
+"AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
+"AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
+"AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications  remaining.
 
 "ApiAppCreateResponseExample::SUMMARY": API App
 "ApiAppGetResponseExample::SUMMARY": API App
@@ -1061,7 +1074,11 @@
 
 "OAuthTokenGenerateResponseExample::SUMMARY": Retrieving the OAuth token
 "OAuthTokenRefreshResponseExample::SUMMARY": Refresh an existing OAuth token
-"OAuthTokenResponse::EXPIRES_IN": in seconds
+"OAuthTokenResponse::ACCESS_TOKEN": The access token used for sending API calls on behalf of the user that authorized the API App.
+"OAuthTokenResponse::TOKEN_TYPE": The authorization method used with the token. Passed in the `Authorization` header of the HTTP request as `Bearer <hs-oauth-access-token>`.
+"OAuthTokenResponse::REFRESH_TOKEN": The long-lived refresh token used to refresh an expired `access_token` without forcing the user through another OAuth approval flow (unless the apps `access_scope` has changed or the user revoked their authorization).
+"OAuthTokenResponse::EXPIRES_IN": Number of seconds until the `access_token` expires. Uses epoch time.
+"OAuthTokenResponse::STATE": The string that was passed back with `state` during the initial authorization step.
 
 "ReportCreateResponseExample::SUMMARY": Report
 "ReportResponse::END_DATE": The (inclusive) end date for the report data in MM/DD/YYYY format.

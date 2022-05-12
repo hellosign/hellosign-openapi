@@ -108,7 +108,7 @@ paths:
         -
           name: account_id
           in: query
-          description: 'Account ID'
+          description: 'The ID of the Account'
           required: false
           schema:
             type: string
@@ -181,7 +181,7 @@ paths:
       tags:
         - Account
       summary: 'Update Account'
-      description: 'Updates the properties and settings of your Account.'
+      description: 'Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.'
       operationId: accountUpdate
       requestBody:
         required: true
@@ -263,10 +263,7 @@ paths:
       tags:
         - Account
       summary: 'Verify Account'
-      description: |-
-        Verifies whether an HelloSign Account exists for the given email address.
-
-        **NOTE** This method is restricted to paid API users.
+      description: 'Verifies whether an HelloSign Account exists for the given email address.'
       operationId: accountVerify
       requestBody:
         required: true
@@ -4256,18 +4253,18 @@ components:
       properties:
         client_id:
           description: |-
-            Used when creating a new account and requesting OAuth authorization.
+            Used when creating a new account with OAuth authorization.
 
             See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
           type: string
         client_secret:
           description: |-
-            Used when creating a new account and requesting OAuth authorization.
+            Used when creating a new account with OAuth authorization.
 
             See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
           type: string
         email_address:
-          description: 'The email address to create a new Account for.'
+          description: 'The email address which will be associated with the new Account.'
           type: string
           format: email
         locale:
@@ -4278,7 +4275,7 @@ components:
       properties:
         account_id:
           nullable: true
-          description: 'Account ID.'
+          description: 'The ID of the Account'
           type: string
         callback_url:
           description: 'The URL that HelloSign should POST events to.'
@@ -6683,26 +6680,43 @@ components:
           default: false
       type: object
     AccountResponse:
+      description: 'Contains the Account information'
+      required:
+        - account_id
+        - email_address
+        - is_locked
+        - is_paid_hs
+        - is_paid_hf
+        - quotas
       properties:
         account_id:
+          description: 'The ID of the Account'
           type: string
         email_address:
+          description: 'The email address associated with the Account.'
           type: string
         is_locked:
+          description: 'Returns `true` if the user has been locked out of their account by a team admin.'
           type: boolean
         is_paid_hs:
+          description: 'Returns `true` if the user has a paid HelloSign account.'
           type: boolean
         is_paid_hf:
+          description: 'Returns `true` if the user has a paid HelloFax account.'
           type: boolean
         quotas:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
           nullable: true
+          description: 'The URL that HelloSign events will `POST` to.'
           type: string
-        should_send_outbound_conf_emails:
-          type: boolean
         role_code:
           nullable: true
+          description: 'The membership role for the team.'
+          type: string
+        locale:
+          nullable: true
+          description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
       type: object
       x-internal: true
@@ -6739,21 +6753,31 @@ components:
       type: object
       x-internal: true
     AccountVerifyResponseAccount:
+      description: 'Contains the verified Account''s information.'
       properties:
         email_address:
+          description: 'The email address associated with the Account.'
           type: string
       type: object
       x-internal: true
     AccountResponseQuotas:
+      description: 'Details concerning remaining monthly quotas.'
       properties:
         api_signature_requests_left:
           nullable: true
+          description: 'API signature requests remaining.'
           type: integer
         documents_left:
           nullable: true
+          description: 'Signature requests remaining.'
           type: integer
         templates_left:
           nullable: true
+          description: 'API templates remaining.'
+          type: integer
+        sms_verifications_left:
+          nullable: true
+          description: 'SMS verifications  remaining.'
           type: integer
       type: object
       x-internal: true
@@ -7139,18 +7163,27 @@ components:
       type: object
       x-internal: true
     OAuthTokenResponse:
+      required:
+        - access_token
+        - token_type
+        - refresh_token
+        - expires_in
       properties:
         access_token:
+          description: 'The access token used for sending API calls on behalf of the user that authorized the API App.'
           type: string
         token_type:
+          description: 'The authorization method used with the token. Passed in the `Authorization` header of the HTTP request as `Bearer <hs-oauth-access-token>`.'
           type: string
         refresh_token:
+          description: 'The long-lived refresh token used to refresh an expired `access_token` without forcing the user through another OAuth approval flow (unless the apps `access_scope` has changed or the user revoked their authorization).'
           type: string
         expires_in:
-          description: 'in seconds'
+          description: 'Number of seconds until the `access_token` expires. Uses epoch time.'
           type: integer
         state:
           nullable: true
+          description: 'The string that was passed back with `state` during the initial authorization step.'
           type: string
       type: object
       x-internal: true
