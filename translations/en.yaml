@@ -580,17 +580,13 @@
 "UnclaimedDraftCreate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreate::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "UnclaimedDraftCreate::FILE": |-
-  **file** or **file_url** is required, but not both.
-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreate::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
-
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreate::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
 "UnclaimedDraftCreate::MESSAGE": The custom message in the email that will be sent to the signers.
 "UnclaimedDraftCreate::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
@@ -615,17 +611,13 @@
 "UnclaimedDraftCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "UnclaimedDraftCreateEmbedded::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbedded::FILE": |-
-  **file** or **file_url** is required, but not both.
-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreateEmbedded::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
-
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreateEmbedded::FORCE_SIGNER_PAGE": Provide users the ability to review/edit the signers.
 "UnclaimedDraftCreateEmbedded::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the subject and message.
 "UnclaimedDraftCreateEmbedded::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
