@@ -4444,6 +4444,9 @@ components:
             auto_fill_type:
               description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
               type: string
+            link_id:
+              description: 'Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.'
+              type: string
             masked:
               description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
               type: boolean
@@ -6921,14 +6924,14 @@ components:
       type: object
       x-internal: true
     BulkSendJobResponse:
-      description: 'Contains information about Signature Requests sent in bulk.'
+      description: 'Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.'
       properties:
         bulk_send_job_id:
           nullable: true
           description: 'The id of the BulkSendJob.'
           type: string
         total:
-          description: 'The total amount of SignatureRequests queued for sending.'
+          description: 'The total amount of Signature Requests queued for sending.'
           type: integer
         is_creator:
           description: 'True if you are the owner of this BulkSendJob, false if it''s been shared with you by a team member.'
@@ -6945,6 +6948,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         signature_requests:
+          description: 'Contains information about the Signature Requests sent in bulk.'
           type: array
           items:
             $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
@@ -6970,6 +6974,7 @@ components:
     BulkSendJobListResponse:
       properties:
         bulk_send_jobs:
+          description: 'Contains a list of BulkSendJobs that the API caller has access to.'
           type: array
           items:
             $ref: '#/components/schemas/BulkSendJobResponse'
@@ -7166,20 +7171,20 @@ components:
       type: object
       x-internal: true
     ListInfoResponse:
-      description: 'Contains a ListInfo object'
+      description: 'Contains pagination information about the data returned.'
       properties:
         num_pages:
-          description: 'Total number of pages available'
+          description: 'Total number of pages available.'
           type: integer
         num_results:
           nullable: true
-          description: 'Total number of objects available'
+          description: 'Total number of objects available.'
           type: integer
         page:
-          description: 'Number of the page being returned'
+          description: 'Number of the page being returned.'
           type: integer
         page_size:
-          description: 'Objects returned per page'
+          description: 'Objects returned per page.'
           type: integer
       type: object
       x-internal: true
@@ -7200,6 +7205,7 @@ components:
       type: object
       x-internal: true
     ReportResponse:
+      description: 'Contains information about the report request.'
       properties:
         success:
           description: 'A message indicating the requested operation''s success'
