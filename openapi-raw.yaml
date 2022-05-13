@@ -6441,6 +6441,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         signature_requests:
+          description: '_t__BulkSendJobGetResponse::SIGNATURE_REQUESTS'
           type: array
           items:
             $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
@@ -6466,6 +6467,7 @@ components:
     BulkSendJobListResponse:
       properties:
         bulk_send_jobs:
+          description: '_t__BulkSendJobListResponse::BULK_SEND_JOBS'
           type: array
           items:
             $ref: '#/components/schemas/BulkSendJobResponse'
@@ -6702,6 +6704,7 @@ components:
       type: object
       x-internal: true
     ReportResponse:
+      description: '_t__ReportResponse::DESCRIPTION'
       properties:
         success:
           description: '_t__ReportResponse::SUCCESS'

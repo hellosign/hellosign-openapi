@@ -465,8 +465,12 @@
 
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
-"TemplateAddUser::ACCOUNT_ID": The id or email address of the Account to give access to the Template. The account id prevails if both are provided.
-"TemplateAddUser::EMAIL_ADDRESS": The id or email address of the Account to give access to the Template. The account id prevails if both are provided.
+"TemplateAddUser::ACCOUNT_ID": |-
+  The id of the Account to give access to the Template.
+  <b>Note</b> The account id prevails if email address is also provided.
+"TemplateAddUser::EMAIL_ADDRESS": |- 
+  The email address of the Account to give access to the Template.
+  <b>Note</b> The account id prevails if it is also provided.
 "TemplateAddUser::SKIP_NOTIFICATION": If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
 "TemplateAddUser::TEMPLATE_ID": The id of the Template to give the Account access to.
 
@@ -499,6 +503,7 @@
   - `show_preview=true`: Allows requesters to enable the editor/preview experience.
   - `show_preview=false`: Allows requesters to disable the editor/preview experience.
 "TemplateCreateEmbeddedDraft::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+"TemplateCreateEmbeddedDraft::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateCreateEmbeddedDraft::SKIP_ME_NOW": Disables the "Me (Now)" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
 "TemplateCreateEmbeddedDraft::SUBJECT": The template title (alias).
 "TemplateCreateEmbeddedDraft::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
@@ -515,14 +520,14 @@
 
   Returns a PDF or ZIP file, or if `get_url` is set, a JSON object with a url to the file (PDFs only). If `get_data_uri` is set, a JSON object with a `data_uri` representing the base64 encoded file (PDFs only) is returned.
 
-  If the files are currently being prepared, a status code of `409` will be returned instead.
+  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 "TemplateFiles::FILE_TYPE": Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
 "TemplateFiles::GET_DATA_URI": If `true`, the response will contain the file as base64 encoded string. Base64 encoding is only available for PDFs.
 "TemplateFiles::GET_URL": If `true`, the response will contain a url link to the file instead. Links are only available for PDFs and have a TTL of 3 days.
 "TemplateFiles::TEMPLATE_ID": The id of the template files to retrieve.
 
 "TemplateGet::SUMMARY": Get Template
-"TemplateGet::DESCRIPTION": Returns the Template specified by the id parameter.
+"TemplateGet::DESCRIPTION": Returns the Template specified by the `id` parameter.
 "TemplateGet::TEMPLATE_ID": The id of the Template to retrieve.
 
 "TemplateList::SUMMARY": List Templates
@@ -532,7 +537,7 @@
   Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
 "TemplateList::ACCOUNT_ID": Which account to return Templates for. Must be a team member. Use `all` to indicate all team members. Defaults to your account.
 "TemplateList::PAGE": Which page number of the Template List to return. Defaults to `1`.
-"TemplateList::PAGE_SIZE": "`Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+"TemplateList::PAGE_SIZE": "Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
 "TemplateList::QUERY": String that includes search terms and/or fields to be used to filter the Template objects.
 
 "TemplateRemoveUser::SUMMARY": Remove User from Template
@@ -550,25 +555,20 @@
 
   This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.
 
-  Overlaying new files is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the request passes initial validation checks.
+  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.
 
   It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
   If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
 "TemplateUpdateFiles::CLIENT_ID": Client id of the app you're using to update this template.
 "TemplateUpdateFiles::FILE": |-
-  **file** or **file_url** is required, but not both.
-
-  Use `file[]` to indicate the uploaded file(s) to use for the template
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  Use `file[]` to indicate the uploaded file(s) to use for the template.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateUpdateFiles::FILE_URL": |-
-  **file_url** or **file** is required, but not both.
+  Use `file_url[]` to have HelloSign download the file(s) to use for the template.
 
-  Use `file_url[]` to have HelloSign download the file(s) to use for
-  the template.
-
-  Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+  This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateUpdateFiles::MESSAGE": The new default template email message.
 "TemplateUpdateFiles::SUBJECT": The new default template email subject.
 "TemplateUpdateFiles::TEMPLATE_ID": The ID of the template whose files to update.
@@ -838,6 +838,7 @@
 "Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS": This class extends `SubFormFieldsPerDocumentBase`.
 "Sub::FormFieldsPerDocument::API_ID": An identifier for the field that is unique across all documents in the request.
 "Sub::FormFieldsPerDocument::AUTO_FILL_TYPE": Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
+"Sub::FormFieldsPerDocument::LINK_ID": Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
 "Sub::FormFieldsPerDocument::CHECKED_CHECKBOX": "`true` for checking the checkbox field by default, otherwise `false`."
 "Sub::FormFieldsPerDocument::CHECKED_RADIO": "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
@@ -884,7 +885,7 @@
 "Sub::MergeField::EnumDescriptions::TEXT": Sets merge [field type](/api/reference/constants/#field-types) to `text`.
 "Sub::MergeField::EnumDescriptions::CHECKBOX": Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.
 
-  
+
 "Sub::Metadata::DESCRIPTION": |-
   Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
 
@@ -1003,11 +1004,13 @@
 
 "BulkSendJobGetResponseExample::SUMMARY": Bulk Send Job
 "BulkSendJobListResponseExample::SUMMARY": Bulk Send Job List
+"BulkSendJobListResponse::BULK_SEND_JOBS": Contains a list of BulkSendJobs that the API caller has access to.
 "BulkSendJobResponse::BULK_SEND_JOB_ID": The id of the BulkSendJob.
-"BulkSendJobResponse::DESCRIPTION": Contains information about Signature Requests sent in bulk.
-"BulkSendJobResponse::TOTAL": The total amount of SignatureRequests queued for sending.
+"BulkSendJobResponse::DESCRIPTION": Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
+"BulkSendJobResponse::TOTAL": The total amount of Signature Requests queued for sending.
 "BulkSendJobResponse::IS_CREATOR": True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.
 "BulkSendJobResponse::CREATED_AT": Time that the BulkSendJob was created.
+"BulkSendJobGetResponse::SIGNATURE_REQUESTS": Contains information about the Signature Requests sent in bulk.
 "BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID": The id of the BulkSendJob.
 
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
@@ -1045,15 +1048,21 @@
 "EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID": Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
 "EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID": Account ID the event was reported for.
 "EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID": App ID the event was reported for.
-"EventCallbackRequestEventMetadata::EVENT_MESSAGE": Message about a declined or failed (due to error) signature flow. 
+"EventCallbackRequestEventMetadata::EVENT_MESSAGE": Message about a declined or failed (due to error) signature flow.
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
-"ListInfoResponse::DESCRIPTION": Contains a ListInfo object
-"ListInfoResponse::NUM_PAGES": Total number of pages available
-"ListInfoResponse::NUM_RESULTS": Total number of objects available
-"ListInfoResponse::PAGE": Number of the page being returned
-"ListInfoResponse::PAGE_SIZE": Objects returned per page
+"ListInfoResponse::DESCRIPTION": Contains pagination information about the data returned.
+"ListInfoResponse::NUM_PAGES": Total number of pages available.
+"ListInfoResponse::NUM_RESULTS": Total number of objects available.
+"ListInfoResponse::PAGE": Number of the page being returned.
+"ListInfoResponse::PAGE_SIZE": Objects returned per page.
+
+"WarningResponse::LIST_DESCRIPTION": A list of warnings.
+"WarningResponse::WARNING_MSG": Warning message
+"WarningResponse::WARNING_NAME": Warning name
+
+"SubAttachment::LIST_DESCRIPTION": A list describing the attachments
 
 "OAuthTokenGenerateResponseExample::SUMMARY": Retrieving the OAuth token
 "OAuthTokenRefreshResponseExample::SUMMARY": Refresh an existing OAuth token
@@ -1064,6 +1073,7 @@
 "OAuthTokenResponse::STATE": The string that was passed back with `state` during the initial authorization step.
 
 "ReportCreateResponseExample::SUMMARY": Report
+"ReportResponse::DESCRIPTION": Contains information about the report request.
 "ReportResponse::END_DATE": The (inclusive) end date for the report data in MM/DD/YYYY format.
 "ReportResponse::REPORT_TYPE": The type(s) of the report you are requesting. Allowed values are "user_activity" and "document_status". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
 "ReportResponse::START_DATE": The (inclusive) start date for the report data in MM/DD/YYYY format.
@@ -1179,41 +1189,61 @@
 "TemplateRemoveUserResponseExample::SUMMARY": Remove User from Template
 "TemplateUpdateFilesResponseExample::SUMMARY": Update Template Files
 
+"TemplateResponse::DESCRIPTION": Contains information about the templates you and your team have created.
 "TemplateResponse::TEMPLATE_ID": The id of the Template.
 "TemplateResponse::CAN_EDIT": Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
 "TemplateResponse::IS_CREATOR": "`true` if you are the owner of this template, `false` if it's been shared with you by a team member."
 "TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website."
-"TemplateResponse::IS_LOCKED": "`true` if you exceed Template quota; these can only be used in test mode. `false` if the template is included with the Template quota; these can be used at any time."
+"TemplateResponse::IS_LOCKED": |-
+  Indicates whether the template is locked. 
+  If `true`, then the template was created outside your quota and can only be used in `test_mode`. 
+  If `false`, then the template is within your quota and can be used to create signature requests.
 "TemplateResponse::MESSAGE": The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::METADATA": The metadata attached to the template.
+"TemplateResponse::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateResponse::CC_ROLES": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateResponse::DOCUMENTS": An array describing each document associated with this Template. Includes form field data for each document.
+"TemplateResponse::CUSTOM_FIELDS": An array of Custom Field objects.
+"TemplateResponse::NAMED_FORM_FIELDS": Use "form_fields" under the "documents" array instead.
+"TemplateResponse::ACCOUNTS": An array of the Accounts that can use this Template.
 "TemplateResponse::TITLE": The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
 
-"TemplateResponseAccount::DESCRIPTION": An array of the Accounts that can use this Template.
+"TemplateListResponse::DESCRIPTION": List of templates that the API caller has access to.
+
+"TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION": "Template object with parameters: `template_id`, `edit_url`, `expires_at`."
+"TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL": Link to edit the template.
+"TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT": When the link expires.
+
+"TemplateUpdateFilesResponseTemplate::DESCRIPTION": "Contains template id"
+
 "TemplateResponseAccount::ACCOUNT_ID": The id of the Account.
 "TemplateResponseAccount::EMAIL_ADDRESS": The email address associated with the Account.
-"TemplateResponseAccount::IS_LOCKED": Returns true if the user has been locked out of their account by a team admin.
-"TemplateResponseAccount::IS_PAID_HS": Returns true if the user has a paid HelloSign account.
-"TemplateResponseAccount::IS_PAID_HF": Returns true if the user has a paid HelloFax account.
+"TemplateResponseAccount::IS_LOCKED": Returns `true` if the user has been locked out of their account by a team admin.
+"TemplateResponseAccount::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
+"TemplateResponseAccount::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
+"TemplateResponseAccount::QUOTAS": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 
 "TemplateResponseAccountQuota::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseAccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
 "TemplateResponseAccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
 "TemplateResponseAccountQuota::TEMPLATES_LEFT": API templates remaining.
+"TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications remaining.
 
-"TemplateResponseCCRole::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseCCRole::TEMPLATES_LEFT": The name of the Role.
 
-"TemplateResponseDocument::DESCRIPTION": An array describing each document associated with this Template. Includes form field data for each document.
-"TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last.
+"TemplateResponseDocument::INDEX": Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
 "TemplateResponseDocument::NAME": Name of the associated file.
-"TemplateResponseDocument::STATIC_FIELDS": An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.
+"TemplateResponseDocument::FIELD_GROUPS": An array of Form Field Group objects.
+"TemplateResponseDocument::STATIC_FIELDS": |-
+  An array describing static overlay fields.
+  <b>Note</b> only available for certain subscriptions.
+"TemplateResponseDocument::CUSTOM_FIELDS": An array of Document Custom Field objects.
+"TemplateResponseDocument::FORM_FIELDS": An array of Form Field objects containing the name and type of each named textbox and checkmark field.
 
-"TemplateResponseDocumentCustomField::DESCRIPTION": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseDocumentCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 "TemplateResponseDocumentCustomField::HEIGHT": The height in pixels of this form field.
 "TemplateResponseDocumentCustomField::NAME": The name of the Custom Field.
-"TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS": Use `form_fields` under the `documents` array instead.
 "TemplateResponseDocumentCustomField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentCustomField::TYPE": The type of this Custom Field. Only `text` and `checkbox` are currently supported.
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
@@ -1225,24 +1255,58 @@
 "TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
 
-"TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION": Average text length in custom field.
-"TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
-"TemplateResponseDocumentCustomFieldAvgTextLength::NUM_LINES": Number of lines.
+"TemplateResponseCustomField::NAME": The name of the Custom Field.
+"TemplateResponseCustomField::TYPE": The type of this Custom Field. Only `text` and `checkbox` are currently supported.
+"TemplateResponseCustomField::X": The horizontal offset in pixels for this form field.
+"TemplateResponseCustomField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseCustomField::WIDTH": The width in pixels of this form field.
+"TemplateResponseCustomField::HEIGHT": The height in pixels of this form field.
+"TemplateResponseCustomField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseCustomField::API_ID": The unique ID for this field.
+"TemplateResponseCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseCustomField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseCustomField::FONT_FAMILY": Font family used in this form field's text.
 
-"TemplateResponseDocumentFieldGroup::DESCRIPTION": An array of Form Field Group objects.
+"TemplateResponseNamedFormField::NAME": The name of the Named Form Field.
+"TemplateResponseNamedFormField::TYPE": The type of this Named Form Field. Only `text` and `checkbox` are currently supported.
+"TemplateResponseNamedFormField::SIGNER": The signer of the Named Form Field.
+"TemplateResponseNamedFormField::X": The horizontal offset in pixels for this form field.
+"TemplateResponseNamedFormField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseNamedFormField::WIDTH": The width in pixels of this form field.
+"TemplateResponseNamedFormField::HEIGHT": The height in pixels of this form field.
+"TemplateResponseNamedFormField::REQUIRED": Boolean showing whether or not this field is required.
+"TemplateResponseNamedFormField::API_ID": The unique ID for this field.
+"TemplateResponseNamedFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseNamedFormField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseNamedFormField::FONT_FAMILY": Font family used in this form field's text.
+
+"TemplateResponseFieldAvgTextLength::DESCRIPTION": Average text length in this field.
+"TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
+"TemplateResponseFieldAvgTextLength::NUM_LINES": Number of lines.
+
 "TemplateResponseDocumentFieldGroup::NAME": The name of the form field group.
 "TemplateResponseDocumentFieldGroup::RULE": The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
 
-"TemplateResponseDocumentFormField::DESCRIPTION": An array of Form Field objects containing the name and type of each named textbox and checkmark field.
 "TemplateResponseDocumentFormField::API_ID": A unique id for the form field.
 "TemplateResponseDocumentFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 "TemplateResponseDocumentFormField::HEIGHT": The height in pixels of this form field.
 "TemplateResponseDocumentFormField::NAME": The name of the form field.
 "TemplateResponseDocumentFormField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentFormField::TYPE": The type of this form field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentFormField::SIGNER": The signer of the Form Field.
 "TemplateResponseDocumentFormField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseDocumentFormField::AVG_TEXT_LENGTH": Average text length in this field.
+"TemplateResponseDocumentFormField::IS_MULTILINE": Whether this form field is multiline text.
+"TemplateResponseDocumentFormField::FONT_FAMILY": Font family used in this form field's text.
+
+"TemplateResponseDocumentFormField::DESCRIPTION": Average text length in this field.
+"TemplateResponseDocumentFormField::NUM_LINES": Number of lines.
+"TemplateResponseDocumentFormField::NUM_CHARS_PER_LINE": Number of character per line.
 
 "TemplateResponseDocumentStaticField::NAME": The name of the static field.
 "TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
@@ -1259,6 +1323,9 @@
 "TemplateResponseSignerRole::NAME": The name of the Role.
 "TemplateResponseSignerRole::ORDER": If signer order is assigned this is the 0-based index for this role.
 
+"FileResponse::FILE_URL": URL to the file.
+"FileResponse::EXPIRES_AT": When the link expires.
+
 "UnclaimedDraftCreateResponseExample::SUMMARY": Unclaimed Draft Create
 "UnclaimedDraftCreateEmbeddedResponseExample::SUMMARY": Unclaimed Draft Create Embedded
 "UnclaimedDraftCreateEmbeddedWithTemplateResponseExample::SUMMARY": Unclaimed Draft Create Embedded With Template
@@ -1272,6 +1339,11 @@
 "UnclaimedDraft::TEST_MODE": Whether this is a test draft. Signature requests made from test drafts have no legal value.
 
 "UnclaimedDraftResponse::DESCRIPTION": A group of documents that a user can take ownership of via the claim URL.
+
+"ErrorResponseError::DESCRIPTION": Contains information about an error that occurred.
+"ErrorResponseError::ERROR_MSG": Message describing an error.
+"ErrorResponseError::ERROR_PATH": Path at which an error occurred.
+"ErrorResponseError::ERROR_NAME": Name of the error.
 
 "Error::400": Error 400 bad_request
 "Error::401": Error 401 unauthorized
