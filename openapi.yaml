@@ -7724,6 +7724,7 @@ components:
     TemplateListResponse:
       properties:
         templates:
+          description: 'List of templates that the API caller has access to.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponse'

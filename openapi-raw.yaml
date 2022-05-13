@@ -4360,6 +4360,9 @@ components:
             auto_fill_type:
               description: '_t__Sub::FormFieldsPerDocument::AUTO_FILL_TYPE'
               type: string
+            link_id:
+              description: '_t__Sub::FormFieldsPerDocument::LINK_ID'
+              type: string
             masked:
               description: '_t__Sub::FormFieldsPerDocument::MASKED'
               type: boolean
@@ -7202,6 +7205,7 @@ components:
     TemplateListResponse:
       properties:
         templates:
+          description: '_t__TemplateListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponse'
