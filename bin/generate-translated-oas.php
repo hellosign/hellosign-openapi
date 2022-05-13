@@ -82,6 +82,7 @@ class GenerateOas
     public function run(): void
     {
         $this->loadOpenAPIFile();
+        $this->removeOneClickUrl();
         $this->loadTranslations();
 
         $this->openapi = $this->recurse($this->openapi);
@@ -207,6 +208,13 @@ class GenerateOas
         }
 
         return $data;
+    }
+
+    protected function removeOneClickUrl(): void
+    {
+        unset(
+            $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
+        );
     }
 
     /**

@@ -4430,6 +4430,9 @@ components:
             auto_fill_type:
               description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
               type: string
+            link_id:
+              description: '_t__Sub::FormFieldsPerDocument::LINK_ID'
+              type: string
             masked:
               description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
               type: boolean
@@ -4895,6 +4898,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -5114,6 +5118,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6015,6 +6020,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6099,6 +6105,7 @@ components:
           type: boolean
           default: true
         signer_roles:
+          description: '_t__TemplateCreateEmbeddedDraft::SIGNER_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/SubTemplateRole'
@@ -6199,6 +6206,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6344,6 +6352,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6661,24 +6670,33 @@ components:
     AccountResponse:
       properties:
         account_id:
+          description: 'The ID of the Account'
           type: string
         email_address:
+          description: 'The email address associated with the Account.'
           type: string
         is_locked:
+          description: 'Returns `true` if the user has been locked out of their account by a team admin.'
           type: boolean
         is_paid_hs:
+          description: 'Returns `true` if the user has a paid HelloSign account.'
           type: boolean
         is_paid_hf:
+          description: 'Returns `true` if the user has a paid HelloFax account.'
           type: boolean
         quotas:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
           nullable: true
+          description: 'The URL that HelloSign events will `POST` to.'
           type: string
-        should_send_outbound_conf_emails:
-          type: boolean
         role_code:
           nullable: true
+          description: 'The membership role for the team.'
+          type: string
+        locale:
+          nullable: true
+          description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
       type: object
       x-internal: true
@@ -6689,6 +6707,7 @@ components:
         oauth_data:
           $ref: '#/components/schemas/OAuthTokenResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6699,6 +6718,7 @@ components:
         account:
           $ref: '#/components/schemas/AccountResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6709,6 +6729,7 @@ components:
         account:
           $ref: '#/components/schemas/AccountVerifyResponseAccount'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6717,19 +6738,28 @@ components:
     AccountVerifyResponseAccount:
       properties:
         email_address:
+          description: 'The email address associated with the Account.'
           type: string
       type: object
       x-internal: true
     AccountResponseQuotas:
+      description: 'Details concerning remaining monthly quotas.'
       properties:
         api_signature_requests_left:
           nullable: true
+          description: 'API signature requests remaining.'
           type: integer
         documents_left:
           nullable: true
+          description: 'Signature requests remaining.'
           type: integer
         templates_left:
           nullable: true
+          description: 'API templates remaining.'
+          type: integer
+        sms_verifications_left:
+          nullable: true
+          description: 'SMS verifications  remaining.'
           type: integer
       type: object
       x-internal: true
@@ -6772,6 +6802,7 @@ components:
         api_app:
           $ref: '#/components/schemas/ApiAppResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6787,6 +6818,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6894,6 +6926,7 @@ components:
           items:
             $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6920,6 +6953,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6930,6 +6964,7 @@ components:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6940,6 +6975,7 @@ components:
         embedded:
           $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6961,6 +6997,7 @@ components:
         embedded:
           $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6985,15 +7022,19 @@ components:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
     ErrorResponseError:
+      description: '_t__ErrorResponseError::DESCRIPTION'
       required:
         - error_msg
         - error_name
       properties:
         error_msg:
+          description: '_t__ErrorResponseError::ERROR_MSG'
           type: string
         error_path:
+          description: '_t__ErrorResponseError::ERROR_PATH'
           type: string
         error_name:
+          description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
       type: object
     EventCallbackAccountRequest:
@@ -7100,8 +7141,10 @@ components:
     FileResponse:
       properties:
         file_url:
+          description: '_t__FileResponse::FILE_URL'
           type: string
         expires_at:
+          description: '_t__FileResponse::EXPIRES_AT'
           type: integer
       type: object
       x-internal: true
@@ -7164,6 +7207,7 @@ components:
         report:
           $ref: '#/components/schemas/ReportResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7270,6 +7314,7 @@ components:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7285,6 +7330,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7519,12 +7565,14 @@ components:
         team:
           $ref: '#/components/schemas/TeamResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateResponse:
+      description: '_t__TemplateResponse::DESCRIPTION'
       properties:
         template_id:
           description: 'The id of the Template.'
@@ -7558,24 +7606,36 @@ components:
           description: 'The metadata attached to the template.'
           type: object
         signer_roles:
+          description: '_t__TemplateResponse::SIGNER_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseSignerRole'
         cc_roles:
+          description: '_t__TemplateResponse::CC_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCCRole'
         documents:
+          description: '_t__TemplateResponse::DOCUMENTS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
           nullable: true
+          description: '_t__TemplateResponse::CUSTOM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCustomField'
+        named_form_fields:
+          nullable: true
+          description: '_t__TemplateResponse::NAMED_FORM_FIELDS'
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponseNamedFormField'
+          deprecated: true
         accounts:
           nullable: true
+          description: '_t__TemplateResponse::ACCOUNTS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
@@ -7586,21 +7646,26 @@ components:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponseTemplate:
+      description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
       properties:
         template_id:
           description: 'The id of the Template.'
           type: string
         edit_url:
+          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL'
           type: string
         expires_at:
+          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT'
           type: integer
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7613,11 +7678,13 @@ components:
       type: object
       x-internal: true
     TemplateUpdateFilesResponseTemplate:
+      description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
       properties:
         template_id:
           description: 'The id of the Template.'
           type: string
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7628,6 +7695,7 @@ components:
         template:
           $ref: '#/components/schemas/TemplateResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7636,12 +7704,14 @@ components:
     TemplateListResponse:
       properties:
         templates:
+          description: '_t__TemplateListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7654,7 +7724,6 @@ components:
           type: string
       type: object
     TemplateResponseAccount:
-      description: 'An array of the Accounts that can use this Template.'
       properties:
         account_id:
           description: 'The id of the Account.'
@@ -7687,10 +7756,12 @@ components:
         documents_left:
           description: 'Signature requests remaining.'
           type: integer
+        sms_verifications_left:
+          description: '_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseCCRole:
-      description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
         name:
           description: 'The name of the Role.'
@@ -7700,13 +7771,53 @@ components:
     TemplateResponseCustomField:
       properties:
         name:
+          description: '_t__TemplateResponseCustomField::NAME'
           type: string
         type:
+          description: '_t__TemplateResponseCustomField::TYPE'
           type: string
+          enum:
+            - text
+            - checkbox
+        x:
+          description: '_t__TemplateResponseCustomField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseCustomField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseCustomField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseCustomField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseCustomField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseCustomField::API_ID'
+          type: string
+        group:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::GROUP'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::IS_MULTILINE'
+          type: string
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::FONT_FAMILY'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseDocument:
-      description: 'An array describing each document associated with this Template. Includes form field data for each document.'
       properties:
         name:
           description: 'Name of the associated file.'
@@ -7715,14 +7826,17 @@ components:
           description: 'Document ordering, the lowest index is displayed first and the highest last.'
           type: integer
         field_groups:
+          description: '_t__TemplateResponseDocument::FIELD_GROUPS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFieldGroup'
         form_fields:
+          description: '_t__TemplateResponseDocument::FORM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFormField'
         custom_fields:
+          description: '_t__TemplateResponseDocument::CUSTOM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
@@ -7735,7 +7849,6 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
-      description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
         name:
           description: 'The name of the Custom Field.'
@@ -7772,11 +7885,11 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: boolean
+          type: string
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -7784,7 +7897,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: string
+          type: integer
         named_form_fields:
           nullable: true
           description: 'Use `form_fields` under the `documents` array instead.'
@@ -7796,19 +7909,7 @@ components:
           deprecated: true
       type: object
       x-internal: true
-    TemplateResponseDocumentCustomFieldAvgTextLength:
-      description: 'Average text length in custom field.'
-      properties:
-        num_lines:
-          description: 'Number of lines.'
-          type: integer
-        num_chars_per_line:
-          description: 'Number of character per line.'
-          type: integer
-      type: object
-      x-internal: true
     TemplateResponseDocumentFieldGroup:
-      description: 'An array of Form Field Group objects.'
       properties:
         name:
           description: 'The name of the form field group.'
@@ -7819,7 +7920,6 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentFormField:
-      description: 'An array of Form Field objects containing the name and type of each named textbox and checkmark field.'
       properties:
         api_id:
           description: 'A unique id for the form field.'
@@ -7841,6 +7941,9 @@ components:
             - radio
             - text
             - text-merge
+        signer:
+          description: '_t__TemplateResponseDocumentFormField::SIGNER'
+          type: string
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -7859,6 +7962,20 @@ components:
         group:
           nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
           type: string
       type: object
       x-internal: true
@@ -7897,8 +8014,67 @@ components:
           type: string
       type: object
       x-internal: true
+    TemplateResponseFieldAvgTextLength:
+      description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
+      properties:
+        num_lines:
+          description: '_t__TemplateResponseFieldAvgTextLength::NUM_LINES'
+          type: integer
+        num_chars_per_line:
+          description: '_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE'
+          type: integer
+      type: object
+      x-internal: true
+    TemplateResponseNamedFormField:
+      properties:
+        name:
+          description: '_t__TemplateResponseNamedFormField::NAME'
+          type: string
+        type:
+          description: '_t__TemplateResponseNamedFormField::TYPE'
+          type: string
+        signer:
+          description: '_t__TemplateResponseNamedFormField::SIGNER'
+          type: string
+        x:
+          description: '_t__TemplateResponseNamedFormField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseNamedFormField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseNamedFormField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseNamedFormField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseNamedFormField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseNamedFormField::API_ID'
+          type: string
+        group:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::GROUP'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::FONT_FAMILY'
+          type: string
+      type: object
+      x-internal: true
     TemplateResponseSignerRole:
-      description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
         name:
           description: 'The name of the Role.'
@@ -7940,19 +8116,23 @@ components:
         unclaimed_draft:
           $ref: '#/components/schemas/UnclaimedDraftResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     WarningResponse:
+      description: '_t__WarningResponse::LIST_DESCRIPTION'
       required:
         - warning_msg
         - warning_name
       properties:
         warning_msg:
+          description: '_t__WarningResponse::WARNING_MSG'
           type: string
         warning_name:
+          description: '_t__WarningResponse::WARNING_NAME'
           type: string
       type: object
   responses:
