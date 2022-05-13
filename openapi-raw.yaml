@@ -4360,6 +4360,9 @@ components:
             auto_fill_type:
               description: '_t__Sub::FormFieldsPerDocument::AUTO_FILL_TYPE'
               type: string
+            link_id:
+              description: '_t__Sub::FormFieldsPerDocument::LINK_ID'
+              type: string
             masked:
               description: '_t__Sub::FormFieldsPerDocument::MASKED'
               type: boolean
@@ -4759,6 +4762,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -4935,6 +4939,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -5661,6 +5666,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -5722,6 +5728,7 @@ components:
           type: boolean
           default: true
         signer_roles:
+          description: '_t__TemplateCreateEmbeddedDraft::SIGNER_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/SubTemplateRole'
@@ -5802,6 +5809,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -5916,6 +5924,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6183,14 +6192,6 @@ components:
           default: false
       type: object
     AccountResponse:
-      description: '_t__AccountResponse::DESCRIPTION'
-      required:
-        - account_id
-        - email_address
-        - is_locked
-        - is_paid_hs
-        - is_paid_hf
-        - quotas
       properties:
         account_id:
           description: '_t__Account::ACCOUNT_ID'
@@ -6230,6 +6231,7 @@ components:
         oauth_data:
           $ref: '#/components/schemas/OAuthTokenResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6240,6 +6242,7 @@ components:
         account:
           $ref: '#/components/schemas/AccountResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6250,13 +6253,13 @@ components:
         account:
           $ref: '#/components/schemas/AccountVerifyResponseAccount'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     AccountVerifyResponseAccount:
-      description: '_t__AccountVerifyResponse::DESCRIPTION'
       properties:
         email_address:
           description: '_t__Account::EMAIL_ADDRESS'
@@ -6323,6 +6326,7 @@ components:
         api_app:
           $ref: '#/components/schemas/ApiAppResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6338,6 +6342,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6445,6 +6450,7 @@ components:
           items:
             $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6471,6 +6477,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6481,6 +6488,7 @@ components:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6491,6 +6499,7 @@ components:
         embedded:
           $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6509,6 +6518,7 @@ components:
         embedded:
           $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6530,15 +6540,19 @@ components:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
     ErrorResponseError:
+      description: '_t__ErrorResponseError::DESCRIPTION'
       required:
         - error_msg
         - error_name
       properties:
         error_msg:
+          description: '_t__ErrorResponseError::ERROR_MSG'
           type: string
         error_path:
+          description: '_t__ErrorResponseError::ERROR_PATH'
           type: string
         error_name:
+          description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
       type: object
     EventCallbackAccountRequest:
@@ -6645,8 +6659,10 @@ components:
     FileResponse:
       properties:
         file_url:
+          description: '_t__FileResponse::FILE_URL'
           type: string
         expires_at:
+          description: '_t__FileResponse::EXPIRES_AT'
           type: integer
       type: object
       x-internal: true
@@ -6669,27 +6685,18 @@ components:
       type: object
       x-internal: true
     OAuthTokenResponse:
-      required:
-        - access_token
-        - token_type
-        - refresh_token
-        - expires_in
       properties:
         access_token:
-          description: '_t__OAuthTokenResponse::ACCESS_TOKEN'
           type: string
         token_type:
-          description: '_t__OAuthTokenResponse::TOKEN_TYPE'
           type: string
         refresh_token:
-          description: '_t__OAuthTokenResponse::REFRESH_TOKEN'
           type: string
         expires_in:
           description: '_t__OAuthTokenResponse::EXPIRES_IN'
           type: integer
         state:
           nullable: true
-          description: '_t__OAuthTokenResponse::STATE'
           type: string
       type: object
       x-internal: true
@@ -6718,6 +6725,7 @@ components:
         report:
           $ref: '#/components/schemas/ReportResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6820,6 +6828,7 @@ components:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6835,6 +6844,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7056,12 +7066,14 @@ components:
         team:
           $ref: '#/components/schemas/TeamResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateResponse:
+      description: '_t__TemplateResponse::DESCRIPTION'
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -7095,24 +7107,36 @@ components:
           description: '_t__TemplateResponse::METADATA'
           type: object
         signer_roles:
+          description: '_t__TemplateResponse::SIGNER_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseSignerRole'
         cc_roles:
+          description: '_t__TemplateResponse::CC_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCCRole'
         documents:
+          description: '_t__TemplateResponse::DOCUMENTS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
           nullable: true
+          description: '_t__TemplateResponse::CUSTOM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCustomField'
+        named_form_fields:
+          nullable: true
+          description: '_t__TemplateResponse::NAMED_FORM_FIELDS'
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponseNamedFormField'
+          deprecated: true
         accounts:
           nullable: true
+          description: '_t__TemplateResponse::ACCOUNTS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
@@ -7123,21 +7147,26 @@ components:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponseTemplate:
+      description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
           type: string
         edit_url:
+          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL'
           type: string
         expires_at:
+          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT'
           type: integer
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7150,11 +7179,13 @@ components:
       type: object
       x-internal: true
     TemplateUpdateFilesResponseTemplate:
+      description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
           type: string
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7165,6 +7196,7 @@ components:
         template:
           $ref: '#/components/schemas/TemplateResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7173,12 +7205,14 @@ components:
     TemplateListResponse:
       properties:
         templates:
+          description: '_t__TemplateListResponse::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7191,7 +7225,6 @@ components:
           type: string
       type: object
     TemplateResponseAccount:
-      description: '_t__TemplateResponseAccount::DESCRIPTION'
       properties:
         account_id:
           description: '_t__TemplateResponseAccount::ACCOUNT_ID'
@@ -7224,10 +7257,12 @@ components:
         documents_left:
           description: '_t__TemplateResponseAccountQuota::DOCUMENTS_LEFT'
           type: integer
+        sms_verifications_left:
+          description: '_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseCCRole:
-      description: '_t__TemplateResponseCCRole::DESCRIPTION'
       properties:
         name:
           description: '_t__TemplateResponseCCRole::TEMPLATES_LEFT'
@@ -7237,13 +7272,53 @@ components:
     TemplateResponseCustomField:
       properties:
         name:
+          description: '_t__TemplateResponseCustomField::NAME'
           type: string
         type:
+          description: '_t__TemplateResponseCustomField::TYPE'
           type: string
+          enum:
+            - text
+            - checkbox
+        x:
+          description: '_t__TemplateResponseCustomField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseCustomField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseCustomField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseCustomField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseCustomField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseCustomField::API_ID'
+          type: string
+        group:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::GROUP'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::IS_MULTILINE'
+          type: string
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseCustomField::FONT_FAMILY'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseDocument:
-      description: '_t__TemplateResponseDocument::DESCRIPTION'
       properties:
         name:
           description: '_t__TemplateResponseDocument::NAME'
@@ -7252,14 +7327,17 @@ components:
           description: '_t__TemplateResponseDocument::INDEX'
           type: integer
         field_groups:
+          description: '_t__TemplateResponseDocument::FIELD_GROUPS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFieldGroup'
         form_fields:
+          description: '_t__TemplateResponseDocument::FORM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFormField'
         custom_fields:
+          description: '_t__TemplateResponseDocument::CUSTOM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
@@ -7272,7 +7350,6 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
-      description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION'
       properties:
         name:
           description: '_t__TemplateResponseDocumentCustomField::NAME'
@@ -7309,11 +7386,11 @@ components:
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
-          type: boolean
+          type: string
         originalFontSize:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
@@ -7321,7 +7398,7 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
-          type: string
+          type: integer
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
@@ -7333,19 +7410,7 @@ components:
           deprecated: true
       type: object
       x-internal: true
-    TemplateResponseDocumentCustomFieldAvgTextLength:
-      description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::DESCRIPTION'
-      properties:
-        num_lines:
-          description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::NUM_LINES'
-          type: integer
-        num_chars_per_line:
-          description: '_t__TemplateResponseDocumentCustomFieldAvgTextLength::NUM_CHARS_PER_LINE'
-          type: integer
-      type: object
-      x-internal: true
     TemplateResponseDocumentFieldGroup:
-      description: '_t__TemplateResponseDocumentFieldGroup::DESCRIPTION'
       properties:
         name:
           description: '_t__TemplateResponseDocumentFieldGroup::NAME'
@@ -7356,7 +7421,6 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentFormField:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentFormField::API_ID'
@@ -7378,6 +7442,9 @@ components:
             - radio
             - text
             - text-merge
+        signer:
+          description: '_t__TemplateResponseDocumentFormField::SIGNER'
+          type: string
         x:
           description: '_t__TemplateResponseDocumentFormField::X'
           type: integer
@@ -7396,6 +7463,20 @@ components:
         group:
           nullable: true
           description: '_t__TemplateResponseDocumentFormField::GROUP'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
           type: string
       type: object
       x-internal: true
@@ -7434,8 +7515,67 @@ components:
           type: string
       type: object
       x-internal: true
+    TemplateResponseFieldAvgTextLength:
+      description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
+      properties:
+        num_lines:
+          description: '_t__TemplateResponseFieldAvgTextLength::NUM_LINES'
+          type: integer
+        num_chars_per_line:
+          description: '_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE'
+          type: integer
+      type: object
+      x-internal: true
+    TemplateResponseNamedFormField:
+      properties:
+        name:
+          description: '_t__TemplateResponseNamedFormField::NAME'
+          type: string
+        type:
+          description: '_t__TemplateResponseNamedFormField::TYPE'
+          type: string
+        signer:
+          description: '_t__TemplateResponseNamedFormField::SIGNER'
+          type: string
+        x:
+          description: '_t__TemplateResponseNamedFormField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseNamedFormField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseNamedFormField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseNamedFormField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseNamedFormField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseNamedFormField::API_ID'
+          type: string
+        group:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::GROUP'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: '_t__TemplateResponseNamedFormField::FONT_FAMILY'
+          type: string
+      type: object
+      x-internal: true
     TemplateResponseSignerRole:
-      description: '_t__TemplateResponseSignerRole::DESCRIPTION'
       properties:
         name:
           description: '_t__TemplateResponseSignerRole::NAME'
@@ -7479,19 +7619,23 @@ components:
         unclaimed_draft:
           $ref: '#/components/schemas/UnclaimedDraftResponse'
         warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     WarningResponse:
+      description: '_t__WarningResponse::LIST_DESCRIPTION'
       required:
         - warning_msg
         - warning_name
       properties:
         warning_msg:
+          description: '_t__WarningResponse::WARNING_MSG'
           type: string
         warning_name:
+          description: '_t__WarningResponse::WARNING_NAME'
           type: string
       type: object
   responses:

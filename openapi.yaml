@@ -3360,7 +3360,7 @@ paths:
 
         Returns a PDF or ZIP file, or if `get_url` is set, a JSON object with a url to the file (PDFs only). If `get_data_uri` is set, a JSON object with a `data_uri` representing the base64 encoded file (PDFs only) is returned.
 
-        If the files are currently being prepared, a status code of `409` will be returned instead.
+        If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
       operationId: templateFiles
       parameters:
         -
@@ -3469,7 +3469,7 @@ paths:
       tags:
         - Template
       summary: 'Get Template'
-      description: 'Returns the Template specified by the id parameter.'
+      description: 'Returns the Template specified by the `id` parameter.'
       operationId: templateGet
       parameters:
         -
@@ -3575,7 +3575,7 @@ paths:
         -
           name: page_size
           in: query
-          description: '`Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
           schema:
             type: integer
             default: 20
@@ -3759,7 +3759,7 @@ paths:
 
         This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.
 
-        Overlaying new files is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the request passes initial validation checks.
+        Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.
 
         It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.
 
@@ -4909,6 +4909,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: 'A list describing the attachments'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -5128,6 +5129,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: 'A list describing the attachments'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -5985,10 +5987,14 @@ components:
     TemplateAddUserRequest:
       properties:
         account_id:
-          description: 'The id or email address of the Account to give access to the Template. The account id prevails if both are provided.'
+          description: |-
+            The id of the Account to give access to the Template.
+            <b>Note</b> The account id prevails if email address is also provided.
           type: string
         email_address:
-          description: 'The id or email address of the Account to give access to the Template. The account id prevails if both are provided.'
+          description: |-
+            The email address of the Account to give access to the Template.
+            <b>Note</b> The account id prevails if it is also provided.
           type: string
           format: email
         skip_notification:
@@ -6029,6 +6035,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: 'A list describing the attachments'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6113,6 +6120,7 @@ components:
           type: boolean
           default: true
         signer_roles:
+          description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
           type: array
           items:
             $ref: '#/components/schemas/SubTemplateRole'
@@ -6153,23 +6161,18 @@ components:
           type: string
         file:
           description: |-
-            **file** or **file_url** is required, but not both.
+            Use `file[]` to indicate the uploaded file(s) to use for the template.
 
-            Use `file[]` to indicate the uploaded file(s) to use for the template
-
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
             format: binary
         file_url:
           description: |-
-            **file_url** or **file** is required, but not both.
+            Use `file_url[]` to have HelloSign download the file(s) to use for the template.
 
-            Use `file_url[]` to have HelloSign download the file(s) to use for
-            the template.
-
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
@@ -6214,6 +6217,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: 'A list describing the attachments'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6363,6 +6367,7 @@ components:
           type: boolean
           default: false
         attachments:
+          description: 'A list describing the attachments'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
@@ -6686,14 +6691,6 @@ components:
           default: false
       type: object
     AccountResponse:
-      description: 'Contains the Account information'
-      required:
-        - account_id
-        - email_address
-        - is_locked
-        - is_paid_hs
-        - is_paid_hf
-        - quotas
       properties:
         account_id:
           description: 'The ID of the Account'
@@ -6733,6 +6730,7 @@ components:
         oauth_data:
           $ref: '#/components/schemas/OAuthTokenResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6743,6 +6741,7 @@ components:
         account:
           $ref: '#/components/schemas/AccountResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6753,13 +6752,13 @@ components:
         account:
           $ref: '#/components/schemas/AccountVerifyResponseAccount'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     AccountVerifyResponseAccount:
-      description: 'Contains the verified Account''s information.'
       properties:
         email_address:
           description: 'The email address associated with the Account.'
@@ -6826,6 +6825,7 @@ components:
         api_app:
           $ref: '#/components/schemas/ApiAppResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6841,6 +6841,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6948,6 +6949,7 @@ components:
           items:
             $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6974,6 +6976,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6984,6 +6987,7 @@ components:
         bulk_send_job:
           $ref: '#/components/schemas/BulkSendJobResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -6994,6 +6998,7 @@ components:
         embedded:
           $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7012,6 +7017,7 @@ components:
         embedded:
           $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7033,15 +7039,19 @@ components:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
     ErrorResponseError:
+      description: 'Contains information about an error that occurred.'
       required:
         - error_msg
         - error_name
       properties:
         error_msg:
+          description: 'Message describing an error.'
           type: string
         error_path:
+          description: 'Path at which an error occurred.'
           type: string
         error_name:
+          description: 'Name of the error.'
           type: string
       type: object
     EventCallbackAccountRequest:
@@ -7148,8 +7158,10 @@ components:
     FileResponse:
       properties:
         file_url:
+          description: 'URL to the file.'
           type: string
         expires_at:
+          description: 'When the link expires.'
           type: integer
       type: object
       x-internal: true
@@ -7172,27 +7184,18 @@ components:
       type: object
       x-internal: true
     OAuthTokenResponse:
-      required:
-        - access_token
-        - token_type
-        - refresh_token
-        - expires_in
       properties:
         access_token:
-          description: 'The access token used for sending API calls on behalf of the user that authorized the API App.'
           type: string
         token_type:
-          description: 'The authorization method used with the token. Passed in the `Authorization` header of the HTTP request as `Bearer <hs-oauth-access-token>`.'
           type: string
         refresh_token:
-          description: 'The long-lived refresh token used to refresh an expired `access_token` without forcing the user through another OAuth approval flow (unless the apps `access_scope` has changed or the user revoked their authorization).'
           type: string
         expires_in:
           description: 'Number of seconds until the `access_token` expires. Uses epoch time.'
           type: integer
         state:
           nullable: true
-          description: 'The string that was passed back with `state` during the initial authorization step.'
           type: string
       type: object
       x-internal: true
@@ -7221,6 +7224,7 @@ components:
         report:
           $ref: '#/components/schemas/ReportResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7327,6 +7331,7 @@ components:
         signature_request:
           $ref: '#/components/schemas/SignatureRequestResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7342,6 +7347,7 @@ components:
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7576,12 +7582,14 @@ components:
         team:
           $ref: '#/components/schemas/TeamResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateResponse:
+      description: 'Contains information about the templates you and your team have created.'
       properties:
         template_id:
           description: 'The id of the Template.'
@@ -7609,30 +7617,45 @@ components:
           type: boolean
         is_locked:
           nullable: true
-          description: '`true` if you exceed Template quota; these can only be used in test mode. `false` if the template is included with the Template quota; these can be used at any time.'
+          description: |-
+            Indicates whether the template is locked. 
+            If `true`, then the template was created outside your quota and can only be used in `test_mode`. 
+            If `false`, then the template is within your quota and can be used to create signature requests.
           type: boolean
         metadata:
           description: 'The metadata attached to the template.'
           type: object
         signer_roles:
+          description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseSignerRole'
         cc_roles:
+          description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCCRole'
         documents:
+          description: 'An array describing each document associated with this Template. Includes form field data for each document.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
           nullable: true
+          description: 'An array of Custom Field objects.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCustomField'
+        named_form_fields:
+          nullable: true
+          description: 'Use "form_fields" under the "documents" array instead.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponseNamedFormField'
+          deprecated: true
         accounts:
           nullable: true
+          description: 'An array of the Accounts that can use this Template.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
@@ -7643,21 +7666,26 @@ components:
         template:
           $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponseTemplate:
+      description: 'Template object with parameters: `template_id`, `edit_url`, `expires_at`.'
       properties:
         template_id:
           description: 'The id of the Template.'
           type: string
         edit_url:
+          description: 'Link to edit the template.'
           type: string
         expires_at:
+          description: 'When the link expires.'
           type: integer
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7670,11 +7698,13 @@ components:
       type: object
       x-internal: true
     TemplateUpdateFilesResponseTemplate:
+      description: 'Contains template id'
       properties:
         template_id:
           description: 'The id of the Template.'
           type: string
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7685,6 +7715,7 @@ components:
         template:
           $ref: '#/components/schemas/TemplateResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7693,12 +7724,14 @@ components:
     TemplateListResponse:
       properties:
         templates:
+          description: 'List of templates that the API caller has access to.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -7711,7 +7744,6 @@ components:
           type: string
       type: object
     TemplateResponseAccount:
-      description: 'An array of the Accounts that can use this Template.'
       properties:
         account_id:
           description: 'The id of the Account.'
@@ -7720,13 +7752,13 @@ components:
           description: 'The email address associated with the Account.'
           type: string
         is_locked:
-          description: 'Returns true if the user has been locked out of their account by a team admin.'
+          description: 'Returns `true` if the user has been locked out of their account by a team admin.'
           type: boolean
         is_paid_hs:
-          description: 'Returns true if the user has a paid HelloSign account.'
+          description: 'Returns `true` if the user has a paid HelloSign account.'
           type: boolean
         is_paid_hf:
-          description: 'Returns true if the user has a paid HelloFax account.'
+          description: 'Returns `true` if the user has a paid HelloFax account.'
           type: boolean
         quotas:
           $ref: '#/components/schemas/TemplateResponseAccountQuota'
@@ -7744,10 +7776,12 @@ components:
         documents_left:
           description: 'Signature requests remaining.'
           type: integer
+        sms_verifications_left:
+          description: 'SMS verifications remaining.'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseCCRole:
-      description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
         name:
           description: 'The name of the Role.'
@@ -7757,42 +7791,86 @@ components:
     TemplateResponseCustomField:
       properties:
         name:
+          description: 'The name of the Custom Field.'
           type: string
         type:
+          description: 'The type of this Custom Field. Only `text` and `checkbox` are currently supported.'
           type: string
+          enum:
+            - text
+            - checkbox
+        x:
+          description: 'The horizontal offset in pixels for this form field.'
+          type: integer
+        'y':
+          description: 'The vertical offset in pixels for this form field.'
+          type: integer
+        width:
+          description: 'The width in pixels of this form field.'
+          type: integer
+        height:
+          description: 'The height in pixels of this form field.'
+          type: integer
+        required:
+          description: 'Boolean showing whether or not this field is required.'
+          type: boolean
+        api_id:
+          description: 'The unique ID for this field.'
+          type: string
+        group:
+          nullable: true
+          description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: 'Whether this form field is multiline text.'
+          type: string
+        originalFontSize:
+          nullable: true
+          description: 'Original font size used in this form field''s text.'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: 'Font family used in this form field''s text.'
+          type: integer
       type: object
       x-internal: true
     TemplateResponseDocument:
-      description: 'An array describing each document associated with this Template. Includes form field data for each document.'
       properties:
         name:
           description: 'Name of the associated file.'
           type: string
         index:
-          description: 'Document ordering, the lowest index is displayed first and the highest last.'
+          description: 'Document ordering, the lowest index is displayed first and the highest last (0-based indexing).'
           type: integer
         field_groups:
+          description: 'An array of Form Field Group objects.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFieldGroup'
         form_fields:
+          description: 'An array of Form Field objects containing the name and type of each named textbox and checkmark field.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFormField'
         custom_fields:
+          description: 'An array of Document Custom Field objects.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
         static_fields:
           nullable: true
-          description: 'An array describing static overlay fields. <u>Note</u> only available for certain subscriptions.'
+          description: |-
+            An array describing static overlay fields.
+            <b>Note</b> only available for certain subscriptions.
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
-      description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
         name:
           description: 'The name of the Custom Field.'
@@ -7829,11 +7907,11 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
         avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldAvgTextLength'
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: boolean
+          type: string
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -7841,10 +7919,10 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: string
+          type: integer
         named_form_fields:
           nullable: true
-          description: 'Use `form_fields` under the `documents` array instead.'
+          description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
           type: object
           deprecated: true
         reusable_form_id:
@@ -7853,19 +7931,7 @@ components:
           deprecated: true
       type: object
       x-internal: true
-    TemplateResponseDocumentCustomFieldAvgTextLength:
-      description: 'Average text length in custom field.'
-      properties:
-        num_lines:
-          description: 'Number of lines.'
-          type: integer
-        num_chars_per_line:
-          description: 'Number of character per line.'
-          type: integer
-      type: object
-      x-internal: true
     TemplateResponseDocumentFieldGroup:
-      description: 'An array of Form Field Group objects.'
       properties:
         name:
           description: 'The name of the form field group.'
@@ -7876,7 +7942,6 @@ components:
       type: object
       x-internal: true
     TemplateResponseDocumentFormField:
-      description: 'An array of Form Field objects containing the name and type of each named textbox and checkmark field.'
       properties:
         api_id:
           description: 'A unique id for the form field.'
@@ -7898,6 +7963,9 @@ components:
             - radio
             - text
             - text-merge
+        signer:
+          description: 'The signer of the Form Field.'
+          type: string
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -7916,6 +7984,20 @@ components:
         group:
           nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: 'Whether this form field is multiline text.'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: 'Original font size used in this form field''s text.'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: 'Font family used in this form field''s text.'
           type: string
       type: object
       x-internal: true
@@ -7954,8 +8036,67 @@ components:
           type: string
       type: object
       x-internal: true
+    TemplateResponseFieldAvgTextLength:
+      description: 'Average text length in this field.'
+      properties:
+        num_lines:
+          description: 'Number of lines.'
+          type: integer
+        num_chars_per_line:
+          description: 'Number of character per line.'
+          type: integer
+      type: object
+      x-internal: true
+    TemplateResponseNamedFormField:
+      properties:
+        name:
+          description: 'The name of the Named Form Field.'
+          type: string
+        type:
+          description: 'The type of this Named Form Field. Only `text` and `checkbox` are currently supported.'
+          type: string
+        signer:
+          description: 'The signer of the Named Form Field.'
+          type: string
+        x:
+          description: 'The horizontal offset in pixels for this form field.'
+          type: integer
+        'y':
+          description: 'The vertical offset in pixels for this form field.'
+          type: integer
+        width:
+          description: 'The width in pixels of this form field.'
+          type: integer
+        height:
+          description: 'The height in pixels of this form field.'
+          type: integer
+        required:
+          description: 'Boolean showing whether or not this field is required.'
+          type: boolean
+        api_id:
+          description: 'The unique ID for this field.'
+          type: string
+        group:
+          nullable: true
+          description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
+          type: string
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          nullable: true
+          description: 'Whether this form field is multiline text.'
+          type: boolean
+        originalFontSize:
+          nullable: true
+          description: 'Original font size used in this form field''s text.'
+          type: integer
+        fontFamily:
+          nullable: true
+          description: 'Font family used in this form field''s text.'
+          type: string
+      type: object
+      x-internal: true
     TemplateResponseSignerRole:
-      description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
         name:
           description: 'The name of the Role.'
@@ -7999,19 +8140,23 @@ components:
         unclaimed_draft:
           $ref: '#/components/schemas/UnclaimedDraftResponse'
         warnings:
+          description: 'A list of warnings.'
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     WarningResponse:
+      description: 'A list of warnings.'
       required:
         - warning_msg
         - warning_name
       properties:
         warning_msg:
+          description: 'Warning message'
           type: string
         warning_name:
+          description: 'Warning name'
           type: string
       type: object
   responses:
