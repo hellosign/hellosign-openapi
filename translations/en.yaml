@@ -1027,11 +1027,13 @@
 
 "BulkSendJobGetResponseExample::SUMMARY": Bulk Send Job
 "BulkSendJobListResponseExample::SUMMARY": Bulk Send Job List
+"BulkSendJobListResponse::BULK_SEND_JOBS": Contains a list of BulkSendJobs that the API caller has access to.
 "BulkSendJobResponse::BULK_SEND_JOB_ID": The id of the BulkSendJob.
-"BulkSendJobResponse::DESCRIPTION": Contains information about Signature Requests sent in bulk.
-"BulkSendJobResponse::TOTAL": The total amount of SignatureRequests queued for sending.
+"BulkSendJobResponse::DESCRIPTION": Contains information about the BulkSendJob such as when it was created and how many signature requests are queued. 
+"BulkSendJobResponse::TOTAL": The total amount of Signature Requests queued for sending.
 "BulkSendJobResponse::IS_CREATOR": True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.
 "BulkSendJobResponse::CREATED_AT": Time that the BulkSendJob was created.
+"BulkSendJobGetResponse::SIGNATURE_REQUESTS": Contains information about the Signature Requests sent in bulk.
 "BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID": The id of the BulkSendJob.
 
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
@@ -1065,11 +1067,11 @@
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
-"ListInfoResponse::DESCRIPTION": Contains a ListInfo object
-"ListInfoResponse::NUM_PAGES": Total number of pages available
-"ListInfoResponse::NUM_RESULTS": Total number of objects available
-"ListInfoResponse::PAGE": Number of the page being returned
-"ListInfoResponse::PAGE_SIZE": Objects returned per page
+"ListInfoResponse::DESCRIPTION": Contains pagination information about the data returned.
+"ListInfoResponse::NUM_PAGES": Total number of pages available.
+"ListInfoResponse::NUM_RESULTS": Total number of objects available.
+"ListInfoResponse::PAGE": Number of the page being returned.
+"ListInfoResponse::PAGE_SIZE": Objects returned per page.
 
 "OAuthTokenGenerateResponseExample::SUMMARY": Retrieving the OAuth token
 "OAuthTokenRefreshResponseExample::SUMMARY": Refresh an existing OAuth token
@@ -1080,6 +1082,7 @@
 "OAuthTokenResponse::STATE": The string that was passed back with `state` during the initial authorization step.
 
 "ReportCreateResponseExample::SUMMARY": Report
+"ReportResponse::DESCRIPTION": Contains information about the report request.
 "ReportResponse::END_DATE": The (inclusive) end date for the report data in MM/DD/YYYY format.
 "ReportResponse::REPORT_TYPE": The type(s) of the report you are requesting. Allowed values are "user_activity" and "document_status". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
 "ReportResponse::START_DATE": The (inclusive) start date for the report data in MM/DD/YYYY format.
