@@ -6460,7 +6460,7 @@ components:
     BulkSendJobListResponse:
       properties:
         bulk_send_jobs:
-          description: '_t__BulkSendJobResponse::BULK_SEND_JOBS'
+          description: '_t__BulkSendJobListResponse::BULK_SEND_JOBS'
           type: array
           items:
             $ref: '#/components/schemas/BulkSendJobResponse'

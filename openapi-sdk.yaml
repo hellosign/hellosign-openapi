@@ -4445,7 +4445,7 @@ components:
               description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
               type: string
             link_id:
-              description: '_t__Sub::FormFieldsPerDocument::LINK_ID'
+              description: 'Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.'
               type: string
             masked:
               description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
@@ -6963,7 +6963,7 @@ components:
     BulkSendJobListResponse:
       properties:
         bulk_send_jobs:
-          description: '_t__BulkSendJobResponse::BULK_SEND_JOBS'
+          description: 'Contains a list of BulkSendJobs that the API caller has access to.'
           type: array
           items:
             $ref: '#/components/schemas/BulkSendJobResponse'
