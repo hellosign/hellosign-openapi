@@ -1018,11 +1018,11 @@
 
 "EmbeddedSignUrlResponseEmbedded::DESCRIPTION": An object that contains necessary information to set up embedded signing.
 "EmbeddedSignUrlResponseEmbedded::SIGN_URL": A signature url that can be opened in an iFrame.
-"EmbeddedSignUrlResponseEmbedded::EXPIRES_AT": When the link expires.
+"EmbeddedSignUrlResponseEmbedded::EXPIRES_AT": The specific time that the the `sign_url` link expires, in epoch.
 
 "EmbeddedEditUrlResponseEmbedded::DESCRIPTION": An embedded template object.
 "EmbeddedEditUrlResponseEmbedded::EDIT_URL": A template url that can be opened in an iFrame.
-"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT":  When the link expires.
+"EmbeddedEditUrlResponseEmbedded::EXPIRES_AT":  The specific time that the the `edit_url` link expires, in epoch.
 
 "EventCallbackAccountRequest::DESCRIPTION": |-
   **Account Callback Payloads --**  

@@ -6989,7 +6989,7 @@ components:
           description: 'A template url that can be opened in an iFrame.'
           type: string
         expires_at:
-          description: 'When the link expires.'
+          description: 'The specific time that the the `edit_url` link expires, in epoch.'
           type: integer
       type: object
       x-internal: true
@@ -7011,7 +7011,7 @@ components:
           description: 'A signature url that can be opened in an iFrame.'
           type: string
         expires_at:
-          description: 'When the link expires.'
+          description: 'The specific time that the the `sign_url` link expires, in epoch.'
           type: integer
       type: object
       x-internal: true
@@ -7764,9 +7764,6 @@ components:
         sms_verifications_left:
           description: 'SMS verifications remaining.'
           type: integer
-        sms_verifications_left:
-          description: '_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT'
-          type: integer
       type: object
       x-internal: true
     TemplateResponseCCRole:
@@ -8081,66 +8078,6 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: string
-      type: object
-      x-internal: true
-    TemplateResponseFieldAvgTextLength:
-      description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
-      properties:
-        num_lines:
-          description: '_t__TemplateResponseFieldAvgTextLength::NUM_LINES'
-          type: integer
-        num_chars_per_line:
-          description: '_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE'
-          type: integer
-      type: object
-      x-internal: true
-    TemplateResponseNamedFormField:
-      properties:
-        name:
-          description: '_t__TemplateResponseNamedFormField::NAME'
-          type: string
-        type:
-          description: '_t__TemplateResponseNamedFormField::TYPE'
-          type: string
-        signer:
-          description: '_t__TemplateResponseNamedFormField::SIGNER'
-          type: string
-        x:
-          description: '_t__TemplateResponseNamedFormField::X'
-          type: integer
-        'y':
-          description: '_t__TemplateResponseNamedFormField::Y'
-          type: integer
-        width:
-          description: '_t__TemplateResponseNamedFormField::WIDTH'
-          type: integer
-        height:
-          description: '_t__TemplateResponseNamedFormField::HEIGHT'
-          type: integer
-        required:
-          description: '_t__TemplateResponseNamedFormField::REQUIRED'
-          type: boolean
-        api_id:
-          description: '_t__TemplateResponseNamedFormField::API_ID'
-          type: string
-        group:
-          nullable: true
-          description: '_t__TemplateResponseNamedFormField::GROUP'
-          type: string
-        avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-        isMultiline:
-          nullable: true
-          description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
-          type: boolean
-        originalFontSize:
-          nullable: true
-          description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
-          type: integer
-        fontFamily:
-          nullable: true
-          description: '_t__TemplateResponseNamedFormField::FONT_FAMILY'
           type: string
       type: object
       x-internal: true
