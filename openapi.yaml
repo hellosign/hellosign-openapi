@@ -4391,20 +4391,6 @@ components:
           description: 'When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.'
           type: boolean
           default: true
-        skip_signer_roles:
-          description: |-
-            If signer roles are already provided, the user will not be prompted to edit them.
-
-            **Note**: this parameter will be deprecated in May 2020 and skipping the signer roles screen will become the default behavior. To enforce showing the signer roles screen, use the `force_signer_roles` parameter.
-          type: boolean
-          default: false
-        skip_subject_message:
-          description: |-
-            If the subject and message has already been provided, the user will not be prompted to edit them.
-
-            **Note**: this parameter will be deprecated in May 2020 and skipping the subject message screen will become the default behavior. To enforce showing the subject message screen, use the `force_subject_message` parameter.
-          type: boolean
-          default: false
         test_mode:
           description: 'Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.'
           type: boolean
@@ -6193,25 +6179,24 @@ components:
           default: false
       type: object
     UnclaimedDraftCreateRequest:
+      description: ''
+      required:
+        - type
       properties:
         file:
           description: |-
-            **file** or **file_url** is required, but not both.
-
             Use `file[]` to indicate the uploaded file(s) to send for signature.
 
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
             format: binary
         file_url:
           description: |-
-            **file_url** or **file** is required, but not both.
-
             Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
@@ -6335,22 +6320,18 @@ components:
       properties:
         file:
           description: |-
-            **file** or **file_url** is required, but not both.
-
             Use `file[]` to indicate the uploaded file(s) to send for signature.
 
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
             format: binary
         file_url:
           description: |-
-            **file_url** or **file** is required, but not both.
-
             Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
@@ -6439,7 +6420,7 @@ components:
           type: boolean
           default: false
         hold_request:
-          description: 'The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.'
+          description: 'The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.'
           type: boolean
           default: false
         is_for_embedded_signing:
@@ -6550,26 +6531,18 @@ components:
           $ref: '#/components/schemas/SubFieldOptions'
         file:
           description: |-
-            **file** or **file_url** is required, but not both.
+            Use `file[]` to append additional files to the signature request being created from the template. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-            Append additional files to the signature request. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough). Text tags for signers not on the template(s) will be ignored.
-
-            Use `file[]` to pass the uploaded file(s).
-
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            **file** or **file_url[]** is required, but not both.
           type: array
           items:
             type: string
             format: binary
         file_url:
           description: |-
-            **file** or **file_url** is required, but not both.
+            Use file_url[] to append additional files to the signature request being created from the template. HelloSign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-            Append additional files to the signature request. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough). Text tags for signers not on the template(s) will be ignored.
-
-            Use `file_url[]` to have HelloSign download the file(s).
-
-            Currently we only support use of either the `file[]` parameter or `file_url[]` parameter, not both.
+            **file** or **file_url[]** is required, but not both.
           type: array
           items:
             type: string
@@ -6612,7 +6585,7 @@ components:
           type: boolean
           default: false
         requester_email_address:
-          description: 'The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.'
+          description: 'The email address of the user that should be designated as the requester of this draft.'
           type: string
           format: email
         requesting_redirect_url:
@@ -7010,10 +6983,13 @@ components:
       type: object
       x-internal: true
     EmbeddedEditUrlResponseEmbedded:
+      description: 'An embedded template object.'
       properties:
         edit_url:
+          description: 'A template url that can be opened in an iFrame.'
           type: string
         expires_at:
+          description: 'The specific time that the the `edit_url` link expires, in epoch.'
           type: integer
       type: object
       x-internal: true
@@ -7029,10 +7005,13 @@ components:
       type: object
       x-internal: true
     EmbeddedSignUrlResponseEmbedded:
+      description: 'An object that contains necessary information to set up embedded signing.'
       properties:
         sign_url:
+          description: 'A signature url that can be opened in an iFrame.'
           type: string
         expires_at:
+          description: 'The specific time that the the `sign_url` link expires, in epoch.'
           type: integer
       type: object
       x-internal: true
@@ -8113,6 +8092,7 @@ components:
       type: object
       x-internal: true
     UnclaimedDraftResponse:
+      description: 'A group of documents that a user can take ownership of via the claim URL.'
       properties:
         signature_request_id:
           nullable: true
@@ -8120,9 +8100,6 @@ components:
           type: string
         claim_url:
           description: 'The URL to be used to claim this UnclaimedDraft.'
-          type: string
-        one_click_url:
-          description: 'One-Click Login URL'
           type: string
         signing_redirect_url:
           nullable: true

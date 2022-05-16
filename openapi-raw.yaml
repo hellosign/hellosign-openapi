@@ -4313,14 +4313,6 @@ components:
           description: '_t__EmbeddedEditUrl::SHOW_PROGRESS_STEPPER'
           type: boolean
           default: true
-        skip_signer_roles:
-          description: '_t__EmbeddedEditUrl::SKIP_SIGNER_ROLES'
-          type: boolean
-          default: false
-        skip_subject_message:
-          description: '_t__EmbeddedEditUrl::SKIP_SUBJECT_MESSAGE'
-          type: boolean
-          default: false
         test_mode:
           description: '_t__EmbeddedEditUrl::TEST_MODE'
           type: boolean
@@ -5792,6 +5784,9 @@ components:
           default: false
       type: object
     UnclaimedDraftCreateRequest:
+      description: ''
+      required:
+        - type
       properties:
         file:
           description: '_t__UnclaimedDraftCreate::FILE'
@@ -6508,10 +6503,13 @@ components:
       type: object
       x-internal: true
     EmbeddedEditUrlResponseEmbedded:
+      description: '_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION'
       properties:
         edit_url:
+          description: '_t__EmbeddedEditUrlResponseEmbedded::EDIT_URL'
           type: string
         expires_at:
+          description: '_t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT'
           type: integer
       type: object
       x-internal: true
@@ -6527,10 +6525,13 @@ components:
       type: object
       x-internal: true
     EmbeddedSignUrlResponseEmbedded:
+      description: '_t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION'
       properties:
         sign_url:
+          description: '_t__EmbeddedSignUrlResponseEmbedded::SIGN_URL'
           type: string
         expires_at:
+          description: '_t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT'
           type: integer
       type: object
       x-internal: true
@@ -7589,6 +7590,7 @@ components:
       type: object
       x-internal: true
     UnclaimedDraftResponse:
+      description: '_t__UnclaimedDraftResponse::DESCRIPTION'
       properties:
         signature_request_id:
           nullable: true

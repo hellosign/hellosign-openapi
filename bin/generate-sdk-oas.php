@@ -46,7 +46,6 @@ class GenerateSdkOas
     {
         $this->loadOpenAPIFile();
         $this->remove();
-
         $this->saveOpenAPIFile();
     }
 
