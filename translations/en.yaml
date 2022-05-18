@@ -463,6 +463,33 @@
 "TeamUpdate::DESCRIPTION": Updates the name of your Team.
 "TeamUpdate::NAME": The name of your Team.
 
+"TeamInfo::SUMMARY": Get Team Info
+"TeamInfo::DESCRIPTION": Provides information about a team.
+"TeamInfo::TEAM_ID": The id of the team.
+"TeamInfo::PARENT_TEAM": Information about the parent team if a team has one, set to `null` otherwise.
+
+"TeamRootInfo::SUMMARY": Get Root Team Info
+"TeamRootInfo::DESCRIPTION": Provides information about the root team.
+
+"TeamSubTeams::SUMMARY": List Sub Teams
+"TeamSubTeams::DESCRIPTION": Provides a paginated list of sub teams that belong to a given team.
+"TeamSubTeams::TEAM_ID": The id of the parent Team.
+"TeamSubTeams::PAGE": Which page number of the SubTeam List to return. Defaults to `1`.
+"TeamSubTeams::PAGE_SIZE": "Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+
+"TeamMembers::SUMMARY": List Team Members
+"TeamMembers::DESCRIPTION": Provides a paginated list of members that belong to a given team.
+"TeamMembers::TEAM_ID": The id of the parent team.
+"TeamMembers::PAGE": Which page number of the team member List to return. Defaults to `1`.
+"TeamMembers::PAGE_SIZE": "Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+
+"SubTeamResponse::DESCRIPTION": Contains a list with sub teams.
+"TeamMembersResponse::DESCRIPTION": Contains a list with team members.
+
+"TeamMemberResponse::ACCOUNT_ID": Account id of the team member.
+"TeamMemberResponse::EMAIL_ADDRESS": Email address of the team member.
+"TeamMemberResponse::ROLE": Role which this team member takes.
+
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": |-
@@ -1174,10 +1201,17 @@
 "TeamAddMemberResponseExample::SUMMARY": Team Add Member
 "TeamCreateResponseExample::SUMMARY": Team Create
 "TeamGetResponseExample::SUMMARY": Team Get
+"TeamInfoResponseExample::SUMMARY": Team Get Info
+"TeamSubTeamsResponseExample::SUMMARY": Team Sub Teams List
+"TeamMembersResponseExample::SUMMARY": Team Members List
 "TeamRemoveMemberResponseExample::SUMMARY": Team Remove Member
 "TeamUpdateResponseExample::SUMMARY": Team Update
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
+"GeneralTeam::TEAM_ID": The id of a team
+"GeneralTeam::NAME": The name of a team
+"GeneralTeam::NUM_MEMBERS": Number of members within a team
+"GeneralTeam::NUM_SUB_TEAMS": Number of sub teams within a team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
 "TeamResponse::DESCRIPTION": Contains information about your team and its members
 
