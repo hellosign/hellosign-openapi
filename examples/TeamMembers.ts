@@ -9,7 +9,7 @@ api.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-const result = api.teamGet();
+const result = api.teamMembers("team_id");
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

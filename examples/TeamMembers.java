@@ -25,10 +25,10 @@ public class Example {
         TeamApi api = new TeamApi(defaultClient);
 
         try {
-            TeamGetResponse result = api.teamGet();
+            TeamMembersResponse result = api.teamMembers('team_id');
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling TeamApi#teamMembers");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

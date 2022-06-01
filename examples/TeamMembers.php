@@ -13,7 +13,7 @@ $config->setUsername("YOUR_API_KEY");
 $api = new HelloSignSDK\Api\TeamApi($config);
 
 try {
-    $result = $api->teamGet();
+    $result = $api->teamMembers('team_id');
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
