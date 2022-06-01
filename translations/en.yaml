@@ -463,6 +463,18 @@
 "TeamUpdate::DESCRIPTION": Updates the name of your Team.
 "TeamUpdate::NAME": The name of your Team.
 
+"TeamMembers::SUMMARY": List Team Members
+"TeamMembers::DESCRIPTION": Provides a paginated list of members that belong to a given team.
+"TeamMembers::TEAM_ID": The id of the parent team.
+"TeamMembers::PAGE": Which page number of the team member List to return. Defaults to `1`.
+"TeamMembers::PAGE_SIZE": "Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+
+"TeamMembersResponse::DESCRIPTION": Contains a list with team members.
+
+"TeamMemberResponse::ACCOUNT_ID": Account id of the team member.
+"TeamMemberResponse::EMAIL_ADDRESS": Email address of the team member.
+"TeamMemberResponse::ROLE": Role which this team member takes.
+
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": |-
@@ -1174,6 +1186,7 @@
 "TeamAddMemberResponseExample::SUMMARY": Team Add Member
 "TeamCreateResponseExample::SUMMARY": Team Create
 "TeamGetResponseExample::SUMMARY": Team Get
+"TeamMembersResponseExample::SUMMARY": Team Members List
 "TeamRemoveMemberResponseExample::SUMMARY": Team Remove Member
 "TeamUpdateResponseExample::SUMMARY": Team Update
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
