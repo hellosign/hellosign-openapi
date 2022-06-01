@@ -3069,6 +3069,37 @@ paths:
         -
           oauth2:
             - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamMembers.php
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamMembers.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamMembers.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamMembers.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamMembers.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamMembers.py
   /team/remove_member:
     post:
       tags:
