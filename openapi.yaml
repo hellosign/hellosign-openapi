@@ -7688,7 +7688,7 @@ components:
       x-internal: true
     TeamMembersResponse:
       properties:
-        team_members:
+        members:
           description: 'Contains a list with team members.'
           type: array
           items:
