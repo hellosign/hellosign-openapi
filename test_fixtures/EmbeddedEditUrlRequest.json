@@ -23,8 +23,6 @@
     "preview_only": true,
     "show_preview": true,
     "show_progress_stepper": true,
-    "skip_signer_roles": true,
-    "skip_subject_message": true,
     "test_mode": true
   }
 }
