@@ -1,0 +1,12 @@
+{
+  "team": {
+    "team_id": "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c",
+    "name": "Team A",
+    "num_sub_teams": 4,
+    "num_members": 0,
+    "parent_team": {
+      "team_id": "89dc8eea8361bf7dc760b09004856a9d4eae8faa",
+      "name": "Root Team"
+    }
+  }
+}
