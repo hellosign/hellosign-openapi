@@ -25,7 +25,7 @@ public class Example {
         TeamApi api = new TeamApi(defaultClient);
 
         try {
-            TeamGetResponse result = api.teamRootInfo();
+            TeamGetInfoResponse result = api.teamRootInfo();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TeamApi#teamRootInfo");
