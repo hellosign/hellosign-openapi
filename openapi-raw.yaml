@@ -2985,10 +2985,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TeamInfoResponse'
+                $ref: '#/components/schemas/TeamGetInfoResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/TeamInfoResponseExample'
+                  $ref: '#/components/examples/TeamGetInfoResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -3060,10 +3060,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TeamInfoResponse'
+                $ref: '#/components/schemas/TeamGetInfoResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/TeamRootInfoResponseExample'
+                  $ref: '#/components/examples/TeamGetRootInfoResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -7254,6 +7254,17 @@ components:
           type: integer
       type: object
       x-internal: true
+    TeamGetInfoResponse:
+      properties:
+        team:
+          $ref: '#/components/schemas/TeamInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
@@ -8241,14 +8252,14 @@ components:
       summary: '_t__TeamGetResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamGetResponseExample.json
-    TeamInfoResponseExample:
+    TeamGetInfoResponseExample:
       summary: '_t__TeamInfoResponseExample::SUMMARY'
       value:
-        $ref: examples/json/TeamInfoResponseExample.json
-    TeamRootInfoResponseExample:
+        $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamGetRootInfoResponseExample:
       summary: '_t__TeamRootInfoResponseExample::SUMMARY'
       value:
-        $ref: examples/json/TeamRootInfoResponseExample.json
+        $ref: examples/json/TeamGetRootInfoResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: '_t__TeamRemoveMemberResponseExample::SUMMARY'
       value:
