@@ -1,23 +1,40 @@
-# hellosign-openapi
+# hellosign-openapi &middot; [![License for GitHub](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/hellosign/hellosign-openapi/blob/main/LICENSE)[![OpenAPI badge](https://img.shields.io/badge/openapi-v3.0.3-orange)](https://spec.openapis.org/oas/v3.0.1)[![PRs and Issues](https://img.shields.io/badge/prs%20and%20issues-Welcome-brightgreen)](#contributing)
 
-This repository contains all source material used for HelloSign's[API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and official SDKs (soon -- work in progress). You can help us improve those resources by [contributing](#contributing).
+This repository contains all source material used for HelloSign's[API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and official SDKs (work in progress, currently in beta). You can help us improve those resources by [contributing](#contributing). HelloSign's API Engineering team actively maintains this repo, including the [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml), that is used to power our documentation and SDKs while keeping them in sync with our API development.
 
-HelloSign's API Engineering team actively maintains the [OpenAPI specification](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml) in this repo, which is used to power our documentation and SDKs while keeping them in lockstep with our API development.
+## ⚠ Important: this repo is still in progress ⚠
+
+The state of tooling based on this repo:
+- HelloSign's [API reference documentation](https://developers.hellosign.com/api/reference/overview/) - launched in production.
+- [HelloSign SDKs](#sdk-coverage) - available in beta only. See the "openapi" branch of your preferred SDK.
+
+Warnings:
+- Think twice before using the OpenAPI-powered SDKs for anything critical.
+- The interfaces may change without warning. Backwards compatibility is not yet guaranteed nor implied.
 
 ## Overview
 
-HelloSign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) is built using [openapi.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml) and the SDKs are built using [openapi-sdk.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/openapi-sdk.yaml). Both of those source files are **generated** as part of a build process that's covered farther below
-**Note:** This high-level overview abstracts out implementation details that are covered in [how it works](#how-it-works). 
+HelloSign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) is built using [openapi.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml) and the SDKs are built using [openapi-sdk.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/openapi-sdk.yaml). Both of those files are **generated** as part of a build process. 
+These are the main files you'll need to know about:
+- [openapi-raw.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/openapi-raw.yaml) -- The functional implementation of the HelloSign API as an OpenAPI spec. This file reflects all public-facing work from HelloSign's API Engineering team and is kept up-to-date.
+- [en.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/translations/en.yaml) -- Contains all copy used for the API reference documentation. That includes descriptions for endpoints, parameters, schemas, and more. 
+- [/json](https://github.com/hellosign/hellosign-openapi/tree/main/examples/json) -- Contains example request and response payloads for the HelloSign API.
+- [/examples](https://github.com/hellosign/hellosign-openapi/tree/main/examples) -- Contains SDK-specific example requests for each endpoint.
+
+**Note:** Our API reference documentation supports having multiple examples of requests, responses, and API implementations for every endpoint. But we need your help to get there! Contributions that help us grow our example coverage are highly valuable at this stage.
 
 ## Contributing
 
 We accept contributions and feedback that help us provide a better a developer experience for users of the HelloSign API. Our OpenAPI-based tooling relies on multiple build processes, so we offer the following guidelines around contributing:
 
+### SDKs
+All SDK-specific feedback or requests around functionality should be submitted as an Issue in that SDK's respective repo. However, SDK-specific code examples can be submitted as a Pull Request to this repo. 
+
 ### Issues
-Use GitHub issues to report problems or gaps in our docs, request sample coverage for a specific API feature, or ask for an update to an endpoint description that you think needs attention. Any feedback that can help us create a better expereince for you in our documentation is fair game. 
+Use GitHub issues to report problems or gaps in our documentation, request sample coverage for a specific API feature, or ask for an update to an endpoint description that you think needs attention. Any feedback that will help us create a better experience in our documentation is appreciated. 
 
 ### Pull Requests
-We welcome pull requests with enhancements to copy or examples in our API reference documentation. The table below contains information about the types of pull requests we're able to support:
+We welcome pull requests with enhancements to copy or examples in our API reference documentation. Please follow the [development flow](#development-flow-for-contributors) for submitting PRs. The table below contains information about the types of pull requests we're able to support:
 
 | Type of PR  | File(s) to change | Merge requirements |
 | ------------- | ------------- | ------------- |
@@ -29,139 +46,47 @@ We welcome pull requests with enhancements to copy or examples in our API refere
 This repo is published under the Apache 2.0 license. Please see [LICENSE](https://github.com/hellosign/hellosign-api/blob/main/LICENSE) for more information.
 
 ## Thank you
-There's a wide world of APIs out there and we (HelloSign's API Engineering team) wanted to thank you for using ours. We've got some big enhancements coming up this year and look forward to showing you that your trust is well placed. 
+There's a wide world of APIs out there and we (HelloSign's API Engineering team) wanted to thank you for using ours. We've been working hard to improve our developer experience and have some big releases planned for this year (2022). We look forward to showing you that your trust is well placed. 
 
----
 # Appendix 
 Additional information about this repo, OpenAPI, and or related tooling. May not be sequential.
 
 ## Migrating to OpenAPI
-The API Engineering team at HelloSign adopted the [OpenAPI specification](https://oai.github.io/Documentation/introduction.html) in order to provide a better experience to HelloSign developers in a way that was scalable and sustainable. We're using it as the source of our [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and [SDKs] , which means both tools stay in total parity with the HelloSign API. 
+The API Engineering team at HelloSign adopted the [OpenAPI specification](https://oai.github.io/Documentation/introduction.html) in order to provide a better experience to HelloSign developers in a way that was scalable and sustainable. We're using it as the source of our [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and [SDKs](#sdk-coverage), which means both tools stay in total parity with the HelloSign API. 
 
 ## Architectural Overview 
 We've made multiple references to build systems throughout this repo. So let's take a step back to examine how the different pieces fit together to make this setup possible. 
 
-**HelloSign API to OpenAPI Spec**
-When a new feature is added or a change is made to the HelloSign API, a new `openapi-raw.yaml` file is created in the hellosign-openapi repo.
+**HelloSign API to Raw OpenAPI Spec**
+When a new feature is added or a change is made to the HelloSign API, a new `openapi-raw.yaml` file is created in the hellosign-openapi repo. This file contains the final _structure_ of our OpenAPI spec, but the strings are placeholders (see [translations](#translations)).  
 
 **Strings and Samples**
-The hellosign-openapi repo contains all the copy and examples used in the API reference documentation. It's actively maintained by the API Engineering team, but can be improved by anyone using our API.
+This repo (hellosign-openapi) contains _all_ copy and examples used in [HelloSign's API reference documentation](https://developers.hellosign.com/api/reference/overview/). These resources are maintained separately from the OpenAPI spec's structure and can be improved by anyone willing to [contribute](#contributing).  
 
 **Generating the OpenAPI Spec**
-When the build script in this repo runs (`./build`), the `openapi.yaml` and `openapi-sdk.yaml` files are generated by replacing the placeholder strings in `openapi-raw.yaml` (see Translations).
+When the build script in this repo runs (`./build`), the placeholder strings in `openapi-raw.yaml` file are replaced by the values in [en.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/translations/en.yaml) to generate the `openapi.yaml` and `openapi-sdk.yaml` files.  
 
-### OpenAPI to Documentation
+**OpenAPI to Documentation**
+When a new `openapi.yaml` file is pushed to the main branch of this repo, HelloSign's developer documentation is automatically rebuilt. During that process, the external references inside `openapi.yaml` resolve to their corresponding [examples](https://github.com/hellosign/hellosign-openapi/tree/main/examples) in the documentation.  
 
-The build script in hellosign-openapi runs (`./build`)
+**OpenAPI to SDKs**
+Each respective SDK has it's own repository where the hellosign-openapi repo serves as a submodule. When the `./build` script runs in the SDK's repo, the `openapi-sdk.yaml` file is used to generate a new SDK. The SDKs are currently in beta, but we intend to automate the build process as test coverage grows and we're able to rebuild with minimal risk. 
 
+## SDK Coverage
+The SDKs based on our OpenAPI spec are a work in progress and none have moved past beta quite yet. They're currently available as an "openapi" branch in each respective repo.
 
+| Link to SDK | Status |
+| --- | --- |
+| [PHP](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) | ![beta badge](https://img.shields.io/badge/status-beta-red) |
+| [Python](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) | ![beta badge](https://img.shields.io/badge/status-beta-red) |
+| [NodeJS](https://github.com/HelloFax/hellosign-nodejs-sdk) | ![beta badge](https://img.shields.io/badge/status-beta-red) |
+| [Ruby](https://github.com/HelloFax/hellosign-ruby-sdk) | ![beta badge](https://img.shields.io/badge/status-beta-red) |
+| [Java](https://github.com/hellosign/hellosign-java-sdk/tree/openapi) | ![beta badge](https://img.shields.io/badge/status-beta-red) |
+| Dotnet unavailable | early stage |
 
-### OpenAPI to SDKs
+**Note:** You can help us accelerate the launch of an SDK by being an early adopter. Please jump right in and start using it, then open an Issue in that SDK's GitHub repo when you find something that needs to be fixed. 
 
-
-The `openapi-raw.yaml` file is generated from the HelloSign API. When the ./build script in this repo runs, it pulls in code samples and copy to generate the `openapi.yaml` and `openapi-sdk.yaml` files.  
-`openapi.yaml` is the source of HelloSign's API reference documentation.  
-`openapi-sdk.yaml` is the source of HelloSign's official SDKs (in beta).
-
-## Generate OpenAPI Spec
-
-liink here from pr
-
-# Making changes and build process
-
-Only `openapi-raw.yaml` should be manually edited.
-
-The `build` script automates  the process of building the final OAS file. The
-steps taken include:
-
-## Translations
-
-`openapi-raw.yaml` includes translation placeholders that look like:
-
-```yaml
-info:
-  title: '_t__OpenApi::TITLE'
-```
-
-All translation placeholders are prepended with `_t__`. Translations are stored
-in the `translations` directory. The translation keys in these files are not
-prepended with `_t__`, ie:
-
-```yaml
-"OpenApi::TITLE": HelloSign API
-"OpenApi::DESCRIPTION": HelloSign v3 API
-```
-
-Translations work in a fallback method when building. If you choose a language
-file that does not include a translation for any specific string, it will
-fallback to the default [English version](translations/en.yaml). If no
-translation exists in the fallback  language then it will be reported after
-the build process.
-
-## components/examples
-
-Examples listed under `#/components/examples` will reference files in the
-[examples/json](examples/json) directory. For instance,
-
-```yaml
-components:
-  examples:
-    AccountCreateRequestDefaultExample:
-      summary: 'Default Example'
-      value:
-        $ref: examples/json/AccountCreateRequestDefaultExample.json
-
-```
-
-## SDK examples
-
-SDK examples are files located in the [examples](examples) directory. These are
-different to the OpenAPI examples listed under `#/components/examples` as these
-are copy & paste examples for each of our supported SDKs.
-
-We use Redoc's [x-codeSamples](https://redocly.com/docs/api-reference-docs/specification-extensions/x-code-samples/)
-custom extension to define examples under each path:
-
-```yaml
-paths:
-  /account/create:
-    post:
-      tags:
-        - Account
-      summary: '_t__AccountCreate::SUMMARY'
-      description: '_t__AccountCreate::DESCRIPTION'
-      operationId: accountCreate
-      # [...]
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/AccountCreate.php
-        -
-          lang: JavaScript
-          label: JavaScript
-          source:
-            $ref: examples/AccountCreate.js
-
-```
-
-These examples are used during each SDK's build process when generating their
-documentation.
-
-## SDK-compatible OAS spec
-
-As we use several custom Redocly-specific custom extensions, we have to remove a
-few that are not compatible with [openapi-generator](https://openapi-generator.tech/)
-which we use to generate our SDKs.
-
-This compatible file is written to [openapi-sdk.yaml](openapi-sdk.yaml).
-
-
-[OpenAPI 3.0.3](https://spec.openapis.org/oas/v3.0.3) specification
-
-
-# Development Flow for Documentation Enhancements
+## Development Flow for Contributors
 
 1. Clone repo and create branch with unique name (i.e. `sig-request-java-sample`).
 2. Make change to copy or code samples.
@@ -172,24 +97,3 @@ This compatible file is written to [openapi-sdk.yaml](openapi-sdk.yaml).
 
 *You'll need Docker running locally to run the build script.
 
-## ⚠ Important: this repo is still in progress ⚠
-
-The state of tooling based on this repo:
-- HelloSign [API reference documentation](https://developers.hellosign.com) - close to production ready.
-- HelloSign SDKs - available in beta only. See the "openapi" branch of your preferred SDK.
-
-Warnings:
-- Think twice before using the OpenAPI-powered SDKs for anything critical.
-- The interfaces may change without warning. Backwards compatibility is not yet guaranteed nor implied.
-
-
-- The implementation of the HelloSign API as an OpenAPI spec is provided here: [openapi-raw.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/openapi-raw.yaml). This file reflects all public-facing work from HelloSign's API Engineering team and is kept up-to-date.
-
-
-
-
-1. The change is made to the source files used to generate values resolve from (rather than the _openapi.yaml_ file directly). The list below contains the types of changes supported via pull request:
-- **Copy** - Changes to endpoint and parameter descriptions can be made to [/translations/en.yaml](https://github.com/hellosign/hellosign-openapi/blob/main/translations/en.yaml).
-- **Endpoint Examples** - Changes to request / response example payloads can be made in [/examples/json](https://github.com/hellosign/hellosign-openapi/tree/main/examples/json).
-- **SDK Request Examples** - Changes to SDK-specific request examples can be made in [/examples](https://github.com/hellosign/hellosign-openapi/tree/main/examples).  
-**Note:** Adding *
