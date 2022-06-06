@@ -5,14 +5,11 @@
 "OpenApi::TITLE": HelloSign API
 "OpenApi::DESCRIPTION": HelloSign v3 API
 "OpenApi::AUTH::API_KEY": |-
-  Your API key can be used to make calls to the HelloSign API from your app or from the API reference docs. See Authentication for more information.   
-  ✅ Supports the Try it console.
-  > **Important:** Keep your API key secure! It's safe to use in these docs, but don't share it with others. If compromised, generate a new API key immediately.  
-
+  Your API key can be used to make calls to the HelloSign API. See [Authentication](/api/reference/authentication) for more information.   
+  ✅ Supported by Try it console.  
 "OpenApi::AUTH::OAUTH": |-
-  You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. See Authentication for more information.  
-  The access scopes that support this endpoint are listed in the gray box above.  
-  ❌ **Not supported** by Try it console.
+  You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
+  ❌ **Not supported** by Try it console.  
 "OpenApi::TAG::ACCOUNT::DESCRIPTION": ./markdown/en/tags/account-tag-description.md
 "OpenApi::TAG::API_APP::DESCRIPTION": ./markdown/en/tags/api-app-tag-description.md
 "OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION": ./markdown/en/tags/bulk-send-job-tag-description.md
