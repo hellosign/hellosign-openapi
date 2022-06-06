@@ -2632,7 +2632,7 @@ paths:
           name: team_id
           in: path
           description: 'The id of the team.'
-          required: true
+          required: false
           schema:
             type: string
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
