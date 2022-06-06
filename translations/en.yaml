@@ -420,6 +420,7 @@
   The new name for the recipient.
 
   **NOTE**: Optional if `email_address` is provided.
+"TeamAddMember::TEAM_ID": The id of the team.
 "SignatureRequestUpdate::SIGNATURE_ID": The signature ID for the recipient.
 "SignatureRequestUpdate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to update.
 
