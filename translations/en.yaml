@@ -5,39 +5,14 @@
 "OpenApi::TITLE": HelloSign API
 "OpenApi::DESCRIPTION": HelloSign v3 API
 "OpenApi::AUTH::API_KEY": |-
-  The most common method to authenticate against the HelloSign API is by using API keys. See the [API Settings page](https://app.hellosign.com/home/myAccount#api) for more information.
+  Your API key can be used to make calls to the HelloSign API from your app or from the API reference docs. See Authentication for more information.   
+  ✅ Supports the Try it console.
+  > **Important:** Keep your API key secure! It's safe to use in these docs, but don't share it with others. If compromised, generate a new API key immediately.  
 
-  Authentication is done via HTTP Basic Auth. Your API key is your basic auth username, and the password is blank.
-
-  Example:
-
-  ```shell
-  APIKEY=YOUR_SECRET_API_KEY_HERE
-  curl "https://api.hellosign.com/v3/template/list" \
-      -u "${APIKEY}:"
-  ```
-
-  or, you can also pass the API key as part of the URL:
-
-  ```shell
-  APIKEY=YOUR_SECRET_API_KEY_HERE
-  curl "https://${APIKEY}:@api.hellosign.com/v3/template/list"
-  ```
 "OpenApi::AUTH::OAUTH": |-
-  You may also use an oauth2 token to perform API actions of behalf of
-  other users after they grant you the authorization to do so. See our
-  [Getting Started with OAuth 2.0](https://app.hellosign.com/api/oauthWalkthrough)
-  for more information.
-
-  Authentication is done via the `Authorization: Bearer` header.
-
-  Example:
-
-  ```shell
-  OAUTHTOKEN=YOUR_SECRET_OAUTH_TOKEN_HERE
-  curl 'https://api.hellosign.com/v3/signature_request/list' \
-      -H "Authorization: Bearer ${OAUTHTOKEN}"
-  ```
+  You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. See Authentication for more information.  
+  The access scopes that support this endpoint are listed in the gray box above.  
+  ❌ **Not supported** by Try it console.
 "OpenApi::TAG::ACCOUNT::DESCRIPTION": ./markdown/en/tags/account-tag-description.md
 "OpenApi::TAG::API_APP::DESCRIPTION": ./markdown/en/tags/api-app-tag-description.md
 "OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION": ./markdown/en/tags/bulk-send-job-tag-description.md
