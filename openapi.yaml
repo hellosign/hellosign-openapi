@@ -2620,7 +2620,7 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestUpdate.py
-  '/team/add_member/{team_id}':
+  /team/add_member:
     put:
       tags:
         - Team
@@ -2630,7 +2630,7 @@ paths:
       parameters:
         -
           name: team_id
-          in: path
+          in: query
           description: 'The id of the team.'
           required: false
           schema:
