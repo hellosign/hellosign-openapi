@@ -2620,7 +2620,7 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestUpdate.py
-  /team/add_member:
+  '/team/add_member/{team_id}':
     put:
       tags:
         - Team
