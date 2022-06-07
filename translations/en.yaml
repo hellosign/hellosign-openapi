@@ -446,6 +446,11 @@
 
 "TeamRemoveMember::SUMMARY": Remove User from Team
 "TeamRemoveMember::DESCRIPTION": Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
+"TeamRemoveMember::NEW_TEAM_ID": Id of the new Team.
+"TeamRemoveMember::NEW_ROLE": |-
+  A new role member will take in a new Team.
+  
+  **Note**: This parameter is used only if `new_team_id` is provided.
 "TeamRemoveMember::ACCOUNT_ID": |-
   **account_id** or **email_address** is required. If both are provided, the account id prevails. 
   

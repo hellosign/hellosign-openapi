@@ -5613,6 +5613,12 @@ components:
           description: '_t__TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS'
           type: string
           format: email
+        new_team_id:
+          description: '_t__TeamRemoveMember::NEW_TEAM_ID'
+          type: string
+        new_role:
+          description: '_t__TeamRemoveMember::NEW_ROLE'
+          type: string
       type: object
     TeamUpdateRequest:
       properties:
