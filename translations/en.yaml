@@ -468,9 +468,6 @@
 "TeamInfo::TEAM_ID": The id of the team.
 "TeamInfo::TEAM_PARENT": Information about the parent team if a team has one, set to `null` otherwise.
 
-"TeamRootInfo::SUMMARY": Get Root Team Info
-"TeamRootInfo::DESCRIPTION": Provides information about the root team.
-
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": |-
@@ -1183,7 +1180,6 @@
 "TeamCreateResponseExample::SUMMARY": Team Create
 "TeamGetResponseExample::SUMMARY": Team Get
 "TeamInfoResponseExample::SUMMARY": Team Get Info
-"TeamRootInfoResponseExample::SUMMARY": Team Get Root Info
 "TeamRemoveMemberResponseExample::SUMMARY": Team Remove Member
 "TeamUpdateResponseExample::SUMMARY": Team Update
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
