@@ -8665,7 +8665,7 @@ components:
       type: http
       description: |-
         Your API key can be used to make calls to the HelloSign API. See [Authentication](/api/reference/authentication) for more information.   
-        ✅ Supported by Try it console.  
+        ✅ Supported by Try it console (calls sent in `test_mode` only). 
       scheme: basic
     oauth2:
       type: http
