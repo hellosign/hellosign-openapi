@@ -60,8 +60,8 @@ class GenerateSdkOas
     protected function loadOpenAPIFile(): void
     {
         $file = $this->language === 'en'
-            ? __DIR__ . '/../openapi.yaml'
-            : __DIR__ . "/../openapi-{$this->language}.yaml";
+            ? __DIR__ . '/../openapi-sdk-raw.yaml'
+            : __DIR__ . "/../openapi-sdk-raw-{$this->language}.yaml";
 
         if (!file_exists($file)) {
             throw new Exception(

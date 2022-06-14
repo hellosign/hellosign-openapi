@@ -55,6 +55,13 @@ class GenerateOas
     protected array $openapi;
 
     /**
+     * Contains the OpenAPI spec for SDK, in array form
+     *
+     * @var array
+     */
+    protected array $openapi_sdk_raw;
+
+    /**
      * Keep track of which strings have been translated using the chosen
      * language, which needed to fallback to default language, and which ones
      * did not get translated at all
@@ -82,12 +89,14 @@ class GenerateOas
     public function run(): void
     {
         $this->loadOpenAPIFile();
-        $this->removeOneClickUrl();
+        $this->processOpenAPIFile();
         $this->loadTranslations();
 
         $this->openapi = $this->recurse($this->openapi);
+        $this->openapi_sdk_raw = $this->recurse($this->openapi_sdk_raw);
 
-        $this->saveOpenAPIFile();
+        $this->saveOpenAPIFile($this->openapi, 'openapi');
+        $this->saveOpenAPIFile($this->openapi_sdk_raw, 'openapi-sdk-raw');
 
         $this->translated['translated'] = array_unique($this->translated['translated']);
         $this->translated['fallback'] = array_unique($this->translated['fallback']);
@@ -136,20 +145,21 @@ class GenerateOas
         $file = __DIR__ . '/../openapi-raw.yaml';
 
         $this->openapi = Yaml::parse(file_get_contents($file));
+        $this->openapi_sdk_raw = $this->openapi;
     }
 
     /**
      * Takes the translated OpenAPI data and saves it to language-specific
      * YAML file
      */
-    protected function saveOpenAPIFile(): void
+    protected function saveOpenAPIFile(array $data, string $file_name): void
     {
         $file = $this->language === 'en'
-            ? __DIR__ . '/../openapi.yaml'
-            : __DIR__ . "/../openapi-{$this->language}.yaml";
+            ? __DIR__ . "/../{$file_name}.yaml"
+            : __DIR__ . "/../{$file_name}-{$this->language}.yaml";
 
         $yaml = Yaml::dump(
-            $this->openapi,
+            $data,
             10,
             2,
             Yaml::DUMP_OBJECT_AS_MAP
@@ -210,9 +220,10 @@ class GenerateOas
         return $data;
     }
 
-    protected function removeOneClickUrl(): void
+    protected function processOpenAPIFile(): void
     {
         unset(
+            $this->openapi['paths']['/team/add_member']['put']['parameters'][0],
             $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
         );
     }
