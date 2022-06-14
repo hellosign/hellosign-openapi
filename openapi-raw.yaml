@@ -1176,6 +1176,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenGenerate.py
+      x-hideTryItPanel: true
   '/oauth/token?refresh':
     post:
       tags:
@@ -1237,6 +1238,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenRefresh.py
+      x-hideTryItPanel: true
   /report/create:
     post:
       tags:
@@ -7174,7 +7176,7 @@ components:
           description: '_t__TeamMemberResponse::EMAIL_ADDRESS'
           type: string
         role:
-          description: '_t__TeamMemberResponse::ROLE'
+          description: '_t__TeamMemberResponse::MEMBER_ROLE'
           type: string
       type: object
       x-internal: true

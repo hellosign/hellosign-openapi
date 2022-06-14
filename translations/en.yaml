@@ -464,16 +464,16 @@
 "TeamUpdate::NAME": The name of your Team.
 
 "TeamMembers::SUMMARY": List Team Members
-"TeamMembers::DESCRIPTION": Provides a paginated list of members that belong to a given team.
-"TeamMembers::TEAM_ID": The id of the parent team.
-"TeamMembers::PAGE": Which page number of the team member List to return. Defaults to `1`.
+"TeamMembers::DESCRIPTION": Provides a paginated list of members (and their roles) that belong to a given team.
+"TeamMembers::TEAM_ID": The id of the team that a member list is being requested from.
+"TeamMembers::PAGE": Which page number of the team member list to return. Defaults to `1`.
 "TeamMembers::PAGE_SIZE": "Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
 
-"TeamMembersResponse::DESCRIPTION": Contains a list with team members.
+"TeamMembersResponse::DESCRIPTION": Contains a list of team members and their roles for a specific team.
 
 "TeamMemberResponse::ACCOUNT_ID": Account id of the team member.
 "TeamMemberResponse::EMAIL_ADDRESS": Email address of the team member.
-"TeamMemberResponse::ROLE": Role which this team member takes.
+"TeamMemberResponse::MEMBER_ROLE": The specific role a member has on the team.
 
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
