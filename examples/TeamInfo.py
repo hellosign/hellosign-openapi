@@ -15,7 +15,7 @@ with ApiClient(configuration) as api_client:
     api = apis.TeamApi(api_client)
 
     try:
-        response = api.team_info("team_id")
+        response = api.team_info()
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
