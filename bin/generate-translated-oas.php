@@ -89,7 +89,8 @@ class GenerateOas
     public function run(): void
     {
         $this->loadOpenAPIFile();
-        $this->processOpenAPIFile();
+        $this->removeOneClickUrl();
+        $this->removeGeneralizedTeamParams();
         $this->loadTranslations();
 
         $this->openapi = $this->recurse($this->openapi);
@@ -220,12 +221,26 @@ class GenerateOas
         return $data;
     }
 
-    protected function processOpenAPIFile(): void
+    protected function removeOneClickUrl(): void
     {
         unset(
-            $this->openapi['paths']['/team/add_member']['put']['parameters'][0],
             $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
         );
+        unset(
+            $this->openapi_sdk_raw['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
+        );
+    }
+
+    protected function removeGeneralizedTeamParams(): void
+    {
+        // Remove team_id from /team/add_member query params
+        $team_id_index = array_search(
+            ['name' => 'team_id'],
+            $this->openapi['paths']['/team/add_member']['put']['parameters']
+        );
+        if ($team_id_index !== false) {
+            unset($this->openapi['paths']['/team/add_member']['put']['parameters'][$team_id_index]);
+        }
     }
 
     /**

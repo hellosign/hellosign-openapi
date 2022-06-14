@@ -44,9 +44,10 @@ class GenerateSdkOas
 
     public function run(): void
     {
-        $this->loadOpenAPIFile();
+        $loaded_file = $this->loadOpenAPIFile();
         $this->remove();
         $this->saveOpenAPIFile();
+        unlink($loaded_file);
     }
 
     protected function remove(): void
@@ -55,9 +56,10 @@ class GenerateSdkOas
     }
 
     /**
-     * Load the OpenAPI YAML file, cast to array
+     * Load the OpenAPI YAML file, cast to array.
+     * Returns the path of the loaded file.
      */
-    protected function loadOpenAPIFile(): void
+    protected function loadOpenAPIFile(): string
     {
         $file = $this->language === 'en'
             ? __DIR__ . '/../openapi-sdk-raw.yaml'
@@ -70,6 +72,8 @@ class GenerateSdkOas
         }
 
         $this->openapi = Yaml::parse(file_get_contents($file));
+
+        return $file;
     }
 
     /**
