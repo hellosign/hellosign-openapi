@@ -55,7 +55,7 @@ class GenerateOas
     protected array $openapi;
 
     /**
-     * Contains the OpenAPI spec for SDK, in array form
+     * Contains the raw OpenAPI spec for SDK, in array form
      *
      * @var array
      */
@@ -241,6 +241,12 @@ class GenerateOas
         if ($team_id_index !== false) {
             unset($this->openapi['paths']['/team/add_member']['put']['parameters'][$team_id_index]);
         }
+
+        // Remove new_team_id, new_role from TeamRemoveMemberRequest
+        unset(
+            $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_team_id'],
+            $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_role']
+        );
     }
 
     /**
