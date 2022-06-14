@@ -24,8 +24,10 @@ public class Example {
 
         TeamApi api = new TeamApi(defaultClient);
 
+        String teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+
         try {
-            TeamMembersResponse result = api.teamMembers('team_id');
+            TeamMembersResponse result = api.teamMembers(teamId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TeamApi#teamMembers");

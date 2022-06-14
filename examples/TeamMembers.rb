@@ -10,8 +10,10 @@ end
 
 api = HelloSign::TeamApi.new
 
+team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
+
 begin
-  result = api.team_members("team_id")
+  result = api.team_members(team_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
