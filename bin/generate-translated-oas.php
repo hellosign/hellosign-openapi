@@ -234,13 +234,7 @@ class GenerateOas
     protected function removeGeneralizedTeamParams(): void
     {
         // Remove team_id from /team/add_member query params
-        $team_id_index = array_search(
-            ['name' => 'team_id'],
-            $this->openapi['paths']['/team/add_member']['put']['parameters']
-        );
-        if ($team_id_index !== false) {
-            unset($this->openapi['paths']['/team/add_member']['put']['parameters'][$team_id_index]);
-        }
+        unset($this->openapi['paths']['/team/add_member']['put']['parameters'][0]);
 
         // Remove new_team_id, new_role from TeamRemoveMemberRequest
         unset(
