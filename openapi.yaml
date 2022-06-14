@@ -1176,6 +1176,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenGenerate.py
+      x-hideTryItPanel: true
   '/oauth/token?refresh':
     post:
       tags:
@@ -1237,6 +1238,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenRefresh.py
+      x-hideTryItPanel: true
   /report/create:
     post:
       tags:
@@ -5975,6 +5977,11 @@ components:
 
             **Note**: This parameter is used only if `new_team_id` is provided.
           type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
       type: object
     TeamUpdateRequest:
       properties:

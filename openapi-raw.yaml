@@ -1176,6 +1176,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenGenerate.py
+      x-hideTryItPanel: true
   '/oauth/token?refresh':
     post:
       tags:
@@ -1237,6 +1238,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenRefresh.py
+      x-hideTryItPanel: true
   /report/create:
     post:
       tags:
@@ -5619,6 +5621,11 @@ components:
         new_role:
           description: '_t__TeamRemoveMember::NEW_ROLE'
           type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
       type: object
     TeamUpdateRequest:
       properties:
