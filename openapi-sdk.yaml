@@ -1176,6 +1176,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenGenerate.py
+      x-hideTryItPanel: true
   '/oauth/token?refresh':
     post:
       tags:
@@ -1237,6 +1238,7 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenRefresh.py
+      x-hideTryItPanel: true
   /report/create:
     post:
       tags:
@@ -8673,42 +8675,14 @@ components:
     api_key:
       type: http
       description: |-
-        The most common method to authenticate against the HelloSign API is by using API keys. See the [API Settings page](https://app.hellosign.com/home/myAccount#api) for more information.
-
-        Authentication is done via HTTP Basic Auth. Your API key is your basic auth username, and the password is blank.
-
-        Example:
-
-        ```shell
-        APIKEY=YOUR_SECRET_API_KEY_HERE
-        curl "https://api.hellosign.com/v3/template/list" \
-            -u "${APIKEY}:"
-        ```
-
-        or, you can also pass the API key as part of the URL:
-
-        ```shell
-        APIKEY=YOUR_SECRET_API_KEY_HERE
-        curl "https://${APIKEY}:@api.hellosign.com/v3/template/list"
-        ```
+        Your API key can be used to make calls to the HelloSign API. See [Authentication](/api/reference/authentication) for more information.   
+        ✅ Supported by Try it console (calls sent in `test_mode` only). 
       scheme: basic
     oauth2:
       type: http
       description: |-
-        You may also use an oauth2 token to perform API actions of behalf of
-        other users after they grant you the authorization to do so. See our
-        [Getting Started with OAuth 2.0](https://app.hellosign.com/api/oauthWalkthrough)
-        for more information.
-
-        Authentication is done via the `Authorization: Bearer` header.
-
-        Example:
-
-        ```shell
-        OAUTHTOKEN=YOUR_SECRET_OAUTH_TOKEN_HERE
-        curl 'https://api.hellosign.com/v3/signature_request/list' \
-            -H "Authorization: Bearer ${OAUTHTOKEN}"
-        ```
+        You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
+        ❌ **Not supported** by Try it console.  
       bearerFormat: JWT
       scheme: bearer
 security:
