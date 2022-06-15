@@ -241,6 +241,13 @@ class GenerateOas
             $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_team_id'],
             $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_role']
         );
+
+        // Remove new endpoints
+        unset(
+            $this->openapi['paths']['/team/info'],
+            $this->openapi['paths']['/team/members/{team_id}'],
+            $this->openapi['paths']['/team/sub_teams/{team_id}'],
+        );
     }
 
     /**
