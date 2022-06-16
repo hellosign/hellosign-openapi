@@ -55,6 +55,13 @@ class GenerateOas
     protected array $openapi;
 
     /**
+     * Contains the raw OpenAPI spec for SDK, in array form
+     *
+     * @var array
+     */
+    protected array $openapi_sdk_raw;
+
+    /**
      * Keep track of which strings have been translated using the chosen
      * language, which needed to fallback to default language, and which ones
      * did not get translated at all
@@ -83,11 +90,14 @@ class GenerateOas
     {
         $this->loadOpenAPIFile();
         $this->removeOneClickUrl();
+        $this->removeGeneralizedTeamParams();
         $this->loadTranslations();
 
         $this->openapi = $this->recurse($this->openapi);
+        $this->openapi_sdk_raw = $this->recurse($this->openapi_sdk_raw);
 
-        $this->saveOpenAPIFile();
+        $this->saveOpenAPIFile($this->openapi, 'openapi');
+        $this->saveOpenAPIFile($this->openapi_sdk_raw, 'openapi-sdk-raw');
 
         $this->translated['translated'] = array_unique($this->translated['translated']);
         $this->translated['fallback'] = array_unique($this->translated['fallback']);
@@ -136,20 +146,21 @@ class GenerateOas
         $file = __DIR__ . '/../openapi-raw.yaml';
 
         $this->openapi = Yaml::parse(file_get_contents($file));
+        $this->openapi_sdk_raw = $this->openapi;
     }
 
     /**
      * Takes the translated OpenAPI data and saves it to language-specific
      * YAML file
      */
-    protected function saveOpenAPIFile(): void
+    protected function saveOpenAPIFile(array $data, string $file_name): void
     {
         $file = $this->language === 'en'
-            ? __DIR__ . '/../openapi.yaml'
-            : __DIR__ . "/../openapi-{$this->language}.yaml";
+            ? __DIR__ . "/../{$file_name}.yaml"
+            : __DIR__ . "/../{$file_name}-{$this->language}.yaml";
 
         $yaml = Yaml::dump(
-            $this->openapi,
+            $data,
             10,
             2,
             Yaml::DUMP_OBJECT_AS_MAP
@@ -214,6 +225,28 @@ class GenerateOas
     {
         unset(
             $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
+        );
+        unset(
+            $this->openapi_sdk_raw['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
+        );
+    }
+
+    protected function removeGeneralizedTeamParams(): void
+    {
+        // Remove team_id from /team/add_member query params
+        unset($this->openapi['paths']['/team/add_member']['put']['parameters'][0]);
+
+        // Remove new_team_id, new_role from TeamRemoveMemberRequest
+        unset(
+            $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_team_id'],
+            $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_role']
+        );
+
+        // Remove new endpoints
+        unset(
+            $this->openapi['paths']['/team/info'],
+            $this->openapi['paths']['/team/members/{team_id}'],
+            $this->openapi['paths']['/team/sub_teams/{team_id}'],
         );
     }
 
