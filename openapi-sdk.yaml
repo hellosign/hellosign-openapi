@@ -3007,13 +3007,13 @@ paths:
       tags:
         - Team
       summary: 'List Team Members'
-      description: 'Provides a paginated list of members that belong to a given team.'
+      description: 'Provides a paginated list of members (and their roles) that belong to a given team.'
       operationId: teamMembers
       parameters:
         -
           name: team_id
           in: path
-          description: 'The id of the parent team.'
+          description: 'The id of the team that a member list is being requested from.'
           required: true
           schema:
             type: string
@@ -3021,7 +3021,7 @@ paths:
         -
           name: page
           in: query
-          description: 'Which page number of the team member List to return. Defaults to `1`.'
+          description: 'Which page number of the team member list to return. Defaults to `1`.'
           schema:
             type: integer
             default: 1
@@ -7673,7 +7673,7 @@ components:
           description: 'Email address of the team member.'
           type: string
         role:
-          description: 'Role which this team member takes.'
+          description: 'The specific role a member has on the team.'
           type: string
       type: object
       x-internal: true
@@ -7691,7 +7691,7 @@ components:
     TeamMembersResponse:
       properties:
         team_members:
-          description: 'Contains a list with team members.'
+          description: 'Contains a list of team members and their roles for a specific team.'
           type: array
           items:
             $ref: '#/components/schemas/TeamMemberResponse'
