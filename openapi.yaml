@@ -2629,15 +2629,7 @@ paths:
       summary: 'Add User to Team'
       description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
-      parameters:
-        -
-          name: team_id
-          in: query
-          description: 'The id of the team.'
-          required: false
-          schema:
-            type: string
-          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      parameters: []
       requestBody:
         required: true
         content:
