@@ -7956,6 +7956,10 @@ components:
       summary: '_t__Error::410'
       value:
         $ref: examples/json/Error410ResponseExample.json
+    Error422ResponseExample:
+      summary: '_t__Error::422'
+      value:
+        $ref: examples/json/Error422ResponseExample.json
     Error429ResponseExample:
       summary: '_t__Error::429'
       value:

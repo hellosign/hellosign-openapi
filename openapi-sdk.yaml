@@ -8455,6 +8455,10 @@ components:
       summary: 'Error 410 deleted'
       value:
         $ref: examples/json/Error410ResponseExample.json
+    Error422ResponseExample:
+      summary: 'Error 422 unprocessable_entity'
+      value:
+        $ref: examples/json/Error422ResponseExample.json
     Error429ResponseExample:
       summary: 'Error 429 exceeded_rate'
       value:
