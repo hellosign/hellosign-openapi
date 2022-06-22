@@ -264,6 +264,27 @@
     "is_qualified_signature": false,
     "test_mode": false,
     "use_text_tags": false
+  },
+  "sms_delivery": {
+    "file": [
+      "pdf-sample.pdf",
+      "pdf-sample-2.pdf"
+    ],
+    "signers": [
+      {
+        "email_address": "s1@example.com",
+        "name": "Signer 1",
+        "order": 0,
+        "sms_phone_number": "+14155550100",
+        "sms_phone_number_type": "delivery"
+      }
+    ],
+    "allow_decline": false,
+    "allow_reassign": false,
+    "hide_text_tags": false,
+    "is_qualified_signature": false,
+    "test_mode": false,
+    "use_text_tags": false
   }
 }
 

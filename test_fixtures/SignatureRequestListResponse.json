@@ -31,7 +31,9 @@
             "order": 0,
             "status_code": "awaiting_signature",
             "has_pin": false,
-            "has_sms_auth": false
+            "has_sms_auth": false,
+            "has_sms_delivery": false,
+            "sms_phone_number": null
           },
           {
             "signature_id": "616629ed37f8588d28600be17ab5d6b7",
@@ -40,7 +42,9 @@
             "order": 1,
             "status_code": "awaiting_signature",
             "has_pin": false,
-            "has_sms_auth": false
+            "has_sms_auth": false,
+            "has_sms_delivery": false,
+            "sms_phone_number": null
           }
         ],
         "cc_email_addresses": [
