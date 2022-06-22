@@ -881,6 +881,8 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
+  **Note**: This only works in non embedded endpoints.
+  
   If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
   
   If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
@@ -898,6 +900,8 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
+  **Note**: This only works in non embedded endpoints.
+  
   If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
   
   If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
