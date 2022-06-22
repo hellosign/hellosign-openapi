@@ -8,9 +8,11 @@
     "quotas": {
       "api_signature_requests_left": 1250,
       "documents_left": null,
-      "templates_left": null
+      "templates_left": null,
+      "sms_signatures_left": 1
     },
     "callback_url": "https://www.example.com/callback",
-    "role_code": null
+    "role_code": null,
+    "locale": "en-US"
   }
 }

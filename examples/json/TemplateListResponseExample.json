@@ -11,8 +11,11 @@
       "title": "Purchase order",
       "message": "",
       "updated_at": 1570471067,
+      "is_creator": false,
       "is_embedded": false,
+      "can_edit": true,
       "metadata": {},
+      "is_locked": false,
       "signer_roles": [
         {
           "name": "Client"
@@ -32,7 +35,22 @@
           "custom_fields": [
             {
               "name": "Cost",
-              "type": "text"
+              "type": "text",
+              "signer": null,
+              "x": 378,
+              "y": 36,
+              "width": 84,
+              "height": 14,
+              "required": false,
+              "api_id": "b0e195cf-fb85-4dd4-94ab-6f62450c7059",
+              "group": null,
+              "avg_text_length": {
+                "num_lines": 1,
+                "num_chars_per_line": 22
+              },
+              "isMultiline": false,
+              "originalFontSize": 12,
+              "fontFamily": "arial"
             }
           ]
         }
@@ -40,17 +58,29 @@
       "accounts": [
         {
           "account_id": "5008b25c7f67153e57d5a357b1687968068fb465",
-          "email_address": "me@hellosign.com"
+          "email_address": "me@hellosign.com",
+          "is_locked": false,
+          "is_paid_hs": true,
+          "is_paid_hf": false,
+          "quotas": {
+            "templates_left": null,
+            "documents_left": 3600000,
+            "api_signature_requests_left": 0,
+            "sms_verifications_left": 300000
+          }
         }
       ]
     },
     {
-      "template_id": "21f920ec2b7f4b6bb64d3ed79f26303843046536",
+      "template_id": "f57db65d3f933b5316d398057a36176831451a35",
       "title": "Mutual NDA",
       "message": "Please sign this NDA as soon as possible.",
-      "updated_at": 1329478947,
+      "updated_at": 1570471067,
+      "is_creator": true,
       "is_embedded": false,
+      "can_edit": true,
       "metadata": {},
+      "is_locked": false,
       "signer_roles": [
         {
           "name": "Outside Vendor",
@@ -70,56 +100,118 @@
         {
           "index": 0,
           "name": "mutual_nda.pdf",
-          "field_groups": [],
+          "field_groups": [
+            {
+              "name": "group1",
+              "rule": "require_1-ormore"
+            }
+          ],
           "form_fields": [
+            {
+              "api_id": "b65e03_10",
+              "name": "DepartmentA",
+              "type": "checkbox",
+              "signer": "1",
+              "x": 117,
+              "y": 19,
+              "width": 15,
+              "height": 15,
+              "required": false,
+              "group": "group1"
+            },
+            {
+              "api_id": "b65e03_11",
+              "name": "DepartmentB",
+              "type": "checkbox",
+              "signer": "2",
+              "x": 118,
+              "y": 41,
+              "width": 15,
+              "height": 15,
+              "required": false,
+              "group": "group1"
+            },
             {
               "api_id": "0ec7a7_1",
               "name": "VendorName",
               "type": "text",
+              "signer": "1",
               "x": 160,
               "y": 141,
               "width": 80,
               "height": 30,
               "required": true,
-              "group": null
+              "group": null,
+              "avg_text_length": {
+                "num_lines": 1,
+                "num_chars_per_line": 19
+              },
+              "isMultiline": false,
+              "originalFontSize": 12,
+              "fontFamily": "arial"
             },
             {
               "api_id": "0ec7a7_2",
               "name": "VendorTitle",
               "type": "text",
+              "signer": "2",
               "x": 160,
               "y": 181,
               "width": 80,
               "height": 30,
               "required": true,
-              "group": null
+              "group": null,
+              "avg_text_length": {
+                "num_lines": 1,
+                "num_chars_per_line": 19
+              },
+              "isMultiline": false,
+              "originalFontSize": 12,
+              "fontFamily": "arial"
             },
             {
               "api_id": "0ec7a7_3",
               "name": "ManagerName",
               "type": "text",
+              "signer": "2",
               "x": 160,
               "y": 221,
               "width": 80,
               "height": 30,
               "required": true,
-              "group": null
+              "group": null,
+              "avg_text_length": {
+                "num_lines": 1,
+                "num_chars_per_line": 19
+              },
+              "isMultiline": false,
+              "originalFontSize": 12,
+              "fontFamily": "arial"
             },
             {
               "api_id": "0ec7a7_4",
               "name": "ManagerTitle",
               "type": "text",
+              "signer": "2",
               "x": 160,
               "y": 251,
               "width": 80,
               "height": 30,
               "required": true,
-              "group": null
+              "group": null,
+              "avg_text_length": {
+                "num_lines": 1,
+                "num_chars_per_line": 19
+              },
+              "isMultiline": false,
+              "originalFontSize": 12,
+              "fontFamily": "arial"
             },
             {
               "api_id": "0ec7a7_5",
               "name": "DateSigned",
               "type": "date_signed",
+              "signer": "1",
               "x": 523,
               "y": 28,
               "width": 105,
@@ -131,7 +223,22 @@
           "custom_fields": [
             {
               "name": "Effective Date",
-              "type": "text"
+              "type": "text",
+              "signer": null,
+              "x": 378,
+              "y": 36,
+              "width": 84,
+              "height": 14,
+              "required": false,
+              "api_id": "78083014-32d8-4b5b-b65e-fe6010f3be64",
+              "group": null,
+              "avg_text_length": {
+                "num_lines": 1,
+                "num_chars_per_line": 22
+              },
+              "isMultiline": false,
+              "originalFontSize": 12,
+              "fontFamily": "arial"
             }
           ]
         }
@@ -139,7 +246,16 @@
       "accounts": [
         {
           "account_id": "5008b25c7f67153e57d5a357b1687968068fb465",
-          "email_address": "me@hellosign.com"
+          "email_address": "me@hellosign.com",
+          "is_locked": false,
+          "is_paid_hs": true,
+          "is_paid_hf": false,
+          "quotas": {
+            "templates_left": null,
+            "documents_left": 3600000,
+            "api_signature_requests_left": 0,
+            "sms_verifications_left": 300000
+          }
         }
       ]
     }
