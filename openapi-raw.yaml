@@ -4808,7 +4808,7 @@ components:
           description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestSigner'
+            $ref: '#/components/schemas/SubSignatureRequestSignerEmbedded'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -5435,6 +5435,36 @@ components:
         sms_phone_number:
           description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
           type: string
+        sms_phone_number_type:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE'
+          type: string
+          enum:
+            - authentication
+            - delivery
+      type: object
+    SubSignatureRequestSignerEmbedded:
+      required:
+        - name
+        - email_address
+      properties:
+        name:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_NAME'
+          type: string
+        email_address:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS'
+          type: string
+          format: email
+        order:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
+          type: integer
+        pin:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
+          type: string
+          maxLength: 12
+          minLength: 4
+        sms_phone_number:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
+          type: string
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -5460,6 +5490,12 @@ components:
         sms_phone_number:
           description: '_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER'
           type: string
+        sms_phone_number_type:
+          description: '_t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE'
+          type: string
+          enum:
+            - authentication
+            - delivery
       type: object
     SubUnclaimedDraftSigner:
       required:

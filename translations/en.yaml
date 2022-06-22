@@ -876,9 +876,16 @@
 "Sub::SignatureRequestSigner::SIGNER_ORDER": The order the signer is required to sign in.
 "Sub::SignatureRequestSigner::SIGNER_PIN": The 4- to 12-character access code that will secure this signer's signature page.
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER": |-
-  An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+  An E.164 formatted phone number.
 
   **Note**: Not available in test mode and requires a Standard plan or higher.
+
+"Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
+  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  
+  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
+  
+  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -886,9 +893,16 @@
 "Sub::SignatureRequestTemplateSigner::PIN": The 4- to 12-character access code that will secure this signer's signature page.
 "Sub::SignatureRequestTemplateSigner::ROLE": Must match an existing role in chosen Template(s). It's case-sensitive.
 "Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER": |-
-  An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+  An E.164 formatted phone number.
 
   **Note**: Not available in test mode and requires a Standard plan or higher.
+
+"Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
+  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  
+  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
+  
+  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
