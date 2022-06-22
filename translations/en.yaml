@@ -1277,5 +1277,6 @@
 "Error::404": Error 404 not_found
 "Error::409": Error 409 conflict
 "Error::410": Error 410 deleted
+"Error::422": Error 422 unprocessable_entity
 "Error::429": Error 429 exceeded_rate
 "Error::4XX": Error 4XX failed_operation

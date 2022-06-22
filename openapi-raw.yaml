@@ -3465,6 +3465,8 @@ paths:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
                   $ref: '#/components/examples/Error404ResponseExample'
+                422_example:
+                  $ref: '#/components/examples/Error422ResponseExample'
                 429_example:
                   $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
