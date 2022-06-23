@@ -4977,7 +4977,7 @@ components:
           description: 'Add Signers to your Signature Request.'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestSignerEmbedded'
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
