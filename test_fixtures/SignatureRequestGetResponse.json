@@ -55,7 +55,9 @@
           "order": 0,
           "status_code": "awaiting_signature",
           "has_pin": false,
-          "has_sms_auth": false
+          "has_sms_auth": false,
+          "has_sms_delivery": true,
+          "sms_phone_number": "+14155550100"
         },
         {
           "signature_id": "616629ed37f8588d28600be17ab5d6b7",
@@ -64,7 +66,8 @@
           "order": 1,
           "status_code": "awaiting_signature",
           "has_pin": false,
-          "has_sms_auth": false
+          "has_sms_auth": false,
+          "has_sms_delivery": false
         }
       ],
       "cc_email_addresses": [

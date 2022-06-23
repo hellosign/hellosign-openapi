@@ -196,7 +196,9 @@
       {
         "email_address": "s1@example.com",
         "name": "Signer 1",
-        "order": 0
+        "order": 0,
+        "sms_phone_number": "+14155550100",
+        "sms_phone_number_type": "delivery"
       },
       {
         "email_address": "s2@example.com",

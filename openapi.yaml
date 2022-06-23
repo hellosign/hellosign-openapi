@@ -4977,7 +4977,7 @@ components:
           description: 'Add Signers to your Signature Request.'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestSignerEmbedded'
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -5766,6 +5766,8 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
+            **Note**: This only works in non embedded endpoints.
+
             If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
 
             If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
@@ -5775,33 +5777,6 @@ components:
           enum:
             - authentication
             - delivery
-      type: object
-    SubSignatureRequestSignerEmbedded:
-      required:
-        - name
-        - email_address
-      properties:
-        name:
-          description: 'The name of the signer.'
-          type: string
-        email_address:
-          description: 'The email address of the signer.'
-          type: string
-          format: email
-        order:
-          description: 'The order the signer is required to sign in.'
-          type: integer
-        pin:
-          description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: |-
-            An E.164 formatted phone number.
-
-            **Note**: Not available in test mode and requires a Standard plan or higher.
-          type: string
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -5832,6 +5807,8 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
+            **Note**: This only works in non embedded endpoints.
+
             If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
 
             If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
@@ -7582,6 +7559,14 @@ components:
           nullable: true
           description: 'Boolean to indicate whether this signature has SMS authentication enabled.'
           type: boolean
+        has_sms_delivery:
+          nullable: true
+          description: 'Boolean to indicate whether this signature has SMS delivery enabled.'
+          type: boolean
+        sms_phone_number:
+          nullable: true
+          description: 'The SMS phone number used for authentication or signature request delivery.'
+          type: string
         reassigned_by:
           nullable: true
           description: 'Email address of original signer who reassigned to this signer.'

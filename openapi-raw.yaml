@@ -4808,7 +4808,7 @@ components:
           description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestSignerEmbedded'
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -5441,30 +5441,6 @@ components:
           enum:
             - authentication
             - delivery
-      type: object
-    SubSignatureRequestSignerEmbedded:
-      required:
-        - name
-        - email_address
-      properties:
-        name:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_NAME'
-          type: string
-        email_address:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS'
-          type: string
-          format: email
-        order:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
-          type: integer
-        pin:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
-          type: string
-          maxLength: 12
-          minLength: 4
-        sms_phone_number:
-          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
-          type: string
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -7072,6 +7048,14 @@ components:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH'
           type: boolean
+        has_sms_delivery:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY'
+          type: boolean
+        sms_phone_number:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER'
+          type: string
         reassigned_by:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::REASSIGNED_BY'
