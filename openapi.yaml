@@ -3509,6 +3509,8 @@ paths:
                   $ref: '#/components/examples/Error403ResponseExample'
                 404_example:
                   $ref: '#/components/examples/Error404ResponseExample'
+                422_example:
+                  $ref: '#/components/examples/Error422ResponseExample'
                 429_example:
                   $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
@@ -8515,6 +8517,10 @@ components:
       summary: 'Error 410 deleted'
       value:
         $ref: examples/json/Error410ResponseExample.json
+    Error422ResponseExample:
+      summary: 'Error 422 unprocessable_entity'
+      value:
+        $ref: examples/json/Error422ResponseExample.json
     Error429ResponseExample:
       summary: 'Error 429 exceeded_rate'
       value:
