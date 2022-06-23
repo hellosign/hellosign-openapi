@@ -4438,7 +4438,7 @@ components:
         -
           required:
             - type
-            - checked
+            - is_checked
           properties:
             type:
               description: '_t__Sub::FormFieldsPerDocument::TYPE_CHECKBOX'
@@ -4447,8 +4447,8 @@ components:
             group:
               description: '_t__Sub::FormFieldsPerDocument::GROUP'
               type: string
-            checked:
-              description: '_t__Sub::FormFieldsPerDocument::CHECKED_CHECKBOX'
+            is_checked:
+              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_CHECKBOX'
               type: boolean
           type: object
     SubFormFieldsPerDocumentRadio:
@@ -4461,7 +4461,7 @@ components:
           required:
             - type
             - group
-            - checked
+            - is_checked
           properties:
             type:
               description: '_t__Sub::FormFieldsPerDocument::TYPE_RADIO'
@@ -4470,8 +4470,8 @@ components:
             group:
               description: '_t__Sub::FormFieldsPerDocument::GROUP'
               type: string
-            checked:
-              description: '_t__Sub::FormFieldsPerDocument::CHECKED_RADIO'
+            is_checked:
+              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_RADIO'
               type: boolean
           type: object
     SubFormFieldsPerDocumentSignature:
