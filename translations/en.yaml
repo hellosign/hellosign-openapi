@@ -1148,6 +1148,8 @@
 "SignatureRequestResponseSignatures::ERROR": Error message pertaining to this signer, or null.
 "SignatureRequestResponseSignatures::HAS_PIN": Boolean to indicate whether this signature requires a PIN to access.
 "SignatureRequestResponseSignatures::HAS_SMS_AUTH": Boolean to indicate whether this signature has SMS authentication enabled.
+"SignatureRequestResponseSignatures::HAS_SMS_DELIVERY": Boolean to indicate whether this signature has SMS delivery enabled.
+"SignatureRequestResponseSignatures::SMS_PHONE_NUMBER": The SMS phone number used for authentication or signature request delivery.
 "SignatureRequestResponseSignatures::LAST_VIEWED_AT": The time that the document was last viewed by this signer or null.
 "SignatureRequestResponseSignatures::LAST_REMINDED_AT": The time the last reminder email was sent to the signer or null.
 "SignatureRequestResponseSignatures::NUM_PAGES": Total number of pages available

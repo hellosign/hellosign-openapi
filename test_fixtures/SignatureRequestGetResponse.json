@@ -67,8 +67,7 @@
           "status_code": "awaiting_signature",
           "has_pin": false,
           "has_sms_auth": false,
-          "has_sms_delivery": false,
-          "sms_phone_number": null
+          "has_sms_delivery": false
         }
       ],
       "cc_email_addresses": [

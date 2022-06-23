@@ -7559,6 +7559,14 @@ components:
           nullable: true
           description: 'Boolean to indicate whether this signature has SMS authentication enabled.'
           type: boolean
+        has_sms_delivery:
+          nullable: true
+          description: 'Boolean to indicate whether this signature has SMS delivery enabled.'
+          type: boolean
+        sms_phone_number:
+          nullable: true
+          description: 'The SMS phone number used for authentication or signature request delivery.'
+          type: string
         reassigned_by:
           nullable: true
           description: 'Email address of original signer who reassigned to this signer.'

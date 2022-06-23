@@ -7048,6 +7048,14 @@ components:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH'
           type: boolean
+        has_sms_delivery:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY'
+          type: boolean
+        sms_phone_number:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER'
+          type: string
         reassigned_by:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::REASSIGNED_BY'
