@@ -93,7 +93,6 @@
     "metadata": {
       "field1": "value1"
     },
-    "populate_auto_fill_fields": false,
     "signers": [
       {
         "email_address": "jack@example.com",
