@@ -248,10 +248,6 @@
 
   **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
 "SignatureRequestCreateEmbedded::MESSAGE": The custom message in the email that will be sent to the signers.
-"SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
-  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
-  
-  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestCreateEmbedded::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
