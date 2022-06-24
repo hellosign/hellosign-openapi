@@ -6,7 +6,7 @@
     "height": 16,
     "x": 112,
     "y": 328,
-    "checked": false
+    "is_checked": false
   },
   "SubFormFieldsPerDocumentCheckboxMerge": {
     "type" : "checkbox-merge",
@@ -51,7 +51,7 @@
     "x": 112,
     "y": 328,
     "group": "Radio Group",
-    "checked": false
+    "is_checked": false
   },
   "SubFormFieldsPerDocumentSignature": {
     "type" : "signature",

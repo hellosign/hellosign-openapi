@@ -811,8 +811,8 @@
 "Sub::FormFieldsPerDocument::API_ID": An identifier for the field that is unique across all documents in the request.
 "Sub::FormFieldsPerDocument::AUTO_FILL_TYPE": Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
 "Sub::FormFieldsPerDocument::LINK_ID": Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
-"Sub::FormFieldsPerDocument::CHECKED_CHECKBOX": "`true` for checking the checkbox field by default, otherwise `false`."
-"Sub::FormFieldsPerDocument::CHECKED_RADIO": "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
+"Sub::FormFieldsPerDocument::IS_CHECKED_CHECKBOX": "`true` for checking the checkbox field by default, otherwise `false`."
+"Sub::FormFieldsPerDocument::IS_CHECKED_RADIO": "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
 "Sub::FormFieldsPerDocument::CONTENT_HYPERLINK": Link Text.
 "Sub::FormFieldsPerDocument::CONTENT_URL": Link URL.

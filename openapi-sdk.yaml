@@ -4519,7 +4519,7 @@ components:
         -
           required:
             - type
-            - checked
+            - is_checked
           properties:
             type:
               description: 'A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.'
@@ -4528,7 +4528,7 @@ components:
             group:
               description: 'String referencing group defined in `form_field_groups` parameter.'
               type: string
-            checked:
+            is_checked:
               description: '`true` for checking the checkbox field by default, otherwise `false`.'
               type: boolean
           type: object
@@ -4542,7 +4542,7 @@ components:
           required:
             - type
             - group
-            - checked
+            - is_checked
           properties:
             type:
               description: 'An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.'
@@ -4551,7 +4551,7 @@ components:
             group:
               description: 'String referencing group defined in `form_field_groups` parameter.'
               type: string
-            checked:
+            is_checked:
               description: '`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.'
               type: boolean
           type: object
