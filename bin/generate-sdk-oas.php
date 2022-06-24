@@ -3,6 +3,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Hello\OpenApi\RawFile;
 use Symfony\Component\Yaml\Yaml;
 
 ini_set('display_errors', 1);
@@ -16,12 +17,7 @@ set_error_handler(function ($level, $msg) {
 
 class GenerateSdkOas
 {
-    /**
-     * Language we are currently translating for
-     *
-     * @var string
-     */
-    protected string $language;
+    private const SURFACE_ID = 'sdk';
 
     /**
      * Contains the OpenAPI spec, in array form
@@ -30,21 +26,15 @@ class GenerateSdkOas
      */
     protected array $openapi;
 
-    /**
-     * Contains translations from chosen language
-     *
-     * @var Array<string, string>
-     */
-    protected array $translations = [];
-
-    public function __construct(string $language)
-    {
-        $this->language = trim(strtolower($language));
-    }
-
     public function run(): void
     {
-        $this->loadOpenAPIFile();
+        $raw_file = new RawFile(__DIR__ . '/../openapi-raw.yaml');
+        $translation_file = __DIR__ . '/../translations/en.yaml';
+        $this->openapi = $raw_file->translate(
+            self::SURFACE_ID,
+            $translation_file,
+            $translation_file
+        );
         $this->remove();
         $this->saveOpenAPIFile();
     }
@@ -55,32 +45,12 @@ class GenerateSdkOas
     }
 
     /**
-     * Load the OpenAPI YAML file, cast to array
-     */
-    protected function loadOpenAPIFile(): void
-    {
-        $file = $this->language === 'en'
-            ? __DIR__ . '/../openapi.yaml'
-            : __DIR__ . "/../openapi-{$this->language}.yaml";
-
-        if (!file_exists($file)) {
-            throw new Exception(
-                "No translated file found for {$this->language}"
-            );
-        }
-
-        $this->openapi = Yaml::parse(file_get_contents($file));
-    }
-
-    /**
      * Takes the translated OpenAPI data and saves it to language-specific
      * YAML file
      */
     protected function saveOpenAPIFile(): void
     {
-        $file = $this->language === 'en'
-            ? __DIR__ . '/../openapi-sdk.yaml'
-            : __DIR__ . "/../openapi-{$this->language}-sdk.yaml";
+        $file = __DIR__ . '/../openapi-sdk.yaml';
 
         $yaml = Yaml::dump(
             $this->openapi,
@@ -101,7 +71,5 @@ class GenerateSdkOas
     }
 }
 
-$language = $argv[1] ?? 'en';
-
-$generate = new GenerateSdkOas($language);
+$generate = new GenerateSdkOas();
 $generate->run();
