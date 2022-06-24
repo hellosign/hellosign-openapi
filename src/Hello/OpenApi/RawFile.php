@@ -20,27 +20,38 @@ class RawFile
     private const MARKDOWN_PREPEND = '_md__';
 
     /**
+     * Special value for identifying all surfaces. (sdk and doc)
+     */
+    private const ALL_SURFACES = 'all';
+
+    /**
      * Custom key to determine a surface on which a spec
      * is to be shown.
      *
      * e.g.
-     * x-showOn: 'SDK'
-     * x-showOn: 'DOC'
-     * x-showOn: 'NONE'
+     * x-hideOn: 'SDK'
+     * x-hideOn: 'DOC'
+     * x-hideOn: 'NONE'
      */
-    private const SHOW_ON = 'x-showOn';
+    private const HIDE_ON = 'x-hideOn';
 
     private const PREPENDS = [
         self::TRANSLATE_PREPEND,
         self::MARKDOWN_PREPEND,
     ];
 
+    /**
+     * Contains the OpenAPI spec, in array form
+     *
+     * @var array
+     */
     private array $openapi;
 
     /**
      * @var mixed
      */
     private $translations;
+
     /**
      * @var mixed
      */
@@ -53,7 +64,7 @@ class RawFile
      *
      * @var array[]
      */
-    private array $translated = [
+    private array $logs = [
         'translated'   => [],
         'fallback'     => [],
         'untranslated' => [],
@@ -75,19 +86,28 @@ class RawFile
     public function translate(
         string $surface_id,
         string $translation_file,
-        string $fallback_file,
-        array &$logs = []
+        string $fallback_file
     ): array {
         $this->loadTranslations($translation_file, $fallback_file);
         $result = $this->recurse($this->openapi, $surface_id);
 
-        $this->translated['translated'] = array_unique($this->translated['translated']);
-        $this->translated['fallback'] = array_unique($this->translated['fallback']);
-        $this->translated['untranslated'] = array_unique($this->translated['untranslated']);
-
-        $logs = $this->translated;
+        $this->logs['translated'] = array_unique($this->logs['translated']);
+        $this->logs['fallback'] = array_unique($this->logs['fallback']);
+        $this->logs['untranslated'] = array_unique($this->logs['untranslated']);
 
         return $result;
+    }
+
+    /**
+     * Provides information of which strings have been translated using the
+     * chosen language, which needed to fallback to default language, and which
+     * ones did not get translated at all
+     *
+     * @return array[]
+     */
+    public function getLogs(): array
+    {
+        return $this->logs;
     }
 
     /**
@@ -124,10 +144,13 @@ class RawFile
     {
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
-                if (!isset($v[self::SHOW_ON]) || $v[self::SHOW_ON] === $surface_id) {
-                    $data[$k] = $this->recurse($v, $surface_id);
-                } else {
+                if (isset($v[self::HIDE_ON])
+                    && ($v[self::HIDE_ON] === $surface_id
+                        || $v[self::HIDE_ON] === self::ALL_SURFACES)
+                ) {
                     unset($data[$k]);
+                } else {
+                    $data[$k] = $this->recurse($v, $surface_id);
                 }
 
                 continue;
@@ -146,7 +169,7 @@ class RawFile
                         $translationString,
                         $this->translations
                     );
-                    $this->translated['translated'][] = $translationString;
+                    $this->logs['translated'][] = $translationString;
                     // We found translation, move on to next data
                     continue 2;
                 }
@@ -157,14 +180,14 @@ class RawFile
                         $translationString,
                         $this->fallback_translations
                     );
-                    $this->translated['fallback'][] = $translationString;
+                    $this->logs['fallback'][] = $translationString;
                     // We found fallback translation, move on to next data
                     continue 2;
                 }
             }
 
             if (!empty($translationString)) {
-                $this->translated['untranslated'][] = $translationString;
+                $this->logs['untranslated'][] = $translationString;
             }
         }
 

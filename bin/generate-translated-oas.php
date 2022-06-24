@@ -60,9 +60,10 @@ class GenerateOas
         $this->openapi = $raw_file->translate(
             self::SURFACE_ID,
             $translation_file,
-            $fallback_file,
-            $this->translated
+            $fallback_file
         );
+
+        $this->translated = $raw_file->getLogs();
 
         $this->saveOpenAPIFile();
     }
