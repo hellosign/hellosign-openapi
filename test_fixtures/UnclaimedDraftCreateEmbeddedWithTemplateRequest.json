@@ -40,6 +40,7 @@
       "custom_text": "NDA #9"
     },
     "preview_only": true,
+    "populate_auto_fill_fields": true,
     "requester_email_address": "jack@hellosign.com",
     "requesting_redirect_url": "https://example.com/redirect",
     "show_preview": true,
