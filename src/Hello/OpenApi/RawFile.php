@@ -20,11 +20,6 @@ class RawFile
     private const MARKDOWN_PREPEND = '_md__';
 
     /**
-     * Special value for identifying all surfaces. (sdk and doc)
-     */
-    private const ALL_SURFACES = 'all';
-
-    /**
      * Custom key to determine a surface on which a spec
      * is to be shown.
      *
@@ -144,10 +139,7 @@ class RawFile
     {
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
-                if (isset($v[self::HIDE_ON])
-                    && ($v[self::HIDE_ON] === $surface_id
-                        || $v[self::HIDE_ON] === self::ALL_SURFACES)
-                ) {
+                if (isset($v[self::HIDE_ON]) && $v[self::HIDE_ON] === $surface_id) {
                     unset($data[$k]);
                 } else {
                     $data[$k] = $this->recurse($v, $surface_id);
