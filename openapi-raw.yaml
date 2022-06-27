@@ -5311,7 +5311,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5332,6 +5331,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::NAME'
           type: string
         page:
+          nullable: true
           description: '_t__Sub::FormFieldsPerDocument::PAGE'
           type: integer
         required:
@@ -7625,9 +7625,6 @@ components:
           type: string
         claim_url:
           description: '_t__UnclaimedDraft::CLAIM_URL'
-          type: string
-        one_click_url:
-          description: '_t__UnclaimedDraft::ONE_CLICK_URL'
           type: string
         signing_redirect_url:
           nullable: true

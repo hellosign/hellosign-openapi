@@ -1324,7 +1324,6 @@
 "UnclaimedDraftEditAndResendExample::SUMMARY": Unclaimed Draft Edit and Resend
 "UnclaimedDraft::CLAIM_URL": The URL to be used to claim this UnclaimedDraft.
 "UnclaimedDraft::EXPIRES_AT": When the link expires.
-"UnclaimedDraft::ONE_CLICK_URL": One-Click Login URL
 "UnclaimedDraft::REQUESTING_REDIRECT_URL": The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
 "UnclaimedDraft::SIGNATURE_REQUEST_ID": The ID of the signature request that is represented by this UnclaimedDraft.
 "UnclaimedDraft::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
