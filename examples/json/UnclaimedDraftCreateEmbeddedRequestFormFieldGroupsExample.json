@@ -15,7 +15,7 @@
       "height": 18,
       "required": false,
       "group": "RadioItemGroup1",
-      "checked": 1,
+      "is_checked": 1,
       "signer": 0,
       "page": 1
     },
@@ -30,7 +30,7 @@
       "height": 18,
       "required": false,
       "group": "RadioItemGroup1",
-      "checked": 0,
+      "is_checked": 0,
       "signer": 0,
       "page": 1
     }

@@ -3,6 +3,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Hello\OpenApi\RawFile;
 use Symfony\Component\Yaml\Yaml;
 
 ini_set('display_errors', 1);
@@ -16,29 +17,7 @@ set_error_handler(function ($level, $msg) {
 
 class GenerateOas
 {
-    /**
-     * We expect translation key strings to look like
-     * "_t__AccountCreate::SUMMARY"
-     */
-    protected const TRANSLATE_PREPEND = '_t__';
-
-    /**
-     * We expect markdown key strings to look like
-     * "_md__OpenApi::TAG"
-     */
-    protected const MARKDOWN_PREPEND = '_md__';
-
-    protected const PREPENDS = [
-        self::TRANSLATE_PREPEND,
-        self::MARKDOWN_PREPEND,
-    ];
-
-    /**
-     * Contains translations from default language "en"
-     *
-     * @var Array<string, string>
-     */
-    protected array $fallback_translations = [];
+    private const SURFACE_ID = 'doc';
 
     /**
      * Language we are currently translating for
@@ -55,13 +34,6 @@ class GenerateOas
     protected array $openapi;
 
     /**
-     * Contains the raw OpenAPI spec for SDK, in array form
-     *
-     * @var array
-     */
-    protected array $openapi_sdk_raw;
-
-    /**
      * Keep track of which strings have been translated using the chosen
      * language, which needed to fallback to default language, and which ones
      * did not get translated at all
@@ -74,13 +46,6 @@ class GenerateOas
         'untranslated' => [],
     ];
 
-    /**
-     * Contains translations from chosen language
-     *
-     * @var Array<string, string>
-     */
-    protected array $translations = [];
-
     public function __construct(string $language)
     {
         $this->language = trim(strtolower($language));
@@ -88,20 +53,19 @@ class GenerateOas
 
     public function run(): void
     {
-        $this->loadOpenAPIFile();
-        $this->removeOneClickUrl();
-        $this->removeGeneralizedTeamParams();
-        $this->loadTranslations();
+        $raw_file = new RawFile(__DIR__ . '/../openapi-raw.yaml');
+        $translation_file = __DIR__ . "/../translations/{$this->language}.yaml";
+        $fallback_file = __DIR__ . '/../translations/en.yaml';
 
-        $this->openapi = $this->recurse($this->openapi);
-        $this->openapi_sdk_raw = $this->recurse($this->openapi_sdk_raw);
+        $this->openapi = $raw_file->translate(
+            self::SURFACE_ID,
+            $translation_file,
+            $fallback_file
+        );
 
-        $this->saveOpenAPIFile($this->openapi, 'openapi');
-        $this->saveOpenAPIFile($this->openapi_sdk_raw, 'openapi-sdk-raw');
+        $this->translated = $raw_file->getLogs();
 
-        $this->translated['translated'] = array_unique($this->translated['translated']);
-        $this->translated['fallback'] = array_unique($this->translated['fallback']);
-        $this->translated['untranslated'] = array_unique($this->translated['untranslated']);
+        $this->saveOpenAPIFile();
     }
 
     /**
@@ -115,52 +79,17 @@ class GenerateOas
     }
 
     /**
-     * Load both chosen language and fallback translations
-     */
-    protected function loadTranslations(): void
-    {
-        $file = __DIR__ . "/../translations/{$this->language}.yaml";
-        $fallback = __DIR__ . '/../translations/en.yaml';
-
-        if (!file_exists($file)) {
-            throw new Exception(
-                "No translation file found for {$this->language}"
-            );
-        }
-
-        if (!file_exists($fallback)) {
-            throw new Exception(
-                "Fallback translation file not found at {$fallback}"
-            );
-        }
-
-        $this->translations = Yaml::parse(file_get_contents($file));
-        $this->fallback_translations = Yaml::parse(file_get_contents($fallback));
-    }
-
-    /**
-     * Load the OpenAPI YAML file, cast to array
-     */
-    protected function loadOpenAPIFile(): void
-    {
-        $file = __DIR__ . '/../openapi-raw.yaml';
-
-        $this->openapi = Yaml::parse(file_get_contents($file));
-        $this->openapi_sdk_raw = $this->openapi;
-    }
-
-    /**
      * Takes the translated OpenAPI data and saves it to language-specific
      * YAML file
      */
-    protected function saveOpenAPIFile(array $data, string $file_name): void
+    protected function saveOpenAPIFile(): void
     {
         $file = $this->language === 'en'
-            ? __DIR__ . "/../{$file_name}.yaml"
-            : __DIR__ . "/../{$file_name}-{$this->language}.yaml";
+            ? __DIR__ . '/../openapi.yaml'
+            : __DIR__ . "/../openapi-{$this->language}.yaml";
 
         $yaml = Yaml::dump(
-            $data,
+            $this->openapi,
             10,
             2,
             Yaml::DUMP_OBJECT_AS_MAP
@@ -175,100 +104,6 @@ class GenerateOas
         $yaml = str_replace('application/json: []', 'application/json: {}', $yaml);
 
         file_put_contents($file, $yaml);
-    }
-
-    /**
-     * Recursive function that iterates through all keys in the OpenAPI spec,
-     * searching for strings prepended with TRANSLATE_PREPEND and attempting
-     * to translate them.
-     */
-    protected function recurse(iterable $data): iterable
-    {
-        foreach ($data as $k => $v) {
-            if (is_iterable($v)) {
-                $data[$k] = $this->recurse($v);
-
-                continue;
-            }
-
-            $translationString = '';
-            foreach (self::PREPENDS as $prepend) {
-                if (strpos($v, $prepend) !== 0) {
-                    continue;
-                }
-
-                $translationString = str_replace($prepend, '', $v);
-                if (array_key_exists($translationString, $this->translations)) {
-                    $data[$k] = $this->getTranslation($prepend, $translationString, $this->translations);
-                    $this->translated['translated'][] = $translationString;
-                    // We found translation, move on to next data
-                    continue 2;
-                }
-
-                if (array_key_exists($translationString, $this->fallback_translations)) {
-                    $data[$k] = $this->getTranslation($prepend, $translationString, $this->fallback_translations);
-                    $this->translated['fallback'][] = $translationString;
-                    // We found fallback translation, move on to next data
-                    continue 2;
-                }
-            }
-
-            if (!empty($translationString)) {
-                $this->translated['untranslated'][] = $translationString;
-            }
-        }
-
-        return $data;
-    }
-
-    protected function removeOneClickUrl(): void
-    {
-        unset(
-            $this->openapi['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
-        );
-        unset(
-            $this->openapi_sdk_raw['components']['schemas']['UnclaimedDraftResponse']['properties']['one_click_url'],
-        );
-    }
-
-    protected function removeGeneralizedTeamParams(): void
-    {
-        // Remove team_id from /team/add_member query params
-        unset($this->openapi['paths']['/team/add_member']['put']['parameters'][0]);
-
-        // Remove new_team_id, new_role from TeamRemoveMemberRequest
-        unset(
-            $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_team_id'],
-            $this->openapi['components']['schemas']['TeamRemoveMemberRequest']['properties']['new_role']
-        );
-
-        // Remove new endpoints
-        unset(
-            $this->openapi['paths']['/team/info'],
-            $this->openapi['paths']['/team/members/{team_id}'],
-            $this->openapi['paths']['/team/sub_teams/{team_id}'],
-        );
-    }
-
-    /**
-     * @param string $prepend
-     * @param string $translationString
-     * @param array $translations
-     * @return array|mixed|void
-     */
-    protected function getTranslation(string $prepend, string $translationString, array $translations)
-    {
-        switch ($prepend) {
-            case self::MARKDOWN_PREPEND:
-                // Using $ref property to embed markdown
-                return [
-                    '$ref' => $translations[$translationString]
-                ];
-            case self::TRANSLATE_PREPEND:
-                return $translations[$translationString];
-            default:
-                return $translationString;
-        }
     }
 }
 

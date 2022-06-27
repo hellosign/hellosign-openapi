@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error_msg": "This entity is unprocessable.",
+    "error_name": "unprocessable_entity"
+  }
+}
