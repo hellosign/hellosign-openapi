@@ -6002,6 +6002,7 @@ components:
         new_team_id:
           description: 'Id of the new Team.'
           type: string
+          x-hideOn: doc
         new_role:
           description: |-
             A new role member will take in a new Team.
@@ -6013,6 +6014,7 @@ components:
             - Developer
             - 'Team Manager'
             - Admin
+          x-hideOn: doc
       type: object
     TeamUpdateRequest:
       properties:
