@@ -419,6 +419,11 @@
 
 "TeamRemoveMember::SUMMARY": Remove User from Team
 "TeamRemoveMember::DESCRIPTION": Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
+"TeamRemoveMember::NEW_TEAM_ID": Id of the new Team.
+"TeamRemoveMember::NEW_ROLE": |-
+  A new role member will take in a new Team.
+  
+  **Note**: This parameter is used only if `new_team_id` is provided.
 "TeamRemoveMember::ACCOUNT_ID": |-
   **account_id** or **email_address** is required. If both are provided, the account id prevails. 
   
@@ -812,8 +817,8 @@
 "Sub::FormFieldsPerDocument::API_ID": An identifier for the field that is unique across all documents in the request.
 "Sub::FormFieldsPerDocument::AUTO_FILL_TYPE": Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
 "Sub::FormFieldsPerDocument::LINK_ID": Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
-"Sub::FormFieldsPerDocument::CHECKED_CHECKBOX": "`true` for checking the checkbox field by default, otherwise `false`."
-"Sub::FormFieldsPerDocument::CHECKED_RADIO": "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
+"Sub::FormFieldsPerDocument::IS_CHECKED_CHECKBOX": "`true` for checking the checkbox field by default, otherwise `false`."
+"Sub::FormFieldsPerDocument::IS_CHECKED_RADIO": "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`."
 "Sub::FormFieldsPerDocument::CONTENT_DROPDOWN": Selected value in `options` array. Value must exist in array.
 "Sub::FormFieldsPerDocument::CONTENT_HYPERLINK": Link Text.
 "Sub::FormFieldsPerDocument::CONTENT_URL": Link URL.
@@ -877,9 +882,18 @@
 "Sub::SignatureRequestSigner::SIGNER_ORDER": The order the signer is required to sign in.
 "Sub::SignatureRequestSigner::SIGNER_PIN": The 4- to 12-character access code that will secure this signer's signature page.
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER": |-
-  An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+  An E.164 formatted phone number.
 
   **Note**: Not available in test mode and requires a Standard plan or higher.
+
+"Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
+  **Note**: This only works in non embedded endpoints.
+  
+  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  
+  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
+  
+  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -887,9 +901,18 @@
 "Sub::SignatureRequestTemplateSigner::PIN": The 4- to 12-character access code that will secure this signer's signature page.
 "Sub::SignatureRequestTemplateSigner::ROLE": Must match an existing role in chosen Template(s). It's case-sensitive.
 "Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER": |-
-  An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+  An E.164 formatted phone number.
 
   **Note**: Not available in test mode and requires a Standard plan or higher.
+
+"Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
+  **Note**: This only works in non embedded endpoints.
+  
+  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  
+  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
+  
+  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
@@ -1131,6 +1154,8 @@
 "SignatureRequestResponseSignatures::ERROR": Error message pertaining to this signer, or null.
 "SignatureRequestResponseSignatures::HAS_PIN": Boolean to indicate whether this signature requires a PIN to access.
 "SignatureRequestResponseSignatures::HAS_SMS_AUTH": Boolean to indicate whether this signature has SMS authentication enabled.
+"SignatureRequestResponseSignatures::HAS_SMS_DELIVERY": Boolean to indicate whether this signature has SMS delivery enabled.
+"SignatureRequestResponseSignatures::SMS_PHONE_NUMBER": The SMS phone number used for authentication or signature request delivery.
 "SignatureRequestResponseSignatures::LAST_VIEWED_AT": The time that the document was last viewed by this signer or null.
 "SignatureRequestResponseSignatures::LAST_REMINDED_AT": The time the last reminder email was sent to the signer or null.
 "SignatureRequestResponseSignatures::NUM_PAGES": Total number of pages available
@@ -1325,5 +1350,6 @@
 "Error::404": Error 404 not_found
 "Error::409": Error 409 conflict
 "Error::410": Error 410 deleted
+"Error::422": Error 422 unprocessable_entity
 "Error::429": Error 429 exceeded_rate
 "Error::4XX": Error 4XX failed_operation
