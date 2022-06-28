@@ -5632,6 +5632,19 @@ components:
           description: '_t__TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS'
           type: string
           format: email
+        new_team_id:
+          description: '_t__TeamRemoveMember::NEW_TEAM_ID'
+          type: string
+          x-hideOn: doc
+        new_role:
+          description: '_t__TeamRemoveMember::NEW_ROLE'
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-hideOn: doc
       type: object
     TeamUpdateRequest:
       properties:
@@ -7625,9 +7638,6 @@ components:
           type: string
         claim_url:
           description: '_t__UnclaimedDraft::CLAIM_URL'
-          type: string
-        one_click_url:
-          description: '_t__UnclaimedDraft::ONE_CLICK_URL'
           type: string
         signing_redirect_url:
           nullable: true

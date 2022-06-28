@@ -5999,6 +5999,22 @@ components:
             **Note**: Only available for Enterprise plans.
           type: string
           format: email
+        new_team_id:
+          description: 'Id of the new Team.'
+          type: string
+          x-hideOn: doc
+        new_role:
+          description: |-
+            A new role member will take in a new Team.
+
+            **Note**: This parameter is used only if `new_team_id` is provided.
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-hideOn: doc
       type: object
     TeamUpdateRequest:
       properties:
