@@ -5630,7 +5630,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5651,6 +5650,7 @@ components:
           description: 'Display name for the field.'
           type: string
         page:
+          nullable: true
           description: |-
             Page in the document where the field should be placed (requires documents be PDF files).
 

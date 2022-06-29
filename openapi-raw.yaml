@@ -5311,7 +5311,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5332,6 +5331,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::NAME'
           type: string
         page:
+          nullable: true
           description: '_t__Sub::FormFieldsPerDocument::PAGE'
           type: integer
         required:
