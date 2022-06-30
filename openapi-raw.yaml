@@ -2592,6 +2592,16 @@ paths:
       summary: '_t__TeamAddMember::SUMMARY'
       description: '_t__TeamAddMember::DESCRIPTION'
       operationId: teamAddMember
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: '_t__TeamAddMember::TEAM_ID'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+          x-hideOn: doc
       requestBody:
         required: true
         content:
@@ -3467,6 +3477,8 @@ paths:
                   $ref: '#/components/examples/Error404ResponseExample'
                 409_example:
                   $ref: '#/components/examples/Error409ResponseExample'
+                422_example:
+                  $ref: '#/components/examples/Error422ResponseExample'
                 429_example:
                   $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
@@ -4520,7 +4532,7 @@ components:
         -
           required:
             - type
-            - checked
+            - is_checked
           properties:
             type:
               description: '_t__Sub::FormFieldsPerDocument::TYPE_CHECKBOX'
@@ -4529,8 +4541,8 @@ components:
             group:
               description: '_t__Sub::FormFieldsPerDocument::GROUP'
               type: string
-            checked:
-              description: '_t__Sub::FormFieldsPerDocument::CHECKED_CHECKBOX'
+            is_checked:
+              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_CHECKBOX'
               type: boolean
           type: object
     SubFormFieldsPerDocumentRadio:
@@ -4543,7 +4555,7 @@ components:
           required:
             - type
             - group
-            - checked
+            - is_checked
           properties:
             type:
               description: '_t__Sub::FormFieldsPerDocument::TYPE_RADIO'
@@ -4552,8 +4564,8 @@ components:
             group:
               description: '_t__Sub::FormFieldsPerDocument::GROUP'
               type: string
-            checked:
-              description: '_t__Sub::FormFieldsPerDocument::CHECKED_RADIO'
+            is_checked:
+              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_RADIO'
               type: boolean
           type: object
     SubFormFieldsPerDocumentSignature:
@@ -5393,7 +5405,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5414,6 +5425,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::NAME'
           type: string
         page:
+          nullable: true
           description: '_t__Sub::FormFieldsPerDocument::PAGE'
           type: integer
         required:
@@ -5509,6 +5521,7 @@ components:
           type: string
           format: email
         order:
+          nullable: true
           description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
           type: integer
         pin:
@@ -5519,6 +5532,12 @@ components:
         sms_phone_number:
           description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
           type: string
+        sms_phone_number_type:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE'
+          type: string
+          enum:
+            - authentication
+            - delivery
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -5544,6 +5563,12 @@ components:
         sms_phone_number:
           description: '_t__Sub::SignatureRequestTemplateSigner::SMS_PHONE_NUMBER'
           type: string
+        sms_phone_number_type:
+          description: '_t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE'
+          type: string
+          enum:
+            - authentication
+            - delivery
       type: object
     SubUnclaimedDraftSigner:
       required:
@@ -5558,6 +5583,7 @@ components:
           description: '_t__Sub::UnclaimedDraftSigner::NAME'
           type: string
         order:
+          nullable: true
           description: '_t__Sub::UnclaimedDraftSigner::ORDER'
           type: integer
       type: object
@@ -5584,6 +5610,7 @@ components:
           description: '_t__Sub::SignerRole::NAME'
           type: string
         order:
+          nullable: true
           description: '_t__Sub::SignerRole::ORDER'
           type: integer
       type: object
@@ -5699,6 +5726,19 @@ components:
           description: '_t__TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS'
           type: string
           format: email
+        new_team_id:
+          description: '_t__TeamRemoveMember::NEW_TEAM_ID'
+          type: string
+          x-hideOn: doc
+        new_role:
+          description: '_t__TeamRemoveMember::NEW_ROLE'
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-hideOn: doc
       type: object
     TeamUpdateRequest:
       properties:
@@ -7120,6 +7160,14 @@ components:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH'
           type: boolean
+        has_sms_delivery:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY'
+          type: boolean
+        sms_phone_number:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER'
+          type: string
         reassigned_by:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::REASSIGNED_BY'
@@ -7438,7 +7486,7 @@ components:
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseCustomField::IS_MULTILINE'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
@@ -7446,7 +7494,7 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseCustomField::FONT_FAMILY'
-          type: integer
+          type: string
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -7521,7 +7569,7 @@ components:
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
@@ -7529,7 +7577,7 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
-          type: integer
+          type: string
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
@@ -7725,9 +7773,6 @@ components:
           type: string
         claim_url:
           description: '_t__UnclaimedDraft::CLAIM_URL'
-          type: string
-        one_click_url:
-          description: '_t__UnclaimedDraft::ONE_CLICK_URL'
           type: string
         signing_redirect_url:
           nullable: true
@@ -8079,6 +8124,10 @@ components:
       summary: '_t__Error::410'
       value:
         $ref: examples/json/Error410ResponseExample.json
+    Error422ResponseExample:
+      summary: '_t__Error::422'
+      value:
+        $ref: examples/json/Error422ResponseExample.json
     Error429ResponseExample:
       summary: '_t__Error::429'
       value:

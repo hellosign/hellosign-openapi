@@ -2629,6 +2629,16 @@ paths:
       summary: 'Add User to Team'
       description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: 'The id of the team.'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+          x-hideOn: doc
       requestBody:
         required: true
         content:
@@ -3509,6 +3519,8 @@ paths:
                   $ref: '#/components/examples/Error404ResponseExample'
                 409_example:
                   $ref: '#/components/examples/Error409ResponseExample'
+                422_example:
+                  $ref: '#/components/examples/Error422ResponseExample'
                 429_example:
                   $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
@@ -4601,7 +4613,7 @@ components:
         -
           required:
             - type
-            - checked
+            - is_checked
           properties:
             type:
               description: 'A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.'
@@ -4610,7 +4622,7 @@ components:
             group:
               description: 'String referencing group defined in `form_field_groups` parameter.'
               type: string
-            checked:
+            is_checked:
               description: '`true` for checking the checkbox field by default, otherwise `false`.'
               type: boolean
           type: object
@@ -4624,7 +4636,7 @@ components:
           required:
             - type
             - group
-            - checked
+            - is_checked
           properties:
             type:
               description: 'An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.'
@@ -4633,7 +4645,7 @@ components:
             group:
               description: 'String referencing group defined in `form_field_groups` parameter.'
               type: string
-            checked:
+            is_checked:
               description: '`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.'
               type: boolean
           type: object
@@ -5712,7 +5724,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5733,6 +5744,7 @@ components:
           description: 'Display name for the field.'
           type: string
         page:
+          nullable: true
           description: |-
             Page in the document where the field should be placed (requires documents be PDF files).
 
@@ -5835,6 +5847,7 @@ components:
           type: string
           format: email
         order:
+          nullable: true
           description: 'The order the signer is required to sign in.'
           type: integer
         pin:
@@ -5844,10 +5857,23 @@ components:
           minLength: 4
         sms_phone_number:
           description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+            An E.164 formatted phone number.
 
             **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
+        sms_phone_number_type:
+          description: |-
+            **Note**: This only works in non embedded endpoints.
+
+            If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+
+            If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
+
+            If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+          type: string
+          enum:
+            - authentication
+            - delivery
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -5872,10 +5898,23 @@ components:
           minLength: 4
         sms_phone_number:
           description: |-
-            An E.164 formatted phone number that will receive a code via SMS to access this signer's signature page.
+            An E.164 formatted phone number.
 
             **Note**: Not available in test mode and requires a Standard plan or higher.
           type: string
+        sms_phone_number_type:
+          description: |-
+            **Note**: This only works in non embedded endpoints.
+
+            If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+
+            If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
+
+            If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+          type: string
+          enum:
+            - authentication
+            - delivery
       type: object
     SubUnclaimedDraftSigner:
       required:
@@ -5890,6 +5929,7 @@ components:
           description: 'The name of the signer.'
           type: string
         order:
+          nullable: true
           description: 'The order the signer is required to sign in.'
           type: integer
       type: object
@@ -5916,6 +5956,7 @@ components:
           description: 'The role name of the signer that will be displayed when the template is used to create a signature request.'
           type: string
         order:
+          nullable: true
           description: 'The order in which this signer role is required to sign.'
           type: integer
       type: object
@@ -6052,6 +6093,22 @@ components:
             **Note**: Only available for Enterprise plans.
           type: string
           format: email
+        new_team_id:
+          description: 'Id of the new Team.'
+          type: string
+          x-hideOn: doc
+        new_role:
+          description: |-
+            A new role member will take in a new Team.
+
+            **Note**: This parameter is used only if `new_team_id` is provided.
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-hideOn: doc
       type: object
     TeamUpdateRequest:
       properties:
@@ -7617,6 +7674,14 @@ components:
           nullable: true
           description: 'Boolean to indicate whether this signature has SMS authentication enabled.'
           type: boolean
+        has_sms_delivery:
+          nullable: true
+          description: 'Boolean to indicate whether this signature has SMS delivery enabled.'
+          type: boolean
+        sms_phone_number:
+          nullable: true
+          description: 'The SMS phone number used for authentication or signature request delivery.'
+          type: string
         reassigned_by:
           nullable: true
           description: 'Email address of original signer who reassigned to this signer.'
@@ -7938,7 +8003,7 @@ components:
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -7946,7 +8011,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: integer
+          type: string
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -8023,7 +8088,7 @@ components:
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -8031,7 +8096,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: integer
+          type: string
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
@@ -8578,6 +8643,10 @@ components:
       summary: 'Error 410 deleted'
       value:
         $ref: examples/json/Error410ResponseExample.json
+    Error422ResponseExample:
+      summary: 'Error 422 unprocessable_entity'
+      value:
+        $ref: examples/json/Error422ResponseExample.json
     Error429ResponseExample:
       summary: 'Error 429 exceeded_rate'
       value:
