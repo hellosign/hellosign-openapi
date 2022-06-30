@@ -3096,6 +3096,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamInfo.py
+      x-hideOn: doc
   /team/remove_member:
     post:
       tags:

@@ -3003,6 +3003,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
+  /team/info: []
   /team/remove_member:
     post:
       tags:
