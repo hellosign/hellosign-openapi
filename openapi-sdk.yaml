@@ -5640,7 +5640,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5661,6 +5660,7 @@ components:
           description: 'Display name for the field.'
           type: string
         page:
+          nullable: true
           description: |-
             Page in the document where the field should be placed (requires documents be PDF files).
 
@@ -7878,7 +7878,7 @@ components:
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -7886,7 +7886,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: integer
+          type: string
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -7963,7 +7963,7 @@ components:
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -7971,7 +7971,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: integer
+          type: string
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'

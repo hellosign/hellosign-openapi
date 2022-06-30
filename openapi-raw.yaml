@@ -5321,7 +5321,6 @@ components:
         - document_index
         - api_id
         - type
-        - page
         - required
         - signer
         - width
@@ -5342,6 +5341,7 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::NAME'
           type: string
         page:
+          nullable: true
           description: '_t__Sub::FormFieldsPerDocument::PAGE'
           type: integer
         required:
@@ -7361,7 +7361,7 @@ components:
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseCustomField::IS_MULTILINE'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
@@ -7369,7 +7369,7 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseCustomField::FONT_FAMILY'
-          type: integer
+          type: string
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -7444,7 +7444,7 @@ components:
         isMultiline:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
-          type: string
+          type: boolean
         originalFontSize:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
@@ -7452,7 +7452,7 @@ components:
         fontFamily:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
-          type: integer
+          type: string
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
