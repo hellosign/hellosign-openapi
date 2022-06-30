@@ -2592,6 +2592,16 @@ paths:
       summary: '_t__TeamAddMember::SUMMARY'
       description: '_t__TeamAddMember::DESCRIPTION'
       operationId: teamAddMember
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: '_t__TeamAddMember::TEAM_ID'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+          x-hideOn: doc
       requestBody:
         required: true
         content:
