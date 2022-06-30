@@ -26,9 +26,13 @@ class RawFile
      * e.g.
      * x-hideOn: 'SDK'
      * x-hideOn: 'DOC'
-     * x-hideOn: 'NONE'
      */
     private const HIDE_ON = 'x-hideOn';
+
+    /**
+     * Key for openapi paths
+     */
+    private const PATHS = 'paths';
 
     private const PREPENDS = [
         self::TRANSLATE_PREPEND,
@@ -85,6 +89,9 @@ class RawFile
     ): array {
         $this->loadTranslations($translation_file, $fallback_file);
         $result = $this->recurse($this->openapi, $surface_id);
+
+        // Remove empty paths if any
+        $result[self::PATHS] = array_filter($result[self::PATHS]);
 
         $this->logs['translated'] = array_unique($this->logs['translated']);
         $this->logs['fallback'] = array_unique($this->logs['fallback']);
