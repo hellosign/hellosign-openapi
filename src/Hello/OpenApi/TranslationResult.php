@@ -2,6 +2,13 @@
 
 namespace Hello\OpenApi;
 
+/**
+ * Represents a result of translating the openapi raw file.
+ * The all hidden flag is useful to unset empty collections which occur as a
+ * result of hiding all the spec within them.
+ *
+ * @see RawFile::translate()
+ */
 class TranslationResult
 {
     /**
