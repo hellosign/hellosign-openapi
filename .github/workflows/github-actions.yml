@@ -15,4 +15,4 @@ jobs:
         workflow_file_name: github-actions.yml
         github_token: ${{ secrets.PERSONAL_TOKEN }}
         ref: openapi
-        client_payload: "{'branch_name': ${{ github.ref }}}"
+        client_payload: "{'branch_name': $github.ref}"
