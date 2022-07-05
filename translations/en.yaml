@@ -1210,10 +1210,6 @@
 "TeamGeneral::NUM_MEMBERS": Number of members within a team
 "TeamGeneral::NUM_SUB_TEAMS": Number of sub teams within a team
 "TeamResponse::DESCRIPTION": Contains information about your team and its members
-"TeamGeneral::TEAM_ID": The id of a team
-"TeamGeneral::NAME": The name of a team
-"TeamGeneral::NUM_MEMBERS": Number of members within a team
-"TeamGeneral::NUM_SUB_TEAMS": Number of sub teams within a team
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template

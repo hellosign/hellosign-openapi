@@ -3472,6 +3472,112 @@ paths:
           label: Python
           source:
             $ref: examples/TeamRemoveMember.py
+  '/team/sub_teams/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'List Sub Teams'
+      description: 'Provides a paginated list of sub teams that belong to a given team.'
+      operationId: teamSubTeams
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'The id of the parent Team.'
+          required: true
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+        -
+          name: page
+          in: query
+          description: 'Which page number of the SubTeam List to return. Defaults to `1`.'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSubTeamsResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamSubTeamsResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSubTeams.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSubTeams.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamSubTeams.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSubTeams.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSubTeams.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSubTeams.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSubTeams.py
+      x-hideOn: doc
   '/template/add_user/{template_id}':
     post:
       tags:
@@ -8119,6 +8225,16 @@ components:
           type: string
       type: object
       x-internal: true
+    SubTeamResponse:
+      properties:
+        team_id:
+          description: 'The id of a team'
+          type: string
+        name:
+          description: 'The name of a team'
+          type: string
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
@@ -8137,6 +8253,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamMemberResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamSubTeamsResponse:
+      properties:
+        sub_teams:
+          description: 'Contains a list with sub teams.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTeamResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
@@ -9135,6 +9266,10 @@ components:
       summary: 'Team Members List'
       value:
         $ref: examples/json/TeamMembersResponseExample.json
+    TeamSubTeamsResponseExample:
+      summary: 'Team Sub Teams List'
+      value:
+        $ref: examples/json/TeamSubTeamsResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:
