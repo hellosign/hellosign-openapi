@@ -3150,6 +3150,96 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
+  /team/info:
+    get:
+      tags:
+        - Team
+      summary: '_t__TeamInfo::SUMMARY'
+      description: '_t__TeamInfo::DESCRIPTION'
+      operationId: teamInfo
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: '_t__TeamInfo::TEAM_ID'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamGetInfoResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamGetInfoResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamInfo.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamInfo.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamInfo.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamInfo.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamInfo.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamInfo.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamInfo.py
+      x-hideOn: doc
   /team/remove_member:
     post:
       tags:
@@ -7355,6 +7445,47 @@ components:
             $ref: '#/components/schemas/AccountResponse'
       type: object
       x-internal: true
+    TeamParentResponse:
+      description: '_t__TeamInfo::TEAM_PARENT'
+      properties:
+        team_id:
+          description: '_t__TeamGeneral::TEAM_ID'
+          type: string
+        name:
+          description: '_t__TeamGeneral::NAME'
+          type: string
+      type: object
+      nullable: true
+      x-internal: true
+    TeamInfoResponse:
+      properties:
+        team_id:
+          description: '_t__TeamGeneral::TEAM_ID'
+          type: string
+        team_parent:
+          $ref: '#/components/schemas/TeamParentResponse'
+        name:
+          description: '_t__TeamGeneral::NAME'
+          type: string
+        num_members:
+          description: '_t__TeamGeneral::NUM_MEMBERS'
+          type: integer
+        num_sub_teams:
+          description: '_t__TeamGeneral::NUM_SUB_TEAMS'
+          type: integer
+      type: object
+      x-internal: true
+    TeamGetInfoResponse:
+      properties:
+        team:
+          $ref: '#/components/schemas/TeamInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
@@ -8343,6 +8474,10 @@ components:
       summary: '_t__TeamGetResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamGetResponseExample.json
+    TeamGetInfoResponseExample:
+      summary: '_t__TeamInfoResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamGetInfoResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: '_t__TeamRemoveMemberResponseExample::SUMMARY'
       value:

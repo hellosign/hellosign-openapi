@@ -2779,7 +2779,6 @@ paths:
       summary: 'Add User to Team'
       description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
-      parameters: []
       requestBody:
         required: true
         content:
@@ -7844,6 +7843,47 @@ components:
             $ref: '#/components/schemas/AccountResponse'
       type: object
       x-internal: true
+    TeamParentResponse:
+      description: 'Information about the parent team if a team has one, set to `null` otherwise.'
+      properties:
+        team_id:
+          description: 'The id of a team'
+          type: string
+        name:
+          description: 'The name of a team'
+          type: string
+      type: object
+      nullable: true
+      x-internal: true
+    TeamInfoResponse:
+      properties:
+        team_id:
+          description: 'The id of a team'
+          type: string
+        team_parent:
+          $ref: '#/components/schemas/TeamParentResponse'
+        name:
+          description: 'The name of a team'
+          type: string
+        num_members:
+          description: 'Number of members within a team'
+          type: integer
+        num_sub_teams:
+          description: 'Number of sub teams within a team'
+          type: integer
+      type: object
+      x-internal: true
+    TeamGetInfoResponse:
+      properties:
+        team:
+          $ref: '#/components/schemas/TeamInfoResponse'
+        warnings:
+          description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
@@ -8837,6 +8877,10 @@ components:
       summary: 'Team Get'
       value:
         $ref: examples/json/TeamGetResponseExample.json
+    TeamGetInfoResponseExample:
+      summary: 'Team Get Info'
+      value:
+        $ref: examples/json/TeamGetInfoResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:

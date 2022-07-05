@@ -441,6 +441,11 @@
 "TeamUpdate::DESCRIPTION": Updates the name of your Team.
 "TeamUpdate::NAME": The name of your Team.
 
+"TeamInfo::SUMMARY": Get Team Info
+"TeamInfo::DESCRIPTION": Provides information about a team.
+"TeamInfo::TEAM_ID": The id of the team.
+"TeamInfo::TEAM_PARENT": Information about the parent team if a team has one, set to `null` otherwise.
+
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": |-
@@ -1172,12 +1177,17 @@
 "TeamAddMemberResponseExample::SUMMARY": Team Add Member
 "TeamCreateResponseExample::SUMMARY": Team Create
 "TeamGetResponseExample::SUMMARY": Team Get
+"TeamInfoResponseExample::SUMMARY": Team Get Info
 "TeamRemoveMemberResponseExample::SUMMARY": Team Remove Member
 "TeamUpdateResponseExample::SUMMARY": Team Update
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
 "TeamResponse::DESCRIPTION": Contains information about your team and its members
+"TeamGeneral::TEAM_ID": The id of a team
+"TeamGeneral::NAME": The name of a team
+"TeamGeneral::NUM_MEMBERS": Number of members within a team
+"TeamGeneral::NUM_SUB_TEAMS": Number of sub teams within a team
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template
