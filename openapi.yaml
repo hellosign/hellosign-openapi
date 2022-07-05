@@ -10,8 +10,10 @@ info:
     url: 'https://opensource.org/licenses/MIT'
   version: 3.0.0
 servers:
-  -
-    url: 'https://api.hellosign.com/v3'
+  - url: 'https://api-staging.hellosign.com/v3'
+    description: Staging API
+  - url: 'https://api.hellosign.com/v3'
+    description: Production API
 paths:
   /account/create:
     post:
