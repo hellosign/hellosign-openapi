@@ -25,7 +25,9 @@
       {
         "role": "Client",
         "name": "George",
-        "email_address": "george@example.com"
+        "email_address": "george@example.com",
+        "sms_phone_number": "+14155550100",
+        "sms_phone_number_type": "delivery"
       }
     ],
     "signing_options": {
