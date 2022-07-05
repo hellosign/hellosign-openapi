@@ -3247,6 +3247,11 @@ paths:
           source:
             $ref: examples/TeamInfo.php
         -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamInfo.cs
+        -
           lang: JavaScript
           label: JavaScript
           source:

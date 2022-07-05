@@ -2779,7 +2779,6 @@ paths:
       summary: 'Add User to Team'
       description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
-      parameters: []
       requestBody:
         required: true
         content:
@@ -3178,7 +3177,6 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
-  /team/info: []
   /team/remove_member:
     post:
       tags:
