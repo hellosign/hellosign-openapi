@@ -26,7 +26,6 @@ class RawFile
      * e.g.
      * x-hideOn: 'SDK'
      * x-hideOn: 'DOC'
-     * x-hideOn: 'NONE'
      */
     private const HIDE_ON = 'x-hideOn';
 
@@ -90,7 +89,7 @@ class RawFile
         $this->logs['fallback'] = array_unique($this->logs['fallback']);
         $this->logs['untranslated'] = array_unique($this->logs['untranslated']);
 
-        return $result;
+        return $result->getData();
     }
 
     /**
@@ -133,16 +132,24 @@ class RawFile
      * to translate them.
      * @param array $data
      * @param string $surface_id
-     * @return array
+     * @return TranslationResult
      */
-    private function recurse(array $data, string $surface_id): array
+    private function recurse(array $data, string $surface_id): TranslationResult
     {
+        $empty_by_hiding = false;
+
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
                 if (isset($v[self::HIDE_ON]) && $v[self::HIDE_ON] === $surface_id) {
                     unset($data[$k]);
+                    $empty_by_hiding = empty($data);
                 } else {
-                    $data[$k] = $this->recurse($v, $surface_id);
+                    $result = $this->recurse($v, $surface_id);
+                    if ($result->isAllHidden()) {
+                        unset($data[$k]);
+                    } else {
+                        $data[$k] = $result->getData();
+                    }
                 }
 
                 continue;
@@ -183,7 +190,7 @@ class RawFile
             }
         }
 
-        return $data;
+        return new TranslationResult($data, $empty_by_hiding);
     }
 
     /**
