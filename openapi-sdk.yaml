@@ -3277,6 +3277,112 @@ paths:
           source:
             $ref: examples/TeamInfo.py
       x-hideOn: doc
+  '/team/members/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'List Team Members'
+      description: 'Provides a paginated list of members (and their roles) that belong to a given team.'
+      operationId: teamMembers
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'The id of the team that a member list is being requested from.'
+          required: true
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+        -
+          name: page
+          in: query
+          description: 'Which page number of the team member list to return. Defaults to `1`.'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMembersResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamMembersResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamMembers.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamMembers.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamMembers.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamMembers.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamMembers.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamMembers.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamMembers.py
+      x-hideOn: doc
   /team/remove_member:
     post:
       tags:
@@ -8000,12 +8106,40 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
+    TeamMemberResponse:
+      properties:
+        account_id:
+          description: 'Account id of the team member.'
+          type: string
+        email_address:
+          description: 'Email address of the team member.'
+          type: string
+        role:
+          description: 'The specific role a member has on the team.'
+          type: string
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
           $ref: '#/components/schemas/TeamResponse'
         warnings:
           description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamMembersResponse:
+      properties:
+        team_members:
+          description: 'Contains a list of team members and their roles for a specific team.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -8997,6 +9131,10 @@ components:
       summary: 'Team Get Info'
       value:
         $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamMembersResponseExample:
+      summary: 'Team Members List'
+      value:
+        $ref: examples/json/TeamMembersResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:

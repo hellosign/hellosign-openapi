@@ -1,0 +1,20 @@
+{
+  "list_info": {
+    "page": 1,
+    "num_pages": 1,
+    "num_results": 2,
+    "page_size": 20
+  },
+  "members": [
+    {
+      "account_id": "bb7e16df3cf8944a059ae908ba914539c1ce3d13",
+      "email_address": "team-admin@example.com",
+      "role": "Admin"
+    },
+    {
+      "account_id": "29b09ebad6013a2b56cda80ccdc25847158e06a8",
+      "email_address": "developer@example.com",
+      "role": "Developer"
+    }
+  ]
+}

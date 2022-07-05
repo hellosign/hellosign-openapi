@@ -7884,12 +7884,40 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
+    TeamMemberResponse:
+      properties:
+        account_id:
+          description: 'Account id of the team member.'
+          type: string
+        email_address:
+          description: 'Email address of the team member.'
+          type: string
+        role:
+          description: 'The specific role a member has on the team.'
+          type: string
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
           $ref: '#/components/schemas/TeamResponse'
         warnings:
           description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamMembersResponse:
+      properties:
+        team_members:
+          description: 'Contains a list of team members and their roles for a specific team.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -8881,6 +8909,10 @@ components:
       summary: 'Team Get Info'
       value:
         $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamMembersResponseExample:
+      summary: 'Team Members List'
+      value:
+        $ref: examples/json/TeamMembersResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:
