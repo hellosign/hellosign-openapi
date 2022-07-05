@@ -3,6 +3,10 @@ jobs:
   trigger-downstream-build:
     runs-on: ubuntu-latest
     steps:
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
     - name: Invoke downstream workflow
       uses: convictional/trigger-workflow-and-wait@v1.6.1
       with:
