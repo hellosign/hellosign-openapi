@@ -8,7 +8,7 @@ jobs:
       with:
         owner: fenghao-chen
         repo: hellosign-php-sdk
-        workflow_file_name: github-actions.yml
+        workflow_file_name: triggered-by-upstream.yml
         github_token: ${{ secrets.PERSONAL_TOKEN }}
         ref: openapi
         client_payload: '{"branch_name": "${{ github.ref_name }}"}'
