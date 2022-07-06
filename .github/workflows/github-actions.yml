@@ -1,12 +1,8 @@
-on: [push, pull_request]
+on: [pull_request]
 jobs:
-  trigger-downstream-build:
+  trigger-php-sdk-build:
     runs-on: ubuntu-latest
     steps:
-    - name: Git checkout
-      uses: actions/checkout@v1
-    - name: Branch name
-      run: echo running on branch ${GITHUB_REF##*/}
     - name: Invoke downstream workflow
       uses: convictional/trigger-workflow-and-wait@v1.6.1
       with:
