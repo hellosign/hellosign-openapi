@@ -7897,6 +7897,16 @@ components:
           type: string
       type: object
       x-internal: true
+    SubTeamResponse:
+      properties:
+        team_id:
+          description: 'The id of a team'
+          type: string
+        name:
+          description: 'The name of a team'
+          type: string
+      type: object
+      x-internal: true
     TeamGetResponse:
       properties:
         team:
@@ -7915,6 +7925,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamMemberResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamSubTeamsResponse:
+      properties:
+        sub_teams:
+          description: 'Contains a list with sub teams.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTeamResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
@@ -8913,6 +8938,10 @@ components:
       summary: 'Team Members List'
       value:
         $ref: examples/json/TeamMembersResponseExample.json
+    TeamSubTeamsResponseExample:
+      summary: 'Team Sub Teams List'
+      value:
+        $ref: examples/json/TeamSubTeamsResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:

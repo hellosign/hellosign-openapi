@@ -1,0 +1,18 @@
+{
+  "list_info": {
+    "page": 1,
+    "num_pages": 1,
+    "num_results": 4,
+    "page_size": 20
+  },
+  "sub_teams": [
+    {
+      "team_id": "29b09ebad6013a2b56cda80ccdc25847158e06a8",
+      "name": "Team A"
+    },
+    {
+      "team_id": "d6218f881ec36ae628507fa60c8099934730b7ca",
+      "name": "Team B"
+    }
+  ]
+}
