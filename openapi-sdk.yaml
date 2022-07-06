@@ -73,11 +73,6 @@ paths:
           source:
             $ref: examples/AccountCreate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountCreate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -157,11 +152,6 @@ paths:
           label: PHP
           source:
             $ref: examples/AccountGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountGet.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -244,11 +234,6 @@ paths:
           source:
             $ref: examples/AccountUpdate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountUpdate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -330,11 +315,6 @@ paths:
           label: PHP
           source:
             $ref: examples/AccountVerify.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/AccountVerify.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -424,11 +404,6 @@ paths:
           source:
             $ref: examples/ApiAppCreate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/ApiAppCreate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -512,11 +487,6 @@ paths:
           label: PHP
           source:
             $ref: examples/ApiAppGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/ApiAppGet.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -616,11 +586,6 @@ paths:
           source:
             $ref: examples/ApiAppUpdate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/ApiAppUpdate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -694,11 +659,6 @@ paths:
           label: PHP
           source:
             $ref: examples/ApiAppDelete.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/ApiAppDelete.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -786,11 +746,6 @@ paths:
           source:
             $ref: examples/ApiAppList.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/ApiAppList.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -871,11 +826,6 @@ paths:
           label: PHP
           source:
             $ref: examples/BulkSendJobGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/BulkSendJobGet.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -963,11 +913,6 @@ paths:
           label: PHP
           source:
             $ref: examples/BulkSendJobList.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/BulkSendJobList.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -1060,11 +1005,6 @@ paths:
           source:
             $ref: examples/EmbeddedEditUrl.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/EmbeddedEditUrl.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -1151,11 +1091,6 @@ paths:
           source:
             $ref: examples/EmbeddedSignUrl.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/EmbeddedSignUrl.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -1216,11 +1151,6 @@ paths:
           label: PHP
           source:
             $ref: examples/OauthTokenGenerate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/OauthTokenGenerate.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -1283,11 +1213,6 @@ paths:
           label: PHP
           source:
             $ref: examples/OauthTokenRefresh.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/OauthTokenRefresh.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -1369,11 +1294,6 @@ paths:
           label: PHP
           source:
             $ref: examples/ReportCreate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/ReportCreate.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -1467,11 +1387,6 @@ paths:
           source:
             $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -1564,11 +1479,6 @@ paths:
           source:
             $ref: examples/SignatureRequestBulkSendWithTemplate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestBulkSendWithTemplate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -1660,11 +1570,6 @@ paths:
           source:
             $ref: examples/SignatureRequestCancel.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestCancel.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -1755,11 +1660,6 @@ paths:
           source:
             $ref: examples/SignatureRequestCreateEmbedded.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestCreateEmbedded.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -1849,11 +1749,6 @@ paths:
           label: PHP
           source:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -1973,11 +1868,6 @@ paths:
           source:
             $ref: examples/SignatureRequestFiles.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestFiles.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -2062,11 +1952,6 @@ paths:
           label: PHP
           source:
             $ref: examples/SignatureRequestGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestGet.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -2173,11 +2058,6 @@ paths:
           source:
             $ref: examples/SignatureRequestList.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestList.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -2259,11 +2139,6 @@ paths:
           label: PHP
           source:
             $ref: examples/SignatureRequestReleaseHold.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestReleaseHold.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -2366,11 +2241,6 @@ paths:
           source:
             $ref: examples/SignatureRequestRemind.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestRemind.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -2453,11 +2323,6 @@ paths:
           label: PHP
           source:
             $ref: examples/SignatureRequestRemove.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestRemove.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -2550,11 +2415,6 @@ paths:
           source:
             $ref: examples/SignatureRequestSend.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestSend.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -2643,11 +2503,6 @@ paths:
           label: PHP
           source:
             $ref: examples/SignatureRequestSendWithTemplate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestSendWithTemplate.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -2743,11 +2598,6 @@ paths:
           source:
             $ref: examples/SignatureRequestUpdate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/SignatureRequestUpdate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -2779,16 +2629,6 @@ paths:
       summary: 'Add User to Team'
       description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
-      parameters:
-        -
-          name: team_id
-          in: query
-          description: 'The id of the team.'
-          required: false
-          schema:
-            type: string
-          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-          x-hideOn: doc
       requestBody:
         required: true
         content:
@@ -2841,11 +2681,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TeamAddMember.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamAddMember.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -2927,11 +2762,6 @@ paths:
           source:
             $ref: examples/TeamCreate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamCreate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -2995,11 +2825,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TeamDelete.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamDelete.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -3073,11 +2898,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TeamGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamGet.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -3158,11 +2978,6 @@ paths:
           source:
             $ref: examples/TeamUpdate.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamUpdate.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -3187,202 +3002,6 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
-  /team/info:
-    get:
-      tags:
-        - Team
-      summary: 'Get Team Info'
-      description: 'Provides information about a team.'
-      operationId: teamInfo
-      parameters:
-        -
-          name: team_id
-          in: query
-          description: 'The id of the team.'
-          required: false
-          schema:
-            type: string
-          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-      responses:
-        200:
-          description: 'successful operation'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TeamGetInfoResponse'
-              examples:
-                default_example:
-                  $ref: '#/components/examples/TeamGetInfoResponseExample'
-        4XX:
-          description: failed_operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                400_example:
-                  $ref: '#/components/examples/Error400ResponseExample'
-                401_example:
-                  $ref: '#/components/examples/Error401ResponseExample'
-                402_example:
-                  $ref: '#/components/examples/Error402ResponseExample'
-                403_example:
-                  $ref: '#/components/examples/Error403ResponseExample'
-                409_example:
-                  $ref: '#/components/examples/Error409ResponseExample'
-                429_example:
-                  $ref: '#/components/examples/Error429ResponseExample'
-                4XX_example:
-                  $ref: '#/components/examples/Error4XXResponseExample'
-      security:
-        -
-          api_key: []
-        -
-          oauth2:
-            - team_access
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/TeamInfo.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamInfo.cs
-        -
-          lang: JavaScript
-          label: JavaScript
-          source:
-            $ref: examples/TeamInfo.js
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/TeamInfo.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/TeamInfo.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/TeamInfo.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/TeamInfo.py
-      x-hideOn: doc
-  '/team/members/{team_id}':
-    get:
-      tags:
-        - Team
-      summary: 'List Team Members'
-      description: 'Provides a paginated list of members (and their roles) that belong to a given team.'
-      operationId: teamMembers
-      parameters:
-        -
-          name: team_id
-          in: path
-          description: 'The id of the team that a member list is being requested from.'
-          required: true
-          schema:
-            type: string
-          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-        -
-          name: page
-          in: query
-          description: 'Which page number of the team member list to return. Defaults to `1`.'
-          schema:
-            type: integer
-            default: 1
-        -
-          name: page_size
-          in: query
-          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
-          schema:
-            type: integer
-            default: 20
-            maximum: 100
-            minimum: 1
-      responses:
-        200:
-          description: 'successful operation'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TeamMembersResponse'
-              examples:
-                default_example:
-                  $ref: '#/components/examples/TeamMembersResponseExample'
-        4XX:
-          description: failed_operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                400_example:
-                  $ref: '#/components/examples/Error400ResponseExample'
-                401_example:
-                  $ref: '#/components/examples/Error401ResponseExample'
-                402_example:
-                  $ref: '#/components/examples/Error402ResponseExample'
-                403_example:
-                  $ref: '#/components/examples/Error403ResponseExample'
-                409_example:
-                  $ref: '#/components/examples/Error409ResponseExample'
-                429_example:
-                  $ref: '#/components/examples/Error429ResponseExample'
-                4XX_example:
-                  $ref: '#/components/examples/Error4XXResponseExample'
-      security:
-        -
-          api_key: []
-        -
-          oauth2:
-            - team_access
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/TeamMembers.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamMembers.cs
-        -
-          lang: JavaScript
-          label: JavaScript
-          source:
-            $ref: examples/TeamMembers.js
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/TeamMembers.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/TeamMembers.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/TeamMembers.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/TeamMembers.py
-      x-hideOn: doc
   /team/remove_member:
     post:
       tags:
@@ -3442,11 +3061,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TeamRemoveMember.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TeamRemoveMember.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -3538,11 +3152,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TemplateAddUser.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateAddUser.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -3640,11 +3249,6 @@ paths:
           source:
             $ref: examples/TemplateCreateEmbeddedDraft.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateCreateEmbeddedDraft.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -3723,11 +3327,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TemplateDelete.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateDelete.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -3845,11 +3444,6 @@ paths:
           source:
             $ref: examples/TemplateFiles.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateFiles.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -3933,11 +3527,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TemplateGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateGet.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -4046,11 +3635,6 @@ paths:
           source:
             $ref: examples/TemplateList.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateList.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -4141,11 +3725,6 @@ paths:
           label: PHP
           source:
             $ref: examples/TemplateRemoveUser.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateRemoveUser.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -4260,11 +3839,6 @@ paths:
           source:
             $ref: examples/TemplateUpdateFiles.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/TemplateUpdateFiles.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -4356,11 +3930,6 @@ paths:
           label: PHP
           source:
             $ref: examples/UnclaimedDraftCreate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/UnclaimedDraftCreate.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -4462,11 +4031,6 @@ paths:
           source:
             $ref: examples/UnclaimedDraftCreateEmbedded.php
         -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/UnclaimedDraftCreateEmbedded.cs
-        -
           lang: JavaScript
           label: JavaScript
           source:
@@ -4561,11 +4125,6 @@ paths:
           label: PHP
           source:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -4665,11 +4224,6 @@ paths:
           label: PHP
           source:
             $ref: examples/UnclaimedDraftEditAndResend.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/UnclaimedDraftEditAndResend.cs
         -
           lang: JavaScript
           label: JavaScript
@@ -6076,6 +5630,7 @@ components:
         - document_index
         - api_id
         - type
+        - page
         - required
         - signer
         - width
@@ -6096,7 +5651,6 @@ components:
           description: 'Display name for the field.'
           type: string
         page:
-          nullable: true
           description: |-
             Page in the document where the field should be placed (requires documents be PDF files).
 
@@ -7662,6 +7216,155 @@ components:
           type: integer
       type: object
       x-internal: true
+    SignatureRequestResponseDataTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+        - date_signed
+        - dropdown
+        - initials
+        - radio
+        - signature
+        - text-merge
+        - checkbox-merge
+    SignatureRequestResponseDataValueText:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A text input field'
+              type: string
+              default: text
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueDropdown:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'An input field for dropdowns'
+              type: string
+              default: dropdown
+            value:
+              description: 'The value of the form field.'
+              type: text
+              items:
+                type: string
+          type: object
+    SignatureRequestResponseDataValueRadio:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'An input field for radios'
+              type: string
+              default: radio
+            value:
+              description: 'The value of the form field.'
+              type: boolean
+          type: object
+    SignatureRequestResponseDataValueDateSigned:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A date'
+              type: string
+              default: date_signed
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueInitials:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'An input field for initials'
+              type: string
+              default: initials
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueCheckbox:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A yes/no checkbox'
+              type: string
+              default: checkbox
+            value:
+              description: 'The value of the form field.'
+              type: boolean
+          type: object
+    SignatureRequestResponseDataValueSignature:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A signature input field'
+              type: string
+              default: signature
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueTextMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A text field that has default text set by the api'
+              type: string
+              default: text-merge
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueCheckboxMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A checkbox field that has default value set by the api'
+              type: string
+              default: checkbox-merge
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
     OAuthTokenResponse:
       properties:
         access_token:
@@ -7731,6 +7434,7 @@ components:
           description: 'Default Label for account.'
           type: string
         subject:
+          nullable: true
           description: 'The subject in the email that was initially sent to the signers.'
           type: string
         message:
@@ -7951,35 +7655,24 @@ components:
         name:
           description: 'The name of the form field.'
           type: string
-        value:
-          description: 'The value of the form field.'
-          type: string
         required:
           description: 'A boolean value denoting if this field is required.'
           type: boolean
-        type:
-          description: |-
-            - `text`: A text input field
-            - `checkbox`: A yes/no checkbox
-            - `date_signed`: A date
-            - `dropdown`: An input field for dropdowns
-            - `initials`: An input field for initials
-            - `radio`: An input field for radios
-            - `signature`: A signature input field
-            - `text-merge`: A text field that has default text set by the api
-            - `checkbox-merge`: A checkbox field that has default value set by the api
-          enum:
-            - text
-            - checkbox
-            - date_signed
-            - dropdown
-            - initials
-            - radio
-            - signature
-            - text-merge
-            - checkbox-merge
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/SignatureRequestResponseDataValueText'
+          checkbox: '#/components/schemas/SignatureRequestResponseDataValueCheckbox'
+          dropdown: '#/components/schemas/SignatureRequestResponseDataValueDropdown'
+          radio: '#/components/schemas/SignatureRequestResponseDataValueRadio'
+          signature: '#/components/schemas/SignatureRequestResponseDataValueSignature'
+          date_signed: '#/components/schemas/SignatureRequestResponseDataValueDateSigned'
+          initials: '#/components/schemas/SignatureRequestResponseDataValueInitials'
+          text-merge: '#/components/schemas/SignatureRequestResponseDataValueTextMerge'
+          checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
       x-internal: true
+      x-base-class: true
     SignatureRequestResponseSignatures:
       description: 'An array of signature objects, 1 for each signer.'
       properties:
@@ -7990,6 +7683,7 @@ components:
           description: 'The email address of the signer.'
           type: string
         signer_name:
+          nullable: true
           description: 'The name of the signer.'
           type: string
         signer_role:
@@ -8065,81 +7759,12 @@ components:
             $ref: '#/components/schemas/AccountResponse'
       type: object
       x-internal: true
-    TeamParentResponse:
-      description: 'Information about the parent team if a team has one, set to `null` otherwise.'
-      properties:
-        team_id:
-          description: 'The id of a team'
-          type: string
-        name:
-          description: 'The name of a team'
-          type: string
-      type: object
-      nullable: true
-      x-internal: true
-    TeamInfoResponse:
-      properties:
-        team_id:
-          description: 'The id of a team'
-          type: string
-        team_parent:
-          $ref: '#/components/schemas/TeamParentResponse'
-        name:
-          description: 'The name of a team'
-          type: string
-        num_members:
-          description: 'Number of members within a team'
-          type: integer
-        num_sub_teams:
-          description: 'Number of sub teams within a team'
-          type: integer
-      type: object
-      x-internal: true
-    TeamGetInfoResponse:
-      properties:
-        team:
-          $ref: '#/components/schemas/TeamInfoResponse'
-        warnings:
-          description: 'A list of warnings.'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TeamMemberResponse:
-      properties:
-        account_id:
-          description: 'Account id of the team member.'
-          type: string
-        email_address:
-          description: 'Email address of the team member.'
-          type: string
-        role:
-          description: 'The specific role a member has on the team.'
-          type: string
-      type: object
-      x-internal: true
     TeamGetResponse:
       properties:
         team:
           $ref: '#/components/schemas/TeamResponse'
         warnings:
           description: 'A list of warnings.'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TeamMembersResponse:
-      properties:
-        team_members:
-          description: 'Contains a list of team members and their roles for a specific team.'
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMemberResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
@@ -8383,7 +8008,7 @@ components:
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: boolean
+          type: string
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -8391,7 +8016,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: string
+          type: integer
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -8468,7 +8093,7 @@ components:
         isMultiline:
           nullable: true
           description: 'Whether this form field is multiline text.'
-          type: boolean
+          type: string
         originalFontSize:
           nullable: true
           description: 'Original font size used in this form field''s text.'
@@ -8476,7 +8101,7 @@ components:
         fontFamily:
           nullable: true
           description: 'Font family used in this form field''s text.'
-          type: string
+          type: integer
         named_form_fields:
           nullable: true
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
@@ -9127,14 +8752,6 @@ components:
       summary: 'Team Get'
       value:
         $ref: examples/json/TeamGetResponseExample.json
-    TeamGetInfoResponseExample:
-      summary: 'Team Get Info'
-      value:
-        $ref: examples/json/TeamGetInfoResponseExample.json
-    TeamMembersResponseExample:
-      summary: 'Team Members List'
-      value:
-        $ref: examples/json/TeamMembersResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:
