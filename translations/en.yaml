@@ -458,6 +458,14 @@
 "TeamMemberResponse::EMAIL_ADDRESS": Email address of the team member.
 "TeamMemberResponse::MEMBER_ROLE": The specific role a member has on the team.
 
+"TeamSubTeams::SUMMARY": List Sub Teams
+"TeamSubTeams::DESCRIPTION": Provides a paginated list of sub teams that belong to a given team.
+"TeamSubTeams::TEAM_ID": The id of the parent Team.
+"TeamSubTeams::PAGE": Which page number of the SubTeam List to return. Defaults to `1`.
+"TeamSubTeams::PAGE_SIZE": "Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`."
+
+"SubTeamResponse::DESCRIPTION": Contains a list with sub teams.
+
 "TemplateAddUser::SUMMARY": Add User to Template
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": |-
@@ -1190,16 +1198,17 @@
 "TeamGetResponseExample::SUMMARY": Team Get
 "TeamInfoResponseExample::SUMMARY": Team Get Info
 "TeamMembersResponseExample::SUMMARY": Team Members List
+"TeamSubTeamsResponseExample::SUMMARY": Team Sub Teams List
 "TeamRemoveMemberResponseExample::SUMMARY": Team Remove Member
 "TeamUpdateResponseExample::SUMMARY": Team Update
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
-"TeamResponse::DESCRIPTION": Contains information about your team and its members
 "TeamGeneral::TEAM_ID": The id of a team
 "TeamGeneral::NAME": The name of a team
 "TeamGeneral::NUM_MEMBERS": Number of members within a team
 "TeamGeneral::NUM_SUB_TEAMS": Number of sub teams within a team
+"TeamResponse::DESCRIPTION": Contains information about your team and its members
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template
