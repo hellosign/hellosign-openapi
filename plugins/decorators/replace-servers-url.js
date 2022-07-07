@@ -14,4 +14,4 @@ function ReplaceServersURL() {
             }
         }
     }
-};
+}
