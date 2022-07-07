@@ -7440,6 +7440,155 @@ components:
           type: integer
       type: object
       x-internal: true
+    SignatureRequestResponseDataTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+        - date_signed
+        - dropdown
+        - initials
+        - radio
+        - signature
+        - text-merge
+        - checkbox-merge
+    SignatureRequestResponseDataValueText:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A text input field'
+              type: string
+              default: text
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueDropdown:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'An input field for dropdowns'
+              type: string
+              default: dropdown
+            value:
+              description: 'The value of the form field.'
+              type: text
+              items:
+                type: string
+          type: object
+    SignatureRequestResponseDataValueRadio:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'An input field for radios'
+              type: string
+              default: radio
+            value:
+              description: 'The value of the form field.'
+              type: boolean
+          type: object
+    SignatureRequestResponseDataValueDateSigned:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A date'
+              type: string
+              default: date_signed
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueInitials:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'An input field for initials'
+              type: string
+              default: initials
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueCheckbox:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A yes/no checkbox'
+              type: string
+              default: checkbox
+            value:
+              description: 'The value of the form field.'
+              type: boolean
+          type: object
+    SignatureRequestResponseDataValueSignature:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A signature input field'
+              type: string
+              default: signature
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueTextMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A text field that has default text set by the api'
+              type: string
+              default: text-merge
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueCheckboxMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseData'
+        -
+          properties:
+            type:
+              description: 'A checkbox field that has default value set by the api'
+              type: string
+              default: checkbox-merge
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
     OAuthTokenResponse:
       properties:
         access_token:
@@ -7509,6 +7658,7 @@ components:
           description: 'Default Label for account.'
           type: string
         subject:
+          nullable: true
           description: 'The subject in the email that was initially sent to the signers.'
           type: string
         message:
@@ -7729,35 +7879,24 @@ components:
         name:
           description: 'The name of the form field.'
           type: string
-        value:
-          description: 'The value of the form field.'
-          type: string
         required:
           description: 'A boolean value denoting if this field is required.'
           type: boolean
-        type:
-          description: |-
-            - `text`: A text input field
-            - `checkbox`: A yes/no checkbox
-            - `date_signed`: A date
-            - `dropdown`: An input field for dropdowns
-            - `initials`: An input field for initials
-            - `radio`: An input field for radios
-            - `signature`: A signature input field
-            - `text-merge`: A text field that has default text set by the api
-            - `checkbox-merge`: A checkbox field that has default value set by the api
-          enum:
-            - text
-            - checkbox
-            - date_signed
-            - dropdown
-            - initials
-            - radio
-            - signature
-            - text-merge
-            - checkbox-merge
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/SignatureRequestResponseDataValueText'
+          checkbox: '#/components/schemas/SignatureRequestResponseDataValueCheckbox'
+          dropdown: '#/components/schemas/SignatureRequestResponseDataValueDropdown'
+          radio: '#/components/schemas/SignatureRequestResponseDataValueRadio'
+          signature: '#/components/schemas/SignatureRequestResponseDataValueSignature'
+          date_signed: '#/components/schemas/SignatureRequestResponseDataValueDateSigned'
+          initials: '#/components/schemas/SignatureRequestResponseDataValueInitials'
+          text-merge: '#/components/schemas/SignatureRequestResponseDataValueTextMerge'
+          checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
       x-internal: true
+      x-base-class: true
     SignatureRequestResponseSignatures:
       description: 'An array of signature objects, 1 for each signer.'
       properties:
@@ -7768,6 +7907,7 @@ components:
           description: 'The email address of the signer.'
           type: string
         signer_name:
+          nullable: true
           description: 'The name of the signer.'
           type: string
         signer_role:
@@ -7897,16 +8037,6 @@ components:
           type: string
       type: object
       x-internal: true
-    SubTeamResponse:
-      properties:
-        team_id:
-          description: 'The id of a team'
-          type: string
-        name:
-          description: 'The name of a team'
-          type: string
-      type: object
-      x-internal: true
     TeamGetResponse:
       properties:
         team:
@@ -7925,21 +8055,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamMemberResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TeamSubTeamsResponse:
-      properties:
-        sub_teams:
-          description: 'Contains a list with sub teams.'
-          type: array
-          items:
-            $ref: '#/components/schemas/SubTeamResponse'
         list_info:
           $ref: '#/components/schemas/ListInfoResponse'
         warnings:
@@ -8938,10 +9053,6 @@ components:
       summary: 'Team Members List'
       value:
         $ref: examples/json/TeamMembersResponseExample.json
-    TeamSubTeamsResponseExample:
-      summary: 'Team Sub Teams List'
-      value:
-        $ref: examples/json/TeamSubTeamsResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: 'Team Remove Member'
       value:
