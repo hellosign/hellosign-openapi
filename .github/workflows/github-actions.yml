@@ -38,3 +38,16 @@ jobs:
           github_token: ${{ secrets.PERSONAL_TOKEN }}
           ref: openapi
           client_payload: '{"branch_name": "${{ github.ref_name }}"}'
+
+  trigger-java-sdk-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invoke downstream workflow
+        uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: fenghao-chen
+          repo: hellosign-java-sdk
+          workflow_file_name: github-actions.yml
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          ref: openapi
+          client_payload: '{"branch_name": "${{ github.ref_name }}"}'
