@@ -7480,7 +7480,7 @@ components:
               default: dropdown
             value:
               description: 'The value of the form field.'
-              type: text
+              type: string
           type: object
     SignatureRequestResponseDataValueRadio:
       type: object
