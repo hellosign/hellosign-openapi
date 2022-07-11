@@ -4,6 +4,12 @@
 apiDefinitions:
   hellosign: ./openapi.yaml
 
+lint:
+  plugins:
+    - './plugins/environment-plugin.js'
+  decorators:
+    environment/replace-servers-url: error
+
 # Optimize performance for US customers
 region: us
 
