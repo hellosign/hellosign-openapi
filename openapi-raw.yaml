@@ -7312,8 +7312,6 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: text
-              items:
-                type: string
           type: object
     SignatureRequestResponseDataValueRadio:
       type: object

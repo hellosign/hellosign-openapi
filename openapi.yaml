@@ -7481,8 +7481,6 @@ components:
             value:
               description: 'The value of the form field.'
               type: text
-              items:
-                type: string
           type: object
     SignatureRequestResponseDataValueRadio:
       type: object
