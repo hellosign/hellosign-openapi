@@ -102,6 +102,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountCreate.py
+      x-meta:
+        seo:
+          title: '_t__AccountCreate::SEO:TITLE'
+          description: '_t__AccountCreate::SEO:DESCRIPTION'
   /account:
     get:
       tags:

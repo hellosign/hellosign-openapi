@@ -1384,3 +1384,9 @@
 "Error::422": Error 422 unprocessable_entity
 "Error::429": Error 429 exceeded_rate
 "Error::4XX": Error 4XX failed_operation
+
+#########################
+# SEO for API Reference #
+#########################
+"AccountCreate::SEO:TITLE": "test page title"
+"AccountCreate::SEO:DESCRIPTION": "test description of bacon"
