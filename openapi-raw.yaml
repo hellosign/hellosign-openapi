@@ -7311,7 +7311,7 @@ components:
               default: dropdown
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: text
+              type: string
           type: object
     SignatureRequestResponseDataValueRadio:
       type: object
