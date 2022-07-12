@@ -66,7 +66,7 @@
                 "type": "text",
                 "required": true,
                 "api_id": "textbox__1",
-                "value": "LOL",
+                "value": "Signature required below",
                 "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
             },
             {
@@ -90,7 +90,7 @@
                 "type": "initials",
                 "required": true,
                 "api_id": "initial__1",
-                "value": null,
+                "value": "YM",
                 "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
             },
             {
@@ -106,7 +106,7 @@
                 "type": "signature",
                 "required": true,
                 "api_id": "signature__1",
-                "value": null,
+                "value": "John Doe",
                 "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
             }
       ],
