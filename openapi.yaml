@@ -8200,7 +8200,7 @@ components:
             $ref: '#/components/schemas/TemplateResponseCustomField'
         named_form_fields:
           nullable: true
-          description: 'Use "form_fields" under the "documents" array instead.'
+          description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseNamedFormField'
@@ -8474,7 +8474,7 @@ components:
           type: string
         named_form_fields:
           nullable: true
-          description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
+          description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
           type: object
           deprecated: true
         reusable_form_id:

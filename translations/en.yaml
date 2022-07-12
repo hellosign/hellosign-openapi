@@ -1234,7 +1234,7 @@
 "TemplateResponse::CC_ROLES": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponse::DOCUMENTS": An array describing each document associated with this Template. Includes form field data for each document.
 "TemplateResponse::CUSTOM_FIELDS": An array of Custom Field objects.
-"TemplateResponse::NAMED_FORM_FIELDS": Use "form_fields" under the "documents" array instead.
+"TemplateResponse::NAMED_FORM_FIELDS": Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
 "TemplateResponse::ACCOUNTS": An array of the Accounts that can use this Template.
 "TemplateResponse::TITLE": The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
@@ -1284,6 +1284,7 @@
 "TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
+"TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS": Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
 
 "TemplateResponseCustomField::NAME": The name of the Custom Field.
 "TemplateResponseCustomField::TYPE": The type of this Custom Field. Only `text` and `checkbox` are currently supported.
