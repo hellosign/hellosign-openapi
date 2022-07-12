@@ -7,6 +7,8 @@ apiDefinitions:
 lint:
   plugins:
     - './plugins/environment-plugin.js'
+  extends: 
+    -  recommended
   decorators:
     environment/replace-servers-url: error
 
