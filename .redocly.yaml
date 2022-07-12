@@ -13,39 +13,7 @@ lint:
 # Optimize performance for US customers
 region: us
 
-# Theme and configuration for the reference docs
-referenceDocs:
-  showConsole: true
-  # Limits number of languages in sample bar, rest get pushed to menu
-  samplesTabsMaxCount: 3
-  # Enhances readability since we have longer endpoints
-  pathInMiddlePanel: true
-  # Sets docs to generate a unique page per endpoint. Important for SEO
-  pagination: item
-  # Helps surface the parameters users care about most
-  requiredPropsFirst: true
-  # Allows search to index nested references (like event payloads)
-  searchMaxDepth: 4
-  # Boosts search for terms found in endpoint titles
-  searchOperationTitleBoost: 5
+# NOTE: these settings are controlled by the documentation repo
+# referenceDocs:
+
   
-  # Makes it easier to read endpoint paths
-  hideHostname: true
-  # Allows us to send POST requests. Using Redocly's proxy until we configure HelloSign's
-  corsProxyUrl: https://cors.redoc.ly
-
-
-  # WIP: Generating curl samples. Currently malformed.
-  # # Only include required params in generated samples (unless specified in OAS)
-  # onlyRequiredInSamples: true
-  # # Set default sample selection to curl
-  # defaultSampleLanguage: curl
-  # # Add samples for curl
-  # generateCodeSamples: 
-  #   languages:
-  #     -  lang: curl
-
-  # Looking for something deeply nested? Turn on the settings below and use find in page
-  # pagination: none
-  # ctrlFHijack: false
-  # schemaExpansionLevel: all
