@@ -8208,6 +8208,9 @@ components:
         required:
           description: 'A boolean value denoting if this field is required.'
           type: boolean
+        type:
+          description: 'TEST DESCRIPTION'
+          type: string
       type: object
       discriminator:
         propertyName: type

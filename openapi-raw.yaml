@@ -7703,6 +7703,9 @@ components:
         required:
           description: '_t__SignatureRequestResponseData::REQUIRED'
           type: boolean
+        type:
+          description: 'TEST DESCRIPTION'
+          type: string
       type: object
       discriminator:
         propertyName: type
