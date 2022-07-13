@@ -3692,6 +3692,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamSubTeams.py
+      x-hideOn: doc
       x-meta:
         seo:
           title: '_t__TeamSubTeams::SEO::TITLE'

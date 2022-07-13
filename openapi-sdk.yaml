@@ -3729,6 +3729,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamSubTeams.py
+      x-hideOn: doc
       x-meta:
         seo:
           title: 'List Sub Teams | HelloSign for Developers'
