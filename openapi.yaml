@@ -216,7 +216,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccountGetResponse'
+                $ref: '#/components/schemas/AccountUpdateResponse'
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
@@ -1035,8 +1035,8 @@ paths:
             $ref: examples/BulkSendJobList.py
       x-meta:
         seo:
-          title: 'List Bulk Send Jobs | Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here.'
+          title: 'Get Bulk Send Job | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
   '/embedded/edit_url/{template_id}':
     post:
       tags:
@@ -3410,6 +3410,115 @@ paths:
         seo:
           title: 'Remove User from Team | REST API | HelloSign for Developers'
           description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
+  '/team/sub_teams/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'List Sub Teams'
+      description: 'Provides a paginated list of sub teams that belong to a given team.'
+      operationId: teamSubTeams
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'The id of the parent Team.'
+          required: true
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+        -
+          name: page
+          in: query
+          description: 'Which page number of the SubTeam List to return. Defaults to `1`.'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSubTeamsResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamSubTeamsResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSubTeams.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSubTeams.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamSubTeams.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSubTeams.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSubTeams.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSubTeams.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSubTeams.py
+      x-meta:
+        seo:
+          title: 'List Sub Teams | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of sub teams that exist for a given team, click here.'
   '/template/add_user/{template_id}':
     post:
       tags:

@@ -216,7 +216,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccountGetResponse'
+                $ref: '#/components/schemas/AccountUpdateResponse'
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
@@ -1035,8 +1035,8 @@ paths:
             $ref: examples/BulkSendJobList.py
       x-meta:
         seo:
-          title: 'List Bulk Send Jobs | Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here.'
+          title: 'Get Bulk Send Job | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
   '/embedded/edit_url/{template_id}':
     post:
       tags:
@@ -3421,6 +3421,116 @@ paths:
         seo:
           title: 'Get Team Info | HelloSign for Developers'
           description: 'The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here.'
+  '/team/members/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'List Team Members'
+      description: 'Provides a paginated list of members (and their roles) that belong to a given team.'
+      operationId: teamMembers
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'The id of the team that a member list is being requested from.'
+          required: true
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+        -
+          name: page
+          in: query
+          description: 'Which page number of the team member list to return. Defaults to `1`.'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMembersResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamMembersResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamMembers.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamMembers.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamMembers.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamMembers.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamMembers.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamMembers.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamMembers.py
+      x-hideOn: doc
+      x-meta:
+        seo:
+          title: 'List Team Members | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of team members and their roles for a specific team, click here.'
   /team/remove_member:
     post:
       tags:
@@ -3619,7 +3729,6 @@ paths:
           label: Python
           source:
             $ref: examples/TeamSubTeams.py
-      x-hideOn: doc
       x-meta:
         seo:
           title: 'List Sub Teams | HelloSign for Developers'
