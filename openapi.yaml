@@ -216,7 +216,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AccountUpdateResponse'
+                $ref: '#/components/schemas/AccountGetResponse'
               examples:
                 default_example:
                   $ref: '#/components/examples/AccountUpdateResponseExample'
