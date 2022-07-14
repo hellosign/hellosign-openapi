@@ -102,6 +102,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountCreate.py
+      x-meta:
+        seo:
+          title: 'Create Account | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a range of tools. Find out how to create a new HelloSign Account using the specified `email_address` here.'
   /account:
     get:
       tags:
@@ -187,6 +191,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountGet.py
+      x-meta:
+        seo:
+          title: 'Get Account | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here.'
     put:
       tags:
         - Account
@@ -273,6 +281,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountUpdate.py
+      x-meta:
+        seo:
+          title: 'Update Account | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here.'
   /account/verify:
     post:
       tags:
@@ -360,6 +372,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountVerify.py
+      x-meta:
+        seo:
+          title: 'Verify Account | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here.'
   /api_app:
     post:
       tags:
@@ -453,6 +469,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppCreate.py
+      x-meta:
+        seo:
+          title: 'Create API App | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to create a new API App, click here.'
   '/api_app/{client_id}':
     get:
       tags:
@@ -542,6 +562,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppGet.py
+      x-meta:
+        seo:
+          title: 'Get API App | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to return an object with information about an API App, click here.'
     put:
       tags:
         - 'Api App'
@@ -645,6 +669,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppUpdate.py
+      x-meta:
+        seo:
+          title: 'Update API App | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to update an App that you own, click here.'
     delete:
       tags:
         - 'Api App'
@@ -724,6 +752,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppDelete.py
+      x-meta:
+        seo:
+          title: 'Delete API App | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to delete an API App, click here.'
   /api_app/list:
     get:
       tags:
@@ -815,6 +847,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppList.py
+      x-meta:
+        seo:
+          title: 'List API Apps | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to return a list of API Apps that are accessible by you, click here.'
   '/bulk_send_job/{bulk_send_job_id}':
     get:
       tags:
@@ -901,6 +937,10 @@ paths:
           label: Python
           source:
             $ref: examples/BulkSendJobGet.py
+      x-meta:
+        seo:
+          title: 'Get Bulk Send Job | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
   /bulk_send_job/list:
     get:
       tags:
@@ -993,6 +1033,10 @@ paths:
           label: Python
           source:
             $ref: examples/BulkSendJobList.py
+      x-meta:
+        seo:
+          title: 'Get Bulk Send Job | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
   '/embedded/edit_url/{template_id}':
     post:
       tags:
@@ -1089,6 +1133,10 @@ paths:
           label: Python
           source:
             $ref: examples/EmbeddedEditUrl.py
+      x-meta:
+        seo:
+          title: 'Get Embedded Template URL | iFrame | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here.'
   '/embedded/sign_url/{signature_id}':
     get:
       tags:
@@ -1180,6 +1228,10 @@ paths:
           label: Python
           source:
             $ref: examples/EmbeddedSignUrl.py
+      x-meta:
+        seo:
+          title: 'Get Embedded Sign URL | iFrame | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
   /oauth/token:
     post:
       tags:
@@ -1247,6 +1299,10 @@ paths:
           source:
             $ref: examples/OauthTokenGenerate.py
       x-hideTryItPanel: true
+      x-meta:
+        seo:
+          title: 'Generate OAuth Token | Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to generate a new OAuth token with the API, click here.'
   '/oauth/token?refresh':
     post:
       tags:
@@ -1314,6 +1370,10 @@ paths:
           source:
             $ref: examples/OauthTokenRefresh.py
       x-hideTryItPanel: true
+      x-meta:
+        seo:
+          title: 'OAuth Token Refresh | Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to refresh your OAuth token with the API, click here.'
   /report/create:
     post:
       tags:
@@ -1399,6 +1459,10 @@ paths:
           label: Python
           source:
             $ref: examples/ReportCreate.py
+      x-meta:
+        seo:
+          title: 'Create Report | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to request the creation of one or more reports, click here.'
   /signature_request/bulk_create_embedded_with_template:
     post:
       tags:
@@ -1496,6 +1560,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.py
+      x-meta:
+        seo:
+          title: 'Embedded Bulk Send with Template | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to create embedded BulkSendJob signature requests, click here.'
   /signature_request/bulk_send_with_template:
     post:
       tags:
@@ -1593,6 +1661,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestBulkSendWithTemplate.py
+      x-meta:
+        seo:
+          title: 'Bulk Send with Template | REST API | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to create BulkSendJob for up to 250 signature requests, click here.'
   '/signature_request/cancel/{signature_request_id}':
     post:
       tags:
@@ -1689,6 +1761,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCancel.py
+      x-meta:
+        seo:
+          title: 'Cancel Incomplete Signature Request | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to cancel an incomplete signature request, click here.'
   /signature_request/create_embedded:
     post:
       tags:
@@ -1784,6 +1860,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCreateEmbedded.py
+      x-meta:
+        seo:
+          title: 'Create Embedded Signature Request | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here.'
   /signature_request/create_embedded_with_template:
     post:
       tags:
@@ -1879,6 +1959,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
+      x-meta:
+        seo:
+          title: 'Signature Request with Template | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -2002,6 +2086,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestFiles.py
+      x-meta:
+        seo:
+          title: 'Download Files | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
   '/signature_request/{signature_request_id}':
     get:
       tags:
@@ -2092,6 +2180,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestGet.py
+      x-meta:
+        seo:
+          title: 'Get Signature Request | Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of SignatureRequest specified by the parameters, click here.'
   /signature_request/list:
     get:
       tags:
@@ -2202,6 +2294,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestList.py
+      x-meta:
+        seo:
+          title: 'List Signature Requests | REST API | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return a list of SignatureRequests that you can access, click here.'
   '/signature_request/release_hold/{signature_request_id}':
     post:
       tags:
@@ -2289,6 +2385,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestReleaseHold.py
+      x-meta:
+        seo:
+          title: 'Release On-Hold Signature Request | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to release an on-hold SignatureRequest, click here.'
   '/signature_request/remind/{signature_request_id}':
     post:
       tags:
@@ -2395,6 +2495,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestRemind.py
+      x-meta:
+        seo:
+          title: 'Send Request Reminder | REST API | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to send an email reminder to the signer, click here.'
   '/signature_request/remove/{signature_request_id}':
     post:
       tags:
@@ -2483,6 +2587,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestRemove.py
+      x-meta:
+        seo:
+          title: 'Remove Signature Request Access | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to remove your access to a completed signature request, click here.'
   /signature_request/send:
     post:
       tags:
@@ -2579,6 +2687,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestSend.py
+      x-meta:
+        seo:
+          title: 'Send Signature Request | REST API | HelloSign for Developers'
+          description: 'HelloSign API allows you to build custom integrations. To find out how to create and send new SignatureRequest with the submitted documents, click here.'
   /signature_request/send_with_template:
     post:
       tags:
@@ -2673,6 +2785,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestSendWithTemplate.py
+      x-meta:
+        seo:
+          title: 'Send with Template | API Documentation | HelloSign for Developers'
+          description: 'HelloSign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here.'
   '/signature_request/update/{signature_request_id}':
     post:
       tags:
@@ -2772,6 +2888,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestUpdate.py
+      x-meta:
+        seo:
+          title: 'Update Signature Request | REST API | HelloSign for Developers'
+          description: 'HelloSign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here.'
   /team/add_member:
     put:
       tags:
@@ -2861,6 +2981,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamAddMember.py
+      x-meta:
+        seo:
+          title: 'Add User to Team | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to invite a specified user to your Team, click here.'
   /team/create:
     post:
       tags:
@@ -2946,6 +3070,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamCreate.py
+      x-meta:
+        seo:
+          title: 'Create Team | REST API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to create a new team and make yourself a member, click here.'
   /team/destroy:
     delete:
       tags:
@@ -3015,6 +3143,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamDelete.py
+      x-meta:
+        seo:
+          title: 'Delete Team | REST API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to delete a team you are a member of, click here.'
   /team:
     get:
       tags:
@@ -3093,6 +3225,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamGet.py
+      x-meta:
+        seo:
+          title: 'Get Team | REST API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to return information about your Team, click here.'
     put:
       tags:
         - Team
@@ -3177,6 +3313,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
+      x-meta:
+        seo:
+          title: 'Update Team | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to update the name of your team, click here.'
   /team/remove_member:
     post:
       tags:
@@ -3266,6 +3406,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamRemoveMember.py
+      x-meta:
+        seo:
+          title: 'Remove User from Team | REST API | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
   '/template/add_user/{template_id}':
     post:
       tags:
@@ -3362,6 +3506,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateAddUser.py
+      x-meta:
+        seo:
+          title: 'Add User to Template | REST API | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here.'
   /template/create_embedded_draft:
     post:
       tags:
@@ -3463,6 +3611,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateCreateEmbeddedDraft.py
+      x-meta:
+        seo:
+          title: 'Create Embedded Template Draft | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
   '/template/delete/{template_id}':
     post:
       tags:
@@ -3547,6 +3699,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateDelete.py
+      x-meta:
+        seo:
+          title: 'Delete Template | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here.'
   '/template/files/{template_id}':
     get:
       tags:
@@ -3668,12 +3824,16 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateFiles.py
+      x-meta:
+        seo:
+          title: 'Get Template Files | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
   '/template/{template_id}':
     get:
       tags:
         - Template
       summary: 'Get Template'
-      description: 'Returns the Template specified by the `id` parameter.'
+      description: 'Returns the Template specified by the `template_id` parameter.'
       operationId: templateGet
       parameters:
         -
@@ -3757,6 +3917,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateGet.py
+      x-meta:
+        seo:
+          title: 'Get Template | API Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to return the Template specified by the `template_id` parameter, click here.'
   /template/list:
     get:
       tags:
@@ -3869,6 +4033,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateList.py
+      x-meta:
+        seo:
+          title: 'List Templates | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to return a list of the Templates that can be accessed by you, click here.'
   '/template/remove_user/{template_id}':
     post:
       tags:
@@ -3965,6 +4133,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateRemoveUser.py
+      x-meta:
+        seo:
+          title: 'Remove User from Template | REST API | HelloSign for Developers'
+          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to remove a specified Account''s access to a Template, click here.'
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -4083,6 +4255,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateUpdateFiles.py
+      x-meta:
+        seo:
+          title: 'Update Template Files | REST API | HelloSign for Developers'
+          description: 'Overlays a new file with the overlay of an existing template'
   /unclaimed_draft/create:
     post:
       tags:
@@ -4180,6 +4356,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreate.py
+      x-meta:
+        seo:
+          title: 'Create Unclaimed Draft | REST API | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here.'
   /unclaimed_draft/create_embedded:
     post:
       tags:
@@ -4285,6 +4465,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreateEmbedded.py
+      x-meta:
+        seo:
+          title: 'Create Embedded Unclaimed Draft | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to create and embed a the creation of a Signature Request in an iFrame, click here.'
   /unclaimed_draft/create_embedded_with_template:
     post:
       tags:
@@ -4385,6 +4569,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
+      x-meta:
+        seo:
+          title: 'Embed Unclaimed Draft with Template | HelloSign for Developers'
+          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here.'
   '/unclaimed_draft/edit_and_resend/{signature_request_id}':
     post:
       tags:
@@ -4489,6 +4677,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftEditAndResend.py
+      x-meta:
+        seo:
+          title: 'Edit and Resend Unclaimed Draft | HelloSign for Developers'
+          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here.'
 components:
   schemas:
     AccountCreateRequest:
@@ -8149,7 +8341,7 @@ components:
             $ref: '#/components/schemas/TemplateResponseCustomField'
         named_form_fields:
           nullable: true
-          description: 'Use "form_fields" under the "documents" array instead.'
+          description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseNamedFormField'
@@ -8423,7 +8615,7 @@ components:
           type: string
         named_form_fields:
           nullable: true
-          description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
+          description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
           type: object
           deprecated: true
         reusable_form_id:
@@ -9272,6 +9464,10 @@ x-webhooks:
       operationId: accountUpdateEventCallback
       description:
         $ref: ./markdown/en/descriptions/account-callback-description.md
+      x-meta:
+        seo:
+          title: 'Account Callbacks | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to consume HelloSign Events at the account level, click here.'
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -9285,6 +9481,10 @@ x-webhooks:
       description:
         $ref: ./markdown/en/descriptions/api-app-callback-description.md
       operationId: apiAppCreateEventCallback
+      x-meta:
+        seo:
+          title: 'App Callbacks | API Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to consume HelloSign Events at the App level, click here.'
       tags:
         - 'Callbacks and Events'
       requestBody:
