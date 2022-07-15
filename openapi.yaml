@@ -1035,8 +1035,8 @@ paths:
             $ref: examples/BulkSendJobList.py
       x-meta:
         seo:
-          title: 'Get Bulk Send Job | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
+          title: 'List Bulk Send Jobs | Documentation | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here.'
   '/embedded/edit_url/{template_id}':
     post:
       tags:

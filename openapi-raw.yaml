@@ -1035,8 +1035,8 @@ paths:
             $ref: examples/BulkSendJobList.py
       x-meta:
         seo:
-          title: '_t__BulkSendJobGet::SEO::TITLE'
-          description: '_t__BulkSendJobGet::SEO::DESCRIPTION'
+          title: '_t__BulkSendJobList::SEO::TITLE'
+          description: '_t__BulkSendJobList::SEO::DESCRIPTION'
   '/embedded/edit_url/{template_id}':
     post:
       tags:
