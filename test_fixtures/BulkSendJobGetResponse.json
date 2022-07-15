@@ -27,7 +27,7 @@
             "api_id": "80c678_1",
             "name": "Needs Express Shipping",
             "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
-            "value": "true",
+            "value": true,
             "type": "checkbox"
           },
           {

@@ -1162,17 +1162,16 @@
 "SignatureRequestResponseData::NAME": The name of the form field.
 "SignatureRequestResponseData::REQUIRED": A boolean value denoting if this field is required.
 "SignatureRequestResponseData::SIGNATURE_ID": The ID of the signature to which this response is linked.
-"SignatureRequestResponseData::TYPE": |-
-  - `text`: A text input field
-  - `checkbox`: A yes/no checkbox
-  - `date_signed`: A date
-  - `dropdown`: An input field for dropdowns
-  - `initials`: An input field for initials
-  - `radio`: An input field for radios
-  - `signature`: A signature input field
-  - `text-merge`: A text field that has default text set by the api
-  - `checkbox-merge`: A checkbox field that has default value set by the api
-"SignatureRequestResponseData::VALUE": The value of the form field.
+"SignatureRequestResponseDataValue::TEXT_TYPE": A text input field
+"SignatureRequestResponseDataValue::CHECKBOX_TYPE": A yes/no checkbox
+"SignatureRequestResponseDataValue::DATESIGNED_TYPE": A date
+"SignatureRequestResponseDataValue::DROPDOWN_TYPE": An input field for dropdowns
+"SignatureRequestResponseDataValue::INITIAL_TYPE": An input field for initials
+"SignatureRequestResponseDataValue::RADIO_TYPE": An input field for radios
+"SignatureRequestResponseDataValue::SIGNATURE_TYPE": A signature input field
+"SignatureRequestResponseDataValue::TEXTMERGE_TYPE": A text field that has default text set by the api
+"SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE": A checkbox field that has default value set by the api
+"SignatureRequestResponseDataValue::VALUE": The value of the form field.
 
 "SignatureRequestResponseSignatures::DESCRIPTION": An array of signature objects, 1 for each signer.
 "SignatureRequestResponseSignatures::DECLINE_REASON": The reason provided by the signer for declining the request.

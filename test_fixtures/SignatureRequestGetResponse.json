@@ -43,7 +43,73 @@
           "required": true
         }
       ],
-      "response_data": [],
+      "response_data": [
+        
+{
+                "name": "Dropdown1",
+                "type": "dropdown",
+                "required": true,
+                "api_id": "dropdown__1",
+                "value": "1",
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "Checkbox1",
+                "type": "checkbox",
+                "required": false,
+                "api_id": "checkbox__1",
+                "value": true,
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "Textbox1",
+                "type": "text",
+                "required": true,
+                "api_id": "textbox__1",
+                "value": "Signature required below",
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "DateSigned1",
+                "type": "date_signed",
+                "required": false,
+                "api_id": "datesigned__1",
+                "value": "06 / 29 / 2022",
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "RadioItem1",
+                "type": "radio",
+                "required": false,
+                "api_id": "radio__1",
+                "value": true,
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "Initial1",
+                "type": "initials",
+                "required": true,
+                "api_id": "initial__1",
+                "value": "YM",
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "RadioItem2",
+                "type": "radio",
+                "required": false,
+                "api_id": "radio__2",
+                "value": false,
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            },
+            {
+                "name": "Signature1",
+                "type": "signature",
+                "required": true,
+                "api_id": "signature__1",
+                "value": "John Doe",
+                "signature_id": "a9f4825edef25f47e7b4c14ce8100d81d1693160"
+            }
+      ],
       "signing_url": "https://app.hellosign.com/sign/a9f4825edef25f47e7b4c14ce8100d81d1693160",
       "details_url": "https://app.hellosign.com/home/manage?guid=a9f4825edef25f47e7b4c14ce8100d81d1693160",
       "requester_email_address": "me@hellosign.com",
