@@ -7287,7 +7287,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7302,7 +7302,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7317,7 +7317,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7332,7 +7332,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7347,7 +7347,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7362,7 +7362,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7377,7 +7377,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7392,7 +7392,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7407,7 +7407,7 @@ components:
       type: object
       allOf:
         -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         -
           properties:
             type:
@@ -7551,7 +7551,7 @@ components:
           description: '_t__SignatureRequestResponseData::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SignatureRequestResponseData'
+            $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         signatures:
           description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
           type: array
@@ -7688,7 +7688,7 @@ components:
               description: '_t__SignatureRequestResponseCustomField::VALUE_CHECKBOX'
               type: boolean
           type: object
-    SignatureRequestResponseData:
+    SignatureRequestResponseDataBase:
       description: '_t__SignatureRequestResponseData::DESCRIPTION'
       properties:
         api_id:
