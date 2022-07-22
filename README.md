@@ -86,7 +86,7 @@ The SDKs based on our OpenAPI spec are a work in progress and none have moved pa
 | Link to SDK | Status |
 | --- | --- |
 | [NodeJS](https://github.com/HelloFax/hellosign-nodejs-sdk) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/HelloFax/hellosign-nodejs-sdk) |
-| [PHP]((https://github.com/hellosign/hellosign-php-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) |
+| [PHP](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) |
 | C# [dotnet](https://github.com/hellosign/hellosign-dotnet-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-dotnet-sdk/tree/openapi) |
 | [Python](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) |
 | [Ruby](https://github.com/HelloFax/hellosign-ruby-sdk) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/HelloFax/hellosign-ruby-sdk) |
