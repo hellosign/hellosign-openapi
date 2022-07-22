@@ -7690,6 +7690,8 @@ components:
           type: object
     SignatureRequestResponseDataBase:
       description: '_t__SignatureRequestResponseData::DESCRIPTION'
+      required:
+        - type
       properties:
         api_id:
           description: '_t__SignatureRequestResponseData::API_ID'
@@ -7703,8 +7705,6 @@ components:
         required:
           description: '_t__SignatureRequestResponseData::REQUIRED'
           type: boolean
-        type:
-          type: string
       type: object
       discriminator:
         propertyName: type
