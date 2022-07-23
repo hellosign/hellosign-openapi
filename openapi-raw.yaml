@@ -3890,8 +3890,6 @@ paths:
                   $ref: '#/components/examples/Error404ResponseExample'
                 409_example:
                   $ref: '#/components/examples/Error409ResponseExample'
-                422_example:
-                  $ref: '#/components/examples/Error422ResponseExample'
                 429_example:
                   $ref: '#/components/examples/Error429ResponseExample'
                 4XX_example:
@@ -5362,7 +5360,7 @@ components:
           description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/SubSignatureRequestSigner'
+            $ref: '#/components/schemas/SubSignatureRequestSignerEmbedded'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -5379,6 +5377,10 @@ components:
           maxLength: 255
         use_text_tags:
           description: '_t__SignatureRequestCreateEmbedded::USE_TEXT_TAGS'
+          type: boolean
+          default: false
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
       type: object
@@ -5450,6 +5452,10 @@ components:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::TITLE'
           type: string
           maxLength: 255
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -5979,7 +5985,6 @@ components:
           type: string
           format: email
         order:
-          nullable: true
           description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
           type: integer
         pin:
@@ -5996,6 +6001,30 @@ components:
           enum:
             - authentication
             - delivery
+      type: object
+    SubSignatureRequestSignerEmbedded:
+      required:
+        - name
+        - email_address
+      properties:
+        name:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_NAME'
+          type: string
+        email_address:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS'
+          type: string
+          format: email
+        order:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
+          type: integer
+        pin:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
+          type: string
+          maxLength: 12
+          minLength: 4
+        sms_phone_number:
+          description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER'
+          type: string
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6041,7 +6070,6 @@ components:
           description: '_t__Sub::UnclaimedDraftSigner::NAME'
           type: string
         order:
-          nullable: true
           description: '_t__Sub::UnclaimedDraftSigner::ORDER'
           type: integer
       type: object
@@ -6068,7 +6096,6 @@ components:
           description: '_t__Sub::SignerRole::NAME'
           type: string
         order:
-          nullable: true
           description: '_t__Sub::SignerRole::ORDER'
           type: integer
       type: object
@@ -6620,6 +6647,10 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS'
           type: boolean
           default: false
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -6738,6 +6769,10 @@ components:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::TITLE'
           type: string
           maxLength: 255
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
@@ -7767,14 +7802,6 @@ components:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH'
           type: boolean
-        has_sms_delivery:
-          nullable: true
-          description: '_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY'
-          type: boolean
-        sms_phone_number:
-          nullable: true
-          description: '_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER'
-          type: string
         reassigned_by:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::REASSIGNED_BY'
@@ -8784,10 +8811,6 @@ components:
       summary: '_t__Error::410'
       value:
         $ref: examples/json/Error410ResponseExample.json
-    Error422ResponseExample:
-      summary: '_t__Error::422'
-      value:
-        $ref: examples/json/Error422ResponseExample.json
     Error429ResponseExample:
       summary: '_t__Error::429'
       value:
