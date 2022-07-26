@@ -4518,6 +4518,7 @@ components:
     AccountUpdateRequest:
       properties:
         account_id:
+          x-beta: closed
           nullable: true
           description: 'The ID of the Account'
           type: string
