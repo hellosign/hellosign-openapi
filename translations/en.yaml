@@ -122,10 +122,27 @@
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
-"FaxTransmissionGet::SUMMARY": Get a Fax Transmission
-"FaxTransmissionGet::DESCRIPTION": Retrieves details about the status of a specific fax transmission.
+"FaxTransmissionGet::SUMMARY": Lookup a Fax
+"FaxTransmissionGet::DESCRIPTION": Retrieves details about the status of a specific Fax transmission.
 "FaxTransmissionGet::TRANSMISSION_ID": |-
   The id of the Fax Transmission to retrieve.
+
+"FaxTransmissionSend::SUMMARY": Send a Fax
+"FaxTransmissionSend::DESCRIPTION": Send a document as a Fax to a number.
+"FaxTransmissionSend::TO": The Fax number to send to.
+"FaxTransmissionSend::FILE": |-
+  Use `file[]` to indicate the uploaded file(s) to send for signature.
+  
+  This endpoint requires either **file** or **file_url[]**, but not both.
+"FaxTransmissionSend::FILE_URL": |-
+  Use `file_url[]` to have HelloFax download the file(s) to send for signature.
+
+  This endpoint requires either **file** or **file_url[]**, but not both.
+"FaxTransmissionSend::FROM": Fax machines supporting CSID will display this number of the caller ID. Your primary Fax number will also be overlaid on the Fax itself. If you have multiple HelloFax Fax lines, you may specify which one to use as the sending Fax machine by including the `from` parameter in the URL.
+"FaxTransmissionSend::COVER_PAGE_TO": If specified, will be included on a cover page with this Fax.
+"FaxTransmissionSend::COVER_PAGE_FROM": If specified, will be included on a cover page with this Fax.
+"FaxTransmissionSend::COVER_PAGE_MESSAGE": If specified, will be included on a cover page with this Fax.
+"FaxTransmissionSend::TITLE": The title you want to assign to the Fax.
 
 "OAuthTokenGenerate::SUMMARY": OAuth Token Generate
 "OAuthTokenGenerate::DESCRIPTION": Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
@@ -1079,6 +1096,19 @@
 "EventCallbackSignatureRequestExample::SUMMARY": Event Callback Signature Request Example
 "EventCallbackTemplateRequestExample::SUMMARY": Event Callback Template Example
 
+"FaxTransmissionResponse::DESCRIPTION": Contains information about the Fax transmission.
+"FaxTransmissionResponse::TEST_MODE": Whether this is a test Fax. Test Faxes are not really sent, but act like they were.
+"FaxTransmissionResponse::TRANSMISSION_ID": The Fax Transmission ID
+"FaxTransmissionResponse::TITLE": The title the specified Account uses for the Fax.
+"FaxTransmissionResponse::ORIGINAL_TITLE": Default Label for account.
+"FaxTransmissionResponse::CREATED_AT": Time the Fax was created.
+"FaxTransmissionResponse::FROM": Indicates who the Fax is from.
+"FaxTransmissionResponseTransmissions::DESCRIPTION": Recipients of this transmission. One or more.
+"FaxTransmissionResponseTransmissions::STATUS_CODE": The status of the transmission to this recipient.
+"FaxTransmissionResponseTransmissions::RECIPIENT": A recipient of the Fax.
+"FaxTransmissionResponse::FINAL_COPY_URI": The uri of the final copy for this Fax's files.
+"FaxTransmissionResponse::FILES_URL": The uri to download the files for this Fax.
+
 "ListInfoResponse::DESCRIPTION": Contains pagination information about the data returned.
 "ListInfoResponse::NUM_PAGES": Total number of pages available.
 "ListInfoResponse::NUM_RESULTS": Total number of objects available.
@@ -1420,6 +1450,10 @@
 "EmbeddedEditUrl::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here."
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | HelloSign for Developers"
 "EmbeddedSignUrl::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here."
+"FaxTransmissionGet::SEO::TITLE": "Get Fax Transmission | API Documentation | HelloFax for Developers"
+"FaxTransmissionGet::SEO::DESCRIPTION": "The HelloFax API allows you to integrate faxing into your application."
+"FaxTransmissionSend::SEO::TITLE": "Send Fax Transmission | API Documentation | HelloFax for Developers"
+"FaxTransmissionSend::SEO::DESCRIPTION": "The HelloFax API allows you to integrate faxing into your application."
 "OAuthTokenGenerate::SEO::TITLE": "Generate OAuth Token | Documentation | HelloSign for Developers"
 "OAuthTokenGenerate::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to generate a new OAuth token with the API, click here."
 "OAuthTokenRefresh::SEO::TITLE": "OAuth Token Refresh | Documentation | HelloSign for Developers"

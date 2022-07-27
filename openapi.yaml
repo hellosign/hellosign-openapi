@@ -1236,8 +1236,8 @@ paths:
     get:
       tags:
         - Fax
-      summary: 'Get a Fax Transmission'
-      description: 'Retrieves details about the status of a specific fax transmission.'
+      summary: 'Lookup a Fax'
+      description: 'Retrieves details about the status of a specific Fax transmission.'
       operationId: faxTransmissionGet
       parameters:
         -
@@ -1278,8 +1278,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1318,8 +1316,100 @@ paths:
             $ref: examples/FaxTransmissionGet.py
       x-meta:
         seo:
-          title: '_t__FaxTransmissionGet::SEO::TITLE'
-          description: '_t__FaxTransmissionGet::SEO::DESCRIPTION'
+          title: 'Get Fax Transmission | API Documentation | HelloFax for Developers'
+          description: 'The HelloFax API allows you to integrate faxing into your application.'
+  /transmission/send:
+    post:
+      tags:
+        - Fax
+      summary: 'Send a Fax'
+      description: 'Send a document as a Fax to a number.'
+      operationId: faxTransmissionSend
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxTransmissionSendRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxTransmissionSendRequestDefaultExample'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxTransmissionSendRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxTransmissionSendFormDataExample'
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxTransmissionSendResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxTransmissionSendResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxTransmissionSend.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxTransmissionSend.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxTransmissionSend.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxTransmissionSend.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxTransmissionSend.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxTransmissionSend.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxTransmissionSend.py
+      x-meta:
+        seo:
+          title: 'Send Fax Transmission | API Documentation | HelloFax for Developers'
+          description: 'The HelloFax API allows you to integrate faxing into your application.'
   /oauth/token:
     post:
       tags:
@@ -4920,6 +5010,46 @@ components:
           type: boolean
           default: false
       type: object
+    FaxTransmissionSendRequest:
+      required:
+        - to
+      properties:
+        to:
+          description: 'The Fax number to send to.'
+          type: string
+        file:
+          description: |-
+            Use `file[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **file** or **file_url[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_url:
+          description: |-
+            Use `file_url[]` to have HelloFax download the file(s) to send for signature.
+
+            This endpoint requires either **file** or **file_url[]**, but not both.
+          type: array
+          items:
+            type: string
+        from:
+          description: 'Fax machines supporting CSID will display this number of the caller ID. Your primary Fax number will also be overlaid on the Fax itself. If you have multiple HelloFax Fax lines, you may specify which one to use as the sending Fax machine by including the `from` parameter in the URL.'
+          type: string
+        cover_page_to:
+          description: 'If specified, will be included on a cover page with this Fax.'
+          type: string
+        cover_page_from:
+          description: 'If specified, will be included on a cover page with this Fax.'
+          type: string
+        cover_page_message:
+          description: 'If specified, will be included on a cover page with this Fax.'
+          type: string
+        title:
+          description: 'The title you want to assign to the Fax.'
+          type: string
+      type: object
     SubFormFieldsPerDocumentTypeEnum:
       type: string
       enum:
@@ -7693,38 +7823,38 @@ components:
           type: string
       type: object
     FaxTransmissionResponse:
-      description: '_t__FaxTransmissionResponse::DESCRIPTION'
+      description: 'Contains information about the Fax transmission.'
       properties:
         test_mode:
           nullable: true
-          description: '_t__FaxTransmissionResponse::TEST_MODE'
+          description: 'Whether this is a test Fax. Test Faxes are not really sent, but act like they were.'
           type: boolean
           default: false
         transmission_id:
-          description: '_t__FaxTransmissionResponse::TRANSMISSION_ID'
+          description: 'The Fax Transmission ID'
           type: string
         title:
-          description: '_t__FaxTransmissionResponse::TITLE'
+          description: 'The title the specified Account uses for the Fax.'
           type: string
         original_title:
-          description: '_t__FaxTransmissionResponse::ORIGINAL_TITLE'
+          description: 'Default Label for account.'
           type: string
         created_at:
-          description: '_t__FaxTransmissionResponse::CREATED_AT'
+          description: 'Time the Fax was created.'
           type: integer
         from:
-          description: '_t__FaxTransmissionResponse::FROM'
+          description: 'Indicates who the Fax is from.'
           type: string
         transmissions:
-          description: '_t__FaxTransmissionResponseTransmissions::DESCRIPTION'
+          description: 'Recipients of this transmission. One or more.'
           type: array
           items:
             $ref: '#/components/schemas/FaxTransmissionResponseTransmissions'
         final_copy_uri:
-          description: '_t__FaxTransmissionResponse::FINAL_COPY_URI'
+          description: 'The uri of the final copy for this Fax''s files.'
           type: string
         files_url:
-          description: '_t__FaxTransmissionResponse::FILES_URL'
+          description: 'The uri to download the files for this Fax.'
           type: string
       type: object
       x-internal: true
@@ -7734,14 +7864,20 @@ components:
           $ref: '#/components/schemas/FaxTransmissionResponse'
       type: object
       x-internal: true
+    FaxTransmissionSendResponse:
+      properties:
+        transmission:
+          $ref: '#/components/schemas/FaxTransmissionResponse'
+      type: object
+      x-internal: true
     FaxTransmissionResponseTransmissions:
-      description: '_t__FaxTransmissionResponseTransmissions::DESCRIPTION'
+      description: 'Recipients of this transmission. One or more.'
       properties:
         status_code:
-          description: '_t__FaxTransmissionResponse::STATUS_CODE'
+          description: 'The status of the transmission to this recipient.'
           type: string
         recipient:
-          description: '_t__FaxTransmissionResponse::RECIPIENT'
+          description: 'A recipient of the Fax.'
           type: string
       type: object
       x-internal: true
