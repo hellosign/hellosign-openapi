@@ -1318,8 +1318,8 @@ paths:
             $ref: examples/FaxTransmissionGet.py
       x-meta:
         seo:
-          title: '_t__FaxTransmissionGet::SEO::TITLE'
-          description: '_t__FaxTransmissionGet::SEO::DESCRIPTION'
+          title: 'Get Fax Transmission | API Documentation | HelloFax for Developers'
+          description: 'The HelloFax API allows you to integrate faxing into your application.'
   /transmission/list:
     get:
       tags:
@@ -1418,8 +1418,8 @@ paths:
     post:
       tags:
         - Fax
-      summary: '_t__FaxTransmissionSend::SUMMARY'
-      description: '_t__FaxTransmissionSend::DESCRIPTION'
+      summary: 'Send a Fax'
+      description: 'Send a document as a Fax to a number.'
       operationId: faxTransmissionSend
       requestBody:
         required: true
@@ -1506,8 +1506,8 @@ paths:
             $ref: examples/FaxTransmissionSend.py
       x-meta:
         seo:
-          title: '_t__FaxTransmissionSend::SEO::TITLE'
-          description: '_t__FaxTransmissionSend::SEO::DESCRIPTION'
+          title: 'Send Fax Transmission | API Documentation | HelloFax for Developers'
+          description: 'The HelloFax API allows you to integrate faxing into your application.'
   /oauth/token:
     post:
       tags:
@@ -5437,33 +5437,39 @@ components:
         - to
       properties:
         to:
-          description: '_t__FaxTransmissionSend::TO'
+          description: 'The Fax number to send to.'
           type: string
         file:
-          description: '_t__FaxTransmissionSend::FILE'
+          description: |-
+            Use `file[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
             format: binary
         file_url:
-          description: '_t__FaxTransmissionSend::FILE_URL'
+          description: |-
+            Use `file_url[]` to have HelloFax download the file(s) to send for signature.
+
+            This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
           items:
             type: string
         from:
-          description: '_t__FaxTransmissionSend::FROM'
+          description: 'Fax machines supporting CSID will display this number of the caller ID. Your primary Fax number will also be overlaid on the Fax itself. If you have multiple HelloFax Fax lines, you may specify which one to use as the sending Fax machine by including the `from` parameter in the URL.'
           type: string
         cover_page_to:
-          description: '_t__FaxTransmissionSend::COVER_PAGE_TO'
+          description: 'If specified, will be included on a cover page with this Fax.'
           type: string
         cover_page_from:
-          description: '_t__FaxTransmissionSend::COVER_PAGE_FROM'
+          description: 'If specified, will be included on a cover page with this Fax.'
           type: string
         cover_page_message:
-          description: '_t__FaxTransmissionSend::COVER_PAGE_MESSAGE'
+          description: 'If specified, will be included on a cover page with this Fax.'
           type: string
         title:
-          description: '_t__FaxTransmissionSend::TITLE'
+          description: 'The title you want to assign to the Fax.'
           type: string
       type: object
     SubFormFieldsPerDocumentTypeEnum:
@@ -8255,38 +8261,38 @@ components:
           type: string
       type: object
     FaxTransmissionResponse:
-      description: '_t__FaxTransmissionResponse::DESCRIPTION'
+      description: 'Contains information about the Fax transmission.'
       properties:
         test_mode:
           nullable: true
-          description: '_t__FaxTransmissionResponse::TEST_MODE'
+          description: 'Whether this is a test Fax. Test Faxes are not really sent, but act like they were.'
           type: boolean
           default: false
         transmission_id:
-          description: '_t__FaxTransmissionResponse::TRANSMISSION_ID'
+          description: 'The Fax Transmission ID'
           type: string
         title:
-          description: '_t__FaxTransmissionResponse::TITLE'
+          description: 'The title the specified Account uses for the Fax.'
           type: string
         original_title:
-          description: '_t__FaxTransmissionResponse::ORIGINAL_TITLE'
+          description: 'Default Label for account.'
           type: string
         created_at:
-          description: '_t__FaxTransmissionResponse::CREATED_AT'
+          description: 'Time the Fax was created.'
           type: integer
         from:
-          description: '_t__FaxTransmissionResponse::FROM'
+          description: 'Indicates who the Fax is from.'
           type: string
         transmissions:
-          description: '_t__FaxTransmissionResponseTransmissions::DESCRIPTION'
+          description: 'Recipients of this transmission. One or more.'
           type: array
           items:
             $ref: '#/components/schemas/FaxTransmissionResponseTransmissions'
         final_copy_uri:
-          description: '_t__FaxTransmissionResponse::FINAL_COPY_URI'
+          description: 'The uri of the final copy for this Fax''s files.'
           type: string
         files_url:
-          description: '_t__FaxTransmissionResponse::FILES_URL'
+          description: 'The uri to download the files for this Fax.'
           type: string
       type: object
       x-internal: true
@@ -8319,7 +8325,7 @@ components:
       type: object
       x-internal: true
     FaxTransmissionResponseTransmissions:
-      description: '_t__FaxTransmissionResponseTransmissions::DESCRIPTION'
+      description: 'Recipients of this transmission. One or more.'
       properties:
         status_code:
           description: '_t__FaxTransmissionResponse::STATUS_CODE'
