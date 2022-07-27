@@ -122,6 +122,10 @@
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
+"FaxTransmissionFiles::SUMMARY": Download Files
+"FaxTransmissionFiles::DESCRIPTION": Obtain a copy of the current documents specified by the `transmission_id` parameter.
+"FaxTransmissionFiles::TRANSMISSION_ID": The transmission id of the Fax to retrieve.
+
 "FaxTransmissionGet::SUMMARY": Get Fax Transmission
 "FaxTransmissionGet::DESCRIPTION": Retrieves details about the status of a specific fax transmission.
 "FaxTransmissionGet::TRANSMISSION_ID": |-
@@ -1458,6 +1462,10 @@
 "EmbeddedSignUrl::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here."
 "FaxTransmissionGet::SEO::TITLE": "Get Fax Transmission | API Documentation | HelloFax for Developers"
 "FaxTransmissionGet::SEO::DESCRIPTION": "The HelloFax API allows you to integrate faxing into your application."
+"FaxTransmissionFiles::SEO::TITLE": "Download Fax Files | API Documentation | HelloFax for Developers"
+"FaxTransmissionFiles::SEO::DESCRIPTION": "The HelloFax API allows you to integrate faxing into your application."
+"FaxTransmissionList::SEO::TITLE": "List Fax Transmissions | API Documentation | HelloFax for Developers"
+"FaxTransmissionList::SEO::DESCRIPTION": "The HelloFax API allows you to integrate faxing into your application."
 "FaxTransmissionSend::SEO::TITLE": "Send Fax Transmission | API Documentation | HelloFax for Developers"
 "FaxTransmissionSend::SEO::DESCRIPTION": "The HelloFax API allows you to integrate faxing into your application."
 "OAuthTokenGenerate::SEO::TITLE": "Generate OAuth Token | Documentation | HelloSign for Developers"
