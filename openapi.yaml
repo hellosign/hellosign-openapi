@@ -1236,14 +1236,14 @@ paths:
     get:
       tags:
         - Fax
-      summary: '_t__FaxTransmissionFiles::SUMMARY'
-      description: '_t__FaxTransmissionFiles::DESCRIPTION'
+      summary: 'Download Files'
+      description: 'Obtain a copy of the current documents specified by the `transmission_id` parameter.'
       operationId: faxTransmissionFiles
       parameters:
         -
           name: transmission_id
           in: path
-          description: '_t__FaxTransmissionFiles::TRANSMISSION_ID'
+          description: 'The transmission id of the Fax to retrieve.'
           required: true
           schema:
             type: string
@@ -1316,8 +1316,8 @@ paths:
             $ref: examples/FaxTransmissionFiles.py
       x-meta:
         seo:
-          title: '_t__FaxTransmissionFiles::SEO::TITLE'
-          description: '_t__FaxTransmissionFiles::SEO::DESCRIPTION'
+          title: 'Download Fax Files | API Documentation | HelloFax for Developers'
+          description: 'The HelloFax API allows you to integrate faxing into your application.'
   '/transmission/{transmission_id}':
     get:
       tags:
@@ -1494,8 +1494,8 @@ paths:
             $ref: examples/FaxTransmissionList.py
       x-meta:
         seo:
-          title: '_t__FaxTransmissionList::SEO::TITLE'
-          description: '_t__FaxTransmissionList::SEO::DESCRIPTION'
+          title: 'List Fax Transmissions | API Documentation | HelloFax for Developers'
+          description: 'The HelloFax API allows you to integrate faxing into your application.'
   /transmission/send:
     post:
       tags:
@@ -5195,7 +5195,7 @@ components:
         - to
       properties:
         to:
-          description: 'The Fax number to send to.'
+          description: 'A fax number or email address.'
           type: string
         file:
           description: |-
