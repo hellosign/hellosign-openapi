@@ -1320,6 +1320,194 @@ paths:
         seo:
           title: '_t__FaxTransmissionGet::SEO::TITLE'
           description: '_t__FaxTransmissionGet::SEO::DESCRIPTION'
+  /transmission/list:
+    get:
+      tags:
+        - Fax
+      summary: '_t__FaxTransmissionList::SUMMARY'
+      description: '_t__FaxTransmissionList::DESCRIPTION'
+      operationId: faxTransmissionList
+      parameters:
+        -
+          name: page
+          in: query
+          description: '_t__FaxTransmissionList::PAGE'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: '_t__FaxTransmissionList::PAGE_SIZE'
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxTransmissionListResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxTransmissionListResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxTransmissionList.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxTransmissionList.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxTransmissionList.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxTransmissionList.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxTransmissionList.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxTransmissionList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxTransmissionList.py
+      x-meta:
+        seo:
+          title: '_t__FaxTransmissionList::SEO::TITLE'
+          description: '_t__FaxTransmissionList::SEO::DESCRIPTION'
+  /transmission/send:
+    post:
+      tags:
+        - Fax
+      summary: '_t__FaxTransmissionSend::SUMMARY'
+      description: '_t__FaxTransmissionSend::DESCRIPTION'
+      operationId: faxTransmissionSend
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxTransmissionSendRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxTransmissionSendRequestDefaultExample'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FaxTransmissionSendRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxTransmissionSendFormDataExample'
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxTransmissionSendResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxTransmissionSendResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxTransmissionSend.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxTransmissionSend.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxTransmissionSend.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxTransmissionSend.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxTransmissionSend.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxTransmissionSend.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxTransmissionSend.py
+      x-meta:
+        seo:
+          title: '_t__FaxTransmissionSend::SEO::TITLE'
+          description: '_t__FaxTransmissionSend::SEO::DESCRIPTION'
   /oauth/token:
     post:
       tags:
@@ -5166,6 +5354,40 @@ components:
           type: boolean
           default: false
       type: object
+    FaxTransmissionSendRequest:
+      required:
+        - to
+      properties:
+        to:
+          description: '_t__FaxTransmissionSend::TO'
+          type: string
+        file:
+          description: '_t__FaxTransmissionSend::FILE'
+          type: array
+          items:
+            type: string
+            format: binary
+        file_url:
+          description: '_t__FaxTransmissionSend::FILE_URL'
+          type: array
+          items:
+            type: string
+        from:
+          description: '_t__FaxTransmissionSend::FROM'
+          type: string
+        cover_page_to:
+          description: '_t__FaxTransmissionSend::COVER_PAGE_TO'
+          type: string
+        cover_page_from:
+          description: '_t__FaxTransmissionSend::COVER_PAGE_FROM'
+          type: string
+        cover_page_message:
+          description: '_t__FaxTransmissionSend::COVER_PAGE_MESSAGE'
+          type: string
+        title:
+          description: '_t__FaxTransmissionSend::TITLE'
+          type: string
+      type: object
     SubFormFieldsPerDocumentTypeEnum:
       type: string
       enum:
@@ -7572,6 +7794,28 @@ components:
       type: object
       x-internal: true
     FaxTransmissionGetResponse:
+      properties:
+        transmission:
+          $ref: '#/components/schemas/FaxTransmissionResponse'
+      type: object
+      x-internal: true
+    FaxTransmissionListResponse:
+      properties:
+        transmission:
+          description: '_t__FaxTransmissionListResponse::TRANSMISSIONS'
+          type: array
+          items:
+            $ref: '#/components/schemas/FaxTransmissionResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    FaxTransmissionSendResponse:
       properties:
         transmission:
           $ref: '#/components/schemas/FaxTransmissionResponse'

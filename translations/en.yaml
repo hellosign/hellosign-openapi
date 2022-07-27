@@ -122,10 +122,16 @@
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
-"FaxTransmissionGet::SUMMARY": Get a Fax Transmission
+"FaxTransmissionGet::SUMMARY": Get Fax Transmission
 "FaxTransmissionGet::DESCRIPTION": Retrieves details about the status of a specific fax transmission.
 "FaxTransmissionGet::TRANSMISSION_ID": |-
   The id of the Fax Transmission to retrieve.
+
+"FaxTransmissionList::SUMMARY": List Fax Transmissions
+"FaxTransmissionList::DESCRIPTION": Returns a list of faxes you can access.
+"FaxTransmissionList::PAGE": The specific page number returned by List Fax Transmissions. Defaults to 1.
+"FaxTransmissionList::PAGE_SIZE": Number of objects (fax transmissions) to be returned per page. Must be between `1` and `100`. Defaults to `20`.
+"FaxTransmissionListResponse::TRANSMISSIONS": Contains a list of Fax Transmissions that the API caller has access to.
 
 "OAuthTokenGenerate::SUMMARY": OAuth Token Generate
 "OAuthTokenGenerate::DESCRIPTION": Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
