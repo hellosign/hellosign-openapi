@@ -1343,7 +1343,9 @@ paths:
                 $ref: '#/components/schemas/FaxTransmissionGetResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxTransmissionGetResponseExample'
+                  $ref: '#/components/examples/FaxTransmissionGetResponsePhoneExample'
+                email_example:
+                  $ref: '#/components/examples/FaxTransmissionGetResponseEmailExample'
         4XX:
           description: failed_operation
           content:
@@ -1527,9 +1529,7 @@ paths:
                 $ref: '#/components/schemas/FaxTransmissionSendResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxTransmissionSendResponsePhoneExample'
-                email_example:
-                  $ref: '#/components/examples/FaxTransmissionSendResponseEmailExample'
+                  $ref: '#/components/examples/FaxTransmissionSendResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -9854,22 +9854,22 @@ components:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
-    FaxTransmissionGetResponseExample:
-      summary: 'Fax Transmission returned by a GET call'
-      value:
-        $ref: examples/json/FaxTransmissionGetResponseExample.json
     FaxTransmissionListResponseExample:
       summary: 'List of Fax Transmissions'
       value:
         $ref: examples/json/FaxTransmissionListResponseExample.json
-    FaxTransmissionSendResponsePhoneExample:
-      summary: 'Example: Fax sent to phone number'
+    FaxTransmissionSendResponseExample:
+      summary: 'Successfully sent Fax Transmission'
       value:
-        $ref: examples/json/FaxTransmissionSendResponsePhoneExample.json
-    FaxTransmissionSendResponseEmailExample:
-      summary: 'Example: Fax sent to email address'
+        $ref: examples/json/FaxTransmissionSendResponseExample.json
+    FaxTransmissionGetResponsePhoneExample:
+      summary: 'Fax transmission sent to phone number'
       value:
-        $ref: examples/json/FaxTransmissionSendResponseEmailExample.json
+        $ref: examples/json/FaxTransmissionGetResponsePhoneExample.json
+    FaxTransmissionGetResponseEmailExample:
+      summary: 'Fax transmission sent to email address'
+      value:
+        $ref: examples/json/FaxTransmissionGetResponseEmailExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:

@@ -1343,7 +1343,9 @@ paths:
                 $ref: '#/components/schemas/FaxTransmissionGetResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxTransmissionGetResponseExample'
+                  $ref: '#/components/examples/FaxTransmissionGetResponsePhoneExample'
+                email_example:
+                  $ref: '#/components/examples/FaxTransmissionGetResponseEmailExample'
         4XX:
           description: failed_operation
           content:
@@ -1527,9 +1529,7 @@ paths:
                 $ref: '#/components/schemas/FaxTransmissionSendResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxTransmissionSendResponsePhoneExample'
-                email_example:
-                  $ref: '#/components/examples/FaxTransmissionSendResponseEmailExample'
+                  $ref: '#/components/examples/FaxTransmissionSendResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -9338,22 +9338,22 @@ components:
       summary: '_t__EventCallbackApiAppTemplateCreatedExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
-    FaxTransmissionGetResponseExample:
-      summary: '_t__FaxTransmissionGetResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/FaxTransmissionGetResponseExample.json
     FaxTransmissionListResponseExample:
       summary: '_t__FaxTransmissionListResponseExample::SUMMARY'
       value:
         $ref: examples/json/FaxTransmissionListResponseExample.json
-    FaxTransmissionSendResponsePhoneExample:
-      summary: '_t__FaxTransmissionSendResponsePhoneExample::SUMMARY'
+    FaxTransmissionSendResponseExample:
+      summary: '_t__FaxTransmissionSendResponseExample::SUMMARY'
       value:
-        $ref: examples/json/FaxTransmissionSendResponsePhoneExample.json
-    FaxTransmissionSendResponseEmailExample:
-      summary: '_t__FaxTransmissionSendResponseEmailExample::SUMMARY'
+        $ref: examples/json/FaxTransmissionSendResponseExample.json
+    FaxTransmissionGetResponsePhoneExample:
+      summary: '_t__FaxTransmissionGetResponsePhoneExample::SUMMARY'
       value:
-        $ref: examples/json/FaxTransmissionSendResponseEmailExample.json
+        $ref: examples/json/FaxTransmissionGetResponsePhoneExample.json
+    FaxTransmissionGetResponseEmailExample:
+      summary: '_t__FaxTransmissionGetResponseEmailExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxTransmissionGetResponseEmailExample.json
     OAuthTokenGenerateResponseExample:
       summary: '_t__OAuthTokenGenerateResponseExample::SUMMARY'
       value:
