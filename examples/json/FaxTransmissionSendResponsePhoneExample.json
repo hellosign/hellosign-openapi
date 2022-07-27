@@ -1,0 +1,22 @@
+{
+    "transmission": {
+        "test_mode": false,
+        "title": "medical-clearance-for-dave",
+        "original_title": "medical-clearance-for-dave",
+        "subject": null,
+        "message": null,
+        "metadata": {},
+        "created_at": 1658947527,
+        "from": "14154827065",
+        "transmissions": [
+          {
+            "status_code": "success",
+            "recipient": "16682439526"
+          }
+        ],
+        "transmission_id": "ff016faad20cb1a380bd9ffe91d069f972ef2878",
+        "final_copy_uri": "/v3/transmission/final_copy/ff016eaad22bb1a380bd9fff91d069f572ef2878",
+        "files_url": "https://api.hellosign.com/v3/transmission/files/ff016faad20bb1c380bb9fft91d069f572ef2878",
+        "template_ids": null
+      }
+}

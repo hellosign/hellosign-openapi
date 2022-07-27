@@ -1,0 +1,22 @@
+{
+    "transmission": {
+        "test_mode": false,
+        "title": "home_receipts_2020",
+        "original_title": "home_receipts_2020",
+        "subject": "Remodel receipts from 2020",
+        "message": "These are all the receipts from our remodel in 2020.",
+        "metadata": {},
+        "created_at": 1611686033,
+        "from": "cynthia@example.com",
+        "transmissions": [
+          {
+            "status_code": "success",
+            "recipient": "tax-person@example.com"
+          }
+        ],
+        "transmission_id": "51b8d8773c2a0ebb3d70297f1f55c972df65eb95",
+        "final_copy_uri": "/v3/transmission/final_copy/51b8d87c3c2a0ebb3d30297f0f55c172df65eb95",
+        "files_url": "https://api.hellosign.com/v3/transmission/files/98b8f8773c2a0ebb3d70297f0f55c172df65eb95",
+        "template_ids": null
+      }
+}

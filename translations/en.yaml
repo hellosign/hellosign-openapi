@@ -124,14 +124,15 @@
 
 "FaxTransmissionGet::SUMMARY": Get Fax Transmission
 "FaxTransmissionGet::DESCRIPTION": Retrieves details about the status of a specific fax transmission.
-"FaxTransmissionGet::TRANSMISSION_ID": |-
-  The id of the Fax Transmission to retrieve.
+"FaxTransmissionGet::TRANSMISSION_ID": The id of the Fax Transmission to retrieve.
+"FaxTransmissionGetResponseExample::SUMMARY": Fax Transmission returned by a GET call
 
 "FaxTransmissionList::SUMMARY": List Fax Transmissions
 "FaxTransmissionList::DESCRIPTION": Returns a list of faxes you can access.
 "FaxTransmissionList::PAGE": The specific page number returned by List Fax Transmissions. Defaults to 1.
 "FaxTransmissionList::PAGE_SIZE": Number of objects (fax transmissions) to be returned per page. Must be between `1` and `100`. Defaults to `20`.
 "FaxTransmissionListResponse::TRANSMISSIONS": Contains a list of Fax Transmissions that the API caller has access to.
+"FaxTransmissionListResponseExample::SUMMARY": List of Fax Transmissions
 
 "FaxTransmissionSend::SUMMARY": Send a Fax
 "FaxTransmissionSend::DESCRIPTION": Send a document as a Fax to a number.
@@ -149,7 +150,10 @@
 "FaxTransmissionSend::COVER_PAGE_FROM": If specified, will be included on a cover page with this Fax.
 "FaxTransmissionSend::COVER_PAGE_MESSAGE": If specified, will be included on a cover page with this Fax.
 "FaxTransmissionSend::TITLE": The title you want to assign to the Fax.
-
+"FaxTransmissionSendResponsePhoneExample::SUMMARY": |-
+  Example: Fax sent to phone number
+"FaxTransmissionSendResponseEmailExample::SUMMARY": |-
+  Example: Fax sent to email address
 "OAuthTokenGenerate::SUMMARY": OAuth Token Generate
 "OAuthTokenGenerate::DESCRIPTION": Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
 "OAuthTokenGenerate::CLIENT_ID": The client id of the app requesting authorization.

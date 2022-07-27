@@ -1232,6 +1232,92 @@ paths:
         seo:
           title: 'Get Embedded Sign URL | iFrame | HelloSign for Developers'
           description: 'The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
+  '/transmission/files/{transmission_id}':
+    get:
+      tags:
+        - Fax
+      summary: '_t__FaxTransmissionFiles::SUMMARY'
+      description: '_t__FaxTransmissionFiles::DESCRIPTION'
+      operationId: faxTransmissionFiles
+      parameters:
+        -
+          name: transmission_id
+          in: path
+          description: '_t__FaxTransmissionFiles::TRANSMISSION_ID'
+          required: true
+          schema:
+            type: string
+          example: fa392605caad7ccdb8b85c2a9d3584156c265c35
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxTransmissionFilesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxTransmissionFiles.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxTransmissionFiles.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxTransmissionFiles.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxTransmissionFiles.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxTransmissionFiles.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxTransmissionFiles.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxTransmissionFiles.py
+      x-meta:
+        seo:
+          title: '_t__FaxTransmissionFiles::SEO::TITLE'
+          description: '_t__FaxTransmissionFiles::SEO::DESCRIPTION'
   '/transmission/{transmission_id}':
     get:
       tags:
@@ -1278,8 +1364,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1372,8 +1456,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1445,7 +1527,9 @@ paths:
                 $ref: '#/components/schemas/FaxTransmissionSendResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/FaxTransmissionSendResponseExample'
+                  $ref: '#/components/examples/FaxTransmissionSendResponsePhoneExample'
+                email_example:
+                  $ref: '#/components/examples/FaxTransmissionSendResponseEmailExample'
         4XX:
           description: failed_operation
           content:
@@ -1466,8 +1550,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -7988,10 +8070,10 @@ components:
       description: 'Recipients of this transmission. One or more.'
       properties:
         status_code:
-          description: '_t__FaxTransmissionResponse::STATUS_CODE'
+          description: 'The status of the transmission to this recipient.'
           type: string
         recipient:
-          description: '_t__FaxTransmissionResponse::RECIPIENT'
+          description: 'A recipient of the Fax.'
           type: string
       type: object
       x-internal: true
@@ -9432,6 +9514,22 @@ components:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
+    FaxTransmissionGetResponseExample:
+      summary: 'Fax Transmission returned by a GET call'
+      value:
+        $ref: examples/json/FaxTransmissionGetResponseExample.json
+    FaxTransmissionListResponseExample:
+      summary: 'List of Fax Transmissions'
+      value:
+        $ref: examples/json/FaxTransmissionListResponseExample.json
+    FaxTransmissionSendResponsePhoneExample:
+      summary: 'Example: Fax sent to phone number'
+      value:
+        $ref: examples/json/FaxTransmissionSendResponsePhoneExample.json
+    FaxTransmissionSendResponseEmailExample:
+      summary: 'Example: Fax sent to email address'
+      value:
+        $ref: examples/json/FaxTransmissionSendResponseEmailExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:
