@@ -1278,8 +1278,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1372,8 +1370,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1466,8 +1462,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -5437,7 +5431,7 @@ components:
         - to
       properties:
         to:
-          description: 'The Fax number to send to.'
+          description: 'A fax number or email address.'
           type: string
         file:
           description: |-
@@ -8328,10 +8322,10 @@ components:
       description: 'Recipients of this transmission. One or more.'
       properties:
         status_code:
-          description: '_t__FaxTransmissionResponse::STATUS_CODE'
+          description: 'The status of the transmission to this recipient.'
           type: string
         recipient:
-          description: '_t__FaxTransmissionResponse::RECIPIENT'
+          description: 'A recipient of the Fax.'
           type: string
       type: object
       x-internal: true

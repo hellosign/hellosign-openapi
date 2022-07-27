@@ -135,7 +135,7 @@
 
 "FaxTransmissionSend::SUMMARY": Send a Fax
 "FaxTransmissionSend::DESCRIPTION": Send a document as a Fax to a number.
-"FaxTransmissionSend::TO": The Fax number to send to.
+"FaxTransmissionSend::TO": A fax number or email address.
 "FaxTransmissionSend::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
   

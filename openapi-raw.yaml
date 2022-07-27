@@ -1278,8 +1278,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1372,8 +1370,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -1466,8 +1462,6 @@ paths:
       security:
         -
           api_key: []
-        -
-          oauth2: []
       x-codeSamples:
         -
           lang: PHP
@@ -7825,10 +7819,10 @@ components:
       description: '_t__FaxTransmissionResponseTransmissions::DESCRIPTION'
       properties:
         status_code:
-          description: '_t__FaxTransmissionResponse::STATUS_CODE'
+          description: '_t__FaxTransmissionResponseTransmissions::STATUS_CODE'
           type: string
         recipient:
-          description: '_t__FaxTransmissionResponse::RECIPIENT'
+          description: '_t__FaxTransmissionResponseTransmissions::RECIPIENT'
           type: string
       type: object
       x-internal: true
