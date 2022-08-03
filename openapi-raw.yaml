@@ -102,6 +102,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountCreate.py
+      x-meta:
+        seo:
+          title: '_t__AccountCreate::SEO::TITLE'
+          description: '_t__AccountCreate::SEO::DESCRIPTION'
   /account:
     get:
       tags:
@@ -187,6 +191,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountGet.py
+      x-meta:
+        seo:
+          title: '_t__AccountGet::SEO::TITLE'
+          description: '_t__AccountGet::SEO::DESCRIPTION'
     put:
       tags:
         - Account
@@ -273,6 +281,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountUpdate.py
+      x-meta:
+        seo:
+          title: '_t__AccountUpdate::SEO::TITLE'
+          description: '_t__AccountUpdate::SEO::DESCRIPTION'
   /account/verify:
     post:
       tags:
@@ -360,6 +372,10 @@ paths:
           label: Python
           source:
             $ref: examples/AccountVerify.py
+      x-meta:
+        seo:
+          title: '_t__AccountVerify::SEO::TITLE'
+          description: '_t__AccountVerify::SEO::DESCRIPTION'
   /api_app:
     post:
       tags:
@@ -453,6 +469,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppCreate.py
+      x-meta:
+        seo:
+          title: '_t__ApiAppCreate::SEO::TITLE'
+          description: '_t__ApiAppCreate::SEO::DESCRIPTION'
   '/api_app/{client_id}':
     get:
       tags:
@@ -542,6 +562,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppGet.py
+      x-meta:
+        seo:
+          title: '_t__ApiAppGet::SEO::TITLE'
+          description: '_t__ApiAppGet::SEO::DESCRIPTION'
     put:
       tags:
         - 'Api App'
@@ -645,6 +669,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppUpdate.py
+      x-meta:
+        seo:
+          title: '_t__ApiAppUpdate::SEO::TITLE'
+          description: '_t__ApiAppUpdate::SEO::DESCRIPTION'
     delete:
       tags:
         - 'Api App'
@@ -724,6 +752,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppDelete.py
+      x-meta:
+        seo:
+          title: '_t__ApiAppDelete::SEO::TITLE'
+          description: '_t__ApiAppDelete::SEO::DESCRIPTION'
   /api_app/list:
     get:
       tags:
@@ -815,6 +847,10 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppList.py
+      x-meta:
+        seo:
+          title: '_t__ApiAppList::SEO::TITLE'
+          description: '_t__ApiAppList::SEO::DESCRIPTION'
   '/bulk_send_job/{bulk_send_job_id}':
     get:
       tags:
@@ -901,6 +937,10 @@ paths:
           label: Python
           source:
             $ref: examples/BulkSendJobGet.py
+      x-meta:
+        seo:
+          title: '_t__BulkSendJobGet::SEO::TITLE'
+          description: '_t__BulkSendJobGet::SEO::DESCRIPTION'
   /bulk_send_job/list:
     get:
       tags:
@@ -993,6 +1033,10 @@ paths:
           label: Python
           source:
             $ref: examples/BulkSendJobList.py
+      x-meta:
+        seo:
+          title: '_t__BulkSendJobList::SEO::TITLE'
+          description: '_t__BulkSendJobList::SEO::DESCRIPTION'
   '/embedded/edit_url/{template_id}':
     post:
       tags:
@@ -1089,6 +1133,10 @@ paths:
           label: Python
           source:
             $ref: examples/EmbeddedEditUrl.py
+      x-meta:
+        seo:
+          title: '_t__EmbeddedEditUrl::SEO::TITLE'
+          description: '_t__EmbeddedEditUrl::SEO::DESCRIPTION'
   '/embedded/sign_url/{signature_id}':
     get:
       tags:
@@ -1180,6 +1228,10 @@ paths:
           label: Python
           source:
             $ref: examples/EmbeddedSignUrl.py
+      x-meta:
+        seo:
+          title: '_t__EmbeddedSignUrl::SEO::TITLE'
+          description: '_t__EmbeddedSignUrl::SEO::DESCRIPTION'
   /oauth/token:
     post:
       tags:
@@ -1247,6 +1299,10 @@ paths:
           source:
             $ref: examples/OauthTokenGenerate.py
       x-hideTryItPanel: true
+      x-meta:
+        seo:
+          title: '_t__OAuthTokenGenerate::SEO::TITLE'
+          description: '_t__OAuthTokenGenerate::SEO::DESCRIPTION'
   '/oauth/token?refresh':
     post:
       tags:
@@ -1314,6 +1370,10 @@ paths:
           source:
             $ref: examples/OauthTokenRefresh.py
       x-hideTryItPanel: true
+      x-meta:
+        seo:
+          title: '_t__OAuthTokenRefresh::SEO::TITLE'
+          description: '_t__OAuthTokenRefresh::SEO::DESCRIPTION'
   /report/create:
     post:
       tags:
@@ -1396,6 +1456,10 @@ paths:
           label: Python
           source:
             $ref: examples/ReportCreate.py
+      x-meta:
+        seo:
+          title: '_t__ReportCreate::SEO::TITLE'
+          description: '_t__ReportCreate::SEO::DESCRIPTION'
   /signature_request/bulk_create_embedded_with_template:
     post:
       tags:
@@ -1490,6 +1554,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::TITLE'
+          description: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::DESCRIPTION'
   /signature_request/bulk_send_with_template:
     post:
       tags:
@@ -1584,6 +1652,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestBulkSendWithTemplate.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestBulkSendWithTemplate::SEO::TITLE'
+          description: '_t__SignatureRequestBulkSendWithTemplate::SEO::DESCRIPTION'
   '/signature_request/cancel/{signature_request_id}':
     post:
       tags:
@@ -1671,6 +1743,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCancel.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestCancel::SEO::TITLE'
+          description: '_t__SignatureRequestCancel::SEO::DESCRIPTION'
   /signature_request/create_embedded:
     post:
       tags:
@@ -1766,6 +1842,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCreateEmbedded.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestCreateEmbedded::SEO::TITLE'
+          description: '_t__SignatureRequestCreateEmbedded::SEO::DESCRIPTION'
   /signature_request/create_embedded_with_template:
     post:
       tags:
@@ -1861,6 +1941,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE'
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION'
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -1979,6 +2063,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestFiles.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestFiles::SEO::TITLE'
+          description: '_t__SignatureRequestFiles::SEO::DESCRIPTION'
   '/signature_request/{signature_request_id}':
     get:
       tags:
@@ -2069,6 +2157,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestGet.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestGet::SEO::TITLE'
+          description: '_t__SignatureRequestGet::SEO::DESCRIPTION'
   /signature_request/list:
     get:
       tags:
@@ -2176,6 +2268,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestList.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestList::SEO::TITLE'
+          description: '_t__SignatureRequestList::SEO::DESCRIPTION'
   '/signature_request/release_hold/{signature_request_id}':
     post:
       tags:
@@ -2263,6 +2359,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestReleaseHold.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestReleaseHold::SEO::TITLE'
+          description: '_t__SignatureRequestReleaseHold::SEO::DESCRIPTION'
   '/signature_request/remind/{signature_request_id}':
     post:
       tags:
@@ -2366,6 +2466,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestRemind.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestRemind::SEO::TITLE'
+          description: '_t__SignatureRequestRemind::SEO::DESCRIPTION'
   '/signature_request/remove/{signature_request_id}':
     post:
       tags:
@@ -2449,6 +2553,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestRemove.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestRemove::SEO::TITLE'
+          description: '_t__SignatureRequestRemove::SEO::DESCRIPTION'
   /signature_request/send:
     post:
       tags:
@@ -2545,6 +2653,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestSend.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestSend::SEO::TITLE'
+          description: '_t__SignatureRequestSend::SEO::DESCRIPTION'
   /signature_request/send_with_template:
     post:
       tags:
@@ -2639,6 +2751,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestSendWithTemplate.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestSendWithTemplate::SEO::TITLE'
+          description: '_t__SignatureRequestSendWithTemplate::SEO::DESCRIPTION'
   '/signature_request/update/{signature_request_id}':
     post:
       tags:
@@ -2735,6 +2851,10 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestUpdate.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestUpdate::SEO::TITLE'
+          description: '_t__SignatureRequestUpdate::SEO::DESCRIPTION'
   /team/add_member:
     put:
       tags:
@@ -2751,7 +2871,7 @@ paths:
           schema:
             type: string
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-          x-hideOn: doc
+          x-beta: closed
       requestBody:
         required: true
         content:
@@ -2834,6 +2954,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamAddMember.py
+      x-meta:
+        seo:
+          title: '_t__TeamAddMember::SEO::TITLE'
+          description: '_t__TeamAddMember::SEO::DESCRIPTION'
   /team/create:
     post:
       tags:
@@ -2919,6 +3043,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamCreate.py
+      x-meta:
+        seo:
+          title: '_t__TeamCreate::SEO::TITLE'
+          description: '_t__TeamCreate::SEO::DESCRIPTION'
   /team/destroy:
     delete:
       tags:
@@ -2988,6 +3116,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamDelete.py
+      x-meta:
+        seo:
+          title: '_t__TeamDelete::SEO::TITLE'
+          description: '_t__TeamDelete::SEO::DESCRIPTION'
   /team:
     get:
       tags:
@@ -3066,6 +3198,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamGet.py
+      x-meta:
+        seo:
+          title: '_t__TeamGet::SEO::TITLE'
+          description: '_t__TeamGet::SEO::DESCRIPTION'
     put:
       tags:
         - Team
@@ -3150,6 +3286,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
+      x-meta:
+        seo:
+          title: '_t__TeamUpdate::SEO::TITLE'
+          description: '_t__TeamUpdate::SEO::DESCRIPTION'
   /team/info:
     get:
       tags:
@@ -3239,7 +3379,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamInfo.py
-      x-hideOn: doc
+      x-beta: closed
+      x-meta:
+        seo:
+          title: '_t__TeamInfo::SEO::TITLE'
+          description: '_t__TeamInfo::SEO::DESCRIPTION'
   '/team/members/{team_id}':
     get:
       tags:
@@ -3345,7 +3489,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamMembers.py
-      x-hideOn: doc
+      x-beta: closed
+      x-meta:
+        seo:
+          title: '_t__TeamMembers::SEO::TITLE'
+          description: '_t__TeamMembers::SEO::DESCRIPTION'
   /team/remove_member:
     post:
       tags:
@@ -3435,6 +3583,10 @@ paths:
           label: Python
           source:
             $ref: examples/TeamRemoveMember.py
+      x-meta:
+        seo:
+          title: '_t__TeamRemoveMember::SEO::TITLE'
+          description: '_t__TeamRemoveMember::SEO::DESCRIPTION'
   '/team/sub_teams/{team_id}':
     get:
       tags:
@@ -3540,7 +3692,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamSubTeams.py
-      x-hideOn: doc
+      x-beta: closed
+      x-meta:
+        seo:
+          title: '_t__TeamSubTeams::SEO::TITLE'
+          description: '_t__TeamSubTeams::SEO::DESCRIPTION'
   '/template/add_user/{template_id}':
     post:
       tags:
@@ -3637,6 +3793,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateAddUser.py
+      x-meta:
+        seo:
+          title: '_t__TemplateAddUser::SEO::TITLE'
+          description: '_t__TemplateAddUser::SEO::DESCRIPTION'
   /template/create_embedded_draft:
     post:
       tags:
@@ -3738,6 +3898,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateCreateEmbeddedDraft.py
+      x-meta:
+        seo:
+          title: '_t__TemplateCreateEmbeddedDraft::SEO::TITLE'
+          description: '_t__TemplateCreateEmbeddedDraft::SEO::DESCRIPTION'
   '/template/delete/{template_id}':
     post:
       tags:
@@ -3822,6 +3986,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateDelete.py
+      x-meta:
+        seo:
+          title: '_t__TemplateDelete::SEO::TITLE'
+          description: '_t__TemplateDelete::SEO::DESCRIPTION'
   '/template/files/{template_id}':
     get:
       tags:
@@ -3938,6 +4106,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateFiles.py
+      x-meta:
+        seo:
+          title: '_t__TemplateFiles::SEO::TITLE'
+          description: '_t__TemplateFiles::SEO::DESCRIPTION'
   '/template/{template_id}':
     get:
       tags:
@@ -4027,6 +4199,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateGet.py
+      x-meta:
+        seo:
+          title: '_t__TemplateGet::SEO::TITLE'
+          description: '_t__TemplateGet::SEO::DESCRIPTION'
   /template/list:
     get:
       tags:
@@ -4136,6 +4312,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateList.py
+      x-meta:
+        seo:
+          title: '_t__TemplateList::SEO::TITLE'
+          description: '_t__TemplateList::SEO::DESCRIPTION'
   '/template/remove_user/{template_id}':
     post:
       tags:
@@ -4232,6 +4412,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateRemoveUser.py
+      x-meta:
+        seo:
+          title: '_t__TemplateRemoveUser::SEO::TITLE'
+          description: '_t__TemplateRemoveUser::SEO::DESCRIPTION'
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -4338,6 +4522,10 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateUpdateFiles.py
+      x-meta:
+        seo:
+          title: '_t__TemplateUpdateFiles::SEO::TITLE'
+          description: '_t__TemplateUpdateFiles::SEO::DESCRIPTION'
   /unclaimed_draft/create:
     post:
       tags:
@@ -4435,6 +4623,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreate.py
+      x-meta:
+        seo:
+          title: '_t__UnclaimedDraftCreate::SEO::TITLE'
+          description: '_t__UnclaimedDraftCreate::SEO::DESCRIPTION'
   /unclaimed_draft/create_embedded:
     post:
       tags:
@@ -4537,6 +4729,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreateEmbedded.py
+      x-meta:
+        seo:
+          title: '_t__UnclaimedDraftCreateEmbedded::SEO::TITLE'
+          description: '_t__UnclaimedDraftCreateEmbedded::SEO::DESCRIPTION'
   /unclaimed_draft/create_embedded_with_template:
     post:
       tags:
@@ -4634,6 +4830,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
+      x-meta:
+        seo:
+          title: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE'
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SEO::DESCRIPTION'
   '/unclaimed_draft/edit_and_resend/{signature_request_id}':
     post:
       tags:
@@ -4735,6 +4935,10 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftEditAndResend.py
+      x-meta:
+        seo:
+          title: '_t__UnclaimedDraftEditAndResend::SEO::TITLE'
+          description: '_t__UnclaimedDraftEditAndResend::SEO::DESCRIPTION'
 components:
   schemas:
     AccountCreateRequest:
@@ -6187,7 +6391,7 @@ components:
         new_team_id:
           description: '_t__TeamRemoveMember::NEW_TEAM_ID'
           type: string
-          x-hideOn: doc
+          x-beta: closed
         new_role:
           description: '_t__TeamRemoveMember::NEW_ROLE'
           type: string
@@ -6196,7 +6400,7 @@ components:
             - Developer
             - 'Team Manager'
             - Admin
-          x-hideOn: doc
+          x-beta: closed
       type: object
     TeamUpdateRequest:
       properties:
@@ -7271,153 +7475,6 @@ components:
           type: integer
       type: object
       x-internal: true
-    SignatureRequestResponseDataTypeEnum:
-      type: string
-      enum:
-        - text
-        - checkbox
-        - date_signed
-        - dropdown
-        - initials
-        - radio
-        - signature
-        - text-merge
-        - checkbox-merge
-    SignatureRequestResponseDataValueText:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::TEXT_TYPE'
-              type: string
-              default: text
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueDropdown:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::DROPDOWN_TYPE'
-              type: string
-              default: dropdown
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueRadio:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::RADIO_TYPE'
-              type: string
-              default: radio
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: boolean
-          type: object
-    SignatureRequestResponseDataValueDateSigned:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::DATESIGNED_TYPE'
-              type: string
-              default: date_signed
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueInitials:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::INITIAL_TYPE'
-              type: string
-              default: initials
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueCheckbox:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::CHECKBOX_TYPE'
-              type: string
-              default: checkbox
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: boolean
-          type: object
-    SignatureRequestResponseDataValueSignature:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::SIGNATURE_TYPE'
-              type: string
-              default: signature
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueTextMerge:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE'
-              type: string
-              default: text-merge
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueCheckboxMerge:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseData'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE'
-              type: string
-              default: checkbox-merge
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
     OAuthTokenResponse:
       properties:
         access_token:
@@ -7487,7 +7544,6 @@ components:
           description: '_t__SignatureRequestResponse::ORIGINAL_TITLE'
           type: string
         subject:
-          nullable: true
           description: '_t__SignatureRequestResponse::SUBJECT'
           type: string
         message:
@@ -7700,26 +7756,26 @@ components:
         name:
           description: '_t__SignatureRequestResponseData::NAME'
           type: string
+        value:
+          description: '_t__SignatureRequestResponseData::VALUE'
+          type: string
         required:
           description: '_t__SignatureRequestResponseData::REQUIRED'
           type: boolean
         type:
-          type: string
+          description: '_t__SignatureRequestResponseData::TYPE'
+          enum:
+            - text
+            - checkbox
+            - date_signed
+            - dropdown
+            - initials
+            - radio
+            - signature
+            - text-merge
+            - checkbox-merge
       type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          text: '#/components/schemas/SignatureRequestResponseDataValueText'
-          checkbox: '#/components/schemas/SignatureRequestResponseDataValueCheckbox'
-          dropdown: '#/components/schemas/SignatureRequestResponseDataValueDropdown'
-          radio: '#/components/schemas/SignatureRequestResponseDataValueRadio'
-          signature: '#/components/schemas/SignatureRequestResponseDataValueSignature'
-          date_signed: '#/components/schemas/SignatureRequestResponseDataValueDateSigned'
-          initials: '#/components/schemas/SignatureRequestResponseDataValueInitials'
-          text-merge: '#/components/schemas/SignatureRequestResponseDataValueTextMerge'
-          checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
       x-internal: true
-      x-base-class: true
     SignatureRequestResponseSignatures:
       description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
       properties:
@@ -7730,7 +7786,6 @@ components:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS'
           type: string
         signer_name:
-          nullable: true
           description: '_t__SignatureRequestResponseSignatures::SIGNER_NAME'
           type: string
         signer_role:
@@ -9069,6 +9124,10 @@ x-webhooks:
       summary: '_t__OpenApi::ACCOUNT_CALLBACK::SUMMARY'
       operationId: accountUpdateEventCallback
       description: '_md__OpenApi::ACCOUNT_CALLBACK::DESCRIPTION'
+      x-meta:
+        seo:
+          title: '_t__accountUpdateEventCallback::SEO::TITLE'
+          description: '_t__accountUpdateEventCallback::SEO::DESCRIPTION'
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -9081,6 +9140,10 @@ x-webhooks:
       summary: '_t__OpenApi::APP_CALLBACK::SUMMARY'
       description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
       operationId: apiAppCreateEventCallback
+      x-meta:
+        seo:
+          title: '_t__apiAppCreateEventCallback::SEO::TITLE'
+          description: '_t__apiAppCreateEventCallback::SEO::DESCRIPTION'
       tags:
         - 'Callbacks and Events'
       requestBody:
