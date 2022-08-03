@@ -13,7 +13,6 @@ const addClosedBetaCopy = (description) => {
         description +
         "\n" +
         `<div class='beta-closed-field-description'>${betaClosed.disclaimer} <a href='mailto:apisupport@hellosign.com?subject=${betaClosed.subjectForEmail}'>${betaClosed.emailLink}</a> ${betaClosed.disclaimerContinued}</div>`;
-        "<div class='beta-closed-field-description'>This parameter isn't available quite yet. <a href='apisupport@hellosign.com?subject=Request for Beta feature'>Contact us</a> if you'd like to test the beta version.</div>";
     
         return descriptionWithBeta;
 }
