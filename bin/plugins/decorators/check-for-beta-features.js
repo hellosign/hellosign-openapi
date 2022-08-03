@@ -12,13 +12,13 @@ const addClosedBetaCopy = (description) => {
     const descriptionWithBeta = 
         description +
         "\n" +
-        `<div class='beta-closed-field-description'>${betaClosed.disclaimer} <a href='mailto:apisupport@hellosign.com?subject=${betaClosed.subjectForEmail}'>${betaClosed.emailLink}</a> ${betaClosed.disclaimerContinued}</div>`;
+        `<div class='beta-disclaimer'>${betaClosed.disclaimer} <a href='mailto:apisupport@hellosign.com?subject=${betaClosed.subjectForEmail}'>${betaClosed.emailLink}</a> ${betaClosed.disclaimerContinued}</div>`;
     
         return descriptionWithBeta;
 }
 
 // Decorator with Type extensions to Request Schema and Operation
-const addBetaToFields = () => {
+const setBetaDescriptions = () => {
     return {
         SchemaProperties: {
             leave(properties) {
@@ -26,40 +26,43 @@ const addBetaToFields = () => {
                     // Bail early if field isn't beta
                     const isBetaField = fieldProperties.hasOwnProperty('x-beta');
                     if (!isBetaField) { continue };
-
                     if (fieldProperties['x-beta'] === "closed") {
-                        // Add disclaimers to beta field description
-                        const closedBetaDescription = addClosedBetaCopy(fieldProperties.description);
-                        fieldProperties.description = closedBetaDescription;
+                        // Add disclaimers to beta Field description
+                        const descriptionWithBeta = addClosedBetaCopy(fieldProperties.description);
+                        fieldProperties.description = descriptionWithBeta;
                     }
-                    // Future: handle other types of beta releases
                 }
                 return properties;
             }
         },
         Operation: {
             leave(operationSchema) {
-                // const hasQueryParameters = properties.parameters?.length > 0;
+                const isBetaOperation = operationSchema.hasOwnProperty('x-beta');
+                if (isBetaOperation && operationSchema['x-beta'] === "closed"){
+                    // Add disclaimers to beta Operation description
+                    const descriptionWithBeta = addClosedBetaCopy(operationSchema.description);
+                    operationSchema.description = descriptionWithBeta;
+                }
                 if (operationSchema.parameters) { 
                     const queryParameters = operationSchema.parameters
                     queryParameters.forEach(param => {
-                        const isBetaField = param.hasOwnProperty('x-beta');
-                        // Bail if not beta field
-                        if (!isBetaField) { return };
+                        const isBetaParam = param.hasOwnProperty('x-beta');
+                        // Bail if not beta parameter
+                        if (!isBetaParam) { return };
                         if (param['x-beta'] === "closed") {
-                            // Add disclaimers to beta field description
-                            const closedBetaDescription = addClosedBetaCopy(param.description);
-                            param.description = closedBetaDescription;
+                            // Add disclaimers to beta Parameter description
+                            const descriptionWithBeta = addClosedBetaCopy(param.description);
+                            param.description = descriptionWithBeta;
                         }
                         return param;
                     });
-                    operationSchema.parameters = queryParameters;
-                    return operationSchema;
+                    operationSchema.parameters = queryParameters
                 };
+                return operationSchema;
             }
         }
     }
 }
 
-module.exports =  { addBetaToFields }
+module.exports =  { setBetaDescriptions }
 

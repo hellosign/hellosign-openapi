@@ -8,6 +8,6 @@ lint:
   extends:
     - recommended
   plugins:
-    - 'bin/plugins/beta-fields-plugin.js'
+    - 'bin/plugins/set-beta-plugin.js'
   decorators:
-    hs-beta-fields/check-request-schema-for-beta: error
+    hs-beta-fields/check-schema-for-beta-features: error

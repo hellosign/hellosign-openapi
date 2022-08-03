@@ -1,10 +1,10 @@
-const { addBetaToFields } = require('./decorators/check-beta-fields');
+const { setBetaDescriptions } = require('./decorators/check-for-beta-features');
 const id = 'hs-beta-fields';
 
 /** @type {import('@redocly/cli').CustomRulesConfig} */
 const decorators = {
     oas3: {
-        'check-request-schema-for-beta': addBetaToFields,
+        'check-schema-for-beta-features': setBetaDescriptions,
     },
 };
 
