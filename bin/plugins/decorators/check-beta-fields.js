@@ -19,7 +19,7 @@ const addClosedBetaCopy = (description) => {
 }
 
 // Decorator with Type extensions to Request Schema and Operation
-const addBetaToRequestField = () => {
+const addBetaToFields = () => {
     return {
         SchemaProperties: {
             leave(properties) {
@@ -57,19 +57,10 @@ const addBetaToRequestField = () => {
                     operationSchema.parameters = queryParameters;
                     return operationSchema;
                 };
-                
-                
-                // for (const [field, fieldProperties] of Object.entries(properties)) {
-                //     if (fieldProperties.parameters) {
-                //         console.log("field:" + field)
-                //         console.log("field properties:" + fieldProperties.parameters)
-                //     }
-                    
-                // }
             }
         }
     }
 }
 
-module.exports =  { addBetaToRequestField }
+module.exports =  { addBetaToFields }
 
