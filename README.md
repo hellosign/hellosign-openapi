@@ -85,12 +85,12 @@ The SDKs based on our OpenAPI spec are a work in progress and none have moved pa
 
 | Link to SDK | Status |
 | --- | --- |
-| PHP | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) |
-| Python | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) |
-| NodeJS | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/HelloFax/hellosign-nodejs-sdk) |
-| Ruby | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/HelloFax/hellosign-ruby-sdk) |
-| Java | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-java-sdk/tree/openapi) |
-| Dotnet unavailable | early stage |
+| [NodeJS](https://github.com/HelloFax/hellosign-nodejs-sdk) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/HelloFax/hellosign-nodejs-sdk) |
+| [PHP](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) |
+| C# [dotnet](https://github.com/hellosign/hellosign-dotnet-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-dotnet-sdk/tree/openapi) |
+| [Python](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) |
+| [Ruby](https://github.com/HelloFax/hellosign-ruby-sdk) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/HelloFax/hellosign-ruby-sdk) |
+| [Java](https://github.com/hellosign/hellosign-java-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-java-sdk/tree/openapi) |
 
 **Note:** You can help us accelerate the launch of an SDK by being an early adopter. Please jump right in and start using it, then open an Issue in that SDK's GitHub repo when you find something that needs to be fixed. 
 
