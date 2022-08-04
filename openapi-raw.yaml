@@ -36,10 +36,7 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
               $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
