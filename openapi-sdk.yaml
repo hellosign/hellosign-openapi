@@ -36,11 +36,20 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: test
+              description: 'The maximum number of requests per hour that you can make.'
+              schema:
+                type: integer
+              example: 100
             X-RateLimit-Remaining:
-              description: test
+              description: 'The number of requests remaining in the current rate limit window.'
+              schema:
+                type: integer
+              example: 99
             X-Ratelimit-Reset:
-              description: test
+              description: 'The Unix time at which the rate limit will reset to its maximum.'
+              schema:
+                type: number
+              example: 1430170900
           content:
             application/json:
               schema:
