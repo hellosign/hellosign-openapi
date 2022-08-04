@@ -36,11 +36,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
+              description: test
             X-RateLimit-Remaining:
-              $ref: '#/components/headers/X-RateLimit-Remaining'
+              description: test
             X-Ratelimit-Reset:
-              $ref: '#/components/headers/X-RateLimit-Reset'
+              description: test
           content:
             application/json:
               schema:
@@ -9733,12 +9733,18 @@ components:
   headers:
     X-Ratelimit-Limit:
       description: 'The maximum number of requests per hour that you can make.'
+      schema:
+        type: integer
       example: 100
     X-Ratelimit-Limit-Remaining:
       description: 'The number of requests remaining in the current rate limit window.'
+      schema:
+        type: integer
       example: 99
     X-Ratelimit-Reset:
       description: 'The Unix time at which the rate limit will reset to its maximum.'
+      schema:
+        type: number
       example: 1430170900
   securitySchemes:
     api_key:
