@@ -7,4 +7,5 @@ lint:
     - 'bin/plugins/set-beta-plugin.js'
   extends:
     - recommended
-    - hs-beta-fields/all
+  decorators:
+    hs-beta-fields/check-schema-for-beta-features: error
