@@ -1,19 +1,11 @@
-# Note: this configuration is now set at a Portal level. 
-# But, keeping this file here allows for testing Reference docs by themselves.
-
-apiDefinitions:
+# Need some of this config because we're using API Registry
+apiDefinitions: 
   hellosign: ./openapi.yaml
 
 lint:
   plugins:
-    - './plugins/environment-plugin.js'
+    - 'bin/plugins/set-beta-plugin.js'
+  extends:
+    - recommended
   decorators:
-    environment/replace-servers-url: error
-
-# Optimize performance for US customers
-region: us
-
-# NOTE: these settings are controlled by the documentation repo
-# referenceDocs:
-
-  
+    hs-beta-fields/check-schema-for-beta-features: error
