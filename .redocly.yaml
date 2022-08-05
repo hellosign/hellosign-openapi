@@ -3,9 +3,8 @@ apiDefinitions:
   hellosign: ./openapi.yaml
 
 lint:
-  extends:
-    - recommended
   plugins:
     - 'bin/plugins/set-beta-plugin.js'
-  decorators:
-    hs-beta-fields/check-schema-for-beta-features: error
+  extends:
+    - recommended
+    - hs-beta-fields/all
