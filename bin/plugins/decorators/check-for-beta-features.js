@@ -12,7 +12,7 @@ const addClosedBetaCopy = (description) => {
     const descriptionWithBeta = 
         description +
         "\n" +
-        `<div class='beta-disclaimer'><span class='beta-badge field'>beta</span><br /><${betaClosed.disclaimer} <a href='mailto:apisupport@hellosign.com?subject=${betaClosed.subjectForEmail}'>${betaClosed.emailLink}</a> ${betaClosed.disclaimerContinued}</div>`;
+        `<div class='beta-disclaimer'><span class='beta-badge field'>beta</span><br />${betaClosed.disclaimer} <a href='mailto:apisupport@hellosign.com?subject=${betaClosed.subjectForEmail}'>${betaClosed.emailLink}</a> ${betaClosed.disclaimerContinued}</div>`;
     
         return descriptionWithBeta;
 }
