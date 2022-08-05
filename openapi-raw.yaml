@@ -3351,7 +3351,7 @@ paths:
           schema:
             type: string
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-          x-hideOn: doc
+          x-beta: closed
       requestBody:
         required: true
         content:
@@ -3955,7 +3955,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamInfo.py
-      x-hideOn: doc
+      x-beta: closed
       x-meta:
         seo:
           title: '_t__TeamInfo::SEO::TITLE'
@@ -4081,7 +4081,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamMembers.py
-      x-hideOn: doc
+      x-beta: closed
       x-meta:
         seo:
           title: '_t__TeamMembers::SEO::TITLE'
@@ -4316,7 +4316,7 @@ paths:
           label: Python
           source:
             $ref: examples/TeamSubTeams.py
-      x-hideOn: doc
+      x-beta: closed
       x-meta:
         seo:
           title: '_t__TeamSubTeams::SEO::TITLE'
@@ -7207,7 +7207,7 @@ components:
         new_team_id:
           description: '_t__TeamRemoveMember::NEW_TEAM_ID'
           type: string
-          x-hideOn: doc
+          x-beta: closed
         new_role:
           description: '_t__TeamRemoveMember::NEW_ROLE'
           type: string
@@ -7216,7 +7216,7 @@ components:
             - Developer
             - 'Team Manager'
             - Admin
-          x-hideOn: doc
+          x-beta: closed
       type: object
     TeamUpdateRequest:
       properties:
