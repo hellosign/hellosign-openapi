@@ -1,7 +1,7 @@
 # Need some of this config because we're using API Registry
 organization: HelloSign
 apis:
-  hellosign-OAS@v1: 
+  HelloSign-OAS@v1: 
     root: ./openapi.yaml
 
 lint:
