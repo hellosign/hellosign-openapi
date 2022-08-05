@@ -5,8 +5,6 @@ apis:
     root: ./openapi.yaml
 
 lint:
-  extends:
-    - recommended
   plugins:
     - 'bin/plugins/set-beta-plugin.js'
   decorators:
