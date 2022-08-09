@@ -6535,8 +6535,8 @@ components:
             - delivery
           x-beta: closed
           x-enumDescriptions:
-            authentication: 'If set, `sms_phone_number` will receive a code via SMS to access this signer''s signature page.'
-            delivery: 'If  is set, signature request will be delivered to both email and `sms_phone_number`.'
+            authentication: 'If `authentication`, signer is sent a verification code via SMS that is required to access the document.'
+            delivery: 'If `delivery`, the completed signature request is delivered via SMS (_and_ email).'
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6577,8 +6577,8 @@ components:
             - delivery
           x-beta: closed
           x-enumDescriptions:
-            authentication: 'If set, `sms_phone_number` will receive a code via SMS to access this signer''s signature page.'
-            delivery: 'If  is set, signature request will be delivered to both email and `sms_phone_number`.'
+            authentication: 'If `authentication`, signer is sent a verification code via SMS that is required to access the document.'
+            delivery: 'If `delivery`, the completed signature request is delivered via SMS (_and_ email).'
       type: object
     SubUnclaimedDraftSigner:
       required:

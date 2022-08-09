@@ -931,8 +931,8 @@
   
   **Note**: Requires SMS Tools add-on. Only works for non-embedded flows.
 
-"Sub::Signer::EnumDescriptions::AUTHENTICATION": If set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-"Sub::Signer::EnumDescriptions::DELIVERY": If  is set, signature request will be delivered to both email and `sms_phone_number`.
+"Sub::Signer::EnumDescriptions::AUTHENTICATION": If `authentication`, signer is sent a verification code via SMS that is required to access the document.
+"Sub::Signer::EnumDescriptions::DELIVERY": If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
