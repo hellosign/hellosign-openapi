@@ -912,7 +912,7 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  Specifies the feature used with the `sms_phone_number`.
+  Specifies the feature used with the `sms_phone_number`. Default `authentication`.
   
   If `authentication`, signer is sent a verification code via SMS that is required to access the document.
   
@@ -929,7 +929,7 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  Specifies the feature used with the `sms_phone_number`.
+  Specifies the feature used with the `sms_phone_number`. Default `authentication`.
   
   If `authentication`, signer is sent a verification code via SMS that is required to access the document.
   

@@ -6525,13 +6525,12 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            Specifies the feature used with the `sms_phone_number`.
+            Specifies the feature used with the `sms_phone_number`. Default `authentication`.
 
             If `authentication`, signer is sent a verification code via SMS that is required to access the document.
 
             If `delivery`, the completed signature request is delivered via SMS (_and_ email).
           type: string
-          default: authentication
           enum:
             - authentication
             - delivery
@@ -6566,13 +6565,12 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            Specifies the feature used with the `sms_phone_number`.
+            Specifies the feature used with the `sms_phone_number`. Default `authentication`.
 
             If `authentication`, signer is sent a verification code via SMS that is required to access the document.
 
             If `delivery`, the completed signature request is delivered via SMS (_and_ email).
           type: string
-          default: authentication
           enum:
             - authentication
             - delivery
