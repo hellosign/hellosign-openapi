@@ -6533,6 +6533,7 @@ components:
           enum:
             - authentication
             - delivery
+          x-beta: closed
           x-enumDescriptions:
             authentication: 'If set, `sms_phone_number` will receive a code via SMS to access this signer''s signature page.'
             delivery: 'If  is set, signature request will be delivered to both email and `sms_phone_number`.'
@@ -6574,6 +6575,7 @@ components:
           enum:
             - authentication
             - delivery
+          x-beta: closed
           x-enumDescriptions:
             authentication: 'If set, `sms_phone_number` will receive a code via SMS to access this signer''s signature page.'
             delivery: 'If  is set, signature request will be delivered to both email and `sms_phone_number`.'

@@ -6201,6 +6201,7 @@ components:
           enum:
             - authentication
             - delivery
+          x-beta: closed
           x-enumDescriptions:
             authentication: '_t__Sub::Signer::EnumDescriptions::AUTHENTICATION'
             delivery: '_t__Sub::Signer::EnumDescriptions::DELIVERY'
@@ -6236,6 +6237,7 @@ components:
           enum:
             - authentication
             - delivery
+          x-beta: closed
           x-enumDescriptions:
             authentication: '_t__Sub::Signer::EnumDescriptions::AUTHENTICATION'
             delivery: '_t__Sub::Signer::EnumDescriptions::DELIVERY'
