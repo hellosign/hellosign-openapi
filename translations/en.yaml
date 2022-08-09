@@ -912,7 +912,7 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  **Note**: This only works in non embedded endpoints. An SMS tools add-on in your billing plan is required.
   
   If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
   
@@ -931,13 +931,16 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  **Note**: This only works in non embedded endpoints. An SMS tools add-on in your billing plan is required.
   
   If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
   
   If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
   
   If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+
+"Sub::Signer::EnumDescriptions::AUTHENTICATION":   AUTHENTICATION
+"Sub::Signer::EnumDescriptions::DELIVERY": DELIVERY
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.

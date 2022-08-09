@@ -6525,7 +6525,7 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            **Note**: This only works in non embedded endpoints.
+            **Note**: This only works in non embedded endpoints. An SMS tools add-on in your billing plan is required.
 
             If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
 
@@ -6533,9 +6533,13 @@ components:
 
             If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
           type: string
+          default: authentication
           enum:
             - authentication
             - delivery
+          x-enumDescriptions:
+            authentication: AUTHENTICATION
+            delivery: DELIVERY
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6566,7 +6570,7 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            **Note**: This only works in non embedded endpoints.
+            **Note**: This only works in non embedded endpoints. An SMS tools add-on in your billing plan is required.
 
             If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
 
@@ -6574,9 +6578,13 @@ components:
 
             If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
           type: string
+          default: authentication
           enum:
             - authentication
             - delivery
+          x-enumDescriptions:
+            authentication: AUTHENTICATION
+            delivery: DELIVERY
       type: object
     SubUnclaimedDraftSigner:
       required:
