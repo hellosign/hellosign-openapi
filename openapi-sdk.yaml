@@ -6533,10 +6533,13 @@ components:
 
             If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
           type: string
+          default: authentication
           enum:
             - authentication
             - delivery
-          x-beta: closed
+          x-enumDescriptions:
+            authentication: AUTHENTICATION
+            delivery: DELIVERY
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6575,10 +6578,13 @@ components:
 
             If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
           type: string
+          default: authentication
           enum:
             - authentication
             - delivery
-          x-beta: closed
+          x-enumDescriptions:
+            authentication: AUTHENTICATION
+            delivery: DELIVERY
       type: object
     SubUnclaimedDraftSigner:
       required:

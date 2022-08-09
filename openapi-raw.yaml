@@ -6197,10 +6197,13 @@ components:
         sms_phone_number_type:
           description: '_t__Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE'
           type: string
+          default: authentication
           enum:
             - authentication
             - delivery
-          x-beta: closed
+          x-enumDescriptions:
+            authentication: '_t__Sub::Signer::EnumDescriptions::AUTHENTICATION'
+            delivery: '_t__Sub::Signer::EnumDescriptions::DELIVERY'
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6229,10 +6232,13 @@ components:
         sms_phone_number_type:
           description: '_t__Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE'
           type: string
+          default: authentication
           enum:
             - authentication
             - delivery
-          x-beta: closed
+          x-enumDescriptions:
+            authentication: '_t__Sub::Signer::EnumDescriptions::AUTHENTICATION'
+            delivery: '_t__Sub::Signer::EnumDescriptions::DELIVERY'
       type: object
     SubUnclaimedDraftSigner:
       required:
