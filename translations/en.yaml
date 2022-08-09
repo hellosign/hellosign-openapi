@@ -912,9 +912,11 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  Specifies how the `sms_phone_number` will be used.
+  Specifies the feature used with the `sms_phone_number`.
   
-  **Note**: Requires SMS Tools add-on. Only works for non-embedded flows.
+  If `authentication`, signer is sent a verification code via SMS that is required to access the document.
+  
+  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -927,12 +929,11 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  Specifies how the `sms_phone_number` will be used.
+  Specifies the feature used with the `sms_phone_number`.
   
-  **Note**: Requires SMS Tools add-on. Only works for non-embedded flows.
-
-"Sub::Signer::EnumDescriptions::AUTHENTICATION": If `authentication`, signer is sent a verification code via SMS that is required to access the document.
-"Sub::Signer::EnumDescriptions::DELIVERY": If `delivery`, the completed signature request is delivered via SMS (_and_ email).
+  If `authentication`, signer is sent a verification code via SMS that is required to access the document.
+  
+  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.

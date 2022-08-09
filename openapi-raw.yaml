@@ -6202,9 +6202,6 @@ components:
             - authentication
             - delivery
           x-beta: closed
-          x-enumDescriptions:
-            authentication: '_t__Sub::Signer::EnumDescriptions::AUTHENTICATION'
-            delivery: '_t__Sub::Signer::EnumDescriptions::DELIVERY'
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6238,9 +6235,6 @@ components:
             - authentication
             - delivery
           x-beta: closed
-          x-enumDescriptions:
-            authentication: '_t__Sub::Signer::EnumDescriptions::AUTHENTICATION'
-            delivery: '_t__Sub::Signer::EnumDescriptions::DELIVERY'
       type: object
     SubUnclaimedDraftSigner:
       required:

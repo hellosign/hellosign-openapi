@@ -6525,18 +6525,17 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            Specifies how the `sms_phone_number` will be used.
+            Specifies the feature used with the `sms_phone_number`.
 
-            **Note**: Requires SMS Tools add-on. Only works for non-embedded flows.
+            If `authentication`, signer is sent a verification code via SMS that is required to access the document.
+
+            If `delivery`, the completed signature request is delivered via SMS (_and_ email).
           type: string
           default: authentication
           enum:
             - authentication
             - delivery
           x-beta: closed
-          x-enumDescriptions:
-            authentication: 'If `authentication`, signer is sent a verification code via SMS that is required to access the document.'
-            delivery: 'If `delivery`, the completed signature request is delivered via SMS (_and_ email).'
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6567,18 +6566,17 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            Specifies how the `sms_phone_number` will be used.
+            Specifies the feature used with the `sms_phone_number`.
 
-            **Note**: Requires SMS Tools add-on. Only works for non-embedded flows.
+            If `authentication`, signer is sent a verification code via SMS that is required to access the document.
+
+            If `delivery`, the completed signature request is delivered via SMS (_and_ email).
           type: string
           default: authentication
           enum:
             - authentication
             - delivery
           x-beta: closed
-          x-enumDescriptions:
-            authentication: 'If `authentication`, signer is sent a verification code via SMS that is required to access the document.'
-            delivery: 'If `delivery`, the completed signature request is delivered via SMS (_and_ email).'
       type: object
     SubUnclaimedDraftSigner:
       required:
