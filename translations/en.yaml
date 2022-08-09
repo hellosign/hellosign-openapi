@@ -939,8 +939,8 @@
   
   If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
 
-"Sub::Signer::EnumDescriptions::AUTHENTICATION":   AUTHENTICATION
-"Sub::Signer::EnumDescriptions::DELIVERY": DELIVERY
+"Sub::Signer::EnumDescriptions::AUTHENTICATION":   AUTHENTICATION TEST
+"Sub::Signer::EnumDescriptions::DELIVERY": DELIVERY TEST
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
