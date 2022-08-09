@@ -912,7 +912,7 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  **Note**: This only works in non embedded endpoints. An SMS tools add-on in your billing plan is required.
   
   If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
   
@@ -931,7 +931,7 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  **Note**: This only works in non embedded endpoints. An SMS tools add-on in your billing plan is required.
   
   If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
   
