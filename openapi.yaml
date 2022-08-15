@@ -6725,6 +6725,18 @@ components:
             Email address of the user to invite to your Team.
           type: string
           format: email
+        role:
+          description: |-
+            A role member will take in a new Team.
+
+            **Note**: This parameter is used only if `team_id` is provided.
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-beta: closed
       type: object
     TeamCreateRequest:
       properties:

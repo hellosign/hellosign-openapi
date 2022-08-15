@@ -406,6 +406,10 @@
   `account_id` or `email_address` is required, If both are provided, the account id prevails. 
   
   Email address of the user to invite to your Team.
+"TeamAddMember::ROLE": |-
+  A role member will take in a new Team.
+  
+  **Note**: This parameter is used only if `team_id` is provided.
 
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.

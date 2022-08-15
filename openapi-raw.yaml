@@ -6367,6 +6367,15 @@ components:
           description: '_t__TeamAddMember::EMAIL_ADDRESS'
           type: string
           format: email
+        role:
+          description: '_t__TeamAddMember::ROLE'
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-beta: closed
       type: object
     TeamCreateRequest:
       properties:
