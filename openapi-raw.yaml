@@ -133,20 +133,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -238,20 +229,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -345,20 +327,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -458,20 +431,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -565,20 +529,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -688,20 +643,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -796,20 +742,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
         4XX:
           description: failed_operation
           content:
@@ -902,20 +839,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1007,20 +935,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1119,20 +1038,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1234,20 +1144,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1341,20 +1242,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1431,93 +1323,6 @@ paths:
         seo:
           title: '_t__EmbeddedSignUrl::SEO::TITLE'
           description: '_t__EmbeddedSignUrl::SEO::DESCRIPTION'
-  /oauth/token:
-    post:
-      tags:
-        - OAuth
-      summary: '_t__OAuthTokenGenerate::SUMMARY'
-      description: '_t__OAuthTokenGenerate::DESCRIPTION'
-      operationId: oauthTokenGenerate
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OAuthTokenGenerateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/OAuthTokenGenerateRequestExample'
-      responses:
-        '200':
-          description: 'successful operation'
-          headers:
-            X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
-            X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
-            X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OAuthTokenResponse'
-              examples:
-                default_example:
-                  $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
-      security: []
-      servers:
-        -
-          url: 'https://app.hellosign.com'
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/OauthTokenGenerate.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/OauthTokenGenerate.cs
-        -
-          lang: JavaScript
-          label: JavaScript
-          source:
-            $ref: examples/OauthTokenGenerate.js
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/OauthTokenGenerate.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/OauthTokenGenerate.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/OauthTokenGenerate.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/OauthTokenGenerate.py
-      x-hideTryItPanel: true
-      x-meta:
-        seo:
-          title: '_t__OAuthTokenGenerate::SEO::TITLE'
-          description: '_t__OAuthTokenGenerate::SEO::DESCRIPTION'
   '/oauth/token?refresh':
     post:
       tags:
@@ -1539,20 +1344,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1626,20 +1422,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1734,20 +1521,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1848,20 +1626,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1956,20 +1725,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json: {  }
         4XX:
@@ -2069,20 +1829,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2184,20 +1935,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2317,20 +2059,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2431,20 +2164,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2560,20 +2284,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2668,20 +2383,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2784,20 +2490,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2898,20 +2595,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json: {  }
         4XX:
@@ -3007,20 +2695,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3123,20 +2802,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3240,20 +2910,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3359,20 +3020,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3466,20 +3118,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3562,20 +3205,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
         4XX:
           description: failed_operation
           content:
@@ -3651,20 +3285,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3757,20 +3382,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3862,20 +3478,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3988,20 +3595,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4100,20 +3698,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4223,20 +3812,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4342,20 +3922,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4461,20 +4032,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4570,20 +4132,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json: {  }
         4XX:
@@ -4697,20 +4250,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4810,20 +4354,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4939,20 +4474,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5057,20 +4583,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5179,20 +4696,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5302,20 +4810,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5419,20 +4918,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5535,20 +5025,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5655,20 +5136,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -6112,31 +5584,6 @@ components:
               type: string
               default: checkbox-merge
           type: object
-    OAuthTokenGenerateRequest:
-      required:
-        - client_id
-        - client_secret
-        - code
-        - state
-        - grant_type
-      properties:
-        client_id:
-          description: '_t__OAuthTokenGenerate::CLIENT_ID'
-          type: string
-        client_secret:
-          description: '_t__OAuthTokenGenerate::CLIENT_SECRET'
-          type: string
-        code:
-          description: '_t__OAuthTokenGenerate::CODE'
-          type: string
-        grant_type:
-          description: '_t__OAuthTokenGenerate::GRANT_TYPE'
-          type: string
-          default: authorization_code
-        state:
-          description: '_t__OAuthTokenGenerate::STATE'
-          type: string
-      type: object
     OAuthTokenRefreshRequest:
       required:
         - grant_type
@@ -9531,10 +8978,6 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequestDefaultExample.json
-    OAuthTokenGenerateRequestExample:
-      summary: 'OAuth Token Generate Example'
-      value:
-        $ref: examples/json/OAuthTokenGenerateRequestExample.json
     OAuthTokenRefreshRequestExample:
       summary: 'OAuth Token Refresh Example'
       value:
@@ -10018,19 +9461,19 @@ components:
               contentType: application/json
   headers:
     X-RateLimit-Limit:
-      description: 'The maximum number of requests per hour that you can make.'
+      description: '_t__Common::RateLimiting::LIMIT'
       schema:
         type: integer
         format: int32
       example: 100
     X-RateLimit-Remaining:
-      description: 'The number of requests remaining in the current rate limit window.'
+      description: '_t__Common::RateLimiting::REMAINING'
       schema:
         type: integer
         format: int32
       example: 99
     X-Ratelimit-Reset:
-      description: 'The Unix time at which the rate limit will reset to its maximum.'
+      description: '_t__Common::RateLimiting::RESET'
       schema:
         type: integer
         format: int64

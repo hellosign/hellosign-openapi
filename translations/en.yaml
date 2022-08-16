@@ -1034,6 +1034,10 @@
 "BulkSendJobGetResponse::SIGNATURE_REQUESTS": Contains information about the Signature Requests sent in bulk.
 "BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID": The id of the BulkSendJob.
 
+"Common::RateLimiting::LIMIT": The maximum number of requests per hour that you can make.
+"Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
+"Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
+
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL
 
