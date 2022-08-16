@@ -2899,6 +2899,16 @@ paths:
       summary: 'Add User to Team'
       description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: 'The id of the team.'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+          x-beta: closed
       requestBody:
         required: true
         content:
@@ -3317,6 +3327,210 @@ paths:
         seo:
           title: 'Update Team | API Documentation | HelloSign for Developers'
           description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to update the name of your team, click here.'
+  /team/info:
+    get:
+      tags:
+        - Team
+      summary: 'Get Team Info'
+      description: 'Provides information about a team.'
+      operationId: teamInfo
+      parameters:
+        -
+          name: team_id
+          in: query
+          description: 'The id of the team.'
+          required: false
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamGetInfoResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamGetInfoResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamInfo.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamInfo.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamInfo.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamInfo.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamInfo.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamInfo.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamInfo.py
+      x-beta: closed
+      x-meta:
+        seo:
+          title: 'Get Team Info | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here.'
+  '/team/members/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'List Team Members'
+      description: 'Provides a paginated list of members (and their roles) that belong to a given team.'
+      operationId: teamMembers
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'The id of the team that a member list is being requested from.'
+          required: true
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+        -
+          name: page
+          in: query
+          description: 'Which page number of the team member list to return. Defaults to `1`.'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMembersResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamMembersResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamMembers.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamMembers.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamMembers.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamMembers.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamMembers.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamMembers.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamMembers.py
+      x-beta: closed
+      x-meta:
+        seo:
+          title: 'List Team Members | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of team members and their roles for a specific team, click here.'
   /team/remove_member:
     post:
       tags:
@@ -3410,6 +3624,116 @@ paths:
         seo:
           title: 'Remove User from Team | REST API | HelloSign for Developers'
           description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
+  '/team/sub_teams/{team_id}':
+    get:
+      tags:
+        - Team
+      summary: 'List Sub Teams'
+      description: 'Provides a paginated list of sub teams that belong to a given team.'
+      operationId: teamSubTeams
+      parameters:
+        -
+          name: team_id
+          in: path
+          description: 'The id of the parent Team.'
+          required: true
+          schema:
+            type: string
+          example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
+        -
+          name: page
+          in: query
+          description: 'Which page number of the SubTeam List to return. Defaults to `1`.'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: 'Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`.'
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamSubTeamsResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamSubTeamsResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - team_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamSubTeams.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamSubTeams.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamSubTeams.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamSubTeams.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamSubTeams.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamSubTeams.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamSubTeams.py
+      x-beta: closed
+      x-meta:
+        seo:
+          title: 'List Sub Teams | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of sub teams that exist for a given team, click here.'
   '/template/add_user/{template_id}':
     post:
       tags:
@@ -5430,10 +5754,6 @@ components:
           description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
           type: boolean
           default: false
-        expires_at:
-          nullable: true
-          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
-          type: integer
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -5666,10 +5986,6 @@ components:
           description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
           type: boolean
           default: false
-        expires_at:
-          nullable: true
-          description: '_t__SignatureRequestSend::EXPIRES_AT'
-          type: integer
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -6439,6 +6755,22 @@ components:
             **Note**: Only available for Enterprise plans.
           type: string
           format: email
+        new_team_id:
+          description: 'Id of the new Team.'
+          type: string
+          x-beta: closed
+        new_role:
+          description: |-
+            A new role member will take in a new Team.
+
+            **Note**: This parameter is used only if `new_team_id` is provided.
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-beta: closed
       type: object
     TeamUpdateRequest:
       properties:
@@ -6784,10 +7116,6 @@ components:
           description: 'Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.'
           type: boolean
           default: false
-        expires_at:
-          nullable: true
-          description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
-          type: integer
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -6971,10 +7299,6 @@ components:
           description: 'Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.'
           type: boolean
           default: false
-        expires_at:
-          nullable: true
-          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
-          type: integer
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -7648,6 +7972,153 @@ components:
           type: integer
       type: object
       x-internal: true
+    SignatureRequestResponseDataTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+        - date_signed
+        - dropdown
+        - initials
+        - radio
+        - signature
+        - text-merge
+        - checkbox-merge
+    SignatureRequestResponseDataValueText:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'A text input field'
+              type: string
+              default: text
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueDropdown:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'An input field for dropdowns'
+              type: string
+              default: dropdown
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueRadio:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'An input field for radios'
+              type: string
+              default: radio
+            value:
+              description: 'The value of the form field.'
+              type: boolean
+          type: object
+    SignatureRequestResponseDataValueDateSigned:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'A date'
+              type: string
+              default: date_signed
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueInitials:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'An input field for initials'
+              type: string
+              default: initials
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueCheckbox:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'A yes/no checkbox'
+              type: string
+              default: checkbox
+            value:
+              description: 'The value of the form field.'
+              type: boolean
+          type: object
+    SignatureRequestResponseDataValueSignature:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'A signature input field'
+              type: string
+              default: signature
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueTextMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'A text field that has default text set by the api'
+              type: string
+              default: text-merge
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
+    SignatureRequestResponseDataValueCheckboxMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: 'A checkbox field that has default value set by the api'
+              type: string
+              default: checkbox-merge
+            value:
+              description: 'The value of the form field.'
+              type: string
+          type: object
     OAuthTokenResponse:
       properties:
         access_token:
@@ -7717,6 +8188,7 @@ components:
           description: 'Default Label for account.'
           type: string
         subject:
+          nullable: true
           description: 'The subject in the email that was initially sent to the signers.'
           type: string
         message:
@@ -7728,9 +8200,6 @@ components:
           type: object
         created_at:
           description: 'Time the signature request was created.'
-          type: integer
-        expires_at:
-          description: '_t__SignatureRequestResponse::EXPIRES_AT'
           type: integer
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
@@ -7787,7 +8256,7 @@ components:
           description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
           type: array
           items:
-            $ref: '#/components/schemas/SignatureRequestResponseData'
+            $ref: '#/components/schemas/SignatureRequestResponseDataBase'
         signatures:
           description: 'An array of signature objects, 1 for each signer.'
           type: array
@@ -7928,7 +8397,7 @@ components:
               description: 'A true/false for checkbox fields'
               type: boolean
           type: object
-    SignatureRequestResponseData:
+    SignatureRequestResponseDataBase:
       description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
       properties:
         api_id:
@@ -7940,26 +8409,26 @@ components:
         name:
           description: 'The name of the form field.'
           type: string
-        value:
-          description: '_t__SignatureRequestResponseData::VALUE'
-          type: string
         required:
           description: 'A boolean value denoting if this field is required.'
           type: boolean
         type:
-          description: '_t__SignatureRequestResponseData::TYPE'
-          enum:
-            - text
-            - checkbox
-            - date_signed
-            - dropdown
-            - initials
-            - radio
-            - signature
-            - text-merge
-            - checkbox-merge
+          type: string
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/SignatureRequestResponseDataValueText'
+          checkbox: '#/components/schemas/SignatureRequestResponseDataValueCheckbox'
+          dropdown: '#/components/schemas/SignatureRequestResponseDataValueDropdown'
+          radio: '#/components/schemas/SignatureRequestResponseDataValueRadio'
+          signature: '#/components/schemas/SignatureRequestResponseDataValueSignature'
+          date_signed: '#/components/schemas/SignatureRequestResponseDataValueDateSigned'
+          initials: '#/components/schemas/SignatureRequestResponseDataValueInitials'
+          text-merge: '#/components/schemas/SignatureRequestResponseDataValueTextMerge'
+          checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
       x-internal: true
+      x-base-class: true
     SignatureRequestResponseSignatures:
       description: 'An array of signature objects, 1 for each signer.'
       properties:
@@ -7970,6 +8439,7 @@ components:
           description: 'The email address of the signer.'
           type: string
         signer_name:
+          nullable: true
           description: 'The name of the signer.'
           type: string
         signer_role:
