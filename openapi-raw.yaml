@@ -5585,6 +5585,11 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::USE_TEXT_TAGS'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          type: integer
+          x-beta: closed
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -5769,6 +5774,11 @@ components:
           description: '_t__SignatureRequestSend::USE_PREEXISTING_FIELDS'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__SignatureRequestSend::EXPIRES_AT'
+          type: integer
+          x-beta: closed
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -5859,6 +5869,11 @@ components:
         signature_id:
           description: '_t__SignatureRequestUpdate::SIGNATURE_ID'
           type: string
+        expires_at:
+          nullable: true
+          description: '_t__SignatureRequestUpdate::EXPIRES_AT'
+          type: integer
+          x-beta: closed
       type: object
     SubAttachment:
       required:
@@ -6676,6 +6691,11 @@ components:
           description: '_t__UnclaimedDraftCreate::USE_TEXT_TAGS'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
+          type: integer
+          x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -6824,6 +6844,11 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          type: integer
+          x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -7704,6 +7729,10 @@ components:
         created_at:
           description: '_t__SignatureRequestResponse::CREATED_AT'
           type: integer
+        expires_at:
+          description: '_t__SignatureRequestResponse::EXPIRES_AT'
+          type: integer
+          x-beta: closed
         is_complete:
           description: '_t__SignatureRequestResponse::IS_COMPLETE'
           type: boolean

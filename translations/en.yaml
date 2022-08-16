@@ -243,6 +243,7 @@
   Use `file_url[]` to have HelloSign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
+"SignatureRequestCreateEmbedded::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
 "SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS": |-
   Enables automatic Text Tag removal when set to true.
 
@@ -352,6 +353,7 @@
 "SignatureRequestSend::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestSend::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestSend::TITLE": The title you want to assign to the SignatureRequest.
+"SignatureRequestSend::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
 "SignatureRequestSend::USE_PREEXISTING_FIELDS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 
 "SignatureRequestSendWithTemplate::SUMMARY": Send with Template
@@ -394,6 +396,7 @@
   **NOTE**: Optional if `email_address` is provided.
 "TeamAddMember::TEAM_ID": The id of the team.
 "SignatureRequestUpdate::SIGNATURE_ID": The signature ID for the recipient.
+"SignatureRequestUpdate::EXPIRES_AT": The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
 "SignatureRequestUpdate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to update.
 
 "TeamAddMember::SUMMARY": Add User to Team
@@ -599,7 +602,10 @@
 "UnclaimedDraftCreate::TYPE": The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
 "UnclaimedDraftCreate::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreate::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+"UnclaimedDraftCreate::EXPIRES_AT":  |-
+  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
 
+  **Note** This does not correspond to the **expires_at** returned in the response.
 "UnclaimedDraftCreateEmbedded::SUMMARY": Create Embedded Unclaimed Draft
 "UnclaimedDraftCreateEmbedded::DESCRIPTION": |-
   Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
@@ -643,6 +649,10 @@
 "UnclaimedDraftCreateEmbedded::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 
+"UnclaimedDraftCreateEmbedded::EXPIRES_AT":  |-
+  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+
+  **Note** This does not correspond to the **expires_at** returned in the response.
 "UnclaimedDraftCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Unclaimed Draft with Template
 "UnclaimedDraftCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
@@ -1132,6 +1142,7 @@
 "SignatureRequestResponse::TEMPLATE_IDS": Templates IDs used in this SignatureRequest (if any).
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
 "SignatureRequestResponse::TITLE": The title the specified Account uses for the SignatureRequest.
+"SignatureRequestResponse::EXPIRES_AT": The time when the signature request will expire pending signatures.
 
 "SignatureRequestListResponse::DESCRIPTION": Contains information about signature requests.
 
