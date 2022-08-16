@@ -36,20 +36,11 @@ paths:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
-              description: 'The maximum number of requests per hour that you can make.'
-              schema:
-                type: integer
-              example: 100
+              $ref: '#/components/headers/X-RateLimit-Limit'
             X-RateLimit-Remaining:
-              description: 'The number of requests remaining in the current rate limit window.'
-              schema:
-                type: integer
-              example: 99
+              $ref: '#/components/headers/X-RateLimit-Remaining'
             X-Ratelimit-Reset:
-              description: 'The Unix time at which the rate limit will reset to its maximum.'
-              schema:
-                type: number
-              example: 1430170900
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3906,6 +3897,22 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              description: 'The maximum number of requests per hour that you can make.'
+              schema:
+                type: integer
+              example: 100
+            X-RateLimit-Remaining:
+              description: 'The number of requests remaining in the current rate limit window.'
+              schema:
+                type: integer
+              example: 99
+            X-Ratelimit-Reset:
+              description: 'The Unix time at which the rate limit will reset to its maximum.'
+              schema:
+                type: number
+              example: 1430170900
           content:
             application/json:
               schema:
@@ -4016,6 +4023,22 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              description: 'The maximum number of requests per hour that you can make.'
+              schema:
+                type: integer
+              example: 100
+            X-RateLimit-Remaining:
+              description: 'The number of requests remaining in the current rate limit window.'
+              schema:
+                type: integer
+              example: 99
+            X-Ratelimit-Reset:
+              description: 'The Unix time at which the rate limit will reset to its maximum.'
+              schema:
+                type: number
+              example: 1430170900
           content:
             application/json:
               schema:
@@ -4235,6 +4258,22 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              description: 'The maximum number of requests per hour that you can make.'
+              schema:
+                type: integer
+              example: 100
+            X-RateLimit-Remaining:
+              description: 'The number of requests remaining in the current rate limit window.'
+              schema:
+                type: integer
+              example: 99
+            X-Ratelimit-Reset:
+              description: 'The Unix time at which the rate limit will reset to its maximum.'
+              schema:
+                type: number
+              example: 1430170900
           content:
             application/json:
               schema:
@@ -10491,6 +10530,25 @@ components:
           encoding:
             json:
               contentType: application/json
+  headers:
+    X-RateLimit-Limit:
+      description: 'The maximum number of requests per hour that you can make.'
+      schema:
+        type: integer
+        format: int32
+      example: 100
+    X-RateLimit-Remaining:
+      description: 'The number of requests remaining in the current rate limit window.'
+      schema:
+        type: integer
+        format: int32
+      example: 99
+    X-Ratelimit-Reset:
+      description: 'The Unix time at which the rate limit will reset to its maximum.'
+      schema:
+        type: integer
+        format: int64
+      example: 1430170900
   securitySchemes:
     api_key:
       type: http
