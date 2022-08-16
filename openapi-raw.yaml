@@ -1323,6 +1323,84 @@ paths:
         seo:
           title: '_t__EmbeddedSignUrl::SEO::TITLE'
           description: '_t__EmbeddedSignUrl::SEO::DESCRIPTION'
+  /oauth/token:
+    post:
+      tags:
+        - OAuth
+      summary: '_t__OAuthTokenGenerate::SUMMARY'
+      description: '_t__OAuthTokenGenerate::DESCRIPTION'
+      operationId: oauthTokenGenerate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthTokenGenerateRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/OAuthTokenGenerateRequestExample'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthTokenResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
+      security: []
+      servers:
+        -
+          url: 'https://app.hellosign.com'
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/OauthTokenGenerate.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/OauthTokenGenerate.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/OauthTokenGenerate.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/OauthTokenGenerate.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/OauthTokenGenerate.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/OauthTokenGenerate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/OauthTokenGenerate.py
+      x-hideTryItPanel: true
+      x-meta:
+        seo:
+          title: '_t__OAuthTokenGenerate::SEO::TITLE'
+          description: '_t__OAuthTokenGenerate::SEO::DESCRIPTION'
   '/oauth/token?refresh':
     post:
       tags:
@@ -5584,6 +5662,31 @@ components:
               type: string
               default: checkbox-merge
           type: object
+    OAuthTokenGenerateRequest:
+      required:
+        - client_id
+        - client_secret
+        - code
+        - state
+        - grant_type
+      properties:
+        client_id:
+          description: '_t__OAuthTokenGenerate::CLIENT_ID'
+          type: string
+        client_secret:
+          description: '_t__OAuthTokenGenerate::CLIENT_SECRET'
+          type: string
+        code:
+          description: '_t__OAuthTokenGenerate::CODE'
+          type: string
+        grant_type:
+          description: '_t__OAuthTokenGenerate::GRANT_TYPE'
+          type: string
+          default: authorization_code
+        state:
+          description: '_t__OAuthTokenGenerate::STATE'
+          type: string
+      type: object
     OAuthTokenRefreshRequest:
       required:
         - grant_type
@@ -8978,6 +9081,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequestDefaultExample.json
+    OAuthTokenGenerateRequestExample:
+      summary: 'OAuth Token Generate Example'
+      value:
+        $ref: examples/json/OAuthTokenGenerateRequestExample.json
     OAuthTokenRefreshRequestExample:
       summary: 'OAuth Token Refresh Example'
       value:

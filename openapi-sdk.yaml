@@ -1323,6 +1323,84 @@ paths:
         seo:
           title: 'Get Embedded Sign URL | iFrame | HelloSign for Developers'
           description: 'The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
+  /oauth/token:
+    post:
+      tags:
+        - OAuth
+      summary: 'OAuth Token Generate'
+      description: 'Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.'
+      operationId: oauthTokenGenerate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthTokenGenerateRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/OAuthTokenGenerateRequestExample'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthTokenResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/OAuthTokenGenerateResponseExample'
+      security: []
+      servers:
+        -
+          url: 'https://app.hellosign.com'
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/OauthTokenGenerate.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/OauthTokenGenerate.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/OauthTokenGenerate.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/OauthTokenGenerate.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/OauthTokenGenerate.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/OauthTokenGenerate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/OauthTokenGenerate.py
+      x-hideTryItPanel: true
+      x-meta:
+        seo:
+          title: 'Generate OAuth Token | Documentation | HelloSign for Developers'
+          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to generate a new OAuth token with the API, click here.'
   '/oauth/token?refresh':
     post:
       tags:
@@ -5665,6 +5743,31 @@ components:
               type: string
               default: checkbox-merge
           type: object
+    OAuthTokenGenerateRequest:
+      required:
+        - client_id
+        - client_secret
+        - code
+        - state
+        - grant_type
+      properties:
+        client_id:
+          description: 'The client id of the app requesting authorization.'
+          type: string
+        client_secret:
+          description: 'The secret token of your app.'
+          type: string
+        code:
+          description: 'The code passed to your callback when the user granted access.'
+          type: string
+        grant_type:
+          description: 'When generating a new token use `authorization_code`.'
+          type: string
+          default: authorization_code
+        state:
+          description: 'Same as the state you specified earlier.'
+          type: string
+      type: object
     OAuthTokenRefreshRequest:
       required:
         - grant_type
@@ -9488,6 +9591,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequestDefaultExample.json
+    OAuthTokenGenerateRequestExample:
+      summary: 'OAuth Token Generate Example'
+      value:
+        $ref: examples/json/OAuthTokenGenerateRequestExample.json
     OAuthTokenRefreshRequestExample:
       summary: 'OAuth Token Refresh Example'
       value:
