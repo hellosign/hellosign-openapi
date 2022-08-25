@@ -131,6 +131,7 @@
     "test_mode": true,
     "type": "send_document",
     "use_preexisting_fields": true,
-    "use_text_tags": true
+    "use_text_tags": true,
+    "populate_auto_fill_fields": false
   }
 }
