@@ -247,6 +247,10 @@
   Enables automatic Text Tag removal when set to true.
 
   **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+"SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestCreateEmbedded::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
@@ -270,7 +274,10 @@
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestCreateEmbeddedWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
 
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestFiles::SUMMARY": Download Files
 "SignatureRequestFiles::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `signature_request_id` parameter.
@@ -646,7 +653,10 @@
 "UnclaimedDraftCreateEmbedded::TYPE": The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.
 "UnclaimedDraftCreateEmbedded::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+"UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
 
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "UnclaimedDraftCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Unclaimed Draft with Template
 "UnclaimedDraftCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
@@ -692,7 +702,10 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
 "UnclaimedDraftCreateEmbeddedWithTemplate::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
 
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "UnclaimedDraftEditAndResend::SUMMARY": Edit and Resend Unclaimed Draft
 "UnclaimedDraftEditAndResend::DESCRIPTION": |-
   Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.
