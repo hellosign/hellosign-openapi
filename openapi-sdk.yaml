@@ -10126,19 +10126,19 @@ components:
               contentType: application/json
   headers:
     X-RateLimit-Limit:
-      description: '_t__Common::RateLimiting::LIMIT'
+      description: 'The maximum number of requests per hour that you can make.'
       schema:
         type: integer
         format: int32
       example: 100
     X-RateLimit-Remaining:
-      description: '_t__Common::RateLimiting::REMAINING'
+      description: 'The number of requests remaining in the current rate limit window.'
       schema:
         type: integer
         format: int32
       example: 99
     X-Ratelimit-Reset:
-      description: '_t__Common::RateLimiting::RESET'
+      description: 'The Unix time at which the rate limit will reset to its maximum.'
       schema:
         type: integer
         format: int64
