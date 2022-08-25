@@ -5942,6 +5942,11 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::USE_TEXT_TAGS'
           type: boolean
           default: false
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -6011,6 +6016,11 @@ components:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::TITLE'
           type: string
           maxLength: 255
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -6724,6 +6734,15 @@ components:
           description: '_t__TeamAddMember::EMAIL_ADDRESS'
           type: string
           format: email
+        role:
+          description: '_t__TeamAddMember::ROLE'
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-beta: closed
       type: object
     TeamCreateRequest:
       properties:
@@ -7181,6 +7200,11 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS'
           type: boolean
           default: false
+        populate_auto_fill_fields:
+          description: '_t__UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -7299,6 +7323,11 @@ components:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::TITLE'
           type: string
           maxLength: 255
+        populate_auto_fill_fields:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
