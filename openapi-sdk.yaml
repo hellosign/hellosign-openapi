@@ -34,6 +34,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -124,6 +131,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -213,6 +227,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -304,6 +325,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -401,6 +429,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -492,6 +527,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -599,6 +641,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -691,6 +740,13 @@ paths:
       responses:
         204:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
         4XX:
           description: failed_operation
           content:
@@ -781,6 +837,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -870,6 +933,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -966,6 +1036,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1065,6 +1142,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1156,6 +1240,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1251,6 +1342,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1322,6 +1420,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1396,6 +1501,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1491,6 +1603,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1592,6 +1711,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1693,6 +1819,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json: {}
         4XX:
@@ -1790,6 +1923,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -1889,6 +2029,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2011,6 +2158,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2109,6 +2263,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2225,6 +2386,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2317,6 +2485,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2420,6 +2595,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2523,6 +2705,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json: {}
         4XX:
@@ -2616,6 +2805,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2716,6 +2912,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2820,6 +3023,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -2923,6 +3133,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3014,6 +3231,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3094,6 +3318,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
         4XX:
           description: failed_operation
           content:
@@ -3167,6 +3398,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3257,6 +3495,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3346,6 +3591,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3456,6 +3708,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3552,6 +3811,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3659,6 +3925,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3762,6 +4035,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3865,6 +4145,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -3958,6 +4245,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json: {}
         4XX:
@@ -4074,6 +4368,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4171,6 +4472,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4287,6 +4595,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4389,6 +4704,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4507,6 +4829,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4614,6 +4943,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4718,6 +5054,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4821,6 +5164,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -4928,6 +5278,13 @@ paths:
       responses:
         200:
           description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
             application/json:
               schema:
@@ -5754,6 +6111,11 @@ components:
           description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
           type: boolean
           default: false
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
         expires_at:
           nullable: true
           description: |-
@@ -5840,6 +6202,11 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        populate_auto_fill_fields:
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -6743,6 +7110,15 @@ components:
             Email address of the user to invite to your Team.
           type: string
           format: email
+        role:
+          description: '_t__TeamAddMember::ROLE'
+          type: string
+          enum:
+            - Member
+            - Developer
+            - 'Team Manager'
+            - Admin
+          x-beta: closed
       type: object
     TeamCreateRequest:
       properties:
@@ -7325,6 +7701,11 @@ components:
           description: 'Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.'
           type: boolean
           default: false
+        populate_auto_fill_fields:
+          description: '_t__UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
         expires_at:
           nullable: true
           description: |-
@@ -7473,6 +7854,11 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        populate_auto_fill_fields:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+          x-beta: closed
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
@@ -9761,6 +10147,25 @@ components:
           encoding:
             json:
               contentType: application/json
+  headers:
+    X-RateLimit-Limit:
+      description: '_t__Common::RateLimiting::LIMIT'
+      schema:
+        type: integer
+        format: int32
+      example: 100
+    X-RateLimit-Remaining:
+      description: '_t__Common::RateLimiting::REMAINING'
+      schema:
+        type: integer
+        format: int32
+      example: 99
+    X-Ratelimit-Reset:
+      description: '_t__Common::RateLimiting::RESET'
+      schema:
+        type: integer
+        format: int64
+      example: 1430170900
   securitySchemes:
     api_key:
       type: http
