@@ -929,13 +929,11 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  Specifies the feature used with the `sms_phone_number`. Default `authentication`.
   
-  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  If `authentication`, signer is sent a verification code via SMS that is required to access the document.
   
-  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-  
-  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -948,13 +946,11 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  Specifies the feature used with the `sms_phone_number`. Default `authentication`.
   
-  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  If `authentication`, signer is sent a verification code via SMS that is required to access the document.
   
-  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-  
-  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
