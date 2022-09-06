@@ -248,6 +248,10 @@
   Enables automatic Text Tag removal when set to true.
 
   **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+"SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestCreateEmbedded::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
@@ -271,7 +275,10 @@
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
 "SignatureRequestCreateEmbeddedWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestFiles::SUMMARY": Download Files
 "SignatureRequestFiles::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `signature_request_id` parameter.
@@ -409,6 +416,10 @@
   `account_id` or `email_address` is required, If both are provided, the account id prevails. 
   
   Email address of the user to invite to your Team.
+"TeamAddMember::ROLE": |-
+  A role member will take in a new Team.
+
+  **Note**: This parameter is used only if `team_id` is provided.
 
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
@@ -648,7 +659,10 @@
 "UnclaimedDraftCreateEmbedded::TYPE": The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.
 "UnclaimedDraftCreateEmbedded::USE_PREEXISTING_FIELDS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
 "UnclaimedDraftCreateEmbedded::USE_TEXT_TAGS": Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
+"UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "UnclaimedDraftCreateEmbedded::EXPIRES_AT":  |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
 
@@ -698,7 +712,10 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
 "UnclaimedDraftCreateEmbeddedWithTemplate::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
+"UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
+  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
+  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "UnclaimedDraftEditAndResend::SUMMARY": Edit and Resend Unclaimed Draft
 "UnclaimedDraftEditAndResend::DESCRIPTION": |-
   Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.
@@ -834,7 +851,7 @@
   - `none`
 
 "Sub::FormFieldsPerDocument::DESCRIPTION": |-
-  The fields that should appear on the document, expressed as an array of objects.
+  The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
   **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -922,13 +939,11 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  Specifies the feature used with the `sms_phone_number`. Default `authentication`.
   
-  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  If `authentication`, signer is sent a verification code via SMS that is required to access the document.
   
-  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-  
-  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -941,13 +956,11 @@
   **Note**: Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
-  **Note**: This only works in non embedded endpoints.
+  Specifies the feature used with the `sms_phone_number`. Default `authentication`.
   
-  If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+  If `authentication`, signer is sent a verification code via SMS that is required to access the document.
   
-  If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-  
-  If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
@@ -1043,6 +1056,10 @@
 "BulkSendJobResponse::CREATED_AT": Time that the BulkSendJob was created.
 "BulkSendJobGetResponse::SIGNATURE_REQUESTS": Contains information about the Signature Requests sent in bulk.
 "BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID": The id of the BulkSendJob.
+
+"Common::RateLimiting::LIMIT": The maximum number of requests per hour that you can make.
+"Common::RateLimiting::REMAINING": The number of requests remaining in the current rate limit window.
+"Common::RateLimiting::RESET": The Unix time at which the rate limit will reset to its maximum.
 
 "EmbeddedEditUrlResponseExample::SUMMARY": Embedded Edit URL
 "EmbeddedSignUrlResponseExample::SUMMARY": Embedded Sign URL
