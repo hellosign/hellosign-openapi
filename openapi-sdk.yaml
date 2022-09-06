@@ -6052,7 +6052,7 @@ components:
             $ref: '#/components/schemas/SubFormFieldRule'
         form_fields_per_document:
           description: |-
-            The fields that should appear on the document, expressed as an array of objects.
+            The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
             **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -6112,7 +6112,10 @@ components:
           type: boolean
           default: false
         populate_auto_fill_fields:
-          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -6203,7 +6206,10 @@ components:
           type: string
           maxLength: 255
         populate_auto_fill_fields:
-          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -6290,7 +6296,7 @@ components:
             $ref: '#/components/schemas/SubFormFieldRule'
         form_fields_per_document:
           description: |-
-            The fields that should appear on the document, expressed as an array of objects.
+            The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
             **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -6753,7 +6759,7 @@ components:
       type: object
     SubFormFieldsPerDocumentBase:
       description: |-
-        The fields that should appear on the document, expressed as an array of objects.
+        The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
         **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -6910,13 +6916,11 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            **Note**: This only works in non embedded endpoints.
+            Specifies the feature used with the `sms_phone_number`. Default `authentication`.
 
-            If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+            If `authentication`, signer is sent a verification code via SMS that is required to access the document.
 
-            If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-
-            If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+            If `delivery`, the completed signature request is delivered via SMS (_and_ email).
           type: string
           enum:
             - authentication
@@ -6951,13 +6955,11 @@ components:
           type: string
         sms_phone_number_type:
           description: |-
-            **Note**: This only works in non embedded endpoints.
+            Specifies the feature used with the `sms_phone_number`. Default `authentication`.
 
-            If set, the value must be either `authentication` or `delivery`. Default `authentication`. 
+            If `authentication`, signer is sent a verification code via SMS that is required to access the document.
 
-            If `authentication` is set, `sms_phone_number` will receive a code via SMS to access this signer's signature page.
-
-            If `delivery` is set, signature request will be delivered to both email and `sms_phone_number`.
+            If `delivery`, the completed signature request is delivered via SMS (_and_ email).
           type: string
           enum:
             - authentication
@@ -7111,7 +7113,10 @@ components:
           type: string
           format: email
         role:
-          description: '_t__TeamAddMember::ROLE'
+          description: |-
+            A role member will take in a new Team.
+
+            **Note**: This parameter is used only if `team_id` is provided.
           type: string
           enum:
             - Member
@@ -7259,7 +7264,7 @@ components:
             $ref: '#/components/schemas/SubFormFieldRule'
         form_fields_per_document:
           description: |-
-            The fields that should appear on the document, expressed as an array of objects.
+            The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
             **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -7441,7 +7446,7 @@ components:
             $ref: '#/components/schemas/SubFormFieldRule'
         form_fields_per_document:
           description: |-
-            The fields that should appear on the document, expressed as an array of objects.
+            The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
             **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -7605,7 +7610,7 @@ components:
             $ref: '#/components/schemas/SubFormFieldRule'
         form_fields_per_document:
           description: |-
-            The fields that should appear on the document, expressed as an array of objects.
+            The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href="/docs/placing-fields/form-fields-per-document" target="_blank">Using Form Fields per Document</a>.)
 
             **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
@@ -7702,7 +7707,10 @@ components:
           type: boolean
           default: false
         populate_auto_fill_fields:
-          description: '_t__UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -7855,7 +7863,10 @@ components:
           type: string
           maxLength: 255
         populate_auto_fill_fields:
-          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -10149,19 +10160,19 @@ components:
               contentType: application/json
   headers:
     X-RateLimit-Limit:
-      description: '_t__Common::RateLimiting::LIMIT'
+      description: 'The maximum number of requests per hour that you can make.'
       schema:
         type: integer
         format: int32
       example: 100
     X-RateLimit-Remaining:
-      description: '_t__Common::RateLimiting::REMAINING'
+      description: 'The number of requests remaining in the current rate limit window.'
       schema:
         type: integer
         format: int32
       example: 99
     X-Ratelimit-Reset:
-      description: '_t__Common::RateLimiting::RESET'
+      description: 'The Unix time at which the rate limit will reset to its maximum.'
       schema:
         type: integer
         format: int64

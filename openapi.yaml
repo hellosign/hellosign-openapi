@@ -6112,7 +6112,10 @@ components:
           type: boolean
           default: false
         populate_auto_fill_fields:
-          description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -6203,7 +6206,10 @@ components:
           type: string
           maxLength: 255
         populate_auto_fill_fields:
-          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -6919,7 +6925,6 @@ components:
           enum:
             - authentication
             - delivery
-          x-beta: closed
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -6959,7 +6964,6 @@ components:
           enum:
             - authentication
             - delivery
-          x-beta: closed
       type: object
     SubUnclaimedDraftSigner:
       required:
@@ -7703,7 +7707,10 @@ components:
           type: boolean
           default: false
         populate_auto_fill_fields:
-          description: '_t__UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -7856,7 +7863,10 @@ components:
           type: string
           maxLength: 255
         populate_auto_fill_fields:
-          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
           x-beta: closed
@@ -10150,19 +10160,19 @@ components:
               contentType: application/json
   headers:
     X-RateLimit-Limit:
-      description: '_t__Common::RateLimiting::LIMIT'
+      description: 'The maximum number of requests per hour that you can make.'
       schema:
         type: integer
         format: int32
       example: 100
     X-RateLimit-Remaining:
-      description: '_t__Common::RateLimiting::REMAINING'
+      description: 'The number of requests remaining in the current rate limit window.'
       schema:
         type: integer
         format: int32
       example: 99
     X-Ratelimit-Reset:
-      description: '_t__Common::RateLimiting::RESET'
+      description: 'The Unix time at which the rate limit will reset to its maximum.'
       schema:
         type: integer
         format: int64
