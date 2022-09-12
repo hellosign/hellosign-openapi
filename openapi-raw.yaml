@@ -7389,6 +7389,10 @@ components:
           nullable: true
           description: '_t__Account::ROLE_CODE'
           type: string
+        team_id:
+          nullable: true
+          description: '_t__Account::TEAM_ID'
+          type: string
         locale:
           nullable: true
           description: '_t__Account::LOCALE'
