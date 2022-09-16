@@ -3673,6 +3673,102 @@ paths:
         seo:
           title: 'Get Team Info | HelloSign for Developers'
           description: 'The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here.'
+  /team/invites:
+    get:
+      tags:
+        - Team
+      summary: 'List Team Invites'
+      description: 'Provides a list of team invites (and their roles).'
+      operationId: teamInvites
+      parameters:
+        -
+          name: email_address
+          in: query
+          description: 'The email address for which to display the team invites.'
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamInvitesResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamInvitesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+            - basic_account_info
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamInvites.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamInvites.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamInvites.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamInvites.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamInvites.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamInvites.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamInvites.py
+      x-meta:
+        seo:
+          title: 'List Team Invites | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of team invites and their roles for a specific email, click here.'
   '/team/members/{team_id}':
     get:
       tags:
@@ -8972,6 +9068,41 @@ components:
           type: string
       type: object
       x-internal: true
+    TeamInviteResponse:
+      properties:
+        email_address:
+          description: 'Email address of the user invited to this team.'
+          type: string
+        team_id:
+          description: 'Id of the team.'
+          type: string
+        role:
+          description: 'Role of the user invited to this team.'
+          type: string
+        sent_at:
+          description: 'Timestamp when the invitation was sent.'
+          type: integer
+        redeemed_at:
+          description: 'Timestamp when the invitation was redeemed.'
+          type: integer
+        expires_at:
+          description: 'Timestamp when the invitation is expiring.'
+          type: integer
+      type: object
+      x-internal: true
+    TeamInvitesResponse:
+      properties:
+        team_invites:
+          description: 'Contains a list of team invites and their roles.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamInviteResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     SubTeamResponse:
       properties:
         team_id:
@@ -10009,6 +10140,10 @@ components:
       summary: 'Team Get Info'
       value:
         $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamInvitesResponseExample:
+      summary: 'Team Invites'
+      value:
+        $ref: examples/json/TeamInvitesResponseExample.json
     TeamMembersResponseExample:
       summary: 'Team Members List'
       value:
