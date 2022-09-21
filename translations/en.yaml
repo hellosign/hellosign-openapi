@@ -57,7 +57,7 @@
 
 "AccountVerify::SUMMARY": Verify Account
 "AccountVerify::DESCRIPTION": |-
-  Verifies whether an HelloSign Account exists for the given email address.
+  Verifies whether an Dropbox Sign Account exists for the given email address.
 "AccountVerify::EMAIL_ADDRESS": Email address to run the verification for.
 
 "ApiAppCreate::SUMMARY": Create API App
