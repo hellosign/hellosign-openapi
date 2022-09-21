@@ -311,7 +311,7 @@ paths:
       tags:
         - Account
       summary: 'Verify Account'
-      description: 'Verifies whether an HelloSign Account exists for the given email address.'
+      description: 'Verifies whether an Dropbox Sign Account exists for the given email address.'
       operationId: accountVerify
       requestBody:
         required: true
