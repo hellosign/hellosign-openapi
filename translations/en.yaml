@@ -32,7 +32,7 @@
 # Request Models #
 ##################
 
-"AccountCreate::DESCRIPTION": Creates a new HelloSign Account that is associated with the specified `email_address`.
+"AccountCreate::DESCRIPTION": Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
 "AccountCreate::SUMMARY": Create Account
 "AccountCreate::CLIENT_ID": |-
   Used when creating a new account with OAuth authorization.
