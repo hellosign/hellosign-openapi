@@ -124,7 +124,20 @@ paths:
         -
           name: account_id
           in: query
-          description: 'The ID of the Account'
+          description: |-
+            `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+
+            The ID of the Account.
+          required: false
+          schema:
+            type: string
+        -
+          name: email_address
+          in: query
+          description: |-
+            `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+
+            The email address of the Account.
           required: false
           schema:
             type: string
@@ -7899,7 +7912,7 @@ components:
           type: string
         team_id:
           nullable: true
-          description: '_t__Account::TEAM_ID'
+          description: 'The id of the team account belongs to.'
           type: string
         locale:
           nullable: true
