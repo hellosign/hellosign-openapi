@@ -47,8 +47,14 @@
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
-"AccountGet::ACCOUNT_ID": The ID of the Account
+"AccountGet::ACCOUNT_ID": |-
+  `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+  
+  The ID of the Account.
+"AccountGet::EMAIL_ADDRESS": |-
+  `account_id` or `email_address` is required, If both are provided, the account id prevails. 
 
+  The email address of the Account.
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 "AccountUpdate::ACCOUNT_ID": The ID of the Account
@@ -1012,6 +1018,7 @@
 "Account::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
 "Account::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
 "Account::ROLE_CODE": The membership role for the team.
+"Account::TEAM_ID": The id of the team account belongs to.
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
