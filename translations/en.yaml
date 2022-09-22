@@ -145,7 +145,7 @@
 
 "SignatureRequestBulkCreateEmbeddedWithTemplate::SUMMARY": Embedded Bulk Send with Template
 "SignatureRequestBulkCreateEmbeddedWithTemplate::DESCRIPTION": |-
-  Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.
+  Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
   **NOTE**: Only available for Standard plan and higher.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
@@ -746,7 +746,7 @@
   
   Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.
   
-  For using pre-filled on repeatable signature requests, merge fields are added to templates in the HelloSign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
 "Sub::CustomField::EDITOR": |-
   Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.
 
