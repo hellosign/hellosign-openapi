@@ -1379,6 +1379,8 @@
 
 "FileResponse::FILE_URL": URL to the file.
 "FileResponse::EXPIRES_AT": When the link expires.
+"FileResponse::DATA_URI": File as base64 encoded string.
+"FileResponse::FILE": Requested file. This field is used by SDK only.
 
 "UnclaimedDraftCreateResponseExample::SUMMARY": Unclaimed Draft Create
 "UnclaimedDraftCreateEmbeddedResponseExample::SUMMARY": Unclaimed Draft Create Embedded

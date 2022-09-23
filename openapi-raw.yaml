@@ -7854,6 +7854,13 @@ components:
         expires_at:
           description: '_t__FileResponse::EXPIRES_AT'
           type: integer
+        data_uri:
+          description: '_t__FileResponse::DATA_URI'
+          type: string
+        file:
+          description: '_t__FileResponse::FILE'
+          type: string
+          format: binary
       type: object
       x-internal: true
     ListInfoResponse:

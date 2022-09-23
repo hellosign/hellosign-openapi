@@ -8368,6 +8368,13 @@ components:
         expires_at:
           description: 'When the link expires.'
           type: integer
+        data_uri:
+          description: 'File as base64 encoded string.'
+          type: string
+        file:
+          description: 'Requested file. This field is used by SDK only.'
+          type: string
+          format: binary
       type: object
       x-internal: true
     ListInfoResponse:
