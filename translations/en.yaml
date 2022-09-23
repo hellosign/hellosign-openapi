@@ -502,7 +502,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
