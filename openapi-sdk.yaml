@@ -4224,8 +4224,8 @@ paths:
             $ref: examples/TemplateCreateEmbeddedDraft.py
       x-meta:
         seo:
-          title: 'Create Embedded Template Draft | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
+          title: 'Create Embedded Template Draft | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
   '/template/delete/{template_id}':
     post:
       tags:
