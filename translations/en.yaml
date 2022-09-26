@@ -284,11 +284,20 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
 
   ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-"SignatureRequestFiles::SUMMARY": Download Files
+"SignatureRequestFiles::SUMMARY": Download File
 "SignatureRequestFiles::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `signature_request_id` parameter.
+  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file. 
 
-  Returns a PDF or ZIP file, or if `get_url` is set, a JSON object with a url to the file (PDFs only). If `get_data_uri` is set, a JSON object with a `data_uri` representing the base64 encoded file (PDFs only) is returned.
+  If the files are currently being prepared, a status code of `409` will be returned instead.
+"SignatureRequestFilesAsFileUrl::SUMMARY": Download File as File Url
+"SignatureRequestFilesAsFileUrl::DESCRIPTION": |-
+  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+
+  If the files are currently being prepared, a status code of `409` will be returned instead.
+
+"SignatureRequestFilesAsEncodedString::SUMMARY": Download File as Encoded String
+"SignatureRequestFilesAsEncodedString::DESCRIPTION": |-
+  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
 
   If the files are currently being prepared, a status code of `409` will be returned instead.
 "SignatureRequestFiles::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to retrieve.
@@ -534,11 +543,20 @@
 "TemplateDelete::DESCRIPTION": Completely deletes the template specified from the account.
 "TemplateDelete::TEMPLATE_ID": The id of the Template to delete.
 
-"TemplateFiles::SUMMARY": Get Template Files
+"TemplateFiles::SUMMARY": Get Template File
 "TemplateFiles::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `template_id` parameter.
+  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.
 
-  Returns a PDF or ZIP file, or if `get_url` is set, a JSON object with a url to the file (PDFs only). If `get_data_uri` is set, a JSON object with a `data_uri` representing the base64 encoded file (PDFs only) is returned.
+  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
+"TemplateFilesAsFileUrl::SUMMARY": Get Template File as File Url
+"TemplateFilesAsFileUrl::DESCRIPTION": |-
+  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+
+  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
+
+"TemplateFilesAsEncodedString::SUMMARY": Get Template File as Encoded String
+"TemplateFilesAsEncodedString::DESCRIPTION": |-
+  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
 
   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 "TemplateFiles::FILE_TYPE": Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
