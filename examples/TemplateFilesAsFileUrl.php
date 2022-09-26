@@ -15,7 +15,7 @@ $api = new HelloSignSDK\Api\TemplateApi($config);
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
-    $result = $api->templateFiles($templateId);
+    $result = $api->templateFilesAsFileUrl($templateId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

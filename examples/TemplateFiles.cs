@@ -21,7 +21,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateFiles(templateId, "pdf", false, false);
+            var result = apiInstance.TemplateFiles(templateId, "pdf");
             Console.WriteLine(result);
         }
         catch (ApiException e)

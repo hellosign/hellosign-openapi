@@ -15,7 +15,7 @@ $api = new HelloSignSDK\Api\SignatureRequestApi($config);
 $signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $result = $api->signatureRequestFiles($signatureRequestId);
+    $result = $api->signatureRequestFilesAsFileUrl($signatureRequestId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

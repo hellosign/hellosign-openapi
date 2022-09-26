@@ -21,7 +21,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestFiles(signatureRequestId);
+            var result = apiInstance.SignatureRequestFilesAsFileUrl(signatureRequestId);
             Console.WriteLine(result);
         }
         catch (ApiException e)

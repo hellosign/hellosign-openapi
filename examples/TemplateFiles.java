@@ -27,7 +27,7 @@ public class Example {
         String templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
-            FileResponse result = api.templateFiles(templateId, "pdf", false, false);
+            File result = api.templateFiles(templateId, "pdf");
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

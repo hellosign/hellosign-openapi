@@ -10,7 +10,7 @@ api.username = "YOUR_API_KEY";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateFiles(templateId);
+const result = api.templateFilesAsFileUrl(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

@@ -10,7 +10,7 @@ api.username = "YOUR_API_KEY";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestFiles(signatureRequestId);
+const result = api.signatureRequestFilesAsEncodedString(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

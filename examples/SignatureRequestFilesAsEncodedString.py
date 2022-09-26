@@ -17,7 +17,7 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        response = api.signature_request_files(signature_request_id)
+        response = api.signature_request_files_as_encoded_string(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
