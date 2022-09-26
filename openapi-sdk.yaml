@@ -5018,8 +5018,8 @@ paths:
             $ref: examples/UnclaimedDraftCreate.py
       x-meta:
         seo:
-          title: 'Create Unclaimed Draft | REST API | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here.'
+          title: 'Create Unclaimed Draft | REST API | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here.'
   /unclaimed_draft/create_embedded:
     post:
       tags:
