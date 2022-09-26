@@ -1497,7 +1497,7 @@
 "TemplateList::SEO::DESCRIPTION": "The HelloSign API easily allows you to build custom integrations. To find out how to return a list of the Templates that can be accessed by you, click here."
 "TemplateRemoveUser::SEO::TITLE": "Remove User from Template | REST API | HelloSign for Developers"
 "TemplateRemoveUser::SEO::DESCRIPTION": "The HelloSign API easily allows you to build custom integrations. To find out how to remove a specified Account's access to a Template, click here."
-"TemplateUpdateFiles::SEO::TITLE": "Update Template Files | REST API | HelloSign for Developers"
+"TemplateUpdateFiles::SEO::TITLE": "Update Template Files | REST API | Dropbox Sign for Developers"
 "TemplateUpdateFiles::SEO::DESCRIPTION": "Overlays a new file with the overlay of an existing template"
 "UnclaimedDraftCreate::SEO::TITLE": "Create Unclaimed Draft | REST API | HelloSign for Developers"
 "UnclaimedDraftCreate::SEO::DESCRIPTION": "The HelloSign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here."

@@ -4910,7 +4910,7 @@ paths:
             $ref: examples/TemplateUpdateFiles.py
       x-meta:
         seo:
-          title: 'Update Template Files | REST API | HelloSign for Developers'
+          title: 'Update Template Files | REST API | Dropbox Sign for Developers'
           description: 'Overlays a new file with the overlay of an existing template'
   /unclaimed_draft/create:
     post:
