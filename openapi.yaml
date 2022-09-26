@@ -402,8 +402,8 @@ paths:
             $ref: examples/AccountVerify.py
       x-meta:
         seo:
-          title: 'Verify Account | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here.'
+          title: 'Verify Account | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here.'
   /api_app:
     post:
       tags:
