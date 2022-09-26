@@ -2108,8 +2108,8 @@ paths:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
       x-meta:
         seo:
-          title: 'Signature Request with Template | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
+          title: 'Signature Request with Template | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
