@@ -5245,8 +5245,8 @@ paths:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
       x-meta:
         seo:
-          title: 'Embed Unclaimed Draft with Template | HelloSign for Developers'
-          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here.'
+          title: 'Embed Unclaimed Draft with Template | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here.'
   '/unclaimed_draft/edit_and_resend/{signature_request_id}':
     post:
       tags:
