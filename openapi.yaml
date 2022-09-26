@@ -5134,8 +5134,8 @@ paths:
             $ref: examples/UnclaimedDraftCreateEmbedded.py
       x-meta:
         seo:
-          title: 'Create Embedded Unclaimed Draft | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to create and embed a the creation of a Signature Request in an iFrame, click here.'
+          title: 'Create Embedded Unclaimed Draft | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to create and embed a the creation of a Signature Request in an iFrame, click here.'
   /unclaimed_draft/create_embedded_with_template:
     post:
       tags:
