@@ -32,7 +32,7 @@
 # Request Models #
 ##################
 
-"AccountCreate::DESCRIPTION": Creates a new HelloSign Account that is associated with the specified `email_address`.
+"AccountCreate::DESCRIPTION": Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
 "AccountCreate::SUMMARY": Create Account
 "AccountCreate::CLIENT_ID": |-
   Used when creating a new account with OAuth authorization.
@@ -1406,7 +1406,7 @@
 # SEO for API Reference #
 #########################
 "AccountCreate::SEO::TITLE": "Create Account | API Documentation | HelloSign for Developers"
-"AccountCreate::SEO::DESCRIPTION": "The HelloSign API allows you to build with a range of tools. Find out how to create a new HelloSign Account using the specified `email_address` here."
+"AccountCreate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a range of tools. Find out how to create a new Dropbox Sign Account using the specified `email_address` here."
 "AccountGet::SEO::TITLE": "Get Account | API Documentation | HelloSign for Developers"
 "AccountGet::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here."
 "AccountUpdate::SEO::TITLE": "Update Account | API Documentation | HelloSign for Developers"

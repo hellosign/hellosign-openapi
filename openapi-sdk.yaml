@@ -18,7 +18,7 @@ paths:
       tags:
         - Account
       summary: 'Create Account'
-      description: 'Creates a new HelloSign Account that is associated with the specified `email_address`.'
+      description: 'Creates a new Dropbox Sign Account that is associated with the specified `email_address`.'
       operationId: accountCreate
       requestBody:
         required: true
@@ -112,7 +112,7 @@ paths:
       x-meta:
         seo:
           title: 'Create Account | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a range of tools. Find out how to create a new HelloSign Account using the specified `email_address` here.'
+          description: 'The Dropbox Sign API allows you to build with a range of tools. Find out how to create a new Dropbox Sign Account using the specified `email_address` here.'
   /account:
     get:
       tags:
