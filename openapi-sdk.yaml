@@ -1681,8 +1681,8 @@ paths:
             $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.py
       x-meta:
         seo:
-          title: 'Embedded Bulk Send with Template | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to create embedded BulkSendJob signature requests, click here.'
+          title: 'Embedded Bulk Send with Template | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to create embedded BulkSendJob signature requests, click here.'
   /signature_request/bulk_send_with_template:
     post:
       tags:
