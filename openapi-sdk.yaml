@@ -1789,8 +1789,8 @@ paths:
             $ref: examples/SignatureRequestBulkSendWithTemplate.py
       x-meta:
         seo:
-          title: 'Bulk Send with Template | REST API | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to create BulkSendJob for up to 250 signature requests, click here.'
+          title: 'Bulk Send with Template | REST API | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to create BulkSendJob for up to 250 signature requests, click here.'
   '/signature_request/cancel/{signature_request_id}':
     post:
       tags:
