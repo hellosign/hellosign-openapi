@@ -5360,8 +5360,8 @@ paths:
             $ref: examples/UnclaimedDraftEditAndResend.py
       x-meta:
         seo:
-          title: 'Edit and Resend Unclaimed Draft | HelloSign for Developers'
-          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here.'
+          title: 'Edit and Resend Unclaimed Draft | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here.'
 components:
   schemas:
     AccountCreateRequest:
