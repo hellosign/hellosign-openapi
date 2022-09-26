@@ -2002,8 +2002,8 @@ paths:
             $ref: examples/SignatureRequestCreateEmbedded.py
       x-meta:
         seo:
-          title: 'Create Embedded Signature Request | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here.'
+          title: 'Create Embedded Signature Request | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here.'
   /signature_request/create_embedded_with_template:
     post:
       tags:
