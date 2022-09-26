@@ -2885,8 +2885,8 @@ paths:
             $ref: examples/SignatureRequestSend.py
       x-meta:
         seo:
-          title: 'Send Signature Request | REST API | HelloSign for Developers'
-          description: 'HelloSign API allows you to build custom integrations. To find out how to create and send new SignatureRequest with the submitted documents, click here.'
+          title: 'Send Signature Request | REST API | Dropbox Sign for Developers'
+          description: 'Dropbox Sign API allows you to build custom integrations. To find out how to create and send new SignatureRequest with the submitted documents, click here.'
   /signature_request/send_with_template:
     post:
       tags:
