@@ -508,7 +508,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
@@ -1492,8 +1492,8 @@
 "TeamUpdate::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to update the name of your team, click here."
 "TemplateAddUser::SEO::TITLE": "Add User to Template | REST API | HelloSign for Developers"
 "TemplateAddUser::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here."
-"TemplateCreateEmbeddedDraft::SEO::TITLE": "Create Embedded Template Draft | HelloSign for Developers"
-"TemplateCreateEmbeddedDraft::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here."
+"TemplateCreateEmbeddedDraft::SEO::TITLE": "Create Embedded Template Draft | Dropbox Sign for Developers"
+"TemplateCreateEmbeddedDraft::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here."
 "TemplateDelete::SEO::TITLE": "Delete Template | API Documentation | HelloSign for Developers"
 "TemplateDelete::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here."
 "TemplateFiles::SEO::TITLE": "Get Template Files | API Documentation | HelloSign for Developers"

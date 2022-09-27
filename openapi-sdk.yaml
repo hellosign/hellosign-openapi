@@ -4237,8 +4237,8 @@ paths:
             $ref: examples/TemplateCreateEmbeddedDraft.py
       x-meta:
         seo:
-          title: 'Create Embedded Template Draft | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
+          title: 'Create Embedded Template Draft | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
   '/template/delete/{template_id}':
     post:
       tags:
@@ -7207,7 +7207,7 @@ components:
             format: binary
         file_url:
           description: |-
-            Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
