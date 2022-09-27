@@ -2022,7 +2022,7 @@ paths:
       tags:
         - 'Signature Request'
       summary: 'Create Embedded Signature Request with Template'
-      description: 'Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.'
+      description: 'Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
       operationId: signatureRequestCreateEmbeddedWithTemplate
       requestBody:
         required: true
@@ -2121,8 +2121,8 @@ paths:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
       x-meta:
         seo:
-          title: 'Signature Request with Template | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
+          title: 'Signature Request with Template | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -6173,7 +6173,7 @@ components:
             format: binary
         file_url:
           description: |-
-            Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array

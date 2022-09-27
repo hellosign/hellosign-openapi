@@ -264,7 +264,7 @@
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 
 "SignatureRequestCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Signature Request with Template
-"SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.
+"SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE": |-
@@ -272,7 +272,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
@@ -1452,8 +1452,8 @@
 "SignatureRequestCancel::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to cancel an incomplete signature request, click here."
 "SignatureRequestCreateEmbedded::SEO::TITLE": "Create Embedded Signature Request | Dropbox Sign for Developers"
 "SignatureRequestCreateEmbedded::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here."
-"SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE": "Signature Request with Template | HelloSign for Developers"
-"SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here."
+"SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE": "Signature Request with Template | Dropbox Sign for Developers"
+"SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here."
 "SignatureRequestFiles::SEO::TITLE": "Download Files | API Documentation | HelloSign for Developers"
 "SignatureRequestFiles::SEO::DESCRIPTION": "The RESTful HelloSign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here"
 "SignatureRequestGet::SEO::TITLE": "Get Signature Request | Documentation | HelloSign for Developers"
