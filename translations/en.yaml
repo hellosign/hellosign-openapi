@@ -716,7 +716,7 @@
 "UnclaimedDraftEditAndResend::DESCRIPTION": |-
   Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.
 
-  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on HelloSign.
+  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
 "UnclaimedDraftEditAndResend::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.
 "UnclaimedDraftEditAndResend::SIGNATURE_REQUEST_ID": The ID of the signature request to edit and resend.
 "UnclaimedDraftEditAndResend::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
@@ -1512,8 +1512,8 @@
 "UnclaimedDraftCreateEmbedded::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to create and embed a the creation of a Signature Request in an iFrame, click here."
 "UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE": "Embed Unclaimed Draft with Template | Dropbox Sign for Developers"
 "UnclaimedDraftCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here."
-"UnclaimedDraftEditAndResend::SEO::TITLE": "Edit and Resend Unclaimed Draft | HelloSign for Developers"
-"UnclaimedDraftEditAndResend::SEO::DESCRIPTION": "The HelloSign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here."
+"UnclaimedDraftEditAndResend::SEO::TITLE": "Edit and Resend Unclaimed Draft | Dropbox Sign for Developers"
+"UnclaimedDraftEditAndResend::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here."
 "accountUpdateEventCallback::SEO::TITLE": "Account Callbacks | API Documentation | HelloSign for Developers"
 "accountUpdateEventCallback::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how to consume HelloSign Events at the account level, click here."
 "apiAppCreateEventCallback::SEO::TITLE": "App Callbacks | API Documentation | HelloSign for Developers"
