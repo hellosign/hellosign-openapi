@@ -32,7 +32,7 @@
 # Request Models #
 ##################
 
-"AccountCreate::DESCRIPTION": Creates a new HelloSign Account that is associated with the specified `email_address`.
+"AccountCreate::DESCRIPTION": Creates a new Dropbox Sign Account that is associated with the specified `email_address`.
 "AccountCreate::SUMMARY": Create Account
 "AccountCreate::CLIENT_ID": |-
   Used when creating a new account with OAuth authorization.
@@ -47,8 +47,14 @@
 
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
-"AccountGet::ACCOUNT_ID": The ID of the Account
+"AccountGet::ACCOUNT_ID": |-
+  `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+  
+  The ID of the Account.
+"AccountGet::EMAIL_ADDRESS": |-
+  `account_id` or `email_address` is required, If both are provided, the account id prevails. 
 
+  The email address of the Account.
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 "AccountUpdate::ACCOUNT_ID": The ID of the Account
@@ -57,7 +63,7 @@
 
 "AccountVerify::SUMMARY": Verify Account
 "AccountVerify::DESCRIPTION": |-
-  Verifies whether an HelloSign Account exists for the given email address.
+  Verifies whether an Dropbox Sign Account exists for the given email address.
 "AccountVerify::EMAIL_ADDRESS": Email address to run the verification for.
 
 "ApiAppCreate::SUMMARY": Create API App
@@ -370,7 +376,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSendWithTemplate::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE": |-
@@ -1000,6 +1006,7 @@
 "Account::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
 "Account::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
 "Account::ROLE_CODE": The membership role for the team.
+"Account::TEAM_ID": The id of the team account belongs to.
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
@@ -1406,13 +1413,13 @@
 # SEO for API Reference #
 #########################
 "AccountCreate::SEO::TITLE": "Create Account | API Documentation | HelloSign for Developers"
-"AccountCreate::SEO::DESCRIPTION": "The HelloSign API allows you to build with a range of tools. Find out how to create a new HelloSign Account using the specified `email_address` here."
+"AccountCreate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a range of tools. Find out how to create a new Dropbox Sign Account using the specified `email_address` here."
 "AccountGet::SEO::TITLE": "Get Account | API Documentation | HelloSign for Developers"
 "AccountGet::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here."
 "AccountUpdate::SEO::TITLE": "Update Account | API Documentation | HelloSign for Developers"
 "AccountUpdate::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here."
-"AccountVerify::SEO::TITLE": "Verify Account | API Documentation | HelloSign for Developers"
-"AccountVerify::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here."
+"AccountVerify::SEO::TITLE": "Verify Account | API Documentation | Dropbox Sign for Developers"
+"AccountVerify::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here."
 "ApiAppCreate::SEO::TITLE": "Create API App | API Documentation | HelloSign for Developers"
 "ApiAppCreate::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to create a new API App, click here."
 "ApiAppDelete::SEO::TITLE": "Delete API App | API Documentation | HelloSign for Developers"
@@ -1461,8 +1468,8 @@
 "SignatureRequestRemove::SEO::DESCRIPTION": "The RESTful HelloSign API allows you to build custom integrations. To find out how to remove your access to a completed signature request, click here."
 "SignatureRequestSend::SEO::TITLE": "Send Signature Request | REST API | Dropbox Sign for Developers"
 "SignatureRequestSend::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to create and send new SignatureRequest with the submitted documents, click here."
-"SignatureRequestSendWithTemplate::SEO::TITLE": "Send with Template | API Documentation | HelloSign for Developers"
-"SignatureRequestSendWithTemplate::SEO::DESCRIPTION": "HelloSign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here."
+"SignatureRequestSendWithTemplate::SEO::TITLE": "Send with Template | API Documentation | Dropbox Sign for Developers"
+"SignatureRequestSendWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here."
 "SignatureRequestUpdate::SEO::TITLE": "Update Signature Request | REST API | HelloSign for Developers"
 "SignatureRequestUpdate::SEO::DESCRIPTION": "HelloSign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here."
 "TeamAddMember::SEO::TITLE": "Add User to Team | API Documentation | HelloSign for Developers"
