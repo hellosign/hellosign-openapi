@@ -63,7 +63,7 @@
 
 "AccountVerify::SUMMARY": Verify Account
 "AccountVerify::DESCRIPTION": |-
-  Verifies whether an HelloSign Account exists for the given email address.
+  Verifies whether an Dropbox Sign Account exists for the given email address.
 "AccountVerify::EMAIL_ADDRESS": Email address to run the verification for.
 
 "ApiAppCreate::SUMMARY": Create API App
@@ -1418,8 +1418,8 @@
 "AccountGet::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here."
 "AccountUpdate::SEO::TITLE": "Update Account | API Documentation | HelloSign for Developers"
 "AccountUpdate::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here."
-"AccountVerify::SEO::TITLE": "Verify Account | API Documentation | HelloSign for Developers"
-"AccountVerify::SEO::DESCRIPTION": "The HelloSign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here."
+"AccountVerify::SEO::TITLE": "Verify Account | API Documentation | Dropbox Sign for Developers"
+"AccountVerify::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to verify whether an Account exists, click here."
 "ApiAppCreate::SEO::TITLE": "Create API App | API Documentation | HelloSign for Developers"
 "ApiAppCreate::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to create a new API App, click here."
 "ApiAppDelete::SEO::TITLE": "Delete API App | API Documentation | HelloSign for Developers"
