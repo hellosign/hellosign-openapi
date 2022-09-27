@@ -604,7 +604,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreate::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreate::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
@@ -1506,8 +1506,8 @@
 "TemplateRemoveUser::SEO::DESCRIPTION": "The HelloSign API easily allows you to build custom integrations. To find out how to remove a specified Account's access to a Template, click here."
 "TemplateUpdateFiles::SEO::TITLE": "Update Template Files | REST API | Dropbox Sign for Developers"
 "TemplateUpdateFiles::SEO::DESCRIPTION": "Overlays a new file with the overlay of an existing template"
-"UnclaimedDraftCreate::SEO::TITLE": "Create Unclaimed Draft | REST API | HelloSign for Developers"
-"UnclaimedDraftCreate::SEO::DESCRIPTION": "The HelloSign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here."
+"UnclaimedDraftCreate::SEO::TITLE": "Create Unclaimed Draft | REST API | Dropbox Sign for Developers"
+"UnclaimedDraftCreate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here."
 "UnclaimedDraftCreateEmbedded::SEO::TITLE": "Create Embedded Unclaimed Draft | HelloSign for Developers"
 "UnclaimedDraftCreateEmbedded::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations. To find out how to create and embed a the creation of a Signature Request in an iFrame, click here."
 "UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE": "Embed Unclaimed Draft with Template | HelloSign for Developers"
