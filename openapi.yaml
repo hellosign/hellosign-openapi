@@ -5157,7 +5157,7 @@ paths:
       description: |-
         Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
-        **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on HelloSign.
+        **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
       operationId: unclaimedDraftCreateEmbeddedWithTemplate
       requestBody:
         required: true
@@ -5258,8 +5258,8 @@ paths:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
       x-meta:
         seo:
-          title: 'Embed Unclaimed Draft with Template | HelloSign for Developers'
-          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here.'
+          title: 'Embed Unclaimed Draft with Template | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here.'
   '/unclaimed_draft/edit_and_resend/{signature_request_id}':
     post:
       tags:
@@ -7740,7 +7740,7 @@ components:
           $ref: '#/components/schemas/SubFieldOptions'
         file:
           description: |-
-            Use `file[]` to append additional files to the signature request being created from the template. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
+            Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
             **file** or **file_url[]** is required, but not both.
           type: array
@@ -7749,7 +7749,7 @@ components:
             format: binary
         file_url:
           description: |-
-            Use file_url[] to append additional files to the signature request being created from the template. HelloSign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
+            Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
 
             **file** or **file_url[]** is required, but not both.
           type: array

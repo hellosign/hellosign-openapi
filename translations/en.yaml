@@ -667,7 +667,7 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
-  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on HelloSign.
+  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
 "UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -675,11 +675,11 @@
   **Note**: Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE": |-
-  Use `file[]` to append additional files to the signature request being created from the template. HelloSign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
+  Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
   
   **file** or **file_url[]** is required, but not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URL": |-
-  Use file_url[] to append additional files to the signature request being created from the template. HelloSign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
+  Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
   
   **file** or **file_url[]** is required, but not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
@@ -1510,8 +1510,8 @@
 "UnclaimedDraftCreate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build eSign integrations. To find out how to create a new Signature Request Draft that can be claimed using the claim URL, click here."
 "UnclaimedDraftCreateEmbedded::SEO::TITLE": "Create Embedded Unclaimed Draft | Dropbox Sign for Developers"
 "UnclaimedDraftCreateEmbedded::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to create and embed a the creation of a Signature Request in an iFrame, click here."
-"UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE": "Embed Unclaimed Draft with Template | HelloSign for Developers"
-"UnclaimedDraftCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The HelloSign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here."
+"UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE": "Embed Unclaimed Draft with Template | Dropbox Sign for Developers"
+"UnclaimedDraftCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new Draft with a previously saved template, click here."
 "UnclaimedDraftEditAndResend::SEO::TITLE": "Edit and Resend Unclaimed Draft | HelloSign for Developers"
 "UnclaimedDraftEditAndResend::SEO::DESCRIPTION": "The HelloSign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here."
 "accountUpdateEventCallback::SEO::TITLE": "Account Callbacks | API Documentation | HelloSign for Developers"
