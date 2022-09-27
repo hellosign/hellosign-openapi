@@ -233,7 +233,7 @@
 "SignatureRequestCancel::SIGNATURE_REQUEST_ID": The id of the incomplete SignatureRequest to cancel.
 
 "SignatureRequestCreateEmbedded::SUMMARY": Create Embedded Signature Request
-"SignatureRequestCreateEmbedded::DESCRIPTION": Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.
+"SignatureRequestCreateEmbedded::DESCRIPTION": Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestCreateEmbedded::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -246,7 +246,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbedded::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS": |-
@@ -1450,8 +1450,8 @@
 "SignatureRequestBulkSendWithTemplate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to create BulkSendJob for up to 250 signature requests, click here."
 "SignatureRequestCancel::SEO::TITLE": "Cancel Incomplete Signature Request | HelloSign for Developers"
 "SignatureRequestCancel::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to cancel an incomplete signature request, click here."
-"SignatureRequestCreateEmbedded::SEO::TITLE": "Create Embedded Signature Request | HelloSign for Developers"
-"SignatureRequestCreateEmbedded::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here."
+"SignatureRequestCreateEmbedded::SEO::TITLE": "Create Embedded Signature Request | Dropbox Sign for Developers"
+"SignatureRequestCreateEmbedded::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here."
 "SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE": "Signature Request with Template | HelloSign for Developers"
 "SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The HelloSign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here."
 "SignatureRequestFiles::SEO::TITLE": "Download Files | API Documentation | HelloSign for Developers"
