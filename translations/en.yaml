@@ -151,7 +151,7 @@
 
 "SignatureRequestBulkCreateEmbeddedWithTemplate::SUMMARY": Embedded Bulk Send with Template
 "SignatureRequestBulkCreateEmbeddedWithTemplate::DESCRIPTION": |-
-  Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on HelloSign.
+  Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
   **NOTE**: Only available for Standard plan and higher.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
@@ -1444,8 +1444,8 @@
 "OAuthTokenRefresh::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to refresh your OAuth token with the API, click here."
 "ReportCreate::SEO::TITLE": "Create Report | API Documentation | HelloSign for Developers"
 "ReportCreate::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to request the creation of one or more reports, click here."
-"SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::TITLE": "Embedded Bulk Send with Template | HelloSign for Developers"
-"SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The RESTful HelloSign API allows you to build custom integrations. To find out how to create embedded BulkSendJob signature requests, click here."
+"SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::TITLE": "Embedded Bulk Send with Template | Dropbox Sign for Developers"
+"SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to create embedded BulkSendJob signature requests, click here."
 "SignatureRequestBulkSendWithTemplate::SEO::TITLE": "Bulk Send with Template | REST API | Dropbox Sign for Developers"
 "SignatureRequestBulkSendWithTemplate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to create BulkSendJob for up to 250 signature requests, click here."
 "SignatureRequestCancel::SEO::TITLE": "Cancel Incomplete Signature Request | HelloSign for Developers"
