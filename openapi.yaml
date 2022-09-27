@@ -3003,8 +3003,8 @@ paths:
             $ref: examples/SignatureRequestSendWithTemplate.py
       x-meta:
         seo:
-          title: 'Send with Template | API Documentation | HelloSign for Developers'
-          description: 'HelloSign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here.'
+          title: 'Send with Template | API Documentation | Dropbox Sign for Developers'
+          description: 'Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here.'
   '/signature_request/update/{signature_request_id}':
     post:
       tags:
@@ -6412,7 +6412,7 @@ components:
             format: binary
         file_url:
           description: |-
-            Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
