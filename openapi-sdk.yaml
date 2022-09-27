@@ -3120,7 +3120,7 @@ paths:
       tags:
         - Team
       summary: 'Add User to Team'
-      description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
+      description: 'Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.'
       operationId: teamAddMember
       parameters:
         -
@@ -3223,8 +3223,8 @@ paths:
             $ref: examples/TeamAddMember.py
       x-meta:
         seo:
-          title: 'Add User to Team | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to invite a specified user to your Team, click here.'
+          title: 'Add User to Team | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to invite a specified user to your Team, click here.'
   /team/create:
     post:
       tags:

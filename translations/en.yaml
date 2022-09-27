@@ -410,7 +410,7 @@
 "SignatureRequestUpdate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to update.
 
 "TeamAddMember::SUMMARY": Add User to Team
-"TeamAddMember::DESCRIPTION": Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
+"TeamAddMember::DESCRIPTION": Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
 "TeamAddMember::ACCOUNT_ID": |-
   `account_id` or `email_address` is required. If both are provided, the account id prevails. 
   
@@ -1472,8 +1472,8 @@
 "SignatureRequestSendWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here."
 "SignatureRequestUpdate::SEO::TITLE": "Update Signature Request | REST API | HelloSign for Developers"
 "SignatureRequestUpdate::SEO::DESCRIPTION": "HelloSign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here."
-"TeamAddMember::SEO::TITLE": "Add User to Team | API Documentation | HelloSign for Developers"
-"TeamAddMember::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to invite a specified user to your Team, click here."
+"TeamAddMember::SEO::TITLE": "Add User to Team | API Documentation | Dropbox Sign for Developers"
+"TeamAddMember::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to invite a specified user to your Team, click here."
 "TeamCreate::SEO::TITLE": "Create Team | REST API Documentation | HelloSign for Developers"
 "TeamCreate::SEO::DESCRIPTION": "The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to create a new team and make yourself a member, click here."
 "TeamDelete::SEO::TITLE": "Delete Team | REST API Documentation | HelloSign for Developers"
