@@ -3,6 +3,7 @@ import com.hellosign.openapi.ApiException;
 import com.hellosign.openapi.Configuration;
 import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
+import com.hellosign.openapi.auth.HttpBearerAuth;
 import com.hellosign.openapi.model.*;
 
 public class Example {
@@ -22,12 +23,12 @@ public class Example {
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
 		*/
 
-        TemplateApi api = new TemplateApi(defaultClient);
+        SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try {
-            File result = api.templateFiles(templateId, "pdf");
+            FileResponse result = api.signatureRequestFilesAsFileUrl(signatureRequestId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
