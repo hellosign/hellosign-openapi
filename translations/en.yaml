@@ -1228,6 +1228,7 @@
 "SignatureRequestResponseSignatures::ORDER": If signer order is assigned this is the 0-based index for this signer.
 "SignatureRequestResponseSignatures::REASSIGNED_BY": Email address of original signer who reassigned to this signer.
 "SignatureRequestResponseSignatures::REASSIGNMENT_REASON": Reason provided by original signer who reassigned to this signer.
+"SignatureRequestResponseSignatures::REASSIGNED_FROM": Existing or old signature identifier.
 "SignatureRequestResponseSignatures::SIGNATURE_ID": Signature identifier.
 "SignatureRequestResponseSignatures::SIGNED_AT": Time that the document was signed or null.
 "SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS": The email address of the signer.
