@@ -125,7 +125,7 @@ paths:
           name: account_id
           in: query
           description: |-
-            `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+            `account_id` or `email_address` is required. If both are provided, the account id prevails.
 
             The ID of the Account.
           required: false
@@ -135,7 +135,7 @@ paths:
           name: email_address
           in: query
           description: |-
-            `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+            `account_id` or `email_address` is required, If both are provided, the account id prevails.
 
             The email address of the Account.
           required: false
@@ -2121,15 +2121,15 @@ paths:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
       x-meta:
         seo:
-          title: 'Signature Request with Template | Dropbox Sign for Developers'
-          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
+          title: 'Signature Request with Template | HelloSign for Developers'
+          description: 'The HelloSign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
   '/signature_request/files/{signature_request_id}?get_url=1&file_type=pdf':
     get:
       tags:
         - 'Signature Request'
       summary: 'Download File as File Url'
       description: |-
-        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).
 
         If the files are currently being prepared, a status code of `409` will be returned instead.
       operationId: signatureRequestFilesAsFileUrl
@@ -2237,7 +2237,7 @@ paths:
         - 'Signature Request'
       summary: 'Download File as Encoded String'
       description: |-
-        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
+        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).
 
         If the files are currently being prepared, a status code of `409` will be returned instead.
       operationId: signatureRequestFilesAsEncodedString
@@ -2345,7 +2345,7 @@ paths:
         - 'Signature Request'
       summary: 'Download File'
       description: |-
-        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file. 
+        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.
 
         If the files are currently being prepared, a status code of `409` will be returned instead.
       operationId: signatureRequestFiles
@@ -4542,7 +4542,7 @@ paths:
         - Template
       summary: 'Get Template File as File Url'
       description: |-
-        Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+        Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).
 
         If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
       operationId: templateFilesAsFileUrl
@@ -4649,7 +4649,7 @@ paths:
         - Template
       summary: 'Get Template File as Encoded String'
       description: |-
-        Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
+        Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).
 
         If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
       operationId: templateFilesAsEncodedString
@@ -5902,8 +5902,8 @@ components:
           default: false
         merge_fields:
           description: |-
-            Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  
-              
+            Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.
+
             Remove all merge fields on the template by passing an empty array `[]`.
           type: array
           items:
@@ -6528,7 +6528,7 @@ components:
           default: false
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -6614,7 +6614,7 @@ components:
           maxLength: 255
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -7500,13 +7500,13 @@ components:
       properties:
         account_id:
           description: |-
-            `account_id` or `email_address` is required. If both are provided, the account id prevails. 
+            `account_id` or `email_address` is required. If both are provided, the account id prevails.
 
             Account id of the user to invite to your Team.
           type: string
         email_address:
           description: |-
-            `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+            `account_id` or `email_address` is required, If both are provided, the account id prevails.
 
             Email address of the user to invite to your Team.
           type: string
@@ -7535,13 +7535,13 @@ components:
       properties:
         account_id:
           description: |-
-            **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+            **account_id** or **email_address** is required. If both are provided, the account id prevails.
 
             Account id to remove from your Team.
           type: string
         email_address:
           description: |-
-            **account_id** or **email_address** is required. If both are provided, the account id prevails. 
+            **account_id** or **email_address** is required. If both are provided, the account id prevails.
 
             Email address of the Account to remove from your Team.
           type: string
@@ -7682,7 +7682,7 @@ components:
             $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
           description: |-
-            Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
+            Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.
             If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
           type: array
           items:
@@ -8099,7 +8099,7 @@ components:
           default: false
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -8247,7 +8247,7 @@ components:
           maxLength: 255
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -9475,8 +9475,8 @@ components:
         is_locked:
           nullable: true
           description: |-
-            Indicates whether the template is locked. 
-            If `true`, then the template was created outside your quota and can only be used in `test_mode`. 
+            Indicates whether the template is locked.
+            If `true`, then the template was created outside your quota and can only be used in `test_mode`.
             If `false`, then the template is within your quota and can be used to create signature requests.
           type: boolean
         metadata:
@@ -10498,7 +10498,7 @@ components:
   requestBodies:
     EventCallbackAccountRequest:
       description: |-
-        **Account Callback Payloads --**  
+        **Account Callback Payloads --**
               Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
       content:
         application/json:
@@ -10522,7 +10522,7 @@ components:
               contentType: application/json
     EventCallbackApiAppRequest:
       description: |-
-        **API App Callback Payloads --**  
+        **API App Callback Payloads --**
         Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
       content:
         application/json:
@@ -10571,14 +10571,14 @@ components:
     api_key:
       type: http
       description: |-
-        Your API key can be used to make calls to the HelloSign API. See [Authentication](/api/reference/authentication) for more information.   
-        ✅ Supported by Try it console (calls sent in `test_mode` only). 
+        Your API key can be used to make calls to the HelloSign API. See [Authentication](/api/reference/authentication) for more information.
+        ✅ Supported by Try it console (calls sent in `test_mode` only).
       scheme: basic
     oauth2:
       type: http
       description: |-
-        You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
-        ❌ **Not supported** by Try it console.  
+        You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.
+        ❌ **Not supported** by Try it console.
       bearerFormat: JWT
       scheme: bearer
 security:
