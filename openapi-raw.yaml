@@ -8137,6 +8137,7 @@ components:
           description: '_t__SignatureRequestResponse::EXPIRES_AT'
           type: integer
           x-beta: closed
+          x-hideOn: doc
         is_complete:
           description: '_t__SignatureRequestResponse::IS_COMPLETE'
           type: boolean

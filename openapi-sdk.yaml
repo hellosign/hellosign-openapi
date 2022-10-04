@@ -8650,6 +8650,7 @@ components:
           description: 'The time when the signature request will expire pending signatures.'
           type: integer
           x-beta: closed
+          x-hideOn: doc
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean

@@ -8613,10 +8613,6 @@ components:
         created_at:
           description: 'Time the signature request was created.'
           type: integer
-        expires_at:
-          description: 'The time when the signature request will expire pending signatures.'
-          type: integer
-          x-beta: closed
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean
