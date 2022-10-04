@@ -28,7 +28,7 @@ public class Example {
         String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try {
-            FileResponseDataUri result = api.signatureRequestFilesAsEncodedString(signatureRequestId);
+            FileResponseDataUri result = api.signatureRequestFilesAsDataUri(signatureRequestId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
