@@ -3,3 +3,7 @@
 openapi.yaml:
   path-not-include-query:
     - '#/paths/~1oauth~1token?refresh'
+    - '#/paths/~1signature_request~1files~1{signature_request_id}?get_url=1&file_type=pdf'
+    - '#/paths/~1signature_request~1files~1{signature_request_id}?get_data_uri=1&file_type=pdf'
+    - '#/paths/~1template~1files~1{template_id}?get_url=1&file_type=pdf'
+    - '#/paths/~1template~1files~1{template_id}?get_data_uri=1&file_type=pdf'
