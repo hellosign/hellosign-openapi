@@ -111,7 +111,7 @@ paths:
             $ref: examples/AccountCreate.py
       x-meta:
         seo:
-          title: 'Create Account | API Documentation | HelloSign for Developers'
+          title: 'Create Account | API Documentation | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build with a range of tools. Find out how to create a new Dropbox Sign Account using the specified `email_address` here.'
   /account:
     get:
@@ -220,8 +220,8 @@ paths:
             $ref: examples/AccountGet.py
       x-meta:
         seo:
-          title: 'Get Account | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here.'
+          title: 'Get Account | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to return the properties and settings of your Account, click here.'
     put:
       tags:
         - Account
@@ -317,8 +317,8 @@ paths:
             $ref: examples/AccountUpdate.py
       x-meta:
         seo:
-          title: 'Update Account | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here.'
+          title: 'Update Account | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how update the properties and settings of your Account, click here.'
   /account/verify:
     post:
       tags:
@@ -519,8 +519,8 @@ paths:
             $ref: examples/ApiAppCreate.py
       x-meta:
         seo:
-          title: 'Create API App | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to create a new API App, click here.'
+          title: 'Create API App | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations with a wide range of tools. To find out how to create a new API App, click here.'
   '/api_app/{client_id}':
     get:
       tags:
@@ -619,8 +619,8 @@ paths:
             $ref: examples/ApiAppGet.py
       x-meta:
         seo:
-          title: 'Get API App | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to return an object with information about an API App, click here.'
+          title: 'Get API App | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to return an object with information about an API App, click here.'
     put:
       tags:
         - 'Api App'
@@ -733,8 +733,8 @@ paths:
             $ref: examples/ApiAppUpdate.py
       x-meta:
         seo:
-          title: 'Update API App | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to update an App that you own, click here.'
+          title: 'Update API App | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations with a wide range of tools. To find out how to update an App that you own, click here.'
     delete:
       tags:
         - 'Api App'
@@ -823,8 +823,8 @@ paths:
             $ref: examples/ApiAppDelete.py
       x-meta:
         seo:
-          title: 'Delete API App | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations with a wide range of tools. To find out how to delete an API App, click here.'
+          title: 'Delete API App | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations with a wide range of tools. To find out how to delete an API App, click here.'
   /api_app/list:
     get:
       tags:
@@ -925,8 +925,8 @@ paths:
             $ref: examples/ApiAppList.py
       x-meta:
         seo:
-          title: 'List API Apps | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to return a list of API Apps that are accessible by you, click here.'
+          title: 'List API Apps | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to return a list of API Apps that are accessible by you, click here.'
   '/bulk_send_job/{bulk_send_job_id}':
     get:
       tags:
@@ -1022,8 +1022,8 @@ paths:
             $ref: examples/BulkSendJobGet.py
       x-meta:
         seo:
-          title: 'Get Bulk Send Job | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
+          title: 'Get Bulk Send Job | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to return the status of the BulkSendJob and SignatureRequests, click here.'
   /bulk_send_job/list:
     get:
       tags:
@@ -1125,8 +1125,8 @@ paths:
             $ref: examples/BulkSendJobList.py
       x-meta:
         seo:
-          title: 'List Bulk Send Jobs | Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here.'
+          title: 'List Bulk Send Jobs | Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to return a list of BulkSendJob that you can access, click here.'
   '/embedded/edit_url/{template_id}':
     post:
       tags:
@@ -1232,8 +1232,8 @@ paths:
             $ref: examples/EmbeddedEditUrl.py
       x-meta:
         seo:
-          title: 'Get Embedded Template URL | iFrame | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here.'
+          title: 'Get Embedded Template URL | iFrame | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here.'
   '/embedded/sign_url/{signature_id}':
     get:
       tags:
@@ -1334,8 +1334,8 @@ paths:
             $ref: examples/EmbeddedSignUrl.py
       x-meta:
         seo:
-          title: 'Get Embedded Sign URL | iFrame | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
+          title: 'Get Embedded Sign URL | iFrame | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
   /oauth/token:
     post:
       tags:
@@ -1412,8 +1412,8 @@ paths:
       x-hideTryItPanel: true
       x-meta:
         seo:
-          title: 'Generate OAuth Token | Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to generate a new OAuth token with the API, click here.'
+          title: 'Generate OAuth Token | Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to generate a new OAuth token with the API, click here.'
   '/oauth/token?refresh':
     post:
       tags:
@@ -1490,8 +1490,8 @@ paths:
       x-hideTryItPanel: true
       x-meta:
         seo:
-          title: 'OAuth Token Refresh | Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to refresh your OAuth token with the API, click here.'
+          title: 'OAuth Token Refresh | Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to refresh your OAuth token with the API, click here.'
   /report/create:
     post:
       tags:
@@ -1586,8 +1586,8 @@ paths:
             $ref: examples/ReportCreate.py
       x-meta:
         seo:
-          title: 'Create Report | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to request the creation of one or more reports, click here.'
+          title: 'Create Report | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to request the creation of one or more reports, click here.'
   /signature_request/bulk_create_embedded_with_template:
     post:
       tags:
@@ -1909,8 +1909,8 @@ paths:
             $ref: examples/SignatureRequestCancel.py
       x-meta:
         seo:
-          title: 'Cancel Incomplete Signature Request | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to cancel an incomplete signature request, click here.'
+          title: 'Cancel Incomplete Signature Request | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to cancel an incomplete signature request, click here.'
   /signature_request/create_embedded:
     post:
       tags:
@@ -2229,8 +2229,8 @@ paths:
             $ref: examples/SignatureRequestFilesAsFileUrl.py
       x-meta:
         seo:
-          title: 'Download Files | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
+          title: 'Download Files | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
   '/signature_request/files/{signature_request_id}?get_data_uri=1&file_type=pdf':
     get:
       tags:
@@ -2337,8 +2337,8 @@ paths:
             $ref: examples/SignatureRequestFilesAsEncodedString.py
       x-meta:
         seo:
-          title: 'Download Files | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
+          title: 'Download Files | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -2457,8 +2457,8 @@ paths:
             $ref: examples/SignatureRequestFiles.py
       x-meta:
         seo:
-          title: 'Download Files | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
+          title: 'Download Files | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here'
   '/signature_request/{signature_request_id}':
     get:
       tags:
@@ -2558,8 +2558,8 @@ paths:
             $ref: examples/SignatureRequestGet.py
       x-meta:
         seo:
-          title: 'Get Signature Request | Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return the status of SignatureRequest specified by the parameters, click here.'
+          title: 'Get Signature Request | Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to return the status of SignatureRequest specified by the parameters, click here.'
   /signature_request/list:
     get:
       tags:
@@ -2679,8 +2679,8 @@ paths:
             $ref: examples/SignatureRequestList.py
       x-meta:
         seo:
-          title: 'List Signature Requests | REST API | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build custom integrations. To find out how to return a list of SignatureRequests that you can access, click here.'
+          title: 'List Signature Requests | REST API | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to return a list of SignatureRequests that you can access, click here.'
   '/signature_request/release_hold/{signature_request_id}':
     post:
       tags:
@@ -2777,8 +2777,8 @@ paths:
             $ref: examples/SignatureRequestReleaseHold.py
       x-meta:
         seo:
-          title: 'Release On-Hold Signature Request | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to release an on-hold SignatureRequest, click here.'
+          title: 'Release On-Hold Signature Request | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom eSign integrations. To find out how to release an on-hold SignatureRequest, click here.'
   '/signature_request/remind/{signature_request_id}':
     post:
       tags:
@@ -2894,8 +2894,8 @@ paths:
             $ref: examples/SignatureRequestRemind.py
       x-meta:
         seo:
-          title: 'Send Request Reminder | REST API | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to send an email reminder to the signer, click here.'
+          title: 'Send Request Reminder | REST API | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom eSign integrations. To find out how to send an email reminder to the signer, click here.'
   '/signature_request/remove/{signature_request_id}':
     post:
       tags:
@@ -2993,8 +2993,8 @@ paths:
             $ref: examples/SignatureRequestRemove.py
       x-meta:
         seo:
-          title: 'Remove Signature Request Access | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom integrations. To find out how to remove your access to a completed signature request, click here.'
+          title: 'Remove Signature Request Access | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to remove your access to a completed signature request, click here.'
   /signature_request/send:
     post:
       tags:
@@ -3315,8 +3315,8 @@ paths:
             $ref: examples/SignatureRequestUpdate.py
       x-meta:
         seo:
-          title: 'Update Signature Request | REST API | HelloSign for Developers'
-          description: 'HelloSign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here.'
+          title: 'Update Signature Request | REST API | Dropbox Sign for Developers'
+          description: 'Dropbox Sign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here.'
   /team/add_member:
     put:
       tags:
@@ -3521,8 +3521,8 @@ paths:
             $ref: examples/TeamCreate.py
       x-meta:
         seo:
-          title: 'Create Team | REST API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API allows you to build custom eSign integrations. To find out how to create a new team and make yourself a member, click here.'
+          title: 'Create Team | REST API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API allows you to build custom eSign integrations. To find out how to create a new team and make yourself a member, click here.'
   /team/destroy:
     delete:
       tags:
@@ -3601,8 +3601,8 @@ paths:
             $ref: examples/TeamDelete.py
       x-meta:
         seo:
-          title: 'Delete Team | REST API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to delete a team you are a member of, click here.'
+          title: 'Delete Team | REST API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to delete a team you are a member of, click here.'
   /team:
     get:
       tags:
@@ -3690,8 +3690,8 @@ paths:
             $ref: examples/TeamGet.py
       x-meta:
         seo:
-          title: 'Get Team | REST API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to return information about your Team, click here.'
+          title: 'Get Team | REST API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to return information about your Team, click here.'
     put:
       tags:
         - Team
@@ -3785,8 +3785,8 @@ paths:
             $ref: examples/TeamUpdate.py
       x-meta:
         seo:
-          title: 'Update Team | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to update the name of your team, click here.'
+          title: 'Update Team | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to update the name of your team, click here.'
   /team/info:
     get:
       tags:
@@ -3886,8 +3886,8 @@ paths:
       x-beta: closed
       x-meta:
         seo:
-          title: 'Get Team Info | HelloSign for Developers'
-          description: 'The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here.'
+          title: 'Get Team Info | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you automate your team management. To find out how to get information about a specific team, click here.'
   '/team/members/{team_id}':
     get:
       tags:
@@ -4003,8 +4003,8 @@ paths:
       x-beta: closed
       x-meta:
         seo:
-          title: 'List Team Members | HelloSign for Developers'
-          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of team members and their roles for a specific team, click here.'
+          title: 'List Team Members | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you automate your team management. To find out how to get a list of team members and their roles for a specific team, click here.'
   /team/remove_member:
     post:
       tags:
@@ -4103,8 +4103,8 @@ paths:
             $ref: examples/TeamRemoveMember.py
       x-meta:
         seo:
-          title: 'Remove User from Team | REST API | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
+          title: 'Remove User from Team | REST API | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here.'
   '/team/sub_teams/{team_id}':
     get:
       tags:
@@ -4220,8 +4220,8 @@ paths:
       x-beta: closed
       x-meta:
         seo:
-          title: 'List Sub Teams | HelloSign for Developers'
-          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of sub teams that exist for a given team, click here.'
+          title: 'List Sub Teams | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you automate your team management. To find out how to get a list of sub teams that exist for a given team, click here.'
   '/template/add_user/{template_id}':
     post:
       tags:
@@ -4327,8 +4327,8 @@ paths:
             $ref: examples/TemplateAddUser.py
       x-meta:
         seo:
-          title: 'Add User to Template | REST API | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here.'
+          title: 'Add User to Template | REST API | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here.'
   /template/create_embedded_draft:
     post:
       tags:
@@ -4534,8 +4534,8 @@ paths:
             $ref: examples/TemplateDelete.py
       x-meta:
         seo:
-          title: 'Delete Template | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here.'
+          title: 'Delete Template | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here.'
   '/template/files/{template_id}?get_url=1&file_type=pdf':
     get:
       tags:
@@ -4641,8 +4641,8 @@ paths:
             $ref: examples/TemplateFilesAsFileUrl.py
       x-meta:
         seo:
-          title: 'Get Template Files | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
+          title: 'Get Template Files | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
   '/template/files/{template_id}?get_data_uri=1&file_type=pdf':
     get:
       tags:
@@ -4748,8 +4748,8 @@ paths:
             $ref: examples/TemplateFilesAsEncodedString.py
       x-meta:
         seo:
-          title: 'Get Template Files | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
+          title: 'Get Template Files | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
   '/template/files/{template_id}':
     get:
       tags:
@@ -4866,8 +4866,8 @@ paths:
             $ref: examples/TemplateFiles.py
       x-meta:
         seo:
-          title: 'Get Template Files | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
+          title: 'Get Template Files | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to get a copy of the current specified documents, click here.'
   '/template/{template_id}':
     get:
       tags:
@@ -4966,8 +4966,8 @@ paths:
             $ref: examples/TemplateGet.py
       x-meta:
         seo:
-          title: 'Get Template | API Documentation | HelloSign for Developers'
-          description: 'The RESTful HelloSign API easily allows you to build custom integrations. To find out how to return the Template specified by the `template_id` parameter, click here.'
+          title: 'Get Template | API Documentation | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to return the Template specified by the `template_id` parameter, click here.'
   /template/list:
     get:
       tags:
@@ -5089,8 +5089,8 @@ paths:
             $ref: examples/TemplateList.py
       x-meta:
         seo:
-          title: 'List Templates | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to return a list of the Templates that can be accessed by you, click here.'
+          title: 'List Templates | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API easily allows you to build custom integrations. To find out how to return a list of the Templates that can be accessed by you, click here.'
   '/template/remove_user/{template_id}':
     post:
       tags:
@@ -5196,8 +5196,8 @@ paths:
             $ref: examples/TemplateRemoveUser.py
       x-meta:
         seo:
-          title: 'Remove User from Template | REST API | HelloSign for Developers'
-          description: 'The HelloSign API easily allows you to build custom integrations. To find out how to remove a specified Account''s access to a Template, click here.'
+          title: 'Remove User from Template | REST API | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API easily allows you to build custom integrations. To find out how to remove a specified Account''s access to a Template, click here.'
   '/template/update_files/{template_id}':
     post:
       tags:
@@ -10604,8 +10604,8 @@ x-webhooks:
         $ref: ./markdown/en/descriptions/account-callback-description.md
       x-meta:
         seo:
-          title: 'Account Callbacks | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to consume HelloSign Events at the account level, click here.'
+          title: 'Account Callbacks | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the account level, click here.'
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -10621,8 +10621,8 @@ x-webhooks:
       operationId: apiAppCreateEventCallback
       x-meta:
         seo:
-          title: 'App Callbacks | API Documentation | HelloSign for Developers'
-          description: 'The HelloSign API allows you to build with a wide range of tools. To find out how to consume HelloSign Events at the App level, click here.'
+          title: 'App Callbacks | API Documentation | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here.'
       tags:
         - 'Callbacks and Events'
       requestBody:
