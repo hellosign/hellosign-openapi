@@ -5,7 +5,7 @@
 "OpenApi::TITLE": HelloSign API
 "OpenApi::DESCRIPTION": HelloSign v3 API
 "OpenApi::AUTH::API_KEY": |-
-  Your API key can be used to make calls to the HelloSign API. See [Authentication](/api/reference/authentication) for more information.   
+  Your API key can be used to make calls to the Dropbox Sign API. See [Authentication](/api/reference/authentication) for more information.   
   ✅ Supported by Try it console (calls sent in `test_mode` only). 
 "OpenApi::AUTH::OAUTH": |-
   You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
