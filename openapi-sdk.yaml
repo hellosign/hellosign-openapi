@@ -8906,7 +8906,7 @@ components:
           type: string
         reassigned_from:
           nullable: true
-          description: 'Existing or old signature identifier.'
+          description: 'Previous signature identifier.'
           type: string
         error:
           nullable: true
