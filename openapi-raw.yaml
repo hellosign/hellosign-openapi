@@ -2125,6 +2125,20 @@ paths:
             enum:
               - pdf
               - zip
+        -
+          name: get_url
+          in: query
+          description: '_t__SignatureRequestFiles::GET_URL'
+          schema:
+            type: boolean
+            default: false
+        -
+          name: get_data_uri
+          in: query
+          description: '_t__SignatureRequestFiles::GET_DATA_URI'
+          schema:
+            type: boolean
+            default: false
       responses:
         '200':
           description: 'successful operation'
@@ -2136,14 +2150,12 @@ paths:
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
-            application/pdf:
+            application/json:
               schema:
-                type: string
-                format: binary
-            application/zip:
-              schema:
-                type: string
-                format: binary
+                $ref: '#/components/schemas/FileResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/SignatureRequestFilesResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -4514,6 +4526,20 @@ paths:
             enum:
               - pdf
               - zip
+        -
+          name: get_url
+          in: query
+          description: '_t__TemplateFiles::GET_URL'
+          schema:
+            type: boolean
+            default: false
+        -
+          name: get_data_uri
+          in: query
+          description: '_t__TemplateFiles::GET_DATA_URI'
+          schema:
+            type: boolean
+            default: false
       responses:
         '200':
           description: 'successful operation'
@@ -4525,14 +4551,12 @@ paths:
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
-            application/pdf:
+            application/json:
               schema:
-                type: string
-                format: binary
-            application/zip:
-              schema:
-                type: string
-                format: binary
+                $ref: '#/components/schemas/FileResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TemplateFilesResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -8279,13 +8303,6 @@ components:
         expires_at:
           description: '_t__FileResponse::EXPIRES_AT'
           type: integer
-      type: object
-      x-internal: true
-    FileResponseDataUri:
-      properties:
-        data_uri:
-          description: '_t__FileResponse::DATA_URI'
-          type: string
       type: object
       x-internal: true
     ListInfoResponse:
