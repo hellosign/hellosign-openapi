@@ -6348,6 +6348,12 @@ components:
           type: boolean
           default: false
           x-beta: closed
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -6537,6 +6543,12 @@ components:
           description: '_t__SignatureRequestSend::USE_PREEXISTING_FIELDS'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__SignatureRequestSend::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -6627,6 +6639,12 @@ components:
         signature_id:
           description: '_t__SignatureRequestUpdate::SIGNATURE_ID'
           type: string
+        expires_at:
+          nullable: true
+          description: '_t__SignatureRequestUpdate::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     SubAttachment:
       required:
@@ -7455,6 +7473,12 @@ components:
           description: '_t__UnclaimedDraftCreate::USE_TEXT_TAGS'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -7608,6 +7632,12 @@ components:
           type: boolean
           default: false
           x-beta: closed
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -8212,6 +8242,7 @@ components:
             - signature_request_reassigned
             - signature_request_invalid
             - signature_request_prepared
+            - signature_request_expired
             - template_created
             - template_error
         event_hash:
@@ -8504,6 +8535,11 @@ components:
         created_at:
           description: '_t__SignatureRequestResponse::CREATED_AT'
           type: integer
+        expires_at:
+          description: '_t__SignatureRequestResponse::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
         is_complete:
           description: '_t__SignatureRequestResponse::IS_COMPLETE'
           type: boolean
@@ -8786,6 +8822,10 @@ components:
         reassignment_reason:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON'
+          type: string
+        reassigned_from:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::REASSIGNED_FROM'
           type: string
         error:
           nullable: true

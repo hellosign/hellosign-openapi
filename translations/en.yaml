@@ -284,7 +284,7 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
 
   ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-"SignatureRequestFiles::SUMMARY": Download File
+"SignatureRequestFiles::SUMMARY": Download Files
 "SignatureRequestFiles::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file. 
 
@@ -543,7 +543,7 @@
 "TemplateDelete::DESCRIPTION": Completely deletes the template specified from the account.
 "TemplateDelete::TEMPLATE_ID": The id of the Template to delete.
 
-"TemplateFiles::SUMMARY": Get Template File
+"TemplateFiles::SUMMARY": Get Template Files
 "TemplateFiles::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.
 

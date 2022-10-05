@@ -8734,6 +8734,7 @@ components:
             - signature_request_reassigned
             - signature_request_invalid
             - signature_request_prepared
+            - signature_request_expired
             - template_created
             - template_error
         event_hash:
@@ -9316,6 +9317,10 @@ components:
         reassignment_reason:
           nullable: true
           description: 'Reason provided by original signer who reassigned to this signer.'
+          type: string
+        reassigned_from:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::REASSIGNED_FROM'
           type: string
         error:
           nullable: true
