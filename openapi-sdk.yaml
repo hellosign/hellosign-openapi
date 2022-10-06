@@ -3684,6 +3684,102 @@ paths:
         seo:
           title: 'Get Team Info | HelloSign for Developers'
           description: 'The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here.'
+  /team/invites:
+    get:
+      tags:
+        - Team
+      summary: 'List Team Invites'
+      description: 'Provides a list of team invites (and their roles).'
+      operationId: teamInvites
+      parameters:
+        -
+          name: email_address
+          in: query
+          description: 'The email address for which to display the team invites.'
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamInvitesResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamInvitesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+            - basic_account_info
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamInvites.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamInvites.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamInvites.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamInvites.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamInvites.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamInvites.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamInvites.py
+      x-meta:
+        seo:
+          title: 'List Team Invites | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get a list of team invites and their roles for a specific email, click here.'
   '/team/members/{team_id}':
     get:
       tags:
@@ -6128,6 +6224,12 @@ components:
           type: boolean
           default: false
           x-beta: closed
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -6368,6 +6470,12 @@ components:
           description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__SignatureRequestSend::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -6478,6 +6586,12 @@ components:
         signature_id:
           description: 'The signature ID for the recipient.'
           type: string
+        expires_at:
+          nullable: true
+          description: '_t__SignatureRequestUpdate::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     SubAttachment:
       required:
@@ -7508,6 +7622,12 @@ components:
           description: 'Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.'
           type: boolean
           default: false
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -7699,6 +7819,12 @@ components:
           type: boolean
           default: false
           x-beta: closed
+        expires_at:
+          nullable: true
+          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -8328,6 +8454,7 @@ components:
             - signature_request_reassigned
             - signature_request_invalid
             - signature_request_prepared
+            - signature_request_expired
             - template_created
             - template_error
         event_hash:
@@ -8613,6 +8740,11 @@ components:
         created_at:
           description: 'Time the signature request was created.'
           type: integer
+        expires_at:
+          description: '_t__SignatureRequestResponse::EXPIRES_AT'
+          type: integer
+          x-beta: closed
+          x-hideOn: doc
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean
@@ -8983,6 +9115,41 @@ components:
         role:
           description: 'The specific role a member has on the team.'
           type: string
+      type: object
+      x-internal: true
+    TeamInviteResponse:
+      properties:
+        email_address:
+          description: 'Email address of the user invited to this team.'
+          type: string
+        team_id:
+          description: 'Id of the team.'
+          type: string
+        role:
+          description: 'Role of the user invited to this team.'
+          type: string
+        sent_at:
+          description: 'Timestamp when the invitation was sent.'
+          type: integer
+        redeemed_at:
+          description: 'Timestamp when the invitation was redeemed.'
+          type: integer
+        expires_at:
+          description: 'Timestamp when the invitation is expiring.'
+          type: integer
+      type: object
+      x-internal: true
+    TeamInvitesResponse:
+      properties:
+        team_invites:
+          description: 'Contains a list of team invites and their roles.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamInviteResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     SubTeamResponse:
@@ -10022,6 +10189,10 @@ components:
       summary: 'Team Get Info'
       value:
         $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamInvitesResponseExample:
+      summary: 'Team Invites'
+      value:
+        $ref: examples/json/TeamInvitesResponseExample.json
     TeamMembersResponseExample:
       summary: 'Team Members List'
       value:

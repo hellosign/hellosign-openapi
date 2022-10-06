@@ -472,6 +472,18 @@
 "TeamInfo::TEAM_ID": The id of the team.
 "TeamInfo::TEAM_PARENT": Information about the parent team if a team has one, set to `null` otherwise.
 
+"TeamInvites::SUMMARY": List Team Invites
+"TeamInvites::DESCRIPTION": Provides a list of team invites (and their roles).
+"TeamInvites::EMAIL_ADDRESS": The email address for which to display the team invites.
+"TeamInviteResponse::EMAIL_ADDRESS": Email address of the user invited to this team.
+"TeamInviteResponse::TEAM_ID": Id of the team.
+"TeamInviteResponse::ROLE": Role of the user invited to this team.
+"TeamInviteResponse::SENT_AT": Timestamp when the invitation was sent.
+"TeamInviteResponse::REDEEMED_AT": Timestamp when the invitation was redeemed.
+"TeamInviteResponse::EXPIRES_AT": Timestamp when the invitation is expiring.
+
+"TeamInvitesResponse::DESCRIPTION": Contains a list of team invites and their roles.
+
 "TeamMembers::SUMMARY": List Team Members
 "TeamMembers::DESCRIPTION": Provides a paginated list of members (and their roles) that belong to a given team.
 "TeamMembers::TEAM_ID": The id of the team that a member list is being requested from.
@@ -1241,6 +1253,7 @@
 "TeamGetResponseExample::SUMMARY": Team Get
 "TeamInfoResponseExample::SUMMARY": Team Get Info
 "TeamMembersResponseExample::SUMMARY": Team Members List
+"TeamInvitesResponseExample::SUMMARY": Team Invites
 "TeamSubTeamsResponseExample::SUMMARY": Team Sub Teams List
 "TeamRemoveMemberResponseExample::SUMMARY": Team Remove Member
 "TeamUpdateResponseExample::SUMMARY": Team Update
@@ -1505,6 +1518,8 @@
 "TeamInfo::SEO::DESCRIPTION": "The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here."
 "TeamMembers::SEO::TITLE": "List Team Members | HelloSign for Developers"
 "TeamMembers::SEO::DESCRIPTION": "The HelloSign API allows you automate your team management. To find out how to get a list of team members and their roles for a specific team, click here."
+"TeamInvites::SEO::TITLE": "List Team Invites | HelloSign for Developers"
+"TeamInvites::SEO::DESCRIPTION": "The HelloSign API allows you automate your team management. To find out how to get a list of team invites and their roles for a specific email, click here."
 "TeamRemoveMember::SEO::TITLE": "Remove User from Team | REST API | HelloSign for Developers"
 "TeamRemoveMember::SEO::DESCRIPTION": "The RESTful HelloSign API easily allows you to build custom eSign integrations. To find out how to remove a user Account from your Team, click here."
 "TeamSubTeams::SEO::TITLE": "List Sub Teams | HelloSign for Developers"
