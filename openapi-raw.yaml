@@ -8482,6 +8482,10 @@ components:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON'
           type: string
+        reassigned_from:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::REASSIGNED_FROM'
+          type: string
         error:
           nullable: true
           description: '_t__SignatureRequestResponseSignatures::ERROR'

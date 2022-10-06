@@ -2127,11 +2127,9 @@ paths:
     get:
       tags:
         - 'Signature Request'
-      summary: 'Download Files'
+      summary: 'Download File'
       description: |-
-        Obtain a copy of the current documents specified by the `signature_request_id` parameter.
-
-        Returns a PDF or ZIP file, or if `get_url` is set, a JSON object with a url to the file (PDFs only). If `get_data_uri` is set, a JSON object with a `data_uri` representing the base64 encoded file (PDFs only) is returned.
+        Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file. 
 
         If the files are currently being prepared, a status code of `409` will be returned instead.
       operationId: signatureRequestFiles
@@ -4434,11 +4432,9 @@ paths:
     get:
       tags:
         - Template
-      summary: 'Get Template Files'
+      summary: 'Get Template File'
       description: |-
-        Obtain a copy of the current documents specified by the `template_id` parameter.
-
-        Returns a PDF or ZIP file, or if `get_url` is set, a JSON object with a url to the file (PDFs only). If `get_data_uri` is set, a JSON object with a `data_uri` representing the base64 encoded file (PDFs only) is returned.
+        Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.
 
         If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
       operationId: templateFiles
@@ -9003,6 +8999,10 @@ components:
         reassignment_reason:
           nullable: true
           description: 'Reason provided by original signer who reassigned to this signer.'
+          type: string
+        reassigned_from:
+          nullable: true
+          description: 'Previous signature identifier.'
           type: string
         error:
           nullable: true
