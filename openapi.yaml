@@ -8424,6 +8424,7 @@ components:
             - signature_request_reassigned
             - signature_request_invalid
             - signature_request_prepared
+            - signature_request_expired
             - template_created
             - template_error
         event_hash:
