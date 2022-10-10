@@ -3841,6 +3841,102 @@ paths:
         seo:
           title: '_t__TeamInfo::SEO::TITLE'
           description: '_t__TeamInfo::SEO::DESCRIPTION'
+  /team/invites:
+    get:
+      tags:
+        - Team
+      summary: '_t__TeamInvites::SUMMARY'
+      description: '_t__TeamInvites::DESCRIPTION'
+      operationId: teamInvites
+      parameters:
+        -
+          name: email_address
+          in: query
+          description: '_t__TeamInvites::EMAIL_ADDRESS'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamInvitesResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TeamInvitesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - account_access
+            - basic_account_info
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TeamInvites.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TeamInvites.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TeamInvites.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TeamInvites.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TeamInvites.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TeamInvites.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TeamInvites.py
+      x-meta:
+        seo:
+          title: '_t__TeamInvites::SEO::TITLE'
+          description: '_t__TeamInvites::SEO::DESCRIPTION'
   '/team/members/{team_id}':
     get:
       tags:
@@ -8904,6 +9000,41 @@ components:
           type: string
       type: object
       x-internal: true
+    TeamInviteResponse:
+      properties:
+        email_address:
+          description: '_t__TeamInviteResponse::EMAIL_ADDRESS'
+          type: string
+        team_id:
+          description: '_t__TeamInviteResponse::TEAM_ID'
+          type: string
+        role:
+          description: '_t__TeamInviteResponse::ROLE'
+          type: string
+        sent_at:
+          description: '_t__TeamInviteResponse::SENT_AT'
+          type: integer
+        redeemed_at:
+          description: '_t__TeamInviteResponse::REDEEMED_AT'
+          type: integer
+        expires_at:
+          description: '_t__TeamInviteResponse::EXPIRES_AT'
+          type: integer
+      type: object
+      x-internal: true
+    TeamInvitesResponse:
+      properties:
+        team_invites:
+          description: '_t__TeamInvitesResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamInviteResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     SubTeamResponse:
       properties:
         team_id:
@@ -9936,6 +10067,10 @@ components:
       summary: '_t__TeamInfoResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamInvitesResponseExample:
+      summary: '_t__TeamInvitesResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamInvitesResponseExample.json
     TeamMembersResponseExample:
       summary: '_t__TeamMembersResponseExample::SUMMARY'
       value:
