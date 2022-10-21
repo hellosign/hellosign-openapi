@@ -3682,8 +3682,8 @@ paths:
       x-beta: closed
       x-meta:
         seo:
-          title: 'Get Team Info | Dropbox Sign for Developers'
-          description: 'The Dropbox Sign API allows you automate your team management. To find out how to get information about a specific team, click here.'
+          title: 'Get Team Info | HelloSign for Developers'
+          description: 'The HelloSign API allows you automate your team management. To find out how to get information about a specific team, click here.'
   /team/invites:
     get:
       tags:
@@ -8454,6 +8454,7 @@ components:
             - signature_request_reassigned
             - signature_request_invalid
             - signature_request_prepared
+            - signature_request_expired
             - template_created
             - template_error
         event_hash:
@@ -9121,6 +9122,41 @@ components:
         role:
           description: 'The specific role a member has on the team.'
           type: string
+      type: object
+      x-internal: true
+    TeamInviteResponse:
+      properties:
+        email_address:
+          description: 'Email address of the user invited to this team.'
+          type: string
+        team_id:
+          description: 'Id of the team.'
+          type: string
+        role:
+          description: 'Role of the user invited to this team.'
+          type: string
+        sent_at:
+          description: 'Timestamp when the invitation was sent.'
+          type: integer
+        redeemed_at:
+          description: 'Timestamp when the invitation was redeemed.'
+          type: integer
+        expires_at:
+          description: 'Timestamp when the invitation is expiring.'
+          type: integer
+      type: object
+      x-internal: true
+    TeamInvitesResponse:
+      properties:
+        team_invites:
+          description: 'Contains a list of team invites and their roles.'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamInviteResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TeamInviteResponse:
