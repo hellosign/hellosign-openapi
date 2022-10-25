@@ -2099,6 +2099,216 @@ paths:
         seo:
           title: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE'
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION'
+  '/signature_request/files/{signature_request_id}?get_url=1&file_type=pdf':
+    get:
+      tags:
+        - 'Signature Request'
+      summary: '_t__SignatureRequestFilesAsFileUrl::SUMMARY'
+      description: '_t__SignatureRequestFilesAsFileUrl::DESCRIPTION'
+      operationId: signatureRequestFilesAsFileUrl
+      parameters:
+        -
+          name: signature_request_id
+          in: path
+          description: '_t__SignatureRequestFiles::SIGNATURE_REQUEST_ID'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/SignatureRequestFilesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                410_example:
+                  $ref: '#/components/examples/Error410ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - signature_request_access
+            - request_signature
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestFiles::SEO::TITLE'
+          description: '_t__SignatureRequestFiles::SEO::DESCRIPTION'
+  '/signature_request/files/{signature_request_id}?get_data_uri=1&file_type=pdf':
+    get:
+      tags:
+        - 'Signature Request'
+      summary: '_t__SignatureRequestFilesAsEncodedString::SUMMARY'
+      description: '_t__SignatureRequestFilesAsEncodedString::DESCRIPTION'
+      operationId: signatureRequestFilesAsEncodedString
+      parameters:
+        -
+          name: signature_request_id
+          in: path
+          description: '_t__SignatureRequestFiles::SIGNATURE_REQUEST_ID'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileResponseDataUri'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/SignatureRequestFilesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                410_example:
+                  $ref: '#/components/examples/Error410ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - signature_request_access
+            - request_signature
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestFilesAsEncodedString.py
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestFiles::SEO::TITLE'
+          description: '_t__SignatureRequestFiles::SEO::DESCRIPTION'
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -2125,20 +2335,6 @@ paths:
             enum:
               - pdf
               - zip
-        -
-          name: get_url
-          in: query
-          description: '_t__SignatureRequestFiles::GET_URL'
-          schema:
-            type: boolean
-            default: false
-        -
-          name: get_data_uri
-          in: query
-          description: '_t__SignatureRequestFiles::GET_DATA_URI'
-          schema:
-            type: boolean
-            default: false
       responses:
         '200':
           description: 'successful operation'
@@ -2150,12 +2346,14 @@ paths:
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
-            application/json:
+            application/pdf:
               schema:
-                $ref: '#/components/schemas/FileResponse'
-              examples:
-                default_example:
-                  $ref: '#/components/examples/SignatureRequestFilesResponseExample'
+                type: string
+                format: binary
+            application/zip:
+              schema:
+                type: string
+                format: binary
         4XX:
           description: failed_operation
           content:
@@ -4387,6 +4585,214 @@ paths:
         seo:
           title: '_t__TemplateDelete::SEO::TITLE'
           description: '_t__TemplateDelete::SEO::DESCRIPTION'
+  '/template/files/{template_id}?get_url=1&file_type=pdf':
+    get:
+      tags:
+        - Template
+      summary: '_t__TemplateFilesAsFileUrl::SUMMARY'
+      description: '_t__TemplateFilesAsFileUrl::DESCRIPTION'
+      operationId: templateFilesAsFileUrl
+      parameters:
+        -
+          name: template_id
+          in: path
+          description: '_t__TemplateFiles::TEMPLATE_ID'
+          required: true
+          schema:
+            type: string
+          example: f57db65d3f933b5316d398057a36176831451a35
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TemplateFilesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                422_example:
+                  $ref: '#/components/examples/Error422ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - template_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.py
+      x-meta:
+        seo:
+          title: '_t__TemplateFiles::SEO::TITLE'
+          description: '_t__TemplateFiles::SEO::DESCRIPTION'
+  '/template/files/{template_id}?get_data_uri=1&file_type=pdf':
+    get:
+      tags:
+        - Template
+      summary: '_t__TemplateFilesAsEncodedString::SUMMARY'
+      description: '_t__TemplateFilesAsEncodedString::DESCRIPTION'
+      operationId: templateFilesAsEncodedString
+      parameters:
+        -
+          name: template_id
+          in: path
+          description: '_t__TemplateFiles::TEMPLATE_ID'
+          required: true
+          schema:
+            type: string
+          example: f57db65d3f933b5316d398057a36176831451a35
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileResponseDataUri'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/TemplateFilesResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                422_example:
+                  $ref: '#/components/examples/Error422ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - template_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/TemplateFilesAsEncodedString.py
+      x-meta:
+        seo:
+          title: '_t__TemplateFiles::SEO::TITLE'
+          description: '_t__TemplateFiles::SEO::DESCRIPTION'
   '/template/files/{template_id}':
     get:
       tags:
@@ -4412,20 +4818,6 @@ paths:
             enum:
               - pdf
               - zip
-        -
-          name: get_url
-          in: query
-          description: '_t__TemplateFiles::GET_URL'
-          schema:
-            type: boolean
-            default: false
-        -
-          name: get_data_uri
-          in: query
-          description: '_t__TemplateFiles::GET_DATA_URI'
-          schema:
-            type: boolean
-            default: false
       responses:
         '200':
           description: 'successful operation'
@@ -4437,12 +4829,14 @@ paths:
             X-Ratelimit-Reset:
               $ref: '#/components/headers/X-Ratelimit-Reset'
           content:
-            application/json:
+            application/pdf:
               schema:
-                $ref: '#/components/schemas/FileResponse'
-              examples:
-                default_example:
-                  $ref: '#/components/examples/TemplateFilesResponseExample'
+                type: string
+                format: binary
+            application/zip:
+              schema:
+                type: string
+                format: binary
         4XX:
           description: failed_operation
           content:
@@ -7981,6 +8375,13 @@ components:
         expires_at:
           description: '_t__FileResponse::EXPIRES_AT'
           type: integer
+      type: object
+      x-internal: true
+    FileResponseDataUri:
+      properties:
+        data_uri:
+          description: '_t__FileResponse::DATA_URI'
+          type: string
       type: object
       x-internal: true
     ListInfoResponse:
