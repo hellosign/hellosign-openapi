@@ -2,13 +2,13 @@
 # OAS Config #
 ##############
 
-"OpenApi::TITLE": HelloSign API
-"OpenApi::DESCRIPTION": HelloSign v3 API
+"OpenApi::TITLE": Dropbox Sign API
+"OpenApi::DESCRIPTION": Dropbox Sign v3 API
 "OpenApi::AUTH::API_KEY": |-
   Your API key can be used to make calls to the Dropbox Sign API. See [Authentication](/api/reference/authentication) for more information.   
   ✅ Supported by Try it console (calls sent in `test_mode` only). 
 "OpenApi::AUTH::OAUTH": |-
-  You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
+  You can use an Access Token issued through an OAuth flow to send calls to the Dropbox Sign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
   ❌ **Not supported** by Try it console.  
 "OpenApi::TAG::ACCOUNT::DESCRIPTION": ./markdown/en/tags/account-tag-description.md
 "OpenApi::TAG::API_APP::DESCRIPTION": ./markdown/en/tags/api-app-tag-description.md
@@ -58,7 +58,7 @@
 "AccountUpdate::SUMMARY": Update Account
 "AccountUpdate::DESCRIPTION": Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.
 "AccountUpdate::ACCOUNT_ID": The ID of the Account
-"AccountUpdate::CALLBACK_URL": The URL that HelloSign should POST events to.
+"AccountUpdate::CALLBACK_URL": The URL that Dropbox Sign should POST events to.
 "AccountUpdate::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 
 "AccountVerify::SUMMARY": Verify Account
@@ -529,7 +529,7 @@
   
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FILE_URL": |-
-  Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
@@ -1031,9 +1031,9 @@
 "AccountVerifyResponse::DESCRIPTION": Contains the verified Account's information.
 "Account::ACCOUNT_ID": The ID of the Account
 "Account::EMAIL_ADDRESS": The email address associated with the Account.
-"Account::CALLBACK_URL": The URL that HelloSign events will `POST` to.
+"Account::CALLBACK_URL": The URL that Dropbox Sign events will `POST` to.
 "Account::IS_LOCKED": Returns `true` if the user has been locked out of their account by a team admin.
-"Account::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
+"Account::IS_PAID_HS": Returns `true` if the user has a paid Dropbox Sign account.
 "Account::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
 "Account::ROLE_CODE": The membership role for the team.
 "Account::TEAM_ID": The id of the team account belongs to.
@@ -1181,7 +1181,7 @@
 "SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS": The email address of the initiator of the SignatureRequest.
 "SignatureRequestResponse::SIGNATURE_REQUEST_ID": The id of the SignatureRequest.
 "SignatureRequestResponse::SIGNING_REDIRECT_URL": The URL you want the signer redirected to after they successfully sign.
-"SignatureRequestResponse::SIGNING_URL": The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing HelloSign accounts as they will be required to log in before signing.
+"SignatureRequestResponse::SIGNING_URL": The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
 "SignatureRequestResponse::SUBJECT": The subject in the email that was initially sent to the signers.
 "SignatureRequestResponse::TEMPLATE_IDS": Templates IDs used in this SignatureRequest (if any).
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
@@ -1305,7 +1305,7 @@
 "TemplateResponseAccount::ACCOUNT_ID": The id of the Account.
 "TemplateResponseAccount::EMAIL_ADDRESS": The email address associated with the Account.
 "TemplateResponseAccount::IS_LOCKED": Returns `true` if the user has been locked out of their account by a team admin.
-"TemplateResponseAccount::IS_PAID_HS": Returns `true` if the user has a paid HelloSign account.
+"TemplateResponseAccount::IS_PAID_HS": Returns `true` if the user has a paid Dropbox Sign account.
 "TemplateResponseAccount::IS_PAID_HF": Returns `true` if the user has a paid HelloFax account.
 "TemplateResponseAccount::QUOTAS": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 

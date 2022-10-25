@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: 'HelloSign API'
-  description: 'HelloSign v3 API'
+  title: 'Dropbox Sign API'
+  description: 'Dropbox Sign v3 API'
   termsOfService: 'https://www.hellosign.com/terms'
   contact:
     email: apisupport@hellosign.com
@@ -5906,7 +5906,7 @@ components:
           description: 'The ID of the Account'
           type: string
         callback_url:
-          description: 'The URL that HelloSign should POST events to.'
+          description: 'The URL that Dropbox Sign should POST events to.'
           type: string
         locale:
           description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
@@ -7705,7 +7705,7 @@ components:
             format: binary
         file_url:
           description: |-
-            Use `file_url[]` to have HelloSign download the file(s) to send for signature.
+            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -8393,7 +8393,7 @@ components:
           description: 'Returns `true` if the user has been locked out of their account by a team admin.'
           type: boolean
         is_paid_hs:
-          description: 'Returns `true` if the user has a paid HelloSign account.'
+          description: 'Returns `true` if the user has a paid Dropbox Sign account.'
           type: boolean
         is_paid_hf:
           description: 'Returns `true` if the user has a paid HelloFax account.'
@@ -8402,7 +8402,7 @@ components:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
           nullable: true
-          description: 'The URL that HelloSign events will `POST` to.'
+          description: 'The URL that Dropbox Sign events will `POST` to.'
           type: string
         role_code:
           nullable: true
@@ -9137,7 +9137,7 @@ components:
           type: string
         signing_url:
           nullable: true
-          description: 'The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing HelloSign accounts as they will be required to log in before signing.'
+          description: 'The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.'
           type: string
         details_url:
           description: 'The URL where the requester and the signers can view the current status of the SignatureRequest.'
@@ -9748,7 +9748,7 @@ components:
           description: 'Returns `true` if the user has been locked out of their account by a team admin.'
           type: boolean
         is_paid_hs:
-          description: 'Returns `true` if the user has a paid HelloSign account.'
+          description: 'Returns `true` if the user has a paid Dropbox Sign account.'
           type: boolean
         is_paid_hf:
           description: 'Returns `true` if the user has a paid HelloFax account.'
@@ -10717,7 +10717,7 @@ components:
     oauth2:
       type: http
       description: |-
-        You can use an Access Token issued through an OAuth flow to send calls to the HelloSign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
+        You can use an Access Token issued through an OAuth flow to send calls to the Dropbox Sign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
         ❌ **Not supported** by Try it console.  
       bearerFormat: JWT
       scheme: bearer
