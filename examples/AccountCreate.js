@@ -9,7 +9,7 @@ api.username = "YOUR_API_KEY";
 // api.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
-  emailAddress: "newuser@hellosign.com",
+  emailAddress: "newuser@example.com",
 };
 
 const result = api.accountCreate(data);
