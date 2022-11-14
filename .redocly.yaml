@@ -1,7 +1,7 @@
 # Need some of this config because we're using API Registry
 apis: 
   HelloSign-OAS@v1:
-    root: ./openapi.yaml
+    root: openapi.yaml
     decorators: 
       hs-decorators/add-custom-badge: 
         customBadge: "beta"
