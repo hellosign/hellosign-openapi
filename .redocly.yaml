@@ -1,11 +1,11 @@
 # Need some of this config because we're using API Registry
-apiDefinitions: 
-  hellosign: ./openapi.yaml
-
-lint:
-  plugins:
-    - 'bin/plugins/set-beta-plugin.js'
-  extends:
-    - recommended
-  decorators:
-    hs-beta-fields/check-schema-for-beta-features: error
+apis: 
+  HelloSign-OAS@v1:
+    root: ./openapi.yaml
+    decorators: 
+      hs-decorators/add-custom-badge: 
+        customBadge: "beta"
+plugins:
+  - 'bin/plugins/hs-custom-plugins.js'
+extends:
+  - recommended
