@@ -6449,7 +6449,6 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -6644,7 +6643,6 @@ components:
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -6740,7 +6738,6 @@ components:
           description: '_t__SignatureRequestUpdate::EXPIRES_AT'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     SubAttachment:
       required:
@@ -7574,7 +7571,6 @@ components:
           description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -7733,7 +7729,6 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -8635,7 +8630,6 @@ components:
           description: '_t__SignatureRequestResponse::EXPIRES_AT'
           type: integer
           x-beta: closed
-          x-hideOn: doc
         is_complete:
           description: '_t__SignatureRequestResponse::IS_COMPLETE'
           type: boolean

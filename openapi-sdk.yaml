@@ -6624,7 +6624,7 @@ components:
           default: false
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -6632,10 +6632,12 @@ components:
           x-beta: closed
         expires_at:
           nullable: true
-          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          description: |-
+            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+
+            **Note** This does not correspond to the **expires_at** returned in the response.
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       description: 'Calls SignatureRequestSend in controller'
@@ -6716,7 +6718,7 @@ components:
           maxLength: 255
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -6878,10 +6880,9 @@ components:
           default: false
         expires_at:
           nullable: true
-          description: '_t__SignatureRequestSend::EXPIRES_AT'
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -6994,10 +6995,9 @@ components:
           type: string
         expires_at:
           nullable: true
-          description: '_t__SignatureRequestUpdate::EXPIRES_AT'
+          description: 'The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.'
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     SubAttachment:
       required:
@@ -8030,10 +8030,12 @@ components:
           default: false
         expires_at:
           nullable: true
-          description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
+          description: |-
+            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+
+            **Note** This does not correspond to the **expires_at** returned in the response.
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -8219,7 +8221,7 @@ components:
           default: false
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -8227,10 +8229,12 @@ components:
           x-beta: closed
         expires_at:
           nullable: true
-          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          description: |-
+            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+
+            **Note** This does not correspond to the **expires_at** returned in the response.
           type: integer
           x-beta: closed
-          x-hideOn: doc
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -8373,7 +8377,7 @@ components:
           maxLength: 255
         populate_auto_fill_fields:
           description: |-
-            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
@@ -9154,10 +9158,9 @@ components:
           description: 'Time the signature request was created.'
           type: integer
         expires_at:
-          description: '_t__SignatureRequestResponse::EXPIRES_AT'
+          description: 'The time when the signature request will expire pending signatures.'
           type: integer
           x-beta: closed
-          x-hideOn: doc
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean
