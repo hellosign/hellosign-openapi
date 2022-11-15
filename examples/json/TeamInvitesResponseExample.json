@@ -1,0 +1,12 @@
+{
+  "team_invites": [
+    {
+      "email_address": "user@hellosign.com",
+      "team_id": "e51f544655faa0f79e2a811c94eacaadf854162c",
+      "role": "Member",
+      "sent_at": 1663261509,
+      "redeemed_at": null,
+      "expires_at": 1663263958
+    }
+  ]
+}
