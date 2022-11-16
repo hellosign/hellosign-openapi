@@ -1,0 +1,17 @@
+generatorName: php
+typeMappings:
+  "object": "array"
+additionalProperties:
+  packageName: hellosign/hellosign-php-sdk
+  packageVersion: "^6.0.0"
+  artifactVersion: "v6.0.0-beta28"
+  invokerPackage: "HelloSignSDK"
+  sortModelPropertiesByRequiredFlag: true
+  srcBasePath: src
+files:
+  EventCallbackHelper.mustache:
+    templateType: SupportingFiles
+    destinationFilename: src/EventCallbackHelper.php
+globalProperties:
+  apiTests: false
+  modelTests: false

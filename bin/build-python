@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+
+OAS_DIR="${DIR}/../"
+SDK_DIR="${DIR}/../sdks/python"
+
+printf "Copying openapi-sdk.yaml ...\n"
+rm -f "${SDK_DIR}/openapi-sdk.yaml"
+cp -r "${OAS_DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
+
+printf "Copying examples ...\n"
+mkdir -p "${SDK_DIR}/examples"
+rm -f "${SDK_DIR}/examples/"*.py
+cp -r "${OAS_DIR}/examples/"*.py "${SDK_DIR}/examples/"
+
+printf "Copying test_fixtures ...\n"
+mkdir -p "${SDK_DIR}/test_fixtures"
+rm -f "${SDK_DIR}/test_fixtures/"*
+cp -r "${OAS_DIR}/test_fixtures/"* "${SDK_DIR}/test_fixtures/"
+
+bash "${SDK_DIR}/run-build"
