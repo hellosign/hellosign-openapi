@@ -1,0 +1,10 @@
+wwwroot/*.js
+node_modules
+typings
+test.*
+*.tgz
+.openapi-generator
+
+.composer
+tmp_docs
+vendor

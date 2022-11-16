@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+
+SDKS=( dotnet java node php python ruby )
+
+for SDK in "${SDKS[@]}"
+do
+   :
+  printf "Building ${SDK} SDK\n"
+  bash "${DIR}/bin/build-${SDK}"
+
+  printf "\n\n"
+  printf "########\n"
+  printf "######## Done building ${SDK} SDK\n"
+  printf "########\n"
+  printf "\n\n"
+done
+
+printf "Success! All SDKs built!\n"
