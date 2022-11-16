@@ -1,2 +1,8 @@
+repos/*
+!repos/.gitkeep
+sdks/**/openapi-sdk.yaml
+sdks/**/examples
+sdks/**/test_fixtures
+sdks/**/vendor
 vendor
 .idea
