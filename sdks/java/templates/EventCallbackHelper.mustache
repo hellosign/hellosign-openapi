@@ -1,0 +1,24 @@
+{{>licenseInfo}}
+
+package {{invokerPackage}};
+
+import org.apache.commons.codec.digest.HmacAlgorithms;
+import org.apache.commons.codec.digest.HmacUtils;
+import com.hellosign.openapi.model.EventCallbackRequestEvent;
+
+{{>generatedAnnotation}}
+public class EventCallbackHelper {
+    private EventCallbackHelper() {}
+
+    /**
+    * Verify that a callback came from HelloSign.com
+    *
+    * @param apiKey
+    * @param event
+    * @return a boolean value indicating whether the callback event is valid
+    */
+    public static boolean isValid(String apiKey, EventCallbackRequestEvent event) {
+        return new HmacUtils(HmacAlgorithms.HMAC_SHA_256, apiKey)
+                .hmacHex(event.getEventTime() + event.getEventType()).equals(event.getEventHash());
+    }
+}

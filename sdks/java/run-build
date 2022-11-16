@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# see https://github.com/OpenAPITools/openapi-generator/tree/v5.4.0/modules/openapi-generator/src/main/resources/Java
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+WORKINGDIR="/app/java"
+
+docker run --rm \
+  -v "${DIR}/:/local" \
+  openapitools/openapi-generator-cli:v5.3.0 generate \
+    -i "/local/openapi-sdk.yaml" \
+    -c "/local/openapi-config.yaml" \
+    -t "/local/templates" \
+    -o "/local/"
+
+printf "\nInstalling composer dependencies ...\n"
+mkdir -p "${DIR}/vendor"
+bash "${DIR}/bin/php" composer install
+printf "\n"
+
+printf "Adding examples to Docs ...\n"
+bash "${DIR}/bin/php" ./bin/generate-examples.php
+
+printf "Replacing strings ...\n"
+docker run --rm \
+  -v "${DIR}:${WORKINGDIR}" \
+  -w "${WORKINGDIR}" \
+  perl bash ./bin/replace
+
+printf "Scanning for prohibited keywords ...\n"
+docker run --rm \
+  -v "${DIR}:${WORKINGDIR}" \
+  -w "${WORKINGDIR}" \
+  perl bash ./bin/scan_for
+
+# Remove empty directory
+rm -rf "${DIR}/api"
+
+printf "Building ...\n"
+bash "${DIR}/bin/maven" mvn clean install
+
+printf "Success!\n"
