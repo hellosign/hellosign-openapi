@@ -1,0 +1,16 @@
+generatorName: python
+typeMappings: {}
+additionalProperties:
+  generatorLanguageVersion: ">=3.7"
+  packageName: hellosign_sdk
+  projectName: hellosign-python-sdk
+  packageVersion: 6.0.0-beta
+  sortModelPropertiesByRequiredFlag: true
+  legacyDiscriminatorBehavior: true
+files:
+  event_callback_helper.mustache:
+    templateType: SupportingFiles
+    destinationFilename: hellosign_sdk/event_callback_helper.py
+globalProperties:
+  apiTests: false
+  modelTests: false
