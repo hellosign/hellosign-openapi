@@ -8648,6 +8648,7 @@ components:
         text_color2:
           type: string
       type: object
+      nullable: true
       x-internal: true
     BulkSendJobResponse:
       description: 'Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.'
