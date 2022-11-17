@@ -1050,6 +1050,7 @@
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
+"AccountQuota::TOTAL_TEMPLATES": Total API templates allowed.
 "AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
 "AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
 "AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications  remaining.
