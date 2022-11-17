@@ -8507,7 +8507,7 @@ components:
           type: integer
         total_templates:
           nullable: true
-          description: '_t__AccountQuota::TOTAL_TEMPLATES'
+          description: 'Total API templates allowed.'
           type: integer
         templates_left:
           nullable: true
