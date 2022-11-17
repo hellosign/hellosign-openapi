@@ -8505,6 +8505,10 @@ components:
           nullable: true
           description: 'Signature requests remaining.'
           type: integer
+        total_templates:
+          nullable: true
+          description: '_t__AccountQuota::TOTAL_TEMPLATES'
+          type: integer
         templates_left:
           nullable: true
           description: 'API templates remaining.'

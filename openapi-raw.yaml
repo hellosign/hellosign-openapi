@@ -7974,6 +7974,10 @@ components:
           nullable: true
           description: '_t__AccountQuota::DOCUMENTS_LEFT'
           type: integer
+        total_templates:
+          nullable: true
+          description: '_t__AccountQuota::TOTAL_TEMPLATES'
+          type: integer
         templates_left:
           nullable: true
           description: '_t__AccountQuota::TEMPLATES_LEFT'
