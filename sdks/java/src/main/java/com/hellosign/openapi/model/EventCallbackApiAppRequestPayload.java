@@ -209,7 +209,8 @@ public class EventCallbackApiAppRequestPayload {
 
         if (event.getClass().equals(java.io.File.class) ||
             event.getClass().equals(Integer.class) ||
-            event.getClass().equals(String.class) ) {
+            event.getClass().equals(String.class) ||
+            event.getClass().isEnum()) {
             map.put("event", event);
         } else if (isListOfFile(event)) {
             for(int i = 0; i< getListSize(event); i++) {
@@ -227,7 +228,8 @@ public class EventCallbackApiAppRequestPayload {
 
         if (account.getClass().equals(java.io.File.class) ||
             account.getClass().equals(Integer.class) ||
-            account.getClass().equals(String.class) ) {
+            account.getClass().equals(String.class) ||
+            account.getClass().isEnum()) {
             map.put("account", account);
         } else if (isListOfFile(account)) {
             for(int i = 0; i< getListSize(account); i++) {
@@ -245,7 +247,8 @@ public class EventCallbackApiAppRequestPayload {
 
         if (signatureRequest.getClass().equals(java.io.File.class) ||
             signatureRequest.getClass().equals(Integer.class) ||
-            signatureRequest.getClass().equals(String.class) ) {
+            signatureRequest.getClass().equals(String.class) ||
+            signatureRequest.getClass().isEnum()) {
             map.put("signature_request", signatureRequest);
         } else if (isListOfFile(signatureRequest)) {
             for(int i = 0; i< getListSize(signatureRequest); i++) {
@@ -263,7 +266,8 @@ public class EventCallbackApiAppRequestPayload {
 
         if (template.getClass().equals(java.io.File.class) ||
             template.getClass().equals(Integer.class) ||
-            template.getClass().equals(String.class) ) {
+            template.getClass().equals(String.class) ||
+            template.getClass().isEnum()) {
             map.put("template", template);
         } else if (isListOfFile(template)) {
             for(int i = 0; i< getListSize(template); i++) {

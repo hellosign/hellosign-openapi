@@ -161,7 +161,8 @@ public class SubBulkSignerList {
 
         if (customFields.getClass().equals(java.io.File.class) ||
             customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ) {
+            customFields.getClass().equals(String.class) ||
+            customFields.getClass().isEnum()) {
             map.put("custom_fields", customFields);
         } else if (isListOfFile(customFields)) {
             for(int i = 0; i< getListSize(customFields); i++) {
@@ -179,7 +180,8 @@ public class SubBulkSignerList {
 
         if (signers.getClass().equals(java.io.File.class) ||
             signers.getClass().equals(Integer.class) ||
-            signers.getClass().equals(String.class) ) {
+            signers.getClass().equals(String.class) ||
+            signers.getClass().isEnum()) {
             map.put("signers", signers);
         } else if (isListOfFile(signers)) {
             for(int i = 0; i< getListSize(signers); i++) {

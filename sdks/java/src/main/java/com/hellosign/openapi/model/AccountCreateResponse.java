@@ -186,7 +186,8 @@ public class AccountCreateResponse {
 
         if (account.getClass().equals(java.io.File.class) ||
             account.getClass().equals(Integer.class) ||
-            account.getClass().equals(String.class) ) {
+            account.getClass().equals(String.class) ||
+            account.getClass().isEnum()) {
             map.put("account", account);
         } else if (isListOfFile(account)) {
             for(int i = 0; i< getListSize(account); i++) {
@@ -204,7 +205,8 @@ public class AccountCreateResponse {
 
         if (oauthData.getClass().equals(java.io.File.class) ||
             oauthData.getClass().equals(Integer.class) ||
-            oauthData.getClass().equals(String.class) ) {
+            oauthData.getClass().equals(String.class) ||
+            oauthData.getClass().isEnum()) {
             map.put("oauth_data", oauthData);
         } else if (isListOfFile(oauthData)) {
             for(int i = 0; i< getListSize(oauthData); i++) {
@@ -222,7 +224,8 @@ public class AccountCreateResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

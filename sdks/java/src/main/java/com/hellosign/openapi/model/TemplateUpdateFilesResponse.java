@@ -110,7 +110,8 @@ public class TemplateUpdateFilesResponse {
 
         if (template.getClass().equals(java.io.File.class) ||
             template.getClass().equals(Integer.class) ||
-            template.getClass().equals(String.class) ) {
+            template.getClass().equals(String.class) ||
+            template.getClass().isEnum()) {
             map.put("template", template);
         } else if (isListOfFile(template)) {
             for(int i = 0; i< getListSize(template); i++) {

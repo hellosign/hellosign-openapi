@@ -269,7 +269,8 @@ public class TeamInviteResponse {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {
@@ -287,7 +288,8 @@ public class TeamInviteResponse {
 
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
-            teamId.getClass().equals(String.class) ) {
+            teamId.getClass().equals(String.class) ||
+            teamId.getClass().isEnum()) {
             map.put("team_id", teamId);
         } else if (isListOfFile(teamId)) {
             for(int i = 0; i< getListSize(teamId); i++) {
@@ -305,7 +307,8 @@ public class TeamInviteResponse {
 
         if (role.getClass().equals(java.io.File.class) ||
             role.getClass().equals(Integer.class) ||
-            role.getClass().equals(String.class) ) {
+            role.getClass().equals(String.class) ||
+            role.getClass().isEnum()) {
             map.put("role", role);
         } else if (isListOfFile(role)) {
             for(int i = 0; i< getListSize(role); i++) {
@@ -323,7 +326,8 @@ public class TeamInviteResponse {
 
         if (sentAt.getClass().equals(java.io.File.class) ||
             sentAt.getClass().equals(Integer.class) ||
-            sentAt.getClass().equals(String.class) ) {
+            sentAt.getClass().equals(String.class) ||
+            sentAt.getClass().isEnum()) {
             map.put("sent_at", sentAt);
         } else if (isListOfFile(sentAt)) {
             for(int i = 0; i< getListSize(sentAt); i++) {
@@ -341,7 +345,8 @@ public class TeamInviteResponse {
 
         if (redeemedAt.getClass().equals(java.io.File.class) ||
             redeemedAt.getClass().equals(Integer.class) ||
-            redeemedAt.getClass().equals(String.class) ) {
+            redeemedAt.getClass().equals(String.class) ||
+            redeemedAt.getClass().isEnum()) {
             map.put("redeemed_at", redeemedAt);
         } else if (isListOfFile(redeemedAt)) {
             for(int i = 0; i< getListSize(redeemedAt); i++) {
@@ -359,7 +364,8 @@ public class TeamInviteResponse {
 
         if (expiresAt.getClass().equals(java.io.File.class) ||
             expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ) {
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
             map.put("expires_at", expiresAt);
         } else if (isListOfFile(expiresAt)) {
             for(int i = 0; i< getListSize(expiresAt); i++) {

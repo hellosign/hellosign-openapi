@@ -629,7 +629,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -647,7 +648,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {
@@ -665,7 +667,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (signer.getClass().equals(java.io.File.class) ||
             signer.getClass().equals(Integer.class) ||
-            signer.getClass().equals(String.class) ) {
+            signer.getClass().equals(String.class) ||
+            signer.getClass().isEnum()) {
             map.put("signer", signer);
         } else if (isListOfFile(signer)) {
             for(int i = 0; i< getListSize(signer); i++) {
@@ -683,7 +686,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (x.getClass().equals(java.io.File.class) ||
             x.getClass().equals(Integer.class) ||
-            x.getClass().equals(String.class) ) {
+            x.getClass().equals(String.class) ||
+            x.getClass().isEnum()) {
             map.put("x", x);
         } else if (isListOfFile(x)) {
             for(int i = 0; i< getListSize(x); i++) {
@@ -701,7 +705,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (y.getClass().equals(java.io.File.class) ||
             y.getClass().equals(Integer.class) ||
-            y.getClass().equals(String.class) ) {
+            y.getClass().equals(String.class) ||
+            y.getClass().isEnum()) {
             map.put("y", y);
         } else if (isListOfFile(y)) {
             for(int i = 0; i< getListSize(y); i++) {
@@ -719,7 +724,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (width.getClass().equals(java.io.File.class) ||
             width.getClass().equals(Integer.class) ||
-            width.getClass().equals(String.class) ) {
+            width.getClass().equals(String.class) ||
+            width.getClass().isEnum()) {
             map.put("width", width);
         } else if (isListOfFile(width)) {
             for(int i = 0; i< getListSize(width); i++) {
@@ -737,7 +743,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (height.getClass().equals(java.io.File.class) ||
             height.getClass().equals(Integer.class) ||
-            height.getClass().equals(String.class) ) {
+            height.getClass().equals(String.class) ||
+            height.getClass().isEnum()) {
             map.put("height", height);
         } else if (isListOfFile(height)) {
             for(int i = 0; i< getListSize(height); i++) {
@@ -755,7 +762,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (required.getClass().equals(java.io.File.class) ||
             required.getClass().equals(Integer.class) ||
-            required.getClass().equals(String.class) ) {
+            required.getClass().equals(String.class) ||
+            required.getClass().isEnum()) {
             map.put("required", required);
         } else if (isListOfFile(required)) {
             for(int i = 0; i< getListSize(required); i++) {
@@ -773,7 +781,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (apiId.getClass().equals(java.io.File.class) ||
             apiId.getClass().equals(Integer.class) ||
-            apiId.getClass().equals(String.class) ) {
+            apiId.getClass().equals(String.class) ||
+            apiId.getClass().isEnum()) {
             map.put("api_id", apiId);
         } else if (isListOfFile(apiId)) {
             for(int i = 0; i< getListSize(apiId); i++) {
@@ -791,7 +800,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (group.getClass().equals(java.io.File.class) ||
             group.getClass().equals(Integer.class) ||
-            group.getClass().equals(String.class) ) {
+            group.getClass().equals(String.class) ||
+            group.getClass().isEnum()) {
             map.put("group", group);
         } else if (isListOfFile(group)) {
             for(int i = 0; i< getListSize(group); i++) {
@@ -809,7 +819,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (avgTextLength.getClass().equals(java.io.File.class) ||
             avgTextLength.getClass().equals(Integer.class) ||
-            avgTextLength.getClass().equals(String.class) ) {
+            avgTextLength.getClass().equals(String.class) ||
+            avgTextLength.getClass().isEnum()) {
             map.put("avg_text_length", avgTextLength);
         } else if (isListOfFile(avgTextLength)) {
             for(int i = 0; i< getListSize(avgTextLength); i++) {
@@ -827,7 +838,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (isMultiline.getClass().equals(java.io.File.class) ||
             isMultiline.getClass().equals(Integer.class) ||
-            isMultiline.getClass().equals(String.class) ) {
+            isMultiline.getClass().equals(String.class) ||
+            isMultiline.getClass().isEnum()) {
             map.put("isMultiline", isMultiline);
         } else if (isListOfFile(isMultiline)) {
             for(int i = 0; i< getListSize(isMultiline); i++) {
@@ -845,7 +857,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (originalFontSize.getClass().equals(java.io.File.class) ||
             originalFontSize.getClass().equals(Integer.class) ||
-            originalFontSize.getClass().equals(String.class) ) {
+            originalFontSize.getClass().equals(String.class) ||
+            originalFontSize.getClass().isEnum()) {
             map.put("originalFontSize", originalFontSize);
         } else if (isListOfFile(originalFontSize)) {
             for(int i = 0; i< getListSize(originalFontSize); i++) {
@@ -863,7 +876,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (fontFamily.getClass().equals(java.io.File.class) ||
             fontFamily.getClass().equals(Integer.class) ||
-            fontFamily.getClass().equals(String.class) ) {
+            fontFamily.getClass().equals(String.class) ||
+            fontFamily.getClass().isEnum()) {
             map.put("fontFamily", fontFamily);
         } else if (isListOfFile(fontFamily)) {
             for(int i = 0; i< getListSize(fontFamily); i++) {
@@ -881,7 +895,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (namedFormFields.getClass().equals(java.io.File.class) ||
             namedFormFields.getClass().equals(Integer.class) ||
-            namedFormFields.getClass().equals(String.class) ) {
+            namedFormFields.getClass().equals(String.class) ||
+            namedFormFields.getClass().isEnum()) {
             map.put("named_form_fields", namedFormFields);
         } else if (isListOfFile(namedFormFields)) {
             for(int i = 0; i< getListSize(namedFormFields); i++) {
@@ -899,7 +914,8 @@ public class TemplateResponseDocumentCustomField {
 
         if (reusableFormId.getClass().equals(java.io.File.class) ||
             reusableFormId.getClass().equals(Integer.class) ||
-            reusableFormId.getClass().equals(String.class) ) {
+            reusableFormId.getClass().equals(String.class) ||
+            reusableFormId.getClass().isEnum()) {
             map.put("reusable_form_id", reusableFormId);
         } else if (isListOfFile(reusableFormId)) {
             for(int i = 0; i< getListSize(reusableFormId); i++) {

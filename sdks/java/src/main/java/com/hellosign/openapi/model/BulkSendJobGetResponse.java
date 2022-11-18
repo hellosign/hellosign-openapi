@@ -227,7 +227,8 @@ public class BulkSendJobGetResponse {
 
         if (bulkSendJob.getClass().equals(java.io.File.class) ||
             bulkSendJob.getClass().equals(Integer.class) ||
-            bulkSendJob.getClass().equals(String.class) ) {
+            bulkSendJob.getClass().equals(String.class) ||
+            bulkSendJob.getClass().isEnum()) {
             map.put("bulk_send_job", bulkSendJob);
         } else if (isListOfFile(bulkSendJob)) {
             for(int i = 0; i< getListSize(bulkSendJob); i++) {
@@ -245,7 +246,8 @@ public class BulkSendJobGetResponse {
 
         if (listInfo.getClass().equals(java.io.File.class) ||
             listInfo.getClass().equals(Integer.class) ||
-            listInfo.getClass().equals(String.class) ) {
+            listInfo.getClass().equals(String.class) ||
+            listInfo.getClass().isEnum()) {
             map.put("list_info", listInfo);
         } else if (isListOfFile(listInfo)) {
             for(int i = 0; i< getListSize(listInfo); i++) {
@@ -263,7 +265,8 @@ public class BulkSendJobGetResponse {
 
         if (signatureRequests.getClass().equals(java.io.File.class) ||
             signatureRequests.getClass().equals(Integer.class) ||
-            signatureRequests.getClass().equals(String.class) ) {
+            signatureRequests.getClass().equals(String.class) ||
+            signatureRequests.getClass().isEnum()) {
             map.put("signature_requests", signatureRequests);
         } else if (isListOfFile(signatureRequests)) {
             for(int i = 0; i< getListSize(signatureRequests); i++) {
@@ -281,7 +284,8 @@ public class BulkSendJobGetResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

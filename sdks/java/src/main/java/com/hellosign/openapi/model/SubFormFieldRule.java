@@ -219,7 +219,8 @@ public class SubFormFieldRule {
 
         if (id.getClass().equals(java.io.File.class) ||
             id.getClass().equals(Integer.class) ||
-            id.getClass().equals(String.class) ) {
+            id.getClass().equals(String.class) ||
+            id.getClass().isEnum()) {
             map.put("id", id);
         } else if (isListOfFile(id)) {
             for(int i = 0; i< getListSize(id); i++) {
@@ -237,7 +238,8 @@ public class SubFormFieldRule {
 
         if (triggerOperator.getClass().equals(java.io.File.class) ||
             triggerOperator.getClass().equals(Integer.class) ||
-            triggerOperator.getClass().equals(String.class) ) {
+            triggerOperator.getClass().equals(String.class) ||
+            triggerOperator.getClass().isEnum()) {
             map.put("trigger_operator", triggerOperator);
         } else if (isListOfFile(triggerOperator)) {
             for(int i = 0; i< getListSize(triggerOperator); i++) {
@@ -255,7 +257,8 @@ public class SubFormFieldRule {
 
         if (triggers.getClass().equals(java.io.File.class) ||
             triggers.getClass().equals(Integer.class) ||
-            triggers.getClass().equals(String.class) ) {
+            triggers.getClass().equals(String.class) ||
+            triggers.getClass().isEnum()) {
             map.put("triggers", triggers);
         } else if (isListOfFile(triggers)) {
             for(int i = 0; i< getListSize(triggers); i++) {
@@ -273,7 +276,8 @@ public class SubFormFieldRule {
 
         if (actions.getClass().equals(java.io.File.class) ||
             actions.getClass().equals(Integer.class) ||
-            actions.getClass().equals(String.class) ) {
+            actions.getClass().equals(String.class) ||
+            actions.getClass().isEnum()) {
             map.put("actions", actions);
         } else if (isListOfFile(actions)) {
             for(int i = 0; i< getListSize(actions); i++) {

@@ -194,7 +194,8 @@ public class ApiAppListResponse {
 
         if (apiApps.getClass().equals(java.io.File.class) ||
             apiApps.getClass().equals(Integer.class) ||
-            apiApps.getClass().equals(String.class) ) {
+            apiApps.getClass().equals(String.class) ||
+            apiApps.getClass().isEnum()) {
             map.put("api_apps", apiApps);
         } else if (isListOfFile(apiApps)) {
             for(int i = 0; i< getListSize(apiApps); i++) {
@@ -212,7 +213,8 @@ public class ApiAppListResponse {
 
         if (listInfo.getClass().equals(java.io.File.class) ||
             listInfo.getClass().equals(Integer.class) ||
-            listInfo.getClass().equals(String.class) ) {
+            listInfo.getClass().equals(String.class) ||
+            listInfo.getClass().isEnum()) {
             map.put("list_info", listInfo);
         } else if (isListOfFile(listInfo)) {
             for(int i = 0; i< getListSize(listInfo); i++) {
@@ -230,7 +232,8 @@ public class ApiAppListResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

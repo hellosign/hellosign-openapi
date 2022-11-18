@@ -142,7 +142,8 @@ public class EmbeddedEditUrlResponseEmbedded {
 
         if (editUrl.getClass().equals(java.io.File.class) ||
             editUrl.getClass().equals(Integer.class) ||
-            editUrl.getClass().equals(String.class) ) {
+            editUrl.getClass().equals(String.class) ||
+            editUrl.getClass().isEnum()) {
             map.put("edit_url", editUrl);
         } else if (isListOfFile(editUrl)) {
             for(int i = 0; i< getListSize(editUrl); i++) {
@@ -160,7 +161,8 @@ public class EmbeddedEditUrlResponseEmbedded {
 
         if (expiresAt.getClass().equals(java.io.File.class) ||
             expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ) {
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
             map.put("expires_at", expiresAt);
         } else if (isListOfFile(expiresAt)) {
             for(int i = 0; i< getListSize(expiresAt); i++) {

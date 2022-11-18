@@ -109,7 +109,8 @@ public class TemplateEditResponse {
 
         if (templateId.getClass().equals(java.io.File.class) ||
             templateId.getClass().equals(Integer.class) ||
-            templateId.getClass().equals(String.class) ) {
+            templateId.getClass().equals(String.class) ||
+            templateId.getClass().isEnum()) {
             map.put("template_id", templateId);
         } else if (isListOfFile(templateId)) {
             for(int i = 0; i< getListSize(templateId); i++) {

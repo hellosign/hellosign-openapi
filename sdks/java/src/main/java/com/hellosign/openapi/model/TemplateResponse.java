@@ -616,7 +616,8 @@ public class TemplateResponse {
 
         if (templateId.getClass().equals(java.io.File.class) ||
             templateId.getClass().equals(Integer.class) ||
-            templateId.getClass().equals(String.class) ) {
+            templateId.getClass().equals(String.class) ||
+            templateId.getClass().isEnum()) {
             map.put("template_id", templateId);
         } else if (isListOfFile(templateId)) {
             for(int i = 0; i< getListSize(templateId); i++) {
@@ -634,7 +635,8 @@ public class TemplateResponse {
 
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
-            title.getClass().equals(String.class) ) {
+            title.getClass().equals(String.class) ||
+            title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
             for(int i = 0; i< getListSize(title); i++) {
@@ -652,7 +654,8 @@ public class TemplateResponse {
 
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ) {
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
             for(int i = 0; i< getListSize(message); i++) {
@@ -670,7 +673,8 @@ public class TemplateResponse {
 
         if (updatedAt.getClass().equals(java.io.File.class) ||
             updatedAt.getClass().equals(Integer.class) ||
-            updatedAt.getClass().equals(String.class) ) {
+            updatedAt.getClass().equals(String.class) ||
+            updatedAt.getClass().isEnum()) {
             map.put("updated_at", updatedAt);
         } else if (isListOfFile(updatedAt)) {
             for(int i = 0; i< getListSize(updatedAt); i++) {
@@ -688,7 +692,8 @@ public class TemplateResponse {
 
         if (isEmbedded.getClass().equals(java.io.File.class) ||
             isEmbedded.getClass().equals(Integer.class) ||
-            isEmbedded.getClass().equals(String.class) ) {
+            isEmbedded.getClass().equals(String.class) ||
+            isEmbedded.getClass().isEnum()) {
             map.put("is_embedded", isEmbedded);
         } else if (isListOfFile(isEmbedded)) {
             for(int i = 0; i< getListSize(isEmbedded); i++) {
@@ -706,7 +711,8 @@ public class TemplateResponse {
 
         if (isCreator.getClass().equals(java.io.File.class) ||
             isCreator.getClass().equals(Integer.class) ||
-            isCreator.getClass().equals(String.class) ) {
+            isCreator.getClass().equals(String.class) ||
+            isCreator.getClass().isEnum()) {
             map.put("is_creator", isCreator);
         } else if (isListOfFile(isCreator)) {
             for(int i = 0; i< getListSize(isCreator); i++) {
@@ -724,7 +730,8 @@ public class TemplateResponse {
 
         if (canEdit.getClass().equals(java.io.File.class) ||
             canEdit.getClass().equals(Integer.class) ||
-            canEdit.getClass().equals(String.class) ) {
+            canEdit.getClass().equals(String.class) ||
+            canEdit.getClass().isEnum()) {
             map.put("can_edit", canEdit);
         } else if (isListOfFile(canEdit)) {
             for(int i = 0; i< getListSize(canEdit); i++) {
@@ -742,7 +749,8 @@ public class TemplateResponse {
 
         if (isLocked.getClass().equals(java.io.File.class) ||
             isLocked.getClass().equals(Integer.class) ||
-            isLocked.getClass().equals(String.class) ) {
+            isLocked.getClass().equals(String.class) ||
+            isLocked.getClass().isEnum()) {
             map.put("is_locked", isLocked);
         } else if (isListOfFile(isLocked)) {
             for(int i = 0; i< getListSize(isLocked); i++) {
@@ -760,7 +768,8 @@ public class TemplateResponse {
 
         if (metadata.getClass().equals(java.io.File.class) ||
             metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ) {
+            metadata.getClass().equals(String.class) ||
+            metadata.getClass().isEnum()) {
             map.put("metadata", metadata);
         } else if (isListOfFile(metadata)) {
             for(int i = 0; i< getListSize(metadata); i++) {
@@ -778,7 +787,8 @@ public class TemplateResponse {
 
         if (signerRoles.getClass().equals(java.io.File.class) ||
             signerRoles.getClass().equals(Integer.class) ||
-            signerRoles.getClass().equals(String.class) ) {
+            signerRoles.getClass().equals(String.class) ||
+            signerRoles.getClass().isEnum()) {
             map.put("signer_roles", signerRoles);
         } else if (isListOfFile(signerRoles)) {
             for(int i = 0; i< getListSize(signerRoles); i++) {
@@ -796,7 +806,8 @@ public class TemplateResponse {
 
         if (ccRoles.getClass().equals(java.io.File.class) ||
             ccRoles.getClass().equals(Integer.class) ||
-            ccRoles.getClass().equals(String.class) ) {
+            ccRoles.getClass().equals(String.class) ||
+            ccRoles.getClass().isEnum()) {
             map.put("cc_roles", ccRoles);
         } else if (isListOfFile(ccRoles)) {
             for(int i = 0; i< getListSize(ccRoles); i++) {
@@ -814,7 +825,8 @@ public class TemplateResponse {
 
         if (documents.getClass().equals(java.io.File.class) ||
             documents.getClass().equals(Integer.class) ||
-            documents.getClass().equals(String.class) ) {
+            documents.getClass().equals(String.class) ||
+            documents.getClass().isEnum()) {
             map.put("documents", documents);
         } else if (isListOfFile(documents)) {
             for(int i = 0; i< getListSize(documents); i++) {
@@ -832,7 +844,8 @@ public class TemplateResponse {
 
         if (customFields.getClass().equals(java.io.File.class) ||
             customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ) {
+            customFields.getClass().equals(String.class) ||
+            customFields.getClass().isEnum()) {
             map.put("custom_fields", customFields);
         } else if (isListOfFile(customFields)) {
             for(int i = 0; i< getListSize(customFields); i++) {
@@ -850,7 +863,8 @@ public class TemplateResponse {
 
         if (namedFormFields.getClass().equals(java.io.File.class) ||
             namedFormFields.getClass().equals(Integer.class) ||
-            namedFormFields.getClass().equals(String.class) ) {
+            namedFormFields.getClass().equals(String.class) ||
+            namedFormFields.getClass().isEnum()) {
             map.put("named_form_fields", namedFormFields);
         } else if (isListOfFile(namedFormFields)) {
             for(int i = 0; i< getListSize(namedFormFields); i++) {
@@ -868,7 +882,8 @@ public class TemplateResponse {
 
         if (accounts.getClass().equals(java.io.File.class) ||
             accounts.getClass().equals(Integer.class) ||
-            accounts.getClass().equals(String.class) ) {
+            accounts.getClass().equals(String.class) ||
+            accounts.getClass().isEnum()) {
             map.put("accounts", accounts);
         } else if (isListOfFile(accounts)) {
             for(int i = 0; i< getListSize(accounts); i++) {

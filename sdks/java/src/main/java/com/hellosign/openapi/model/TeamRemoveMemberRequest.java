@@ -276,7 +276,8 @@ public class TeamRemoveMemberRequest {
 
         if (accountId.getClass().equals(java.io.File.class) ||
             accountId.getClass().equals(Integer.class) ||
-            accountId.getClass().equals(String.class) ) {
+            accountId.getClass().equals(String.class) ||
+            accountId.getClass().isEnum()) {
             map.put("account_id", accountId);
         } else if (isListOfFile(accountId)) {
             for(int i = 0; i< getListSize(accountId); i++) {
@@ -294,7 +295,8 @@ public class TeamRemoveMemberRequest {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {
@@ -312,7 +314,8 @@ public class TeamRemoveMemberRequest {
 
         if (newOwnerEmailAddress.getClass().equals(java.io.File.class) ||
             newOwnerEmailAddress.getClass().equals(Integer.class) ||
-            newOwnerEmailAddress.getClass().equals(String.class) ) {
+            newOwnerEmailAddress.getClass().equals(String.class) ||
+            newOwnerEmailAddress.getClass().isEnum()) {
             map.put("new_owner_email_address", newOwnerEmailAddress);
         } else if (isListOfFile(newOwnerEmailAddress)) {
             for(int i = 0; i< getListSize(newOwnerEmailAddress); i++) {
@@ -330,7 +333,8 @@ public class TeamRemoveMemberRequest {
 
         if (newTeamId.getClass().equals(java.io.File.class) ||
             newTeamId.getClass().equals(Integer.class) ||
-            newTeamId.getClass().equals(String.class) ) {
+            newTeamId.getClass().equals(String.class) ||
+            newTeamId.getClass().isEnum()) {
             map.put("new_team_id", newTeamId);
         } else if (isListOfFile(newTeamId)) {
             for(int i = 0; i< getListSize(newTeamId); i++) {
@@ -348,7 +352,8 @@ public class TeamRemoveMemberRequest {
 
         if (newRole.getClass().equals(java.io.File.class) ||
             newRole.getClass().equals(Integer.class) ||
-            newRole.getClass().equals(String.class) ) {
+            newRole.getClass().equals(String.class) ||
+            newRole.getClass().isEnum()) {
             map.put("new_role", newRole);
         } else if (isListOfFile(newRole)) {
             for(int i = 0; i< getListSize(newRole); i++) {

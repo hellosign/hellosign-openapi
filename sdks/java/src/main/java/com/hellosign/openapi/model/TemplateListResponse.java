@@ -194,7 +194,8 @@ public class TemplateListResponse {
 
         if (templates.getClass().equals(java.io.File.class) ||
             templates.getClass().equals(Integer.class) ||
-            templates.getClass().equals(String.class) ) {
+            templates.getClass().equals(String.class) ||
+            templates.getClass().isEnum()) {
             map.put("templates", templates);
         } else if (isListOfFile(templates)) {
             for(int i = 0; i< getListSize(templates); i++) {
@@ -212,7 +213,8 @@ public class TemplateListResponse {
 
         if (listInfo.getClass().equals(java.io.File.class) ||
             listInfo.getClass().equals(Integer.class) ||
-            listInfo.getClass().equals(String.class) ) {
+            listInfo.getClass().equals(String.class) ||
+            listInfo.getClass().isEnum()) {
             map.put("list_info", listInfo);
         } else if (isListOfFile(listInfo)) {
             for(int i = 0; i< getListSize(listInfo); i++) {
@@ -230,7 +232,8 @@ public class TemplateListResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

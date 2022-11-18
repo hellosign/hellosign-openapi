@@ -216,7 +216,8 @@ public class ApiAppResponseOAuth {
 
         if (callbackUrl.getClass().equals(java.io.File.class) ||
             callbackUrl.getClass().equals(Integer.class) ||
-            callbackUrl.getClass().equals(String.class) ) {
+            callbackUrl.getClass().equals(String.class) ||
+            callbackUrl.getClass().isEnum()) {
             map.put("callback_url", callbackUrl);
         } else if (isListOfFile(callbackUrl)) {
             for(int i = 0; i< getListSize(callbackUrl); i++) {
@@ -234,7 +235,8 @@ public class ApiAppResponseOAuth {
 
         if (secret.getClass().equals(java.io.File.class) ||
             secret.getClass().equals(Integer.class) ||
-            secret.getClass().equals(String.class) ) {
+            secret.getClass().equals(String.class) ||
+            secret.getClass().isEnum()) {
             map.put("secret", secret);
         } else if (isListOfFile(secret)) {
             for(int i = 0; i< getListSize(secret); i++) {
@@ -252,7 +254,8 @@ public class ApiAppResponseOAuth {
 
         if (scopes.getClass().equals(java.io.File.class) ||
             scopes.getClass().equals(Integer.class) ||
-            scopes.getClass().equals(String.class) ) {
+            scopes.getClass().equals(String.class) ||
+            scopes.getClass().isEnum()) {
             map.put("scopes", scopes);
         } else if (isListOfFile(scopes)) {
             for(int i = 0; i< getListSize(scopes); i++) {
@@ -270,7 +273,8 @@ public class ApiAppResponseOAuth {
 
         if (chargesUsers.getClass().equals(java.io.File.class) ||
             chargesUsers.getClass().equals(Integer.class) ||
-            chargesUsers.getClass().equals(String.class) ) {
+            chargesUsers.getClass().equals(String.class) ||
+            chargesUsers.getClass().isEnum()) {
             map.put("charges_users", chargesUsers);
         } else if (isListOfFile(chargesUsers)) {
             for(int i = 0; i< getListSize(chargesUsers); i++) {

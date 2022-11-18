@@ -206,7 +206,8 @@ public class EventCallbackRequestEventMetadata {
 
         if (relatedSignatureId.getClass().equals(java.io.File.class) ||
             relatedSignatureId.getClass().equals(Integer.class) ||
-            relatedSignatureId.getClass().equals(String.class) ) {
+            relatedSignatureId.getClass().equals(String.class) ||
+            relatedSignatureId.getClass().isEnum()) {
             map.put("related_signature_id", relatedSignatureId);
         } else if (isListOfFile(relatedSignatureId)) {
             for(int i = 0; i< getListSize(relatedSignatureId); i++) {
@@ -224,7 +225,8 @@ public class EventCallbackRequestEventMetadata {
 
         if (reportedForAccountId.getClass().equals(java.io.File.class) ||
             reportedForAccountId.getClass().equals(Integer.class) ||
-            reportedForAccountId.getClass().equals(String.class) ) {
+            reportedForAccountId.getClass().equals(String.class) ||
+            reportedForAccountId.getClass().isEnum()) {
             map.put("reported_for_account_id", reportedForAccountId);
         } else if (isListOfFile(reportedForAccountId)) {
             for(int i = 0; i< getListSize(reportedForAccountId); i++) {
@@ -242,7 +244,8 @@ public class EventCallbackRequestEventMetadata {
 
         if (reportedForAppId.getClass().equals(java.io.File.class) ||
             reportedForAppId.getClass().equals(Integer.class) ||
-            reportedForAppId.getClass().equals(String.class) ) {
+            reportedForAppId.getClass().equals(String.class) ||
+            reportedForAppId.getClass().isEnum()) {
             map.put("reported_for_app_id", reportedForAppId);
         } else if (isListOfFile(reportedForAppId)) {
             for(int i = 0; i< getListSize(reportedForAppId); i++) {
@@ -260,7 +263,8 @@ public class EventCallbackRequestEventMetadata {
 
         if (eventMessage.getClass().equals(java.io.File.class) ||
             eventMessage.getClass().equals(Integer.class) ||
-            eventMessage.getClass().equals(String.class) ) {
+            eventMessage.getClass().equals(String.class) ||
+            eventMessage.getClass().isEnum()) {
             map.put("event_message", eventMessage);
         } else if (isListOfFile(eventMessage)) {
             for(int i = 0; i< getListSize(eventMessage); i++) {

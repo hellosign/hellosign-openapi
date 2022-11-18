@@ -110,7 +110,8 @@ public class EventCallbackAccountRequest {
 
         if (json.getClass().equals(java.io.File.class) ||
             json.getClass().equals(Integer.class) ||
-            json.getClass().equals(String.class) ) {
+            json.getClass().equals(String.class) ||
+            json.getClass().isEnum()) {
             map.put("json", json);
         } else if (isListOfFile(json)) {
             for(int i = 0; i< getListSize(json); i++) {

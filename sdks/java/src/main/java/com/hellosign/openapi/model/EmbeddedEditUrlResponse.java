@@ -153,7 +153,8 @@ public class EmbeddedEditUrlResponse {
 
         if (embedded.getClass().equals(java.io.File.class) ||
             embedded.getClass().equals(Integer.class) ||
-            embedded.getClass().equals(String.class) ) {
+            embedded.getClass().equals(String.class) ||
+            embedded.getClass().isEnum()) {
             map.put("embedded", embedded);
         } else if (isListOfFile(embedded)) {
             for(int i = 0; i< getListSize(embedded); i++) {
@@ -171,7 +172,8 @@ public class EmbeddedEditUrlResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

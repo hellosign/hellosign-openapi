@@ -141,7 +141,8 @@ public class SubTemplateRole {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -159,7 +160,8 @@ public class SubTemplateRole {
 
         if (order.getClass().equals(java.io.File.class) ||
             order.getClass().equals(Integer.class) ||
-            order.getClass().equals(String.class) ) {
+            order.getClass().equals(String.class) ||
+            order.getClass().isEnum()) {
             map.put("order", order);
         } else if (isListOfFile(order)) {
             for(int i = 0; i< getListSize(order); i++) {

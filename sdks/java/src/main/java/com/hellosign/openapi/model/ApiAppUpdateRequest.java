@@ -315,7 +315,8 @@ public class ApiAppUpdateRequest {
 
         if (callbackUrl.getClass().equals(java.io.File.class) ||
             callbackUrl.getClass().equals(Integer.class) ||
-            callbackUrl.getClass().equals(String.class) ) {
+            callbackUrl.getClass().equals(String.class) ||
+            callbackUrl.getClass().isEnum()) {
             map.put("callback_url", callbackUrl);
         } else if (isListOfFile(callbackUrl)) {
             for(int i = 0; i< getListSize(callbackUrl); i++) {
@@ -333,7 +334,8 @@ public class ApiAppUpdateRequest {
 
         if (customLogoFile.getClass().equals(java.io.File.class) ||
             customLogoFile.getClass().equals(Integer.class) ||
-            customLogoFile.getClass().equals(String.class) ) {
+            customLogoFile.getClass().equals(String.class) ||
+            customLogoFile.getClass().isEnum()) {
             map.put("custom_logo_file", customLogoFile);
         } else if (isListOfFile(customLogoFile)) {
             for(int i = 0; i< getListSize(customLogoFile); i++) {
@@ -351,7 +353,8 @@ public class ApiAppUpdateRequest {
 
         if (domains.getClass().equals(java.io.File.class) ||
             domains.getClass().equals(Integer.class) ||
-            domains.getClass().equals(String.class) ) {
+            domains.getClass().equals(String.class) ||
+            domains.getClass().isEnum()) {
             map.put("domains", domains);
         } else if (isListOfFile(domains)) {
             for(int i = 0; i< getListSize(domains); i++) {
@@ -369,7 +372,8 @@ public class ApiAppUpdateRequest {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -387,7 +391,8 @@ public class ApiAppUpdateRequest {
 
         if (oauth.getClass().equals(java.io.File.class) ||
             oauth.getClass().equals(Integer.class) ||
-            oauth.getClass().equals(String.class) ) {
+            oauth.getClass().equals(String.class) ||
+            oauth.getClass().isEnum()) {
             map.put("oauth", oauth);
         } else if (isListOfFile(oauth)) {
             for(int i = 0; i< getListSize(oauth); i++) {
@@ -405,7 +410,8 @@ public class ApiAppUpdateRequest {
 
         if (options.getClass().equals(java.io.File.class) ||
             options.getClass().equals(Integer.class) ||
-            options.getClass().equals(String.class) ) {
+            options.getClass().equals(String.class) ||
+            options.getClass().isEnum()) {
             map.put("options", options);
         } else if (isListOfFile(options)) {
             for(int i = 0; i< getListSize(options); i++) {
@@ -423,7 +429,8 @@ public class ApiAppUpdateRequest {
 
         if (whiteLabelingOptions.getClass().equals(java.io.File.class) ||
             whiteLabelingOptions.getClass().equals(Integer.class) ||
-            whiteLabelingOptions.getClass().equals(String.class) ) {
+            whiteLabelingOptions.getClass().equals(String.class) ||
+            whiteLabelingOptions.getClass().isEnum()) {
             map.put("white_labeling_options", whiteLabelingOptions);
         } else if (isListOfFile(whiteLabelingOptions)) {
             for(int i = 0; i< getListSize(whiteLabelingOptions); i++) {

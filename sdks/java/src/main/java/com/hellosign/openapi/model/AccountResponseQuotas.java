@@ -206,7 +206,8 @@ public class AccountResponseQuotas {
 
         if (apiSignatureRequestsLeft.getClass().equals(java.io.File.class) ||
             apiSignatureRequestsLeft.getClass().equals(Integer.class) ||
-            apiSignatureRequestsLeft.getClass().equals(String.class) ) {
+            apiSignatureRequestsLeft.getClass().equals(String.class) ||
+            apiSignatureRequestsLeft.getClass().isEnum()) {
             map.put("api_signature_requests_left", apiSignatureRequestsLeft);
         } else if (isListOfFile(apiSignatureRequestsLeft)) {
             for(int i = 0; i< getListSize(apiSignatureRequestsLeft); i++) {
@@ -224,7 +225,8 @@ public class AccountResponseQuotas {
 
         if (documentsLeft.getClass().equals(java.io.File.class) ||
             documentsLeft.getClass().equals(Integer.class) ||
-            documentsLeft.getClass().equals(String.class) ) {
+            documentsLeft.getClass().equals(String.class) ||
+            documentsLeft.getClass().isEnum()) {
             map.put("documents_left", documentsLeft);
         } else if (isListOfFile(documentsLeft)) {
             for(int i = 0; i< getListSize(documentsLeft); i++) {
@@ -242,7 +244,8 @@ public class AccountResponseQuotas {
 
         if (templatesLeft.getClass().equals(java.io.File.class) ||
             templatesLeft.getClass().equals(Integer.class) ||
-            templatesLeft.getClass().equals(String.class) ) {
+            templatesLeft.getClass().equals(String.class) ||
+            templatesLeft.getClass().isEnum()) {
             map.put("templates_left", templatesLeft);
         } else if (isListOfFile(templatesLeft)) {
             for(int i = 0; i< getListSize(templatesLeft); i++) {
@@ -260,7 +263,8 @@ public class AccountResponseQuotas {
 
         if (smsVerificationsLeft.getClass().equals(java.io.File.class) ||
             smsVerificationsLeft.getClass().equals(Integer.class) ||
-            smsVerificationsLeft.getClass().equals(String.class) ) {
+            smsVerificationsLeft.getClass().equals(String.class) ||
+            smsVerificationsLeft.getClass().isEnum()) {
             map.put("sms_verifications_left", smsVerificationsLeft);
         } else if (isListOfFile(smsVerificationsLeft)) {
             for(int i = 0; i< getListSize(smsVerificationsLeft); i++) {

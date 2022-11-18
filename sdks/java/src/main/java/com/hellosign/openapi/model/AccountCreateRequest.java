@@ -205,7 +205,8 @@ public class AccountCreateRequest {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {
@@ -223,7 +224,8 @@ public class AccountCreateRequest {
 
         if (clientId.getClass().equals(java.io.File.class) ||
             clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ) {
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
             map.put("client_id", clientId);
         } else if (isListOfFile(clientId)) {
             for(int i = 0; i< getListSize(clientId); i++) {
@@ -241,7 +243,8 @@ public class AccountCreateRequest {
 
         if (clientSecret.getClass().equals(java.io.File.class) ||
             clientSecret.getClass().equals(Integer.class) ||
-            clientSecret.getClass().equals(String.class) ) {
+            clientSecret.getClass().equals(String.class) ||
+            clientSecret.getClass().isEnum()) {
             map.put("client_secret", clientSecret);
         } else if (isListOfFile(clientSecret)) {
             for(int i = 0; i< getListSize(clientSecret); i++) {
@@ -259,7 +262,8 @@ public class AccountCreateRequest {
 
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
-            locale.getClass().equals(String.class) ) {
+            locale.getClass().equals(String.class) ||
+            locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
             for(int i = 0; i< getListSize(locale); i++) {
