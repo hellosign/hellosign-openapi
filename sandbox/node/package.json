@@ -1,0 +1,17 @@
+{
+  "name": "hellosign-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "hellosign-sdk": "file:./artifacts/hellosign-sdk.tgz",
+    "@types/node": "^17.0.10",
+    "ts-node": "^10.4.0",
+    "typescript": "^3.9.5"
+  },
+  "author": "",
+  "license": "ISC"
+}
