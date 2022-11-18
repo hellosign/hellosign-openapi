@@ -141,7 +141,8 @@ public class SubCC {
 
         if (role.getClass().equals(java.io.File.class) ||
             role.getClass().equals(Integer.class) ||
-            role.getClass().equals(String.class) ) {
+            role.getClass().equals(String.class) ||
+            role.getClass().isEnum()) {
             map.put("role", role);
         } else if (isListOfFile(role)) {
             for(int i = 0; i< getListSize(role); i++) {
@@ -159,7 +160,8 @@ public class SubCC {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {

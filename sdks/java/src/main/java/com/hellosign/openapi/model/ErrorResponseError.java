@@ -174,7 +174,8 @@ public class ErrorResponseError {
 
         if (errorMsg.getClass().equals(java.io.File.class) ||
             errorMsg.getClass().equals(Integer.class) ||
-            errorMsg.getClass().equals(String.class) ) {
+            errorMsg.getClass().equals(String.class) ||
+            errorMsg.getClass().isEnum()) {
             map.put("error_msg", errorMsg);
         } else if (isListOfFile(errorMsg)) {
             for(int i = 0; i< getListSize(errorMsg); i++) {
@@ -192,7 +193,8 @@ public class ErrorResponseError {
 
         if (errorName.getClass().equals(java.io.File.class) ||
             errorName.getClass().equals(Integer.class) ||
-            errorName.getClass().equals(String.class) ) {
+            errorName.getClass().equals(String.class) ||
+            errorName.getClass().isEnum()) {
             map.put("error_name", errorName);
         } else if (isListOfFile(errorName)) {
             for(int i = 0; i< getListSize(errorName); i++) {
@@ -210,7 +212,8 @@ public class ErrorResponseError {
 
         if (errorPath.getClass().equals(java.io.File.class) ||
             errorPath.getClass().equals(Integer.class) ||
-            errorPath.getClass().equals(String.class) ) {
+            errorPath.getClass().equals(String.class) ||
+            errorPath.getClass().isEnum()) {
             map.put("error_path", errorPath);
         } else if (isListOfFile(errorPath)) {
             for(int i = 0; i< getListSize(errorPath); i++) {

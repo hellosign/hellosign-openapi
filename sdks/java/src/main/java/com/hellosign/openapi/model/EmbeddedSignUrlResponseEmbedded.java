@@ -142,7 +142,8 @@ public class EmbeddedSignUrlResponseEmbedded {
 
         if (signUrl.getClass().equals(java.io.File.class) ||
             signUrl.getClass().equals(Integer.class) ||
-            signUrl.getClass().equals(String.class) ) {
+            signUrl.getClass().equals(String.class) ||
+            signUrl.getClass().isEnum()) {
             map.put("sign_url", signUrl);
         } else if (isListOfFile(signUrl)) {
             for(int i = 0; i< getListSize(signUrl); i++) {
@@ -160,7 +161,8 @@ public class EmbeddedSignUrlResponseEmbedded {
 
         if (expiresAt.getClass().equals(java.io.File.class) ||
             expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ) {
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
             map.put("expires_at", expiresAt);
         } else if (isListOfFile(expiresAt)) {
             for(int i = 0; i< getListSize(expiresAt); i++) {

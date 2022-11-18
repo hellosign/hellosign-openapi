@@ -970,7 +970,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (clientId.getClass().equals(java.io.File.class) ||
             clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ) {
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
             map.put("client_id", clientId);
         } else if (isListOfFile(clientId)) {
             for(int i = 0; i< getListSize(clientId); i++) {
@@ -988,7 +989,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (file.getClass().equals(java.io.File.class) ||
             file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ) {
+            file.getClass().equals(String.class) ||
+            file.getClass().isEnum()) {
             map.put("file", file);
         } else if (isListOfFile(file)) {
             for(int i = 0; i< getListSize(file); i++) {
@@ -1006,7 +1008,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (fileUrl.getClass().equals(java.io.File.class) ||
             fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ) {
+            fileUrl.getClass().equals(String.class) ||
+            fileUrl.getClass().isEnum()) {
             map.put("file_url", fileUrl);
         } else if (isListOfFile(fileUrl)) {
             for(int i = 0; i< getListSize(fileUrl); i++) {
@@ -1024,7 +1027,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (allowCcs.getClass().equals(java.io.File.class) ||
             allowCcs.getClass().equals(Integer.class) ||
-            allowCcs.getClass().equals(String.class) ) {
+            allowCcs.getClass().equals(String.class) ||
+            allowCcs.getClass().isEnum()) {
             map.put("allow_ccs", allowCcs);
         } else if (isListOfFile(allowCcs)) {
             for(int i = 0; i< getListSize(allowCcs); i++) {
@@ -1042,7 +1046,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (allowReassign.getClass().equals(java.io.File.class) ||
             allowReassign.getClass().equals(Integer.class) ||
-            allowReassign.getClass().equals(String.class) ) {
+            allowReassign.getClass().equals(String.class) ||
+            allowReassign.getClass().isEnum()) {
             map.put("allow_reassign", allowReassign);
         } else if (isListOfFile(allowReassign)) {
             for(int i = 0; i< getListSize(allowReassign); i++) {
@@ -1060,7 +1065,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (attachments.getClass().equals(java.io.File.class) ||
             attachments.getClass().equals(Integer.class) ||
-            attachments.getClass().equals(String.class) ) {
+            attachments.getClass().equals(String.class) ||
+            attachments.getClass().isEnum()) {
             map.put("attachments", attachments);
         } else if (isListOfFile(attachments)) {
             for(int i = 0; i< getListSize(attachments); i++) {
@@ -1078,7 +1084,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (ccRoles.getClass().equals(java.io.File.class) ||
             ccRoles.getClass().equals(Integer.class) ||
-            ccRoles.getClass().equals(String.class) ) {
+            ccRoles.getClass().equals(String.class) ||
+            ccRoles.getClass().isEnum()) {
             map.put("cc_roles", ccRoles);
         } else if (isListOfFile(ccRoles)) {
             for(int i = 0; i< getListSize(ccRoles); i++) {
@@ -1096,7 +1103,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (editorOptions.getClass().equals(java.io.File.class) ||
             editorOptions.getClass().equals(Integer.class) ||
-            editorOptions.getClass().equals(String.class) ) {
+            editorOptions.getClass().equals(String.class) ||
+            editorOptions.getClass().isEnum()) {
             map.put("editor_options", editorOptions);
         } else if (isListOfFile(editorOptions)) {
             for(int i = 0; i< getListSize(editorOptions); i++) {
@@ -1114,7 +1122,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (fieldOptions.getClass().equals(java.io.File.class) ||
             fieldOptions.getClass().equals(Integer.class) ||
-            fieldOptions.getClass().equals(String.class) ) {
+            fieldOptions.getClass().equals(String.class) ||
+            fieldOptions.getClass().isEnum()) {
             map.put("field_options", fieldOptions);
         } else if (isListOfFile(fieldOptions)) {
             for(int i = 0; i< getListSize(fieldOptions); i++) {
@@ -1132,7 +1141,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (forceSignerRoles.getClass().equals(java.io.File.class) ||
             forceSignerRoles.getClass().equals(Integer.class) ||
-            forceSignerRoles.getClass().equals(String.class) ) {
+            forceSignerRoles.getClass().equals(String.class) ||
+            forceSignerRoles.getClass().isEnum()) {
             map.put("force_signer_roles", forceSignerRoles);
         } else if (isListOfFile(forceSignerRoles)) {
             for(int i = 0; i< getListSize(forceSignerRoles); i++) {
@@ -1150,7 +1160,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (forceSubjectMessage.getClass().equals(java.io.File.class) ||
             forceSubjectMessage.getClass().equals(Integer.class) ||
-            forceSubjectMessage.getClass().equals(String.class) ) {
+            forceSubjectMessage.getClass().equals(String.class) ||
+            forceSubjectMessage.getClass().isEnum()) {
             map.put("force_subject_message", forceSubjectMessage);
         } else if (isListOfFile(forceSubjectMessage)) {
             for(int i = 0; i< getListSize(forceSubjectMessage); i++) {
@@ -1168,7 +1179,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (formFieldGroups.getClass().equals(java.io.File.class) ||
             formFieldGroups.getClass().equals(Integer.class) ||
-            formFieldGroups.getClass().equals(String.class) ) {
+            formFieldGroups.getClass().equals(String.class) ||
+            formFieldGroups.getClass().isEnum()) {
             map.put("form_field_groups", formFieldGroups);
         } else if (isListOfFile(formFieldGroups)) {
             for(int i = 0; i< getListSize(formFieldGroups); i++) {
@@ -1186,7 +1198,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (formFieldRules.getClass().equals(java.io.File.class) ||
             formFieldRules.getClass().equals(Integer.class) ||
-            formFieldRules.getClass().equals(String.class) ) {
+            formFieldRules.getClass().equals(String.class) ||
+            formFieldRules.getClass().isEnum()) {
             map.put("form_field_rules", formFieldRules);
         } else if (isListOfFile(formFieldRules)) {
             for(int i = 0; i< getListSize(formFieldRules); i++) {
@@ -1204,7 +1217,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (formFieldsPerDocument.getClass().equals(java.io.File.class) ||
             formFieldsPerDocument.getClass().equals(Integer.class) ||
-            formFieldsPerDocument.getClass().equals(String.class) ) {
+            formFieldsPerDocument.getClass().equals(String.class) ||
+            formFieldsPerDocument.getClass().isEnum()) {
             map.put("form_fields_per_document", formFieldsPerDocument);
         } else if (isListOfFile(formFieldsPerDocument)) {
             for(int i = 0; i< getListSize(formFieldsPerDocument); i++) {
@@ -1222,7 +1236,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (mergeFields.getClass().equals(java.io.File.class) ||
             mergeFields.getClass().equals(Integer.class) ||
-            mergeFields.getClass().equals(String.class) ) {
+            mergeFields.getClass().equals(String.class) ||
+            mergeFields.getClass().isEnum()) {
             map.put("merge_fields", mergeFields);
         } else if (isListOfFile(mergeFields)) {
             for(int i = 0; i< getListSize(mergeFields); i++) {
@@ -1240,7 +1255,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ) {
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
             for(int i = 0; i< getListSize(message); i++) {
@@ -1258,7 +1274,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (metadata.getClass().equals(java.io.File.class) ||
             metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ) {
+            metadata.getClass().equals(String.class) ||
+            metadata.getClass().isEnum()) {
             map.put("metadata", metadata);
         } else if (isListOfFile(metadata)) {
             for(int i = 0; i< getListSize(metadata); i++) {
@@ -1276,7 +1293,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (showPreview.getClass().equals(java.io.File.class) ||
             showPreview.getClass().equals(Integer.class) ||
-            showPreview.getClass().equals(String.class) ) {
+            showPreview.getClass().equals(String.class) ||
+            showPreview.getClass().isEnum()) {
             map.put("show_preview", showPreview);
         } else if (isListOfFile(showPreview)) {
             for(int i = 0; i< getListSize(showPreview); i++) {
@@ -1294,7 +1312,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (showProgressStepper.getClass().equals(java.io.File.class) ||
             showProgressStepper.getClass().equals(Integer.class) ||
-            showProgressStepper.getClass().equals(String.class) ) {
+            showProgressStepper.getClass().equals(String.class) ||
+            showProgressStepper.getClass().isEnum()) {
             map.put("show_progress_stepper", showProgressStepper);
         } else if (isListOfFile(showProgressStepper)) {
             for(int i = 0; i< getListSize(showProgressStepper); i++) {
@@ -1312,7 +1331,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (signerRoles.getClass().equals(java.io.File.class) ||
             signerRoles.getClass().equals(Integer.class) ||
-            signerRoles.getClass().equals(String.class) ) {
+            signerRoles.getClass().equals(String.class) ||
+            signerRoles.getClass().isEnum()) {
             map.put("signer_roles", signerRoles);
         } else if (isListOfFile(signerRoles)) {
             for(int i = 0; i< getListSize(signerRoles); i++) {
@@ -1330,7 +1350,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (skipMeNow.getClass().equals(java.io.File.class) ||
             skipMeNow.getClass().equals(Integer.class) ||
-            skipMeNow.getClass().equals(String.class) ) {
+            skipMeNow.getClass().equals(String.class) ||
+            skipMeNow.getClass().isEnum()) {
             map.put("skip_me_now", skipMeNow);
         } else if (isListOfFile(skipMeNow)) {
             for(int i = 0; i< getListSize(skipMeNow); i++) {
@@ -1348,7 +1369,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (subject.getClass().equals(java.io.File.class) ||
             subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ) {
+            subject.getClass().equals(String.class) ||
+            subject.getClass().isEnum()) {
             map.put("subject", subject);
         } else if (isListOfFile(subject)) {
             for(int i = 0; i< getListSize(subject); i++) {
@@ -1366,7 +1388,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {
@@ -1384,7 +1407,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
-            title.getClass().equals(String.class) ) {
+            title.getClass().equals(String.class) ||
+            title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
             for(int i = 0; i< getListSize(title); i++) {
@@ -1402,7 +1426,8 @@ public class TemplateCreateEmbeddedDraftRequest {
 
         if (usePreexistingFields.getClass().equals(java.io.File.class) ||
             usePreexistingFields.getClass().equals(Integer.class) ||
-            usePreexistingFields.getClass().equals(String.class) ) {
+            usePreexistingFields.getClass().equals(String.class) ||
+            usePreexistingFields.getClass().isEnum()) {
             map.put("use_preexisting_fields", usePreexistingFields);
         } else if (isListOfFile(usePreexistingFields)) {
             for(int i = 0; i< getListSize(usePreexistingFields); i++) {

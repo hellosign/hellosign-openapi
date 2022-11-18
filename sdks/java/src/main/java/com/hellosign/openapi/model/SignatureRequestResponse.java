@@ -868,7 +868,8 @@ public class SignatureRequestResponse {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {
@@ -886,7 +887,8 @@ public class SignatureRequestResponse {
 
         if (signatureRequestId.getClass().equals(java.io.File.class) ||
             signatureRequestId.getClass().equals(Integer.class) ||
-            signatureRequestId.getClass().equals(String.class) ) {
+            signatureRequestId.getClass().equals(String.class) ||
+            signatureRequestId.getClass().isEnum()) {
             map.put("signature_request_id", signatureRequestId);
         } else if (isListOfFile(signatureRequestId)) {
             for(int i = 0; i< getListSize(signatureRequestId); i++) {
@@ -904,7 +906,8 @@ public class SignatureRequestResponse {
 
         if (requesterEmailAddress.getClass().equals(java.io.File.class) ||
             requesterEmailAddress.getClass().equals(Integer.class) ||
-            requesterEmailAddress.getClass().equals(String.class) ) {
+            requesterEmailAddress.getClass().equals(String.class) ||
+            requesterEmailAddress.getClass().isEnum()) {
             map.put("requester_email_address", requesterEmailAddress);
         } else if (isListOfFile(requesterEmailAddress)) {
             for(int i = 0; i< getListSize(requesterEmailAddress); i++) {
@@ -922,7 +925,8 @@ public class SignatureRequestResponse {
 
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
-            title.getClass().equals(String.class) ) {
+            title.getClass().equals(String.class) ||
+            title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
             for(int i = 0; i< getListSize(title); i++) {
@@ -940,7 +944,8 @@ public class SignatureRequestResponse {
 
         if (originalTitle.getClass().equals(java.io.File.class) ||
             originalTitle.getClass().equals(Integer.class) ||
-            originalTitle.getClass().equals(String.class) ) {
+            originalTitle.getClass().equals(String.class) ||
+            originalTitle.getClass().isEnum()) {
             map.put("original_title", originalTitle);
         } else if (isListOfFile(originalTitle)) {
             for(int i = 0; i< getListSize(originalTitle); i++) {
@@ -958,7 +963,8 @@ public class SignatureRequestResponse {
 
         if (subject.getClass().equals(java.io.File.class) ||
             subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ) {
+            subject.getClass().equals(String.class) ||
+            subject.getClass().isEnum()) {
             map.put("subject", subject);
         } else if (isListOfFile(subject)) {
             for(int i = 0; i< getListSize(subject); i++) {
@@ -976,7 +982,8 @@ public class SignatureRequestResponse {
 
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ) {
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
             for(int i = 0; i< getListSize(message); i++) {
@@ -994,7 +1001,8 @@ public class SignatureRequestResponse {
 
         if (metadata.getClass().equals(java.io.File.class) ||
             metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ) {
+            metadata.getClass().equals(String.class) ||
+            metadata.getClass().isEnum()) {
             map.put("metadata", metadata);
         } else if (isListOfFile(metadata)) {
             for(int i = 0; i< getListSize(metadata); i++) {
@@ -1012,7 +1020,8 @@ public class SignatureRequestResponse {
 
         if (createdAt.getClass().equals(java.io.File.class) ||
             createdAt.getClass().equals(Integer.class) ||
-            createdAt.getClass().equals(String.class) ) {
+            createdAt.getClass().equals(String.class) ||
+            createdAt.getClass().isEnum()) {
             map.put("created_at", createdAt);
         } else if (isListOfFile(createdAt)) {
             for(int i = 0; i< getListSize(createdAt); i++) {
@@ -1030,7 +1039,8 @@ public class SignatureRequestResponse {
 
         if (expiresAt.getClass().equals(java.io.File.class) ||
             expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ) {
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
             map.put("expires_at", expiresAt);
         } else if (isListOfFile(expiresAt)) {
             for(int i = 0; i< getListSize(expiresAt); i++) {
@@ -1048,7 +1058,8 @@ public class SignatureRequestResponse {
 
         if (isComplete.getClass().equals(java.io.File.class) ||
             isComplete.getClass().equals(Integer.class) ||
-            isComplete.getClass().equals(String.class) ) {
+            isComplete.getClass().equals(String.class) ||
+            isComplete.getClass().isEnum()) {
             map.put("is_complete", isComplete);
         } else if (isListOfFile(isComplete)) {
             for(int i = 0; i< getListSize(isComplete); i++) {
@@ -1066,7 +1077,8 @@ public class SignatureRequestResponse {
 
         if (isDeclined.getClass().equals(java.io.File.class) ||
             isDeclined.getClass().equals(Integer.class) ||
-            isDeclined.getClass().equals(String.class) ) {
+            isDeclined.getClass().equals(String.class) ||
+            isDeclined.getClass().isEnum()) {
             map.put("is_declined", isDeclined);
         } else if (isListOfFile(isDeclined)) {
             for(int i = 0; i< getListSize(isDeclined); i++) {
@@ -1084,7 +1096,8 @@ public class SignatureRequestResponse {
 
         if (hasError.getClass().equals(java.io.File.class) ||
             hasError.getClass().equals(Integer.class) ||
-            hasError.getClass().equals(String.class) ) {
+            hasError.getClass().equals(String.class) ||
+            hasError.getClass().isEnum()) {
             map.put("has_error", hasError);
         } else if (isListOfFile(hasError)) {
             for(int i = 0; i< getListSize(hasError); i++) {
@@ -1102,7 +1115,8 @@ public class SignatureRequestResponse {
 
         if (filesUrl.getClass().equals(java.io.File.class) ||
             filesUrl.getClass().equals(Integer.class) ||
-            filesUrl.getClass().equals(String.class) ) {
+            filesUrl.getClass().equals(String.class) ||
+            filesUrl.getClass().isEnum()) {
             map.put("files_url", filesUrl);
         } else if (isListOfFile(filesUrl)) {
             for(int i = 0; i< getListSize(filesUrl); i++) {
@@ -1120,7 +1134,8 @@ public class SignatureRequestResponse {
 
         if (signingUrl.getClass().equals(java.io.File.class) ||
             signingUrl.getClass().equals(Integer.class) ||
-            signingUrl.getClass().equals(String.class) ) {
+            signingUrl.getClass().equals(String.class) ||
+            signingUrl.getClass().isEnum()) {
             map.put("signing_url", signingUrl);
         } else if (isListOfFile(signingUrl)) {
             for(int i = 0; i< getListSize(signingUrl); i++) {
@@ -1138,7 +1153,8 @@ public class SignatureRequestResponse {
 
         if (detailsUrl.getClass().equals(java.io.File.class) ||
             detailsUrl.getClass().equals(Integer.class) ||
-            detailsUrl.getClass().equals(String.class) ) {
+            detailsUrl.getClass().equals(String.class) ||
+            detailsUrl.getClass().isEnum()) {
             map.put("details_url", detailsUrl);
         } else if (isListOfFile(detailsUrl)) {
             for(int i = 0; i< getListSize(detailsUrl); i++) {
@@ -1156,7 +1172,8 @@ public class SignatureRequestResponse {
 
         if (ccEmailAddresses.getClass().equals(java.io.File.class) ||
             ccEmailAddresses.getClass().equals(Integer.class) ||
-            ccEmailAddresses.getClass().equals(String.class) ) {
+            ccEmailAddresses.getClass().equals(String.class) ||
+            ccEmailAddresses.getClass().isEnum()) {
             map.put("cc_email_addresses", ccEmailAddresses);
         } else if (isListOfFile(ccEmailAddresses)) {
             for(int i = 0; i< getListSize(ccEmailAddresses); i++) {
@@ -1174,7 +1191,8 @@ public class SignatureRequestResponse {
 
         if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
             signingRedirectUrl.getClass().equals(Integer.class) ||
-            signingRedirectUrl.getClass().equals(String.class) ) {
+            signingRedirectUrl.getClass().equals(String.class) ||
+            signingRedirectUrl.getClass().isEnum()) {
             map.put("signing_redirect_url", signingRedirectUrl);
         } else if (isListOfFile(signingRedirectUrl)) {
             for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
@@ -1192,7 +1210,8 @@ public class SignatureRequestResponse {
 
         if (templateIds.getClass().equals(java.io.File.class) ||
             templateIds.getClass().equals(Integer.class) ||
-            templateIds.getClass().equals(String.class) ) {
+            templateIds.getClass().equals(String.class) ||
+            templateIds.getClass().isEnum()) {
             map.put("template_ids", templateIds);
         } else if (isListOfFile(templateIds)) {
             for(int i = 0; i< getListSize(templateIds); i++) {
@@ -1210,7 +1229,8 @@ public class SignatureRequestResponse {
 
         if (customFields.getClass().equals(java.io.File.class) ||
             customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ) {
+            customFields.getClass().equals(String.class) ||
+            customFields.getClass().isEnum()) {
             map.put("custom_fields", customFields);
         } else if (isListOfFile(customFields)) {
             for(int i = 0; i< getListSize(customFields); i++) {
@@ -1228,7 +1248,8 @@ public class SignatureRequestResponse {
 
         if (attachments.getClass().equals(java.io.File.class) ||
             attachments.getClass().equals(Integer.class) ||
-            attachments.getClass().equals(String.class) ) {
+            attachments.getClass().equals(String.class) ||
+            attachments.getClass().isEnum()) {
             map.put("attachments", attachments);
         } else if (isListOfFile(attachments)) {
             for(int i = 0; i< getListSize(attachments); i++) {
@@ -1246,7 +1267,8 @@ public class SignatureRequestResponse {
 
         if (responseData.getClass().equals(java.io.File.class) ||
             responseData.getClass().equals(Integer.class) ||
-            responseData.getClass().equals(String.class) ) {
+            responseData.getClass().equals(String.class) ||
+            responseData.getClass().isEnum()) {
             map.put("response_data", responseData);
         } else if (isListOfFile(responseData)) {
             for(int i = 0; i< getListSize(responseData); i++) {
@@ -1264,7 +1286,8 @@ public class SignatureRequestResponse {
 
         if (signatures.getClass().equals(java.io.File.class) ||
             signatures.getClass().equals(Integer.class) ||
-            signatures.getClass().equals(String.class) ) {
+            signatures.getClass().equals(String.class) ||
+            signatures.getClass().isEnum()) {
             map.put("signatures", signatures);
         } else if (isListOfFile(signatures)) {
             for(int i = 0; i< getListSize(signatures); i++) {

@@ -176,7 +176,8 @@ public class SubMergeField {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -194,7 +195,8 @@ public class SubMergeField {
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {

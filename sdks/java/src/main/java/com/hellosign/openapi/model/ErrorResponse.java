@@ -110,7 +110,8 @@ public class ErrorResponse {
 
         if (error.getClass().equals(java.io.File.class) ||
             error.getClass().equals(Integer.class) ||
-            error.getClass().equals(String.class) ) {
+            error.getClass().equals(String.class) ||
+            error.getClass().isEnum()) {
             map.put("error", error);
         } else if (isListOfFile(error)) {
             for(int i = 0; i< getListSize(error); i++) {

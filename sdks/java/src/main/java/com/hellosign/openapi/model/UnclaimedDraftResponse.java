@@ -270,7 +270,8 @@ public class UnclaimedDraftResponse {
 
         if (signatureRequestId.getClass().equals(java.io.File.class) ||
             signatureRequestId.getClass().equals(Integer.class) ||
-            signatureRequestId.getClass().equals(String.class) ) {
+            signatureRequestId.getClass().equals(String.class) ||
+            signatureRequestId.getClass().isEnum()) {
             map.put("signature_request_id", signatureRequestId);
         } else if (isListOfFile(signatureRequestId)) {
             for(int i = 0; i< getListSize(signatureRequestId); i++) {
@@ -288,7 +289,8 @@ public class UnclaimedDraftResponse {
 
         if (claimUrl.getClass().equals(java.io.File.class) ||
             claimUrl.getClass().equals(Integer.class) ||
-            claimUrl.getClass().equals(String.class) ) {
+            claimUrl.getClass().equals(String.class) ||
+            claimUrl.getClass().isEnum()) {
             map.put("claim_url", claimUrl);
         } else if (isListOfFile(claimUrl)) {
             for(int i = 0; i< getListSize(claimUrl); i++) {
@@ -306,7 +308,8 @@ public class UnclaimedDraftResponse {
 
         if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
             signingRedirectUrl.getClass().equals(Integer.class) ||
-            signingRedirectUrl.getClass().equals(String.class) ) {
+            signingRedirectUrl.getClass().equals(String.class) ||
+            signingRedirectUrl.getClass().isEnum()) {
             map.put("signing_redirect_url", signingRedirectUrl);
         } else if (isListOfFile(signingRedirectUrl)) {
             for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
@@ -324,7 +327,8 @@ public class UnclaimedDraftResponse {
 
         if (requestingRedirectUrl.getClass().equals(java.io.File.class) ||
             requestingRedirectUrl.getClass().equals(Integer.class) ||
-            requestingRedirectUrl.getClass().equals(String.class) ) {
+            requestingRedirectUrl.getClass().equals(String.class) ||
+            requestingRedirectUrl.getClass().isEnum()) {
             map.put("requesting_redirect_url", requestingRedirectUrl);
         } else if (isListOfFile(requestingRedirectUrl)) {
             for(int i = 0; i< getListSize(requestingRedirectUrl); i++) {
@@ -342,7 +346,8 @@ public class UnclaimedDraftResponse {
 
         if (expiresAt.getClass().equals(java.io.File.class) ||
             expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ) {
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
             map.put("expires_at", expiresAt);
         } else if (isListOfFile(expiresAt)) {
             for(int i = 0; i< getListSize(expiresAt); i++) {
@@ -360,7 +365,8 @@ public class UnclaimedDraftResponse {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {

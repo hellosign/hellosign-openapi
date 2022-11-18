@@ -110,7 +110,8 @@ public class ApiAppResponseOptions {
 
         if (canInsertEverywhere.getClass().equals(java.io.File.class) ||
             canInsertEverywhere.getClass().equals(Integer.class) ||
-            canInsertEverywhere.getClass().equals(String.class) ) {
+            canInsertEverywhere.getClass().equals(String.class) ||
+            canInsertEverywhere.getClass().isEnum()) {
             map.put("can_insert_everywhere", canInsertEverywhere);
         } else if (isListOfFile(canInsertEverywhere)) {
             for(int i = 0; i< getListSize(canInsertEverywhere); i++) {

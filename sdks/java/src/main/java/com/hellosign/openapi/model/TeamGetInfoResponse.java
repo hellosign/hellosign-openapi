@@ -153,7 +153,8 @@ public class TeamGetInfoResponse {
 
         if (team.getClass().equals(java.io.File.class) ||
             team.getClass().equals(Integer.class) ||
-            team.getClass().equals(String.class) ) {
+            team.getClass().equals(String.class) ||
+            team.getClass().isEnum()) {
             map.put("team", team);
         } else if (isListOfFile(team)) {
             for(int i = 0; i< getListSize(team); i++) {
@@ -171,7 +172,8 @@ public class TeamGetInfoResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

@@ -593,7 +593,8 @@ public class SubWhiteLabelingOptions {
 
         if (headerBackgroundColor.getClass().equals(java.io.File.class) ||
             headerBackgroundColor.getClass().equals(Integer.class) ||
-            headerBackgroundColor.getClass().equals(String.class) ) {
+            headerBackgroundColor.getClass().equals(String.class) ||
+            headerBackgroundColor.getClass().isEnum()) {
             map.put("header_background_color", headerBackgroundColor);
         } else if (isListOfFile(headerBackgroundColor)) {
             for(int i = 0; i< getListSize(headerBackgroundColor); i++) {
@@ -611,7 +612,8 @@ public class SubWhiteLabelingOptions {
 
         if (legalVersion.getClass().equals(java.io.File.class) ||
             legalVersion.getClass().equals(Integer.class) ||
-            legalVersion.getClass().equals(String.class) ) {
+            legalVersion.getClass().equals(String.class) ||
+            legalVersion.getClass().isEnum()) {
             map.put("legal_version", legalVersion);
         } else if (isListOfFile(legalVersion)) {
             for(int i = 0; i< getListSize(legalVersion); i++) {
@@ -629,7 +631,8 @@ public class SubWhiteLabelingOptions {
 
         if (linkColor.getClass().equals(java.io.File.class) ||
             linkColor.getClass().equals(Integer.class) ||
-            linkColor.getClass().equals(String.class) ) {
+            linkColor.getClass().equals(String.class) ||
+            linkColor.getClass().isEnum()) {
             map.put("link_color", linkColor);
         } else if (isListOfFile(linkColor)) {
             for(int i = 0; i< getListSize(linkColor); i++) {
@@ -647,7 +650,8 @@ public class SubWhiteLabelingOptions {
 
         if (pageBackgroundColor.getClass().equals(java.io.File.class) ||
             pageBackgroundColor.getClass().equals(Integer.class) ||
-            pageBackgroundColor.getClass().equals(String.class) ) {
+            pageBackgroundColor.getClass().equals(String.class) ||
+            pageBackgroundColor.getClass().isEnum()) {
             map.put("page_background_color", pageBackgroundColor);
         } else if (isListOfFile(pageBackgroundColor)) {
             for(int i = 0; i< getListSize(pageBackgroundColor); i++) {
@@ -665,7 +669,8 @@ public class SubWhiteLabelingOptions {
 
         if (primaryButtonColor.getClass().equals(java.io.File.class) ||
             primaryButtonColor.getClass().equals(Integer.class) ||
-            primaryButtonColor.getClass().equals(String.class) ) {
+            primaryButtonColor.getClass().equals(String.class) ||
+            primaryButtonColor.getClass().isEnum()) {
             map.put("primary_button_color", primaryButtonColor);
         } else if (isListOfFile(primaryButtonColor)) {
             for(int i = 0; i< getListSize(primaryButtonColor); i++) {
@@ -683,7 +688,8 @@ public class SubWhiteLabelingOptions {
 
         if (primaryButtonColorHover.getClass().equals(java.io.File.class) ||
             primaryButtonColorHover.getClass().equals(Integer.class) ||
-            primaryButtonColorHover.getClass().equals(String.class) ) {
+            primaryButtonColorHover.getClass().equals(String.class) ||
+            primaryButtonColorHover.getClass().isEnum()) {
             map.put("primary_button_color_hover", primaryButtonColorHover);
         } else if (isListOfFile(primaryButtonColorHover)) {
             for(int i = 0; i< getListSize(primaryButtonColorHover); i++) {
@@ -701,7 +707,8 @@ public class SubWhiteLabelingOptions {
 
         if (primaryButtonTextColor.getClass().equals(java.io.File.class) ||
             primaryButtonTextColor.getClass().equals(Integer.class) ||
-            primaryButtonTextColor.getClass().equals(String.class) ) {
+            primaryButtonTextColor.getClass().equals(String.class) ||
+            primaryButtonTextColor.getClass().isEnum()) {
             map.put("primary_button_text_color", primaryButtonTextColor);
         } else if (isListOfFile(primaryButtonTextColor)) {
             for(int i = 0; i< getListSize(primaryButtonTextColor); i++) {
@@ -719,7 +726,8 @@ public class SubWhiteLabelingOptions {
 
         if (primaryButtonTextColorHover.getClass().equals(java.io.File.class) ||
             primaryButtonTextColorHover.getClass().equals(Integer.class) ||
-            primaryButtonTextColorHover.getClass().equals(String.class) ) {
+            primaryButtonTextColorHover.getClass().equals(String.class) ||
+            primaryButtonTextColorHover.getClass().isEnum()) {
             map.put("primary_button_text_color_hover", primaryButtonTextColorHover);
         } else if (isListOfFile(primaryButtonTextColorHover)) {
             for(int i = 0; i< getListSize(primaryButtonTextColorHover); i++) {
@@ -737,7 +745,8 @@ public class SubWhiteLabelingOptions {
 
         if (secondaryButtonColor.getClass().equals(java.io.File.class) ||
             secondaryButtonColor.getClass().equals(Integer.class) ||
-            secondaryButtonColor.getClass().equals(String.class) ) {
+            secondaryButtonColor.getClass().equals(String.class) ||
+            secondaryButtonColor.getClass().isEnum()) {
             map.put("secondary_button_color", secondaryButtonColor);
         } else if (isListOfFile(secondaryButtonColor)) {
             for(int i = 0; i< getListSize(secondaryButtonColor); i++) {
@@ -755,7 +764,8 @@ public class SubWhiteLabelingOptions {
 
         if (secondaryButtonColorHover.getClass().equals(java.io.File.class) ||
             secondaryButtonColorHover.getClass().equals(Integer.class) ||
-            secondaryButtonColorHover.getClass().equals(String.class) ) {
+            secondaryButtonColorHover.getClass().equals(String.class) ||
+            secondaryButtonColorHover.getClass().isEnum()) {
             map.put("secondary_button_color_hover", secondaryButtonColorHover);
         } else if (isListOfFile(secondaryButtonColorHover)) {
             for(int i = 0; i< getListSize(secondaryButtonColorHover); i++) {
@@ -773,7 +783,8 @@ public class SubWhiteLabelingOptions {
 
         if (secondaryButtonTextColor.getClass().equals(java.io.File.class) ||
             secondaryButtonTextColor.getClass().equals(Integer.class) ||
-            secondaryButtonTextColor.getClass().equals(String.class) ) {
+            secondaryButtonTextColor.getClass().equals(String.class) ||
+            secondaryButtonTextColor.getClass().isEnum()) {
             map.put("secondary_button_text_color", secondaryButtonTextColor);
         } else if (isListOfFile(secondaryButtonTextColor)) {
             for(int i = 0; i< getListSize(secondaryButtonTextColor); i++) {
@@ -791,7 +802,8 @@ public class SubWhiteLabelingOptions {
 
         if (secondaryButtonTextColorHover.getClass().equals(java.io.File.class) ||
             secondaryButtonTextColorHover.getClass().equals(Integer.class) ||
-            secondaryButtonTextColorHover.getClass().equals(String.class) ) {
+            secondaryButtonTextColorHover.getClass().equals(String.class) ||
+            secondaryButtonTextColorHover.getClass().isEnum()) {
             map.put("secondary_button_text_color_hover", secondaryButtonTextColorHover);
         } else if (isListOfFile(secondaryButtonTextColorHover)) {
             for(int i = 0; i< getListSize(secondaryButtonTextColorHover); i++) {
@@ -809,7 +821,8 @@ public class SubWhiteLabelingOptions {
 
         if (textColor1.getClass().equals(java.io.File.class) ||
             textColor1.getClass().equals(Integer.class) ||
-            textColor1.getClass().equals(String.class) ) {
+            textColor1.getClass().equals(String.class) ||
+            textColor1.getClass().isEnum()) {
             map.put("text_color1", textColor1);
         } else if (isListOfFile(textColor1)) {
             for(int i = 0; i< getListSize(textColor1); i++) {
@@ -827,7 +840,8 @@ public class SubWhiteLabelingOptions {
 
         if (textColor2.getClass().equals(java.io.File.class) ||
             textColor2.getClass().equals(Integer.class) ||
-            textColor2.getClass().equals(String.class) ) {
+            textColor2.getClass().equals(String.class) ||
+            textColor2.getClass().isEnum()) {
             map.put("text_color2", textColor2);
         } else if (isListOfFile(textColor2)) {
             for(int i = 0; i< getListSize(textColor2); i++) {
@@ -845,7 +859,8 @@ public class SubWhiteLabelingOptions {
 
         if (resetToDefault.getClass().equals(java.io.File.class) ||
             resetToDefault.getClass().equals(Integer.class) ||
-            resetToDefault.getClass().equals(String.class) ) {
+            resetToDefault.getClass().equals(String.class) ||
+            resetToDefault.getClass().isEnum()) {
             map.put("reset_to_default", resetToDefault);
         } else if (isListOfFile(resetToDefault)) {
             for(int i = 0; i< getListSize(resetToDefault); i++) {

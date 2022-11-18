@@ -153,7 +153,8 @@ public class TemplateUpdateFilesResponseTemplate {
 
         if (templateId.getClass().equals(java.io.File.class) ||
             templateId.getClass().equals(Integer.class) ||
-            templateId.getClass().equals(String.class) ) {
+            templateId.getClass().equals(String.class) ||
+            templateId.getClass().isEnum()) {
             map.put("template_id", templateId);
         } else if (isListOfFile(templateId)) {
             for(int i = 0; i< getListSize(templateId); i++) {
@@ -171,7 +172,8 @@ public class TemplateUpdateFilesResponseTemplate {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

@@ -250,7 +250,8 @@ public class SignatureRequestResponseCustomFieldBase {
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {
@@ -268,7 +269,8 @@ public class SignatureRequestResponseCustomFieldBase {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -286,7 +288,8 @@ public class SignatureRequestResponseCustomFieldBase {
 
         if (required.getClass().equals(java.io.File.class) ||
             required.getClass().equals(Integer.class) ||
-            required.getClass().equals(String.class) ) {
+            required.getClass().equals(String.class) ||
+            required.getClass().isEnum()) {
             map.put("required", required);
         } else if (isListOfFile(required)) {
             for(int i = 0; i< getListSize(required); i++) {
@@ -304,7 +307,8 @@ public class SignatureRequestResponseCustomFieldBase {
 
         if (apiId.getClass().equals(java.io.File.class) ||
             apiId.getClass().equals(Integer.class) ||
-            apiId.getClass().equals(String.class) ) {
+            apiId.getClass().equals(String.class) ||
+            apiId.getClass().isEnum()) {
             map.put("api_id", apiId);
         } else if (isListOfFile(apiId)) {
             for(int i = 0; i< getListSize(apiId); i++) {
@@ -322,7 +326,8 @@ public class SignatureRequestResponseCustomFieldBase {
 
         if (editor.getClass().equals(java.io.File.class) ||
             editor.getClass().equals(Integer.class) ||
-            editor.getClass().equals(String.class) ) {
+            editor.getClass().equals(String.class) ||
+            editor.getClass().isEnum()) {
             map.put("editor", editor);
         } else if (isListOfFile(editor)) {
             for(int i = 0; i< getListSize(editor); i++) {

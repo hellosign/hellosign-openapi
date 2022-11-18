@@ -142,7 +142,8 @@ public class WarningResponse {
 
         if (warningMsg.getClass().equals(java.io.File.class) ||
             warningMsg.getClass().equals(Integer.class) ||
-            warningMsg.getClass().equals(String.class) ) {
+            warningMsg.getClass().equals(String.class) ||
+            warningMsg.getClass().isEnum()) {
             map.put("warning_msg", warningMsg);
         } else if (isListOfFile(warningMsg)) {
             for(int i = 0; i< getListSize(warningMsg); i++) {
@@ -160,7 +161,8 @@ public class WarningResponse {
 
         if (warningName.getClass().equals(java.io.File.class) ||
             warningName.getClass().equals(Integer.class) ||
-            warningName.getClass().equals(String.class) ) {
+            warningName.getClass().equals(String.class) ||
+            warningName.getClass().isEnum()) {
             map.put("warning_name", warningName);
         } else if (isListOfFile(warningName)) {
             for(int i = 0; i< getListSize(warningName); i++) {

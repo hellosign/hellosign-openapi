@@ -142,7 +142,8 @@ public class ApiAppResponseOwnerAccount {
 
         if (accountId.getClass().equals(java.io.File.class) ||
             accountId.getClass().equals(Integer.class) ||
-            accountId.getClass().equals(String.class) ) {
+            accountId.getClass().equals(String.class) ||
+            accountId.getClass().isEnum()) {
             map.put("account_id", accountId);
         } else if (isListOfFile(accountId)) {
             for(int i = 0; i< getListSize(accountId); i++) {
@@ -160,7 +161,8 @@ public class ApiAppResponseOwnerAccount {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {

@@ -237,7 +237,8 @@ public class OAuthTokenResponse {
 
         if (accessToken.getClass().equals(java.io.File.class) ||
             accessToken.getClass().equals(Integer.class) ||
-            accessToken.getClass().equals(String.class) ) {
+            accessToken.getClass().equals(String.class) ||
+            accessToken.getClass().isEnum()) {
             map.put("access_token", accessToken);
         } else if (isListOfFile(accessToken)) {
             for(int i = 0; i< getListSize(accessToken); i++) {
@@ -255,7 +256,8 @@ public class OAuthTokenResponse {
 
         if (tokenType.getClass().equals(java.io.File.class) ||
             tokenType.getClass().equals(Integer.class) ||
-            tokenType.getClass().equals(String.class) ) {
+            tokenType.getClass().equals(String.class) ||
+            tokenType.getClass().isEnum()) {
             map.put("token_type", tokenType);
         } else if (isListOfFile(tokenType)) {
             for(int i = 0; i< getListSize(tokenType); i++) {
@@ -273,7 +275,8 @@ public class OAuthTokenResponse {
 
         if (refreshToken.getClass().equals(java.io.File.class) ||
             refreshToken.getClass().equals(Integer.class) ||
-            refreshToken.getClass().equals(String.class) ) {
+            refreshToken.getClass().equals(String.class) ||
+            refreshToken.getClass().isEnum()) {
             map.put("refresh_token", refreshToken);
         } else if (isListOfFile(refreshToken)) {
             for(int i = 0; i< getListSize(refreshToken); i++) {
@@ -291,7 +294,8 @@ public class OAuthTokenResponse {
 
         if (expiresIn.getClass().equals(java.io.File.class) ||
             expiresIn.getClass().equals(Integer.class) ||
-            expiresIn.getClass().equals(String.class) ) {
+            expiresIn.getClass().equals(String.class) ||
+            expiresIn.getClass().isEnum()) {
             map.put("expires_in", expiresIn);
         } else if (isListOfFile(expiresIn)) {
             for(int i = 0; i< getListSize(expiresIn); i++) {
@@ -309,7 +313,8 @@ public class OAuthTokenResponse {
 
         if (state.getClass().equals(java.io.File.class) ||
             state.getClass().equals(Integer.class) ||
-            state.getClass().equals(String.class) ) {
+            state.getClass().equals(String.class) ||
+            state.getClass().isEnum()) {
             map.put("state", state);
         } else if (isListOfFile(state)) {
             for(int i = 0; i< getListSize(state); i++) {
