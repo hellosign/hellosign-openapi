@@ -215,7 +215,8 @@ public class ReportCreateRequest {
 
         if (endDate.getClass().equals(java.io.File.class) ||
             endDate.getClass().equals(Integer.class) ||
-            endDate.getClass().equals(String.class) ) {
+            endDate.getClass().equals(String.class) ||
+            endDate.getClass().isEnum()) {
             map.put("end_date", endDate);
         } else if (isListOfFile(endDate)) {
             for(int i = 0; i< getListSize(endDate); i++) {
@@ -233,7 +234,8 @@ public class ReportCreateRequest {
 
         if (reportType.getClass().equals(java.io.File.class) ||
             reportType.getClass().equals(Integer.class) ||
-            reportType.getClass().equals(String.class) ) {
+            reportType.getClass().equals(String.class) ||
+            reportType.getClass().isEnum()) {
             map.put("report_type", reportType);
         } else if (isListOfFile(reportType)) {
             for(int i = 0; i< getListSize(reportType); i++) {
@@ -251,7 +253,8 @@ public class ReportCreateRequest {
 
         if (startDate.getClass().equals(java.io.File.class) ||
             startDate.getClass().equals(Integer.class) ||
-            startDate.getClass().equals(String.class) ) {
+            startDate.getClass().equals(String.class) ||
+            startDate.getClass().isEnum()) {
             map.put("start_date", startDate);
         } else if (isListOfFile(startDate)) {
             for(int i = 0; i< getListSize(startDate); i++) {

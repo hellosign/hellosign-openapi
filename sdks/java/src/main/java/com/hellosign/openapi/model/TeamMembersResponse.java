@@ -194,7 +194,8 @@ public class TeamMembersResponse {
 
         if (teamMembers.getClass().equals(java.io.File.class) ||
             teamMembers.getClass().equals(Integer.class) ||
-            teamMembers.getClass().equals(String.class) ) {
+            teamMembers.getClass().equals(String.class) ||
+            teamMembers.getClass().isEnum()) {
             map.put("team_members", teamMembers);
         } else if (isListOfFile(teamMembers)) {
             for(int i = 0; i< getListSize(teamMembers); i++) {
@@ -212,7 +213,8 @@ public class TeamMembersResponse {
 
         if (listInfo.getClass().equals(java.io.File.class) ||
             listInfo.getClass().equals(Integer.class) ||
-            listInfo.getClass().equals(String.class) ) {
+            listInfo.getClass().equals(String.class) ||
+            listInfo.getClass().isEnum()) {
             map.put("list_info", listInfo);
         } else if (isListOfFile(listInfo)) {
             for(int i = 0; i< getListSize(listInfo); i++) {
@@ -230,7 +232,8 @@ public class TeamMembersResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {

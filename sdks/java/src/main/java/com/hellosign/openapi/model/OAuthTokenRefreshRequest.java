@@ -141,7 +141,8 @@ public class OAuthTokenRefreshRequest {
 
         if (grantType.getClass().equals(java.io.File.class) ||
             grantType.getClass().equals(Integer.class) ||
-            grantType.getClass().equals(String.class) ) {
+            grantType.getClass().equals(String.class) ||
+            grantType.getClass().isEnum()) {
             map.put("grant_type", grantType);
         } else if (isListOfFile(grantType)) {
             for(int i = 0; i< getListSize(grantType); i++) {
@@ -159,7 +160,8 @@ public class OAuthTokenRefreshRequest {
 
         if (refreshToken.getClass().equals(java.io.File.class) ||
             refreshToken.getClass().equals(Integer.class) ||
-            refreshToken.getClass().equals(String.class) ) {
+            refreshToken.getClass().equals(String.class) ||
+            refreshToken.getClass().isEnum()) {
             map.put("refresh_token", refreshToken);
         } else if (isListOfFile(refreshToken)) {
             for(int i = 0; i< getListSize(refreshToken); i++) {

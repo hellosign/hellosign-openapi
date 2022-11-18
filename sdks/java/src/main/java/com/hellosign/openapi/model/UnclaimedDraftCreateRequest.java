@@ -973,7 +973,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {
@@ -991,7 +992,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (file.getClass().equals(java.io.File.class) ||
             file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ) {
+            file.getClass().equals(String.class) ||
+            file.getClass().isEnum()) {
             map.put("file", file);
         } else if (isListOfFile(file)) {
             for(int i = 0; i< getListSize(file); i++) {
@@ -1009,7 +1011,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (fileUrl.getClass().equals(java.io.File.class) ||
             fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ) {
+            fileUrl.getClass().equals(String.class) ||
+            fileUrl.getClass().isEnum()) {
             map.put("file_url", fileUrl);
         } else if (isListOfFile(fileUrl)) {
             for(int i = 0; i< getListSize(fileUrl); i++) {
@@ -1027,7 +1030,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (allowDecline.getClass().equals(java.io.File.class) ||
             allowDecline.getClass().equals(Integer.class) ||
-            allowDecline.getClass().equals(String.class) ) {
+            allowDecline.getClass().equals(String.class) ||
+            allowDecline.getClass().isEnum()) {
             map.put("allow_decline", allowDecline);
         } else if (isListOfFile(allowDecline)) {
             for(int i = 0; i< getListSize(allowDecline); i++) {
@@ -1045,7 +1049,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (attachments.getClass().equals(java.io.File.class) ||
             attachments.getClass().equals(Integer.class) ||
-            attachments.getClass().equals(String.class) ) {
+            attachments.getClass().equals(String.class) ||
+            attachments.getClass().isEnum()) {
             map.put("attachments", attachments);
         } else if (isListOfFile(attachments)) {
             for(int i = 0; i< getListSize(attachments); i++) {
@@ -1063,7 +1068,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (ccEmailAddresses.getClass().equals(java.io.File.class) ||
             ccEmailAddresses.getClass().equals(Integer.class) ||
-            ccEmailAddresses.getClass().equals(String.class) ) {
+            ccEmailAddresses.getClass().equals(String.class) ||
+            ccEmailAddresses.getClass().isEnum()) {
             map.put("cc_email_addresses", ccEmailAddresses);
         } else if (isListOfFile(ccEmailAddresses)) {
             for(int i = 0; i< getListSize(ccEmailAddresses); i++) {
@@ -1081,7 +1087,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (clientId.getClass().equals(java.io.File.class) ||
             clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ) {
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
             map.put("client_id", clientId);
         } else if (isListOfFile(clientId)) {
             for(int i = 0; i< getListSize(clientId); i++) {
@@ -1099,7 +1106,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (customFields.getClass().equals(java.io.File.class) ||
             customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ) {
+            customFields.getClass().equals(String.class) ||
+            customFields.getClass().isEnum()) {
             map.put("custom_fields", customFields);
         } else if (isListOfFile(customFields)) {
             for(int i = 0; i< getListSize(customFields); i++) {
@@ -1117,7 +1125,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (fieldOptions.getClass().equals(java.io.File.class) ||
             fieldOptions.getClass().equals(Integer.class) ||
-            fieldOptions.getClass().equals(String.class) ) {
+            fieldOptions.getClass().equals(String.class) ||
+            fieldOptions.getClass().isEnum()) {
             map.put("field_options", fieldOptions);
         } else if (isListOfFile(fieldOptions)) {
             for(int i = 0; i< getListSize(fieldOptions); i++) {
@@ -1135,7 +1144,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (formFieldGroups.getClass().equals(java.io.File.class) ||
             formFieldGroups.getClass().equals(Integer.class) ||
-            formFieldGroups.getClass().equals(String.class) ) {
+            formFieldGroups.getClass().equals(String.class) ||
+            formFieldGroups.getClass().isEnum()) {
             map.put("form_field_groups", formFieldGroups);
         } else if (isListOfFile(formFieldGroups)) {
             for(int i = 0; i< getListSize(formFieldGroups); i++) {
@@ -1153,7 +1163,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (formFieldRules.getClass().equals(java.io.File.class) ||
             formFieldRules.getClass().equals(Integer.class) ||
-            formFieldRules.getClass().equals(String.class) ) {
+            formFieldRules.getClass().equals(String.class) ||
+            formFieldRules.getClass().isEnum()) {
             map.put("form_field_rules", formFieldRules);
         } else if (isListOfFile(formFieldRules)) {
             for(int i = 0; i< getListSize(formFieldRules); i++) {
@@ -1171,7 +1182,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (formFieldsPerDocument.getClass().equals(java.io.File.class) ||
             formFieldsPerDocument.getClass().equals(Integer.class) ||
-            formFieldsPerDocument.getClass().equals(String.class) ) {
+            formFieldsPerDocument.getClass().equals(String.class) ||
+            formFieldsPerDocument.getClass().isEnum()) {
             map.put("form_fields_per_document", formFieldsPerDocument);
         } else if (isListOfFile(formFieldsPerDocument)) {
             for(int i = 0; i< getListSize(formFieldsPerDocument); i++) {
@@ -1189,7 +1201,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (hideTextTags.getClass().equals(java.io.File.class) ||
             hideTextTags.getClass().equals(Integer.class) ||
-            hideTextTags.getClass().equals(String.class) ) {
+            hideTextTags.getClass().equals(String.class) ||
+            hideTextTags.getClass().isEnum()) {
             map.put("hide_text_tags", hideTextTags);
         } else if (isListOfFile(hideTextTags)) {
             for(int i = 0; i< getListSize(hideTextTags); i++) {
@@ -1207,7 +1220,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ) {
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
             for(int i = 0; i< getListSize(message); i++) {
@@ -1225,7 +1239,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (metadata.getClass().equals(java.io.File.class) ||
             metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ) {
+            metadata.getClass().equals(String.class) ||
+            metadata.getClass().isEnum()) {
             map.put("metadata", metadata);
         } else if (isListOfFile(metadata)) {
             for(int i = 0; i< getListSize(metadata); i++) {
@@ -1243,7 +1258,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (showProgressStepper.getClass().equals(java.io.File.class) ||
             showProgressStepper.getClass().equals(Integer.class) ||
-            showProgressStepper.getClass().equals(String.class) ) {
+            showProgressStepper.getClass().equals(String.class) ||
+            showProgressStepper.getClass().isEnum()) {
             map.put("show_progress_stepper", showProgressStepper);
         } else if (isListOfFile(showProgressStepper)) {
             for(int i = 0; i< getListSize(showProgressStepper); i++) {
@@ -1261,7 +1277,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (signers.getClass().equals(java.io.File.class) ||
             signers.getClass().equals(Integer.class) ||
-            signers.getClass().equals(String.class) ) {
+            signers.getClass().equals(String.class) ||
+            signers.getClass().isEnum()) {
             map.put("signers", signers);
         } else if (isListOfFile(signers)) {
             for(int i = 0; i< getListSize(signers); i++) {
@@ -1279,7 +1296,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (signingOptions.getClass().equals(java.io.File.class) ||
             signingOptions.getClass().equals(Integer.class) ||
-            signingOptions.getClass().equals(String.class) ) {
+            signingOptions.getClass().equals(String.class) ||
+            signingOptions.getClass().isEnum()) {
             map.put("signing_options", signingOptions);
         } else if (isListOfFile(signingOptions)) {
             for(int i = 0; i< getListSize(signingOptions); i++) {
@@ -1297,7 +1315,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
             signingRedirectUrl.getClass().equals(Integer.class) ||
-            signingRedirectUrl.getClass().equals(String.class) ) {
+            signingRedirectUrl.getClass().equals(String.class) ||
+            signingRedirectUrl.getClass().isEnum()) {
             map.put("signing_redirect_url", signingRedirectUrl);
         } else if (isListOfFile(signingRedirectUrl)) {
             for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
@@ -1315,7 +1334,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (subject.getClass().equals(java.io.File.class) ||
             subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ) {
+            subject.getClass().equals(String.class) ||
+            subject.getClass().isEnum()) {
             map.put("subject", subject);
         } else if (isListOfFile(subject)) {
             for(int i = 0; i< getListSize(subject); i++) {
@@ -1333,7 +1353,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {
@@ -1351,7 +1372,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (usePreexistingFields.getClass().equals(java.io.File.class) ||
             usePreexistingFields.getClass().equals(Integer.class) ||
-            usePreexistingFields.getClass().equals(String.class) ) {
+            usePreexistingFields.getClass().equals(String.class) ||
+            usePreexistingFields.getClass().isEnum()) {
             map.put("use_preexisting_fields", usePreexistingFields);
         } else if (isListOfFile(usePreexistingFields)) {
             for(int i = 0; i< getListSize(usePreexistingFields); i++) {
@@ -1369,7 +1391,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (useTextTags.getClass().equals(java.io.File.class) ||
             useTextTags.getClass().equals(Integer.class) ||
-            useTextTags.getClass().equals(String.class) ) {
+            useTextTags.getClass().equals(String.class) ||
+            useTextTags.getClass().isEnum()) {
             map.put("use_text_tags", useTextTags);
         } else if (isListOfFile(useTextTags)) {
             for(int i = 0; i< getListSize(useTextTags); i++) {
@@ -1387,7 +1410,8 @@ public class UnclaimedDraftCreateRequest {
 
         if (expiresAt.getClass().equals(java.io.File.class) ||
             expiresAt.getClass().equals(Integer.class) ||
-            expiresAt.getClass().equals(String.class) ) {
+            expiresAt.getClass().equals(String.class) ||
+            expiresAt.getClass().isEnum()) {
             map.put("expires_at", expiresAt);
         } else if (isListOfFile(expiresAt)) {
             for(int i = 0; i< getListSize(expiresAt); i++) {

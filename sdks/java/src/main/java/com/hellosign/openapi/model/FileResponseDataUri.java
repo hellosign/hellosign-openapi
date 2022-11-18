@@ -109,7 +109,8 @@ public class FileResponseDataUri {
 
         if (dataUri.getClass().equals(java.io.File.class) ||
             dataUri.getClass().equals(Integer.class) ||
-            dataUri.getClass().equals(String.class) ) {
+            dataUri.getClass().equals(String.class) ||
+            dataUri.getClass().isEnum()) {
             map.put("data_uri", dataUri);
         } else if (isListOfFile(dataUri)) {
             for(int i = 0; i< getListSize(dataUri); i++) {

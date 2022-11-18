@@ -398,7 +398,8 @@ public class AccountResponse {
 
         if (accountId.getClass().equals(java.io.File.class) ||
             accountId.getClass().equals(Integer.class) ||
-            accountId.getClass().equals(String.class) ) {
+            accountId.getClass().equals(String.class) ||
+            accountId.getClass().isEnum()) {
             map.put("account_id", accountId);
         } else if (isListOfFile(accountId)) {
             for(int i = 0; i< getListSize(accountId); i++) {
@@ -416,7 +417,8 @@ public class AccountResponse {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {
@@ -434,7 +436,8 @@ public class AccountResponse {
 
         if (isLocked.getClass().equals(java.io.File.class) ||
             isLocked.getClass().equals(Integer.class) ||
-            isLocked.getClass().equals(String.class) ) {
+            isLocked.getClass().equals(String.class) ||
+            isLocked.getClass().isEnum()) {
             map.put("is_locked", isLocked);
         } else if (isListOfFile(isLocked)) {
             for(int i = 0; i< getListSize(isLocked); i++) {
@@ -452,7 +455,8 @@ public class AccountResponse {
 
         if (isPaidHs.getClass().equals(java.io.File.class) ||
             isPaidHs.getClass().equals(Integer.class) ||
-            isPaidHs.getClass().equals(String.class) ) {
+            isPaidHs.getClass().equals(String.class) ||
+            isPaidHs.getClass().isEnum()) {
             map.put("is_paid_hs", isPaidHs);
         } else if (isListOfFile(isPaidHs)) {
             for(int i = 0; i< getListSize(isPaidHs); i++) {
@@ -470,7 +474,8 @@ public class AccountResponse {
 
         if (isPaidHf.getClass().equals(java.io.File.class) ||
             isPaidHf.getClass().equals(Integer.class) ||
-            isPaidHf.getClass().equals(String.class) ) {
+            isPaidHf.getClass().equals(String.class) ||
+            isPaidHf.getClass().isEnum()) {
             map.put("is_paid_hf", isPaidHf);
         } else if (isListOfFile(isPaidHf)) {
             for(int i = 0; i< getListSize(isPaidHf); i++) {
@@ -488,7 +493,8 @@ public class AccountResponse {
 
         if (quotas.getClass().equals(java.io.File.class) ||
             quotas.getClass().equals(Integer.class) ||
-            quotas.getClass().equals(String.class) ) {
+            quotas.getClass().equals(String.class) ||
+            quotas.getClass().isEnum()) {
             map.put("quotas", quotas);
         } else if (isListOfFile(quotas)) {
             for(int i = 0; i< getListSize(quotas); i++) {
@@ -506,7 +512,8 @@ public class AccountResponse {
 
         if (callbackUrl.getClass().equals(java.io.File.class) ||
             callbackUrl.getClass().equals(Integer.class) ||
-            callbackUrl.getClass().equals(String.class) ) {
+            callbackUrl.getClass().equals(String.class) ||
+            callbackUrl.getClass().isEnum()) {
             map.put("callback_url", callbackUrl);
         } else if (isListOfFile(callbackUrl)) {
             for(int i = 0; i< getListSize(callbackUrl); i++) {
@@ -524,7 +531,8 @@ public class AccountResponse {
 
         if (roleCode.getClass().equals(java.io.File.class) ||
             roleCode.getClass().equals(Integer.class) ||
-            roleCode.getClass().equals(String.class) ) {
+            roleCode.getClass().equals(String.class) ||
+            roleCode.getClass().isEnum()) {
             map.put("role_code", roleCode);
         } else if (isListOfFile(roleCode)) {
             for(int i = 0; i< getListSize(roleCode); i++) {
@@ -542,7 +550,8 @@ public class AccountResponse {
 
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
-            teamId.getClass().equals(String.class) ) {
+            teamId.getClass().equals(String.class) ||
+            teamId.getClass().isEnum()) {
             map.put("team_id", teamId);
         } else if (isListOfFile(teamId)) {
             for(int i = 0; i< getListSize(teamId); i++) {
@@ -560,7 +569,8 @@ public class AccountResponse {
 
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
-            locale.getClass().equals(String.class) ) {
+            locale.getClass().equals(String.class) ||
+            locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
             for(int i = 0; i< getListSize(locale); i++) {

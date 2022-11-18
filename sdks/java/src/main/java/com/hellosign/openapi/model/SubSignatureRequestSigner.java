@@ -304,7 +304,8 @@ public class SubSignatureRequestSigner {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -322,7 +323,8 @@ public class SubSignatureRequestSigner {
 
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
-            emailAddress.getClass().equals(String.class) ) {
+            emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().isEnum()) {
             map.put("email_address", emailAddress);
         } else if (isListOfFile(emailAddress)) {
             for(int i = 0; i< getListSize(emailAddress); i++) {
@@ -340,7 +342,8 @@ public class SubSignatureRequestSigner {
 
         if (order.getClass().equals(java.io.File.class) ||
             order.getClass().equals(Integer.class) ||
-            order.getClass().equals(String.class) ) {
+            order.getClass().equals(String.class) ||
+            order.getClass().isEnum()) {
             map.put("order", order);
         } else if (isListOfFile(order)) {
             for(int i = 0; i< getListSize(order); i++) {
@@ -358,7 +361,8 @@ public class SubSignatureRequestSigner {
 
         if (pin.getClass().equals(java.io.File.class) ||
             pin.getClass().equals(Integer.class) ||
-            pin.getClass().equals(String.class) ) {
+            pin.getClass().equals(String.class) ||
+            pin.getClass().isEnum()) {
             map.put("pin", pin);
         } else if (isListOfFile(pin)) {
             for(int i = 0; i< getListSize(pin); i++) {
@@ -376,7 +380,8 @@ public class SubSignatureRequestSigner {
 
         if (smsPhoneNumber.getClass().equals(java.io.File.class) ||
             smsPhoneNumber.getClass().equals(Integer.class) ||
-            smsPhoneNumber.getClass().equals(String.class) ) {
+            smsPhoneNumber.getClass().equals(String.class) ||
+            smsPhoneNumber.getClass().isEnum()) {
             map.put("sms_phone_number", smsPhoneNumber);
         } else if (isListOfFile(smsPhoneNumber)) {
             for(int i = 0; i< getListSize(smsPhoneNumber); i++) {
@@ -394,7 +399,8 @@ public class SubSignatureRequestSigner {
 
         if (smsPhoneNumberType.getClass().equals(java.io.File.class) ||
             smsPhoneNumberType.getClass().equals(Integer.class) ||
-            smsPhoneNumberType.getClass().equals(String.class) ) {
+            smsPhoneNumberType.getClass().equals(String.class) ||
+            smsPhoneNumberType.getClass().isEnum()) {
             map.put("sms_phone_number_type", smsPhoneNumberType);
         } else if (isListOfFile(smsPhoneNumberType)) {
             for(int i = 0; i< getListSize(smsPhoneNumberType); i++) {

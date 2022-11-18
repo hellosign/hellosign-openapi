@@ -193,7 +193,8 @@ public class TeamResponse {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -211,7 +212,8 @@ public class TeamResponse {
 
         if (accounts.getClass().equals(java.io.File.class) ||
             accounts.getClass().equals(Integer.class) ||
-            accounts.getClass().equals(String.class) ) {
+            accounts.getClass().equals(String.class) ||
+            accounts.getClass().isEnum()) {
             map.put("accounts", accounts);
         } else if (isListOfFile(accounts)) {
             for(int i = 0; i< getListSize(accounts); i++) {
@@ -229,7 +231,8 @@ public class TeamResponse {
 
         if (invitedAccounts.getClass().equals(java.io.File.class) ||
             invitedAccounts.getClass().equals(Integer.class) ||
-            invitedAccounts.getClass().equals(String.class) ) {
+            invitedAccounts.getClass().equals(String.class) ||
+            invitedAccounts.getClass().isEnum()) {
             map.put("invited_accounts", invitedAccounts);
         } else if (isListOfFile(invitedAccounts)) {
             for(int i = 0; i< getListSize(invitedAccounts); i++) {

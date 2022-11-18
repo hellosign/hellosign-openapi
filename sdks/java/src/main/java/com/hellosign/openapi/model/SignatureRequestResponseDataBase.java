@@ -271,7 +271,8 @@ public class SignatureRequestResponseDataBase {
 
         if (apiId.getClass().equals(java.io.File.class) ||
             apiId.getClass().equals(Integer.class) ||
-            apiId.getClass().equals(String.class) ) {
+            apiId.getClass().equals(String.class) ||
+            apiId.getClass().isEnum()) {
             map.put("api_id", apiId);
         } else if (isListOfFile(apiId)) {
             for(int i = 0; i< getListSize(apiId); i++) {
@@ -289,7 +290,8 @@ public class SignatureRequestResponseDataBase {
 
         if (signatureId.getClass().equals(java.io.File.class) ||
             signatureId.getClass().equals(Integer.class) ||
-            signatureId.getClass().equals(String.class) ) {
+            signatureId.getClass().equals(String.class) ||
+            signatureId.getClass().isEnum()) {
             map.put("signature_id", signatureId);
         } else if (isListOfFile(signatureId)) {
             for(int i = 0; i< getListSize(signatureId); i++) {
@@ -307,7 +309,8 @@ public class SignatureRequestResponseDataBase {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -325,7 +328,8 @@ public class SignatureRequestResponseDataBase {
 
         if (required.getClass().equals(java.io.File.class) ||
             required.getClass().equals(Integer.class) ||
-            required.getClass().equals(String.class) ) {
+            required.getClass().equals(String.class) ||
+            required.getClass().isEnum()) {
             map.put("required", required);
         } else if (isListOfFile(required)) {
             for(int i = 0; i< getListSize(required); i++) {
@@ -343,7 +347,8 @@ public class SignatureRequestResponseDataBase {
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {

@@ -617,7 +617,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (templateIds.getClass().equals(java.io.File.class) ||
             templateIds.getClass().equals(Integer.class) ||
-            templateIds.getClass().equals(String.class) ) {
+            templateIds.getClass().equals(String.class) ||
+            templateIds.getClass().isEnum()) {
             map.put("template_ids", templateIds);
         } else if (isListOfFile(templateIds)) {
             for(int i = 0; i< getListSize(templateIds); i++) {
@@ -635,7 +636,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (clientId.getClass().equals(java.io.File.class) ||
             clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ) {
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
             map.put("client_id", clientId);
         } else if (isListOfFile(clientId)) {
             for(int i = 0; i< getListSize(clientId); i++) {
@@ -653,7 +655,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (signers.getClass().equals(java.io.File.class) ||
             signers.getClass().equals(Integer.class) ||
-            signers.getClass().equals(String.class) ) {
+            signers.getClass().equals(String.class) ||
+            signers.getClass().isEnum()) {
             map.put("signers", signers);
         } else if (isListOfFile(signers)) {
             for(int i = 0; i< getListSize(signers); i++) {
@@ -671,7 +674,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (allowDecline.getClass().equals(java.io.File.class) ||
             allowDecline.getClass().equals(Integer.class) ||
-            allowDecline.getClass().equals(String.class) ) {
+            allowDecline.getClass().equals(String.class) ||
+            allowDecline.getClass().isEnum()) {
             map.put("allow_decline", allowDecline);
         } else if (isListOfFile(allowDecline)) {
             for(int i = 0; i< getListSize(allowDecline); i++) {
@@ -689,7 +693,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (ccs.getClass().equals(java.io.File.class) ||
             ccs.getClass().equals(Integer.class) ||
-            ccs.getClass().equals(String.class) ) {
+            ccs.getClass().equals(String.class) ||
+            ccs.getClass().isEnum()) {
             map.put("ccs", ccs);
         } else if (isListOfFile(ccs)) {
             for(int i = 0; i< getListSize(ccs); i++) {
@@ -707,7 +712,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (customFields.getClass().equals(java.io.File.class) ||
             customFields.getClass().equals(Integer.class) ||
-            customFields.getClass().equals(String.class) ) {
+            customFields.getClass().equals(String.class) ||
+            customFields.getClass().isEnum()) {
             map.put("custom_fields", customFields);
         } else if (isListOfFile(customFields)) {
             for(int i = 0; i< getListSize(customFields); i++) {
@@ -725,7 +731,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (file.getClass().equals(java.io.File.class) ||
             file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ) {
+            file.getClass().equals(String.class) ||
+            file.getClass().isEnum()) {
             map.put("file", file);
         } else if (isListOfFile(file)) {
             for(int i = 0; i< getListSize(file); i++) {
@@ -743,7 +750,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (fileUrl.getClass().equals(java.io.File.class) ||
             fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ) {
+            fileUrl.getClass().equals(String.class) ||
+            fileUrl.getClass().isEnum()) {
             map.put("file_url", fileUrl);
         } else if (isListOfFile(fileUrl)) {
             for(int i = 0; i< getListSize(fileUrl); i++) {
@@ -761,7 +769,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
-            message.getClass().equals(String.class) ) {
+            message.getClass().equals(String.class) ||
+            message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
             for(int i = 0; i< getListSize(message); i++) {
@@ -779,7 +788,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (metadata.getClass().equals(java.io.File.class) ||
             metadata.getClass().equals(Integer.class) ||
-            metadata.getClass().equals(String.class) ) {
+            metadata.getClass().equals(String.class) ||
+            metadata.getClass().isEnum()) {
             map.put("metadata", metadata);
         } else if (isListOfFile(metadata)) {
             for(int i = 0; i< getListSize(metadata); i++) {
@@ -797,7 +807,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (signingOptions.getClass().equals(java.io.File.class) ||
             signingOptions.getClass().equals(Integer.class) ||
-            signingOptions.getClass().equals(String.class) ) {
+            signingOptions.getClass().equals(String.class) ||
+            signingOptions.getClass().isEnum()) {
             map.put("signing_options", signingOptions);
         } else if (isListOfFile(signingOptions)) {
             for(int i = 0; i< getListSize(signingOptions); i++) {
@@ -815,7 +826,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (subject.getClass().equals(java.io.File.class) ||
             subject.getClass().equals(Integer.class) ||
-            subject.getClass().equals(String.class) ) {
+            subject.getClass().equals(String.class) ||
+            subject.getClass().isEnum()) {
             map.put("subject", subject);
         } else if (isListOfFile(subject)) {
             for(int i = 0; i< getListSize(subject); i++) {
@@ -833,7 +845,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {
@@ -851,7 +864,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
-            title.getClass().equals(String.class) ) {
+            title.getClass().equals(String.class) ||
+            title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
             for(int i = 0; i< getListSize(title); i++) {
@@ -869,7 +883,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
         if (populateAutoFillFields.getClass().equals(java.io.File.class) ||
             populateAutoFillFields.getClass().equals(Integer.class) ||
-            populateAutoFillFields.getClass().equals(String.class) ) {
+            populateAutoFillFields.getClass().equals(String.class) ||
+            populateAutoFillFields.getClass().isEnum()) {
             map.put("populate_auto_fill_fields", populateAutoFillFields);
         } else if (isListOfFile(populateAutoFillFields)) {
             for(int i = 0; i< getListSize(populateAutoFillFields); i++) {

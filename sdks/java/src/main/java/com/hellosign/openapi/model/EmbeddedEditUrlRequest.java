@@ -417,7 +417,8 @@ public class EmbeddedEditUrlRequest {
 
         if (allowEditCcs.getClass().equals(java.io.File.class) ||
             allowEditCcs.getClass().equals(Integer.class) ||
-            allowEditCcs.getClass().equals(String.class) ) {
+            allowEditCcs.getClass().equals(String.class) ||
+            allowEditCcs.getClass().isEnum()) {
             map.put("allow_edit_ccs", allowEditCcs);
         } else if (isListOfFile(allowEditCcs)) {
             for(int i = 0; i< getListSize(allowEditCcs); i++) {
@@ -435,7 +436,8 @@ public class EmbeddedEditUrlRequest {
 
         if (ccRoles.getClass().equals(java.io.File.class) ||
             ccRoles.getClass().equals(Integer.class) ||
-            ccRoles.getClass().equals(String.class) ) {
+            ccRoles.getClass().equals(String.class) ||
+            ccRoles.getClass().isEnum()) {
             map.put("cc_roles", ccRoles);
         } else if (isListOfFile(ccRoles)) {
             for(int i = 0; i< getListSize(ccRoles); i++) {
@@ -453,7 +455,8 @@ public class EmbeddedEditUrlRequest {
 
         if (editorOptions.getClass().equals(java.io.File.class) ||
             editorOptions.getClass().equals(Integer.class) ||
-            editorOptions.getClass().equals(String.class) ) {
+            editorOptions.getClass().equals(String.class) ||
+            editorOptions.getClass().isEnum()) {
             map.put("editor_options", editorOptions);
         } else if (isListOfFile(editorOptions)) {
             for(int i = 0; i< getListSize(editorOptions); i++) {
@@ -471,7 +474,8 @@ public class EmbeddedEditUrlRequest {
 
         if (forceSignerRoles.getClass().equals(java.io.File.class) ||
             forceSignerRoles.getClass().equals(Integer.class) ||
-            forceSignerRoles.getClass().equals(String.class) ) {
+            forceSignerRoles.getClass().equals(String.class) ||
+            forceSignerRoles.getClass().isEnum()) {
             map.put("force_signer_roles", forceSignerRoles);
         } else if (isListOfFile(forceSignerRoles)) {
             for(int i = 0; i< getListSize(forceSignerRoles); i++) {
@@ -489,7 +493,8 @@ public class EmbeddedEditUrlRequest {
 
         if (forceSubjectMessage.getClass().equals(java.io.File.class) ||
             forceSubjectMessage.getClass().equals(Integer.class) ||
-            forceSubjectMessage.getClass().equals(String.class) ) {
+            forceSubjectMessage.getClass().equals(String.class) ||
+            forceSubjectMessage.getClass().isEnum()) {
             map.put("force_subject_message", forceSubjectMessage);
         } else if (isListOfFile(forceSubjectMessage)) {
             for(int i = 0; i< getListSize(forceSubjectMessage); i++) {
@@ -507,7 +512,8 @@ public class EmbeddedEditUrlRequest {
 
         if (mergeFields.getClass().equals(java.io.File.class) ||
             mergeFields.getClass().equals(Integer.class) ||
-            mergeFields.getClass().equals(String.class) ) {
+            mergeFields.getClass().equals(String.class) ||
+            mergeFields.getClass().isEnum()) {
             map.put("merge_fields", mergeFields);
         } else if (isListOfFile(mergeFields)) {
             for(int i = 0; i< getListSize(mergeFields); i++) {
@@ -525,7 +531,8 @@ public class EmbeddedEditUrlRequest {
 
         if (previewOnly.getClass().equals(java.io.File.class) ||
             previewOnly.getClass().equals(Integer.class) ||
-            previewOnly.getClass().equals(String.class) ) {
+            previewOnly.getClass().equals(String.class) ||
+            previewOnly.getClass().isEnum()) {
             map.put("preview_only", previewOnly);
         } else if (isListOfFile(previewOnly)) {
             for(int i = 0; i< getListSize(previewOnly); i++) {
@@ -543,7 +550,8 @@ public class EmbeddedEditUrlRequest {
 
         if (showPreview.getClass().equals(java.io.File.class) ||
             showPreview.getClass().equals(Integer.class) ||
-            showPreview.getClass().equals(String.class) ) {
+            showPreview.getClass().equals(String.class) ||
+            showPreview.getClass().isEnum()) {
             map.put("show_preview", showPreview);
         } else if (isListOfFile(showPreview)) {
             for(int i = 0; i< getListSize(showPreview); i++) {
@@ -561,7 +569,8 @@ public class EmbeddedEditUrlRequest {
 
         if (showProgressStepper.getClass().equals(java.io.File.class) ||
             showProgressStepper.getClass().equals(Integer.class) ||
-            showProgressStepper.getClass().equals(String.class) ) {
+            showProgressStepper.getClass().equals(String.class) ||
+            showProgressStepper.getClass().isEnum()) {
             map.put("show_progress_stepper", showProgressStepper);
         } else if (isListOfFile(showProgressStepper)) {
             for(int i = 0; i< getListSize(showProgressStepper); i++) {
@@ -579,7 +588,8 @@ public class EmbeddedEditUrlRequest {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {

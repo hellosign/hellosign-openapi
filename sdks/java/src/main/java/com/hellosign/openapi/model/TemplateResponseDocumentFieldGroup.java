@@ -141,7 +141,8 @@ public class TemplateResponseDocumentFieldGroup {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -159,7 +160,8 @@ public class TemplateResponseDocumentFieldGroup {
 
         if (rule.getClass().equals(java.io.File.class) ||
             rule.getClass().equals(Integer.class) ||
-            rule.getClass().equals(String.class) ) {
+            rule.getClass().equals(String.class) ||
+            rule.getClass().isEnum()) {
             map.put("rule", rule);
         } else if (isListOfFile(rule)) {
             for(int i = 0; i< getListSize(rule); i++) {

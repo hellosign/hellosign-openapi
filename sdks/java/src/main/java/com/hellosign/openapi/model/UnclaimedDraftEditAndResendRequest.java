@@ -334,7 +334,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (clientId.getClass().equals(java.io.File.class) ||
             clientId.getClass().equals(Integer.class) ||
-            clientId.getClass().equals(String.class) ) {
+            clientId.getClass().equals(String.class) ||
+            clientId.getClass().isEnum()) {
             map.put("client_id", clientId);
         } else if (isListOfFile(clientId)) {
             for(int i = 0; i< getListSize(clientId); i++) {
@@ -352,7 +353,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (editorOptions.getClass().equals(java.io.File.class) ||
             editorOptions.getClass().equals(Integer.class) ||
-            editorOptions.getClass().equals(String.class) ) {
+            editorOptions.getClass().equals(String.class) ||
+            editorOptions.getClass().isEnum()) {
             map.put("editor_options", editorOptions);
         } else if (isListOfFile(editorOptions)) {
             for(int i = 0; i< getListSize(editorOptions); i++) {
@@ -370,7 +372,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (isForEmbeddedSigning.getClass().equals(java.io.File.class) ||
             isForEmbeddedSigning.getClass().equals(Integer.class) ||
-            isForEmbeddedSigning.getClass().equals(String.class) ) {
+            isForEmbeddedSigning.getClass().equals(String.class) ||
+            isForEmbeddedSigning.getClass().isEnum()) {
             map.put("is_for_embedded_signing", isForEmbeddedSigning);
         } else if (isListOfFile(isForEmbeddedSigning)) {
             for(int i = 0; i< getListSize(isForEmbeddedSigning); i++) {
@@ -388,7 +391,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (requesterEmailAddress.getClass().equals(java.io.File.class) ||
             requesterEmailAddress.getClass().equals(Integer.class) ||
-            requesterEmailAddress.getClass().equals(String.class) ) {
+            requesterEmailAddress.getClass().equals(String.class) ||
+            requesterEmailAddress.getClass().isEnum()) {
             map.put("requester_email_address", requesterEmailAddress);
         } else if (isListOfFile(requesterEmailAddress)) {
             for(int i = 0; i< getListSize(requesterEmailAddress); i++) {
@@ -406,7 +410,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (requestingRedirectUrl.getClass().equals(java.io.File.class) ||
             requestingRedirectUrl.getClass().equals(Integer.class) ||
-            requestingRedirectUrl.getClass().equals(String.class) ) {
+            requestingRedirectUrl.getClass().equals(String.class) ||
+            requestingRedirectUrl.getClass().isEnum()) {
             map.put("requesting_redirect_url", requestingRedirectUrl);
         } else if (isListOfFile(requestingRedirectUrl)) {
             for(int i = 0; i< getListSize(requestingRedirectUrl); i++) {
@@ -424,7 +429,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (showProgressStepper.getClass().equals(java.io.File.class) ||
             showProgressStepper.getClass().equals(Integer.class) ||
-            showProgressStepper.getClass().equals(String.class) ) {
+            showProgressStepper.getClass().equals(String.class) ||
+            showProgressStepper.getClass().isEnum()) {
             map.put("show_progress_stepper", showProgressStepper);
         } else if (isListOfFile(showProgressStepper)) {
             for(int i = 0; i< getListSize(showProgressStepper); i++) {
@@ -442,7 +448,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (signingRedirectUrl.getClass().equals(java.io.File.class) ||
             signingRedirectUrl.getClass().equals(Integer.class) ||
-            signingRedirectUrl.getClass().equals(String.class) ) {
+            signingRedirectUrl.getClass().equals(String.class) ||
+            signingRedirectUrl.getClass().isEnum()) {
             map.put("signing_redirect_url", signingRedirectUrl);
         } else if (isListOfFile(signingRedirectUrl)) {
             for(int i = 0; i< getListSize(signingRedirectUrl); i++) {
@@ -460,7 +467,8 @@ public class UnclaimedDraftEditAndResendRequest {
 
         if (testMode.getClass().equals(java.io.File.class) ||
             testMode.getClass().equals(Integer.class) ||
-            testMode.getClass().equals(String.class) ) {
+            testMode.getClass().equals(String.class) ||
+            testMode.getClass().isEnum()) {
             map.put("test_mode", testMode);
         } else if (isListOfFile(testMode)) {
             for(int i = 0; i< getListSize(testMode); i++) {

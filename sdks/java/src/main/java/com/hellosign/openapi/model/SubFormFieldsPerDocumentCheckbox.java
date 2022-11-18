@@ -204,7 +204,8 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {
@@ -222,7 +223,8 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
 
         if (isChecked.getClass().equals(java.io.File.class) ||
             isChecked.getClass().equals(Integer.class) ||
-            isChecked.getClass().equals(String.class) ) {
+            isChecked.getClass().equals(String.class) ||
+            isChecked.getClass().isEnum()) {
             map.put("is_checked", isChecked);
         } else if (isListOfFile(isChecked)) {
             for(int i = 0; i< getListSize(isChecked); i++) {
@@ -240,7 +242,8 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
 
         if (group.getClass().equals(java.io.File.class) ||
             group.getClass().equals(Integer.class) ||
-            group.getClass().equals(String.class) ) {
+            group.getClass().equals(String.class) ||
+            group.getClass().isEnum()) {
             map.put("group", group);
         } else if (isListOfFile(group)) {
             for(int i = 0; i< getListSize(group); i++) {

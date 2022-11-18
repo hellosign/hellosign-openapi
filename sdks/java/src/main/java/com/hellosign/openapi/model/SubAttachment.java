@@ -205,7 +205,8 @@ public class SubAttachment {
 
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
-            name.getClass().equals(String.class) ) {
+            name.getClass().equals(String.class) ||
+            name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
             for(int i = 0; i< getListSize(name); i++) {
@@ -223,7 +224,8 @@ public class SubAttachment {
 
         if (signerIndex.getClass().equals(java.io.File.class) ||
             signerIndex.getClass().equals(Integer.class) ||
-            signerIndex.getClass().equals(String.class) ) {
+            signerIndex.getClass().equals(String.class) ||
+            signerIndex.getClass().isEnum()) {
             map.put("signer_index", signerIndex);
         } else if (isListOfFile(signerIndex)) {
             for(int i = 0; i< getListSize(signerIndex); i++) {
@@ -241,7 +243,8 @@ public class SubAttachment {
 
         if (instructions.getClass().equals(java.io.File.class) ||
             instructions.getClass().equals(Integer.class) ||
-            instructions.getClass().equals(String.class) ) {
+            instructions.getClass().equals(String.class) ||
+            instructions.getClass().isEnum()) {
             map.put("instructions", instructions);
         } else if (isListOfFile(instructions)) {
             for(int i = 0; i< getListSize(instructions); i++) {
@@ -259,7 +262,8 @@ public class SubAttachment {
 
         if (required.getClass().equals(java.io.File.class) ||
             required.getClass().equals(Integer.class) ||
-            required.getClass().equals(String.class) ) {
+            required.getClass().equals(String.class) ||
+            required.getClass().isEnum()) {
             map.put("required", required);
         } else if (isListOfFile(required)) {
             for(int i = 0; i< getListSize(required); i++) {

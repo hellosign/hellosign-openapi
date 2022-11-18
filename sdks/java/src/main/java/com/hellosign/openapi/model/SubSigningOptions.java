@@ -277,7 +277,8 @@ public class SubSigningOptions {
 
         if (defaultType.getClass().equals(java.io.File.class) ||
             defaultType.getClass().equals(Integer.class) ||
-            defaultType.getClass().equals(String.class) ) {
+            defaultType.getClass().equals(String.class) ||
+            defaultType.getClass().isEnum()) {
             map.put("default_type", defaultType);
         } else if (isListOfFile(defaultType)) {
             for(int i = 0; i< getListSize(defaultType); i++) {
@@ -295,7 +296,8 @@ public class SubSigningOptions {
 
         if (draw.getClass().equals(java.io.File.class) ||
             draw.getClass().equals(Integer.class) ||
-            draw.getClass().equals(String.class) ) {
+            draw.getClass().equals(String.class) ||
+            draw.getClass().isEnum()) {
             map.put("draw", draw);
         } else if (isListOfFile(draw)) {
             for(int i = 0; i< getListSize(draw); i++) {
@@ -313,7 +315,8 @@ public class SubSigningOptions {
 
         if (phone.getClass().equals(java.io.File.class) ||
             phone.getClass().equals(Integer.class) ||
-            phone.getClass().equals(String.class) ) {
+            phone.getClass().equals(String.class) ||
+            phone.getClass().isEnum()) {
             map.put("phone", phone);
         } else if (isListOfFile(phone)) {
             for(int i = 0; i< getListSize(phone); i++) {
@@ -331,7 +334,8 @@ public class SubSigningOptions {
 
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
-            type.getClass().equals(String.class) ) {
+            type.getClass().equals(String.class) ||
+            type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
             for(int i = 0; i< getListSize(type); i++) {
@@ -349,7 +353,8 @@ public class SubSigningOptions {
 
         if (upload.getClass().equals(java.io.File.class) ||
             upload.getClass().equals(Integer.class) ||
-            upload.getClass().equals(String.class) ) {
+            upload.getClass().equals(String.class) ||
+            upload.getClass().isEnum()) {
             map.put("upload", upload);
         } else if (isListOfFile(upload)) {
             for(int i = 0; i< getListSize(upload); i++) {

@@ -161,7 +161,8 @@ public class TeamInvitesResponse {
 
         if (teamInvites.getClass().equals(java.io.File.class) ||
             teamInvites.getClass().equals(Integer.class) ||
-            teamInvites.getClass().equals(String.class) ) {
+            teamInvites.getClass().equals(String.class) ||
+            teamInvites.getClass().isEnum()) {
             map.put("team_invites", teamInvites);
         } else if (isListOfFile(teamInvites)) {
             for(int i = 0; i< getListSize(teamInvites); i++) {
@@ -179,7 +180,8 @@ public class TeamInvitesResponse {
 
         if (warnings.getClass().equals(java.io.File.class) ||
             warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ) {
+            warnings.getClass().equals(String.class) ||
+            warnings.getClass().isEnum()) {
             map.put("warnings", warnings);
         } else if (isListOfFile(warnings)) {
             for(int i = 0; i< getListSize(warnings); i++) {
