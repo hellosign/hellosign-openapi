@@ -7,6 +7,12 @@ sdks/**/vendor
 vendor
 .idea
 
+sandbox/dotnet/*
+!sandbox/dotnet/.gitignore
+!sandbox/dotnet/hellosign_sandbox.csproj
+!sandbox/dotnet/NuGet.Config
+!sandbox/dotnet/Program.cs
+
 sandbox/node/*
 !sandbox/node/Example.ts
 !sandbox/node/package.json
