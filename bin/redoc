@@ -6,6 +6,7 @@
 #   open http://127.0.0.1:8081
 
 set -e
+
 DIR=$(cd `dirname $0` && pwd)
 ROOT_DIR="${DIR}/.."
 

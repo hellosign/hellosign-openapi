@@ -17,7 +17,7 @@ REPO_RUBY="https://github.com/hellosign/hellosign-ruby-sdk.git"
 
 function show_help() {
     cat << EOF
-Usage: package-sdks [OPTION]
+Usage: copy-sdks [OPTION]
 Copies build files for a given SDK into the repos/[SDK] directory.
 
 **WARNING** All files and directories present in the repos/[SDK] directory will
@@ -27,7 +27,7 @@ Copies build files for a given SDK into the repos/[SDK] directory.
 -b          run the ./build-sdks script to first build all SDKs using openapi-generator.
             defaults to 0 (no). Use 1 to build.
 -h          display this help and exit
-Example: package-sdks -t php -b 1
+Example: copy-sdks -t php -b 1
 EOF
 
     exit 0

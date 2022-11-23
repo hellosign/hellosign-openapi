@@ -3,7 +3,6 @@
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
-
 OAS_DIR="${DIR}/../"
 SDK_DIR="${DIR}/../sdks/python"
 
