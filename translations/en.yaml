@@ -5,11 +5,11 @@
 "OpenApi::TITLE": Dropbox Sign API
 "OpenApi::DESCRIPTION": Dropbox Sign v3 API
 "OpenApi::AUTH::API_KEY": |-
-  Your API key can be used to make calls to the Dropbox Sign API. See [Authentication](/api/reference/authentication) for more information.   
-  ✅ Supported by Try it console (calls sent in `test_mode` only). 
+  Your API key can be used to make calls to the Dropbox Sign API. See [Authentication](/api/reference/authentication) for more information.
+  ✅ Supported by Try it console (calls sent in `test_mode` only).
 "OpenApi::AUTH::OAUTH": |-
-  You can use an Access Token issued through an OAuth flow to send calls to the Dropbox Sign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.    
-  ❌ **Not supported** by Try it console.  
+  You can use an Access Token issued through an OAuth flow to send calls to the Dropbox Sign API from your app. The access scopes required by this endpoint are listed in the gray box above. See [Authentication](/api/reference/authentication) for more information.
+  ❌ **Not supported** by Try it console.
 "OpenApi::TAG::ACCOUNT::DESCRIPTION": ./markdown/en/tags/account-tag-description.md
 "OpenApi::TAG::API_APP::DESCRIPTION": ./markdown/en/tags/api-app-tag-description.md
 "OpenApi::TAG::BULK_SEND_JOB::DESCRIPTION": ./markdown/en/tags/bulk-send-job-tag-description.md
@@ -48,11 +48,11 @@
 "AccountGet::DESCRIPTION": Returns the properties and settings of your Account.
 "AccountGet::SUMMARY": Get Account
 "AccountGet::ACCOUNT_ID": |-
-  `account_id` or `email_address` is required. If both are provided, the account id prevails. 
-  
+  `account_id` or `email_address` is required. If both are provided, the account id prevails.
+
   The ID of the Account.
 "AccountGet::EMAIL_ADDRESS": |-
-  `account_id` or `email_address` is required, If both are provided, the account id prevails. 
+  `account_id` or `email_address` is required, If both are provided, the account id prevails.
 
   The email address of the Account.
 "AccountUpdate::SUMMARY": Update Account
@@ -111,8 +111,8 @@
 "EmbeddedEditUrl::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "EmbeddedEditUrl::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "EmbeddedEditUrl::MERGE_FIELDS": |-
-  Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  
-    
+  Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.
+
   Remove all merge fields on the template by passing an empty array `[]`.
 "EmbeddedEditUrl::PREVIEW_ONLY": |-
   This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
@@ -243,7 +243,7 @@
 "SignatureRequestCreateEmbedded::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbedded::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbedded::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -270,7 +270,7 @@
 "SignatureRequestCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -287,18 +287,18 @@
   ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestFiles::SUMMARY": Download Files
 "SignatureRequestFiles::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file. 
+  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.
 
   If the files are currently being prepared, a status code of `409` will be returned instead.
 "SignatureRequestFilesAsFileUrl::SUMMARY": Download Files as File Url
 "SignatureRequestFilesAsFileUrl::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).
 
   If the files are currently being prepared, a status code of `409` will be returned instead.
 
 "SignatureRequestFilesAsDataUri::SUMMARY": Download Files as Data Uri
 "SignatureRequestFilesAsDataUri::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
+  Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).
 
   If the files are currently being prepared, a status code of `409` will be returned instead.
 "SignatureRequestFiles::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to retrieve.
@@ -354,7 +354,7 @@
 "SignatureRequestSend::CLIENT_ID": The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSend::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSend::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -384,7 +384,7 @@
 "SignatureRequestSendWithTemplate::CLIENT_ID": Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSendWithTemplate::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSendWithTemplate::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -424,12 +424,12 @@
 "TeamAddMember::SUMMARY": Add User to Team
 "TeamAddMember::DESCRIPTION": Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.
 "TeamAddMember::ACCOUNT_ID": |-
-  `account_id` or `email_address` is required. If both are provided, the account id prevails. 
-  
+  `account_id` or `email_address` is required. If both are provided, the account id prevails.
+
   Account id of the user to invite to your Team.
 "TeamAddMember::EMAIL_ADDRESS": |-
-  `account_id` or `email_address` is required, If both are provided, the account id prevails. 
-  
+  `account_id` or `email_address` is required, If both are provided, the account id prevails.
+
   Email address of the user to invite to your Team.
 "TeamAddMember::ROLE": |-
   A role member will take in a new Team.
@@ -451,15 +451,15 @@
 "TeamRemoveMember::NEW_TEAM_ID": Id of the new Team.
 "TeamRemoveMember::NEW_ROLE": |-
   A new role member will take in a new Team.
-  
+
   **Note**: This parameter is used only if `new_team_id` is provided.
 "TeamRemoveMember::ACCOUNT_ID": |-
-  **account_id** or **email_address** is required. If both are provided, the account id prevails. 
-  
+  **account_id** or **email_address** is required. If both are provided, the account id prevails.
+
   Account id to remove from your Team.
 "TeamRemoveMember::EMAIL_ADDRESS": |-
-  **account_id** or **email_address** is required. If both are provided, the account id prevails. 
-  
+  **account_id** or **email_address** is required. If both are provided, the account id prevails.
+
   Email address of the Account to remove from your Team.
 "TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS": |-
   The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.
@@ -512,7 +512,7 @@
 "TemplateAddUser::ACCOUNT_ID": |-
   The id of the Account to give access to the Template.
   <b>Note</b> The account id prevails if email address is also provided.
-"TemplateAddUser::EMAIL_ADDRESS": |- 
+"TemplateAddUser::EMAIL_ADDRESS": |-
   The email address of the Account to give access to the Template.
   <b>Note</b> The account id prevails if it is also provided.
 "TemplateAddUser::SKIP_NOTIFICATION": If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
@@ -529,7 +529,7 @@
 "TemplateCreateEmbeddedDraft::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
 "TemplateCreateEmbeddedDraft::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -538,7 +538,7 @@
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "TemplateCreateEmbeddedDraft::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "TemplateCreateEmbeddedDraft::MERGE_FIELDS": |-
-  Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.  
+  Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.
   If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
 "TemplateCreateEmbeddedDraft::MESSAGE": The default template email message.
 "TemplateCreateEmbeddedDraft::SHOW_PREVIEW": |-
@@ -565,13 +565,13 @@
   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 "TemplateFilesAsFileUrl::SUMMARY": Get Template Files as File Url
 "TemplateFilesAsFileUrl::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).
 
   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
 "TemplateFilesAsDataUri::SUMMARY": Get Template Files as Data Uri
 "TemplateFilesAsDataUri::DESCRIPTION": |-
-  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
+  Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).
 
   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 "TemplateFiles::FILE_TYPE": Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
@@ -616,7 +616,7 @@
 "TemplateUpdateFiles::CLIENT_ID": Client id of the app you're using to update this template.
 "TemplateUpdateFiles::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to use for the template.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateUpdateFiles::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.
@@ -634,7 +634,7 @@
 "UnclaimedDraftCreate::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "UnclaimedDraftCreate::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreate::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -668,7 +668,7 @@
 "UnclaimedDraftCreateEmbedded::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbedded::FILE": |-
   Use `file[]` to indicate the uploaded file(s) to send for signature.
-  
+
   This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreateEmbedded::FILE_URL": |-
   Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -716,11 +716,11 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE": |-
   Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
-  
+
   **file** or **file_url[]** is required, but not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URL": |-
   Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
-  
+
   **file** or **file_url[]** is required, but not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
@@ -789,9 +789,9 @@
 
 "Sub::CustomField::DESCRIPTION": |-
   When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
-  
+
   Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.
-  
+
   For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
 "Sub::CustomField::EDITOR": |-
   Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.
@@ -925,7 +925,7 @@
 "Sub::FormFieldsPerDocument::REQUIRED": Whether this field is required.
 "Sub::FormFieldsPerDocument::SIGNER": |-
   Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
-  
+
   **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
@@ -976,10 +976,10 @@
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
   Specifies the feature used with the `sms_phone_number`. Default `authentication`.
-  
+
   If `authentication`, signer is sent a verification code via SMS that is required to access the document.
-  
-  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
+
+  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
 
 "Sub::SignatureRequestTemplateSigner::DESCRIPTION": Add Signers to your Templated-based Signature Request.
 "Sub::SignatureRequestTemplateSigner::EMAIL_ADDRESS": The email address of the signer.
@@ -993,10 +993,10 @@
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
   Specifies the feature used with the `sms_phone_number`. Default `authentication`.
-  
+
   If `authentication`, signer is sent a verification code via SMS that is required to access the document.
-  
-  If `delivery`, the completed signature request is delivered via SMS (_and_ email).
+
+  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
 
 "Sub::SignerRole::NAME": The role name of the signer that will be displayed when the template is used to create a signature request.
 "Sub::SignerRole::ORDER": The order in which this signer role is required to sign.
@@ -1111,7 +1111,7 @@
 "EmbeddedEditUrlResponseEmbedded::EXPIRES_AT":  The specific time that the the `edit_url` link expires, in epoch.
 
 "EventCallbackAccountRequest::DESCRIPTION": |-
-  **Account Callback Payloads --**  
+  **Account Callback Payloads --**
         Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
 "EventCallbackAccountSignatureRequestSentExample::SUMMARY": |-
   Example: signature_request_sent
@@ -1124,7 +1124,7 @@
 "EventCallbackApiAppTemplateCreatedExample::SUMMARY": |-
   Example: template_created
 "EventCallbackApiAppRequest::DESCRIPTION": |-
-  **API App Callback Payloads --**  
+  **API App Callback Payloads --**
   Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
 "EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
 "EventCallbackRequestEvent::EVENT_TIME": Time the event was created (using Unix time).
@@ -1292,8 +1292,8 @@
 "TemplateResponse::IS_CREATOR": "`true` if you are the owner of this template, `false` if it's been shared with you by a team member."
 "TemplateResponse::IS_EMBEDDED": "`true` if this template was created using an embedded flow, `false` if it was created on our website."
 "TemplateResponse::IS_LOCKED": |-
-  Indicates whether the template is locked. 
-  If `true`, then the template was created outside your quota and can only be used in `test_mode`. 
+  Indicates whether the template is locked.
+  If `true`, then the template was created outside your quota and can only be used in `test_mode`.
   If `false`, then the template is within your quota and can be used to create signature requests.
 "TemplateResponse::MESSAGE": The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::METADATA": The metadata attached to the template.
