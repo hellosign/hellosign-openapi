@@ -3,14 +3,15 @@
 # You probably want to run ./bin/maven mvn clean install
 
 set -e
+
 DIR=$(cd `dirname $0` && pwd)
 ROOT_DIR="${DIR}/.."
-WORKINGDIR="/app/java"
+WORKING_DIR="/app/java"
 
 docker run --rm \
-  -v "${ROOT_DIR}:${WORKINGDIR}" \
+  -v "${ROOT_DIR}:${WORKING_DIR}" \
   -v "hellosign-sdk-maven-cache:/root/.m2" \
-  -w "${WORKINGDIR}" \
+  -w "${WORKING_DIR}" \
   -e GEN_DIR=/app \
   -e MAVEN_OPTS="-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=/root/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -Djacoco.skip=true" \
   maven:3-jdk-8 "$@"

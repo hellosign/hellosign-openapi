@@ -3,7 +3,6 @@
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
-
 SDKS=( dotnet java node php python ruby )
 
 for SDK in "${SDKS[@]}"

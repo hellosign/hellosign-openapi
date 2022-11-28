@@ -5,6 +5,7 @@
 #   run this script
 
 set -e
+
 DIR=$(cd `dirname $0` && pwd)
 ROOT_DIR="${DIR}/.."
 
