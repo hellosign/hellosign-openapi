@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+
+WORKING_DIR="/app/openapi"
+SDK_DIR="${DIR}/../repos/java"
+TARGET_DIR="${DIR}/../sandbox/java"
+ARTIFACTS_DIR="${DIR}/../sandbox/java/artifacts"
+
+mkdir -p "${ARTIFACTS_DIR}"
+
+rm -f "${ARTIFACTS_DIR}/"*
+
+docker run --rm -it \
+  -v "${SDK_DIR}:${WORKING_DIR}" \
+  -v "${ARTIFACTS_DIR}:/artifacts" \
+  -v "hellosign-sdk-maven-cache:/root/.m2" \
+  -w "${WORKING_DIR}" \
+  -e GEN_DIR=/app \
+  -e MAVEN_OPTS="-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=/root/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -Djacoco.skip=true" \
+  maven:3-jdk-8 mvn clean install
+
+cp "${SDK_DIR}/target/"hellosign-java-sdk-*-jar-with-dependencies.jar "${ARTIFACTS_DIR}/hellosign.jar"
