@@ -121,20 +121,6 @@ class Configuration
      */
     protected $options = [];
 
-    /**
-     * Allows instantiating files when using ModelInterface::fromArray()
-     *
-     * @var bool
-     */
-    protected $instantiateFiles = false;
-
-    /**
-     * Define the base location to look for file uploads
-     *
-     * @var string|null
-     */
-    protected $rootFilePath = null;
-
     /** @var ?callable */
     protected $payloadHook = null;
 
@@ -378,46 +364,6 @@ class Configuration
     public function getTempFolderPath()
     {
         return $this->tempFolderPath;
-    }
-
-    /**
-     * Sets instantiateFiles flag
-     *
-     * @return $this
-     */
-    public function setInstantiateFiles(bool $value)
-    {
-        $this->instantiateFiles = $value;
-
-        return $this;
-    }
-
-    /**
-     * Allows instantiateFiles flag
-     */
-    public function getInstantiateFiles(): bool
-    {
-        return $this->instantiateFiles;
-    }
-
-    /**
-     * Sets the root file upload path
-     *
-     * @return $this
-     */
-    public function setRootFilePath(?string $path)
-    {
-        $this->rootFilePath = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets the root file upload path
-     */
-    public function getRootFilePath(): ?string
-    {
-        return $this->rootFilePath;
     }
 
     /**

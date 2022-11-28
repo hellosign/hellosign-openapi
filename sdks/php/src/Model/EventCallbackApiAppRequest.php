@@ -184,7 +184,7 @@ class EventCallbackApiAppRequest implements ModelInterface, ArrayAccess, JsonSer
     {
         /** @var EventCallbackApiAppRequest $obj */
         $obj = ObjectSerializer::deserialize(
-            ObjectSerializer::instantiateFiles(static::class, $data),
+            $data,
             EventCallbackApiAppRequest::class,
         );
 

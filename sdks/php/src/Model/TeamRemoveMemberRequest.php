@@ -229,7 +229,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
     {
         /** @var TeamRemoveMemberRequest $obj */
         $obj = ObjectSerializer::deserialize(
-            ObjectSerializer::instantiateFiles(static::class, $data),
+            $data,
             TeamRemoveMemberRequest::class,
         );
 
