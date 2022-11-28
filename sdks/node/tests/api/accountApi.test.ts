@@ -20,8 +20,6 @@ describe('AccountApiTest', () => {
   });
 
   const api = new AccountApi();
-  api.rootFilePath = __dirname + '/../../test_fixtures';
-  api.instantiateFiles = true;
 
   it('testHttpCodeRange', () => {
     const requestClass = 'AccountVerifyRequest';
