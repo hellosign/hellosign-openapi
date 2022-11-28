@@ -6,7 +6,8 @@ import com.hellosign.openapi.model.SubFormFieldsPerDocumentBase;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -16,8 +17,11 @@ public class SubFormFieldsPerDocumentTest {
     @Test
     public void testSubFormFieldsPerDocumentBase() throws Exception {
         ObjectMapper mapper = JSON.getDefault().getMapper();
-        JsonNode content = mapper.readTree(new FileInputStream("test_fixtures//SubFormFieldsPerDocument.json"));
+        JsonNode content = mapper.readTree(
+            Files.newInputStream(Paths.get("test_fixtures//SubFormFieldsPerDocument.json"))
+        );
         Iterator<Map.Entry<String, JsonNode>> fields = content.fields();
+
         while (fields.hasNext()) {
             Map.Entry<String, JsonNode> kv = fields.next();
             String fieldName = kv.getKey();
@@ -28,7 +32,9 @@ public class SubFormFieldsPerDocumentTest {
 
             String serialized = mapper.writeValueAsString(base);
             JsonNode actual = mapper.readTree(serialized);
-            Assert.assertEquals(expected, actual);  // String comparison doesn't work due to json fields may be out of order
+
+            // String comparison doesn't work due to json fields may be out of order
+            Assert.assertEquals(expected, actual);
         }
     }
 }
