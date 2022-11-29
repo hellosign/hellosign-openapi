@@ -3,7 +3,7 @@ import json
 import urllib3
 from metadict import MetaDict
 
-from hellosign_sdk import ApiClient
+from hellosign_sdk import ApiClient, apis, models
 
 
 def get_base_path():

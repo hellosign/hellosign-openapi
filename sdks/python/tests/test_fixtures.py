@@ -2,7 +2,7 @@ import json
 import unittest
 from metadict import MetaDict
 
-from hellosign_sdk import ApiClient, Configuration
+from hellosign_sdk import ApiClient, Configuration, models
 from test_utils import get_fixture_data
 
 
