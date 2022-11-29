@@ -16109,7 +16109,7 @@ var require_form_data = __commonJS({
     var http = require("http");
     var https = require("https");
     var parseUrl = require("url").parse;
-    var fs2 = require("fs");
+    var fs = require("fs");
     var Stream = require("stream").Stream;
     var mime = require_mime_types();
     var asynckit = require_asynckit();
@@ -16174,7 +16174,7 @@ var require_form_data = __commonJS({
         if (value.end != void 0 && value.end != Infinity && value.start != void 0) {
           callback(null, value.end + 1 - (value.start ? value.start : 0));
         } else {
-          fs2.stat(value.path, function(err, stat) {
+          fs.stat(value.path, function(err, stat) {
             var fileSize;
             if (err) {
               callback(err);
@@ -24978,7 +24978,6 @@ var AccountApi = class {
     this._basePath = defaultBasePath;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -25022,12 +25021,6 @@ var AccountApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   accountCreate(_0) {
     return __async(this, arguments, function* (accountCreateRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/account/create";
@@ -25053,9 +25046,7 @@ var AccountApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         accountCreateRequest,
-        AccountCreateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        AccountCreateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -25272,9 +25263,7 @@ var AccountApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         accountUpdateRequest,
-        AccountUpdateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        AccountUpdateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -25385,9 +25374,7 @@ var AccountApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         accountVerifyRequest,
-        AccountVerifyRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        AccountVerifyRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -25490,7 +25477,6 @@ var ApiAppApi = class {
     this._basePath = defaultBasePath2;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -25534,12 +25520,6 @@ var ApiAppApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   apiAppCreate(_0) {
     return __async(this, arguments, function* (apiAppCreateRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/api_app";
@@ -25565,9 +25545,7 @@ var ApiAppApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         apiAppCreateRequest,
-        ApiAppCreateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        ApiAppCreateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -25962,9 +25940,7 @@ var ApiAppApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         apiAppUpdateRequest,
-        ApiAppUpdateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        ApiAppUpdateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -26062,7 +26038,6 @@ var BulkSendJobApi = class {
     this._basePath = defaultBasePath3;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -26105,12 +26080,6 @@ var BulkSendJobApi = class {
   }
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
-  }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
   }
   bulkSendJobGet(_0) {
     return __async(this, arguments, function* (bulkSendJobId, options = { headers: {} }) {
@@ -26332,7 +26301,6 @@ var EmbeddedApi = class {
     this._basePath = defaultBasePath4;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -26376,12 +26344,6 @@ var EmbeddedApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   embeddedEditUrl(_0, _1) {
     return __async(this, arguments, function* (templateId, embeddedEditUrlRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/embedded/edit_url/{template_id}".replace(
@@ -26415,9 +26377,7 @@ var EmbeddedApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         embeddedEditUrlRequest,
-        EmbeddedEditUrlRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        EmbeddedEditUrlRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -26622,7 +26582,6 @@ var OAuthApi = class {
     this._basePath = defaultBasePath5;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -26666,12 +26625,6 @@ var OAuthApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   oauthTokenGenerate(_0) {
     return __async(this, arguments, function* (oAuthTokenGenerateRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/oauth/token";
@@ -26697,9 +26650,7 @@ var OAuthApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         oAuthTokenGenerateRequest,
-        OAuthTokenGenerateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        OAuthTokenGenerateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -26790,9 +26741,7 @@ var OAuthApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         oAuthTokenRefreshRequest,
-        OAuthTokenRefreshRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        OAuthTokenRefreshRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -26870,7 +26819,6 @@ var ReportApi = class {
     this._basePath = defaultBasePath6;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -26914,12 +26862,6 @@ var ReportApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   reportCreate(_0) {
     return __async(this, arguments, function* (reportCreateRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/report/create";
@@ -26945,9 +26887,7 @@ var ReportApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         reportCreateRequest,
-        ReportCreateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        ReportCreateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -27045,7 +26985,6 @@ var SignatureRequestApi = class {
     this._basePath = defaultBasePath7;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -27089,12 +27028,6 @@ var SignatureRequestApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   signatureRequestBulkCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/signature_request/bulk_create_embedded_with_template";
@@ -27120,9 +27053,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestBulkCreateEmbeddedWithTemplateRequest,
-        SignatureRequestBulkCreateEmbeddedWithTemplateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestBulkCreateEmbeddedWithTemplateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -27233,9 +27164,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestBulkSendWithTemplateRequest,
-        SignatureRequestBulkSendWithTemplateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestBulkSendWithTemplateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -27429,9 +27358,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestCreateEmbeddedRequest,
-        SignatureRequestCreateEmbeddedRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestCreateEmbeddedRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -27547,9 +27474,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestCreateEmbeddedWithTemplateRequest,
-        SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -28294,9 +28219,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestRemindRequest,
-        SignatureRequestRemindRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestRemindRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -28485,9 +28408,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestSendRequest,
-        SignatureRequestSendRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestSendRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -28603,9 +28524,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestSendWithTemplateRequest,
-        SignatureRequestSendWithTemplateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestSendWithTemplateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -28729,9 +28648,7 @@ var SignatureRequestApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         signatureRequestUpdateRequest,
-        SignatureRequestUpdateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        SignatureRequestUpdateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -28834,7 +28751,6 @@ var TeamApi = class {
     this._basePath = defaultBasePath8;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -28878,12 +28794,6 @@ var TeamApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   teamAddMember(_0, _1) {
     return __async(this, arguments, function* (teamAddMemberRequest, teamId, options = { headers: {} }) {
       const localVarPath = this.basePath + "/team/add_member";
@@ -28915,9 +28825,7 @@ var TeamApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         teamAddMemberRequest,
-        TeamAddMemberRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TeamAddMemberRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -29028,9 +28936,7 @@ var TeamApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         teamCreateRequest,
-        TeamCreateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TeamCreateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -29611,9 +29517,7 @@ var TeamApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         teamRemoveMemberRequest,
-        TeamRemoveMemberRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TeamRemoveMemberRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -29838,9 +29742,7 @@ var TeamApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         teamUpdateRequest,
-        TeamUpdateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TeamUpdateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -29935,7 +29837,6 @@ var TemplateApi = class {
     this._basePath = defaultBasePath9;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -29979,12 +29880,6 @@ var TemplateApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   templateAddUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateAddUserRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/template/add_user/{template_id}".replace(
@@ -30018,9 +29913,7 @@ var TemplateApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         templateAddUserRequest,
-        TemplateAddUserRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TemplateAddUserRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -30136,9 +30029,7 @@ var TemplateApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         templateCreateEmbeddedDraftRequest,
-        TemplateCreateEmbeddedDraftRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TemplateCreateEmbeddedDraftRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -30859,9 +30750,7 @@ var TemplateApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         templateRemoveUserRequest,
-        TemplateRemoveUserRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TemplateRemoveUserRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -30985,9 +30874,7 @@ var TemplateApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         templateUpdateFilesRequest,
-        TemplateUpdateFilesRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        TemplateUpdateFilesRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -31090,7 +30977,6 @@ var UnclaimedDraftApi = class {
     this._basePath = defaultBasePath10;
     this._defaultHeaders = {};
     this._useQuerystring = false;
-    this._instantiateFiles = false;
     this.authentications = {
       default: new VoidAuth(),
       api_key: new HttpBasicAuth(),
@@ -31134,12 +31020,6 @@ var UnclaimedDraftApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  set instantiateFiles(flag) {
-    this._instantiateFiles = flag;
-  }
-  set rootFilePath(path) {
-    this._rootFilePath = path;
-  }
   unclaimedDraftCreate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateRequest, options = { headers: {} }) {
       const localVarPath = this.basePath + "/unclaimed_draft/create";
@@ -31165,9 +31045,7 @@ var UnclaimedDraftApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         unclaimedDraftCreateRequest,
-        UnclaimedDraftCreateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        UnclaimedDraftCreateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -31283,9 +31161,7 @@ var UnclaimedDraftApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         unclaimedDraftCreateEmbeddedRequest,
-        UnclaimedDraftCreateEmbeddedRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        UnclaimedDraftCreateEmbeddedRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -31401,9 +31277,7 @@ var UnclaimedDraftApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         unclaimedDraftCreateEmbeddedWithTemplateRequest,
-        UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -31527,9 +31401,7 @@ var UnclaimedDraftApi = class {
       let localVarUseFormData = false;
       const result = generateFormData(
         unclaimedDraftEditAndResendRequest,
-        UnclaimedDraftEditAndResendRequest.attributeTypeMap,
-        this._instantiateFiles,
-        this._rootFilePath
+        UnclaimedDraftEditAndResendRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -31623,7 +31495,6 @@ var UnclaimedDraftApi = class {
 };
 
 // api/apis.ts
-var import_fs = __toESM(require("fs"));
 var import_form_data = __toESM(require_form_data());
 var import_qs = __toESM(require_lib());
 var HttpError = class extends Error {
@@ -31650,7 +31521,7 @@ var APIS = [
   TemplateApi,
   UnclaimedDraftApi
 ];
-var generateFormData = (obj, typemap, instantiateFiles, rootFilePath) => {
+var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;
   if (typeof obj !== "object" || Array.isArray(obj) || obj === null) {
@@ -31665,19 +31536,9 @@ var generateFormData = (obj, typemap, instantiateFiles, rootFilePath) => {
     }
     if (paramInfo.type.indexOf("RequestFile") !== -1) {
       localVarUseFormData = true;
-      if (instantiateFiles && typeof obj[paramInfo.name] === "string") {
-        const filepath = rootFilePath ? `${rootFilePath}/${obj[paramInfo.name]}` : obj[paramInfo.name];
-        data[paramInfo.baseName] = import_fs.default.createReadStream(filepath);
-        return;
-      }
       if (Array.isArray(obj[paramInfo.name])) {
         obj[paramInfo.name].forEach((childObject, i) => {
           const key = `${paramInfo.baseName}[${i}]`;
-          if (instantiateFiles && typeof childObject === "string") {
-            const filepath = rootFilePath ? `${rootFilePath}/${childObject}` : childObject;
-            data[key] = import_fs.default.createReadStream(filepath);
-            return;
-          }
           data[key] = childObject;
         });
         return;

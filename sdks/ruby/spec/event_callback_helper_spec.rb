@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative './test_utils'
 
-config = do_config
+config = HelloSign.configure
 api_client = HelloSign::ApiClient.new(config)
 
 describe HelloSign::EventCallbackHelper do

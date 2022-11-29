@@ -73,18 +73,6 @@ export class TemplateApi {
   protected _defaultHeaders: any = {};
   protected _useQuerystring: boolean = false;
 
-  /**
-   * Allows instantiating files when using ObjectSerializer::deserialize()
-   * @param bool
-   */
-  protected _instantiateFiles = false;
-
-  /**
-   * Define the base location to look for file uploads
-   * @param path
-   */
-  protected _rootFilePath?: string;
-
   protected authentications = {
     default: <Authentication>new VoidAuth(),
     api_key: new HttpBasicAuth(),
@@ -143,14 +131,6 @@ export class TemplateApi {
     this.interceptors.push(interceptor);
   }
 
-  set instantiateFiles(flag: boolean) {
-    this._instantiateFiles = flag;
-  }
-
-  set rootFilePath(path: string | undefined) {
-    this._rootFilePath = path;
-  }
-
   /**
    * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
    * @summary Add User to Template
@@ -207,9 +187,7 @@ export class TemplateApi {
 
     const result = generateFormData(
       templateAddUserRequest,
-      TemplateAddUserRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      TemplateAddUserRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -365,9 +343,7 @@ export class TemplateApi {
 
     const result = generateFormData(
       templateCreateEmbeddedDraftRequest,
-      TemplateCreateEmbeddedDraftRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      TemplateCreateEmbeddedDraftRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -1340,9 +1316,7 @@ export class TemplateApi {
 
     const result = generateFormData(
       templateRemoveUserRequest,
-      TemplateRemoveUserRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      TemplateRemoveUserRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -1512,9 +1486,7 @@ export class TemplateApi {
 
     const result = generateFormData(
       templateUpdateFilesRequest,
-      TemplateUpdateFilesRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      TemplateUpdateFilesRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 

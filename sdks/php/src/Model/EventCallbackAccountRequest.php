@@ -184,7 +184,7 @@ class EventCallbackAccountRequest implements ModelInterface, ArrayAccess, JsonSe
     {
         /** @var EventCallbackAccountRequest $obj */
         $obj = ObjectSerializer::deserialize(
-            ObjectSerializer::instantiateFiles(static::class, $data),
+            $data,
             EventCallbackAccountRequest::class,
         );
 

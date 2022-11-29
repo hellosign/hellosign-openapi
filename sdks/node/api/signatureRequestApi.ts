@@ -76,18 +76,6 @@ export class SignatureRequestApi {
   protected _defaultHeaders: any = {};
   protected _useQuerystring: boolean = false;
 
-  /**
-   * Allows instantiating files when using ObjectSerializer::deserialize()
-   * @param bool
-   */
-  protected _instantiateFiles = false;
-
-  /**
-   * Define the base location to look for file uploads
-   * @param path
-   */
-  protected _rootFilePath?: string;
-
   protected authentications = {
     default: <Authentication>new VoidAuth(),
     api_key: new HttpBasicAuth(),
@@ -146,14 +134,6 @@ export class SignatureRequestApi {
     this.interceptors.push(interceptor);
   }
 
-  set instantiateFiles(flag: boolean) {
-    this._instantiateFiles = flag;
-  }
-
-  set rootFilePath(path: string | undefined) {
-    this._rootFilePath = path;
-  }
-
   /**
    * Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE**: Only available for Standard plan and higher.
    * @summary Embedded Bulk Send with Template
@@ -197,9 +177,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestBulkCreateEmbeddedWithTemplateRequest,
-      SignatureRequestBulkCreateEmbeddedWithTemplateRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestBulkCreateEmbeddedWithTemplateRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -351,9 +329,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestBulkSendWithTemplateRequest,
-      SignatureRequestBulkSendWithTemplateRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestBulkSendWithTemplateRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -614,9 +590,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestCreateEmbeddedRequest,
-      SignatureRequestCreateEmbeddedRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestCreateEmbeddedRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -773,9 +747,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestCreateEmbeddedWithTemplateRequest,
-      SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -1779,9 +1751,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestRemindRequest,
-      SignatureRequestRemindRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestRemindRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -2037,9 +2007,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestSendRequest,
-      SignatureRequestSendRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestSendRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -2196,9 +2164,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestSendWithTemplateRequest,
-      SignatureRequestSendWithTemplateRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestSendWithTemplateRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -2368,9 +2334,7 @@ export class SignatureRequestApi {
 
     const result = generateFormData(
       signatureRequestUpdateRequest,
-      SignatureRequestUpdateRequest.attributeTypeMap,
-      this._instantiateFiles,
-      this._rootFilePath
+      SignatureRequestUpdateRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 

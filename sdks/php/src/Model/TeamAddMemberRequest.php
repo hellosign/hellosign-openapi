@@ -217,7 +217,7 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
     {
         /** @var TeamAddMemberRequest $obj */
         $obj = ObjectSerializer::deserialize(
-            ObjectSerializer::instantiateFiles(static::class, $data),
+            $data,
             TeamAddMemberRequest::class,
         );
 
