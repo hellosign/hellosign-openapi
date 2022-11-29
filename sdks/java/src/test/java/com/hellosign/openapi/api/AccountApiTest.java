@@ -36,7 +36,7 @@ public class AccountApiTest {
         ApiClient apiClient = TestHelper.setUpMock(200, expected);
 
         AccountApi accountApi = new AccountApi(apiClient);
-        AccountGetResponse actual = accountApi.accountGet(null, null);
+        AccountGetResponse actual = accountApi.accountGet(null, "jack@example.com");
         Assert.assertEquals(expected, actual);
     }
 

@@ -1,5 +1,7 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
+const fs = require('fs');
+
 const api = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
@@ -38,7 +40,7 @@ const data: HelloSignSDK.SignatureRequestCreateEmbeddedRequest = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  fileUrl: ["https://app.hellosign.com/docs/example_signature_request.pdf"],
+  file: [fs.createReadStream("example_signature_request.pdf")],
   signingOptions,
   testMode: true,
 };

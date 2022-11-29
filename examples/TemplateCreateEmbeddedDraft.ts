@@ -1,5 +1,7 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
+const fs = require('fs');
+
 const api = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
@@ -34,7 +36,7 @@ const fieldOptions: HelloSignSDK.SubFieldOptions = {
 
 const data: HelloSignSDK.TemplateCreateEmbeddedDraftRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
-  fileUrl: ["https://app.hellosign.com/docs/example_signature_request.pdf"],
+  file: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
   subject: "Please sign this document",
   message: "For your approval",

@@ -5,6 +5,7 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
 import java.util.List;
 
 public class Example {
@@ -17,18 +18,18 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
         UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
             .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .requesterEmailAddress("jack@hellosign.com")
             .testMode(true);
 
