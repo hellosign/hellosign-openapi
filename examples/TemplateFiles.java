@@ -5,6 +5,8 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
+
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -28,7 +30,7 @@ public class Example {
 
         try {
             File result = api.templateFiles(templateId, "pdf");
-            System.out.println(result);
+            result.renameTo(new File("file_response.pdf"));
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());
