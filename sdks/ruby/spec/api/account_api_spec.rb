@@ -67,7 +67,7 @@ describe HelloSign::AccountApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || AccountGetResponse
 
-      result = api.account_get
+      result = api.account_get({ email_address: "jack@example.com" })
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
       expect(result.to_json).to be_json_eql(expected.to_json)

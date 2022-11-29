@@ -6,6 +6,7 @@ import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.auth.HttpBearerAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class Example {
@@ -18,12 +19,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -51,7 +52,7 @@ public class Example {
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(Arrays.asList(signer1, signer2))
             .ccEmailAddresses(Arrays.asList("lawyer@hellosign.com", "lawyer@example.com"))
-            .fileUrl(Arrays.asList("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .signingOptions(signingOptions)
             .testMode(true);
 

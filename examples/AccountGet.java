@@ -26,7 +26,7 @@ public class Example {
         AccountApi api = new AccountApi(defaultClient);
 
         try {
-            AccountGetResponse result = api.accountGet();
+            AccountGetResponse result = api.accountGet(null, "jack@example.com");
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
