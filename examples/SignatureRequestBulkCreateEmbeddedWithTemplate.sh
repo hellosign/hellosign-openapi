@@ -1,0 +1,21 @@
+curl -X POST 'https://api.hellosign.com/v3/signature_request/bulk_create_embedded_with_template' \
+  -u 'YOUR_API_KEY:' \
+  -F 'client_id=YOUR_CLIENT_ID' \
+  -F 'template_ids[]=c26b8a16784a872da37ea946b9ddec7c1e11dff6' \
+  -F 'subject=Purchase Order' \
+  -F 'message=Glad we could come to an agreement.' \
+  -F 'signer_list[0][signers][role]=Client' \
+  -F 'signer_list[0][signers][name]=George' \
+  -F 'signer_list[0][signers][email_address]=george@example.com' \
+  -F 'signer_list[0][signers][pin]=d79a3td' \
+  -F 'signer_list[0][custom_fields][0][name]=company' \
+  -F 'signer_list[0][custom_fields][0][value]=ABC Corp' \
+  -F 'signer_list[1][signers][role]=Client' \
+  -F 'signer_list[1][signers][name]=Mary' \
+  -F 'signer_list[1][signers][email_address]=mary@example.com' \
+  -F 'signer_list[1][signers][pin]=gd9as5b' \
+  -F 'signer_list[1][custom_fields][0][name]=company' \
+  -F 'signer_list[1][custom_fields][0][value]=123 LLC' \
+  -F 'ccs[0][role]=Accounting' \
+  -F 'ccs[0][email_address]=accounting@example.com' \
+  -F 'test_mode=1'

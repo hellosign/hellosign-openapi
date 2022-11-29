@@ -1,0 +1,11 @@
+curl -X POST 'https://api.hellosign.com/v3/unclaimed_draft/create_embedded_with_template' \
+  -u 'YOUR_API_KEY:' \
+  -F 'client_id=YOUR_CLIENT_ID' \
+  -F 'template_ids[]=61a832ff0d8423f91d503e76bfbcc750f7417c78' \
+  -F 'requester_email_address=jack@hellosign.com' \
+  -F 'signers[0][role]=Client' \
+  -F 'signers[0][name]=George' \
+  -F 'signers[0][email_address]=george@example.com' \
+  -F 'ccs[0][role]=Accounting' \
+  -F 'ccs[0][email_address]=accounting@hellosign.com' \
+  -F 'test_mode=1'

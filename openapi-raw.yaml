@@ -109,6 +109,11 @@ paths:
           label: Python
           source:
             $ref: examples/AccountCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountCreate.sh
       x-meta:
         seo:
           title: '_t__AccountCreate::SEO::TITLE'
@@ -212,6 +217,11 @@ paths:
           label: Python
           source:
             $ref: examples/AccountGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountGet.sh
       x-meta:
         seo:
           title: '_t__AccountGet::SEO::TITLE'
@@ -309,6 +319,11 @@ paths:
           label: Python
           source:
             $ref: examples/AccountUpdate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountUpdate.sh
       x-meta:
         seo:
           title: '_t__AccountUpdate::SEO::TITLE'
@@ -407,6 +422,11 @@ paths:
           label: Python
           source:
             $ref: examples/AccountVerify.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/AccountVerify.sh
       x-meta:
         seo:
           title: '_t__AccountVerify::SEO::TITLE'
@@ -430,9 +450,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/ApiAppCreateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/ApiAppCreateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -511,6 +528,11 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/ApiAppCreate.sh
       x-meta:
         seo:
           title: '_t__ApiAppCreate::SEO::TITLE'
@@ -611,6 +633,11 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/ApiAppGet.sh
       x-meta:
         seo:
           title: '_t__ApiAppGet::SEO::TITLE'
@@ -642,9 +669,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/ApiAppUpdateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/ApiAppUpdateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -725,6 +749,11 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppUpdate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/ApiAppUpdate.sh
       x-meta:
         seo:
           title: '_t__ApiAppUpdate::SEO::TITLE'
@@ -815,6 +844,11 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppDelete.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/ApiAppDelete.sh
       x-meta:
         seo:
           title: '_t__ApiAppDelete::SEO::TITLE'
@@ -917,6 +951,11 @@ paths:
           label: Python
           source:
             $ref: examples/ApiAppList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/ApiAppList.sh
       x-meta:
         seo:
           title: '_t__ApiAppList::SEO::TITLE'
@@ -1014,6 +1053,11 @@ paths:
           label: Python
           source:
             $ref: examples/BulkSendJobGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/BulkSendJobGet.sh
       x-meta:
         seo:
           title: '_t__BulkSendJobGet::SEO::TITLE'
@@ -1117,6 +1161,11 @@ paths:
           label: Python
           source:
             $ref: examples/BulkSendJobList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/BulkSendJobList.sh
       x-meta:
         seo:
           title: '_t__BulkSendJobList::SEO::TITLE'
@@ -1224,6 +1273,11 @@ paths:
           label: Python
           source:
             $ref: examples/EmbeddedEditUrl.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/EmbeddedEditUrl.sh
       x-meta:
         seo:
           title: '_t__EmbeddedEditUrl::SEO::TITLE'
@@ -1326,6 +1380,11 @@ paths:
           label: Python
           source:
             $ref: examples/EmbeddedSignUrl.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/EmbeddedSignUrl.sh
       x-meta:
         seo:
           title: '_t__EmbeddedSignUrl::SEO::TITLE'
@@ -1403,6 +1462,11 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenGenerate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/OauthTokenGenerate.sh
       x-hideTryItPanel: true
       x-meta:
         seo:
@@ -1481,6 +1545,11 @@ paths:
           label: Python
           source:
             $ref: examples/OauthTokenRefresh.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/OauthTokenRefresh.sh
       x-hideTryItPanel: true
       x-meta:
         seo:
@@ -1575,6 +1644,11 @@ paths:
           label: Python
           source:
             $ref: examples/ReportCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/ReportCreate.sh
       x-meta:
         seo:
           title: '_t__ReportCreate::SEO::TITLE'
@@ -1598,9 +1672,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/SignatureRequestBulkCreateEmbeddedWithTemplateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -1680,6 +1751,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestBulkCreateEmbeddedWithTemplate.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestBulkCreateEmbeddedWithTemplate::SEO::TITLE'
@@ -1703,9 +1779,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestBulkSendWithTemplateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/SignatureRequestBulkSendWithTemplateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -1785,6 +1858,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestBulkSendWithTemplate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestBulkSendWithTemplate.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestBulkSendWithTemplate::SEO::TITLE'
@@ -1883,6 +1961,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCancel.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestCancel.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestCancel::SEO::TITLE'
@@ -1906,9 +1989,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -1989,6 +2069,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCreateEmbedded.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestCreateEmbedded.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestCreateEmbedded::SEO::TITLE'
@@ -2012,9 +2097,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedWithTemplateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/SignatureRequestCreateEmbeddedWithTemplateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -2095,6 +2177,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestCreateEmbeddedWithTemplate.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE'
@@ -2212,6 +2299,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestFiles.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestFiles.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestFiles::SEO::TITLE'
@@ -2317,6 +2409,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestFilesAsDataUri.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestFilesAsDataUri.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestFiles::SEO::TITLE'
@@ -2422,6 +2519,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestFilesAsFileUrl.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestFilesAsFileUrl.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestFiles::SEO::TITLE'
@@ -2523,6 +2625,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestGet.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestGet::SEO::TITLE'
@@ -2641,6 +2748,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestList.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestList::SEO::TITLE'
@@ -2739,6 +2851,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestReleaseHold.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestReleaseHold.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestReleaseHold::SEO::TITLE'
@@ -2853,6 +2970,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestRemind.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestRemind.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestRemind::SEO::TITLE'
@@ -2947,6 +3069,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestRemove.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestRemove.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestRemove::SEO::TITLE'
@@ -2970,9 +3097,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/SignatureRequestSendFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -3054,6 +3178,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestSend.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestSend.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestSend::SEO::TITLE'
@@ -3077,9 +3206,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendWithTemplateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/SignatureRequestSendWithTemplateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -3159,6 +3285,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestSendWithTemplate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestSendWithTemplate.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestSendWithTemplate::SEO::TITLE'
@@ -3266,6 +3397,11 @@ paths:
           label: Python
           source:
             $ref: examples/SignatureRequestUpdate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestUpdate.sh
       x-meta:
         seo:
           title: '_t__SignatureRequestUpdate::SEO::TITLE'
@@ -3376,6 +3512,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamAddMember.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamAddMember.sh
       x-meta:
         seo:
           title: '_t__TeamAddMember::SEO::TITLE'
@@ -3472,6 +3613,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamCreate.sh
       x-meta:
         seo:
           title: '_t__TeamCreate::SEO::TITLE'
@@ -3552,6 +3698,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamDelete.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamDelete.sh
       x-meta:
         seo:
           title: '_t__TeamDelete::SEO::TITLE'
@@ -3641,6 +3792,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamGet.sh
       x-meta:
         seo:
           title: '_t__TeamGet::SEO::TITLE'
@@ -3736,6 +3892,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamUpdate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamUpdate.sh
       x-meta:
         seo:
           title: '_t__TeamUpdate::SEO::TITLE'
@@ -3836,6 +3997,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamInfo.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamInfo.sh
       x-beta: closed
       x-meta:
         seo:
@@ -3933,6 +4099,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamInvites.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamInvites.sh
       x-meta:
         seo:
           title: '_t__TeamInvites::SEO::TITLE'
@@ -4049,6 +4220,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamMembers.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamMembers.sh
       x-beta: closed
       x-meta:
         seo:
@@ -4150,6 +4326,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamRemoveMember.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamRemoveMember.sh
       x-meta:
         seo:
           title: '_t__TeamRemoveMember::SEO::TITLE'
@@ -4266,6 +4447,11 @@ paths:
           label: Python
           source:
             $ref: examples/TeamSubTeams.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TeamSubTeams.sh
       x-beta: closed
       x-meta:
         seo:
@@ -4374,6 +4560,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateAddUser.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateAddUser.sh
       x-meta:
         seo:
           title: '_t__TemplateAddUser::SEO::TITLE'
@@ -4403,9 +4594,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -4486,6 +4674,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateCreateEmbeddedDraft.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateCreateEmbeddedDraft.sh
       x-meta:
         seo:
           title: '_t__TemplateCreateEmbeddedDraft::SEO::TITLE'
@@ -4581,6 +4774,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateDelete.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateDelete.sh
       x-meta:
         seo:
           title: '_t__TemplateDelete::SEO::TITLE'
@@ -4696,6 +4894,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateFiles.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateFiles.sh
       x-meta:
         seo:
           title: '_t__TemplateFiles::SEO::TITLE'
@@ -4800,6 +5003,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateFilesAsDataUri.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateFilesAsDataUri.sh
       x-meta:
         seo:
           title: '_t__TemplateFiles::SEO::TITLE'
@@ -4904,6 +5112,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateFilesAsFileUrl.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateFilesAsFileUrl.sh
       x-meta:
         seo:
           title: '_t__TemplateFiles::SEO::TITLE'
@@ -5004,6 +5217,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateGet.sh
       x-meta:
         seo:
           title: '_t__TemplateGet::SEO::TITLE'
@@ -5124,6 +5342,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateList.sh
       x-meta:
         seo:
           title: '_t__TemplateList::SEO::TITLE'
@@ -5231,6 +5454,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateRemoveUser.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateRemoveUser.sh
       x-meta:
         seo:
           title: '_t__TemplateRemoveUser::SEO::TITLE'
@@ -5263,9 +5491,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/TemplateUpdateFilesRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/TemplateUpdateFilesRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -5348,6 +5573,11 @@ paths:
           label: Python
           source:
             $ref: examples/TemplateUpdateFiles.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/TemplateUpdateFiles.sh
       x-meta:
         seo:
           title: '_t__TemplateUpdateFiles::SEO::TITLE'
@@ -5377,9 +5607,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/UnclaimedDraftCreateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -5456,6 +5683,11 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/UnclaimedDraftCreate.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftCreate::SEO::TITLE'
@@ -5485,9 +5717,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -5569,6 +5798,11 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreateEmbedded.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/UnclaimedDraftCreateEmbedded.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftCreateEmbedded::SEO::TITLE'
@@ -5592,9 +5826,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/UnclaimedDraftCreateEmbeddedWithTemplateRequest'
-            examples:
-              default_example:
-                $ref: '#/components/examples/UnclaimedDraftCreateEmbeddedWithTemplateRequestFormDataExample'
       responses:
         '200':
           description: 'successful operation'
@@ -5677,6 +5908,11 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/UnclaimedDraftCreateEmbeddedWithTemplate.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::SEO::TITLE'
@@ -5789,6 +6025,11 @@ paths:
           label: Python
           source:
             $ref: examples/UnclaimedDraftEditAndResend.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/UnclaimedDraftEditAndResend.sh
       x-meta:
         seo:
           title: '_t__UnclaimedDraftEditAndResend::SEO::TITLE'
@@ -9678,18 +9919,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/ApiAppCreateRequestDefaultExample.json
-    ApiAppCreateRequestFormDataExample:
-      summary: 'With Custom Logo File Example'
-      value:
-        $ref: examples/json/ApiAppCreateRequestFormDataExample.json
     ApiAppUpdateRequestDefaultExample:
       summary: 'Default Example'
       value:
         $ref: examples/json/ApiAppUpdateRequestDefaultExample.json
-    ApiAppUpdateRequestFormDataExample:
-      summary: 'With Custom Logo File Example'
-      value:
-        $ref: examples/json/ApiAppUpdateRequestFormDataExample.json
     EmbeddedEditUrlRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9710,34 +9943,18 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestBulkCreateEmbeddedWithTemplateRequestDefaultExample.json
-    SignatureRequestBulkCreateEmbeddedWithTemplateRequestFormDataExample:
-      summary: 'With Signer File Example'
-      value:
-        $ref: examples/json/SignatureRequestBulkCreateEmbeddedWithTemplateRequestFormDataExample.json
     SignatureRequestBulkSendWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestBulkSendWithTemplateRequestDefaultExample.json
-    SignatureRequestBulkSendWithTemplateRequestFormDataExample:
-      summary: 'With Signer File Example'
-      value:
-        $ref: examples/json/SignatureRequestBulkSendWithTemplateRequestFormDataExample.json
     SignatureRequestCreateEmbeddedRequestDefaultExample:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedRequestDefaultExample.json
-    SignatureRequestCreateEmbeddedRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/SignatureRequestCreateEmbeddedRequestFormDataExample.json
     SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample.json
-    SignatureRequestCreateEmbeddedWithTemplateRequestFormDataExample:
-      summary: 'With Signer File Example'
-      value:
-        $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestFormDataExample.json
     SignatureRequestRemindRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9746,18 +9963,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestSendRequestDefaultExample.json
-    SignatureRequestSendFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/SignatureRequestSendFormDataExample.json
     SignatureRequestSendWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestSendWithTemplateRequestDefaultExample.json
-    SignatureRequestSendWithTemplateRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/SignatureRequestSendWithTemplateRequestFormDataExample.json
     SignatureRequestUpdateRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9806,10 +10015,6 @@ components:
       summary: 'Form Fields Per Document and Rules Example'
       value:
         $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormFieldRulesExample.json
-    TemplateCreateEmbeddedDraftRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/TemplateCreateEmbeddedDraftRequestFormDataExample.json
     TemplateRemoveUserRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9818,10 +10023,6 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateUpdateFilesRequestDefaultExample.json
-    TemplateUpdateFilesRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/TemplateUpdateFilesRequestFormDataExample.json
     UnclaimedDraftCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9838,10 +10039,6 @@ components:
       summary: 'Form Fields Per Document and Rules Example'
       value:
         $ref: examples/json/UnclaimedDraftCreateRequestFormFieldRulesExample.json
-    UnclaimedDraftCreateRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/UnclaimedDraftCreateRequestFormDataExample.json
     UnclaimedDraftCreateEmbeddedRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9858,18 +10055,10 @@ components:
       summary: 'Form Fields Per Document and Rules Example'
       value:
         $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestFormFieldRulesExample.json
-    UnclaimedDraftCreateEmbeddedRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/UnclaimedDraftCreateEmbeddedRequestFormDataExample.json
     UnclaimedDraftCreateEmbeddedWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
         $ref: examples/json/UnclaimedDraftCreateEmbeddedWithTemplateRequestDefaultExample.json
-    UnclaimedDraftCreateEmbeddedWithTemplateRequestFormDataExample:
-      summary: 'With File Example'
-      value:
-        $ref: examples/json/UnclaimedDraftCreateEmbeddedWithTemplateRequestFormDataExample.json
     UnclaimedDraftEditAndResendRequestDefaultExample:
       summary: 'Default Example'
       value:
