@@ -6,6 +6,13 @@ DIR=$(cd `dirname $0` && pwd)
 OAS_DIR="${DIR}/../"
 SDK_DIR="${DIR}/../sdks/node"
 
+printf "Clearing previous build files ...\n"
+rm -rf "${SDK_DIR}/api"
+rm -rf "${SDK_DIR}/dist"
+rm -rf "${SDK_DIR}/docs"
+rm -rf "${SDK_DIR}/model"
+rm -rf "${SDK_DIR}/types"
+
 printf "Copying openapi-sdk.yaml ...\n"
 rm -f "${SDK_DIR}/openapi-sdk.yaml"
 cp -r "${OAS_DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
