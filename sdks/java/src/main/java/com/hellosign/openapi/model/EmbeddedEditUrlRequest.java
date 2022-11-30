@@ -235,11 +235,11 @@ public class EmbeddedEditUrlRequest {
   }
 
    /**
-   * Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.      Remove all merge fields on the template by passing an empty array &#x60;[]&#x60;.
+   * Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array &#x60;[]&#x60;.
    * @return mergeFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.      Remove all merge fields on the template by passing an empty array `[]`.")
+  @ApiModelProperty(value = "Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.")
   @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

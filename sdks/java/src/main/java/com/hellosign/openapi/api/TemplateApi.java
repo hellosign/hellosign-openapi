@@ -364,7 +364,7 @@ public class TemplateApi {
   }
   /**
    * Get Template Files as Data Uri
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
    * @return FileResponseDataUri
    * @throws ApiException if fails to make API call
@@ -381,7 +381,7 @@ public class TemplateApi {
 
   /**
    * Get Template Files as Data Uri
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
    * @return ApiResponse&lt;FileResponseDataUri&gt;
    * @throws ApiException if fails to make API call
@@ -439,7 +439,7 @@ public class TemplateApi {
   }
   /**
    * Get Template Files as File Url
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
    * @return FileResponse
    * @throws ApiException if fails to make API call
@@ -456,7 +456,7 @@ public class TemplateApi {
 
   /**
    * Get Template Files as File Url
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
    * @return ApiResponse&lt;FileResponse&gt;
    * @throws ApiException if fails to make API call

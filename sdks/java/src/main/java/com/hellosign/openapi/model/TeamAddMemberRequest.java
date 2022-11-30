@@ -96,11 +96,11 @@ public class TeamAddMemberRequest {
   }
 
    /**
-   * &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.   Account id of the user to invite to your Team.
+   * &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.
    * @return accountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`account_id` or `email_address` is required. If both are provided, the account id prevails.   Account id of the user to invite to your Team.")
+  @ApiModelProperty(value = "`account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -122,11 +122,11 @@ public class TeamAddMemberRequest {
   }
 
    /**
-   * &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.   Email address of the user to invite to your Team.
+   * &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
    * @return emailAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "`account_id` or `email_address` is required, If both are provided, the account id prevails.   Email address of the user to invite to your Team.")
+  @ApiModelProperty(value = "`account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

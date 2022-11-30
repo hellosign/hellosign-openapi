@@ -296,11 +296,11 @@ public class TemplateResponse {
   }
 
    /**
-   * Indicates whether the template is locked.  If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;.  If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
+   * Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
    * @return isLocked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the template is locked.  If `true`, then the template was created outside your quota and can only be used in `test_mode`.  If `false`, then the template is within your quota and can be used to create signature requests.")
+  @ApiModelProperty(value = "Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

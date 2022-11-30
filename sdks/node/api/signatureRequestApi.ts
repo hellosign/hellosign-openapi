@@ -862,7 +862,7 @@ export class SignatureRequestApi {
     });
   }
   /**
-   * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.   If the files are currently being prepared, a status code of `409` will be returned instead.
+   * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
@@ -999,7 +999,7 @@ export class SignatureRequestApi {
     });
   }
   /**
-   * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).   If the files are currently being prepared, a status code of `409` will be returned instead.
+   * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as Data Uri
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param options
@@ -1135,7 +1135,7 @@ export class SignatureRequestApi {
     });
   }
   /**
-   * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).   If the files are currently being prepared, a status code of `409` will be returned instead.
+   * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as File Url
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param options

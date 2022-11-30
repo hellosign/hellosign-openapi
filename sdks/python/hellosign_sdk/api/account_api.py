@@ -373,8 +373,8 @@ class AccountApi(object):
 
 
         Keyword Args:
-            account_id (str): `account_id` or `email_address` is required. If both are provided, the account id prevails.   The ID of the Account.. [optional]
-            email_address (str): `account_id` or `email_address` is required, If both are provided, the account id prevails.   The email address of the Account.. [optional]
+            account_id (str): `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account.. [optional]
+            email_address (str): `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -45,12 +45,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
         TemplateAddUserRequest data = new TemplateAddUserRequest()
@@ -70,6 +70,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -119,6 +120,8 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
+
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -129,12 +132,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -159,7 +162,7 @@ public class Example {
 
         TemplateCreateEmbeddedDraftRequest data = new TemplateCreateEmbeddedDraftRequest()
             .clientId("37dee8d8440c66d54cfa05d92c160882")
-            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .title("Test Template")
             .subject("Please sign this document")
             .message("For your approval")
@@ -181,6 +184,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -238,12 +242,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -260,6 +264,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -309,6 +314,8 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
+
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -319,12 +326,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -332,7 +339,7 @@ public class Example {
 
         try {
             File result = api.templateFiles(templateId, "pdf");
-            System.out.println(result);
+            result.renameTo(new File("file_response.pdf"));
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());
@@ -379,7 +386,7 @@ Name | Type | Description  | Notes
 
 Get Template Files as Data Uri
 
-Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
+Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).
 
 If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
@@ -403,12 +410,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -462,7 +469,7 @@ Name | Type | Description  | Notes
 
 Get Template Files as File Url
 
-Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).
 
 If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
 
@@ -486,12 +493,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -567,12 +574,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -650,12 +657,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -673,6 +680,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -733,12 +741,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
@@ -759,6 +767,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -819,6 +828,8 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
+
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -829,17 +840,17 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         TemplateApi api = new TemplateApi(defaultClient);
 
         TemplateUpdateFilesRequest data = new TemplateUpdateFilesRequest()
-            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"));
+            .addFileItem(new File("example_signature_request.pdf"));
 
         String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
@@ -855,6 +866,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters

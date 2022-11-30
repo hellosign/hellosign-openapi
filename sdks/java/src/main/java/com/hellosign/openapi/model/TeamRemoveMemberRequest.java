@@ -104,11 +104,11 @@ public class TeamRemoveMemberRequest {
   }
 
    /**
-   * **account_id** or **email_address** is required. If both are provided, the account id prevails.   Account id to remove from your Team.
+   * **account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.
    * @return accountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.   Account id to remove from your Team.")
+  @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -130,11 +130,11 @@ public class TeamRemoveMemberRequest {
   }
 
    /**
-   * **account_id** or **email_address** is required. If both are provided, the account id prevails.   Email address of the Account to remove from your Team.
+   * **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
    * @return emailAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.   Email address of the Account to remove from your Team.")
+  @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
