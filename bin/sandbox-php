@@ -5,7 +5,7 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 
 WORKING_DIR="/app/openapi"
-SDK_DIR="${DIR}/../repos/php"
+SDK_DIR="${DIR}/../sdks/php"
 TARGET_DIR="${DIR}/../sandbox/php"
 ARTIFACTS_DIR="${DIR}/../sandbox/php/artifacts"
 

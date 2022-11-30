@@ -5,7 +5,7 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 
 WORKING_DIR="/app/openapi"
-SDK_DIR="${DIR}/../repos/java"
+SDK_DIR="${DIR}/../sdks/java"
 TARGET_DIR="${DIR}/../sandbox/java"
 ARTIFACTS_DIR="${DIR}/../sandbox/java/artifacts"
 
