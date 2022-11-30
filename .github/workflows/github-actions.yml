@@ -6,7 +6,7 @@ jobs:
     - name: Build PHP SDK
       uses: actions/checkout@v3
     - run: |
-        generate-sdks -t php
+        ./generate-sdks -t php
 
   python-sdk-build:
     runs-on: ubuntu-latest
@@ -14,7 +14,7 @@ jobs:
       - name: Build Python SDK
         uses: actions/checkout@v3
       - run: |
-          generate-sdks -t python
+          ./generate-sdks -t python
 
   ruby-sdk-build:
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
       - name: Build Ruby SDK
         uses: actions/checkout@v3
       - run: |
-          generate-sdks -t ruby
+          ./generate-sdks -t ruby
 
   nodejs-sdk-build:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
       - name: Build NodeJs SDK
         uses: actions/checkout@v3
       - run: |
-          generate-sdks -t node
+          ./generate-sdks -t node
 
   java-sdk-build:
     runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
       - name: Build Java SDK
         uses: actions/checkout@v3
       - run: |
-          generate-sdks -t java
+          ./generate-sdks -t java
 
   dotnet-sdk-build:
     runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
       - name: Build DotNet SDK
         uses: actions/checkout@v3
       - run: |
-          generate-sdks -t dotnet
+          ./generate-sdks -t dotnet
