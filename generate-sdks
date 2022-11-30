@@ -1,0 +1,182 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+SDKS=( dotnet java node php python ruby )
+SHOW_HELP=0
+TARGET_SDK=
+
+while getopts ":t:h" opt; do
+  case $opt in
+    t) TARGET_SDK="$OPTARG"
+    ;;
+    h) SHOW_HELP=1
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+function main() {
+  if [[ $SHOW_HELP -eq 1 ]]; then
+    show_help
+
+    exit 0
+  fi
+
+  if [[ -z ${TARGET_SDK} ]]; then
+    show_help
+
+    exit 0
+  fi
+
+  validate_sdk_choice $TARGET_SDK
+
+  if [[ "${TARGET_SDK}" != "all" ]]; then
+    build_sdk $TARGET_SDK
+  else
+    for SDK in "${SDKS[@]}"
+    do :
+      build_sdk $SDK
+    done
+  fi
+
+  printf "Success! All SDKs built!\n"
+  exit 0
+}
+
+function show_help() {
+    cat << EOF
+Usage: generate-sdks [OPTION]
+Builds a given SDK into the sdks/[SDK] directory.
+
+**WARNING** All files and directories present in the sdks/[SDK] directory will
+            be DELETED and REBUILT!
+
+-t          target SDK, "all", "dotnet", "java", "node", "php", "python", "ruby"
+-h          display this help and exit
+Example: generate-sdks -t php
+EOF
+
+    exit 0
+}
+
+function validate_sdk_choice()
+{
+  SDK="$1"
+
+  if [[
+    "${SDK}" != "all" &&
+    "${SDK}" != "dotnet" &&
+    "${SDK}" != "java" &&
+    "${SDK}" != "node" &&
+    "${SDK}" != "php" &&
+    "${SDK}" != "python" &&
+    "${SDK}" != "ruby"
+  ]]; then
+    printf "Invalid SDK (-t) value: ${SDK}\n"
+    show_help
+
+    exit 1
+  fi
+}
+
+function build_sdk()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/sdks/${SDK}"
+
+  printf "Building ${SDK} SDK\n"
+
+  clear_previous_build_files $SDK
+  copy_oas $SDK
+  copy_examples $SDK
+  copy_test_fixtures $SDK
+
+  bash "${SDK_DIR}/run-build"
+
+  printf "\n\n"
+  printf "########\n"
+  printf "######## Done building ${SDK} SDK\n"
+  printf "########\n"
+  printf "\n\n"
+}
+
+function clear_previous_build_files()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/sdks/${SDK}"
+
+  printf "Clearing previous build files ...\n"
+
+  if [[ "${SDK}" == "dotnet" ]]; then
+    rm -rf "${SDK_DIR}/docs"
+    rm -rf "${SDK_DIR}/src/HelloSign"
+  elif [[ "${SDK}" == "java" ]]; then
+    rm -rf "${SDK_DIR}/docs"
+    rm -rf "${SDK_DIR}/src/main"
+  elif [[ "${SDK}" == "node" ]]; then
+    rm -rf "${SDK_DIR}/api"
+    rm -rf "${SDK_DIR}/dist"
+    rm -rf "${SDK_DIR}/docs"
+    rm -rf "${SDK_DIR}/model"
+    rm -rf "${SDK_DIR}/types"
+  elif [[ "${SDK}" == "php" ]]; then
+    rm -rf "${SDK_DIR}/docs"
+    rm -rf "${SDK_DIR}/src"
+  elif [[ "${SDK}" == "python" ]]; then
+    rm -rf "${SDK_DIR}/docs"
+    rm -rf "${SDK_DIR}/hellosign_sdk"
+  elif [[ "${SDK}" == "ruby" ]]; then
+    rm -rf "${SDK_DIR}/docs"
+    rm -rf "${SDK_DIR}/lib"
+  fi
+}
+
+function copy_oas()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/sdks/${SDK}"
+
+  printf "Copying openapi-sdk.yaml ...\n"
+  rm -f "${SDK_DIR}/openapi-sdk.yaml"
+  cp -r "${DIR}/openapi-sdk.yaml" "${SDK_DIR}/openapi-sdk.yaml"
+}
+
+function copy_examples()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/sdks/${SDK}"
+
+  printf "Copying examples ...\n"
+  rm -rf "${SDK_DIR}/examples"
+  mkdir -p "${SDK_DIR}/examples"
+
+  if [[ "${SDK}" == "dotnet" ]]; then
+    cp -r "${DIR}/examples/"*.cs "${SDK_DIR}/examples/"
+  elif [[ "${SDK}" == "java" ]]; then
+    cp -r "${DIR}/examples/"*.java "${SDK_DIR}/examples/"
+  elif [[ "${SDK}" == "node" ]]; then
+    cp -r "${DIR}/examples/"*.js "${SDK_DIR}/examples/"
+    cp -r "${DIR}/examples/"*.ts "${SDK_DIR}/examples/"
+  elif [[ "${SDK}" == "php" ]]; then
+    cp -r "${DIR}/examples/"*.php "${SDK_DIR}/examples/"
+  elif [[ "${SDK}" == "python" ]]; then
+    cp -r "${DIR}/examples/"*.py "${SDK_DIR}/examples/"
+  elif [[ "${SDK}" == "ruby" ]]; then
+    cp -r "${DIR}/examples/"*.rb "${SDK_DIR}/examples/"
+  fi
+}
+
+function copy_test_fixtures()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/sdks/${SDK}"
+
+  printf "Copying test_fixtures ...\n"
+  rm -rf "${SDK_DIR}/test_fixtures"
+  cp -r "${DIR}/test_fixtures" "${SDK_DIR}/test_fixtures"
+}
+
+main
