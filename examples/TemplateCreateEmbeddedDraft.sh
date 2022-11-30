@@ -1,0 +1,18 @@
+curl -X POST 'https://api.hellosign.com/v3/template/create_embedded_draft' \
+  -u 'YOUR_API_KEY:' \
+  -F 'client_id=YOUR_CLIENT_ID' \
+  -F 'file[0]=@mutual-NDA-example.pdf' \
+  -F 'title=Test Template' \
+  -F 'subject=Please sign this document' \
+  -F 'message=For your approval' \
+  -F 'signer_roles[0][name]=Client' \
+  -F 'signer_roles[0][order]=0' \
+  -F 'signer_roles[0][name]=Witness' \
+  -F 'signer_roles[0][order]=1' \
+  -F 'cc_roles[]=Manager' \
+  -F 'merge_fields[0][name]=Full Name' \
+  -F 'merge_fields[0][type]=text' \
+  -F 'merge_fields[1][name]=Is Registered?' \
+  -F 'merge_fields[1][type]=checkbox' \
+  -F 'field_options[date_format]=DD - MM - YYYY' \
+  -F 'test_mode=1'

@@ -1,9 +1,0 @@
-{
-  "name": "New Name",
-  "callback_url": "http://example.com/hellosign",
-  "white_labeling_options": {
-    "primary_button_color": "#00b3e6",
-    "primary_button_text_color": "#ffffff"
-  },
-  "custom_logo_file": "@CustomLogoFile.png"
-}

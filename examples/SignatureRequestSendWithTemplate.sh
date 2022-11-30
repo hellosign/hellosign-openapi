@@ -1,0 +1,21 @@
+curl -X POST 'https://api.hellosign.com/v3/signature_request/send_with_template' \
+  -u 'YOUR_API_KEY:' \
+  -F 'client_id=YOUR_CLIENT_ID' \
+  -F 'template_ids[]=61a832ff0d8423f91d503e76bfbcc750f7417c78' \
+  -F 'subject=Purchase Order' \
+  -F 'message=Glad we could come to an agreement.' \
+  -F 'signers[0][role]=Client' \
+  -F 'signers[0][name]=George' \
+  -F 'signers[0][email_address]=george@example.com' \
+  -F 'ccs[0][role]=Accounting' \
+  -F 'ccs[0][email_address]=accounting@example.com' \
+  -F 'custom_fields[0][name]=Cost' \
+  -F 'custom_fields[0][value]=$20,000' \
+  -F 'custom_fields[0][editor]=Client' \
+  -F 'custom_fields[0][required]=true' \
+  -F 'signing_options[draw]=1' \
+  -F 'signing_options[type]=1' \
+  -F 'signing_options[upload]=1' \
+  -F 'signing_options[phone]=1' \
+  -F 'signing_options[default_type]=draw' \
+  -F 'test_mode=1'
