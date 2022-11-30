@@ -4,18 +4,80 @@ set -e
 
 DIR=$(cd `dirname $0` && pwd)
 SDKS=( dotnet java node php python ruby )
+BIN_DIR="${DIR}/bin"
+TARGET_SDK=
 
-for SDK in "${SDKS[@]}"
-do
-   :
+function show_help() {
+    cat << EOF
+Usage: build-sdks [OPTION]
+Builds a given SDK into the sdks/[SDK] directory.
+
+**WARNING** All files and directories present in the sdks/[SDK] directory will
+            be DELETED and REBUILT!
+
+-t          target SDK, "all", "dotnet", "java", "node", "php", "python", "ruby"
+-h          display this help and exit
+Example: build-sdks -t php
+EOF
+
+    exit 0
+}
+
+while getopts ":t:h" opt; do
+  case $opt in
+    t) TARGET_SDK="$OPTARG"
+    ;;
+    h) show_help
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+if [[ -z ${TARGET_SDK} ]]; then
+  show_help
+
+  exit 0
+fi
+
+if [[
+  "${TARGET_SDK}" != "all" &&
+  "${TARGET_SDK}" != "dotnet" &&
+  "${TARGET_SDK}" != "java" &&
+  "${TARGET_SDK}" != "node" &&
+  "${TARGET_SDK}" != "php" &&
+  "${TARGET_SDK}" != "python" &&
+  "${TARGET_SDK}" != "ruby"
+]]; then
+  printf "Invalid SDK (-t) value: ${TARGET_SDK}\n"
+  show_help
+
+  exit 1
+fi
+
+function build()
+{
+  SDK="$1"
+
   printf "Building ${SDK} SDK\n"
-  bash "${DIR}/bin/build-${SDK}"
+
+  bash "${BIN_DIR}/build-${SDK}"
 
   printf "\n\n"
   printf "########\n"
   printf "######## Done building ${SDK} SDK\n"
   printf "########\n"
   printf "\n\n"
-done
+}
+
+if [[ "${TARGET_SDK}" != "all" ]]; then
+  build $TARGET_SDK
+else
+  for SDK in "${SDKS[@]}"
+  do :
+    build $SDK
+  done
+fi
 
 printf "Success! All SDKs built!\n"
+exit 0
