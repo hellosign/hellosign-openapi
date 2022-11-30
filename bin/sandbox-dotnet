@@ -5,7 +5,7 @@ set -e
 DIR=$(cd `dirname $0` && pwd)
 
 WORKING_DIR="/app/openapi"
-SDK_DIR="${DIR}/../repos/dotnet"
+SDK_DIR="${DIR}/../sdks/dotnet"
 TARGET_DIR="${DIR}/../sandbox/dotnet"
 ARTIFACTS_DIR="${DIR}/../sandbox/dotnet/artifacts"
 

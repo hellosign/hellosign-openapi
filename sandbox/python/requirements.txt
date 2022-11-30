@@ -1,2 +1,2 @@
-../../repos/python
+../../sdks/python
 metadict >= 0.1.1
