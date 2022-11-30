@@ -72,26 +72,40 @@ if [[ $BUILD_FIRST -eq 1 ]]; then
   printf "\n\n"
 fi
 
+function get_repo()
+{
+  SDK="$1"
+
+  if [[ "${SDK}" == "dotnet" ]]; then
+    echo "${REPO_DOTNET}"
+  elif [[ "${SDK}" == "java" ]]; then
+    echo "${REPO_JAVA}"
+  elif [[ "${SDK}" == "node" ]]; then
+    echo "${REPO_NODE}"
+  elif [[ "${SDK}" == "php" ]]; then
+    echo "${REPO_PHP}"
+  elif [[ "${SDK}" == "python" ]]; then
+    echo "${REPO_PYTHON}"
+  elif [[ "${SDK}" == "ruby" ]]; then
+    echo "${REPO_RUBY}"
+  fi
+}
+
 function copy_files()
 {
   SDK="$1"
 
-  printf "Copying built files for the ${SDK} SDK to ${TARGET_DIR}/${SDK}\n"
-
   if [[ ! -d "${TARGET_DIR}/${SDK}" ]] || [[ ! -d "${TARGET_DIR}/${SDK}/.git" ]]; then
-    printf "This script expects to find SDK repos cloned in the ${TARGET_DIR} directory\n"
-    printf "${TARGET_DIR}/${SDK} is not a cloned repo\n"
-    printf "Make sure to clone the SDK repos by using the following:\n\n"
-    printf "git clone ${REPO_DOTNET} ${TARGET_DIR}/dotnet\n"
-    printf "git clone ${REPO_JAVA} ${TARGET_DIR}/java\n"
-    printf "git clone ${REPO_NODE} ${TARGET_DIR}/node\n"
-    printf "git clone ${REPO_PHP} ${TARGET_DIR}/php\n"
-    printf "git clone ${REPO_PYTHON} ${TARGET_DIR}/python\n"
-    printf "git clone ${REPO_RUBY} ${TARGET_DIR}/ruby\n"
+    REPO=$(get_repo "${SDK}")
+
+    printf "This script expects to find SDK repo cloned at ${TARGET_DIR}/${SDK}\n"
+    printf "Make sure to clone the SDK repo by using the following:\n\n"
+    printf "git clone --branch openapi ${REPO} ${TARGET_DIR}/${SDK}\n"
 
     exit 1
   fi
 
+  printf "Copying built files for the ${SDK} SDK to ${TARGET_DIR}/${SDK}\n"
   rm -rf "${TARGET_DIR}/${SDK}/"*
   cp -r "${DIR}/sdks/${SDK}/." "${TARGET_DIR}/${SDK}"
 }
