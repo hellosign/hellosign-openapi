@@ -4,9 +4,8 @@ set -e
 
 DIR=$(cd `dirname $0` && pwd)
 SDKS=( dotnet java node php python ruby )
-TARGET_DIR="${DIR}/repos"
+SHOW_HELP=0
 TARGET_SDK=
-BUILD_FIRST=0
 
 REPO_DOTNET="https://github.com/hellosign/hellosign-dotnet-sdk.git"
 REPO_JAVA="https://github.com/hellosign/hellosign-java-sdk.git"
@@ -14,6 +13,39 @@ REPO_NODE="https://github.com/hellosign/hellosign-nodejs-sdk.git"
 REPO_PHP="https://github.com/hellosign/hellosign-php-sdk.git"
 REPO_PYTHON="https://github.com/hellosign/hellosign-python-sdk.git"
 REPO_RUBY="https://github.com/hellosign/hellosign-ruby-sdk.git"
+
+while getopts ":t:h" opt; do
+  case $opt in
+    t) TARGET_SDK="$OPTARG"
+    ;;
+    h) SHOW_HELP=1
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+function main() {
+  if [[ -z ${TARGET_SDK} ]]; then
+    show_help
+
+    exit 0
+  fi
+
+  validate_sdk_choice $TARGET_SDK
+
+  if [[ "${TARGET_SDK}" != "all" ]]; then
+    copy_files $TARGET_SDK
+  else
+    for SDK in "${SDKS[@]}"
+    do :
+      copy_files $SDK
+    done
+  fi
+
+  printf "Success! Ready for git commit!\n"
+  exit 0
+}
 
 function show_help() {
     cat << EOF
@@ -24,100 +56,73 @@ Copies build files for a given SDK into the repos/[SDK] directory.
             be DELETED, except for the .git directory!
 
 -t          target SDK, "all", "dotnet", "java", "node", "php", "python", "ruby"
--b          run the ./build-sdks script to first build all SDKs using openapi-generator.
-            defaults to 0 (no). Use 1 to build.
 -h          display this help and exit
-Example: copy-sdks -t php -b 1
+Example: copy-sdks -t php
 EOF
 
     exit 0
 }
 
-while getopts ":t:b:h" opt; do
-  case $opt in
-    t) TARGET_SDK="$OPTARG"
-    ;;
-    b) BUILD_FIRST="$OPTARG"
-    ;;
-    h) show_help
-    ;;
-    \?) echo "Invalid option -$OPTARG" >&2
-    ;;
-  esac
-done
-
-if [[ -z ${TARGET_SDK} ]]; then
-  show_help
-
-  exit 0
-fi
-
-if [[
-  "${TARGET_SDK}" != "all" &&
-  "${TARGET_SDK}" != "dotnet" &&
-  "${TARGET_SDK}" != "java" &&
-  "${TARGET_SDK}" != "node" &&
-  "${TARGET_SDK}" != "php" &&
-  "${TARGET_SDK}" != "python" &&
-  "${TARGET_SDK}" != "ruby"
-]]; then
-  printf "Invalid SDK (-t) value: ${TARGET_SDK}\n"
-  show_help
-
-  exit 1
-fi
-
-if [[ $BUILD_FIRST -eq 1 ]]; then
-  bash "${DIR}/build-sdks"
-  printf "\n\n"
-fi
-
-function get_repo()
+function validate_sdk_choice()
 {
   SDK="$1"
 
-  if [[ "${SDK}" == "dotnet" ]]; then
-    echo "${REPO_DOTNET}"
-  elif [[ "${SDK}" == "java" ]]; then
-    echo "${REPO_JAVA}"
-  elif [[ "${SDK}" == "node" ]]; then
-    echo "${REPO_NODE}"
-  elif [[ "${SDK}" == "php" ]]; then
-    echo "${REPO_PHP}"
-  elif [[ "${SDK}" == "python" ]]; then
-    echo "${REPO_PYTHON}"
-  elif [[ "${SDK}" == "ruby" ]]; then
-    echo "${REPO_RUBY}"
+  if [[
+    "${SDK}" != "all" &&
+    "${SDK}" != "dotnet" &&
+    "${SDK}" != "java" &&
+    "${SDK}" != "node" &&
+    "${SDK}" != "php" &&
+    "${SDK}" != "python" &&
+    "${SDK}" != "ruby"
+  ]]; then
+    printf "Invalid SDK (-t) value: ${SDK}\n"
+    show_help
+
+    exit 1
   fi
 }
 
 function copy_files()
 {
   SDK="$1"
+  SDK_DIR="${DIR}/repos/${SDK}"
 
-  if [[ ! -d "${TARGET_DIR}/${SDK}" ]] || [[ ! -d "${TARGET_DIR}/${SDK}/.git" ]]; then
-    REPO=$(get_repo "${SDK}")
-
-    printf "This script expects to find SDK repo cloned at ${TARGET_DIR}/${SDK}\n"
-    printf "Make sure to clone the SDK repo by using the following:\n\n"
-    printf "git clone --branch openapi ${REPO} ${TARGET_DIR}/${SDK}\n"
-
-    exit 1
+  if [[ ! -d "${SDK_DIR}" ]] || [[ ! -d "${SDK_DIR}/.git" ]]; then
+    repo_not_cloned $SDK
   fi
 
-  printf "Copying built files for the ${SDK} SDK to ${TARGET_DIR}/${SDK}\n"
-  rm -rf "${TARGET_DIR}/${SDK}/"*
-  cp -r "${DIR}/sdks/${SDK}/." "${TARGET_DIR}/${SDK}"
+  printf "Copying built files for the ${SDK} SDK to ${SDK_DIR}\n"
+  rm -rf "${SDK_DIR}/"*
+  cp -r "${DIR}/sdks/${SDK}/." "${SDK_DIR}"
 }
 
-if [[ "${TARGET_SDK}" != "all" ]]; then
-  copy_files $TARGET_SDK
-else
-  for SDK in "${SDKS[@]}"
-  do :
-    copy_files $SDK
-  done
-fi
+function repo_not_cloned()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/repos/${SDK}"
 
-printf "Success! Ready for git commit!\n"
-exit 0
+  if [[ "${SDK}" == "dotnet" ]]; then
+    REPO="${REPO_DOTNET}"
+  elif [[ "${SDK}" == "java" ]]; then
+    REPO="${REPO_JAVA}"
+  elif [[ "${SDK}" == "node" ]]; then
+    REPO="${REPO_NODE}"
+  elif [[ "${SDK}" == "php" ]]; then
+    REPO="${REPO_PHP}"
+  elif [[ "${SDK}" == "python" ]]; then
+    REPO="${REPO_PYTHON}"
+  elif [[ "${SDK}" == "ruby" ]]; then
+    REPO="${REPO_RUBY}"
+  fi
+
+  REPO=$(get_repo "${SDK}")
+
+  printf "This script expects to find SDK repo cloned at ${SDK_DIR}\n"
+  printf "Make sure to clone the SDK repo by using the following:\n\n"
+  printf "git clone --branch openapi ${REPO} ${SDK_DIR}\n"
+
+  exit 1
+}
+
+main
