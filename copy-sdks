@@ -116,8 +116,6 @@ function repo_not_cloned()
     REPO="${REPO_RUBY}"
   fi
 
-  REPO=$(get_repo "${SDK}")
-
   printf "This script expects to find SDK repo cloned at ${SDK_DIR}\n"
   printf "Make sure to clone the SDK repo by using the following:\n\n"
   printf "git clone --branch openapi ${REPO} ${SDK_DIR}\n"
