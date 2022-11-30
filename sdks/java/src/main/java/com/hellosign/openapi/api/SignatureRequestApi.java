@@ -429,7 +429,7 @@ public class SignatureRequestApi {
   }
   /**
    * Download Files
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to pdf)
    * @return File
@@ -447,7 +447,7 @@ public class SignatureRequestApi {
 
   /**
    * Download Files
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to pdf)
    * @return ApiResponse&lt;File&gt;
@@ -510,7 +510,7 @@ public class SignatureRequestApi {
   }
   /**
    * Download Files as Data Uri
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @return FileResponseDataUri
    * @throws ApiException if fails to make API call
@@ -527,7 +527,7 @@ public class SignatureRequestApi {
 
   /**
    * Download Files as Data Uri
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @return ApiResponse&lt;FileResponseDataUri&gt;
    * @throws ApiException if fails to make API call
@@ -585,7 +585,7 @@ public class SignatureRequestApi {
   }
   /**
    * Download Files as File Url
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @return FileResponse
    * @throws ApiException if fails to make API call
@@ -602,7 +602,7 @@ public class SignatureRequestApi {
 
   /**
    * Download Files as File Url
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).   If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @return ApiResponse&lt;FileResponse&gt;
    * @throws ApiException if fails to make API call

@@ -586,11 +586,11 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
    /**
-   * Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the &#x60;custom_fields&#x60; parameter.   If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
+   * Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the &#x60;custom_fields&#x60; parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
    * @return mergeFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.   If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.")
+  @ApiModelProperty(value = "Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.")
   @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

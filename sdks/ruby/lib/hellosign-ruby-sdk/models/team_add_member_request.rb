@@ -15,10 +15,10 @@ require 'time'
 
 module HelloSign
   class TeamAddMemberRequest
-    # `account_id` or `email_address` is required. If both are provided, the account id prevails.   Account id of the user to invite to your Team.
+    # `account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.
     attr_accessor :account_id
 
-    # `account_id` or `email_address` is required, If both are provided, the account id prevails.   Email address of the user to invite to your Team.
+    # `account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
     attr_accessor :email_address
 
     # A role member will take in a new Team.  **Note**: This parameter is used only if `team_id` is provided.

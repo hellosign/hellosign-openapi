@@ -128,8 +128,8 @@ public class AccountApi {
   /**
    * Get Account
    * Returns the properties and settings of your Account.
-   * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.   The ID of the Account. (optional)
-   * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.   The email address of the Account. (optional)
+   * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+   * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
    * @return AccountGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -146,8 +146,8 @@ public class AccountApi {
   /**
    * Get Account
    * Returns the properties and settings of your Account.
-   * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.   The ID of the Account. (optional)
-   * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.   The email address of the Account. (optional)
+   * @param accountId &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
+   * @param emailAddress &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
    * @return ApiResponse&lt;AccountGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

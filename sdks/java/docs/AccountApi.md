@@ -133,7 +133,7 @@ public class Example {
         AccountApi api = new AccountApi(defaultClient);
 
         try {
-            AccountGetResponse result = api.accountGet();
+            AccountGetResponse result = api.accountGet(null, "jack@example.com");
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -152,8 +152,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **String**| `account_id` or `email_address` is required. If both are provided, the account id prevails.   The ID of the Account. | [optional]
- **emailAddress** | **String**| `account_id` or `email_address` is required, If both are provided, the account id prevails.   The email address of the Account. | [optional]
+ **accountId** | **String**| `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account. | [optional]
+ **emailAddress** | **String**| `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account. | [optional]
 
 ### Return type
 

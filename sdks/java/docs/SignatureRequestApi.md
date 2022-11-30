@@ -56,12 +56,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -180,12 +180,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -310,12 +310,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -332,6 +332,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -380,6 +381,7 @@ import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.auth.HttpBearerAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class Example {
@@ -392,12 +394,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -425,7 +427,7 @@ public class Example {
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(Arrays.asList(signer1, signer2))
             .ccEmailAddresses(Arrays.asList("lawyer@hellosign.com", "lawyer@example.com"))
-            .fileUrl(Arrays.asList("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .signingOptions(signingOptions)
             .testMode(true);
 
@@ -492,12 +494,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -569,7 +571,7 @@ Name | Type | Description  | Notes
 
 Download Files
 
-Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file. 
+Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.
 
 If the files are currently being prepared, a status code of `409` will be returned instead.
 
@@ -584,6 +586,8 @@ import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.auth.HttpBearerAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
+
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -594,12 +598,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -607,7 +611,7 @@ public class Example {
 
         try {
             File result = api.signatureRequestFiles(signatureRequestId, "pdf");
-            System.out.println(result);
+            result.renameTo(new File("file_response.pdf"));
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
             System.err.println("Status code: " + e.getCode());
@@ -617,6 +621,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -653,7 +658,7 @@ Name | Type | Description  | Notes
 
 Download Files as Data Uri
 
-Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only). 
+Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).
 
 If the files are currently being prepared, a status code of `409` will be returned instead.
 
@@ -678,12 +683,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -701,6 +706,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -736,7 +742,7 @@ Name | Type | Description  | Notes
 
 Download Files as File Url
 
-Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only). 
+Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).
 
 If the files are currently being prepared, a status code of `409` will be returned instead.
 
@@ -761,12 +767,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -784,6 +790,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -842,12 +849,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -865,6 +872,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -925,12 +933,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -1009,12 +1017,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -1092,12 +1100,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -1181,12 +1189,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -1203,6 +1211,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -1251,6 +1260,7 @@ import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.auth.HttpBearerAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -1265,12 +1275,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -1300,7 +1310,7 @@ public class Example {
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(List.of(signer1, signer2))
             .ccEmailAddresses(List.of("lawyer@hellosign.com", "lawyer@example.com"))
-            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
             .signingOptions(signingOptions)
             .fieldOptions(subFieldOptions)
@@ -1381,12 +1391,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 
@@ -1434,6 +1444,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -1493,12 +1504,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         SignatureRequestApi api = new SignatureRequestApi(defaultClient);
 

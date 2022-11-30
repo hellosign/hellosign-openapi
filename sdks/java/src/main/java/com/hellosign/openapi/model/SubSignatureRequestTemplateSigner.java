@@ -58,7 +58,7 @@ public class SubSignatureRequestTemplateSigner {
   private String smsPhoneNumber;
 
   /**
-   * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, the completed signature request is delivered via SMS (_and_ email).
+   * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
    */
   public enum SmsPhoneNumberTypeEnum {
     AUTHENTICATION("authentication"),
@@ -234,11 +234,11 @@ public class SubSignatureRequestTemplateSigner {
   }
 
    /**
-   * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, the completed signature request is delivered via SMS (_and_ email).
+   * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
    * @return smsPhoneNumberType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, the completed signature request is delivered via SMS (_and_ email).")
+  @ApiModelProperty(value = "Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

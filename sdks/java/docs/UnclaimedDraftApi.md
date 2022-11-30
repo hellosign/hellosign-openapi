@@ -29,6 +29,7 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -42,12 +43,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
@@ -77,7 +78,7 @@ public class Example {
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(List.of(signer1, signer2))
             .ccEmailAddresses(List.of("lawyer@hellosign.com", "lawyer@example.com"))
-            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
             .signingOptions(subSigningOptions)
             .fieldOptions(subFieldOptions)
@@ -95,6 +96,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters
@@ -144,6 +146,7 @@ import com.hellosign.openapi.api.*;
 import com.hellosign.openapi.auth.HttpBasicAuth;
 import com.hellosign.openapi.model.*;
 
+import java.io.File;
 import java.util.List;
 
 public class Example {
@@ -156,18 +159,18 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
         UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
             .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .fileUrl(List.of("https://app.hellosign.com/docs/example_signature_request.pdf"))
+            .addFileItem(new File("example_signature_request.pdf"));
             .requesterEmailAddress("jack@hellosign.com")
             .testMode(true);
 
@@ -246,12 +249,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
@@ -344,12 +347,12 @@ public class Example {
         api_key.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
-		/*
-		HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        /*
+        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-		*/
+        */
 
         UnclaimedDraftApi api = new UnclaimedDraftApi(defaultClient);
 
@@ -371,6 +374,7 @@ public class Example {
         }
     }
 }
+
 ```
 
 ### Parameters

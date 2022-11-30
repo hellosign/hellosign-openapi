@@ -15,10 +15,10 @@ require 'time'
 
 module HelloSign
   class TeamRemoveMemberRequest
-    # **account_id** or **email_address** is required. If both are provided, the account id prevails.   Account id to remove from your Team.
+    # **account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.
     attr_accessor :account_id
 
-    # **account_id** or **email_address** is required. If both are provided, the account id prevails.   Email address of the Account to remove from your Team.
+    # **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
     attr_accessor :email_address
 
     # The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans.

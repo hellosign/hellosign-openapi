@@ -190,6 +190,7 @@ src/HelloSign/Client/Multimap.cs
 src/HelloSign/Client/OpenAPIDateConverter.cs
 src/HelloSign/Client/RequestOptions.cs
 src/HelloSign/Client/RetryConfiguration.cs
+src/HelloSign/EventCallbackHelper.cs
 src/HelloSign/HelloSign.csproj
 src/HelloSign/Model/AbstractOpenAPISchema.cs
 src/HelloSign/Model/AccountCreateRequest.cs

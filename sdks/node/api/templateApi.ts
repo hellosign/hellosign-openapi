@@ -700,7 +700,7 @@ export class TemplateApi {
     });
   }
   /**
-   * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
+   * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as Data Uri
    * @param templateId The id of the template files to retrieve.
    * @param options
@@ -836,7 +836,7 @@ export class TemplateApi {
     });
   }
   /**
-   * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
+   * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as File Url
    * @param templateId The id of the template files to retrieve.
    * @param options
