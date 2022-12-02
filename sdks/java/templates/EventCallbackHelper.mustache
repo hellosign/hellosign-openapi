@@ -19,13 +19,13 @@ public class EventCallbackHelper {
     * Verify that a callback came from HelloSign.com
     *
     * @param apiKey
-    * @param event_callback
+    * @param eventCallback
     * @return a boolean value indicating whether the callback event is valid
     */
-    public static boolean isValid(String apiKey, EventCallbackRequest event_callback) {
+    public static boolean isValid(String apiKey, EventCallbackRequest eventCallback) {
         return new HmacUtils(HmacAlgorithms.HMAC_SHA_256, apiKey)
-            .hmacHex(event_callback.getEvent().getEventTime() + event_callback.getEvent().getEventType())
-            .equals(event_callback.getEvent().getEventHash());
+            .hmacHex(eventCallback.getEvent().getEventTime() + eventCallback.getEvent().getEventType())
+            .equals(eventCallback.getEvent().getEventHash());
     }
 
     /**
@@ -34,10 +34,10 @@ public class EventCallbackHelper {
      *
      * "app_callback" will always include a value for "reported_for_app_id"
      *
-     * @param event_callback
+     * @param eventCallback
      */
-    public static String getCallbackType(EventCallbackRequest event_callback) {
-        EventCallbackRequestEventMetadata metadata = event_callback.getEvent().getEventMetadata();
+    public static String getCallbackType(EventCallbackRequest eventCallback) {
+        EventCallbackRequestEventMetadata metadata = eventCallback.getEvent().getEventMetadata();
 
         if (metadata.getReportedForAppId() == null || metadata.getReportedForAppId().isEmpty()) {
             return EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
