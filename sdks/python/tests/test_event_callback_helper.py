@@ -1,6 +1,5 @@
 import json
 import unittest
-from metadict import MetaDict
 
 from hellosign_sdk import ApiClient, Configuration, EventCallbackHelper
 from hellosign_sdk.models import EventCallbackApiAppRequest
@@ -18,11 +17,8 @@ class TestEventCallbackHelper(unittest.TestCase):
         api_key_rev = api_key[::-1]
 
         for key, value in fixture_data.items():
-            data = MetaDict()
-            data.data = json.dumps({'json': value})
-
             obj = api_client.deserialize(
-                response=data,
+                response=type('obj_dict', (object,), {'data': json.dumps({'json': value})}),
                 response_type=[EventCallbackApiAppRequest],
                 _check_type=True,
             )
