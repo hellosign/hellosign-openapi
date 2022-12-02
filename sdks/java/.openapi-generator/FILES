@@ -37,10 +37,7 @@ docs/EmbeddedSignUrlResponse.md
 docs/EmbeddedSignUrlResponseEmbedded.md
 docs/ErrorResponse.md
 docs/ErrorResponseError.md
-docs/EventCallbackAccountRequest.md
-docs/EventCallbackAccountRequestPayload.md
-docs/EventCallbackApiAppRequest.md
-docs/EventCallbackApiAppRequestPayload.md
+docs/EventCallbackRequest.md
 docs/EventCallbackRequestEvent.md
 docs/EventCallbackRequestEventMetadata.md
 docs/FileResponse.md
@@ -231,10 +228,7 @@ src/main/java/com/hellosign/openapi/model/EmbeddedSignUrlResponse.java
 src/main/java/com/hellosign/openapi/model/EmbeddedSignUrlResponseEmbedded.java
 src/main/java/com/hellosign/openapi/model/ErrorResponse.java
 src/main/java/com/hellosign/openapi/model/ErrorResponseError.java
-src/main/java/com/hellosign/openapi/model/EventCallbackAccountRequest.java
-src/main/java/com/hellosign/openapi/model/EventCallbackAccountRequestPayload.java
-src/main/java/com/hellosign/openapi/model/EventCallbackApiAppRequest.java
-src/main/java/com/hellosign/openapi/model/EventCallbackApiAppRequestPayload.java
+src/main/java/com/hellosign/openapi/model/EventCallbackRequest.java
 src/main/java/com/hellosign/openapi/model/EventCallbackRequestEvent.java
 src/main/java/com/hellosign/openapi/model/EventCallbackRequestEventMetadata.java
 src/main/java/com/hellosign/openapi/model/FileResponse.java

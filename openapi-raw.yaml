@@ -8506,34 +8506,8 @@ components:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
       type: object
-    EventCallbackAccountRequest:
-      required:
-        - json
-      properties:
-        json:
-          $ref: '#/components/schemas/EventCallbackAccountRequestPayload'
-      type: object
-    EventCallbackAccountRequestPayload:
-      title: EventCallbackAccountRequestPayload
-      required:
-        - event
-      properties:
-        event:
-          $ref: '#/components/schemas/EventCallbackRequestEvent'
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-        template:
-          $ref: '#/components/schemas/TemplateResponse'
-      type: object
-    EventCallbackApiAppRequest:
-      required:
-        - json
-      properties:
-        json:
-          $ref: '#/components/schemas/EventCallbackApiAppRequestPayload'
-      type: object
-    EventCallbackApiAppRequestPayload:
-      title: EventCallbackApiAppRequestPayload
+    EventCallbackRequest:
+      title: EventCallbackRequest
       required:
         - event
       properties:
@@ -10167,18 +10141,18 @@ components:
       summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
-    EventCallbackApiAppAccountConfirmedExample:
-      summary: '_t__EventCallbackApiAppAccountConfirmedExample::SUMMARY'
+    EventCallbackAppAccountConfirmedExample:
+      summary: '_t__EventCallbackAppAccountConfirmedExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
-    EventCallbackApiAppSignatureRequestSentExample:
-      summary: '_t__EventCallbackApiAppSignatureRequestSentExample::SUMMARY'
+        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
+    EventCallbackAppSignatureRequestSentExample:
+      summary: '_t__EventCallbackAppSignatureRequestSentExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
-    EventCallbackApiAppTemplateCreatedExample:
-      summary: '_t__EventCallbackApiAppTemplateCreatedExample::SUMMARY'
+        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
+    EventCallbackAppTemplateCreatedExample:
+      summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
       value:
-        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
+        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: '_t__OAuthTokenGenerateResponseExample::SUMMARY'
       value:
@@ -10327,51 +10301,27 @@ components:
     EventCallbackAccountRequest:
       description: '_t__EventCallbackAccountRequest::DESCRIPTION'
       content:
-        application/json:
+        multipart/form-data:
           schema:
-            $ref: '#/components/schemas/EventCallbackAccountRequest'
+            $ref: '#/components/schemas/EventCallbackRequest'
           examples:
             signature_request_sent_example:
               $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
             template_created_example:
               $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/EventCallbackAccountRequest'
-          examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
-          encoding:
-            json:
-              contentType: application/json
-    EventCallbackApiAppRequest:
-      description: '_t__EventCallbackApiAppRequest::DESCRIPTION'
+    EventCallbackAppRequest:
+      description: '_t__EventCallbackAppRequest::DESCRIPTION'
       content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EventCallbackApiAppRequest'
-          examples:
-            account_confirmed_example:
-              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
-            signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
-            $ref: '#/components/schemas/EventCallbackApiAppRequest'
+            $ref: '#/components/schemas/EventCallbackRequest'
           examples:
             account_confirmed_example:
-              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+              $ref: '#/components/examples/EventCallbackAppAccountConfirmedExample'
             signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+              $ref: '#/components/examples/EventCallbackAppSignatureRequestSentExample'
             template_created_example:
-              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
-          encoding:
-            json:
-              contentType: application/json
+              $ref: '#/components/examples/EventCallbackAppTemplateCreatedExample'
   headers:
     X-RateLimit-Limit:
       description: '_t__Common::RateLimiting::LIMIT'
@@ -10459,6 +10409,42 @@ x-webhooks:
         seo:
           title: '_t__accountUpdateEventCallback::SEO::TITLE'
           description: '_t__accountUpdateEventCallback::SEO::DESCRIPTION'
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/EventCallback.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/EventCallback.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/EventCallback.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/EventCallback.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/EventCallback.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/EventCallback.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EventCallback.py
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -10466,19 +10452,55 @@ x-webhooks:
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'
-  apiAppCallback:
+  appCallback:
     post:
       summary: '_t__OpenApi::APP_CALLBACK::SUMMARY'
       description: '_md__OpenApi::APP_CALLBACK::DESCRIPTION'
       operationId: apiAppCreateEventCallback
       x-meta:
         seo:
-          title: '_t__apiAppCreateEventCallback::SEO::TITLE'
-          description: '_t__apiAppCreateEventCallback::SEO::DESCRIPTION'
+          title: '_t__appCreateEventCallback::SEO::TITLE'
+          description: '_t__appCreateEventCallback::SEO::DESCRIPTION'
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/EventCallback.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/EventCallback.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/EventCallback.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/EventCallback.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/EventCallback.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/EventCallback.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EventCallback.py
       tags:
         - 'Callbacks and Events'
       requestBody:
-        $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
+        $ref: '#/components/requestBodies/EventCallbackAppRequest'
       responses:
         '200':
           $ref: '#/components/responses/EventCallbackResponse'

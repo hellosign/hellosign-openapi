@@ -2,7 +2,7 @@ package com.hellosign.openapi;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hellosign.openapi.model.EventCallbackApiAppRequestPayload;
+import com.hellosign.openapi.model.EventCallbackRequest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,15 +20,17 @@ public class EventCallbackHelperTest {
         );
 
         for (JsonNode node : content) {
-            EventCallbackApiAppRequestPayload payload = mapper.convertValue(
+            EventCallbackRequest callbackEvent = mapper.convertValue(
                 node,
-                EventCallbackApiAppRequestPayload.class
+                EventCallbackRequest.class
             );
 
-            Assert.assertTrue(EventCallbackHelper.isValid(APIKEY, payload.getEvent()));
-            Assert.assertFalse(EventCallbackHelper.isValid(
-                new StringBuilder(APIKEY).reverse().toString(),
-                payload.getEvent())
+            Assert.assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
+            Assert.assertFalse(
+                EventCallbackHelper.isValid(
+                    new StringBuilder(APIKEY).reverse().toString(),
+                    callbackEvent
+                )
             );
         }
     }

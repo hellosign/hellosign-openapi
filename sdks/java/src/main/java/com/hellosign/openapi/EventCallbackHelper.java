@@ -13,23 +13,47 @@
 
 package com.hellosign.openapi;
 
+import com.hellosign.openapi.model.EventCallbackRequest;
+import com.hellosign.openapi.model.EventCallbackRequestEventMetadata;
 import org.apache.commons.codec.digest.HmacAlgorithms;
 import org.apache.commons.codec.digest.HmacUtils;
-import com.hellosign.openapi.model.EventCallbackRequestEvent;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackHelper {
+    public static final String EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
+
+    public static final String EVENT_TYPE_APP_CALLBACK = "app_callback";
+
     private EventCallbackHelper() {}
 
     /**
     * Verify that a callback came from HelloSign.com
     *
     * @param apiKey
-    * @param event
+    * @param event_callback
     * @return a boolean value indicating whether the callback event is valid
     */
-    public static boolean isValid(String apiKey, EventCallbackRequestEvent event) {
+    public static boolean isValid(String apiKey, EventCallbackRequest event_callback) {
         return new HmacUtils(HmacAlgorithms.HMAC_SHA_256, apiKey)
-                .hmacHex(event.getEventTime() + event.getEventType()).equals(event.getEventHash());
+            .hmacHex(event_callback.getEvent().getEventTime() + event_callback.getEvent().getEventType())
+            .equals(event_callback.getEvent().getEventHash());
+    }
+
+    /**
+     * Identifies the callback type, one of "account_callback" or
+     * "app_callback".
+     *
+     * "app_callback" will always include a value for "reported_for_app_id"
+     *
+     * @param event_callback
+     */
+    public static String getCallbackType(EventCallbackRequest event_callback) {
+        EventCallbackRequestEventMetadata metadata = event_callback.getEvent().getEventMetadata();
+
+        if (metadata.getReportedForAppId() == null || metadata.getReportedForAppId().isEmpty()) {
+            return EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
+        }
+
+        return EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;
     }
 }
