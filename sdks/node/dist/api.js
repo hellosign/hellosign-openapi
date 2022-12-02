@@ -18268,10 +18268,8 @@ __export(api_exports, {
   EmbeddedSignUrlResponseEmbedded: () => EmbeddedSignUrlResponseEmbedded,
   ErrorResponse: () => ErrorResponse,
   ErrorResponseError: () => ErrorResponseError,
-  EventCallbackAccountRequest: () => EventCallbackAccountRequest,
-  EventCallbackAccountRequestPayload: () => EventCallbackAccountRequestPayload,
-  EventCallbackApiAppRequest: () => EventCallbackApiAppRequest,
-  EventCallbackApiAppRequestPayload: () => EventCallbackApiAppRequestPayload,
+  EventCallbackHelper: () => EventCallbackHelper,
+  EventCallbackRequest: () => EventCallbackRequest,
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
   FileResponse: () => FileResponse,
@@ -18408,7 +18406,6 @@ __export(api_exports, {
   UnclaimedDraftResponse: () => UnclaimedDraftResponse,
   VoidAuth: () => VoidAuth,
   WarningResponse: () => WarningResponse,
-  eventCallbackIsValid: () => eventCallbackIsValid,
   generateFormData: () => generateFormData,
   queryParamsSerializer: () => queryParamsSerializer,
   toFormData: () => toFormData
@@ -19460,73 +19457,15 @@ ErrorResponseError.attributeTypeMap = [
   }
 ];
 
-// model/eventCallbackAccountRequest.ts
-var _EventCallbackAccountRequest = class {
+// model/eventCallbackRequest.ts
+var _EventCallbackRequest = class {
   static getAttributeTypeMap() {
-    return _EventCallbackAccountRequest.attributeTypeMap;
+    return _EventCallbackRequest.attributeTypeMap;
   }
 };
-var EventCallbackAccountRequest = _EventCallbackAccountRequest;
-EventCallbackAccountRequest.discriminator = void 0;
-EventCallbackAccountRequest.attributeTypeMap = [
-  {
-    name: "json",
-    baseName: "json",
-    type: "EventCallbackAccountRequestPayload"
-  }
-];
-
-// model/eventCallbackAccountRequestPayload.ts
-var _EventCallbackAccountRequestPayload = class {
-  static getAttributeTypeMap() {
-    return _EventCallbackAccountRequestPayload.attributeTypeMap;
-  }
-};
-var EventCallbackAccountRequestPayload = _EventCallbackAccountRequestPayload;
-EventCallbackAccountRequestPayload.discriminator = void 0;
-EventCallbackAccountRequestPayload.attributeTypeMap = [
-  {
-    name: "event",
-    baseName: "event",
-    type: "EventCallbackRequestEvent"
-  },
-  {
-    name: "signatureRequest",
-    baseName: "signature_request",
-    type: "SignatureRequestResponse"
-  },
-  {
-    name: "template",
-    baseName: "template",
-    type: "TemplateResponse"
-  }
-];
-
-// model/eventCallbackApiAppRequest.ts
-var _EventCallbackApiAppRequest = class {
-  static getAttributeTypeMap() {
-    return _EventCallbackApiAppRequest.attributeTypeMap;
-  }
-};
-var EventCallbackApiAppRequest = _EventCallbackApiAppRequest;
-EventCallbackApiAppRequest.discriminator = void 0;
-EventCallbackApiAppRequest.attributeTypeMap = [
-  {
-    name: "json",
-    baseName: "json",
-    type: "EventCallbackApiAppRequestPayload"
-  }
-];
-
-// model/eventCallbackApiAppRequestPayload.ts
-var _EventCallbackApiAppRequestPayload = class {
-  static getAttributeTypeMap() {
-    return _EventCallbackApiAppRequestPayload.attributeTypeMap;
-  }
-};
-var EventCallbackApiAppRequestPayload = _EventCallbackApiAppRequestPayload;
-EventCallbackApiAppRequestPayload.discriminator = void 0;
-EventCallbackApiAppRequestPayload.attributeTypeMap = [
+var EventCallbackRequest = _EventCallbackRequest;
+EventCallbackRequest.discriminator = void 0;
+EventCallbackRequest.attributeTypeMap = [
   {
     name: "event",
     baseName: "event",
@@ -24600,9 +24539,23 @@ WarningResponse.attributeTypeMap = [
 
 // model/eventCallbackHelper.ts
 var import_crypto_js = __toESM(require_crypto_js());
-var eventCallbackIsValid = (apiKey, event) => {
-  const hash = (0, import_crypto_js.HmacSHA256)(`${event.eventTime}${event.eventType}`, apiKey);
-  return event.eventHash === hash.toString();
+var _EventCallbackHelper = class {
+};
+var EventCallbackHelper = _EventCallbackHelper;
+EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
+EventCallbackHelper.EVENT_TYPE_APP_CALLBACK = "app_callback";
+EventCallbackHelper.isValid = (apiKey, eventCallback) => {
+  const hash = (0, import_crypto_js.HmacSHA256)(
+    `${eventCallback.event.eventTime}${eventCallback.event.eventType}`,
+    apiKey
+  );
+  return eventCallback.event.eventHash === hash.toString();
+};
+EventCallbackHelper.getCallbackType = (eventCallback) => {
+  if (!eventCallback.event.eventMetadata.reportedForAppId) {
+    return _EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
+  }
+  return _EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;
 };
 
 // model/models.ts
@@ -24672,10 +24625,7 @@ var typeMap = {
   EmbeddedSignUrlResponseEmbedded,
   ErrorResponse,
   ErrorResponseError,
-  EventCallbackAccountRequest,
-  EventCallbackAccountRequestPayload,
-  EventCallbackApiAppRequest,
-  EventCallbackApiAppRequestPayload,
+  EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
   FileResponse,
@@ -31611,10 +31561,8 @@ var shouldJsonify = (val) => val === Object(val);
   EmbeddedSignUrlResponseEmbedded,
   ErrorResponse,
   ErrorResponseError,
-  EventCallbackAccountRequest,
-  EventCallbackAccountRequestPayload,
-  EventCallbackApiAppRequest,
-  EventCallbackApiAppRequestPayload,
+  EventCallbackHelper,
+  EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
   FileResponse,
@@ -31751,7 +31699,6 @@ var shouldJsonify = (val) => val === Object(val);
   UnclaimedDraftResponse,
   VoidAuth,
   WarningResponse,
-  eventCallbackIsValid,
   generateFormData,
   queryParamsSerializer,
   toFormData

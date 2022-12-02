@@ -9037,34 +9037,8 @@ components:
           description: 'Name of the error.'
           type: string
       type: object
-    EventCallbackAccountRequest:
-      required:
-        - json
-      properties:
-        json:
-          $ref: '#/components/schemas/EventCallbackAccountRequestPayload'
-      type: object
-    EventCallbackAccountRequestPayload:
-      title: EventCallbackAccountRequestPayload
-      required:
-        - event
-      properties:
-        event:
-          $ref: '#/components/schemas/EventCallbackRequestEvent'
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-        template:
-          $ref: '#/components/schemas/TemplateResponse'
-      type: object
-    EventCallbackApiAppRequest:
-      required:
-        - json
-      properties:
-        json:
-          $ref: '#/components/schemas/EventCallbackApiAppRequestPayload'
-      type: object
-    EventCallbackApiAppRequestPayload:
-      title: EventCallbackApiAppRequestPayload
+    EventCallbackRequest:
+      title: EventCallbackRequest
       required:
         - event
       properties:
@@ -10711,18 +10685,18 @@ components:
       summary: 'Example: template_created'
       value:
         $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
-    EventCallbackApiAppAccountConfirmedExample:
+    EventCallbackAppAccountConfirmedExample:
       summary: 'Example: account_confirmed'
       value:
-        $ref: examples/json/EventCallbackApiAppAccountConfirmedExample.json
-    EventCallbackApiAppSignatureRequestSentExample:
+        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
+    EventCallbackAppSignatureRequestSentExample:
       summary: 'Example: signature_request_sent'
       value:
-        $ref: examples/json/EventCallbackApiAppSignatureRequestSentExample.json
-    EventCallbackApiAppTemplateCreatedExample:
+        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
+    EventCallbackAppTemplateCreatedExample:
       summary: 'Example: template_created'
       value:
-        $ref: examples/json/EventCallbackApiAppTemplateCreatedExample.json
+        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
     OAuthTokenGenerateResponseExample:
       summary: 'Retrieving the OAuth token'
       value:
@@ -10873,53 +10847,29 @@ components:
         **Account Callback Payloads --**
               Events that are reported at the Account level through the the *Account callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api). The *Account callback URL* can also be updated by calling [Update Account](/api/reference/operation/accountUpdate) and passing a `callback_url`.
       content:
-        application/json:
+        multipart/form-data:
           schema:
-            $ref: '#/components/schemas/EventCallbackAccountRequest'
+            $ref: '#/components/schemas/EventCallbackRequest'
           examples:
             signature_request_sent_example:
               $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
             template_created_example:
               $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/EventCallbackAccountRequest'
-          examples:
-            signature_request_example:
-              $ref: '#/components/examples/EventCallbackAccountSignatureRequestSentExample'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackAccountTemplateCreatedExample'
-          encoding:
-            json:
-              contentType: application/json
-    EventCallbackApiAppRequest:
+    EventCallbackAppRequest:
       description: |-
         **API App Callback Payloads --**
         Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
       content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EventCallbackApiAppRequest'
-          examples:
-            account_confirmed_example:
-              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
-            signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
-            template_created_example:
-              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
         multipart/form-data:
           schema:
-            $ref: '#/components/schemas/EventCallbackApiAppRequest'
+            $ref: '#/components/schemas/EventCallbackRequest'
           examples:
             account_confirmed_example:
-              $ref: '#/components/examples/EventCallbackApiAppAccountConfirmedExample'
+              $ref: '#/components/examples/EventCallbackAppAccountConfirmedExample'
             signature_request_sent_example:
-              $ref: '#/components/examples/EventCallbackApiAppSignatureRequestSentExample'
+              $ref: '#/components/examples/EventCallbackAppSignatureRequestSentExample'
             template_created_example:
-              $ref: '#/components/examples/EventCallbackApiAppTemplateCreatedExample'
-          encoding:
-            json:
-              contentType: application/json
+              $ref: '#/components/examples/EventCallbackAppTemplateCreatedExample'
   headers:
     X-RateLimit-Limit:
       description: 'The maximum number of requests per hour that you can make.'
@@ -11023,6 +10973,42 @@ x-webhooks:
         seo:
           title: 'Account Callbacks | API Documentation | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the account level, click here.'
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/EventCallback.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/EventCallback.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/EventCallback.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/EventCallback.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/EventCallback.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/EventCallback.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EventCallback.py
       tags:
         - 'Callbacks and Events'
       requestBody:
@@ -11030,7 +11016,7 @@ x-webhooks:
       responses:
         200:
           $ref: '#/components/responses/EventCallbackResponse'
-  apiAppCallback:
+  appCallback:
     post:
       summary: 'App Callbacks'
       description:
@@ -11040,10 +11026,46 @@ x-webhooks:
         seo:
           title: 'App Callbacks | API Documentation | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here.'
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/EventCallback.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/EventCallback.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/EventCallback.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/EventCallback.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/EventCallback.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/EventCallback.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/EventCallback.py
       tags:
         - 'Callbacks and Events'
       requestBody:
-        $ref: '#/components/requestBodies/EventCallbackApiAppRequest'
+        $ref: '#/components/requestBodies/EventCallbackAppRequest'
       responses:
         200:
           $ref: '#/components/responses/EventCallbackResponse'

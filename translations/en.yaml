@@ -1117,13 +1117,13 @@
   Example: signature_request_sent
 "EventCallbackAccountTemplateCreatedExample::SUMMARY": |-
   Example: template_created
-"EventCallbackApiAppAccountConfirmedExample::SUMMARY": |-
+"EventCallbackAppAccountConfirmedExample::SUMMARY": |-
   Example: account_confirmed
-"EventCallbackApiAppSignatureRequestSentExample::SUMMARY": |-
+"EventCallbackAppSignatureRequestSentExample::SUMMARY": |-
   Example: signature_request_sent
-"EventCallbackApiAppTemplateCreatedExample::SUMMARY": |-
+"EventCallbackAppTemplateCreatedExample::SUMMARY": |-
   Example: template_created
-"EventCallbackApiAppRequest::DESCRIPTION": |-
+"EventCallbackAppRequest::DESCRIPTION": |-
   **API App Callback Payloads --**
   Events that are reported at the API App level through the *Event callback URL* defined in your [API settings](https://app.hellosign.com/home/myAccount#api) for a specific app. The *Event callback URL* can also be updated by calling [Update API App](/api/reference/operation/apiAppUpdate) and passing a `callback_url`.
 "EventCallbackRequestEvent::DESCRIPTION": Basic information about the event that occurred.
@@ -1562,5 +1562,5 @@
 "UnclaimedDraftEditAndResend::SEO::DESCRIPTION": "The Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new signature request from an embedded request, click here."
 "accountUpdateEventCallback::SEO::TITLE": "Account Callbacks | API Documentation | Dropbox Sign for Developers"
 "accountUpdateEventCallback::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the account level, click here."
-"apiAppCreateEventCallback::SEO::TITLE": "App Callbacks | API Documentation | Dropbox Sign for Developers"
-"apiAppCreateEventCallback::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here."
+"appCreateEventCallback::SEO::TITLE": "App Callbacks | API Documentation | Dropbox Sign for Developers"
+"appCreateEventCallback::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build with a wide range of tools. To find out how to consume Dropbox Sign Events at the App level, click here."
