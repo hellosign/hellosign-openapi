@@ -1,6 +1,5 @@
 import json
 import unittest
-from metadict import MetaDict
 
 from hellosign_sdk import ApiClient, Configuration, models
 from test_utils import get_fixture_data
@@ -59,7 +58,7 @@ class TestFixtures(unittest.TestCase):
                     data[param] = fixt_data[param]
 
                 obj = api_client.deserialize(
-                    response=MetaDict({'data': json.dumps(data)}),
+                    response=type('obj_dict', (object,), {'data': json.dumps(data)}),
                     response_type=[class_type],
                     _check_type=True,
                 )

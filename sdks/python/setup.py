@@ -23,7 +23,6 @@ VERSION = "6.0.0-beta22.23"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "metadict",
 ]
 
 setup(
