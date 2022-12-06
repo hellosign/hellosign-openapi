@@ -276,7 +276,8 @@ public class AccountResponseQuotas {
 
         if (totalTemplates.getClass().equals(java.io.File.class) ||
             totalTemplates.getClass().equals(Integer.class) ||
-            totalTemplates.getClass().equals(String.class) ) {
+            totalTemplates.getClass().equals(String.class) ||
+            totalTemplates.getClass().isEnum()) {
             map.put("total_templates", totalTemplates);
         } else if (isListOfFile(totalTemplates)) {
             for(int i = 0; i< getListSize(totalTemplates); i++) {
