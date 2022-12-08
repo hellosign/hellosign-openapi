@@ -60,18 +60,18 @@ abstract class EventCallbackHelper
     }
 
     /**
-     * Identifies the callback type, one of "account_callback" or "app_callback".
+     * Identifies the callback type, one of "account_callback" or
+     * "app_callback".
+     *
      * "app_callback" will always include a value for "reported_for_app_id"
      */
     public static function getCallbackType(
         Model\EventCallbackRequest $event_callback
     ): string {
-        $metadata = $event_callback->getEvent()->getEventMetadata();
+        $meta_data = $event_callback->getEvent()->getEventMetadata();
 
-        if (empty($metadata->getReportedForAppId())) {
-            return self::EVENT_TYPE_ACCOUNT_CALLBACK;
-        }
-
-        return self::EVENT_TYPE_APP_CALLBACK;
+        return !empty($meta_data->getReportedForAppId())
+            ? self::EVENT_TYPE_APP_CALLBACK
+            : self::EVENT_TYPE_ACCOUNT_CALLBACK;
     }
 }

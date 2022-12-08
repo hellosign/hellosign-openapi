@@ -25,7 +25,6 @@ namespace HelloSign
             return GetHash(message, apiKey) == eventCallback.Event.EventHash;
         }
 
-
         /// <summary>
         /// Identifies the callback type, one of "account_callback" or "app_callback".
         /// "app_callback" will always include a value for "reported_for_app_id"

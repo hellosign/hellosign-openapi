@@ -14,7 +14,7 @@ additionalProperties:
   sortModelPropertiesByRequiredFlag: true
   groupId: com.hellosign
   artifactId: hellosign-java-sdk
-  artifactVersion: 6.0.0-beta22.23
+  artifactVersion: 6.0.0-beta22.24
   artifactUrl: https://github.com/hellosign/hellosign-java-sdk
   artifactDescription: Use the HelloSign Java SDK to connect your Java app to HelloSign\'s service in microseconds!
   scmConnection: scm:git:git://github.com/hellosign/hellosign-java-sdk.git
