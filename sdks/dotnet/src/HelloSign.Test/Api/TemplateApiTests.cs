@@ -36,7 +36,7 @@ namespace HelloSign.Test.Api
 
             var api = MockRestClientHelper.CreateApi<TemplateCreateEmbeddedDraftResponse, TemplateApi>(responseData);
 
-            requestData.File = new List<Stream> {
+            requestData.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
@@ -125,7 +125,7 @@ namespace HelloSign.Test.Api
 
             var api = MockRestClientHelper.CreateApi<TemplateUpdateFilesResponse, TemplateApi>(responseData);
 
-            requestData.File = new List<Stream> {
+            requestData.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,

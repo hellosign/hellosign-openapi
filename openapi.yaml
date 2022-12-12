@@ -6738,9 +6738,9 @@ components:
         - client_id
         - signers
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -6909,9 +6909,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -6982,9 +6982,9 @@ components:
       required:
         - signers
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -7153,9 +7153,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -7953,9 +7953,9 @@ components:
       required:
         - client_id
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -8106,9 +8106,9 @@ components:
         client_id:
           description: 'Client id of the app you''re using to update this template.'
           type: string
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to use for the template.
+            Use `files[]` to indicate the uploaded file(s) to use for the template.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -8141,9 +8141,9 @@ components:
       required:
         - type
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -8284,9 +8284,9 @@ components:
         - client_id
         - requester_email_address
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
             This endpoint requires either **file** or **file_url[]**, but not both.
           type: array
@@ -8511,9 +8511,9 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        file:
+        files:
           description: |-
-            Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
+            Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
             **file** or **file_url[]** is required, but not both.
           type: array

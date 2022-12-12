@@ -18,8 +18,8 @@ module HelloSign
     # Client id of the app you're using to update this template.
     attr_accessor :client_id
 
-    # Use `file[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file
+    # Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+    attr_accessor :files
 
     # Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
     attr_accessor :file_url
@@ -37,7 +37,7 @@ module HelloSign
     def self.attribute_map
       {
         :'client_id' => :'client_id',
-        :'file' => :'file',
+        :'files' => :'files',
         :'file_url' => :'file_url',
         :'message' => :'message',
         :'subject' => :'subject',
@@ -59,7 +59,7 @@ module HelloSign
     def self.openapi_types
       {
         :'client_id' => :'String',
-        :'file' => :'Array<File>',
+        :'files' => :'Array<File>',
         :'file_url' => :'Array<String>',
         :'message' => :'String',
         :'subject' => :'String',
@@ -102,9 +102,9 @@ module HelloSign
         self.client_id = attributes[:'client_id']
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
@@ -178,7 +178,7 @@ module HelloSign
       return true if self.equal?(o)
       self.class == o.class &&
           client_id == o.client_id &&
-          file == o.file &&
+          files == o.files &&
           file_url == o.file_url &&
           message == o.message &&
           subject == o.subject &&
@@ -194,7 +194,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, file, file_url, message, subject, test_mode].hash
+      [client_id, files, file_url, message, subject, test_mode].hash
     end
 
     # Builds the object from hash

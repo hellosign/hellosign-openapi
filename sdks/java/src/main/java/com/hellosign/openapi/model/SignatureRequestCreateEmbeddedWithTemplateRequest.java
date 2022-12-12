@@ -49,7 +49,7 @@ import com.hellosign.openapi.ApiException;
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_DECLINE,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CCS,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
-    SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILE,
+    SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILES,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILE_URL,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_MESSAGE,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_METADATA,
@@ -79,8 +79,8 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
   private List<SubCustomField> customFields = null;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private List<String> fileUrl = null;
@@ -291,37 +291,37 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   }
 
 
-  public SignatureRequestCreateEmbeddedWithTemplateRequest file(List<File> file) {
-    this.file = file;
+  public SignatureRequestCreateEmbeddedWithTemplateRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public SignatureRequestCreateEmbeddedWithTemplateRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public SignatureRequestCreateEmbeddedWithTemplateRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
    * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
@@ -567,7 +567,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
         Objects.equals(this.allowDecline, signatureRequestCreateEmbeddedWithTemplateRequest.allowDecline) &&
         Objects.equals(this.ccs, signatureRequestCreateEmbeddedWithTemplateRequest.ccs) &&
         Objects.equals(this.customFields, signatureRequestCreateEmbeddedWithTemplateRequest.customFields) &&
-        Objects.equals(this.file, signatureRequestCreateEmbeddedWithTemplateRequest.file) &&
+        Objects.equals(this.files, signatureRequestCreateEmbeddedWithTemplateRequest.files) &&
         Objects.equals(this.fileUrl, signatureRequestCreateEmbeddedWithTemplateRequest.fileUrl) &&
         Objects.equals(this.message, signatureRequestCreateEmbeddedWithTemplateRequest.message) &&
         Objects.equals(this.metadata, signatureRequestCreateEmbeddedWithTemplateRequest.metadata) &&
@@ -580,7 +580,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, clientId, signers, allowDecline, ccs, customFields, file, fileUrl, message, metadata, signingOptions, subject, testMode, title, populateAutoFillFields);
+    return Objects.hash(templateIds, clientId, signers, allowDecline, ccs, customFields, files, fileUrl, message, metadata, signingOptions, subject, testMode, title, populateAutoFillFields);
   }
 
   @Override
@@ -593,7 +593,7 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
     sb.append("    ccs: ").append(toIndentedString(ccs)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -724,23 +724,23 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
             map.put("custom_fields", JSON.getDefault().getMapper().writeValueAsString(customFields));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
     if (fileUrl != null) {

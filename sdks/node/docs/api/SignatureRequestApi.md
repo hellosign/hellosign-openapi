@@ -509,7 +509,7 @@ const data: HelloSignSDK.SignatureRequestCreateEmbeddedRequest = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   signingOptions,
   testMode: true,
 };
@@ -569,7 +569,7 @@ const data = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   signingOptions,
   testMode: true,
 };
@@ -1477,7 +1477,7 @@ const data: HelloSignSDK.SignatureRequestSendRequest = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
     "custom_id": 1234,
     "custom_text": "NDA #9",
@@ -1545,7 +1545,7 @@ const data = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
     "custom_id": 1234,
     "custom_text": "NDA #9",

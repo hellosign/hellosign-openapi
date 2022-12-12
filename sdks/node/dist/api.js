@@ -20023,8 +20023,8 @@ SignatureRequestCreateEmbeddedRequest.attributeTypeMap = [
     type: "Array<SubSignatureRequestSigner>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -20174,8 +20174,8 @@ SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     type: "Array<SubCustomField>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -20995,8 +20995,8 @@ SignatureRequestSendRequest.attributeTypeMap = [
     type: "Array<SubSignatureRequestSigner>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -21156,8 +21156,8 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
     type: "Array<SubCustomField>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -22833,8 +22833,8 @@ TemplateCreateEmbeddedDraftRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -23805,8 +23805,8 @@ TemplateUpdateFilesRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -23905,8 +23905,8 @@ UnclaimedDraftCreateEmbeddedRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -24152,8 +24152,8 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     type: "SubFieldOptions"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
@@ -24276,8 +24276,8 @@ UnclaimedDraftCreateRequest.attributeTypeMap = [
     type: "UnclaimedDraftCreateRequest.TypeEnum"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {

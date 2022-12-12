@@ -48,7 +48,7 @@ namespace HelloSign.Model
         /// <param name="customFields">An array defining values and options for custom fields. Required when a custom field exists in the Template..</param>
         /// <param name="editorOptions">editorOptions.</param>
         /// <param name="fieldOptions">fieldOptions.</param>
-        /// <param name="file">Use &#x60;file[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both..</param>
+        /// <param name="files">Use &#x60;file[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both..</param>
         /// <param name="fileUrl">Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both..</param>
         /// <param name="forceSignerRoles">Provide users the ability to review/edit the template signer roles. (default to false).</param>
         /// <param name="forceSubjectMessage">Provide users the ability to review/edit the template subject and message. (default to false).</param>
@@ -70,7 +70,7 @@ namespace HelloSign.Model
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
-        public UnclaimedDraftCreateEmbeddedWithTemplateRequest(bool allowDecline = false, bool allowReassign = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), List<System.IO.Stream> file = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool forceSignerRoles = false, bool forceSubjectMessage = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool previewOnly = false, string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = false, bool showProgressStepper = true, List<SubUnclaimedDraftTemplateSigner> signers = default(List<SubUnclaimedDraftTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), List<string> templateIds = default(List<string>), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
+        public UnclaimedDraftCreateEmbeddedWithTemplateRequest(bool allowDecline = false, bool allowReassign = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool forceSignerRoles = false, bool forceSubjectMessage = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool previewOnly = false, string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = false, bool showProgressStepper = true, List<SubUnclaimedDraftTemplateSigner> signers = default(List<SubUnclaimedDraftTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), List<string> templateIds = default(List<string>), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
         {
             
             // to ensure "clientId" is required (not null)
@@ -97,7 +97,7 @@ namespace HelloSign.Model
             this.CustomFields = customFields;
             this.EditorOptions = editorOptions;
             this.FieldOptions = fieldOptions;
-            this.File = file;
+            this.Files = files;
             this.FileUrl = fileUrl;
             this.ForceSignerRoles = forceSignerRoles;
             this.ForceSubjectMessage = forceSubjectMessage;
@@ -184,8 +184,8 @@ namespace HelloSign.Model
         /// Use &#x60;file[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.
         /// </summary>
         /// <value>Use &#x60;file[]&#x60; to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.</value>
-        [DataMember(Name = "file", EmitDefaultValue = true)]
-        public List<System.IO.Stream> File { get; set; }
+        [DataMember(Name = "files", EmitDefaultValue = true)]
+        public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
         /// Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.
@@ -336,7 +336,7 @@ namespace HelloSign.Model
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  EditorOptions: ").Append(EditorOptions).Append("\n");
             sb.Append("  FieldOptions: ").Append(FieldOptions).Append("\n");
-            sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrl: ").Append(FileUrl).Append("\n");
             sb.Append("  ForceSignerRoles: ").Append(ForceSignerRoles).Append("\n");
             sb.Append("  ForceSubjectMessage: ").Append(ForceSubjectMessage).Append("\n");
@@ -438,10 +438,10 @@ namespace HelloSign.Model
                     this.FieldOptions.Equals(input.FieldOptions))
                 ) && 
                 (
-                    this.File == input.File ||
-                    this.File != null &&
-                    input.File != null &&
-                    this.File.SequenceEqual(input.File)
+                    this.Files == input.Files ||
+                    this.Files != null &&
+                    input.Files != null &&
+                    this.Files.SequenceEqual(input.Files)
                 ) && 
                 (
                     this.FileUrl == input.FileUrl ||
@@ -572,9 +572,9 @@ namespace HelloSign.Model
                 {
                     hashCode = (hashCode * 59) + this.FieldOptions.GetHashCode();
                 }
-                if (this.File != null)
+                if (this.Files != null)
                 {
-                    hashCode = (hashCode * 59) + this.File.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Files.GetHashCode();
                 }
                 if (this.FileUrl != null)
                 {
@@ -684,10 +684,10 @@ namespace HelloSign.Model
                 Value = FieldOptions,
             });
             types.Add(new OpenApiType(){
-                Name = "file",
-                Property = "File",
+                Name = "files",
+                Property = "Files",
                 Type = "List<System.IO.Stream>",
-                Value = File,
+                Value = Files,
             });
             types.Add(new OpenApiType(){
                 Name = "file_url",

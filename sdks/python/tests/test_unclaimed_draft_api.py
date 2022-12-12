@@ -27,7 +27,7 @@ class TestUnclaimedDraftApi(unittest.TestCase):
         )
         expected = deserialize(response_data, f'models.{response_class}')
         obj = deserialize(request_data, f'models.{request_class}')
-        obj.file = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.unclaimed_draft_create(obj)
 
@@ -48,7 +48,7 @@ class TestUnclaimedDraftApi(unittest.TestCase):
         )
         expected = deserialize(response_data, f'models.{response_class}')
         obj = deserialize(request_data, f'models.{request_class}')
-        obj.file = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.unclaimed_draft_create_embedded(obj)
 
@@ -69,7 +69,7 @@ class TestUnclaimedDraftApi(unittest.TestCase):
         )
         expected = deserialize(response_data, f'models.{response_class}')
         obj = deserialize(request_data, f'models.{request_class}')
-        obj.file = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.unclaimed_draft_create_embedded_with_template(obj)
 

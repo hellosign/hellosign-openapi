@@ -136,7 +136,7 @@ field_options.date_format = "DD - MM - YYYY"
 
 data = HelloSign::TemplateCreateEmbeddedDraftRequest.new
 data.client_id = "37dee8d8440c66d54cfa05d92c160882"
-data.file = [File.new("example_signature_request.pdf", "r")]
+data.files = [File.new("example_signature_request.pdf", "r")]
 data.title = "Test Template"
 data.subject = "Please sign this document"
 data.message = "For your approval"
@@ -729,7 +729,7 @@ end
 api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateUpdateFilesRequest.new
-data.file = [File.new("example_signature_request.pdf", "r")]
+data.files = [File.new("example_signature_request.pdf", "r")]
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 

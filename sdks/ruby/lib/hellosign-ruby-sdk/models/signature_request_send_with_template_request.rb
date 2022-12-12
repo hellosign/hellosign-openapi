@@ -33,8 +33,8 @@ module HelloSign
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
     attr_accessor :custom_fields
 
-    # Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    attr_accessor :files
 
     # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
     attr_accessor :file_url
@@ -71,7 +71,7 @@ module HelloSign
         :'ccs' => :'ccs',
         :'client_id' => :'client_id',
         :'custom_fields' => :'custom_fields',
-        :'file' => :'file',
+        :'files' => :'files',
         :'file_url' => :'file_url',
         :'is_qualified_signature' => :'is_qualified_signature',
         :'message' => :'message',
@@ -103,7 +103,7 @@ module HelloSign
         :'ccs' => :'Array<SubCC>',
         :'client_id' => :'String',
         :'custom_fields' => :'Array<SubCustomField>',
-        :'file' => :'Array<File>',
+        :'files' => :'Array<File>',
         :'file_url' => :'Array<String>',
         :'is_qualified_signature' => :'Boolean',
         :'message' => :'String',
@@ -181,9 +181,9 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
@@ -317,7 +317,7 @@ module HelloSign
           ccs == o.ccs &&
           client_id == o.client_id &&
           custom_fields == o.custom_fields &&
-          file == o.file &&
+          files == o.files &&
           file_url == o.file_url &&
           is_qualified_signature == o.is_qualified_signature &&
           message == o.message &&
@@ -338,7 +338,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, signers, allow_decline, ccs, client_id, custom_fields, file, file_url, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title].hash
+      [template_ids, signers, allow_decline, ccs, client_id, custom_fields, files, file_url, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title].hash
     end
 
     # Builds the object from hash

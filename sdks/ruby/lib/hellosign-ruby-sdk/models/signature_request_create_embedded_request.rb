@@ -22,8 +22,8 @@ module HelloSign
     # Add Signers to your Signature Request.
     attr_accessor :signers
 
-    # Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    attr_accessor :files
 
     # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
     attr_accessor :file_url
@@ -88,7 +88,7 @@ module HelloSign
       {
         :'client_id' => :'client_id',
         :'signers' => :'signers',
-        :'file' => :'file',
+        :'files' => :'files',
         :'file_url' => :'file_url',
         :'allow_decline' => :'allow_decline',
         :'allow_reassign' => :'allow_reassign',
@@ -127,7 +127,7 @@ module HelloSign
       {
         :'client_id' => :'String',
         :'signers' => :'Array<SubSignatureRequestSigner>',
-        :'file' => :'Array<File>',
+        :'files' => :'Array<File>',
         :'file_url' => :'Array<String>',
         :'allow_decline' => :'Boolean',
         :'allow_reassign' => :'Boolean',
@@ -193,9 +193,9 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
@@ -389,7 +389,7 @@ module HelloSign
       self.class == o.class &&
           client_id == o.client_id &&
           signers == o.signers &&
-          file == o.file &&
+          files == o.files &&
           file_url == o.file_url &&
           allow_decline == o.allow_decline &&
           allow_reassign == o.allow_reassign &&
@@ -421,7 +421,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, signers, file, file_url, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, signers, files, file_url, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, signing_options, subject, test_mode, title, use_text_tags, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash

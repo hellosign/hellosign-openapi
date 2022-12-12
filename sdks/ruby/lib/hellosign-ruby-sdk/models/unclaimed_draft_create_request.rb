@@ -18,8 +18,8 @@ module HelloSign
     # The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.
     attr_accessor :type
 
-    # Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    attr_accessor :files
 
     # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
     attr_accessor :file_url
@@ -111,7 +111,7 @@ module HelloSign
     def self.attribute_map
       {
         :'type' => :'type',
-        :'file' => :'file',
+        :'files' => :'files',
         :'file_url' => :'file_url',
         :'allow_decline' => :'allow_decline',
         :'attachments' => :'attachments',
@@ -151,7 +151,7 @@ module HelloSign
     def self.openapi_types
       {
         :'type' => :'String',
-        :'file' => :'Array<File>',
+        :'files' => :'Array<File>',
         :'file_url' => :'Array<String>',
         :'allow_decline' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
@@ -213,9 +213,9 @@ module HelloSign
         self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
@@ -410,7 +410,7 @@ module HelloSign
       return true if self.equal?(o)
       self.class == o.class &&
           type == o.type &&
-          file == o.file &&
+          files == o.files &&
           file_url == o.file_url &&
           allow_decline == o.allow_decline &&
           attachments == o.attachments &&
@@ -444,7 +444,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, file, file_url, allow_decline, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, show_progress_stepper, signers, signing_options, signing_redirect_url, subject, test_mode, use_preexisting_fields, use_text_tags, expires_at].hash
+      [type, files, file_url, allow_decline, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, message, metadata, show_progress_stepper, signers, signing_options, signing_redirect_url, subject, test_mode, use_preexisting_fields, use_text_tags, expires_at].hash
     end
 
     # Builds the object from hash

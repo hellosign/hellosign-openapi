@@ -28,7 +28,7 @@ public class Example {
         TemplateApi api = new TemplateApi(defaultClient);
 
         TemplateUpdateFilesRequest data = new TemplateUpdateFilesRequest()
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
 
         String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 

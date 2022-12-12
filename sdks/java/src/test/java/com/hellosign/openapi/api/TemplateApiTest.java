@@ -34,7 +34,7 @@ public class TemplateApiTest {
             TemplateCreateEmbeddedDraftRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         TemplateCreateEmbeddedDraftResponse expected = TestHelper.getFixtureData(
             TemplateCreateEmbeddedDraftResponse.class,
@@ -116,7 +116,7 @@ public class TemplateApiTest {
             TemplateUpdateFilesRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         TemplateUpdateFilesResponse expected = TestHelper.getFixtureData(
             TemplateUpdateFilesResponse.class,

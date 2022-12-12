@@ -46,7 +46,7 @@ namespace HelloSign.Model
         /// <param name="ccs">Add CC email recipients. Required when a CC role exists for the Template..</param>
         /// <param name="clientId">Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app..</param>
         /// <param name="customFields">An array defining values and options for custom fields. Required when a custom field exists in the Template..</param>
-        /// <param name="file">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
+        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
         /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
         /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
@@ -57,7 +57,7 @@ namespace HelloSign.Model
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
-        public SignatureRequestSendWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> file = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
+        public SignatureRequestSendWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
         {
             
             // to ensure "templateIds" is required (not null)
@@ -76,7 +76,7 @@ namespace HelloSign.Model
             this.Ccs = ccs;
             this.ClientId = clientId;
             this.CustomFields = customFields;
-            this.File = file;
+            this.Files = files;
             this.FileUrl = fileUrl;
             this.IsQualifiedSignature = isQualifiedSignature;
             this.Message = message;
@@ -134,8 +134,8 @@ namespace HelloSign.Model
         /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.</value>
-        [DataMember(Name = "file", EmitDefaultValue = true)]
-        public List<System.IO.Stream> File { get; set; }
+        [DataMember(Name = "files", EmitDefaultValue = true)]
+        public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
         /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
@@ -213,7 +213,7 @@ namespace HelloSign.Model
             sb.Append("  Ccs: ").Append(Ccs).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
-            sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrl: ").Append(FileUrl).Append("\n");
             sb.Append("  IsQualifiedSignature: ").Append(IsQualifiedSignature).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -292,10 +292,10 @@ namespace HelloSign.Model
                     this.CustomFields.SequenceEqual(input.CustomFields)
                 ) && 
                 (
-                    this.File == input.File ||
-                    this.File != null &&
-                    input.File != null &&
-                    this.File.SequenceEqual(input.File)
+                    this.Files == input.Files ||
+                    this.Files != null &&
+                    input.Files != null &&
+                    this.Files.SequenceEqual(input.Files)
                 ) && 
                 (
                     this.FileUrl == input.FileUrl ||
@@ -374,9 +374,9 @@ namespace HelloSign.Model
                 {
                     hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
                 }
-                if (this.File != null)
+                if (this.Files != null)
                 {
-                    hashCode = (hashCode * 59) + this.File.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Files.GetHashCode();
                 }
                 if (this.FileUrl != null)
                 {
@@ -452,10 +452,10 @@ namespace HelloSign.Model
                 Value = CustomFields,
             });
             types.Add(new OpenApiType(){
-                Name = "file",
-                Property = "File",
+                Name = "files",
+                Property = "Files",
                 Type = "List<System.IO.Stream>",
-                Value = File,
+                Value = Files,
             });
             types.Add(new OpenApiType(){
                 Name = "file_url",

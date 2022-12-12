@@ -69,7 +69,7 @@ namespace HelloSign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftCreateRequest" /> class.
         /// </summary>
-        /// <param name="file">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
+        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
         /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
@@ -93,11 +93,11 @@ namespace HelloSign.Model
         /// <param name="usePreexistingFields">Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both. (default to false).</param>
         /// <param name="useTextTags">Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.  **Note** This does not correspond to the **expires_at** returned in the response..</param>
-        public UnclaimedDraftCreateRequest(List<System.IO.Stream> file = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool allowDecline = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool showProgressStepper = true, List<SubUnclaimedDraftSigner> signers = default(List<SubUnclaimedDraftSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, TypeEnum type = default(TypeEnum), bool usePreexistingFields = false, bool useTextTags = false, int? expiresAt = default(int?))
+        public UnclaimedDraftCreateRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool allowDecline = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool showProgressStepper = true, List<SubUnclaimedDraftSigner> signers = default(List<SubUnclaimedDraftSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, TypeEnum type = default(TypeEnum), bool usePreexistingFields = false, bool useTextTags = false, int? expiresAt = default(int?))
         {
             
             this.Type = type;
-            this.File = file;
+            this.Files = files;
             this.FileUrl = fileUrl;
             this.AllowDecline = allowDecline;
             this.Attachments = attachments;
@@ -126,8 +126,8 @@ namespace HelloSign.Model
         /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.</value>
-        [DataMember(Name = "file", EmitDefaultValue = true)]
-        public List<System.IO.Stream> File { get; set; }
+        [DataMember(Name = "files", EmitDefaultValue = true)]
+        public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
         /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
@@ -290,7 +290,7 @@ namespace HelloSign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UnclaimedDraftCreateRequest {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrl: ").Append(FileUrl).Append("\n");
             sb.Append("  AllowDecline: ").Append(AllowDecline).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
@@ -353,10 +353,10 @@ namespace HelloSign.Model
                     this.Type.Equals(input.Type)
                 ) && 
                 (
-                    this.File == input.File ||
-                    this.File != null &&
-                    input.File != null &&
-                    this.File.SequenceEqual(input.File)
+                    this.Files == input.Files ||
+                    this.Files != null &&
+                    input.Files != null &&
+                    this.Files.SequenceEqual(input.Files)
                 ) && 
                 (
                     this.FileUrl == input.FileUrl ||
@@ -483,9 +483,9 @@ namespace HelloSign.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                if (this.File != null)
+                if (this.Files != null)
                 {
-                    hashCode = (hashCode * 59) + this.File.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Files.GetHashCode();
                 }
                 if (this.FileUrl != null)
                 {
@@ -571,10 +571,10 @@ namespace HelloSign.Model
                 Value = Type,
             });
             types.Add(new OpenApiType(){
-                Name = "file",
-                Property = "File",
+                Name = "files",
+                Property = "Files",
                 Type = "List<System.IO.Stream>",
-                Value = File,
+                Value = Files,
             });
             types.Add(new OpenApiType(){
                 Name = "file_url",

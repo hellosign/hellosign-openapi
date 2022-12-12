@@ -47,7 +47,7 @@ with ApiClient(configuration) as api_client:
             "lawyer@hellosign.com",
             "lawyer@example.com",
         ],
-        file=[open("example_signature_request.pdf", "rb")],
+        files=[open("example_signature_request.pdf", "rb")],
         metadata={
             "custom_id": 1234,
             "custom_text": "NDA #9",

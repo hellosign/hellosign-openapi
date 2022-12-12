@@ -62,7 +62,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $openAPITypes = [
         'client_id' => 'string',
-        'file' => '\SplFileObject[]',
+        'files' => '\SplFileObject[]',
         'file_url' => 'string[]',
         'message' => 'string',
         'subject' => 'string',
@@ -78,7 +78,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $openAPIFormats = [
         'client_id' => null,
-        'file' => 'binary',
+        'files' => 'binary',
         'file_url' => null,
         'message' => null,
         'subject' => null,
@@ -113,7 +113,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $attributeMap = [
         'client_id' => 'client_id',
-        'file' => 'file',
+        'files' => 'files',
         'file_url' => 'file_url',
         'message' => 'message',
         'subject' => 'subject',
@@ -127,7 +127,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $setters = [
         'client_id' => 'setClientId',
-        'file' => 'setFile',
+        'files' => 'setFiles',
         'file_url' => 'setFileUrl',
         'message' => 'setMessage',
         'subject' => 'setSubject',
@@ -141,7 +141,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      */
     protected static $getters = [
         'client_id' => 'getClientId',
-        'file' => 'getFile',
+        'files' => 'getFiles',
         'file_url' => 'getFileUrl',
         'message' => 'getMessage',
         'subject' => 'getSubject',
@@ -205,7 +205,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     public function __construct(array $data = null)
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['subject'] = $data['subject'] ?? null;
@@ -279,25 +279,25 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }

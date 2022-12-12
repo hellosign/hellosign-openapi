@@ -69,7 +69,7 @@ namespace HelloSign.Test.Api
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestGetResponse, SignatureRequestApi>(responseData);
 
-            requestData.File = new List<Stream> {
+            requestData.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
@@ -94,7 +94,7 @@ namespace HelloSign.Test.Api
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestGetResponse, SignatureRequestApi>(responseData);
 
-            requestData.File = new List<Stream> {
+            requestData.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
@@ -198,7 +198,7 @@ namespace HelloSign.Test.Api
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestGetResponse, SignatureRequestApi>(responseData);
 
-            requestData.File = new List<Stream> {
+            requestData.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
@@ -257,7 +257,7 @@ namespace HelloSign.Test.Api
 
             var api = MockRestClientHelper.CreateApiExpectMultiFormRequest<SignatureRequestGetResponse, SignatureRequestApi>(responseData);
 
-            requestData.File = new List<Stream> {
+            requestData.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,

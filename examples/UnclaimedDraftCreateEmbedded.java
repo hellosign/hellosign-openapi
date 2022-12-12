@@ -29,7 +29,7 @@ public class Example {
 
         UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
             .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
             .requesterEmailAddress("jack@hellosign.com")
             .testMode(true);
 

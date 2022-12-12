@@ -69,7 +69,7 @@ class TestSignatureRequestApi(unittest.TestCase):
         )
         expected = deserialize(response_data, f'models.{response_class}')
         obj = deserialize(request_data, f'models.{request_class}')
-        obj.file = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.signature_request_create_embedded(obj)
 
@@ -90,7 +90,7 @@ class TestSignatureRequestApi(unittest.TestCase):
         )
         expected = deserialize(response_data, f'models.{response_class}')
         obj = deserialize(request_data, f'models.{request_class}')
-        obj.file = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.signature_request_create_embedded_with_template(obj)
 
@@ -190,7 +190,7 @@ class TestSignatureRequestApi(unittest.TestCase):
         )
         expected = deserialize(response_data, f'models.{response_class}')
         obj = deserialize(request_data, f'models.{request_class}')
-        obj.file = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
+        obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.signature_request_send(obj)
 

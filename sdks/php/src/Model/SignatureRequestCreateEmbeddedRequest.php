@@ -64,7 +64,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     protected static $openAPITypes = [
         'client_id' => 'string',
         'signers' => '\HelloSignSDK\Model\SubSignatureRequestSigner[]',
-        'file' => '\SplFileObject[]',
+        'files' => '\SplFileObject[]',
         'file_url' => 'string[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
@@ -97,7 +97,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     protected static $openAPIFormats = [
         'client_id' => null,
         'signers' => null,
-        'file' => 'binary',
+        'files' => 'binary',
         'file_url' => null,
         'allow_decline' => null,
         'allow_reassign' => null,
@@ -149,7 +149,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     protected static $attributeMap = [
         'client_id' => 'client_id',
         'signers' => 'signers',
-        'file' => 'file',
+        'files' => 'files',
         'file_url' => 'file_url',
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
@@ -180,7 +180,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     protected static $setters = [
         'client_id' => 'setClientId',
         'signers' => 'setSigners',
-        'file' => 'setFile',
+        'files' => 'setFiles',
         'file_url' => 'setFileUrl',
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
@@ -211,7 +211,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     protected static $getters = [
         'client_id' => 'getClientId',
         'signers' => 'getSigners',
-        'file' => 'getFile',
+        'files' => 'getFiles',
         'file_url' => 'getFileUrl',
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
@@ -292,7 +292,7 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['signers'] = $data['signers'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
@@ -416,25 +416,25 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }

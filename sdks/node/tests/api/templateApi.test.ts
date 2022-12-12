@@ -58,7 +58,7 @@ describe('TemplateApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.TemplateCreateEmbeddedDraftRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.templateCreateEmbeddedDraft(obj).then(response => {
       const diff = diffJson(
@@ -179,7 +179,7 @@ describe('TemplateApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.TemplateUpdateFilesRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.templateUpdateFiles(templateId, obj).then(response => {
       const diff = diffJson(

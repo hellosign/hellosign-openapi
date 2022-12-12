@@ -41,7 +41,7 @@ $data->setSubject("The NDA we talked about")
         "lawyer@hellosign.com",
         "lawyer@example.com",
     ])
-    ->setFile([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setMetadata([
         "custom_id" => 1234,
         "custom_text" => "NDA #9",

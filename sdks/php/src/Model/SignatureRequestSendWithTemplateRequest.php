@@ -67,7 +67,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'ccs' => '\HelloSignSDK\Model\SubCC[]',
         'client_id' => 'string',
         'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
-        'file' => '\SplFileObject[]',
+        'files' => '\SplFileObject[]',
         'file_url' => 'string[]',
         'is_qualified_signature' => 'bool',
         'message' => 'string',
@@ -93,7 +93,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'ccs' => null,
         'client_id' => null,
         'custom_fields' => null,
-        'file' => 'binary',
+        'files' => 'binary',
         'file_url' => null,
         'is_qualified_signature' => null,
         'message' => null,
@@ -138,7 +138,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'ccs' => 'ccs',
         'client_id' => 'client_id',
         'custom_fields' => 'custom_fields',
-        'file' => 'file',
+        'files' => 'files',
         'file_url' => 'file_url',
         'is_qualified_signature' => 'is_qualified_signature',
         'message' => 'message',
@@ -162,7 +162,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'ccs' => 'setCcs',
         'client_id' => 'setClientId',
         'custom_fields' => 'setCustomFields',
-        'file' => 'setFile',
+        'files' => 'setFiles',
         'file_url' => 'setFileUrl',
         'is_qualified_signature' => 'setIsQualifiedSignature',
         'message' => 'setMessage',
@@ -186,7 +186,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'ccs' => 'getCcs',
         'client_id' => 'getClientId',
         'custom_fields' => 'getCustomFields',
-        'file' => 'getFile',
+        'files' => 'getFiles',
         'file_url' => 'getFileUrl',
         'is_qualified_signature' => 'getIsQualifiedSignature',
         'message' => 'getMessage',
@@ -260,7 +260,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         $this->container['ccs'] = $data['ccs'] ?? null;
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['is_qualified_signature'] = $data['is_qualified_signature'] ?? false;
         $this->container['message'] = $data['message'] ?? null;
@@ -469,25 +469,25 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }

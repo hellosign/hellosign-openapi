@@ -1,7 +1,7 @@
 import { RequestFile, AttributeTypeMap } from "./models";
 export declare class TemplateUpdateFilesRequest {
     "clientId"?: string;
-    "file"?: Array<RequestFile>;
+    "files"?: Array<RequestFile>;
     "fileUrl"?: Array<string>;
     "message"?: string;
     "subject"?: string;

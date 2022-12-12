@@ -47,7 +47,7 @@ import com.hellosign.openapi.ApiException;
  */
 @JsonPropertyOrder({
     UnclaimedDraftCreateRequest.JSON_PROPERTY_TYPE,
-    UnclaimedDraftCreateRequest.JSON_PROPERTY_FILE,
+    UnclaimedDraftCreateRequest.JSON_PROPERTY_FILES,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_FILE_URL,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_ALLOW_DECLINE,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_ATTACHMENTS,
@@ -111,8 +111,8 @@ public class UnclaimedDraftCreateRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private List<String> fileUrl = null;
@@ -209,37 +209,37 @@ public class UnclaimedDraftCreateRequest {
   }
 
 
-  public UnclaimedDraftCreateRequest file(List<File> file) {
-    this.file = file;
+  public UnclaimedDraftCreateRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public UnclaimedDraftCreateRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public UnclaimedDraftCreateRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
    * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
@@ -900,7 +900,7 @@ public class UnclaimedDraftCreateRequest {
     }
     UnclaimedDraftCreateRequest unclaimedDraftCreateRequest = (UnclaimedDraftCreateRequest) o;
     return Objects.equals(this.type, unclaimedDraftCreateRequest.type) &&
-        Objects.equals(this.file, unclaimedDraftCreateRequest.file) &&
+        Objects.equals(this.files, unclaimedDraftCreateRequest.files) &&
         Objects.equals(this.fileUrl, unclaimedDraftCreateRequest.fileUrl) &&
         Objects.equals(this.allowDecline, unclaimedDraftCreateRequest.allowDecline) &&
         Objects.equals(this.attachments, unclaimedDraftCreateRequest.attachments) &&
@@ -927,7 +927,7 @@ public class UnclaimedDraftCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, file, fileUrl, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, expiresAt);
+    return Objects.hash(type, files, fileUrl, allowDecline, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, showProgressStepper, signers, signingOptions, signingRedirectUrl, subject, testMode, usePreexistingFields, useTextTags, expiresAt);
   }
 
   @Override
@@ -935,7 +935,7 @@ public class UnclaimedDraftCreateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnclaimedDraftCreateRequest {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
@@ -985,23 +985,23 @@ public class UnclaimedDraftCreateRequest {
             map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
     if (fileUrl != null) {

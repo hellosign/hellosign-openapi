@@ -62,7 +62,7 @@ data.cc_email_addresses = [
   "lawyer@hellosign.com",
   "lawyer@example.com",
 ]
-data.file = [File.new("example_signature_request.pdf", "r")]
+data.files = [File.new("example_signature_request.pdf", "r")]
 data.metadata = {
   custom_id: 1234,
   custom_text: "NDA #9",
@@ -143,7 +143,7 @@ api = HelloSign::UnclaimedDraftApi.new
 
 data = HelloSign::UnclaimedDraftCreateEmbeddedRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
-data.file = [File.new("example_signature_request.pdf", "r")]
+data.files = [File.new("example_signature_request.pdf", "r")]
 data.requester_email_address = "jack@hellosign.com"
 data.test_mode = true
 

@@ -40,7 +40,7 @@ const data = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   signingOptions,
   testMode: true,
 };

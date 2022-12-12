@@ -89,7 +89,7 @@ class TemplateUpdateFilesRequest(ModelNormal):
         """
         return {
             'client_id': (str,),  # noqa: E501
-            'file': ([file_type],),  # noqa: E501
+            'files': ([file_type],),  # noqa: E501
             'file_url': ([str],),  # noqa: E501
             'message': (str,),  # noqa: E501
             'subject': (str,),  # noqa: E501
@@ -103,7 +103,7 @@ class TemplateUpdateFilesRequest(ModelNormal):
 
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
-        'file': 'file',  # noqa: E501
+        'files': 'files',  # noqa: E501
         'file_url': 'file_url',  # noqa: E501
         'message': 'message',  # noqa: E501
         'subject': 'subject',  # noqa: E501
@@ -152,7 +152,7 @@ class TemplateUpdateFilesRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             client_id (str): Client id of the app you're using to update this template.. [optional]  # noqa: E501
-            file ([file_type]): Use `file[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             message (str): The new default template email message.. [optional]  # noqa: E501
             subject (str): The new default template email subject.. [optional]  # noqa: E501
@@ -239,7 +239,7 @@ class TemplateUpdateFilesRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             client_id (str): Client id of the app you're using to update this template.. [optional]  # noqa: E501
-            file ([file_type]): Use `file[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             message (str): The new default template email message.. [optional]  # noqa: E501
             subject (str): The new default template email subject.. [optional]  # noqa: E501

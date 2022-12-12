@@ -62,7 +62,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
      */
     protected static $openAPITypes = [
         'client_id' => 'string',
-        'file' => '\SplFileObject[]',
+        'files' => '\SplFileObject[]',
         'file_url' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_reassign' => 'bool',
@@ -97,7 +97,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
      */
     protected static $openAPIFormats = [
         'client_id' => null,
-        'file' => 'binary',
+        'files' => 'binary',
         'file_url' => null,
         'allow_ccs' => null,
         'allow_reassign' => null,
@@ -151,7 +151,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'client_id' => 'client_id',
-        'file' => 'file',
+        'files' => 'files',
         'file_url' => 'file_url',
         'allow_ccs' => 'allow_ccs',
         'allow_reassign' => 'allow_reassign',
@@ -184,7 +184,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'client_id' => 'setClientId',
-        'file' => 'setFile',
+        'files' => 'setFiles',
         'file_url' => 'setFileUrl',
         'allow_ccs' => 'setAllowCcs',
         'allow_reassign' => 'setAllowReassign',
@@ -217,7 +217,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'client_id' => 'getClientId',
-        'file' => 'getFile',
+        'files' => 'getFiles',
         'file_url' => 'getFileUrl',
         'allow_ccs' => 'getAllowCcs',
         'allow_reassign' => 'getAllowReassign',
@@ -300,7 +300,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     public function __construct(array $data = null)
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['allow_ccs'] = $data['allow_ccs'] ?? true;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
@@ -396,25 +396,25 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }

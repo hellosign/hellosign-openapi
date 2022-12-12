@@ -1,7 +1,7 @@
 curl -X POST 'https://api.hellosign.com/v3/template/create_embedded_draft' \
   -u 'YOUR_API_KEY:' \
   -F 'client_id=YOUR_CLIENT_ID' \
-  -F 'file[0]=@mutual-NDA-example.pdf' \
+  -F 'files[0]=@mutual-NDA-example.pdf' \
   -F 'title=Test Template' \
   -F 'subject=Please sign this document' \
   -F 'message=For your approval' \

@@ -15,7 +15,7 @@ public class UnclaimedDraftApiTest {
             UnclaimedDraftCreateRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         UnclaimedDraftCreateResponse expected = TestHelper.getFixtureData(
             UnclaimedDraftCreateResponse.class,
@@ -34,7 +34,7 @@ public class UnclaimedDraftApiTest {
             UnclaimedDraftCreateEmbeddedRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         UnclaimedDraftCreateResponse expected = TestHelper.getFixtureData(
             UnclaimedDraftCreateResponse.class,
@@ -53,7 +53,7 @@ public class UnclaimedDraftApiTest {
             UnclaimedDraftCreateEmbeddedWithTemplateRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         UnclaimedDraftCreateResponse expected = TestHelper.getFixtureData(
             UnclaimedDraftCreateResponse.class,

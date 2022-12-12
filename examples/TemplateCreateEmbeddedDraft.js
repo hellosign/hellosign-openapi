@@ -36,7 +36,7 @@ const fieldOptions = {
 
 const data = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
   subject: "Please sign this document",
   message: "For your approval",

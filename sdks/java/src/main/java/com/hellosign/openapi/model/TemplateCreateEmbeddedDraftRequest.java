@@ -47,7 +47,7 @@ import com.hellosign.openapi.ApiException;
  */
 @JsonPropertyOrder({
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_CLIENT_ID,
-    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILE,
+    TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILES,
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_FILE_URL,
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_CCS,
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_ALLOW_REASSIGN,
@@ -77,8 +77,8 @@ public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private List<String> fileUrl = null;
@@ -178,37 +178,37 @@ public class TemplateCreateEmbeddedDraftRequest {
   }
 
 
-  public TemplateCreateEmbeddedDraftRequest file(List<File> file) {
-    this.file = file;
+  public TemplateCreateEmbeddedDraftRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public TemplateCreateEmbeddedDraftRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public TemplateCreateEmbeddedDraftRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
    * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
@@ -895,7 +895,7 @@ public class TemplateCreateEmbeddedDraftRequest {
     }
     TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest = (TemplateCreateEmbeddedDraftRequest) o;
     return Objects.equals(this.clientId, templateCreateEmbeddedDraftRequest.clientId) &&
-        Objects.equals(this.file, templateCreateEmbeddedDraftRequest.file) &&
+        Objects.equals(this.files, templateCreateEmbeddedDraftRequest.files) &&
         Objects.equals(this.fileUrl, templateCreateEmbeddedDraftRequest.fileUrl) &&
         Objects.equals(this.allowCcs, templateCreateEmbeddedDraftRequest.allowCcs) &&
         Objects.equals(this.allowReassign, templateCreateEmbeddedDraftRequest.allowReassign) &&
@@ -923,7 +923,7 @@ public class TemplateCreateEmbeddedDraftRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, file, fileUrl, allowCcs, allowReassign, attachments, ccRoles, editorOptions, fieldOptions, forceSignerRoles, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, mergeFields, message, metadata, showPreview, showProgressStepper, signerRoles, skipMeNow, subject, testMode, title, usePreexistingFields);
+    return Objects.hash(clientId, files, fileUrl, allowCcs, allowReassign, attachments, ccRoles, editorOptions, fieldOptions, forceSignerRoles, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, mergeFields, message, metadata, showPreview, showProgressStepper, signerRoles, skipMeNow, subject, testMode, title, usePreexistingFields);
   }
 
   @Override
@@ -931,7 +931,7 @@ public class TemplateCreateEmbeddedDraftRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateCreateEmbeddedDraftRequest {\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
     sb.append("    allowCcs: ").append(toIndentedString(allowCcs)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
@@ -982,23 +982,23 @@ public class TemplateCreateEmbeddedDraftRequest {
             map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
     if (fileUrl != null) {

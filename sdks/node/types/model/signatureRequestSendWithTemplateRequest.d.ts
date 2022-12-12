@@ -10,7 +10,7 @@ export declare class SignatureRequestSendWithTemplateRequest {
     "ccs"?: Array<SubCC>;
     "clientId"?: string;
     "customFields"?: Array<SubCustomField>;
-    "file"?: Array<RequestFile>;
+    "files"?: Array<RequestFile>;
     "fileUrl"?: Array<string>;
     "isQualifiedSignature"?: boolean;
     "message"?: string;

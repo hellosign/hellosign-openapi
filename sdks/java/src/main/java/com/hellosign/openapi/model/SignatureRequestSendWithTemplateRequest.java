@@ -48,7 +48,7 @@ import com.hellosign.openapi.ApiException;
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_CCS,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
-    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILE,
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILES,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILE_URL,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_IS_QUALIFIED_SIGNATURE,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_MESSAGE,
@@ -79,8 +79,8 @@ public class SignatureRequestSendWithTemplateRequest {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
   private List<SubCustomField> customFields = null;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private List<String> fileUrl = null;
@@ -294,37 +294,37 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
-  public SignatureRequestSendWithTemplateRequest file(List<File> file) {
-    this.file = file;
+  public SignatureRequestSendWithTemplateRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public SignatureRequestSendWithTemplateRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public SignatureRequestSendWithTemplateRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
    * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
@@ -596,7 +596,7 @@ public class SignatureRequestSendWithTemplateRequest {
         Objects.equals(this.ccs, signatureRequestSendWithTemplateRequest.ccs) &&
         Objects.equals(this.clientId, signatureRequestSendWithTemplateRequest.clientId) &&
         Objects.equals(this.customFields, signatureRequestSendWithTemplateRequest.customFields) &&
-        Objects.equals(this.file, signatureRequestSendWithTemplateRequest.file) &&
+        Objects.equals(this.files, signatureRequestSendWithTemplateRequest.files) &&
         Objects.equals(this.fileUrl, signatureRequestSendWithTemplateRequest.fileUrl) &&
         Objects.equals(this.isQualifiedSignature, signatureRequestSendWithTemplateRequest.isQualifiedSignature) &&
         Objects.equals(this.message, signatureRequestSendWithTemplateRequest.message) &&
@@ -610,7 +610,7 @@ public class SignatureRequestSendWithTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, file, fileUrl, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
+    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrl, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
   }
 
   @Override
@@ -623,7 +623,7 @@ public class SignatureRequestSendWithTemplateRequest {
     sb.append("    ccs: ").append(toIndentedString(ccs)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
     sb.append("    isQualifiedSignature: ").append(toIndentedString(isQualifiedSignature)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -755,23 +755,23 @@ public class SignatureRequestSendWithTemplateRequest {
             map.put("custom_fields", JSON.getDefault().getMapper().writeValueAsString(customFields));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
     if (fileUrl != null) {

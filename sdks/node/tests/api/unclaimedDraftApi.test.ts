@@ -33,7 +33,7 @@ describe('UnclaimedDraftApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.UnclaimedDraftCreateRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.unclaimedDraftCreate(obj).then(response => {
       const diff = diffJson(
@@ -58,7 +58,7 @@ describe('UnclaimedDraftApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.UnclaimedDraftCreateEmbeddedRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.unclaimedDraftCreateEmbedded(obj).then(response => {
       const diff = diffJson(

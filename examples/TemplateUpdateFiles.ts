@@ -11,7 +11,7 @@ api.username = "YOUR_API_KEY";
 // api.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TemplateUpdateFilesRequest = {
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
 };
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";

@@ -241,8 +241,8 @@
   **Note**: Only available for Premium plan.
 "SignatureRequestCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestCreateEmbedded::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
-"SignatureRequestCreateEmbedded::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"SignatureRequestCreateEmbedded::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbedded::FILE_URL": |-
@@ -268,8 +268,8 @@
 "SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
-"SignatureRequestCreateEmbeddedWithTemplate::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"SignatureRequestCreateEmbeddedWithTemplate::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::FILE_URL": |-
@@ -352,8 +352,8 @@
   **Note**: Only available for Premium plan and higher.
 "SignatureRequestSend::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestSend::CLIENT_ID": The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
-"SignatureRequestSend::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"SignatureRequestSend::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSend::FILE_URL": |-
@@ -382,8 +382,8 @@
 "SignatureRequestSendWithTemplate::DESCRIPTION": Creates and sends a new SignatureRequest based off of the Template(s) specified with the `template_ids` parameter.
 "SignatureRequestSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestSendWithTemplate::CLIENT_ID": Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.
-"SignatureRequestSendWithTemplate::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"SignatureRequestSendWithTemplate::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "SignatureRequestSendWithTemplate::FILE_URL": |-
@@ -527,8 +527,8 @@
   **Note**: Only available for Premium plan and higher.
 "TemplateCreateEmbeddedDraft::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
 "TemplateCreateEmbeddedDraft::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
-"TemplateCreateEmbeddedDraft::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"TemplateCreateEmbeddedDraft::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateCreateEmbeddedDraft::FILE_URL": |-
@@ -614,8 +614,8 @@
 
   If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
 "TemplateUpdateFiles::CLIENT_ID": Client id of the app you're using to update this template.
-"TemplateUpdateFiles::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to use for the template.
+"TemplateUpdateFiles::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to use for the template.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "TemplateUpdateFiles::FILE_URL": |-
@@ -632,8 +632,8 @@
 "UnclaimedDraftCreate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "UnclaimedDraftCreate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreate::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
-"UnclaimedDraftCreate::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"UnclaimedDraftCreate::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreate::FILE_URL": |-
@@ -666,8 +666,8 @@
   **Note**: Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "UnclaimedDraftCreateEmbedded::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
-"UnclaimedDraftCreateEmbedded::FILE": |-
-  Use `file[]` to indicate the uploaded file(s) to send for signature.
+"UnclaimedDraftCreateEmbedded::FILES": |-
+  Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **file** or **file_url[]**, but not both.
 "UnclaimedDraftCreateEmbedded::FILE_URL": |-
@@ -714,8 +714,8 @@
 
   **Note**: Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
-"UnclaimedDraftCreateEmbeddedWithTemplate::FILE": |-
-  Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
+"UnclaimedDraftCreateEmbeddedWithTemplate::FILES": |-
+  Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
   **file** or **file_url[]** is required, but not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URL": |-

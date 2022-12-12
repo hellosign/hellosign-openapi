@@ -33,7 +33,7 @@ $fieldOptions->setDateFormat(HelloSignSDK\Model\SubFieldOptions::DATE_FORMAT_DD_
 
 $data = new HelloSignSDK\Model\TemplateCreateEmbeddedDraftRequest();
 $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
-    ->setFile([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setTitle("Test Template")
     ->setSubject("Please sign this document")
     ->setMessage("For your approval")

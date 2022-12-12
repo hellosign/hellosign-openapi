@@ -162,7 +162,7 @@ public class Example {
 
         TemplateCreateEmbeddedDraftRequest data = new TemplateCreateEmbeddedDraftRequest()
             .clientId("37dee8d8440c66d54cfa05d92c160882")
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
             .title("Test Template")
             .subject("Please sign this document")
             .message("For your approval")
@@ -850,7 +850,7 @@ public class Example {
         TemplateApi api = new TemplateApi(defaultClient);
 
         TemplateUpdateFilesRequest data = new TemplateUpdateFilesRequest()
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
 
         String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 

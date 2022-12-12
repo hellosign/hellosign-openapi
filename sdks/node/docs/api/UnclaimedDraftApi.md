@@ -71,7 +71,7 @@ const data: HelloSignSDK.UnclaimedDraftCreateRequest = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
     "custom_id": 1234,
     "custom_text": "NDA #9",
@@ -142,7 +142,7 @@ const data = {
     "lawyer@hellosign.com",
     "lawyer@example.com",
   ],
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
     "custom_id": 1234,
     "custom_text": "NDA #9",
@@ -212,7 +212,7 @@ api.username = "YOUR_API_KEY";
 
 const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   requesterEmailAddress: "jack@hellosign.com",
   testMode: true,
 };
@@ -244,7 +244,7 @@ api.username = "YOUR_API_KEY";
 
 const data = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   requesterEmailAddress: "jack@hellosign.com",
   testMode: true,
 };

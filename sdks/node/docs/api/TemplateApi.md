@@ -159,7 +159,7 @@ const fieldOptions: HelloSignSDK.SubFieldOptions = {
 
 const data: HelloSignSDK.TemplateCreateEmbeddedDraftRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
   subject: "Please sign this document",
   message: "For your approval",
@@ -227,7 +227,7 @@ const fieldOptions = {
 
 const data = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
   subject: "Please sign this document",
   message: "For your approval",
@@ -901,7 +901,7 @@ api.username = "YOUR_API_KEY";
 // api.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TemplateUpdateFilesRequest = {
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
 };
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
@@ -932,7 +932,7 @@ api.username = "YOUR_API_KEY";
 // api.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
-  file: [fs.createReadStream("example_signature_request.pdf")],
+  files: [fs.createReadStream("example_signature_request.pdf")],
 };
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";

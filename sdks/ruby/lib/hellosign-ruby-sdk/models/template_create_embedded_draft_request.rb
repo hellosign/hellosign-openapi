@@ -18,8 +18,8 @@ module HelloSign
     # Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
     attr_accessor :client_id
 
-    # Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    attr_accessor :files
 
     # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
     attr_accessor :file_url
@@ -92,7 +92,7 @@ module HelloSign
     def self.attribute_map
       {
         :'client_id' => :'client_id',
-        :'file' => :'file',
+        :'files' => :'files',
         :'file_url' => :'file_url',
         :'allow_ccs' => :'allow_ccs',
         :'allow_reassign' => :'allow_reassign',
@@ -133,7 +133,7 @@ module HelloSign
     def self.openapi_types
       {
         :'client_id' => :'String',
-        :'file' => :'Array<File>',
+        :'files' => :'Array<File>',
         :'file_url' => :'Array<String>',
         :'allow_ccs' => :'Boolean',
         :'allow_reassign' => :'Boolean',
@@ -195,9 +195,9 @@ module HelloSign
         self.client_id = attributes[:'client_id']
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
@@ -390,7 +390,7 @@ module HelloSign
       return true if self.equal?(o)
       self.class == o.class &&
           client_id == o.client_id &&
-          file == o.file &&
+          files == o.files &&
           file_url == o.file_url &&
           allow_ccs == o.allow_ccs &&
           allow_reassign == o.allow_reassign &&
@@ -425,7 +425,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, file, file_url, allow_ccs, allow_reassign, attachments, cc_roles, editor_options, field_options, force_signer_roles, force_subject_message, form_field_groups, form_field_rules, form_fields_per_document, merge_fields, message, metadata, show_preview, show_progress_stepper, signer_roles, skip_me_now, subject, test_mode, title, use_preexisting_fields].hash
+      [client_id, files, file_url, allow_ccs, allow_reassign, attachments, cc_roles, editor_options, field_options, force_signer_roles, force_subject_message, form_field_groups, form_field_rules, form_fields_per_document, merge_fields, message, metadata, show_preview, show_progress_stepper, signer_roles, skip_me_now, subject, test_mode, title, use_preexisting_fields].hash
     end
 
     # Builds the object from hash

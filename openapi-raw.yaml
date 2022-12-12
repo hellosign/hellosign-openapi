@@ -6589,8 +6589,8 @@ components:
         - client_id
         - signers
       properties:
-        file:
-          description: '_t__SignatureRequestCreateEmbedded::FILE'
+        files:
+          description: '_t__SignatureRequestCreateEmbedded::FILES'
           type: array
           items:
             type: string
@@ -6720,8 +6720,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
-        file:
-          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::FILE'
+        files:
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::FILES'
           type: array
           items:
             type: string
@@ -6781,8 +6781,8 @@ components:
       required:
         - signers
       properties:
-        file:
-          description: '_t__SignatureRequestSend::FILE'
+        files:
+          description: '_t__SignatureRequestSend::FILES'
           type: array
           items:
             type: string
@@ -6913,8 +6913,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
-        file:
-          description: '_t__SignatureRequestSendWithTemplate::FILE'
+        files:
+          description: '_t__SignatureRequestSendWithTemplate::FILES'
           type: array
           items:
             type: string
@@ -7557,8 +7557,8 @@ components:
       required:
         - client_id
       properties:
-        file:
-          description: '_t__TemplateCreateEmbeddedDraft::FILE'
+        files:
+          description: '_t__TemplateCreateEmbeddedDraft::FILES'
           type: array
           items:
             type: string
@@ -7678,8 +7678,8 @@ components:
         client_id:
           description: '_t__TemplateUpdateFiles::CLIENT_ID'
           type: string
-        file:
-          description: '_t__TemplateUpdateFiles::FILE'
+        files:
+          description: '_t__TemplateUpdateFiles::FILES'
           type: array
           items:
             type: string
@@ -7707,8 +7707,8 @@ components:
       required:
         - type
       properties:
-        file:
-          description: '_t__UnclaimedDraftCreate::FILE'
+        files:
+          description: '_t__UnclaimedDraftCreate::FILES'
           type: array
           items:
             type: string
@@ -7819,8 +7819,8 @@ components:
         - client_id
         - requester_email_address
       properties:
-        file:
-          description: '_t__UnclaimedDraftCreateEmbedded::FILE'
+        files:
+          description: '_t__UnclaimedDraftCreateEmbedded::FILES'
           type: array
           items:
             type: string
@@ -8002,8 +8002,8 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        file:
-          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::FILE'
+        files:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::FILES'
           type: array
           items:
             type: string

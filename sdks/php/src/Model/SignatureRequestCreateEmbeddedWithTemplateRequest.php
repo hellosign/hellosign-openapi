@@ -68,7 +68,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'allow_decline' => 'bool',
         'ccs' => '\HelloSignSDK\Model\SubCC[]',
         'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
-        'file' => '\SplFileObject[]',
+        'files' => '\SplFileObject[]',
         'file_url' => 'string[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
@@ -93,7 +93,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'allow_decline' => null,
         'ccs' => null,
         'custom_fields' => null,
-        'file' => 'binary',
+        'files' => 'binary',
         'file_url' => null,
         'message' => null,
         'metadata' => null,
@@ -137,7 +137,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'allow_decline' => 'allow_decline',
         'ccs' => 'ccs',
         'custom_fields' => 'custom_fields',
-        'file' => 'file',
+        'files' => 'files',
         'file_url' => 'file_url',
         'message' => 'message',
         'metadata' => 'metadata',
@@ -160,7 +160,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'allow_decline' => 'setAllowDecline',
         'ccs' => 'setCcs',
         'custom_fields' => 'setCustomFields',
-        'file' => 'setFile',
+        'files' => 'setFiles',
         'file_url' => 'setFileUrl',
         'message' => 'setMessage',
         'metadata' => 'setMetadata',
@@ -183,7 +183,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'allow_decline' => 'getAllowDecline',
         'ccs' => 'getCcs',
         'custom_fields' => 'getCustomFields',
-        'file' => 'getFile',
+        'files' => 'getFiles',
         'file_url' => 'getFileUrl',
         'message' => 'getMessage',
         'metadata' => 'getMetadata',
@@ -256,7 +256,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['ccs'] = $data['ccs'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
         $this->container['file_url'] = $data['file_url'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
@@ -467,25 +467,25 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }

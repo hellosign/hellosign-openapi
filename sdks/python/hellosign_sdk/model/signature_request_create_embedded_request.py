@@ -115,7 +115,7 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
         return {
             'client_id': (str,),  # noqa: E501
             'signers': ([SubSignatureRequestSigner],),  # noqa: E501
-            'file': ([file_type],),  # noqa: E501
+            'files': ([file_type],),  # noqa: E501
             'file_url': ([str],),  # noqa: E501
             'allow_decline': (bool,),  # noqa: E501
             'allow_reassign': (bool,),  # noqa: E501
@@ -146,7 +146,7 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
         'signers': 'signers',  # noqa: E501
-        'file': 'file',  # noqa: E501
+        'files': 'files',  # noqa: E501
         'file_url': 'file_url',  # noqa: E501
         'allow_decline': 'allow_decline',  # noqa: E501
         'allow_reassign': 'allow_reassign',  # noqa: E501
@@ -214,7 +214,7 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            file ([file_type]): Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             allow_decline (bool): Allows signers to decline to sign a document if `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -322,7 +322,7 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            file ([file_type]): Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             allow_decline (bool): Allows signers to decline to sign a document if `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.. [optional] if omitted the server will use the default value of False  # noqa: E501

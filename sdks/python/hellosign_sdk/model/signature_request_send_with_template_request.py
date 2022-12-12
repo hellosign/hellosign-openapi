@@ -111,7 +111,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             'ccs': ([SubCC],),  # noqa: E501
             'client_id': (str,),  # noqa: E501
             'custom_fields': ([SubCustomField],),  # noqa: E501
-            'file': ([file_type],),  # noqa: E501
+            'files': ([file_type],),  # noqa: E501
             'file_url': ([str],),  # noqa: E501
             'is_qualified_signature': (bool,),  # noqa: E501
             'message': (str,),  # noqa: E501
@@ -135,7 +135,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         'ccs': 'ccs',  # noqa: E501
         'client_id': 'client_id',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
-        'file': 'file',  # noqa: E501
+        'files': 'files',  # noqa: E501
         'file_url': 'file_url',  # noqa: E501
         'is_qualified_signature': 'is_qualified_signature',  # noqa: E501
         'message': 'message',  # noqa: E501
@@ -196,7 +196,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             ccs ([SubCC]): Add CC email recipients. Required when a CC role exists for the Template.. [optional]  # noqa: E501
             client_id (str): Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.. [optional]  # noqa: E501
             custom_fields ([SubCustomField]): An array defining values and options for custom fields. Required when a custom field exists in the Template.. [optional]  # noqa: E501
-            file ([file_type]): Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             is_qualified_signature (bool): Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
             message (str): The custom message in the email that will be sent to the signers.. [optional]  # noqa: E501
@@ -297,7 +297,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             ccs ([SubCC]): Add CC email recipients. Required when a CC role exists for the Template.. [optional]  # noqa: E501
             client_id (str): Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.. [optional]  # noqa: E501
             custom_fields ([SubCustomField]): An array defining values and options for custom fields. Required when a custom field exists in the Template.. [optional]  # noqa: E501
-            file ([file_type]): Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.. [optional]  # noqa: E501
             is_qualified_signature (bool): Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
             message (str): The custom message in the email that will be sent to the signers.. [optional]  # noqa: E501

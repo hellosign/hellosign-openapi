@@ -85,7 +85,7 @@ describe('SignatureRequestApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.SignatureRequestCreateEmbeddedRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestCreateEmbedded(obj).then(response => {
       const diff = diffJson(
@@ -110,7 +110,7 @@ describe('SignatureRequestApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.SignatureRequestCreateEmbeddedWithTemplateRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestCreateEmbeddedWithTemplate(obj).then(response => {
       const diff = diffJson(
@@ -252,7 +252,7 @@ describe('SignatureRequestApiTest', () => {
     setExpectedResponse(mock, responseData, 200);
 
     const obj = toObj<m.SignatureRequestSendRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestSend(obj).then(response => {
       const diff = diffJson(
@@ -277,7 +277,7 @@ describe('SignatureRequestApiTest', () => {
     setExpectedResponse(mock, responseData, 200, 'multipart/form-data');
 
     const obj = toObj<m.SignatureRequestSendRequest>(requestData, requestClass);
-    obj.file = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
+    obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestSend(obj).then(response => {
       const diff = diffJson(

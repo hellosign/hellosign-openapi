@@ -49,7 +49,7 @@ describe HelloSign::UnclaimedDraftApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || UnclaimedDraftCreateResponse
       obj = api_client.convert_to_type(request_data, request_class) || UnclaimedDraftCreateEmbeddedRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.unclaimed_draft_create_embedded(obj)
 
@@ -67,7 +67,7 @@ describe HelloSign::UnclaimedDraftApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || UnclaimedDraftCreateResponse
       obj = api_client.convert_to_type(request_data, request_class) || UnclaimedDraftCreateEmbeddedWithTemplateRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.unclaimed_draft_create_embedded_with_template(obj)
 

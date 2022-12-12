@@ -37,7 +37,7 @@ import com.hellosign.openapi.ApiException;
  */
 @JsonPropertyOrder({
     TemplateUpdateFilesRequest.JSON_PROPERTY_CLIENT_ID,
-    TemplateUpdateFilesRequest.JSON_PROPERTY_FILE,
+    TemplateUpdateFilesRequest.JSON_PROPERTY_FILES,
     TemplateUpdateFilesRequest.JSON_PROPERTY_FILE_URL,
     TemplateUpdateFilesRequest.JSON_PROPERTY_MESSAGE,
     TemplateUpdateFilesRequest.JSON_PROPERTY_SUBJECT,
@@ -48,8 +48,8 @@ public class TemplateUpdateFilesRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
   private List<String> fileUrl = null;
@@ -92,37 +92,37 @@ public class TemplateUpdateFilesRequest {
   }
 
 
-  public TemplateUpdateFilesRequest file(List<File> file) {
-    this.file = file;
+  public TemplateUpdateFilesRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public TemplateUpdateFilesRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public TemplateUpdateFilesRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
    * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
@@ -251,7 +251,7 @@ public class TemplateUpdateFilesRequest {
     }
     TemplateUpdateFilesRequest templateUpdateFilesRequest = (TemplateUpdateFilesRequest) o;
     return Objects.equals(this.clientId, templateUpdateFilesRequest.clientId) &&
-        Objects.equals(this.file, templateUpdateFilesRequest.file) &&
+        Objects.equals(this.files, templateUpdateFilesRequest.files) &&
         Objects.equals(this.fileUrl, templateUpdateFilesRequest.fileUrl) &&
         Objects.equals(this.message, templateUpdateFilesRequest.message) &&
         Objects.equals(this.subject, templateUpdateFilesRequest.subject) &&
@@ -260,7 +260,7 @@ public class TemplateUpdateFilesRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, file, fileUrl, message, subject, testMode);
+    return Objects.hash(clientId, files, fileUrl, message, subject, testMode);
   }
 
   @Override
@@ -268,7 +268,7 @@ public class TemplateUpdateFilesRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateUpdateFilesRequest {\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
@@ -300,23 +300,23 @@ public class TemplateUpdateFilesRequest {
             map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
     if (fileUrl != null) {

@@ -9,7 +9,7 @@ import { SubMergeField } from "./subMergeField";
 import { SubTemplateRole } from "./subTemplateRole";
 export declare class TemplateCreateEmbeddedDraftRequest {
     "clientId": string;
-    "file"?: Array<RequestFile>;
+    "files"?: Array<RequestFile>;
     "fileUrl"?: Array<string>;
     "allowCcs"?: boolean;
     "allowReassign"?: boolean;

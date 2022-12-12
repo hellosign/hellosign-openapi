@@ -1,6 +1,6 @@
 curl -X POST 'https://api.hellosign.com/v3/signature_request/send' \
   -u 'YOUR_API_KEY:' \
-  -F 'file[0]=@mutual-NDA-example.pdf' \
+  -F 'files[0]=@mutual-NDA-example.pdf' \
   -F 'title=NDA with Acme Co.' \
   -F 'subject=The NDA we talked about' \
   -F 'message=Please sign this NDA and then we can discuss more. Let me know if you have any questions.' \

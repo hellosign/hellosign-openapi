@@ -84,7 +84,7 @@ public class Example
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
             signers: new List<SubUnclaimedDraftSigner>(){signer1, signer2},
             ccEmailAddresses: new List<string>(){"lawyer@hellosign.com", "lawyer@example.com"},
-            file: files,
+            files: files,
             metadata: metadata,
             signingOptions: subSigningOptions,
             fieldOptions: subFieldOptions,
@@ -196,7 +196,7 @@ public class Example
 
         var data = new UnclaimedDraftCreateEmbeddedRequest(
             clientId: "ec64a202072370a737edf4a0eb7f4437",
-            file: files,
+            files: files,
             requesterEmailAddress: "jack@hellosign.com",
             testMode: true
         );
