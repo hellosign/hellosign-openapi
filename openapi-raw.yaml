@@ -6787,6 +6787,7 @@ components:
           items:
             type: string
             format: binary
+          x-alias: files
         file_url:
           description: '_t__SignatureRequestSend::FILE_URL'
           type: array

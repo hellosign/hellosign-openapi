@@ -6982,15 +6982,6 @@ components:
       required:
         - signers
       properties:
-        file:
-          description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
-
-            This endpoint requires either **file** or **file_url[]**, but not both.
-          type: array
-          items:
-            type: string
-            format: binary
         file_url:
           description: |-
             Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
@@ -7124,6 +7115,16 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.'
           type: integer
           x-beta: closed
+        files:
+          description: |-
+            Use `file[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **file** or **file_url[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+          x-alias: files
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''

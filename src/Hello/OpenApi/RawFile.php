@@ -29,6 +29,11 @@ class RawFile
      */
     private const HIDE_ON = 'x-hideOn';
 
+    /**
+     * Custom annotation to change the field name
+     */
+    private const ALIAS = 'x-alias';
+
     private const PREPENDS = [
         self::TRANSLATE_PREPEND,
         self::MARKDOWN_PREPEND,
@@ -140,6 +145,10 @@ class RawFile
 
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
+                if (isset($v[self::ALIAS])) {
+                    unset($data[$k]);
+                    $k = $v[self::ALIAS];
+                }
                 if (isset($v[self::HIDE_ON]) && $v[self::HIDE_ON] === $surface_id) {
                     unset($data[$k]);
                     $empty_by_hiding = empty($data);
