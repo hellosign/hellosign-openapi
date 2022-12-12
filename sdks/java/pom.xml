@@ -5,7 +5,7 @@
     <artifactId>hellosign-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>hellosign-java-sdk</name>
-    <version>6.0.0-beta22.23</version>
+    <version>6.0.0-beta22.24</version>
     <url>https://github.com/hellosign/hellosign-java-sdk</url>
     <description>Use the HelloSign Java SDK to connect your Java app to HelloSign\&#39;s service in microseconds!</description>
     <scm>

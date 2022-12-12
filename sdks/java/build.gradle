@@ -5,7 +5,7 @@ apply plugin: 'signing'
 
 group = 'com.hellosign'
 archivesBaseName = 'hellosign-java-sdk'
-version = '6.0.0-beta22.23'
+version = '6.0.0-beta22.24'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
