@@ -18,10 +18,10 @@ module HelloSign
     # Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
     attr_accessor :client_id
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :file_url
 
     # This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.

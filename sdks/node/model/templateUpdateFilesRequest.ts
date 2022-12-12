@@ -30,11 +30,11 @@ export class TemplateUpdateFilesRequest {
    */
   "clientId"?: string;
   /**
-   * Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+   * Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
    */
   "files"?: Array<RequestFile>;
   /**
-   * Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+   * Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
    */
   "fileUrl"?: Array<string>;
   /**

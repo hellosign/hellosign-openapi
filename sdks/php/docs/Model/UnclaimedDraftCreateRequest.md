@@ -7,8 +7,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `type`<sup>*_required_</sup> | ```string``` |  The type of unclaimed draft to create. Use `send_document` to create a claimable file, and `request_signature` for a claimable signature request. If the type is `request_signature` then signers name and email_address are not optional.  |  |
-| `files` | ```\SplFileObject[]``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **file** or **file_url[]**, but not both.  |  |
-| `file_url` | ```string[]``` |  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **file** or **file_url[]**, but not both.  |  |
+| `files` | ```\SplFileObject[]``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  |  |
+| `file_url` | ```string[]``` |  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  |  |
 | `allow_decline` | ```bool``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
 | `attachments` | [```\HelloSignSDK\Model\SubAttachment[]```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_email_addresses` | ```string[]``` |  The email addresses that should be CCed.  |  |

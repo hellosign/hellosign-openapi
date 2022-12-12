@@ -38,11 +38,11 @@ export class UnclaimedDraftCreateRequest {
    */
   "type": UnclaimedDraftCreateRequest.TypeEnum;
   /**
-   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
    */
   "files"?: Array<RequestFile>;
   /**
-   * Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+   * Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
    */
   "fileUrl"?: Array<string>;
   /**

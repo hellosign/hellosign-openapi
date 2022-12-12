@@ -42,8 +42,8 @@ namespace HelloSign.Model
         /// Initializes a new instance of the <see cref="TemplateUpdateFilesRequest" /> class.
         /// </summary>
         /// <param name="clientId">Client id of the app you&#39;re using to update this template..</param>
-        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
-        /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
+        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
+        /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
         /// <param name="message">The new default template email message..</param>
         /// <param name="subject">The new default template email subject..</param>
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
@@ -66,16 +66,16 @@ namespace HelloSign.Model
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+        /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.</value>
+        /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
-        /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+        /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.</value>
+        /// <value>Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
         [DataMember(Name = "file_url", EmitDefaultValue = true)]
         public List<string> FileUrl { get; set; }
 

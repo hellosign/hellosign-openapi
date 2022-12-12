@@ -34,10 +34,10 @@ module HelloSign
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
     attr_accessor :custom_fields
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :file_url
 
     # The custom message in the email that will be sent to the signers.

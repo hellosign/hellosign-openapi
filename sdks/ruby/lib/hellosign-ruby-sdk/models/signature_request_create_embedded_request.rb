@@ -22,10 +22,10 @@ module HelloSign
     # Add Signers to your Signature Request.
     attr_accessor :signers
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :file_url
 
     # Allows signers to decline to sign a document if `true`. Defaults to `false`.

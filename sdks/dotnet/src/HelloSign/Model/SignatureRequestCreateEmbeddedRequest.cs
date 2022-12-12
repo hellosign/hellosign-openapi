@@ -41,8 +41,8 @@ namespace HelloSign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestCreateEmbeddedRequest" /> class.
         /// </summary>
-        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
-        /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both..</param>
+        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
+        /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
@@ -117,16 +117,16 @@ namespace HelloSign.Model
         public List<SubSignatureRequestSigner> Signers { get; set; }
 
         /// <summary>
-        /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+        /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.</value>
+        /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
-        /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+        /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.</value>
+        /// <value>Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
         [DataMember(Name = "file_url", EmitDefaultValue = true)]
         public List<string> FileUrl { get; set; }
 

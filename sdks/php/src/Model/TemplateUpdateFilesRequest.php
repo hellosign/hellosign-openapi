@@ -291,7 +291,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
      *
      * @return self
      */
@@ -315,7 +315,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets file_url
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
      *
      * @return self
      */

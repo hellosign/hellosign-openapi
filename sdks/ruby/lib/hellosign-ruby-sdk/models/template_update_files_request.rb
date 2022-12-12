@@ -18,10 +18,10 @@ module HelloSign
     # Client id of the app you're using to update this template.
     attr_accessor :client_id
 
-    # Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :file_url
 
     # The new default template email message.

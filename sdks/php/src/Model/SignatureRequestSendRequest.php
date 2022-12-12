@@ -406,7 +406,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
      *
      * @return self
      */
@@ -430,7 +430,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets file_url
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
      *
      * @return self
      */

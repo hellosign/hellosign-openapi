@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | **string** |  Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.  | 
 **Signers** | [**List&lt;SubSignatureRequestSigner&gt;**](SubSignatureRequestSigner.md) |  Add Signers to your Signature Request.  | 
-**Files** | **List&lt;System.IO.Stream&gt;** |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **file** or **file_url[]**, but not both.  | [optional] 
-**FileUrl** | **List&lt;string&gt;** |  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **file** or **file_url[]**, but not both.  | [optional] 
+**Files** | **List&lt;System.IO.Stream&gt;** |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  | [optional] 
+**FileUrl** | **List&lt;string&gt;** |  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  | [optional] 
 **AllowDecline** | **bool** |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  | [optional] [default to false]
 **AllowReassign** | **bool** |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan.  | [optional] [default to false]
 **Attachments** | [**List&lt;SubAttachment&gt;**](SubAttachment.md) |  A list describing the attachments  | [optional] 

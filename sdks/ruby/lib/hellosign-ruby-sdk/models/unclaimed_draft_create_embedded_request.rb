@@ -21,10 +21,10 @@ module HelloSign
     # The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.
     attr_accessor :requester_email_address
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
     attr_accessor :file_url
 
     # This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.

@@ -565,7 +565,7 @@ end
 
 ### Return type
 
-**File**
+**files**
 
 ### Authorization
 
