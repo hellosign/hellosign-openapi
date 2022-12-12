@@ -145,7 +145,7 @@ class RawFile
 
         foreach ($data as $k => $v) {
             if (is_iterable($v)) {
-                if (isset($v[self::ALIAS])) {
+                if (isset($v[self::ALIAS]) && $surface_id === 'sdk') {
                     unset($data[$k]);
                     $k = $v[self::ALIAS];
                 }
