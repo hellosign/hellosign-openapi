@@ -8215,9 +8215,9 @@ components:
           nullable: true
           description: '_t__AccountQuota::DOCUMENTS_LEFT'
           type: integer
-        total_templates:
+        templates_total:
           nullable: true
-          description: '_t__AccountQuota::TOTAL_TEMPLATES'
+          description: '_t__AccountQuota::TEMPLATES_TOTAL'
           type: integer
         templates_left:
           nullable: true

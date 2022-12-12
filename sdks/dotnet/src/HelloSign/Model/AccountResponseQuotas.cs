@@ -43,15 +43,15 @@ namespace HelloSign.Model
         /// </summary>
         /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
         /// <param name="documentsLeft">Signature requests remaining..</param>
-        /// <param name="totalTemplates">Total API templates allowed..</param>
+        /// <param name="templatesTotal">Total API templates allowed..</param>
         /// <param name="templatesLeft">API templates remaining..</param>
         /// <param name="smsVerificationsLeft">SMS verifications  remaining..</param>
-        public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? totalTemplates = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?))
+        public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?))
         {
             
             this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
             this.DocumentsLeft = documentsLeft;
-            this.TotalTemplates = totalTemplates;
+            this.TemplatesTotal = templatesTotal;
             this.TemplatesLeft = templatesLeft;
             this.SmsVerificationsLeft = smsVerificationsLeft;
         }
@@ -74,8 +74,8 @@ namespace HelloSign.Model
         /// Total API templates allowed.
         /// </summary>
         /// <value>Total API templates allowed.</value>
-        [DataMember(Name = "total_templates", EmitDefaultValue = true)]
-        public int? TotalTemplates { get; set; }
+        [DataMember(Name = "templates_total", EmitDefaultValue = true)]
+        public int? TemplatesTotal { get; set; }
 
         /// <summary>
         /// API templates remaining.
@@ -101,7 +101,7 @@ namespace HelloSign.Model
             sb.Append("class AccountResponseQuotas {\n");
             sb.Append("  ApiSignatureRequestsLeft: ").Append(ApiSignatureRequestsLeft).Append("\n");
             sb.Append("  DocumentsLeft: ").Append(DocumentsLeft).Append("\n");
-            sb.Append("  TotalTemplates: ").Append(TotalTemplates).Append("\n");
+            sb.Append("  TemplatesTotal: ").Append(TemplatesTotal).Append("\n");
             sb.Append("  TemplatesLeft: ").Append(TemplatesLeft).Append("\n");
             sb.Append("  SmsVerificationsLeft: ").Append(SmsVerificationsLeft).Append("\n");
             sb.Append("}\n");
@@ -150,9 +150,9 @@ namespace HelloSign.Model
                     this.DocumentsLeft.Equals(input.DocumentsLeft))
                 ) && 
                 (
-                    this.TotalTemplates == input.TotalTemplates ||
-                    (this.TotalTemplates != null &&
-                    this.TotalTemplates.Equals(input.TotalTemplates))
+                    this.TemplatesTotal == input.TemplatesTotal ||
+                    (this.TemplatesTotal != null &&
+                    this.TemplatesTotal.Equals(input.TemplatesTotal))
                 ) && 
                 (
                     this.TemplatesLeft == input.TemplatesLeft ||
@@ -183,9 +183,9 @@ namespace HelloSign.Model
                 {
                     hashCode = (hashCode * 59) + this.DocumentsLeft.GetHashCode();
                 }
-                if (this.TotalTemplates != null)
+                if (this.TemplatesTotal != null)
                 {
-                    hashCode = (hashCode * 59) + this.TotalTemplates.GetHashCode();
+                    hashCode = (hashCode * 59) + this.TemplatesTotal.GetHashCode();
                 }
                 if (this.TemplatesLeft != null)
                 {
@@ -215,10 +215,10 @@ namespace HelloSign.Model
                 Value = DocumentsLeft,
             });
             types.Add(new OpenApiType(){
-                Name = "total_templates",
-                Property = "TotalTemplates",
+                Name = "templates_total",
+                Property = "TemplatesTotal",
                 Type = "int?",
-                Value = TotalTemplates,
+                Value = TemplatesTotal,
             });
             types.Add(new OpenApiType(){
                 Name = "templates_left",

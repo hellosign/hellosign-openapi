@@ -8746,7 +8746,7 @@ components:
           nullable: true
           description: 'Signature requests remaining.'
           type: integer
-        total_templates:
+        templates_total:
           nullable: true
           description: 'Total API templates allowed.'
           type: integer
