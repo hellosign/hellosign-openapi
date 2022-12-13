@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.3.0
 =end
 
 module HelloSign
-  VERSION = '6.0.0-beta22.24'
+  VERSION = '6.0.0-beta23.1'
 end
