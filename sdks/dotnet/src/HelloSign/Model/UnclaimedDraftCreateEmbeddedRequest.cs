@@ -69,8 +69,8 @@ namespace HelloSign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftCreateEmbeddedRequest" /> class.
         /// </summary>
-        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
-        /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
+        /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
+        /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="allowCcs">This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft. (default to true).</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher. (default to false).</param>
@@ -105,7 +105,7 @@ namespace HelloSign.Model
         /// <param name="useTextTags">Set &#x60;use_text_tags&#x60; to &#x60;true&#x60; to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or &#x60;false&#x60;). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). Currently we only support use of either &#x60;use_text_tags&#x60; or &#x60;use_preexisting_fields&#x60; parameter, not both. (default to false).</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.  **Note** This does not correspond to the **expires_at** returned in the response..</param>
-        public UnclaimedDraftCreateEmbeddedRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), bool allowCcs = true, bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), bool forceSignerPage = false, bool forceSubjectMessage = false, List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = default(bool), bool showProgressStepper = true, List<SubUnclaimedDraftSigner> signers = default(List<SubUnclaimedDraftSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), bool testMode = false, TypeEnum? type = TypeEnum.RequestSignature, bool usePreexistingFields = false, bool useTextTags = false, bool populateAutoFillFields = false, int? expiresAt = default(int?))
+        public UnclaimedDraftCreateEmbeddedRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowCcs = true, bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), bool forceSignerPage = false, bool forceSubjectMessage = false, List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = default(bool), bool showProgressStepper = true, List<SubUnclaimedDraftSigner> signers = default(List<SubUnclaimedDraftSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), bool testMode = false, TypeEnum? type = TypeEnum.RequestSignature, bool usePreexistingFields = false, bool useTextTags = false, bool populateAutoFillFields = false, int? expiresAt = default(int?))
         {
             
             // to ensure "clientId" is required (not null)
@@ -121,7 +121,7 @@ namespace HelloSign.Model
             }
             this.RequesterEmailAddress = requesterEmailAddress;
             this.Files = files;
-            this.FileUrl = fileUrl;
+            this.FileUrls = fileUrls;
             this.AllowCcs = allowCcs;
             this.AllowDecline = allowDecline;
             this.AllowReassign = allowReassign;
@@ -171,18 +171,18 @@ namespace HelloSign.Model
         public string RequesterEmailAddress { get; set; }
 
         /// <summary>
-        /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+        /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
+        /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
-        /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+        /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
-        [DataMember(Name = "file_url", EmitDefaultValue = true)]
-        public List<string> FileUrl { get; set; }
+        /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
+        [DataMember(Name = "file_urls", EmitDefaultValue = true)]
+        public List<string> FileUrls { get; set; }
 
         /// <summary>
         /// This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
@@ -409,7 +409,7 @@ namespace HelloSign.Model
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  RequesterEmailAddress: ").Append(RequesterEmailAddress).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
-            sb.Append("  FileUrl: ").Append(FileUrl).Append("\n");
+            sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
             sb.Append("  AllowCcs: ").Append(AllowCcs).Append("\n");
             sb.Append("  AllowDecline: ").Append(AllowDecline).Append("\n");
             sb.Append("  AllowReassign: ").Append(AllowReassign).Append("\n");
@@ -494,10 +494,10 @@ namespace HelloSign.Model
                     this.Files.SequenceEqual(input.Files)
                 ) && 
                 (
-                    this.FileUrl == input.FileUrl ||
-                    this.FileUrl != null &&
-                    input.FileUrl != null &&
-                    this.FileUrl.SequenceEqual(input.FileUrl)
+                    this.FileUrls == input.FileUrls ||
+                    this.FileUrls != null &&
+                    input.FileUrls != null &&
+                    this.FileUrls.SequenceEqual(input.FileUrls)
                 ) && 
                 (
                     this.AllowCcs == input.AllowCcs ||
@@ -674,9 +674,9 @@ namespace HelloSign.Model
                 {
                     hashCode = (hashCode * 59) + this.Files.GetHashCode();
                 }
-                if (this.FileUrl != null)
+                if (this.FileUrls != null)
                 {
-                    hashCode = (hashCode * 59) + this.FileUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.AllowCcs.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowDecline.GetHashCode();
@@ -784,10 +784,10 @@ namespace HelloSign.Model
                 Value = Files,
             });
             types.Add(new OpenApiType(){
-                Name = "file_url",
-                Property = "FileUrl",
+                Name = "file_urls",
+                Property = "FileUrls",
                 Type = "List<string>",
-                Value = FileUrl,
+                Value = FileUrls,
             });
             types.Add(new OpenApiType(){
                 Name = "allow_ccs",

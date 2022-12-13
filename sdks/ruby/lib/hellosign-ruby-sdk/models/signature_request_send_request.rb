@@ -18,11 +18,11 @@ module HelloSign
     # Add Signers to your Signature Request.
     attr_accessor :signers
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
-    attr_accessor :file_url
+    # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    attr_accessor :file_urls
 
     # Allows signers to decline to sign a document if `true`. Defaults to `false`.
     attr_accessor :allow_decline
@@ -90,7 +90,7 @@ module HelloSign
       {
         :'signers' => :'signers',
         :'files' => :'files',
-        :'file_url' => :'file_url',
+        :'file_urls' => :'file_urls',
         :'allow_decline' => :'allow_decline',
         :'allow_reassign' => :'allow_reassign',
         :'attachments' => :'attachments',
@@ -130,7 +130,7 @@ module HelloSign
       {
         :'signers' => :'Array<SubSignatureRequestSigner>',
         :'files' => :'Array<File>',
-        :'file_url' => :'Array<String>',
+        :'file_urls' => :'Array<String>',
         :'allow_decline' => :'Boolean',
         :'allow_reassign' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
@@ -199,9 +199,9 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
@@ -392,7 +392,7 @@ module HelloSign
       self.class == o.class &&
           signers == o.signers &&
           files == o.files &&
-          file_url == o.file_url &&
+          file_urls == o.file_urls &&
           allow_decline == o.allow_decline &&
           allow_reassign == o.allow_reassign &&
           attachments == o.attachments &&
@@ -425,7 +425,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [signers, files, file_url, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
+      [signers, files, file_urls, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
     end
 
     # Builds the object from hash

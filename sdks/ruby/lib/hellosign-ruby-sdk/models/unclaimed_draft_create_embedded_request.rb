@@ -21,11 +21,11 @@ module HelloSign
     # The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.
     attr_accessor :requester_email_address
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
-    attr_accessor :file_url
+    # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    attr_accessor :file_urls
 
     # This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
     attr_accessor :allow_ccs
@@ -148,7 +148,7 @@ module HelloSign
         :'client_id' => :'client_id',
         :'requester_email_address' => :'requester_email_address',
         :'files' => :'files',
-        :'file_url' => :'file_url',
+        :'file_urls' => :'file_urls',
         :'allow_ccs' => :'allow_ccs',
         :'allow_decline' => :'allow_decline',
         :'allow_reassign' => :'allow_reassign',
@@ -200,7 +200,7 @@ module HelloSign
         :'client_id' => :'String',
         :'requester_email_address' => :'String',
         :'files' => :'Array<File>',
-        :'file_url' => :'Array<String>',
+        :'file_urls' => :'Array<String>',
         :'allow_ccs' => :'Boolean',
         :'allow_decline' => :'Boolean',
         :'allow_reassign' => :'Boolean',
@@ -282,9 +282,9 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
@@ -542,7 +542,7 @@ module HelloSign
           client_id == o.client_id &&
           requester_email_address == o.requester_email_address &&
           files == o.files &&
-          file_url == o.file_url &&
+          file_urls == o.file_urls &&
           allow_ccs == o.allow_ccs &&
           allow_decline == o.allow_decline &&
           allow_reassign == o.allow_reassign &&
@@ -586,7 +586,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, requester_email_address, files, file_url, allow_ccs, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, editor_options, field_options, force_signer_page, force_subject_message, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, hold_request, is_for_embedded_signing, message, metadata, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, type, use_preexisting_fields, use_text_tags, populate_auto_fill_fields, expires_at].hash
+      [client_id, requester_email_address, files, file_urls, allow_ccs, allow_decline, allow_reassign, attachments, cc_email_addresses, custom_fields, editor_options, field_options, force_signer_page, force_subject_message, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, hold_request, is_for_embedded_signing, message, metadata, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, type, use_preexisting_fields, use_text_tags, populate_auto_fill_fields, expires_at].hash
     end
 
     # Builds the object from hash

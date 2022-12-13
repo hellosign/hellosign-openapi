@@ -9,8 +9,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `clientId`<sup>*_required_</sup> | ```String``` |  Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.  |  |
-| `files` | ```List<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  |  |
-| `fileUrl` | ```List<String>``` |  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  |  |
+| `files` | ```List<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `fileUrls` | ```List<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allowCcs` | ```Boolean``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.  |  |
 | `allowReassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  |  |
 | `attachments` | [```List<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |

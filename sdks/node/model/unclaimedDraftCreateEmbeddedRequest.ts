@@ -43,13 +43,13 @@ export class UnclaimedDraftCreateEmbeddedRequest {
    */
   "requesterEmailAddress": string;
   /**
-   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
   "files"?: Array<RequestFile>;
   /**
-   * Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+   * Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
-  "fileUrl"?: Array<string>;
+  "fileUrls"?: Array<string>;
   /**
    * This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
    */
@@ -190,8 +190,8 @@ export class UnclaimedDraftCreateEmbeddedRequest {
       type: "Array<RequestFile>",
     },
     {
-      name: "fileUrl",
-      baseName: "file_url",
+      name: "fileUrls",
+      baseName: "file_urls",
       type: "Array<string>",
     },
     {

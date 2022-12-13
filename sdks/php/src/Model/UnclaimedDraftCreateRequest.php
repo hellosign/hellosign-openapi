@@ -63,7 +63,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $openAPITypes = [
         'type' => 'string',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'allow_decline' => 'bool',
         'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
@@ -97,7 +97,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $openAPIFormats = [
         'type' => null,
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'allow_decline' => null,
         'attachments' => null,
         'cc_email_addresses' => 'email',
@@ -150,7 +150,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $attributeMap = [
         'type' => 'type',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'allow_decline' => 'allow_decline',
         'attachments' => 'attachments',
         'cc_email_addresses' => 'cc_email_addresses',
@@ -182,7 +182,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $setters = [
         'type' => 'setType',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'allow_decline' => 'setAllowDecline',
         'attachments' => 'setAttachments',
         'cc_email_addresses' => 'setCcEmailAddresses',
@@ -214,7 +214,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $getters = [
         'type' => 'getType',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'allow_decline' => 'getAllowDecline',
         'attachments' => 'getAttachments',
         'cc_email_addresses' => 'getCcEmailAddresses',
@@ -312,7 +312,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     {
         $this->container['type'] = $data['type'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['attachments'] = $data['attachments'] ?? null;
         $this->container['cc_email_addresses'] = $data['cc_email_addresses'] ?? null;
@@ -437,7 +437,7 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -449,25 +449,25 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

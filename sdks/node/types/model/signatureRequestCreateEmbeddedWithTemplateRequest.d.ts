@@ -11,7 +11,7 @@ export declare class SignatureRequestCreateEmbeddedWithTemplateRequest {
     "ccs"?: Array<SubCC>;
     "customFields"?: Array<SubCustomField>;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "message"?: string;
     "metadata"?: {
         [key: string]: any;

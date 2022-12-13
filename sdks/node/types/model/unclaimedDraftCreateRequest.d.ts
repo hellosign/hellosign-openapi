@@ -10,7 +10,7 @@ import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 export declare class UnclaimedDraftCreateRequest {
     "type": UnclaimedDraftCreateRequest.TypeEnum;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "allowDecline"?: boolean;
     "attachments"?: Array<SubAttachment>;
     "ccEmailAddresses"?: Array<string>;

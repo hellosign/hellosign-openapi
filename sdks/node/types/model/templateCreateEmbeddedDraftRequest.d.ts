@@ -10,7 +10,7 @@ import { SubTemplateRole } from "./subTemplateRole";
 export declare class TemplateCreateEmbeddedDraftRequest {
     "clientId": string;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "allowCcs"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;

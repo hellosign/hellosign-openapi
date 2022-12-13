@@ -244,11 +244,11 @@
 "SignatureRequestCreateEmbedded::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"SignatureRequestCreateEmbedded::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestCreateEmbedded::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "SignatureRequestCreateEmbedded::EXPIRES_AT": When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
 "SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS": |-
   Enables automatic Text Tag removal when set to true.
@@ -271,11 +271,11 @@
 "SignatureRequestCreateEmbeddedWithTemplate::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"SignatureRequestCreateEmbeddedWithTemplate::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestCreateEmbeddedWithTemplate::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "SignatureRequestCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbeddedWithTemplate::TEMPLATE_IDS": Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.
@@ -355,11 +355,11 @@
 "SignatureRequestSend::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"SignatureRequestSend::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestSend::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "SignatureRequestSend::HIDE_TEXT_TAGS": |-
   Enables automatic Text Tag removal when set to true.
 
@@ -385,11 +385,11 @@
 "SignatureRequestSendWithTemplate::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"SignatureRequestSendWithTemplate::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"SignatureRequestSendWithTemplate::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE": |-
   Send with a value of `true` if you wish to enable
   [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
@@ -530,11 +530,11 @@
 "TemplateCreateEmbeddedDraft::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"TemplateCreateEmbeddedDraft::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"TemplateCreateEmbeddedDraft::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "TemplateCreateEmbeddedDraft::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "TemplateCreateEmbeddedDraft::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "TemplateCreateEmbeddedDraft::MERGE_FIELDS": |-
@@ -617,11 +617,11 @@
 "TemplateUpdateFiles::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to use for the template.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"TemplateUpdateFiles::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"TemplateUpdateFiles::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "TemplateUpdateFiles::MESSAGE": The new default template email message.
 "TemplateUpdateFiles::SUBJECT": The new default template email subject.
 "TemplateUpdateFiles::TEMPLATE_ID": The ID of the template whose files to update.
@@ -635,11 +635,11 @@
 "UnclaimedDraftCreate::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"UnclaimedDraftCreate::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"UnclaimedDraftCreate::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "UnclaimedDraftCreate::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
 "UnclaimedDraftCreate::MESSAGE": The custom message in the email that will be sent to the signers.
 "UnclaimedDraftCreate::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
@@ -669,11 +669,11 @@
 "UnclaimedDraftCreateEmbedded::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
-"UnclaimedDraftCreateEmbedded::FILE_URL": |-
-  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
+"UnclaimedDraftCreateEmbedded::FILE_URLS": |-
+  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-  This endpoint requires either **files** or **file_url[]**, but not both.
+  This endpoint requires either **files** or **file_urls[]**, but not both.
 "UnclaimedDraftCreateEmbedded::FORCE_SIGNER_PAGE": Provide users the ability to review/edit the signers.
 "UnclaimedDraftCreateEmbedded::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the subject and message.
 "UnclaimedDraftCreateEmbedded::HIDE_TEXT_TAGS": Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
@@ -717,11 +717,11 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILES": |-
   Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-  **files** or **file_url[]** is required, but not both.
-"UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URL": |-
-  Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
+  **files** or **file_urls[]** is required, but not both.
+"UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URLS": |-
+  Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-  **files** or **file_url[]** is required, but not both.
+  **files** or **file_urls[]** is required, but not both.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
 "UnclaimedDraftCreateEmbeddedWithTemplate::HOLD_REQUEST": The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.

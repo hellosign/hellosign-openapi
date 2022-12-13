@@ -11,7 +11,7 @@ export declare class SignatureRequestSendWithTemplateRequest {
     "clientId"?: string;
     "customFields"?: Array<SubCustomField>;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "isQualifiedSignature"?: boolean;
     "message"?: string;
     "metadata"?: {

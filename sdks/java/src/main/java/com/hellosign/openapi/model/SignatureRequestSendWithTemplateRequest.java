@@ -49,7 +49,7 @@ import com.hellosign.openapi.ApiException;
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILES,
-    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILE_URL,
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILE_URLS,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_IS_QUALIFIED_SIGNATURE,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_MESSAGE,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_METADATA,
@@ -82,8 +82,8 @@ public class SignatureRequestSendWithTemplateRequest {
   public static final String JSON_PROPERTY_FILES = "files";
   private List<File> files = null;
 
-  public static final String JSON_PROPERTY_FILE_URL = "file_url";
-  private List<String> fileUrl = null;
+  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_IS_QUALIFIED_SIGNATURE = "is_qualified_signature";
   private Boolean isQualifiedSignature = false;
@@ -308,11 +308,11 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
    /**
-   * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+   * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.")
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -328,37 +328,37 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
-  public SignatureRequestSendWithTemplateRequest fileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public SignatureRequestSendWithTemplateRequest fileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
     return this;
   }
 
-  public SignatureRequestSendWithTemplateRequest addFileUrlItem(String fileUrlItem) {
-    if (this.fileUrl == null) {
-      this.fileUrl = new ArrayList<>();
+  public SignatureRequestSendWithTemplateRequest addFileUrlsItem(String fileUrlsItem) {
+    if (this.fileUrls == null) {
+      this.fileUrls = new ArrayList<>();
     }
-    this.fileUrl.add(fileUrlItem);
+    this.fileUrls.add(fileUrlsItem);
     return this;
   }
 
    /**
-   * Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
-   * @return fileUrl
+   * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return fileUrls
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getFileUrl() {
-    return fileUrl;
+  public List<String> getFileUrls() {
+    return fileUrls;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public void setFileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
   }
 
 
@@ -597,7 +597,7 @@ public class SignatureRequestSendWithTemplateRequest {
         Objects.equals(this.clientId, signatureRequestSendWithTemplateRequest.clientId) &&
         Objects.equals(this.customFields, signatureRequestSendWithTemplateRequest.customFields) &&
         Objects.equals(this.files, signatureRequestSendWithTemplateRequest.files) &&
-        Objects.equals(this.fileUrl, signatureRequestSendWithTemplateRequest.fileUrl) &&
+        Objects.equals(this.fileUrls, signatureRequestSendWithTemplateRequest.fileUrls) &&
         Objects.equals(this.isQualifiedSignature, signatureRequestSendWithTemplateRequest.isQualifiedSignature) &&
         Objects.equals(this.message, signatureRequestSendWithTemplateRequest.message) &&
         Objects.equals(this.metadata, signatureRequestSendWithTemplateRequest.metadata) &&
@@ -610,7 +610,7 @@ public class SignatureRequestSendWithTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrl, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
+    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
   }
 
   @Override
@@ -624,7 +624,7 @@ public class SignatureRequestSendWithTemplateRequest {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
+    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    isQualifiedSignature: ").append(toIndentedString(isQualifiedSignature)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -774,23 +774,23 @@ public class SignatureRequestSendWithTemplateRequest {
             map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
-    if (fileUrl != null) {
-        if (isFileTypeOrListOfFiles(fileUrl)) {
+    if (fileUrls != null) {
+        if (isFileTypeOrListOfFiles(fileUrls)) {
             fileTypeFound = true;
         }
 
-        if (fileUrl.getClass().equals(java.io.File.class) ||
-            fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ||
-            fileUrl.getClass().isEnum()) {
-            map.put("file_url", fileUrl);
-        } else if (isListOfFile(fileUrl)) {
-            for(int i = 0; i< getListSize(fileUrl); i++) {
-                map.put("file_url[" + i + "]", getFromList(fileUrl, i));
+        if (fileUrls.getClass().equals(java.io.File.class) ||
+            fileUrls.getClass().equals(Integer.class) ||
+            fileUrls.getClass().equals(String.class) ||
+            fileUrls.getClass().isEnum()) {
+            map.put("file_urls", fileUrls);
+        } else if (isListOfFile(fileUrls)) {
+            for(int i = 0; i< getListSize(fileUrls); i++) {
+                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
             }
         }
         else {
-            map.put("file_url", JSON.getDefault().getMapper().writeValueAsString(fileUrl));
+            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
         }
     }
     if (isQualifiedSignature != null) {

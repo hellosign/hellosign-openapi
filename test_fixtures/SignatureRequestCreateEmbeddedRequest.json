@@ -26,7 +26,7 @@
     "field_options": {
       "date_format": "MM / DD / YYYY"
     },
-    "file_url": [
+    "file_urls": [
       "https://app.hellosign.com/docs/example_signature_request.pdf"
     ],
     "form_field_groups": [

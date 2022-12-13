@@ -63,7 +63,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     protected static $openAPITypes = [
         'client_id' => 'string',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'message' => 'string',
         'subject' => 'string',
         'test_mode' => 'bool',
@@ -79,7 +79,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     protected static $openAPIFormats = [
         'client_id' => null,
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'message' => null,
         'subject' => null,
         'test_mode' => null,
@@ -114,7 +114,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     protected static $attributeMap = [
         'client_id' => 'client_id',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'message' => 'message',
         'subject' => 'subject',
         'test_mode' => 'test_mode',
@@ -128,7 +128,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     protected static $setters = [
         'client_id' => 'setClientId',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'message' => 'setMessage',
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
@@ -142,7 +142,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     protected static $getters = [
         'client_id' => 'getClientId',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'message' => 'getMessage',
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
@@ -206,7 +206,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['subject'] = $data['subject'] ?? null;
         $this->container['test_mode'] = $data['test_mode'] ?? false;
@@ -291,7 +291,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -303,25 +303,25 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

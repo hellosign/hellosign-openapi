@@ -8,8 +8,8 @@
 | ---- | ---- | ----------- | ----- |
 | `client_id`<sup>*_required_</sup> | ```String``` |  Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.  |  |
 | `requester_email_address`<sup>*_required_</sup> | ```String``` |  The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.  |  |
-| `files` | ```Array<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  |  |
-| `file_url` | ```Array<String>``` |  Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_url[]**, but not both.  |  |
+| `files` | ```Array<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `file_urls` | ```Array<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allow_ccs` | ```Boolean``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.  |  [default to true] |
 | `allow_decline` | ```Boolean``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
 | `allow_reassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  |  [default to false] |

@@ -45,13 +45,13 @@ export class SignatureRequestCreateEmbeddedRequest {
    */
   "signers": Array<SubSignatureRequestSigner>;
   /**
-   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
   "files"?: Array<RequestFile>;
   /**
-   * Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+   * Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
-  "fileUrl"?: Array<string>;
+  "fileUrls"?: Array<string>;
   /**
    * Allows signers to decline to sign a document if `true`. Defaults to `false`.
    */
@@ -142,8 +142,8 @@ export class SignatureRequestCreateEmbeddedRequest {
       type: "Array<RequestFile>",
     },
     {
-      name: "fileUrl",
-      baseName: "file_url",
+      name: "fileUrls",
+      baseName: "file_urls",
       type: "Array<string>",
     },
     {

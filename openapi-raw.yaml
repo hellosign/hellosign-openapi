@@ -6595,8 +6595,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__SignatureRequestCreateEmbedded::FILE_URL'
+        file_urls:
+          description: '_t__SignatureRequestCreateEmbedded::FILE_URLS'
           type: array
           items:
             type: string
@@ -6726,8 +6726,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::FILE_URL'
+        file_urls:
+          description: '_t__SignatureRequestCreateEmbeddedWithTemplate::FILE_URLS'
           type: array
           items:
             type: string
@@ -6787,8 +6787,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__SignatureRequestSend::FILE_URL'
+        file_urls:
+          description: '_t__SignatureRequestSend::FILE_URLS'
           type: array
           items:
             type: string
@@ -6919,8 +6919,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__SignatureRequestSendWithTemplate::FILE_URL'
+        file_urls:
+          description: '_t__SignatureRequestSendWithTemplate::FILE_URLS'
           type: array
           items:
             type: string
@@ -7563,8 +7563,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__TemplateCreateEmbeddedDraft::FILE_URL'
+        file_urls:
+          description: '_t__TemplateCreateEmbeddedDraft::FILE_URLS'
           type: array
           items:
             type: string
@@ -7684,8 +7684,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__TemplateUpdateFiles::FILE_URL'
+        file_urls:
+          description: '_t__TemplateUpdateFiles::FILE_URLS'
           type: array
           items:
             type: string
@@ -7713,8 +7713,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__UnclaimedDraftCreate::FILE_URL'
+        file_urls:
+          description: '_t__UnclaimedDraftCreate::FILE_URLS'
           type: array
           items:
             type: string
@@ -7825,8 +7825,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__UnclaimedDraftCreateEmbedded::FILE_URL'
+        file_urls:
+          description: '_t__UnclaimedDraftCreateEmbedded::FILE_URLS'
           type: array
           items:
             type: string
@@ -8008,8 +8008,8 @@ components:
           items:
             type: string
             format: binary
-        file_url:
-          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URL'
+        file_urls:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::FILE_URLS'
           type: array
           items:
             type: string

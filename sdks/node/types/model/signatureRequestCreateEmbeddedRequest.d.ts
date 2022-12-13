@@ -11,7 +11,7 @@ export declare class SignatureRequestCreateEmbeddedRequest {
     "clientId": string;
     "signers": Array<SubSignatureRequestSigner>;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;

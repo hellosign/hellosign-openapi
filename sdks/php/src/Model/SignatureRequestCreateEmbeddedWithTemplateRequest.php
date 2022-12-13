@@ -69,7 +69,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'ccs' => '\HelloSignSDK\Model\SubCC[]',
         'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'signing_options' => '\HelloSignSDK\Model\SubSigningOptions',
@@ -94,7 +94,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'ccs' => null,
         'custom_fields' => null,
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'message' => null,
         'metadata' => null,
         'signing_options' => null,
@@ -138,7 +138,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'ccs' => 'ccs',
         'custom_fields' => 'custom_fields',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'message' => 'message',
         'metadata' => 'metadata',
         'signing_options' => 'signing_options',
@@ -161,7 +161,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'ccs' => 'setCcs',
         'custom_fields' => 'setCustomFields',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'message' => 'setMessage',
         'metadata' => 'setMetadata',
         'signing_options' => 'setSigningOptions',
@@ -184,7 +184,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         'ccs' => 'getCcs',
         'custom_fields' => 'getCustomFields',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'message' => 'getMessage',
         'metadata' => 'getMetadata',
         'signing_options' => 'getSigningOptions',
@@ -257,7 +257,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         $this->container['ccs'] = $data['ccs'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['signing_options'] = $data['signing_options'] ?? null;
@@ -479,7 +479,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -491,25 +491,25 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

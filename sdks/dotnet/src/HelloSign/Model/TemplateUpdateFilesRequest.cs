@@ -42,17 +42,17 @@ namespace HelloSign.Model
         /// Initializes a new instance of the <see cref="TemplateUpdateFilesRequest" /> class.
         /// </summary>
         /// <param name="clientId">Client id of the app you&#39;re using to update this template..</param>
-        /// <param name="files">Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
-        /// <param name="fileUrl">Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both..</param>
+        /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
+        /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="message">The new default template email message..</param>
         /// <param name="subject">The new default template email subject..</param>
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        public TemplateUpdateFilesRequest(string clientId = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrl = default(List<string>), string message = default(string), string subject = default(string), bool testMode = false)
+        public TemplateUpdateFilesRequest(string clientId = default(string), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), string subject = default(string), bool testMode = false)
         {
             
             this.ClientId = clientId;
             this.Files = files;
-            this.FileUrl = fileUrl;
+            this.FileUrls = fileUrls;
             this.Message = message;
             this.Subject = subject;
             this.TestMode = testMode;
@@ -66,18 +66,18 @@ namespace HelloSign.Model
         public string ClientId { get; set; }
 
         /// <summary>
-        /// Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
+        /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
+        /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
 
         /// <summary>
-        /// Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
+        /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
-        /// <value>Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.</value>
-        [DataMember(Name = "file_url", EmitDefaultValue = true)]
-        public List<string> FileUrl { get; set; }
+        /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
+        [DataMember(Name = "file_urls", EmitDefaultValue = true)]
+        public List<string> FileUrls { get; set; }
 
         /// <summary>
         /// The new default template email message.
@@ -110,7 +110,7 @@ namespace HelloSign.Model
             sb.Append("class TemplateUpdateFilesRequest {\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
-            sb.Append("  FileUrl: ").Append(FileUrl).Append("\n");
+            sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
@@ -161,10 +161,10 @@ namespace HelloSign.Model
                     this.Files.SequenceEqual(input.Files)
                 ) && 
                 (
-                    this.FileUrl == input.FileUrl ||
-                    this.FileUrl != null &&
-                    input.FileUrl != null &&
-                    this.FileUrl.SequenceEqual(input.FileUrl)
+                    this.FileUrls == input.FileUrls ||
+                    this.FileUrls != null &&
+                    input.FileUrls != null &&
+                    this.FileUrls.SequenceEqual(input.FileUrls)
                 ) && 
                 (
                     this.Message == input.Message ||
@@ -199,9 +199,9 @@ namespace HelloSign.Model
                 {
                     hashCode = (hashCode * 59) + this.Files.GetHashCode();
                 }
-                if (this.FileUrl != null)
+                if (this.FileUrls != null)
                 {
-                    hashCode = (hashCode * 59) + this.FileUrl.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
                 }
                 if (this.Message != null)
                 {
@@ -232,10 +232,10 @@ namespace HelloSign.Model
                 Value = Files,
             });
             types.Add(new OpenApiType(){
-                Name = "file_url",
-                Property = "FileUrl",
+                Name = "file_urls",
+                Property = "FileUrls",
                 Type = "List<string>",
-                Value = FileUrl,
+                Value = FileUrls,
             });
             types.Add(new OpenApiType(){
                 Name = "message",

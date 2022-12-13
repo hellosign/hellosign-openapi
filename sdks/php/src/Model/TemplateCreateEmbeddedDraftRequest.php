@@ -63,7 +63,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'client_id' => 'string',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_reassign' => 'bool',
         'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
@@ -98,7 +98,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'client_id' => null,
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'allow_ccs' => null,
         'allow_reassign' => null,
         'attachments' => null,
@@ -152,7 +152,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'client_id' => 'client_id',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'allow_ccs' => 'allow_ccs',
         'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
@@ -185,7 +185,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'client_id' => 'setClientId',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'allow_ccs' => 'setAllowCcs',
         'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
@@ -218,7 +218,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'client_id' => 'getClientId',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'allow_ccs' => 'getAllowCcs',
         'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
@@ -301,7 +301,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['allow_ccs'] = $data['allow_ccs'] ?? true;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
         $this->container['attachments'] = $data['attachments'] ?? null;
@@ -408,7 +408,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -420,25 +420,25 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

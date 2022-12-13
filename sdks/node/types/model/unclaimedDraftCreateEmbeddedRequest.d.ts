@@ -12,7 +12,7 @@ export declare class UnclaimedDraftCreateEmbeddedRequest {
     "clientId": string;
     "requesterEmailAddress": string;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "allowCcs"?: boolean;
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;

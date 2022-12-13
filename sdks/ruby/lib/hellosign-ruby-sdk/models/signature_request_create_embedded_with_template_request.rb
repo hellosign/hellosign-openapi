@@ -34,11 +34,11 @@ module HelloSign
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
     attr_accessor :custom_fields
 
-    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
-    attr_accessor :file_url
+    # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    attr_accessor :file_urls
 
     # The custom message in the email that will be sent to the signers.
     attr_accessor :message
@@ -70,7 +70,7 @@ module HelloSign
         :'ccs' => :'ccs',
         :'custom_fields' => :'custom_fields',
         :'files' => :'files',
-        :'file_url' => :'file_url',
+        :'file_urls' => :'file_urls',
         :'message' => :'message',
         :'metadata' => :'metadata',
         :'signing_options' => :'signing_options',
@@ -101,7 +101,7 @@ module HelloSign
         :'ccs' => :'Array<SubCC>',
         :'custom_fields' => :'Array<SubCustomField>',
         :'files' => :'Array<File>',
-        :'file_url' => :'Array<String>',
+        :'file_urls' => :'Array<String>',
         :'message' => :'String',
         :'metadata' => :'Hash<String, Object>',
         :'signing_options' => :'SubSigningOptions',
@@ -183,9 +183,9 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
@@ -315,7 +315,7 @@ module HelloSign
           ccs == o.ccs &&
           custom_fields == o.custom_fields &&
           files == o.files &&
-          file_url == o.file_url &&
+          file_urls == o.file_urls &&
           message == o.message &&
           metadata == o.metadata &&
           signing_options == o.signing_options &&
@@ -334,7 +334,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, client_id, signers, allow_decline, ccs, custom_fields, files, file_url, message, metadata, signing_options, subject, test_mode, title, populate_auto_fill_fields].hash
+      [template_ids, client_id, signers, allow_decline, ccs, custom_fields, files, file_urls, message, metadata, signing_options, subject, test_mode, title, populate_auto_fill_fields].hash
     end
 
     # Builds the object from hash

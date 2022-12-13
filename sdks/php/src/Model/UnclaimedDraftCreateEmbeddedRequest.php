@@ -64,7 +64,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'client_id' => 'string',
         'requester_email_address' => 'string',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
@@ -110,7 +110,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'client_id' => null,
         'requester_email_address' => 'email',
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'allow_ccs' => null,
         'allow_decline' => null,
         'allow_reassign' => null,
@@ -175,7 +175,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'client_id' => 'client_id',
         'requester_email_address' => 'requester_email_address',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'allow_ccs' => 'allow_ccs',
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
@@ -219,7 +219,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'client_id' => 'setClientId',
         'requester_email_address' => 'setRequesterEmailAddress',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'allow_ccs' => 'setAllowCcs',
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
@@ -263,7 +263,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'client_id' => 'getClientId',
         'requester_email_address' => 'getRequesterEmailAddress',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'allow_ccs' => 'getAllowCcs',
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
@@ -373,7 +373,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['requester_email_address'] = $data['requester_email_address'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['allow_ccs'] = $data['allow_ccs'] ?? true;
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
@@ -526,7 +526,7 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -538,25 +538,25 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

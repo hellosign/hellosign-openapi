@@ -112,7 +112,7 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
         return {
             'client_id': (str,),  # noqa: E501
             'files': ([file_type],),  # noqa: E501
-            'file_url': ([str],),  # noqa: E501
+            'file_urls': ([str],),  # noqa: E501
             'allow_ccs': (bool,),  # noqa: E501
             'allow_reassign': (bool,),  # noqa: E501
             'attachments': ([SubAttachment],),  # noqa: E501
@@ -145,7 +145,7 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
         'files': 'files',  # noqa: E501
-        'file_url': 'file_url',  # noqa: E501
+        'file_urls': 'file_urls',  # noqa: E501
         'allow_ccs': 'allow_ccs',  # noqa: E501
         'allow_reassign': 'allow_reassign',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
@@ -214,8 +214,8 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.. [optional]  # noqa: E501
-            file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
+            file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             allow_ccs (bool): This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.. [optional] if omitted the server will use the default value of True  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
@@ -323,8 +323,8 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.. [optional]  # noqa: E501
-            file_url ([str]): Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
+            file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             allow_ccs (bool): This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.. [optional] if omitted the server will use the default value of True  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501

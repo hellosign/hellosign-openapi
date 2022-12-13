@@ -16,7 +16,7 @@ export declare class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     "editorOptions"?: SubEditorOptions;
     "fieldOptions"?: SubFieldOptions;
     "files"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "fileUrls"?: Array<string>;
     "forceSignerRoles"?: boolean;
     "forceSubjectMessage"?: boolean;
     "holdRequest"?: boolean;

@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**files**](File.md)
+[**File**](File.md)
 
 ### Authorization
 

@@ -16,7 +16,7 @@
         "required": true
       }
     ],
-    "file_url": [
+    "file_urls": [
       "https://app.hellosign.com/docs/example_signature_request.pdf"
     ],
     "message": "Glad we could come to an agreement.",

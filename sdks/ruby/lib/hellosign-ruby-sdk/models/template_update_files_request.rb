@@ -18,11 +18,11 @@ module HelloSign
     # Client id of the app you're using to update this template.
     attr_accessor :client_id
 
-    # Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
+    # Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
     attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_url[]**, but not both.
-    attr_accessor :file_url
+    # Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    attr_accessor :file_urls
 
     # The new default template email message.
     attr_accessor :message
@@ -38,7 +38,7 @@ module HelloSign
       {
         :'client_id' => :'client_id',
         :'files' => :'files',
-        :'file_url' => :'file_url',
+        :'file_urls' => :'file_urls',
         :'message' => :'message',
         :'subject' => :'subject',
         :'test_mode' => :'test_mode'
@@ -60,7 +60,7 @@ module HelloSign
       {
         :'client_id' => :'String',
         :'files' => :'Array<File>',
-        :'file_url' => :'Array<String>',
+        :'file_urls' => :'Array<String>',
         :'message' => :'String',
         :'subject' => :'String',
         :'test_mode' => :'Boolean'
@@ -108,9 +108,9 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
@@ -179,7 +179,7 @@ module HelloSign
       self.class == o.class &&
           client_id == o.client_id &&
           files == o.files &&
-          file_url == o.file_url &&
+          file_urls == o.file_urls &&
           message == o.message &&
           subject == o.subject &&
           test_mode == o.test_mode
@@ -194,7 +194,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, files, file_url, message, subject, test_mode].hash
+      [client_id, files, file_urls, message, subject, test_mode].hash
     end
 
     # Builds the object from hash

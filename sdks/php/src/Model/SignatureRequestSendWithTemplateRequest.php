@@ -68,7 +68,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'client_id' => 'string',
         'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'is_qualified_signature' => 'bool',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
@@ -94,7 +94,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'client_id' => null,
         'custom_fields' => null,
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'is_qualified_signature' => null,
         'message' => null,
         'metadata' => null,
@@ -139,7 +139,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'client_id' => 'client_id',
         'custom_fields' => 'custom_fields',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'is_qualified_signature' => 'is_qualified_signature',
         'message' => 'message',
         'metadata' => 'metadata',
@@ -163,7 +163,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'client_id' => 'setClientId',
         'custom_fields' => 'setCustomFields',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'is_qualified_signature' => 'setIsQualifiedSignature',
         'message' => 'setMessage',
         'metadata' => 'setMetadata',
@@ -187,7 +187,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'client_id' => 'getClientId',
         'custom_fields' => 'getCustomFields',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'is_qualified_signature' => 'getIsQualifiedSignature',
         'message' => 'getMessage',
         'metadata' => 'getMetadata',
@@ -261,7 +261,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['is_qualified_signature'] = $data['is_qualified_signature'] ?? false;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
@@ -481,7 +481,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -493,25 +493,25 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

@@ -63,7 +63,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $openAPITypes = [
         'signers' => '\HelloSignSDK\Model\SubSignatureRequestSigner[]',
         'files' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'file_urls' => 'string[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
         'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
@@ -97,7 +97,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $openAPIFormats = [
         'signers' => null,
         'files' => 'binary',
-        'file_url' => null,
+        'file_urls' => null,
         'allow_decline' => null,
         'allow_reassign' => null,
         'attachments' => null,
@@ -150,7 +150,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $attributeMap = [
         'signers' => 'signers',
         'files' => 'files',
-        'file_url' => 'file_url',
+        'file_urls' => 'file_urls',
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
@@ -182,7 +182,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $setters = [
         'signers' => 'setSigners',
         'files' => 'setFiles',
-        'file_url' => 'setFileUrl',
+        'file_urls' => 'setFileUrls',
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
@@ -214,7 +214,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     protected static $getters = [
         'signers' => 'getSigners',
         'files' => 'getFiles',
-        'file_url' => 'getFileUrl',
+        'file_urls' => 'getFileUrls',
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
@@ -296,7 +296,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     {
         $this->container['signers'] = $data['signers'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
         $this->container['attachments'] = $data['attachments'] ?? null;
@@ -406,7 +406,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     /**
      * Sets files
      *
-     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
@@ -418,25 +418,25 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

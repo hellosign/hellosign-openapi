@@ -20028,8 +20028,8 @@ SignatureRequestCreateEmbeddedRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -20179,8 +20179,8 @@ SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -21000,8 +21000,8 @@ SignatureRequestSendRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -21161,8 +21161,8 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -22838,8 +22838,8 @@ TemplateCreateEmbeddedDraftRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -23810,8 +23810,8 @@ TemplateUpdateFilesRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -23910,8 +23910,8 @@ UnclaimedDraftCreateEmbeddedRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -24157,8 +24157,8 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -24281,8 +24281,8 @@ UnclaimedDraftCreateRequest.attributeTypeMap = [
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
