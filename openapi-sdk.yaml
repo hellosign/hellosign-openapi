@@ -6738,20 +6738,20 @@ components:
         - client_id
         - signers
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -6909,20 +6909,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -6982,20 +6982,20 @@ components:
       required:
         - signers
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -7153,20 +7153,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCustomField'
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -7953,20 +7953,20 @@ components:
       required:
         - client_id
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -8106,20 +8106,20 @@ components:
         client_id:
           description: 'Client id of the app you''re using to update this template.'
           type: string
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to use for the template.
+            Use `files[]` to indicate the uploaded file(s) to use for the template.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to use for the template.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -8141,20 +8141,20 @@ components:
       required:
         - type
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -8284,20 +8284,20 @@ components:
         - client_id
         - requester_email_address
       properties:
-        file:
+        files:
           description: |-
-            Use `file[]` to indicate the uploaded file(s) to send for signature.
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
-            This endpoint requires either **file** or **file_url[]**, but not both.
+            This endpoint requires either **files** or **file_urls[]**, but not both.
           type: array
           items:
             type: string
@@ -8511,20 +8511,20 @@ components:
           $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        file:
+        files:
           description: |-
-            Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
+            Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-            **file** or **file_url[]** is required, but not both.
+            **files** or **file_urls[]** is required, but not both.
           type: array
           items:
             type: string
             format: binary
-        file_url:
+        file_urls:
           description: |-
-            Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
+            Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.
 
-            **file** or **file_url[]** is required, but not both.
+            **files** or **file_urls[]** is required, but not both.
           type: array
           items:
             type: string

@@ -70,8 +70,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
         'editor_options' => '\HelloSignSDK\Model\SubEditorOptions',
         'field_options' => '\HelloSignSDK\Model\SubFieldOptions',
-        'file' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'files' => '\SplFileObject[]',
+        'file_urls' => 'string[]',
         'force_signer_roles' => 'bool',
         'force_subject_message' => 'bool',
         'hold_request' => 'bool',
@@ -109,8 +109,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'custom_fields' => null,
         'editor_options' => null,
         'field_options' => null,
-        'file' => 'binary',
-        'file_url' => null,
+        'files' => 'binary',
+        'file_urls' => null,
         'force_signer_roles' => null,
         'force_subject_message' => null,
         'hold_request' => null,
@@ -167,8 +167,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'custom_fields' => 'custom_fields',
         'editor_options' => 'editor_options',
         'field_options' => 'field_options',
-        'file' => 'file',
-        'file_url' => 'file_url',
+        'files' => 'files',
+        'file_urls' => 'file_urls',
         'force_signer_roles' => 'force_signer_roles',
         'force_subject_message' => 'force_subject_message',
         'hold_request' => 'hold_request',
@@ -204,8 +204,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'custom_fields' => 'setCustomFields',
         'editor_options' => 'setEditorOptions',
         'field_options' => 'setFieldOptions',
-        'file' => 'setFile',
-        'file_url' => 'setFileUrl',
+        'files' => 'setFiles',
+        'file_urls' => 'setFileUrls',
         'force_signer_roles' => 'setForceSignerRoles',
         'force_subject_message' => 'setForceSubjectMessage',
         'hold_request' => 'setHoldRequest',
@@ -241,8 +241,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'custom_fields' => 'getCustomFields',
         'editor_options' => 'getEditorOptions',
         'field_options' => 'getFieldOptions',
-        'file' => 'getFile',
-        'file_url' => 'getFileUrl',
+        'files' => 'getFiles',
+        'file_urls' => 'getFileUrls',
         'force_signer_roles' => 'getForceSignerRoles',
         'force_subject_message' => 'getForceSubjectMessage',
         'hold_request' => 'getHoldRequest',
@@ -328,8 +328,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['editor_options'] = $data['editor_options'] ?? null;
         $this->container['field_options'] = $data['field_options'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['force_signer_roles'] = $data['force_signer_roles'] ?? false;
         $this->container['force_subject_message'] = $data['force_subject_message'] ?? false;
         $this->container['hold_request'] = $data['hold_request'] ?? false;
@@ -622,49 +622,49 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.
+     * @param string[]|null $file_urls Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

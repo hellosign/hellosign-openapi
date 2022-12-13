@@ -71,7 +71,7 @@ describe HelloSign::SignatureRequestApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
       obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestCreateEmbeddedRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.signature_request_create_embedded(obj)
 
@@ -89,7 +89,7 @@ describe HelloSign::SignatureRequestApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
       obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestCreateEmbeddedWithTemplateRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.signature_request_create_embedded_with_template(obj)
 
@@ -189,7 +189,7 @@ describe HelloSign::SignatureRequestApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
       obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestSendRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.signature_request_send(obj)
 
@@ -202,7 +202,7 @@ describe HelloSign::SignatureRequestApi do
       request_data = get_fixture_data(request_class)[:default]
 
       obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestSendRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api_client.generate_form_data(
         obj,

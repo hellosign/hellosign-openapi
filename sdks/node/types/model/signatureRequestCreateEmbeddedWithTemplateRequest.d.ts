@@ -10,8 +10,8 @@ export declare class SignatureRequestCreateEmbeddedWithTemplateRequest {
     "allowDecline"?: boolean;
     "ccs"?: Array<SubCC>;
     "customFields"?: Array<SubCustomField>;
-    "file"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "files"?: Array<RequestFile>;
+    "fileUrls"?: Array<string>;
     "message"?: string;
     "metadata"?: {
         [key: string]: any;

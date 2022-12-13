@@ -9,8 +9,8 @@ import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSigningOptions } from "./subSigningOptions";
 export declare class SignatureRequestSendRequest {
     "signers": Array<SubSignatureRequestSigner>;
-    "file"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "files"?: Array<RequestFile>;
+    "fileUrls"?: Array<string>;
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;

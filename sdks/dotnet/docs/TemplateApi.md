@@ -180,7 +180,7 @@ public class Example
 
         var data = new TemplateCreateEmbeddedDraftRequest(
             clientId: "37dee8d8440c66d54cfa05d92c160882",
-            file: files,
+            files: files,
             title: "Test Template",
             subject: "Please sign this document",
             message: "For your approval",
@@ -969,7 +969,7 @@ public class Example
         };
 
         var data = new TemplateUpdateFilesRequest(
-            file: files,
+            files: files,
         );
 
         var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";

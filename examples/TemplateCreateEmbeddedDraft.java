@@ -48,7 +48,7 @@ public class Example {
 
         TemplateCreateEmbeddedDraftRequest data = new TemplateCreateEmbeddedDraftRequest()
             .clientId("37dee8d8440c66d54cfa05d92c160882")
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
             .title("Test Template")
             .subject("Please sign this document")
             .message("For your approval")

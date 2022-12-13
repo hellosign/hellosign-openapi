@@ -57,13 +57,13 @@ export class SignatureRequestCreateEmbeddedWithTemplateRequest {
    */
   "customFields"?: Array<SubCustomField>;
   /**
-   * Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+   * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
-  "file"?: Array<RequestFile>;
+  "files"?: Array<RequestFile>;
   /**
-   * Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+   * Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
-  "fileUrl"?: Array<string>;
+  "fileUrls"?: Array<string>;
   /**
    * The custom message in the email that will be sent to the signers.
    */
@@ -124,13 +124,13 @@ export class SignatureRequestCreateEmbeddedWithTemplateRequest {
       type: "Array<SubCustomField>",
     },
     {
-      name: "file",
-      baseName: "file",
+      name: "files",
+      baseName: "files",
       type: "Array<RequestFile>",
     },
     {
-      name: "fileUrl",
-      baseName: "file_url",
+      name: "fileUrls",
+      baseName: "file_urls",
       type: "Array<string>",
     },
     {

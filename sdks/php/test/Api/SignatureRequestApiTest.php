@@ -99,7 +99,7 @@ class SignatureRequestApiTest extends HelloTestCase
         $obj = Model\SignatureRequestCreateEmbeddedRequest::fromArray(
             $requestData
         );
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 
@@ -124,7 +124,7 @@ class SignatureRequestApiTest extends HelloTestCase
         $obj = Model\SignatureRequestCreateEmbeddedWithTemplateRequest::fromArray(
             $requestData
         );
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 
@@ -229,7 +229,7 @@ class SignatureRequestApiTest extends HelloTestCase
         $this->setExpectedResponse($responseData);
 
         $obj = Model\SignatureRequestSendRequest::fromArray($requestData);
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 

@@ -63,7 +63,7 @@ class TemplateApiTest extends HelloTestCase
         $this->setExpectedResponse($responseData);
 
         $obj = Model\TemplateCreateEmbeddedDraftRequest::fromArray($requestData);
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 
@@ -152,7 +152,7 @@ class TemplateApiTest extends HelloTestCase
         $this->setExpectedResponse($responseData);
 
         $obj = Model\TemplateUpdateFilesRequest::fromArray($requestData);
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 

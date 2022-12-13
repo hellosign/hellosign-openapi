@@ -78,7 +78,7 @@ public class Example {
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(List.of(signer1, signer2))
             .ccEmailAddresses(List.of("lawyer@hellosign.com", "lawyer@example.com"))
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
             .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
             .signingOptions(subSigningOptions)
             .fieldOptions(subFieldOptions)
@@ -170,7 +170,7 @@ public class Example {
 
         UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
             .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .addFileItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"));
             .requesterEmailAddress("jack@hellosign.com")
             .testMode(true);
 

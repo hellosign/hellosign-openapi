@@ -33,11 +33,11 @@ module HelloSign
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
     attr_accessor :custom_fields
 
-    # Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file
+    # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    attr_accessor :files
 
-    # Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-    attr_accessor :file_url
+    # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    attr_accessor :file_urls
 
     # Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
     attr_accessor :is_qualified_signature
@@ -71,8 +71,8 @@ module HelloSign
         :'ccs' => :'ccs',
         :'client_id' => :'client_id',
         :'custom_fields' => :'custom_fields',
-        :'file' => :'file',
-        :'file_url' => :'file_url',
+        :'files' => :'files',
+        :'file_urls' => :'file_urls',
         :'is_qualified_signature' => :'is_qualified_signature',
         :'message' => :'message',
         :'metadata' => :'metadata',
@@ -103,8 +103,8 @@ module HelloSign
         :'ccs' => :'Array<SubCC>',
         :'client_id' => :'String',
         :'custom_fields' => :'Array<SubCustomField>',
-        :'file' => :'Array<File>',
-        :'file_url' => :'Array<String>',
+        :'files' => :'Array<File>',
+        :'file_urls' => :'Array<String>',
         :'is_qualified_signature' => :'Boolean',
         :'message' => :'String',
         :'metadata' => :'Hash<String, Object>',
@@ -181,15 +181,15 @@ module HelloSign
         end
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
@@ -317,8 +317,8 @@ module HelloSign
           ccs == o.ccs &&
           client_id == o.client_id &&
           custom_fields == o.custom_fields &&
-          file == o.file &&
-          file_url == o.file_url &&
+          files == o.files &&
+          file_urls == o.file_urls &&
           is_qualified_signature == o.is_qualified_signature &&
           message == o.message &&
           metadata == o.metadata &&
@@ -338,7 +338,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_ids, signers, allow_decline, ccs, client_id, custom_fields, file, file_url, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title].hash
+      [template_ids, signers, allow_decline, ccs, client_id, custom_fields, files, file_urls, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title].hash
     end
 
     # Builds the object from hash

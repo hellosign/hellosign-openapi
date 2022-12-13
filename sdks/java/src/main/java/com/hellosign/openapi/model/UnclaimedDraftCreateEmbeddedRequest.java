@@ -49,8 +49,8 @@ import com.hellosign.openapi.ApiException;
 @JsonPropertyOrder({
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_CLIENT_ID,
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
-    UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_FILE,
-    UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_FILE_URL,
+    UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_FILES,
+    UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_FILE_URLS,
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_CCS,
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_DECLINE,
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_REASSIGN,
@@ -92,11 +92,11 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS = "requester_email_address";
   private String requesterEmailAddress;
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
-  public static final String JSON_PROPERTY_FILE_URL = "file_url";
-  private List<String> fileUrl = null;
+  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_ALLOW_CCS = "allow_ccs";
   private Boolean allowCcs = true;
@@ -284,71 +284,71 @@ public class UnclaimedDraftCreateEmbeddedRequest {
   }
 
 
-  public UnclaimedDraftCreateEmbeddedRequest file(List<File> file) {
-    this.file = file;
+  public UnclaimedDraftCreateEmbeddedRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public UnclaimedDraftCreateEmbeddedRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public UnclaimedDraftCreateEmbeddedRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
-   * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
-  public UnclaimedDraftCreateEmbeddedRequest fileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public UnclaimedDraftCreateEmbeddedRequest fileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
     return this;
   }
 
-  public UnclaimedDraftCreateEmbeddedRequest addFileUrlItem(String fileUrlItem) {
-    if (this.fileUrl == null) {
-      this.fileUrl = new ArrayList<>();
+  public UnclaimedDraftCreateEmbeddedRequest addFileUrlsItem(String fileUrlsItem) {
+    if (this.fileUrls == null) {
+      this.fileUrls = new ArrayList<>();
     }
-    this.fileUrl.add(fileUrlItem);
+    this.fileUrls.add(fileUrlsItem);
     return this;
   }
 
    /**
-   * Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return fileUrl
+   * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return fileUrls
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getFileUrl() {
-    return fileUrl;
+  public List<String> getFileUrls() {
+    return fileUrls;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public void setFileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
   }
 
 
@@ -1262,8 +1262,8 @@ public class UnclaimedDraftCreateEmbeddedRequest {
     UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest = (UnclaimedDraftCreateEmbeddedRequest) o;
     return Objects.equals(this.clientId, unclaimedDraftCreateEmbeddedRequest.clientId) &&
         Objects.equals(this.requesterEmailAddress, unclaimedDraftCreateEmbeddedRequest.requesterEmailAddress) &&
-        Objects.equals(this.file, unclaimedDraftCreateEmbeddedRequest.file) &&
-        Objects.equals(this.fileUrl, unclaimedDraftCreateEmbeddedRequest.fileUrl) &&
+        Objects.equals(this.files, unclaimedDraftCreateEmbeddedRequest.files) &&
+        Objects.equals(this.fileUrls, unclaimedDraftCreateEmbeddedRequest.fileUrls) &&
         Objects.equals(this.allowCcs, unclaimedDraftCreateEmbeddedRequest.allowCcs) &&
         Objects.equals(this.allowDecline, unclaimedDraftCreateEmbeddedRequest.allowDecline) &&
         Objects.equals(this.allowReassign, unclaimedDraftCreateEmbeddedRequest.allowReassign) &&
@@ -1300,7 +1300,7 @@ public class UnclaimedDraftCreateEmbeddedRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, requesterEmailAddress, file, fileUrl, allowCcs, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, editorOptions, fieldOptions, forceSignerPage, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, holdRequest, isForEmbeddedSigning, message, metadata, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, type, usePreexistingFields, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, requesterEmailAddress, files, fileUrls, allowCcs, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, editorOptions, fieldOptions, forceSignerPage, forceSubjectMessage, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, holdRequest, isForEmbeddedSigning, message, metadata, requestingRedirectUrl, showPreview, showProgressStepper, signers, signingOptions, signingRedirectUrl, skipMeNow, subject, testMode, type, usePreexistingFields, useTextTags, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -1309,8 +1309,8 @@ public class UnclaimedDraftCreateEmbeddedRequest {
     sb.append("class UnclaimedDraftCreateEmbeddedRequest {\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    requesterEmailAddress: ").append(toIndentedString(requesterEmailAddress)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
-    sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    allowCcs: ").append(toIndentedString(allowCcs)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
@@ -1389,42 +1389,42 @@ public class UnclaimedDraftCreateEmbeddedRequest {
             map.put("requester_email_address", JSON.getDefault().getMapper().writeValueAsString(requesterEmailAddress));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
-    if (fileUrl != null) {
-        if (isFileTypeOrListOfFiles(fileUrl)) {
+    if (fileUrls != null) {
+        if (isFileTypeOrListOfFiles(fileUrls)) {
             fileTypeFound = true;
         }
 
-        if (fileUrl.getClass().equals(java.io.File.class) ||
-            fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ||
-            fileUrl.getClass().isEnum()) {
-            map.put("file_url", fileUrl);
-        } else if (isListOfFile(fileUrl)) {
-            for(int i = 0; i< getListSize(fileUrl); i++) {
-                map.put("file_url[" + i + "]", getFromList(fileUrl, i));
+        if (fileUrls.getClass().equals(java.io.File.class) ||
+            fileUrls.getClass().equals(Integer.class) ||
+            fileUrls.getClass().equals(String.class) ||
+            fileUrls.getClass().isEnum()) {
+            map.put("file_urls", fileUrls);
+        } else if (isListOfFile(fileUrls)) {
+            for(int i = 0; i< getListSize(fileUrls); i++) {
+                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
             }
         }
         else {
-            map.put("file_url", JSON.getDefault().getMapper().writeValueAsString(fileUrl));
+            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
         }
     }
     if (allowCcs != null) {

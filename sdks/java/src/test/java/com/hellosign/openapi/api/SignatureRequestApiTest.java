@@ -64,7 +64,7 @@ public class SignatureRequestApiTest {
             SignatureRequestCreateEmbeddedRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         SignatureRequestGetResponse expected = TestHelper.getFixtureData(
             SignatureRequestGetResponse.class,
@@ -83,7 +83,7 @@ public class SignatureRequestApiTest {
             SignatureRequestCreateEmbeddedWithTemplateRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         SignatureRequestGetResponse expected = TestHelper.getFixtureData(
             SignatureRequestGetResponse.class,
@@ -182,7 +182,7 @@ public class SignatureRequestApiTest {
             SignatureRequestSendRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         SignatureRequestGetResponse expected = TestHelper.getFixtureData(
             SignatureRequestGetResponse.class,
@@ -201,7 +201,7 @@ public class SignatureRequestApiTest {
             SignatureRequestSendRequest.class,
             "default"
         );
-        request.addFileItem(new File("test_fixtures/pdf-sample.pdf"));
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         SignatureRequestGetResponse expected = TestHelper.getFixtureData(
             SignatureRequestGetResponse.class,

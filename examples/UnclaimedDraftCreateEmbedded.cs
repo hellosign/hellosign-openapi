@@ -29,7 +29,7 @@ public class Example
 
         var data = new UnclaimedDraftCreateEmbeddedRequest(
             clientId: "ec64a202072370a737edf4a0eb7f4437",
-            file: files,
+            files: files,
             requesterEmailAddress: "jack@hellosign.com",
             testMode: true
         );

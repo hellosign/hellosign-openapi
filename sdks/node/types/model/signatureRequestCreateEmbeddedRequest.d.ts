@@ -10,8 +10,8 @@ import { SubSigningOptions } from "./subSigningOptions";
 export declare class SignatureRequestCreateEmbeddedRequest {
     "clientId": string;
     "signers": Array<SubSignatureRequestSigner>;
-    "file"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "files"?: Array<RequestFile>;
+    "fileUrls"?: Array<string>;
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;
     "attachments"?: Array<SubAttachment>;

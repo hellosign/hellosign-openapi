@@ -47,8 +47,8 @@ import com.hellosign.openapi.ApiException;
  */
 @JsonPropertyOrder({
     SignatureRequestSendRequest.JSON_PROPERTY_SIGNERS,
-    SignatureRequestSendRequest.JSON_PROPERTY_FILE,
-    SignatureRequestSendRequest.JSON_PROPERTY_FILE_URL,
+    SignatureRequestSendRequest.JSON_PROPERTY_FILES,
+    SignatureRequestSendRequest.JSON_PROPERTY_FILE_URLS,
     SignatureRequestSendRequest.JSON_PROPERTY_ALLOW_DECLINE,
     SignatureRequestSendRequest.JSON_PROPERTY_ALLOW_REASSIGN,
     SignatureRequestSendRequest.JSON_PROPERTY_ATTACHMENTS,
@@ -76,11 +76,11 @@ public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_SIGNERS = "signers";
   private List<SubSignatureRequestSigner> signers = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_FILE = "file";
-  private List<File> file = null;
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<File> files = null;
 
-  public static final String JSON_PROPERTY_FILE_URL = "file_url";
-  private List<String> fileUrl = null;
+  public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
+  private List<String> fileUrls = null;
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   private Boolean allowDecline = false;
@@ -179,71 +179,71 @@ public class SignatureRequestSendRequest {
   }
 
 
-  public SignatureRequestSendRequest file(List<File> file) {
-    this.file = file;
+  public SignatureRequestSendRequest files(List<File> files) {
+    this.files = files;
     return this;
   }
 
-  public SignatureRequestSendRequest addFileItem(File fileItem) {
-    if (this.file == null) {
-      this.file = new ArrayList<>();
+  public SignatureRequestSendRequest addFilesItem(File filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
     }
-    this.file.add(fileItem);
+    this.files.add(filesItem);
     return this;
   }
 
    /**
-   * Use &#x60;file[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return file
+   * Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return files
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<File> getFile() {
-    return file;
+  public List<File> getFiles() {
+    return files;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFile(List<File> file) {
-    this.file = file;
+  public void setFiles(List<File> files) {
+    this.files = files;
   }
 
 
-  public SignatureRequestSendRequest fileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public SignatureRequestSendRequest fileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
     return this;
   }
 
-  public SignatureRequestSendRequest addFileUrlItem(String fileUrlItem) {
-    if (this.fileUrl == null) {
-      this.fileUrl = new ArrayList<>();
+  public SignatureRequestSendRequest addFileUrlsItem(String fileUrlsItem) {
+    if (this.fileUrls == null) {
+      this.fileUrls = new ArrayList<>();
     }
-    this.fileUrl.add(fileUrlItem);
+    this.fileUrls.add(fileUrlsItem);
     return this;
   }
 
    /**
-   * Use &#x60;file_url[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
-   * @return fileUrl
+   * Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+   * @return fileUrls
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.")
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getFileUrl() {
-    return fileUrl;
+  public List<String> getFileUrls() {
+    return fileUrls;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FILE_URL)
+  @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFileUrl(List<String> fileUrl) {
-    this.fileUrl = fileUrl;
+  public void setFileUrls(List<String> fileUrls) {
+    this.fileUrls = fileUrls;
   }
 
 
@@ -862,8 +862,8 @@ public class SignatureRequestSendRequest {
     }
     SignatureRequestSendRequest signatureRequestSendRequest = (SignatureRequestSendRequest) o;
     return Objects.equals(this.signers, signatureRequestSendRequest.signers) &&
-        Objects.equals(this.file, signatureRequestSendRequest.file) &&
-        Objects.equals(this.fileUrl, signatureRequestSendRequest.fileUrl) &&
+        Objects.equals(this.files, signatureRequestSendRequest.files) &&
+        Objects.equals(this.fileUrls, signatureRequestSendRequest.fileUrls) &&
         Objects.equals(this.allowDecline, signatureRequestSendRequest.allowDecline) &&
         Objects.equals(this.allowReassign, signatureRequestSendRequest.allowReassign) &&
         Objects.equals(this.attachments, signatureRequestSendRequest.attachments) &&
@@ -889,7 +889,7 @@ public class SignatureRequestSendRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(signers, file, fileUrl, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt);
+    return Objects.hash(signers, files, fileUrls, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt);
   }
 
   @Override
@@ -897,8 +897,8 @@ public class SignatureRequestSendRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignatureRequestSendRequest {\n");
     sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
-    sb.append("    file: ").append(toIndentedString(file)).append("\n");
-    sb.append("    fileUrl: ").append(toIndentedString(fileUrl)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
+    sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
@@ -947,42 +947,42 @@ public class SignatureRequestSendRequest {
             map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
         }
     }
-    if (file != null) {
-        if (isFileTypeOrListOfFiles(file)) {
+    if (files != null) {
+        if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
         }
 
-        if (file.getClass().equals(java.io.File.class) ||
-            file.getClass().equals(Integer.class) ||
-            file.getClass().equals(String.class) ||
-            file.getClass().isEnum()) {
-            map.put("file", file);
-        } else if (isListOfFile(file)) {
-            for(int i = 0; i< getListSize(file); i++) {
-                map.put("file[" + i + "]", getFromList(file, i));
+        if (files.getClass().equals(java.io.File.class) ||
+            files.getClass().equals(Integer.class) ||
+            files.getClass().equals(String.class) ||
+            files.getClass().isEnum()) {
+            map.put("files", files);
+        } else if (isListOfFile(files)) {
+            for(int i = 0; i< getListSize(files); i++) {
+                map.put("files[" + i + "]", getFromList(files, i));
             }
         }
         else {
-            map.put("file", JSON.getDefault().getMapper().writeValueAsString(file));
+            map.put("files", JSON.getDefault().getMapper().writeValueAsString(files));
         }
     }
-    if (fileUrl != null) {
-        if (isFileTypeOrListOfFiles(fileUrl)) {
+    if (fileUrls != null) {
+        if (isFileTypeOrListOfFiles(fileUrls)) {
             fileTypeFound = true;
         }
 
-        if (fileUrl.getClass().equals(java.io.File.class) ||
-            fileUrl.getClass().equals(Integer.class) ||
-            fileUrl.getClass().equals(String.class) ||
-            fileUrl.getClass().isEnum()) {
-            map.put("file_url", fileUrl);
-        } else if (isListOfFile(fileUrl)) {
-            for(int i = 0; i< getListSize(fileUrl); i++) {
-                map.put("file_url[" + i + "]", getFromList(fileUrl, i));
+        if (fileUrls.getClass().equals(java.io.File.class) ||
+            fileUrls.getClass().equals(Integer.class) ||
+            fileUrls.getClass().equals(String.class) ||
+            fileUrls.getClass().isEnum()) {
+            map.put("file_urls", fileUrls);
+        } else if (isListOfFile(fileUrls)) {
+            for(int i = 0; i< getListSize(fileUrls); i++) {
+                map.put("file_urls[" + i + "]", getFromList(fileUrls, i));
             }
         }
         else {
-            map.put("file_url", JSON.getDefault().getMapper().writeValueAsString(fileUrl));
+            map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
         }
     }
     if (allowDecline != null) {

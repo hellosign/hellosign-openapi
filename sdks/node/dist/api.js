@@ -20023,13 +20023,13 @@ SignatureRequestCreateEmbeddedRequest.attributeTypeMap = [
     type: "Array<SubSignatureRequestSigner>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -20174,13 +20174,13 @@ SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     type: "Array<SubCustomField>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -20995,13 +20995,13 @@ SignatureRequestSendRequest.attributeTypeMap = [
     type: "Array<SubSignatureRequestSigner>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -21156,13 +21156,13 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
     type: "Array<SubCustomField>"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -22833,13 +22833,13 @@ TemplateCreateEmbeddedDraftRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -23805,13 +23805,13 @@ TemplateUpdateFilesRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -23905,13 +23905,13 @@ UnclaimedDraftCreateEmbeddedRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -24152,13 +24152,13 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     type: "SubFieldOptions"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {
@@ -24276,13 +24276,13 @@ UnclaimedDraftCreateRequest.attributeTypeMap = [
     type: "UnclaimedDraftCreateRequest.TypeEnum"
   },
   {
-    name: "file",
-    baseName: "file",
+    name: "files",
+    baseName: "files",
     type: "Array<RequestFile>"
   },
   {
-    name: "fileUrl",
-    baseName: "file_url",
+    name: "fileUrls",
+    baseName: "file_urls",
     type: "Array<string>"
   },
   {

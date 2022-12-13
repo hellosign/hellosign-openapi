@@ -1,7 +1,7 @@
 {
   "default": {
     "client_id": "37dee8d8440c66d54cfa05d92c160882",
-    "file_url": [
+    "file_urls": [
       "https://app.hellosign.com/docs/example_signature_request.pdf"
     ],
     "message": "For your approval",

@@ -42,7 +42,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
         $this->setExpectedResponse($responseData);
 
         $obj = Model\UnclaimedDraftCreateRequest::fromArray($requestData);
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 
@@ -65,7 +65,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
         $this->setExpectedResponse($responseData);
 
         $obj = Model\UnclaimedDraftCreateEmbeddedRequest::fromArray($requestData);
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 
@@ -90,7 +90,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
         $obj = Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest::fromArray(
             $requestData
         );
-        $obj->setFile([
+        $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
 

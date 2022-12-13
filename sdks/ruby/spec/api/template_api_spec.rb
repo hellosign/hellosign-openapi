@@ -51,7 +51,7 @@ describe HelloSign::TemplateApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || TemplateCreateEmbeddedDraftResponse
       obj = api_client.convert_to_type(request_data, request_class) || TemplateCreateEmbeddedDraftRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.template_create_embedded_draft(obj)
 
@@ -138,7 +138,7 @@ describe HelloSign::TemplateApi do
       set_expected_response(200, JSON.dump(response_data))
       expected = api_client.convert_to_type(response_data, response_class) || TemplateUpdateFilesResponse
       obj = api_client.convert_to_type(request_data, request_class) || TemplateUpdateFilesRequest
-      obj.file = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
+      obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.template_update_files(template_id, obj)
 

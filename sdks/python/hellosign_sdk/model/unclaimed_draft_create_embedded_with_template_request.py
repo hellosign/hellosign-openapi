@@ -118,8 +118,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
             'custom_fields': ([SubCustomField],),  # noqa: E501
             'editor_options': (SubEditorOptions,),  # noqa: E501
             'field_options': (SubFieldOptions,),  # noqa: E501
-            'file': ([file_type],),  # noqa: E501
-            'file_url': ([str],),  # noqa: E501
+            'files': ([file_type],),  # noqa: E501
+            'file_urls': ([str],),  # noqa: E501
             'force_signer_roles': (bool,),  # noqa: E501
             'force_subject_message': (bool,),  # noqa: E501
             'hold_request': (bool,),  # noqa: E501
@@ -155,8 +155,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
         'custom_fields': 'custom_fields',  # noqa: E501
         'editor_options': 'editor_options',  # noqa: E501
         'field_options': 'field_options',  # noqa: E501
-        'file': 'file',  # noqa: E501
-        'file_url': 'file_url',  # noqa: E501
+        'files': 'files',  # noqa: E501
+        'file_urls': 'file_urls',  # noqa: E501
         'force_signer_roles': 'force_signer_roles',  # noqa: E501
         'force_subject_message': 'force_subject_message',  # noqa: E501
         'hold_request': 'hold_request',  # noqa: E501
@@ -229,8 +229,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
             custom_fields ([SubCustomField]): An array defining values and options for custom fields. Required when a custom field exists in the Template.. [optional]  # noqa: E501
             editor_options (SubEditorOptions): [optional]  # noqa: E501
             field_options (SubFieldOptions): [optional]  # noqa: E501
-            file ([file_type]): Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.. [optional]  # noqa: E501
-            file_url ([str]): Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.. [optional]  # noqa: E501
+            file_urls ([str]): Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.. [optional]  # noqa: E501
             force_signer_roles (bool): Provide users the ability to review/edit the template signer roles.. [optional] if omitted the server will use the default value of False  # noqa: E501
             force_subject_message (bool): Provide users the ability to review/edit the template subject and message.. [optional] if omitted the server will use the default value of False  # noqa: E501
             hold_request (bool): The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -344,8 +344,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
             custom_fields ([SubCustomField]): An array defining values and options for custom fields. Required when a custom field exists in the Template.. [optional]  # noqa: E501
             editor_options (SubEditorOptions): [optional]  # noqa: E501
             field_options (SubFieldOptions): [optional]  # noqa: E501
-            file ([file_type]): Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.. [optional]  # noqa: E501
-            file_url ([str]): Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.. [optional]  # noqa: E501
+            files ([file_type]): Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.. [optional]  # noqa: E501
+            file_urls ([str]): Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.. [optional]  # noqa: E501
             force_signer_roles (bool): Provide users the ability to review/edit the template signer roles.. [optional] if omitted the server will use the default value of False  # noqa: E501
             force_subject_message (bool): Provide users the ability to review/edit the template subject and message.. [optional] if omitted the server will use the default value of False  # noqa: E501
             hold_request (bool): The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501

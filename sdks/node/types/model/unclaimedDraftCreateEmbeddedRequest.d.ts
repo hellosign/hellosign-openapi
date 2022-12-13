@@ -11,8 +11,8 @@ import { SubUnclaimedDraftSigner } from "./subUnclaimedDraftSigner";
 export declare class UnclaimedDraftCreateEmbeddedRequest {
     "clientId": string;
     "requesterEmailAddress": string;
-    "file"?: Array<RequestFile>;
-    "fileUrl"?: Array<string>;
+    "files"?: Array<RequestFile>;
+    "fileUrls"?: Array<string>;
     "allowCcs"?: boolean;
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;

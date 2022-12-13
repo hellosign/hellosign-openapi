@@ -53,7 +53,7 @@ public class Example
 
         var data = new TemplateCreateEmbeddedDraftRequest(
             clientId: "37dee8d8440c66d54cfa05d92c160882",
-            file: files,
+            files: files,
             title: "Test Template",
             subject: "Please sign this document",
             message: "For your approval",

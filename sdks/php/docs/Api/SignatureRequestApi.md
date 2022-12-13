@@ -338,7 +338,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
         "lawyer@hellosign.com",
         "lawyer@example.com",
     ])
-    ->setFile([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setSigningOptions($signingOptions)
     ->setTestMode(true);
 
@@ -1024,7 +1024,7 @@ $data->setTitle("NDA with Acme Co.")
         "lawyer@hellosign.com",
         "lawyer@example.com",
     ])
-    ->setFile([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setMetadata([
         "custom_id" => 1234,
         "custom_text" => "NDA #9",

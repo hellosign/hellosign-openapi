@@ -63,8 +63,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'client_id' => 'string',
         'requester_email_address' => 'string',
-        'file' => '\SplFileObject[]',
-        'file_url' => 'string[]',
+        'files' => '\SplFileObject[]',
+        'file_urls' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
@@ -109,8 +109,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'client_id' => null,
         'requester_email_address' => 'email',
-        'file' => 'binary',
-        'file_url' => null,
+        'files' => 'binary',
+        'file_urls' => null,
         'allow_ccs' => null,
         'allow_decline' => null,
         'allow_reassign' => null,
@@ -174,8 +174,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'client_id' => 'client_id',
         'requester_email_address' => 'requester_email_address',
-        'file' => 'file',
-        'file_url' => 'file_url',
+        'files' => 'files',
+        'file_urls' => 'file_urls',
         'allow_ccs' => 'allow_ccs',
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
@@ -218,8 +218,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'client_id' => 'setClientId',
         'requester_email_address' => 'setRequesterEmailAddress',
-        'file' => 'setFile',
-        'file_url' => 'setFileUrl',
+        'files' => 'setFiles',
+        'file_urls' => 'setFileUrls',
         'allow_ccs' => 'setAllowCcs',
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
@@ -262,8 +262,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'client_id' => 'getClientId',
         'requester_email_address' => 'getRequesterEmailAddress',
-        'file' => 'getFile',
-        'file_url' => 'getFileUrl',
+        'files' => 'getFiles',
+        'file_urls' => 'getFileUrls',
         'allow_ccs' => 'getAllowCcs',
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
@@ -372,8 +372,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
         $this->container['requester_email_address'] = $data['requester_email_address'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
-        $this->container['file_url'] = $data['file_url'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
+        $this->container['file_urls'] = $data['file_urls'] ?? null;
         $this->container['allow_ccs'] = $data['allow_ccs'] ?? true;
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
@@ -514,49 +514,49 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets file
+     * Gets files
      *
      * @return SplFileObject[]|null
      */
-    public function getFile()
+    public function getFiles()
     {
-        return $this->container['file'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets file
+     * Sets files
      *
-     * @param SplFileObject[]|null $file Use `file[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param SplFileObject[]|null $files Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFile(?array $file)
+    public function setFiles(?array $files)
     {
-        $this->container['file'] = $file;
+        $this->container['files'] = $files;
 
         return $this;
     }
 
     /**
-     * Gets file_url
+     * Gets file_urls
      *
      * @return string[]|null
      */
-    public function getFileUrl()
+    public function getFileUrls()
     {
-        return $this->container['file_url'];
+        return $this->container['file_urls'];
     }
 
     /**
-     * Sets file_url
+     * Sets file_urls
      *
-     * @param string[]|null $file_url Use `file_url[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **file** or **file_url[]**, but not both.
+     * @param string[]|null $file_urls Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
      *
      * @return self
      */
-    public function setFileUrl(?array $file_url)
+    public function setFileUrls(?array $file_urls)
     {
-        $this->container['file_url'] = $file_url;
+        $this->container['file_urls'] = $file_urls;
 
         return $this;
     }

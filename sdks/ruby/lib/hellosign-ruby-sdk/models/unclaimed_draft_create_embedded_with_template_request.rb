@@ -40,11 +40,11 @@ module HelloSign
 
     attr_accessor :field_options
 
-    # Use `file[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.
-    attr_accessor :file
+    # Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
+    attr_accessor :files
 
-    # Use file_url[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **file** or **file_url[]** is required, but not both.
-    attr_accessor :file_url
+    # Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
+    attr_accessor :file_urls
 
     # Provide users the ability to review/edit the template signer roles.
     attr_accessor :force_signer_roles
@@ -111,8 +111,8 @@ module HelloSign
         :'custom_fields' => :'custom_fields',
         :'editor_options' => :'editor_options',
         :'field_options' => :'field_options',
-        :'file' => :'file',
-        :'file_url' => :'file_url',
+        :'files' => :'files',
+        :'file_urls' => :'file_urls',
         :'force_signer_roles' => :'force_signer_roles',
         :'force_subject_message' => :'force_subject_message',
         :'hold_request' => :'hold_request',
@@ -156,8 +156,8 @@ module HelloSign
         :'custom_fields' => :'Array<SubCustomField>',
         :'editor_options' => :'SubEditorOptions',
         :'field_options' => :'SubFieldOptions',
-        :'file' => :'Array<File>',
-        :'file_url' => :'Array<String>',
+        :'files' => :'Array<File>',
+        :'file_urls' => :'Array<String>',
         :'force_signer_roles' => :'Boolean',
         :'force_subject_message' => :'Boolean',
         :'hold_request' => :'Boolean',
@@ -256,15 +256,15 @@ module HelloSign
         self.field_options = attributes[:'field_options']
       end
 
-      if attributes.key?(:'file')
-        if (value = attributes[:'file']).is_a?(Array)
-          self.file = value
+      if attributes.key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
         end
       end
 
-      if attributes.key?(:'file_url')
-        if (value = attributes[:'file_url']).is_a?(Array)
-          self.file_url = value
+      if attributes.key?(:'file_urls')
+        if (value = attributes[:'file_urls']).is_a?(Array)
+          self.file_urls = value
         end
       end
 
@@ -458,8 +458,8 @@ module HelloSign
           custom_fields == o.custom_fields &&
           editor_options == o.editor_options &&
           field_options == o.field_options &&
-          file == o.file &&
-          file_url == o.file_url &&
+          files == o.files &&
+          file_urls == o.file_urls &&
           force_signer_roles == o.force_signer_roles &&
           force_subject_message == o.force_subject_message &&
           hold_request == o.hold_request &&
@@ -489,7 +489,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, requester_email_address, template_ids, allow_decline, allow_reassign, ccs, custom_fields, editor_options, field_options, file, file_url, force_signer_roles, force_subject_message, hold_request, is_for_embedded_signing, message, metadata, preview_only, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, title, populate_auto_fill_fields].hash
+      [client_id, requester_email_address, template_ids, allow_decline, allow_reassign, ccs, custom_fields, editor_options, field_options, files, file_urls, force_signer_roles, force_subject_message, hold_request, is_for_embedded_signing, message, metadata, preview_only, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, title, populate_auto_fill_fields].hash
     end
 
     # Builds the object from hash
