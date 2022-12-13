@@ -36,7 +36,7 @@ import com.hellosign.openapi.ApiException;
 @JsonPropertyOrder({
     AccountResponseQuotas.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
     AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
-    AccountResponseQuotas.JSON_PROPERTY_TOTAL_TEMPLATES,
+    AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_TOTAL,
     AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_LEFT,
     AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
 })
@@ -48,8 +48,8 @@ public class AccountResponseQuotas {
   public static final String JSON_PROPERTY_DOCUMENTS_LEFT = "documents_left";
   private Integer documentsLeft;
 
-  public static final String JSON_PROPERTY_TOTAL_TEMPLATES = "total_templates";
-  private Integer totalTemplates;
+  public static final String JSON_PROPERTY_TEMPLATES_TOTAL = "templates_total";
+  private Integer templatesTotal;
 
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
   private Integer templatesLeft;
@@ -112,29 +112,29 @@ public class AccountResponseQuotas {
   }
 
 
-  public AccountResponseQuotas totalTemplates(Integer totalTemplates) {
-    this.totalTemplates = totalTemplates;
+  public AccountResponseQuotas templatesTotal(Integer templatesTotal) {
+    this.templatesTotal = templatesTotal;
     return this;
   }
 
    /**
    * Total API templates allowed.
-   * @return totalTemplates
+   * @return templatesTotal
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total API templates allowed.")
-  @JsonProperty(JSON_PROPERTY_TOTAL_TEMPLATES)
+  @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getTotalTemplates() {
-    return totalTemplates;
+  public Integer getTemplatesTotal() {
+    return templatesTotal;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_TEMPLATES)
+  @JsonProperty(JSON_PROPERTY_TEMPLATES_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalTemplates(Integer totalTemplates) {
-    this.totalTemplates = totalTemplates;
+  public void setTemplatesTotal(Integer templatesTotal) {
+    this.templatesTotal = templatesTotal;
   }
 
 
@@ -204,14 +204,14 @@ public class AccountResponseQuotas {
     AccountResponseQuotas accountResponseQuotas = (AccountResponseQuotas) o;
     return Objects.equals(this.apiSignatureRequestsLeft, accountResponseQuotas.apiSignatureRequestsLeft) &&
         Objects.equals(this.documentsLeft, accountResponseQuotas.documentsLeft) &&
-        Objects.equals(this.totalTemplates, accountResponseQuotas.totalTemplates) &&
+        Objects.equals(this.templatesTotal, accountResponseQuotas.templatesTotal) &&
         Objects.equals(this.templatesLeft, accountResponseQuotas.templatesLeft) &&
         Objects.equals(this.smsVerificationsLeft, accountResponseQuotas.smsVerificationsLeft);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiSignatureRequestsLeft, documentsLeft, totalTemplates, templatesLeft, smsVerificationsLeft);
+    return Objects.hash(apiSignatureRequestsLeft, documentsLeft, templatesTotal, templatesLeft, smsVerificationsLeft);
   }
 
   @Override
@@ -220,7 +220,7 @@ public class AccountResponseQuotas {
     sb.append("class AccountResponseQuotas {\n");
     sb.append("    apiSignatureRequestsLeft: ").append(toIndentedString(apiSignatureRequestsLeft)).append("\n");
     sb.append("    documentsLeft: ").append(toIndentedString(documentsLeft)).append("\n");
-    sb.append("    totalTemplates: ").append(toIndentedString(totalTemplates)).append("\n");
+    sb.append("    templatesTotal: ").append(toIndentedString(templatesTotal)).append("\n");
     sb.append("    templatesLeft: ").append(toIndentedString(templatesLeft)).append("\n");
     sb.append("    smsVerificationsLeft: ").append(toIndentedString(smsVerificationsLeft)).append("\n");
     sb.append("}");
@@ -269,23 +269,23 @@ public class AccountResponseQuotas {
             map.put("documents_left", JSON.getDefault().getMapper().writeValueAsString(documentsLeft));
         }
     }
-    if (totalTemplates != null) {
-        if (isFileTypeOrListOfFiles(totalTemplates)) {
+    if (templatesTotal != null) {
+        if (isFileTypeOrListOfFiles(templatesTotal)) {
             fileTypeFound = true;
         }
 
-        if (totalTemplates.getClass().equals(java.io.File.class) ||
-            totalTemplates.getClass().equals(Integer.class) ||
-            totalTemplates.getClass().equals(String.class) ||
-            totalTemplates.getClass().isEnum()) {
-            map.put("total_templates", totalTemplates);
-        } else if (isListOfFile(totalTemplates)) {
-            for(int i = 0; i< getListSize(totalTemplates); i++) {
-                map.put("total_templates[" + i + "]", getFromList(totalTemplates, i));
+        if (templatesTotal.getClass().equals(java.io.File.class) ||
+            templatesTotal.getClass().equals(Integer.class) ||
+            templatesTotal.getClass().equals(String.class) ||
+            templatesTotal.getClass().isEnum()) {
+            map.put("templates_total", templatesTotal);
+        } else if (isListOfFile(templatesTotal)) {
+            for(int i = 0; i< getListSize(templatesTotal); i++) {
+                map.put("templates_total[" + i + "]", getFromList(templatesTotal, i));
             }
         }
         else {
-            map.put("total_templates", JSON.getDefault().getMapper().writeValueAsString(totalTemplates));
+            map.put("templates_total", JSON.getDefault().getMapper().writeValueAsString(templatesTotal));
         }
     }
     if (templatesLeft != null) {

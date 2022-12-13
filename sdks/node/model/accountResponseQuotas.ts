@@ -39,7 +39,7 @@ export class AccountResponseQuotas {
   /**
    * Total API templates allowed.
    */
-  "totalTemplates"?: number | null;
+  "templatesTotal"?: number | null;
   /**
    * API templates remaining.
    */
@@ -63,8 +63,8 @@ export class AccountResponseQuotas {
       type: "number",
     },
     {
-      name: "totalTemplates",
-      baseName: "total_templates",
+      name: "templatesTotal",
+      baseName: "templates_total",
       type: "number",
     },
     {

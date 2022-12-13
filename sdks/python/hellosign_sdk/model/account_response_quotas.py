@@ -84,7 +84,7 @@ class AccountResponseQuotas(ModelNormal):
         return {
             'api_signature_requests_left': (int, none_type,),  # noqa: E501
             'documents_left': (int, none_type,),  # noqa: E501
-            'total_templates': (int, none_type,),  # noqa: E501
+            'templates_total': (int, none_type,),  # noqa: E501
             'templates_left': (int, none_type,),  # noqa: E501
             'sms_verifications_left': (int, none_type,),  # noqa: E501
         }
@@ -97,7 +97,7 @@ class AccountResponseQuotas(ModelNormal):
     attribute_map = {
         'api_signature_requests_left': 'api_signature_requests_left',  # noqa: E501
         'documents_left': 'documents_left',  # noqa: E501
-        'total_templates': 'total_templates',  # noqa: E501
+        'templates_total': 'templates_total',  # noqa: E501
         'templates_left': 'templates_left',  # noqa: E501
         'sms_verifications_left': 'sms_verifications_left',  # noqa: E501
     }
@@ -145,7 +145,7 @@ class AccountResponseQuotas(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             api_signature_requests_left (int, none_type): API signature requests remaining.. [optional]  # noqa: E501
             documents_left (int, none_type): Signature requests remaining.. [optional]  # noqa: E501
-            total_templates (int, none_type): Total API templates allowed.. [optional]  # noqa: E501
+            templates_total (int, none_type): Total API templates allowed.. [optional]  # noqa: E501
             templates_left (int, none_type): API templates remaining.. [optional]  # noqa: E501
             sms_verifications_left (int, none_type): SMS verifications  remaining.. [optional]  # noqa: E501
         """
@@ -231,7 +231,7 @@ class AccountResponseQuotas(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             api_signature_requests_left (int, none_type): API signature requests remaining.. [optional]  # noqa: E501
             documents_left (int, none_type): Signature requests remaining.. [optional]  # noqa: E501
-            total_templates (int, none_type): Total API templates allowed.. [optional]  # noqa: E501
+            templates_total (int, none_type): Total API templates allowed.. [optional]  # noqa: E501
             templates_left (int, none_type): API templates remaining.. [optional]  # noqa: E501
             sms_verifications_left (int, none_type): SMS verifications  remaining.. [optional]  # noqa: E501
         """

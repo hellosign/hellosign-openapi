@@ -63,7 +63,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $openAPITypes = [
         'api_signature_requests_left' => 'int',
         'documents_left' => 'int',
-        'total_templates' => 'int',
+        'templates_total' => 'int',
         'templates_left' => 'int',
         'sms_verifications_left' => 'int',
     ];
@@ -78,7 +78,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $openAPIFormats = [
         'api_signature_requests_left' => null,
         'documents_left' => null,
-        'total_templates' => null,
+        'templates_total' => null,
         'templates_left' => null,
         'sms_verifications_left' => null,
     ];
@@ -112,7 +112,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $attributeMap = [
         'api_signature_requests_left' => 'api_signature_requests_left',
         'documents_left' => 'documents_left',
-        'total_templates' => 'total_templates',
+        'templates_total' => 'templates_total',
         'templates_left' => 'templates_left',
         'sms_verifications_left' => 'sms_verifications_left',
     ];
@@ -125,7 +125,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $setters = [
         'api_signature_requests_left' => 'setApiSignatureRequestsLeft',
         'documents_left' => 'setDocumentsLeft',
-        'total_templates' => 'setTotalTemplates',
+        'templates_total' => 'setTemplatesTotal',
         'templates_left' => 'setTemplatesLeft',
         'sms_verifications_left' => 'setSmsVerificationsLeft',
     ];
@@ -138,7 +138,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     protected static $getters = [
         'api_signature_requests_left' => 'getApiSignatureRequestsLeft',
         'documents_left' => 'getDocumentsLeft',
-        'total_templates' => 'getTotalTemplates',
+        'templates_total' => 'getTemplatesTotal',
         'templates_left' => 'getTemplatesLeft',
         'sms_verifications_left' => 'getSmsVerificationsLeft',
     ];
@@ -201,7 +201,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $this->container['api_signature_requests_left'] = $data['api_signature_requests_left'] ?? null;
         $this->container['documents_left'] = $data['documents_left'] ?? null;
-        $this->container['total_templates'] = $data['total_templates'] ?? null;
+        $this->container['templates_total'] = $data['templates_total'] ?? null;
         $this->container['templates_left'] = $data['templates_left'] ?? null;
         $this->container['sms_verifications_left'] = $data['sms_verifications_left'] ?? null;
     }
@@ -289,25 +289,25 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     }
 
     /**
-     * Gets total_templates
+     * Gets templates_total
      *
      * @return int|null
      */
-    public function getTotalTemplates()
+    public function getTemplatesTotal()
     {
-        return $this->container['total_templates'];
+        return $this->container['templates_total'];
     }
 
     /**
-     * Sets total_templates
+     * Sets templates_total
      *
-     * @param int|null $total_templates total API templates allowed
+     * @param int|null $templates_total total API templates allowed
      *
      * @return self
      */
-    public function setTotalTemplates(?int $total_templates)
+    public function setTemplatesTotal(?int $templates_total)
     {
-        $this->container['total_templates'] = $total_templates;
+        $this->container['templates_total'] = $templates_total;
 
         return $this;
     }
