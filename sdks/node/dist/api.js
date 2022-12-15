@@ -20886,6 +20886,11 @@ SignatureRequestResponseSignatures.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "signerGroupGuid",
+    baseName: "signer_group_guid",
+    type: "string"
+  },
+  {
     name: "signerEmailAddress",
     baseName: "signer_email_address",
     type: "string"

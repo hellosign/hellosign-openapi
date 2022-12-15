@@ -9615,6 +9615,10 @@ components:
         signature_id:
           description: 'Signature identifier.'
           type: string
+        signer_group_guid:
+          nullable: true
+          description: 'Signer Group GUID'
+          type: string
         signer_email_address:
           description: 'The email address of the signer.'
           type: string

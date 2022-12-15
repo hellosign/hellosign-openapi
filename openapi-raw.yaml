@@ -9076,6 +9076,10 @@ components:
         signature_id:
           description: '_t__SignatureRequestResponseSignatures::SIGNATURE_ID'
           type: string
+        signer_group_guid:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID'
+          type: string
         signer_email_address:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS'
           type: string

@@ -1256,6 +1256,7 @@
 "SignatureRequestResponseSignatures::SIGNATURE_ID": Signature identifier.
 "SignatureRequestResponseSignatures::SIGNED_AT": Time that the document was signed or null.
 "SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS": The email address of the signer.
+"SignatureRequestResponseSignatures::SIGNER_GROUP_GUID": Signer Group GUID
 "SignatureRequestResponseSignatures::SIGNER_NAME": The name of the signer.
 "SignatureRequestResponseSignatures::SIGNER_ROLE": The role of the signer.
 "SignatureRequestResponseSignatures::STATUS_CODE": "The current status of the signature. eg: awaiting_signature, signed, declined."

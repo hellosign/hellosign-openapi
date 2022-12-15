@@ -83,6 +83,7 @@ class SignatureRequestResponseSignatures(ModelNormal):
         """
         return {
             'signature_id': (str,),  # noqa: E501
+            'signer_group_guid': (str, none_type,),  # noqa: E501
             'signer_email_address': (str,),  # noqa: E501
             'signer_name': (str, none_type,),  # noqa: E501
             'signer_role': (str, none_type,),  # noqa: E501
@@ -109,6 +110,7 @@ class SignatureRequestResponseSignatures(ModelNormal):
 
     attribute_map = {
         'signature_id': 'signature_id',  # noqa: E501
+        'signer_group_guid': 'signer_group_guid',  # noqa: E501
         'signer_email_address': 'signer_email_address',  # noqa: E501
         'signer_name': 'signer_name',  # noqa: E501
         'signer_role': 'signer_role',  # noqa: E501
@@ -170,6 +172,7 @@ class SignatureRequestResponseSignatures(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             signature_id (str): Signature identifier.. [optional]  # noqa: E501
+            signer_group_guid (str, none_type): Signer Group GUID. [optional]  # noqa: E501
             signer_email_address (str): The email address of the signer.. [optional]  # noqa: E501
             signer_name (str, none_type): The name of the signer.. [optional]  # noqa: E501
             signer_role (str, none_type): The role of the signer.. [optional]  # noqa: E501
@@ -269,6 +272,7 @@ class SignatureRequestResponseSignatures(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             signature_id (str): Signature identifier.. [optional]  # noqa: E501
+            signer_group_guid (str, none_type): Signer Group GUID. [optional]  # noqa: E501
             signer_email_address (str): The email address of the signer.. [optional]  # noqa: E501
             signer_name (str, none_type): The name of the signer.. [optional]  # noqa: E501
             signer_role (str, none_type): The role of the signer.. [optional]  # noqa: E501

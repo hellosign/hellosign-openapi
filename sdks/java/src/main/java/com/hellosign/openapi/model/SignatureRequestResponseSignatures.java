@@ -35,6 +35,7 @@ import com.hellosign.openapi.ApiException;
 @ApiModel(description = "An array of signature objects, 1 for each signer.")
 @JsonPropertyOrder({
     SignatureRequestResponseSignatures.JSON_PROPERTY_SIGNATURE_ID,
+    SignatureRequestResponseSignatures.JSON_PROPERTY_SIGNER_GROUP_GUID,
     SignatureRequestResponseSignatures.JSON_PROPERTY_SIGNER_EMAIL_ADDRESS,
     SignatureRequestResponseSignatures.JSON_PROPERTY_SIGNER_NAME,
     SignatureRequestResponseSignatures.JSON_PROPERTY_SIGNER_ROLE,
@@ -57,6 +58,9 @@ import com.hellosign.openapi.ApiException;
 public class SignatureRequestResponseSignatures {
   public static final String JSON_PROPERTY_SIGNATURE_ID = "signature_id";
   private String signatureId;
+
+  public static final String JSON_PROPERTY_SIGNER_GROUP_GUID = "signer_group_guid";
+  private String signerGroupGuid;
 
   public static final String JSON_PROPERTY_SIGNER_EMAIL_ADDRESS = "signer_email_address";
   private String signerEmailAddress;
@@ -135,6 +139,32 @@ public class SignatureRequestResponseSignatures {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSignatureId(String signatureId) {
     this.signatureId = signatureId;
+  }
+
+
+  public SignatureRequestResponseSignatures signerGroupGuid(String signerGroupGuid) {
+    this.signerGroupGuid = signerGroupGuid;
+    return this;
+  }
+
+   /**
+   * Signer Group GUID
+   * @return signerGroupGuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Signer Group GUID")
+  @JsonProperty(JSON_PROPERTY_SIGNER_GROUP_GUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSignerGroupGuid() {
+    return signerGroupGuid;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNER_GROUP_GUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSignerGroupGuid(String signerGroupGuid) {
+    this.signerGroupGuid = signerGroupGuid;
   }
 
 
@@ -593,6 +623,7 @@ public class SignatureRequestResponseSignatures {
     }
     SignatureRequestResponseSignatures signatureRequestResponseSignatures = (SignatureRequestResponseSignatures) o;
     return Objects.equals(this.signatureId, signatureRequestResponseSignatures.signatureId) &&
+        Objects.equals(this.signerGroupGuid, signatureRequestResponseSignatures.signerGroupGuid) &&
         Objects.equals(this.signerEmailAddress, signatureRequestResponseSignatures.signerEmailAddress) &&
         Objects.equals(this.signerName, signatureRequestResponseSignatures.signerName) &&
         Objects.equals(this.signerRole, signatureRequestResponseSignatures.signerRole) &&
@@ -614,7 +645,7 @@ public class SignatureRequestResponseSignatures {
 
   @Override
   public int hashCode() {
-    return Objects.hash(signatureId, signerEmailAddress, signerName, signerRole, order, statusCode, declineReason, signedAt, lastViewedAt, lastRemindedAt, hasPin, hasSmsAuth, hasSmsDelivery, smsPhoneNumber, reassignedBy, reassignmentReason, reassignedFrom, error);
+    return Objects.hash(signatureId, signerGroupGuid, signerEmailAddress, signerName, signerRole, order, statusCode, declineReason, signedAt, lastViewedAt, lastRemindedAt, hasPin, hasSmsAuth, hasSmsDelivery, smsPhoneNumber, reassignedBy, reassignmentReason, reassignedFrom, error);
   }
 
   @Override
@@ -622,6 +653,7 @@ public class SignatureRequestResponseSignatures {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignatureRequestResponseSignatures {\n");
     sb.append("    signatureId: ").append(toIndentedString(signatureId)).append("\n");
+    sb.append("    signerGroupGuid: ").append(toIndentedString(signerGroupGuid)).append("\n");
     sb.append("    signerEmailAddress: ").append(toIndentedString(signerEmailAddress)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
     sb.append("    signerRole: ").append(toIndentedString(signerRole)).append("\n");
@@ -664,6 +696,25 @@ public class SignatureRequestResponseSignatures {
         }
         else {
             map.put("signature_id", JSON.getDefault().getMapper().writeValueAsString(signatureId));
+        }
+    }
+    if (signerGroupGuid != null) {
+        if (isFileTypeOrListOfFiles(signerGroupGuid)) {
+            fileTypeFound = true;
+        }
+
+        if (signerGroupGuid.getClass().equals(java.io.File.class) ||
+            signerGroupGuid.getClass().equals(Integer.class) ||
+            signerGroupGuid.getClass().equals(String.class) ||
+            signerGroupGuid.getClass().isEnum()) {
+            map.put("signer_group_guid", signerGroupGuid);
+        } else if (isListOfFile(signerGroupGuid)) {
+            for(int i = 0; i< getListSize(signerGroupGuid); i++) {
+                map.put("signer_group_guid[" + i + "]", getFromList(signerGroupGuid, i));
+            }
+        }
+        else {
+            map.put("signer_group_guid", JSON.getDefault().getMapper().writeValueAsString(signerGroupGuid));
         }
     }
     if (signerEmailAddress != null) {

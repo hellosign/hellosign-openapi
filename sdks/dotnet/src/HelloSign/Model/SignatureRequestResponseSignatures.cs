@@ -42,6 +42,7 @@ namespace HelloSign.Model
         /// Initializes a new instance of the <see cref="SignatureRequestResponseSignatures" /> class.
         /// </summary>
         /// <param name="signatureId">Signature identifier..</param>
+        /// <param name="signerGroupGuid">Signer Group GUID.</param>
         /// <param name="signerEmailAddress">The email address of the signer..</param>
         /// <param name="signerName">The name of the signer..</param>
         /// <param name="signerRole">The role of the signer..</param>
@@ -59,10 +60,11 @@ namespace HelloSign.Model
         /// <param name="reassignmentReason">Reason provided by original signer who reassigned to this signer..</param>
         /// <param name="reassignedFrom">Previous signature identifier..</param>
         /// <param name="error">Error message pertaining to this signer, or null..</param>
-        public SignatureRequestResponseSignatures(string signatureId = default(string), string signerEmailAddress = default(string), string signerName = default(string), string signerRole = default(string), int? order = default(int?), string statusCode = default(string), string declineReason = default(string), int? signedAt = default(int?), int? lastViewedAt = default(int?), int? lastRemindedAt = default(int?), bool hasPin = default(bool), bool? hasSmsAuth = default(bool?), bool? hasSmsDelivery = default(bool?), string smsPhoneNumber = default(string), string reassignedBy = default(string), string reassignmentReason = default(string), string reassignedFrom = default(string), string error = default(string))
+        public SignatureRequestResponseSignatures(string signatureId = default(string), string signerGroupGuid = default(string), string signerEmailAddress = default(string), string signerName = default(string), string signerRole = default(string), int? order = default(int?), string statusCode = default(string), string declineReason = default(string), int? signedAt = default(int?), int? lastViewedAt = default(int?), int? lastRemindedAt = default(int?), bool hasPin = default(bool), bool? hasSmsAuth = default(bool?), bool? hasSmsDelivery = default(bool?), string smsPhoneNumber = default(string), string reassignedBy = default(string), string reassignmentReason = default(string), string reassignedFrom = default(string), string error = default(string))
         {
             
             this.SignatureId = signatureId;
+            this.SignerGroupGuid = signerGroupGuid;
             this.SignerEmailAddress = signerEmailAddress;
             this.SignerName = signerName;
             this.SignerRole = signerRole;
@@ -88,6 +90,13 @@ namespace HelloSign.Model
         /// <value>Signature identifier.</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
+
+        /// <summary>
+        /// Signer Group GUID
+        /// </summary>
+        /// <value>Signer Group GUID</value>
+        [DataMember(Name = "signer_group_guid", EmitDefaultValue = true)]
+        public string SignerGroupGuid { get; set; }
 
         /// <summary>
         /// The email address of the signer.
@@ -217,6 +226,7 @@ namespace HelloSign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SignatureRequestResponseSignatures {\n");
             sb.Append("  SignatureId: ").Append(SignatureId).Append("\n");
+            sb.Append("  SignerGroupGuid: ").Append(SignerGroupGuid).Append("\n");
             sb.Append("  SignerEmailAddress: ").Append(SignerEmailAddress).Append("\n");
             sb.Append("  SignerName: ").Append(SignerName).Append("\n");
             sb.Append("  SignerRole: ").Append(SignerRole).Append("\n");
@@ -273,6 +283,11 @@ namespace HelloSign.Model
                     this.SignatureId == input.SignatureId ||
                     (this.SignatureId != null &&
                     this.SignatureId.Equals(input.SignatureId))
+                ) && 
+                (
+                    this.SignerGroupGuid == input.SignerGroupGuid ||
+                    (this.SignerGroupGuid != null &&
+                    this.SignerGroupGuid.Equals(input.SignerGroupGuid))
                 ) && 
                 (
                     this.SignerEmailAddress == input.SignerEmailAddress ||
@@ -373,6 +388,10 @@ namespace HelloSign.Model
                 {
                     hashCode = (hashCode * 59) + this.SignatureId.GetHashCode();
                 }
+                if (this.SignerGroupGuid != null)
+                {
+                    hashCode = (hashCode * 59) + this.SignerGroupGuid.GetHashCode();
+                }
                 if (this.SignerEmailAddress != null)
                 {
                     hashCode = (hashCode * 59) + this.SignerEmailAddress.GetHashCode();
@@ -450,6 +469,12 @@ namespace HelloSign.Model
                 Property = "SignatureId",
                 Type = "string",
                 Value = SignatureId,
+            });
+            types.Add(new OpenApiType(){
+                Name = "signer_group_guid",
+                Property = "SignerGroupGuid",
+                Type = "string",
+                Value = SignerGroupGuid,
             });
             types.Add(new OpenApiType(){
                 Name = "signer_email_address",

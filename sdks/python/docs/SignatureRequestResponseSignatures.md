@@ -7,6 +7,7 @@ An array of signature objects, 1 for each signer.
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_id` | ```str``` |  Signature identifier.  |  |
+| `signer_group_guid` | ```str, none_type``` |  Signer Group GUID  |  |
 | `signer_email_address` | ```str``` |  The email address of the signer.  |  |
 | `signer_name` | ```str, none_type``` |  The name of the signer.  |  |
 | `signer_role` | ```str, none_type``` |  The role of the signer.  |  |

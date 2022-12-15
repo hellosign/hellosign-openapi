@@ -1,6 +1,7 @@
 import { AttributeTypeMap } from "./models";
 export declare class SignatureRequestResponseSignatures {
     "signatureId"?: string;
+    "signerGroupGuid"?: string | null;
     "signerEmailAddress"?: string;
     "signerName"?: string | null;
     "signerRole"?: string | null;
