@@ -95,6 +95,18 @@ printf "Running build ...\n"
 bash "${DIR}/bin/node" npm run build
 bash "${DIR}/bin/node" npm run build-types
 
+# avoid docker messing with permissions
+if [[ -z "$GITHUB_ACTIONS" ]]; then
+  chmod 644 "${DIR}/README.md"
+  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
+  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
+  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
+  find "${DIR}/api/" -type f -exec chmod 644 {} \;
+  find "${DIR}/dist/" -type f -exec chmod 644 {} \;
+  find "${DIR}/model/" -type f -exec chmod 644 {} \;
+  find "${DIR}/types/" -type f -exec chmod 644 {} \;
+fi
+
 printf "Running tests ...\n"
 bash "${DIR}/bin/node" npm run test
 
