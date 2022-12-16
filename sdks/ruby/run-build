@@ -38,6 +38,15 @@ docker run --rm \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
 
+# avoid docker messing with permissions
+if [[ -z "$GITHUB_ACTIONS" ]]; then
+  chmod 644 "${DIR}/README.md"
+  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
+  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
+  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
+  find "${DIR}/lib/" -type f -exec chmod 644 {} \;
+fi
+
 printf "Running tests ...\n"
 bash "${DIR}/bin/ruby" bundle exec rspec
 
