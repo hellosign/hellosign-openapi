@@ -10,11 +10,11 @@
       "signers": [
         {
           "email_address": "jack@example.com",
-          "name": "Jack",
+          "name": "Jack"
         },
         {
           "email_address": "jill@example.com",
-          "name": "Jill",
+          "name": "Jill"
         }
       ]
     },
@@ -24,11 +24,11 @@
       "signers": [
         {
           "email_address": "bob@example.com",
-          "name": "Bob",
+          "name": "Bob"
         },
         {
           "email_address": "charlie@example.com",
-          "name": "Charlie",
+          "name": "Charlie"
         }
       ]
     }
