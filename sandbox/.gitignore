@@ -23,3 +23,5 @@ python/*
 ruby/*
 !ruby/Example.rb
 !ruby/Gemfile
+
+!**/pdf-sample.pdf
