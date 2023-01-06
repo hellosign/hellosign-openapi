@@ -105,6 +105,7 @@ docs/SubFormFieldsPerDocumentTypeEnum.md
 docs/SubMergeField.md
 docs/SubOAuth.md
 docs/SubOptions.md
+docs/SubSignatureRequestGroupedSigners.md
 docs/SubSignatureRequestSigner.md
 docs/SubSignatureRequestTemplateSigner.md
 docs/SubSigningOptions.md
@@ -286,6 +287,7 @@ src/HelloSign/Model/SubFormFieldsPerDocumentTypeEnum.cs
 src/HelloSign/Model/SubMergeField.cs
 src/HelloSign/Model/SubOAuth.cs
 src/HelloSign/Model/SubOptions.cs
+src/HelloSign/Model/SubSignatureRequestGroupedSigners.cs
 src/HelloSign/Model/SubSignatureRequestSigner.cs
 src/HelloSign/Model/SubSignatureRequestTemplateSigner.cs
 src/HelloSign/Model/SubSigningOptions.cs

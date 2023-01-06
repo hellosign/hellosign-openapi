@@ -96,6 +96,7 @@ export * from "./subFormFieldsPerDocumentTypeEnum";
 export * from "./subMergeField";
 export * from "./subOAuth";
 export * from "./subOptions";
+export * from "./subSignatureRequestGroupedSigners";
 export * from "./subSignatureRequestSigner";
 export * from "./subSignatureRequestTemplateSigner";
 export * from "./subSigningOptions";

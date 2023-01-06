@@ -29,6 +29,7 @@ import { SubFieldOptions } from "./subFieldOptions";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
 import { SubFormFieldRule } from "./subFormFieldRule";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
+import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSigningOptions } from "./subSigningOptions";
 
@@ -41,10 +42,6 @@ export class SignatureRequestCreateEmbeddedRequest {
    */
   "clientId": string;
   /**
-   * Add Signers to your Signature Request.
-   */
-  "signers": Array<SubSignatureRequestSigner>;
-  /**
    * Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
   "files"?: Array<RequestFile>;
@@ -52,6 +49,14 @@ export class SignatureRequestCreateEmbeddedRequest {
    * Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
    */
   "fileUrls"?: Array<string>;
+  /**
+   * Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   */
+  "signers"?: Array<SubSignatureRequestSigner>;
+  /**
+   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   */
+  "groupedSigners"?: Array<SubSignatureRequestGroupedSigners>;
   /**
    * Allows signers to decline to sign a document if `true`. Defaults to `false`.
    */
@@ -132,11 +137,6 @@ export class SignatureRequestCreateEmbeddedRequest {
       type: "string",
     },
     {
-      name: "signers",
-      baseName: "signers",
-      type: "Array<SubSignatureRequestSigner>",
-    },
-    {
       name: "files",
       baseName: "files",
       type: "Array<RequestFile>",
@@ -145,6 +145,16 @@ export class SignatureRequestCreateEmbeddedRequest {
       name: "fileUrls",
       baseName: "file_urls",
       type: "Array<string>",
+    },
+    {
+      name: "signers",
+      baseName: "signers",
+      type: "Array<SubSignatureRequestSigner>",
+    },
+    {
+      name: "groupedSigners",
+      baseName: "grouped_signers",
+      type: "Array<SubSignatureRequestGroupedSigners>",
     },
     {
       name: "allowDecline",

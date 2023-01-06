@@ -946,11 +946,21 @@
 "Sub::FormFieldsPerDocument::X": Location coordinates of the field in pixels.
 "Sub::FormFieldsPerDocument::Y": Location coordinates of the field in pixels.
 
+"Sub::SignatureRequestGroupedSigners::DESCRIPTION": |-
+  Add Grouped Signers to your Signature Request.
+
+  This endpoint requires either **signers** or **grouped_signers**, but not both.
+"Sub::SignatureRequestGroupedSigners::GROUP_NAME": The name of the group.
+"Sub::SignatureRequestGroupedSigners::ORDER": The order the group is required to sign in. Use this instead of Signer-level `order`.
+"Sub::SignatureRequestGroupedSigners::SIGNERS": |-
+  Signers belonging to this Group.
+  
+  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+
 "Sub::MergeField::NAME": The name of the merge field. Must be unique.
 "Sub::MergeField::TYPE": The type of merge field.
 "Sub::MergeField::EnumDescriptions::TEXT": Sets merge [field type](/api/reference/constants/#field-types) to `text`.
 "Sub::MergeField::EnumDescriptions::CHECKBOX": Sets merge [field type](/api/reference/constants/#field-types) to `checkbox`.
-
 
 "Sub::Metadata::DESCRIPTION": |-
   Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
@@ -964,7 +974,10 @@
 "Sub::Options::CAN_INSERT_EVERYWHERE": Determines if signers can use "Insert Everywhere" when signing a document.
 "Sub::Options::DESCRIPTION": Additional options supported by API App.
 
-"Sub::SignatureRequestSigner::DESCRIPTION": Add Signers to your Signature Request.
+"Sub::SignatureRequestSigner::DESCRIPTION": |-
+  Add Signers to your Signature Request.
+
+  This endpoint requires either **signers** or **grouped_signers**, but not both.
 "Sub::SignatureRequestSigner::SIGNER_EMAIL_ADDRESS": The email address of the signer.
 "Sub::SignatureRequestSigner::SIGNER_NAME": The name of the signer.
 "Sub::SignatureRequestSigner::SIGNER_ORDER": The order the signer is required to sign in.

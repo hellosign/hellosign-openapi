@@ -105,6 +105,7 @@ from hellosign_sdk.model.sub_form_fields_per_document_type_enum import SubFormFi
 from hellosign_sdk.model.sub_merge_field import SubMergeField
 from hellosign_sdk.model.sub_o_auth import SubOAuth
 from hellosign_sdk.model.sub_options import SubOptions
+from hellosign_sdk.model.sub_signature_request_grouped_signers import SubSignatureRequestGroupedSigners
 from hellosign_sdk.model.sub_signature_request_signer import SubSignatureRequestSigner
 from hellosign_sdk.model.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
 from hellosign_sdk.model.sub_signing_options import SubSigningOptions

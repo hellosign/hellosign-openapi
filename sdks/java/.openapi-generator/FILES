@@ -106,6 +106,7 @@ docs/SubFormFieldsPerDocumentTypeEnum.md
 docs/SubMergeField.md
 docs/SubOAuth.md
 docs/SubOptions.md
+docs/SubSignatureRequestGroupedSigners.md
 docs/SubSignatureRequestSigner.md
 docs/SubSignatureRequestTemplateSigner.md
 docs/SubSigningOptions.md
@@ -294,6 +295,7 @@ src/main/java/com/hellosign/openapi/model/SubFormFieldsPerDocumentTypeEnum.java
 src/main/java/com/hellosign/openapi/model/SubMergeField.java
 src/main/java/com/hellosign/openapi/model/SubOAuth.java
 src/main/java/com/hellosign/openapi/model/SubOptions.java
+src/main/java/com/hellosign/openapi/model/SubSignatureRequestGroupedSigners.java
 src/main/java/com/hellosign/openapi/model/SubSignatureRequestSigner.java
 src/main/java/com/hellosign/openapi/model/SubSignatureRequestTemplateSigner.java
 src/main/java/com/hellosign/openapi/model/SubSigningOptions.java

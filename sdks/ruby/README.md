@@ -266,6 +266,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [HelloSign::SubMergeField](docs/SubMergeField.md)
  - [HelloSign::SubOAuth](docs/SubOAuth.md)
  - [HelloSign::SubOptions](docs/SubOptions.md)
+ - [HelloSign::SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [HelloSign::SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [HelloSign::SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
  - [HelloSign::SubSigningOptions](docs/SubSigningOptions.md)

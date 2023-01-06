@@ -37,6 +37,7 @@ def lazy_import():
     from hellosign_sdk.model.sub_form_field_group import SubFormFieldGroup
     from hellosign_sdk.model.sub_form_field_rule import SubFormFieldRule
     from hellosign_sdk.model.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
+    from hellosign_sdk.model.sub_signature_request_grouped_signers import SubSignatureRequestGroupedSigners
     from hellosign_sdk.model.sub_signature_request_signer import SubSignatureRequestSigner
     from hellosign_sdk.model.sub_signing_options import SubSigningOptions
     globals()['SubAttachment'] = SubAttachment
@@ -45,6 +46,7 @@ def lazy_import():
     globals()['SubFormFieldGroup'] = SubFormFieldGroup
     globals()['SubFormFieldRule'] = SubFormFieldRule
     globals()['SubFormFieldsPerDocumentBase'] = SubFormFieldsPerDocumentBase
+    globals()['SubSignatureRequestGroupedSigners'] = SubSignatureRequestGroupedSigners
     globals()['SubSignatureRequestSigner'] = SubSignatureRequestSigner
     globals()['SubSigningOptions'] = SubSigningOptions
 
@@ -114,9 +116,10 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
         lazy_import()
         return {
             'client_id': (str,),  # noqa: E501
-            'signers': ([SubSignatureRequestSigner],),  # noqa: E501
             'files': ([file_type],),  # noqa: E501
             'file_urls': ([str],),  # noqa: E501
+            'signers': ([SubSignatureRequestSigner],),  # noqa: E501
+            'grouped_signers': ([SubSignatureRequestGroupedSigners],),  # noqa: E501
             'allow_decline': (bool,),  # noqa: E501
             'allow_reassign': (bool,),  # noqa: E501
             'attachments': ([SubAttachment],),  # noqa: E501
@@ -145,9 +148,10 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
 
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
-        'signers': 'signers',  # noqa: E501
         'files': 'files',  # noqa: E501
         'file_urls': 'file_urls',  # noqa: E501
+        'signers': 'signers',  # noqa: E501
+        'grouped_signers': 'grouped_signers',  # noqa: E501
         'allow_decline': 'allow_decline',  # noqa: E501
         'allow_reassign': 'allow_reassign',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
@@ -176,12 +180,11 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, client_id, signers, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, client_id, *args, **kwargs):  # noqa: E501
         """SignatureRequestCreateEmbeddedRequest - a model defined in OpenAPI
 
         Args:
             client_id (str): Client id of the app you're using to create this embedded signature request. Used for security purposes.
-            signers ([SubSignatureRequestSigner]): Add Signers to your Signature Request.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -216,6 +219,8 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
+            signers ([SubSignatureRequestSigner]): Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.. [optional]  # noqa: E501
+            grouped_signers ([SubSignatureRequestGroupedSigners]): Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.. [optional]  # noqa: E501
             allow_decline (bool): Allows signers to decline to sign a document if `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
@@ -263,7 +268,6 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.client_id = client_id
-        self.signers = signers
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -284,12 +288,11 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, client_id, signers, *args, **kwargs):  # noqa: E501
+    def __init__(self, client_id, *args, **kwargs):  # noqa: E501
         """SignatureRequestCreateEmbeddedRequest - a model defined in OpenAPI
 
         Args:
             client_id (str): Client id of the app you're using to create this embedded signature request. Used for security purposes.
-            signers ([SubSignatureRequestSigner]): Add Signers to your Signature Request.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -324,6 +327,8 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
+            signers ([SubSignatureRequestSigner]): Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.. [optional]  # noqa: E501
+            grouped_signers ([SubSignatureRequestGroupedSigners]): Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.. [optional]  # noqa: E501
             allow_decline (bool): Allows signers to decline to sign a document if `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
@@ -369,7 +374,6 @@ class SignatureRequestCreateEmbeddedRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.client_id = client_id
-        self.signers = signers
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

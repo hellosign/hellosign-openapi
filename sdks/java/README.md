@@ -326,6 +326,7 @@ Class | Method | HTTP request | Description
  - [SubMergeField](docs/SubMergeField.md)
  - [SubOAuth](docs/SubOAuth.md)
  - [SubOptions](docs/SubOptions.md)
+ - [SubSignatureRequestGroupedSigners](docs/SubSignatureRequestGroupedSigners.md)
  - [SubSignatureRequestSigner](docs/SubSignatureRequestSigner.md)
  - [SubSignatureRequestTemplateSigner](docs/SubSignatureRequestTemplateSigner.md)
  - [SubSigningOptions](docs/SubSigningOptions.md)

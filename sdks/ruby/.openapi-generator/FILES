@@ -108,6 +108,7 @@ docs/SubFormFieldsPerDocumentTypeEnum.md
 docs/SubMergeField.md
 docs/SubOAuth.md
 docs/SubOptions.md
+docs/SubSignatureRequestGroupedSigners.md
 docs/SubSignatureRequestSigner.md
 docs/SubSignatureRequestTemplateSigner.md
 docs/SubSigningOptions.md
@@ -276,6 +277,7 @@ lib/hellosign-ruby-sdk/models/sub_form_fields_per_document_type_enum.rb
 lib/hellosign-ruby-sdk/models/sub_merge_field.rb
 lib/hellosign-ruby-sdk/models/sub_o_auth.rb
 lib/hellosign-ruby-sdk/models/sub_options.rb
+lib/hellosign-ruby-sdk/models/sub_signature_request_grouped_signers.rb
 lib/hellosign-ruby-sdk/models/sub_signature_request_signer.rb
 lib/hellosign-ruby-sdk/models/sub_signature_request_template_signer.rb
 lib/hellosign-ruby-sdk/models/sub_signing_options.rb
