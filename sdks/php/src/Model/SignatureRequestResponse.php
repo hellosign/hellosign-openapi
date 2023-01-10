@@ -577,7 +577,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at the time when the signature request will expire pending signatures
+     * @param int|null $expires_at The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
      *
      * @return self
      */

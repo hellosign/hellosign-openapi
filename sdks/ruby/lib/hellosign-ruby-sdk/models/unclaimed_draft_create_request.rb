@@ -82,7 +82,7 @@ module HelloSign
     # Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
     attr_accessor :use_text_tags
 
-    # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.  **Note** This does not correspond to the **expires_at** returned in the response.
+    # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **Note**: This does not correspond to the **expires_at** returned in the response.
     attr_accessor :expires_at
 
     class EnumAttributeValidator

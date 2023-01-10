@@ -240,7 +240,7 @@ class SignatureRequestSendRequest(ModelNormal):
             test_mode (bool): Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             title (str): The title you want to assign to the SignatureRequest.. [optional]  # noqa: E501
             use_text_tags (bool): Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            expires_at (int, none_type): When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.. [optional]  # noqa: E501
+            expires_at (int, none_type): When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -346,7 +346,7 @@ class SignatureRequestSendRequest(ModelNormal):
             test_mode (bool): Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             title (str): The title you want to assign to the SignatureRequest.. [optional]  # noqa: E501
             use_text_tags (bool): Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            expires_at (int, none_type): When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.. [optional]  # noqa: E501
+            expires_at (int, none_type): When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -69,7 +69,7 @@ export class SignatureRequestResponse {
    */
   "createdAt"?: number;
   /**
-   * The time when the signature request will expire pending signatures.
+   * The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
   "expiresAt"?: number;
   /**

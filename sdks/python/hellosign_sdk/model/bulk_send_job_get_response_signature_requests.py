@@ -202,7 +202,7 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
             message (str, none_type): The custom message in the email that was initially sent to the signers.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The metadata attached to the signature request.. [optional]  # noqa: E501
             created_at (int): Time the signature request was created.. [optional]  # noqa: E501
-            expires_at (int): The time when the signature request will expire pending signatures.. [optional]  # noqa: E501
+            expires_at (int): The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
             is_complete (bool): Whether or not the SignatureRequest has been fully executed by all signers.. [optional]  # noqa: E501
             is_declined (bool): Whether or not the SignatureRequest has been declined by a signer.. [optional]  # noqa: E501
             has_error (bool): Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).. [optional]  # noqa: E501
@@ -325,7 +325,7 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
             message (str, none_type): The custom message in the email that was initially sent to the signers.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The metadata attached to the signature request.. [optional]  # noqa: E501
             created_at (int): Time the signature request was created.. [optional]  # noqa: E501
-            expires_at (int): The time when the signature request will expire pending signatures.. [optional]  # noqa: E501
+            expires_at (int): The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
             is_complete (bool): Whether or not the SignatureRequest has been fully executed by all signers.. [optional]  # noqa: E501
             is_declined (bool): Whether or not the SignatureRequest has been declined by a signer.. [optional]  # noqa: E501
             has_error (bool): Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).. [optional]  # noqa: E501

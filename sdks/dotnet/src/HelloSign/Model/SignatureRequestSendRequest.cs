@@ -65,7 +65,7 @@ namespace HelloSign.Model
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
-        /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable..</param>
+        /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
         public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
         {
             
@@ -263,9 +263,9 @@ namespace HelloSign.Model
         public bool UseTextTags { get; set; }
 
         /// <summary>
-        /// When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+        /// When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
-        /// <value>When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.</value>
+        /// <value>When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
 

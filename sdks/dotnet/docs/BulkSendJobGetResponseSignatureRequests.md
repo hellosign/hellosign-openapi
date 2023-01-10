@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Message** | **string** |  The custom message in the email that was initially sent to the signers.  | [optional] 
 **Metadata** | **Object** |  The metadata attached to the signature request.  | [optional] 
 **CreatedAt** | **int** |  Time the signature request was created.  | [optional] 
-**ExpiresAt** | **int** |  The time when the signature request will expire pending signatures.  | [optional] 
+**ExpiresAt** | **int** |  The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  | [optional] 
 **IsComplete** | **bool** |  Whether or not the SignatureRequest has been fully executed by all signers.  | [optional] 
 **IsDeclined** | **bool** |  Whether or not the SignatureRequest has been declined by a signer.  | [optional] 
 **HasError** | **bool** |  Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).  | [optional] 

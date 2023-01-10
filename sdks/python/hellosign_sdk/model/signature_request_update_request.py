@@ -146,7 +146,7 @@ class SignatureRequestUpdateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             email_address (str): The new email address for the recipient.  **NOTE**: Optional if `name` is provided.. [optional]  # noqa: E501
             name (str): The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.. [optional]  # noqa: E501
-            expires_at (int, none_type): The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.. [optional]  # noqa: E501
+            expires_at (int, none_type): The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +234,7 @@ class SignatureRequestUpdateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             email_address (str): The new email address for the recipient.  **NOTE**: Optional if `name` is provided.. [optional]  # noqa: E501
             name (str): The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.. [optional]  # noqa: E501
-            expires_at (int, none_type): The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.. [optional]  # noqa: E501
+            expires_at (int, none_type): The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

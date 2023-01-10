@@ -6888,9 +6888,9 @@ components:
         expires_at:
           nullable: true
           description: |-
-            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-            **Note** This does not correspond to the **expires_at** returned in the response.
+            **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
           x-beta: closed
       type: object
@@ -7144,7 +7144,7 @@ components:
           default: false
         expires_at:
           nullable: true
-          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.'
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           x-beta: closed
       type: object
@@ -7259,7 +7259,7 @@ components:
           type: string
         expires_at:
           nullable: true
-          description: 'The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.'
+          description: 'The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           x-beta: closed
       type: object
@@ -8316,9 +8316,9 @@ components:
         expires_at:
           nullable: true
           description: |-
-            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-            **Note** This does not correspond to the **expires_at** returned in the response.
+            **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
           x-beta: closed
       type: object
@@ -8515,9 +8515,9 @@ components:
         expires_at:
           nullable: true
           description: |-
-            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-            **Note** This does not correspond to the **expires_at** returned in the response.
+            **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
           x-beta: closed
       type: object
@@ -9422,7 +9422,7 @@ components:
           description: 'Time the signature request was created.'
           type: integer
         expires_at:
-          description: 'The time when the signature request will expire pending signatures.'
+          description: 'The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           x-beta: closed
         is_complete:
