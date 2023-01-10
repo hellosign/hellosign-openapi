@@ -1986,6 +1986,8 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequestDefaultExample'
+              grouped_signers_example:
+                $ref: '#/components/examples/SignatureRequestCreateEmbeddedRequestGroupedSignersExample'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestCreateEmbeddedRequest'
@@ -3094,6 +3096,8 @@ paths:
             examples:
               default_example:
                 $ref: '#/components/examples/SignatureRequestSendRequestDefaultExample'
+              grouped_signers_example:
+                $ref: '#/components/examples/SignatureRequestSendRequestGroupedSignersExample'
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/SignatureRequestSendRequest'
@@ -6587,7 +6591,6 @@ components:
       description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
-        - signers
       properties:
         files:
           description: '_t__SignatureRequestCreateEmbedded::FILES'
@@ -6600,6 +6603,16 @@ components:
           type: array
           items:
             type: string
+        signers:
+          description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+        grouped_signers:
+          description: '_t__Sub::SignatureRequestGroupedSigners::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: '_t__SignatureRequestCreateEmbedded::ALLOW_DECLINE'
           type: boolean
@@ -6657,11 +6670,6 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
-        signers:
-          description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         subject:
@@ -6778,8 +6786,6 @@ components:
           type: string
       type: object
     SignatureRequestSendRequest:
-      required:
-        - signers
       properties:
         files:
           description: '_t__SignatureRequestSend::FILES'
@@ -6792,6 +6798,16 @@ components:
           type: array
           items:
             type: string
+        signers:
+          description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+        grouped_signers:
+          description: '_t__Sub::SignatureRequestGroupedSigners::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
         allow_decline:
           description: '_t__SignatureRequestSend::ALLOW_DECLINE'
           type: boolean
@@ -6853,11 +6869,6 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
-        signers:
-          description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/SubSignatureRequestSigner'
         signing_options:
           $ref: '#/components/schemas/SubSigningOptions'
         signing_redirect_url:
@@ -7243,6 +7254,24 @@ components:
           checkbox-merge: '#/components/schemas/SubFormFieldsPerDocumentCheckboxMerge'
       x-internal: true
       x-base-class: true
+    SubSignatureRequestGroupedSigners:
+      required:
+        - group
+        - signers
+      properties:
+        group:
+          description: '_t__Sub::SignatureRequestGroupedSigners::GROUP_NAME'
+          type: string
+        order:
+          nullable: true
+          description: '_t__Sub::SignatureRequestGroupedSigners::ORDER'
+          type: integer
+        signers:
+          description: '_t__Sub::SignatureRequestGroupedSigners::SIGNERS'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+      type: object
     SubMergeField:
       required:
         - name
@@ -9076,6 +9105,10 @@ components:
         signature_id:
           description: '_t__SignatureRequestResponseSignatures::SIGNATURE_ID'
           type: string
+        signer_group_guid:
+          nullable: true
+          description: '_t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID'
+          type: string
         signer_email_address:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS'
           type: string
@@ -9925,6 +9958,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedRequestDefaultExample.json
+    SignatureRequestCreateEmbeddedRequestGroupedSignersExample:
+      summary: 'Grouped Signers Example'
+      value:
+        $ref: examples/json/SignatureRequestCreateEmbeddedRequestGroupedSignersExample.json
     SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -9937,6 +9974,10 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestSendRequestDefaultExample.json
+    SignatureRequestSendRequestGroupedSignersExample:
+      summary: 'Grouped Signers Example'
+      value:
+        $ref: examples/json/SignatureRequestSendRequestGroupedSignersExample.json
     SignatureRequestSendWithTemplateRequestDefaultExample:
       summary: 'Default Example'
       value:

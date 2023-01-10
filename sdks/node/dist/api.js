@@ -18346,6 +18346,7 @@ __export(api_exports, {
   SubMergeField: () => SubMergeField,
   SubOAuth: () => SubOAuth,
   SubOptions: () => SubOptions,
+  SubSignatureRequestGroupedSigners: () => SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: () => SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: () => SubSignatureRequestTemplateSigner,
   SubSigningOptions: () => SubSigningOptions,
@@ -20018,11 +20019,6 @@ SignatureRequestCreateEmbeddedRequest.attributeTypeMap = [
     type: "string"
   },
   {
-    name: "signers",
-    baseName: "signers",
-    type: "Array<SubSignatureRequestSigner>"
-  },
-  {
     name: "files",
     baseName: "files",
     type: "Array<RequestFile>"
@@ -20031,6 +20027,16 @@ SignatureRequestCreateEmbeddedRequest.attributeTypeMap = [
     name: "fileUrls",
     baseName: "file_urls",
     type: "Array<string>"
+  },
+  {
+    name: "signers",
+    baseName: "signers",
+    type: "Array<SubSignatureRequestSigner>"
+  },
+  {
+    name: "groupedSigners",
+    baseName: "grouped_signers",
+    type: "Array<SubSignatureRequestGroupedSigners>"
   },
   {
     name: "allowDecline",
@@ -20886,6 +20892,11 @@ SignatureRequestResponseSignatures.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "signerGroupGuid",
+    baseName: "signer_group_guid",
+    type: "string"
+  },
+  {
     name: "signerEmailAddress",
     baseName: "signer_email_address",
     type: "string"
@@ -20990,11 +21001,6 @@ var SignatureRequestSendRequest = _SignatureRequestSendRequest;
 SignatureRequestSendRequest.discriminator = void 0;
 SignatureRequestSendRequest.attributeTypeMap = [
   {
-    name: "signers",
-    baseName: "signers",
-    type: "Array<SubSignatureRequestSigner>"
-  },
-  {
     name: "files",
     baseName: "files",
     type: "Array<RequestFile>"
@@ -21003,6 +21009,16 @@ SignatureRequestSendRequest.attributeTypeMap = [
     name: "fileUrls",
     baseName: "file_urls",
     type: "Array<string>"
+  },
+  {
+    name: "signers",
+    baseName: "signers",
+    type: "Array<SubSignatureRequestSigner>"
+  },
+  {
+    name: "groupedSigners",
+    baseName: "grouped_signers",
+    type: "Array<SubSignatureRequestGroupedSigners>"
   },
   {
     name: "allowDecline",
@@ -22045,6 +22061,32 @@ SubOptions.attributeTypeMap = [
     name: "canInsertEverywhere",
     baseName: "can_insert_everywhere",
     type: "boolean"
+  }
+];
+
+// model/subSignatureRequestGroupedSigners.ts
+var _SubSignatureRequestGroupedSigners = class {
+  static getAttributeTypeMap() {
+    return _SubSignatureRequestGroupedSigners.attributeTypeMap;
+  }
+};
+var SubSignatureRequestGroupedSigners = _SubSignatureRequestGroupedSigners;
+SubSignatureRequestGroupedSigners.discriminator = void 0;
+SubSignatureRequestGroupedSigners.attributeTypeMap = [
+  {
+    name: "group",
+    baseName: "group",
+    type: "string"
+  },
+  {
+    name: "signers",
+    baseName: "signers",
+    type: "Array<SubSignatureRequestSigner>"
+  },
+  {
+    name: "order",
+    baseName: "order",
+    type: "number"
   }
 ];
 
@@ -24688,6 +24730,7 @@ var typeMap = {
   SubMergeField,
   SubOAuth,
   SubOptions,
+  SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
   SubSigningOptions,
@@ -31639,6 +31682,7 @@ var shouldJsonify = (val) => val === Object(val);
   SubMergeField,
   SubOAuth,
   SubOptions,
+  SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner,
   SubSigningOptions,

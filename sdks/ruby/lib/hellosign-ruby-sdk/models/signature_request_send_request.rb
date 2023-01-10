@@ -15,14 +15,17 @@ require 'time'
 
 module HelloSign
   class SignatureRequestSendRequest
-    # Add Signers to your Signature Request.
-    attr_accessor :signers
-
     # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
     attr_accessor :files
 
     # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
     attr_accessor :file_urls
+
+    # Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+    attr_accessor :signers
+
+    # Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+    attr_accessor :grouped_signers
 
     # Allows signers to decline to sign a document if `true`. Defaults to `false`.
     attr_accessor :allow_decline
@@ -88,9 +91,10 @@ module HelloSign
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'signers' => :'signers',
         :'files' => :'files',
         :'file_urls' => :'file_urls',
+        :'signers' => :'signers',
+        :'grouped_signers' => :'grouped_signers',
         :'allow_decline' => :'allow_decline',
         :'allow_reassign' => :'allow_reassign',
         :'attachments' => :'attachments',
@@ -128,9 +132,10 @@ module HelloSign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'signers' => :'Array<SubSignatureRequestSigner>',
         :'files' => :'Array<File>',
         :'file_urls' => :'Array<String>',
+        :'signers' => :'Array<SubSignatureRequestSigner>',
+        :'grouped_signers' => :'Array<SubSignatureRequestGroupedSigners>',
         :'allow_decline' => :'Boolean',
         :'allow_reassign' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
@@ -187,12 +192,6 @@ module HelloSign
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'signers')
-        if (value = attributes[:'signers']).is_a?(Array)
-          self.signers = value
-        end
-      end
-
       if attributes.key?(:'files')
         if (value = attributes[:'files']).is_a?(Array)
           self.files = value
@@ -202,6 +201,18 @@ module HelloSign
       if attributes.key?(:'file_urls')
         if (value = attributes[:'file_urls']).is_a?(Array)
           self.file_urls = value
+        end
+      end
+
+      if attributes.key?(:'signers')
+        if (value = attributes[:'signers']).is_a?(Array)
+          self.signers = value
+        end
+      end
+
+      if attributes.key?(:'grouped_signers')
+        if (value = attributes[:'grouped_signers']).is_a?(Array)
+          self.grouped_signers = value
         end
       end
 
@@ -320,10 +331,6 @@ module HelloSign
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @signers.nil?
-        invalid_properties.push('invalid value for "signers", signers cannot be nil.')
-      end
-
       if !@message.nil? && @message.to_s.length > 5000
         invalid_properties.push('invalid value for "message", the character length must be smaller than or equal to 5000.')
       end
@@ -342,7 +349,6 @@ module HelloSign
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @signers.nil?
       return false if !@message.nil? && @message.to_s.length > 5000
       return false if !@subject.nil? && @subject.to_s.length > 255
       return false if !@title.nil? && @title.to_s.length > 255
@@ -390,9 +396,10 @@ module HelloSign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          signers == o.signers &&
           files == o.files &&
           file_urls == o.file_urls &&
+          signers == o.signers &&
+          grouped_signers == o.grouped_signers &&
           allow_decline == o.allow_decline &&
           allow_reassign == o.allow_reassign &&
           attachments == o.attachments &&
@@ -425,7 +432,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [signers, files, file_urls, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
+      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
     end
 
     # Builds the object from hash

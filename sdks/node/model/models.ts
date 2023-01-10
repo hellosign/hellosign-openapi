@@ -96,6 +96,7 @@ export * from "./subFormFieldsPerDocumentTypeEnum";
 export * from "./subMergeField";
 export * from "./subOAuth";
 export * from "./subOptions";
+export * from "./subSignatureRequestGroupedSigners";
 export * from "./subSignatureRequestSigner";
 export * from "./subSignatureRequestTemplateSigner";
 export * from "./subSigningOptions";
@@ -267,6 +268,7 @@ import { SubFormFieldsPerDocumentTypeEnum } from "./subFormFieldsPerDocumentType
 import { SubMergeField } from "./subMergeField";
 import { SubOAuth } from "./subOAuth";
 import { SubOptions } from "./subOptions";
+import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedSigners";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
 import { SubSigningOptions } from "./subSigningOptions";
@@ -478,6 +480,7 @@ let typeMap: { [index: string]: any } = {
   SubMergeField: SubMergeField,
   SubOAuth: SubOAuth,
   SubOptions: SubOptions,
+  SubSignatureRequestGroupedSigners: SubSignatureRequestGroupedSigners,
   SubSignatureRequestSigner: SubSignatureRequestSigner,
   SubSignatureRequestTemplateSigner: SubSignatureRequestTemplateSigner,
   SubSigningOptions: SubSigningOptions,

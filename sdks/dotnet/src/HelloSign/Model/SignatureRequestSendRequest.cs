@@ -43,6 +43,8 @@ namespace HelloSign.Model
         /// </summary>
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
+        /// <param name="signers">Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
+        /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
@@ -57,7 +59,6 @@ namespace HelloSign.Model
         /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
         /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
-        /// <param name="signers">Add Signers to your Signature Request. (required).</param>
         /// <param name="signingOptions">signingOptions.</param>
         /// <param name="signingRedirectUrl">The URL you want signers redirected to after they successfully sign..</param>
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
@@ -65,17 +66,13 @@ namespace HelloSign.Model
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable..</param>
-        public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
+        public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
         {
             
-            // to ensure "signers" is required (not null)
-            if (signers == null)
-            {
-                throw new ArgumentNullException("signers is a required property for SignatureRequestSendRequest and cannot be null");
-            }
-            this.Signers = signers;
             this.Files = files;
             this.FileUrls = fileUrls;
+            this.Signers = signers;
+            this.GroupedSigners = groupedSigners;
             this.AllowDecline = allowDecline;
             this.AllowReassign = allowReassign;
             this.Attachments = attachments;
@@ -100,13 +97,6 @@ namespace HelloSign.Model
         }
 
         /// <summary>
-        /// Add Signers to your Signature Request.
-        /// </summary>
-        /// <value>Add Signers to your Signature Request.</value>
-        [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
-        public List<SubSignatureRequestSigner> Signers { get; set; }
-
-        /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
         /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
@@ -119,6 +109,20 @@ namespace HelloSign.Model
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
+
+        /// <summary>
+        /// Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+        /// </summary>
+        /// <value>Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.</value>
+        [DataMember(Name = "signers", EmitDefaultValue = true)]
+        public List<SubSignatureRequestSigner> Signers { get; set; }
+
+        /// <summary>
+        /// Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+        /// </summary>
+        /// <value>Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.</value>
+        [DataMember(Name = "grouped_signers", EmitDefaultValue = true)]
+        public List<SubSignatureRequestGroupedSigners> GroupedSigners { get; set; }
 
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
@@ -273,9 +277,10 @@ namespace HelloSign.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SignatureRequestSendRequest {\n");
-            sb.Append("  Signers: ").Append(Signers).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
+            sb.Append("  Signers: ").Append(Signers).Append("\n");
+            sb.Append("  GroupedSigners: ").Append(GroupedSigners).Append("\n");
             sb.Append("  AllowDecline: ").Append(AllowDecline).Append("\n");
             sb.Append("  AllowReassign: ").Append(AllowReassign).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
@@ -333,12 +338,6 @@ namespace HelloSign.Model
             }
             return 
                 (
-                    this.Signers == input.Signers ||
-                    this.Signers != null &&
-                    input.Signers != null &&
-                    this.Signers.SequenceEqual(input.Signers)
-                ) && 
-                (
                     this.Files == input.Files ||
                     this.Files != null &&
                     input.Files != null &&
@@ -349,6 +348,18 @@ namespace HelloSign.Model
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
+                ) && 
+                (
+                    this.Signers == input.Signers ||
+                    this.Signers != null &&
+                    input.Signers != null &&
+                    this.Signers.SequenceEqual(input.Signers)
+                ) && 
+                (
+                    this.GroupedSigners == input.GroupedSigners ||
+                    this.GroupedSigners != null &&
+                    input.GroupedSigners != null &&
+                    this.GroupedSigners.SequenceEqual(input.GroupedSigners)
                 ) && 
                 (
                     this.AllowDecline == input.AllowDecline ||
@@ -467,10 +478,6 @@ namespace HelloSign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Signers != null)
-                {
-                    hashCode = (hashCode * 59) + this.Signers.GetHashCode();
-                }
                 if (this.Files != null)
                 {
                     hashCode = (hashCode * 59) + this.Files.GetHashCode();
@@ -478,6 +485,14 @@ namespace HelloSign.Model
                 if (this.FileUrls != null)
                 {
                     hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
+                }
+                if (this.Signers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Signers.GetHashCode();
+                }
+                if (this.GroupedSigners != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupedSigners.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.AllowDecline.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowReassign.GetHashCode();
@@ -553,12 +568,6 @@ namespace HelloSign.Model
         {
             var types = new List<OpenApiType>();
             types.Add(new OpenApiType(){
-                Name = "signers",
-                Property = "Signers",
-                Type = "List<SubSignatureRequestSigner>",
-                Value = Signers,
-            });
-            types.Add(new OpenApiType(){
                 Name = "files",
                 Property = "Files",
                 Type = "List<System.IO.Stream>",
@@ -569,6 +578,18 @@ namespace HelloSign.Model
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
+            });
+            types.Add(new OpenApiType(){
+                Name = "signers",
+                Property = "Signers",
+                Type = "List<SubSignatureRequestSigner>",
+                Value = Signers,
+            });
+            types.Add(new OpenApiType(){
+                Name = "grouped_signers",
+                Property = "GroupedSigners",
+                Type = "List<SubSignatureRequestGroupedSigners>",
+                Value = GroupedSigners,
             });
             types.Add(new OpenApiType(){
                 Name = "allow_decline",

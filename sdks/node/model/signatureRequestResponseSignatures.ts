@@ -33,6 +33,10 @@ export class SignatureRequestResponseSignatures {
    */
   "signatureId"?: string;
   /**
+   * Signer Group GUID
+   */
+  "signerGroupGuid"?: string | null;
+  /**
    * The email address of the signer.
    */
   "signerEmailAddress"?: string;
@@ -107,6 +111,11 @@ export class SignatureRequestResponseSignatures {
     {
       name: "signatureId",
       baseName: "signature_id",
+      type: "string",
+    },
+    {
+      name: "signerGroupGuid",
+      baseName: "signer_group_guid",
       type: "string",
     },
     {

@@ -19,6 +19,9 @@ module HelloSign
     # Signature identifier.
     attr_accessor :signature_id
 
+    # Signer Group GUID
+    attr_accessor :signer_group_guid
+
     # The email address of the signer.
     attr_accessor :signer_email_address
 
@@ -74,6 +77,7 @@ module HelloSign
     def self.attribute_map
       {
         :'signature_id' => :'signature_id',
+        :'signer_group_guid' => :'signer_group_guid',
         :'signer_email_address' => :'signer_email_address',
         :'signer_name' => :'signer_name',
         :'signer_role' => :'signer_role',
@@ -108,6 +112,7 @@ module HelloSign
     def self.openapi_types
       {
         :'signature_id' => :'String',
+        :'signer_group_guid' => :'String',
         :'signer_email_address' => :'String',
         :'signer_name' => :'String',
         :'signer_role' => :'String',
@@ -136,6 +141,7 @@ module HelloSign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'signer_group_guid',
         :'signer_name',
         :'signer_role',
         :'order',
@@ -175,6 +181,10 @@ module HelloSign
 
       if attributes.key?(:'signature_id')
         self.signature_id = attributes[:'signature_id']
+      end
+
+      if attributes.key?(:'signer_group_guid')
+        self.signer_group_guid = attributes[:'signer_group_guid']
       end
 
       if attributes.key?(:'signer_email_address')
@@ -265,6 +275,7 @@ module HelloSign
       return true if self.equal?(o)
       self.class == o.class &&
           signature_id == o.signature_id &&
+          signer_group_guid == o.signer_group_guid &&
           signer_email_address == o.signer_email_address &&
           signer_name == o.signer_name &&
           signer_role == o.signer_role &&
@@ -293,7 +304,7 @@ module HelloSign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [signature_id, signer_email_address, signer_name, signer_role, order, status_code, decline_reason, signed_at, last_viewed_at, last_reminded_at, has_pin, has_sms_auth, has_sms_delivery, sms_phone_number, reassigned_by, reassignment_reason, reassigned_from, error].hash
+      [signature_id, signer_group_guid, signer_email_address, signer_name, signer_role, order, status_code, decline_reason, signed_at, last_viewed_at, last_reminded_at, has_pin, has_sms_auth, has_sms_delivery, sms_phone_number, reassigned_by, reassignment_reason, reassigned_from, error].hash
     end
 
     # Builds the object from hash

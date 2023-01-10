@@ -304,6 +304,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubMergeField](docs/Model/SubMergeField.md)
 - [SubOAuth](docs/Model/SubOAuth.md)
 - [SubOptions](docs/Model/SubOptions.md)
+- [SubSignatureRequestGroupedSigners](docs/Model/SubSignatureRequestGroupedSigners.md)
 - [SubSignatureRequestSigner](docs/Model/SubSignatureRequestSigner.md)
 - [SubSignatureRequestTemplateSigner](docs/Model/SubSignatureRequestTemplateSigner.md)
 - [SubSigningOptions](docs/Model/SubSigningOptions.md)

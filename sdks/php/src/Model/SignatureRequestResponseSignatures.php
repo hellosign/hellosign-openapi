@@ -62,6 +62,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      */
     protected static $openAPITypes = [
         'signature_id' => 'string',
+        'signer_group_guid' => 'string',
         'signer_email_address' => 'string',
         'signer_name' => 'string',
         'signer_role' => 'string',
@@ -90,6 +91,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      */
     protected static $openAPIFormats = [
         'signature_id' => null,
+        'signer_group_guid' => null,
         'signer_email_address' => null,
         'signer_name' => null,
         'signer_role' => null,
@@ -137,6 +139,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'signature_id' => 'signature_id',
+        'signer_group_guid' => 'signer_group_guid',
         'signer_email_address' => 'signer_email_address',
         'signer_name' => 'signer_name',
         'signer_role' => 'signer_role',
@@ -163,6 +166,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'signature_id' => 'setSignatureId',
+        'signer_group_guid' => 'setSignerGroupGuid',
         'signer_email_address' => 'setSignerEmailAddress',
         'signer_name' => 'setSignerName',
         'signer_role' => 'setSignerRole',
@@ -189,6 +193,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'signature_id' => 'getSignatureId',
+        'signer_group_guid' => 'getSignerGroupGuid',
         'signer_email_address' => 'getSignerEmailAddress',
         'signer_name' => 'getSignerName',
         'signer_role' => 'getSignerRole',
@@ -265,6 +270,7 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     public function __construct(array $data = null)
     {
         $this->container['signature_id'] = $data['signature_id'] ?? null;
+        $this->container['signer_group_guid'] = $data['signer_group_guid'] ?? null;
         $this->container['signer_email_address'] = $data['signer_email_address'] ?? null;
         $this->container['signer_name'] = $data['signer_name'] ?? null;
         $this->container['signer_role'] = $data['signer_role'] ?? null;
@@ -338,6 +344,30 @@ class SignatureRequestResponseSignatures implements ModelInterface, ArrayAccess,
     public function setSignatureId(?string $signature_id)
     {
         $this->container['signature_id'] = $signature_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets signer_group_guid
+     *
+     * @return string|null
+     */
+    public function getSignerGroupGuid()
+    {
+        return $this->container['signer_group_guid'];
+    }
+
+    /**
+     * Sets signer_group_guid
+     *
+     * @param string|null $signer_group_guid Signer Group GUID
+     *
+     * @return self
+     */
+    public function setSignerGroupGuid(?string $signer_group_guid)
+    {
+        $this->container['signer_group_guid'] = $signer_group_guid;
 
         return $this;
     }

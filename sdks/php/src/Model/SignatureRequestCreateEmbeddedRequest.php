@@ -63,9 +63,10 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      */
     protected static $openAPITypes = [
         'client_id' => 'string',
-        'signers' => '\HelloSignSDK\Model\SubSignatureRequestSigner[]',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
+        'signers' => '\HelloSignSDK\Model\SubSignatureRequestSigner[]',
+        'grouped_signers' => '\HelloSignSDK\Model\SubSignatureRequestGroupedSigners[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
         'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
@@ -96,9 +97,10 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      */
     protected static $openAPIFormats = [
         'client_id' => null,
-        'signers' => null,
         'files' => 'binary',
         'file_urls' => null,
+        'signers' => null,
+        'grouped_signers' => null,
         'allow_decline' => null,
         'allow_reassign' => null,
         'attachments' => null,
@@ -148,9 +150,10 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      */
     protected static $attributeMap = [
         'client_id' => 'client_id',
-        'signers' => 'signers',
         'files' => 'files',
         'file_urls' => 'file_urls',
+        'signers' => 'signers',
+        'grouped_signers' => 'grouped_signers',
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
@@ -179,9 +182,10 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      */
     protected static $setters = [
         'client_id' => 'setClientId',
-        'signers' => 'setSigners',
         'files' => 'setFiles',
         'file_urls' => 'setFileUrls',
+        'signers' => 'setSigners',
+        'grouped_signers' => 'setGroupedSigners',
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
@@ -210,9 +214,10 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
      */
     protected static $getters = [
         'client_id' => 'getClientId',
-        'signers' => 'getSigners',
         'files' => 'getFiles',
         'file_urls' => 'getFileUrls',
+        'signers' => 'getSigners',
+        'grouped_signers' => 'getGroupedSigners',
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
@@ -291,9 +296,10 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['client_id'] = $data['client_id'] ?? null;
-        $this->container['signers'] = $data['signers'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
         $this->container['file_urls'] = $data['file_urls'] ?? null;
+        $this->container['signers'] = $data['signers'] ?? null;
+        $this->container['grouped_signers'] = $data['grouped_signers'] ?? null;
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
         $this->container['attachments'] = $data['attachments'] ?? null;
@@ -337,9 +343,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
 
         if ($this->container['client_id'] === null) {
             $invalidProperties[] = "'client_id' can't be null";
-        }
-        if ($this->container['signers'] === null) {
-            $invalidProperties[] = "'signers' can't be null";
         }
         if (!is_null($this->container['message']) && (mb_strlen($this->container['message']) > 5000)) {
             $invalidProperties[] = "invalid value for 'message', the character length must be smaller than or equal to 5000.";
@@ -392,30 +395,6 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets signers
-     *
-     * @return SubSignatureRequestSigner[]
-     */
-    public function getSigners()
-    {
-        return $this->container['signers'];
-    }
-
-    /**
-     * Sets signers
-     *
-     * @param SubSignatureRequestSigner[] $signers add Signers to your Signature Request
-     *
-     * @return self
-     */
-    public function setSigners(array $signers)
-    {
-        $this->container['signers'] = $signers;
-
-        return $this;
-    }
-
-    /**
      * Gets files
      *
      * @return SplFileObject[]|null
@@ -459,6 +438,54 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
     public function setFileUrls(?array $file_urls)
     {
         $this->container['file_urls'] = $file_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets signers
+     *
+     * @return SubSignatureRequestSigner[]|null
+     */
+    public function getSigners()
+    {
+        return $this->container['signers'];
+    }
+
+    /**
+     * Sets signers
+     *
+     * @param SubSignatureRequestSigner[]|null $signers Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+     *
+     * @return self
+     */
+    public function setSigners(?array $signers)
+    {
+        $this->container['signers'] = $signers;
+
+        return $this;
+    }
+
+    /**
+     * Gets grouped_signers
+     *
+     * @return SubSignatureRequestGroupedSigners[]|null
+     */
+    public function getGroupedSigners()
+    {
+        return $this->container['grouped_signers'];
+    }
+
+    /**
+     * Sets grouped_signers
+     *
+     * @param SubSignatureRequestGroupedSigners[]|null $grouped_signers Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+     *
+     * @return self
+     */
+    public function setGroupedSigners(?array $grouped_signers)
+    {
+        $this->container['grouped_signers'] = $grouped_signers;
 
         return $this;
     }

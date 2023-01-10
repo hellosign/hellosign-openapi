@@ -28,6 +28,7 @@ import com.hellosign.openapi.model.SubFieldOptions;
 import com.hellosign.openapi.model.SubFormFieldGroup;
 import com.hellosign.openapi.model.SubFormFieldRule;
 import com.hellosign.openapi.model.SubFormFieldsPerDocumentBase;
+import com.hellosign.openapi.model.SubSignatureRequestGroupedSigners;
 import com.hellosign.openapi.model.SubSignatureRequestSigner;
 import com.hellosign.openapi.model.SubSigningOptions;
 import io.swagger.annotations.ApiModel;
@@ -48,9 +49,10 @@ import com.hellosign.openapi.ApiException;
 @ApiModel(description = "Calls SignatureRequestSend in controller")
 @JsonPropertyOrder({
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_CLIENT_ID,
-    SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_SIGNERS,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_FILES,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_FILE_URLS,
+    SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_SIGNERS,
+    SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_GROUPED_SIGNERS,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_DECLINE,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ALLOW_REASSIGN,
     SignatureRequestCreateEmbeddedRequest.JSON_PROPERTY_ATTACHMENTS,
@@ -76,14 +78,17 @@ public class SignatureRequestCreateEmbeddedRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
-  public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubSignatureRequestSigner> signers = new ArrayList<>();
-
   public static final String JSON_PROPERTY_FILES = "files";
   private List<File> files = null;
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
   private List<String> fileUrls = null;
+
+  public static final String JSON_PROPERTY_SIGNERS = "signers";
+  private List<SubSignatureRequestSigner> signers = null;
+
+  public static final String JSON_PROPERTY_GROUPED_SIGNERS = "grouped_signers";
+  private List<SubSignatureRequestGroupedSigners> groupedSigners = null;
 
   public static final String JSON_PROPERTY_ALLOW_DECLINE = "allow_decline";
   private Boolean allowDecline = false;
@@ -171,37 +176,6 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
 
-  public SignatureRequestCreateEmbeddedRequest signers(List<SubSignatureRequestSigner> signers) {
-    this.signers = signers;
-    return this;
-  }
-
-  public SignatureRequestCreateEmbeddedRequest addSignersItem(SubSignatureRequestSigner signersItem) {
-    this.signers.add(signersItem);
-    return this;
-  }
-
-   /**
-   * Add Signers to your Signature Request.
-   * @return signers
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Add Signers to your Signature Request.")
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<SubSignatureRequestSigner> getSigners() {
-    return signers;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIGNERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSigners(List<SubSignatureRequestSigner> signers) {
-    this.signers = signers;
-  }
-
-
   public SignatureRequestCreateEmbeddedRequest files(List<File> files) {
     this.files = files;
     return this;
@@ -267,6 +241,74 @@ public class SignatureRequestCreateEmbeddedRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(List<String> fileUrls) {
     this.fileUrls = fileUrls;
+  }
+
+
+  public SignatureRequestCreateEmbeddedRequest signers(List<SubSignatureRequestSigner> signers) {
+    this.signers = signers;
+    return this;
+  }
+
+  public SignatureRequestCreateEmbeddedRequest addSignersItem(SubSignatureRequestSigner signersItem) {
+    if (this.signers == null) {
+      this.signers = new ArrayList<>();
+    }
+    this.signers.add(signersItem);
+    return this;
+  }
+
+   /**
+   * Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * @return signers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")
+  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubSignatureRequestSigner> getSigners() {
+    return signers;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIGNERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSigners(List<SubSignatureRequestSigner> signers) {
+    this.signers = signers;
+  }
+
+
+  public SignatureRequestCreateEmbeddedRequest groupedSigners(List<SubSignatureRequestGroupedSigners> groupedSigners) {
+    this.groupedSigners = groupedSigners;
+    return this;
+  }
+
+  public SignatureRequestCreateEmbeddedRequest addGroupedSignersItem(SubSignatureRequestGroupedSigners groupedSignersItem) {
+    if (this.groupedSigners == null) {
+      this.groupedSigners = new ArrayList<>();
+    }
+    this.groupedSigners.add(groupedSignersItem);
+    return this;
+  }
+
+   /**
+   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * @return groupedSigners
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")
+  @JsonProperty(JSON_PROPERTY_GROUPED_SIGNERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<SubSignatureRequestGroupedSigners> getGroupedSigners() {
+    return groupedSigners;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GROUPED_SIGNERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGroupedSigners(List<SubSignatureRequestGroupedSigners> groupedSigners) {
+    this.groupedSigners = groupedSigners;
   }
 
 
@@ -833,9 +875,10 @@ public class SignatureRequestCreateEmbeddedRequest {
     }
     SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest = (SignatureRequestCreateEmbeddedRequest) o;
     return Objects.equals(this.clientId, signatureRequestCreateEmbeddedRequest.clientId) &&
-        Objects.equals(this.signers, signatureRequestCreateEmbeddedRequest.signers) &&
         Objects.equals(this.files, signatureRequestCreateEmbeddedRequest.files) &&
         Objects.equals(this.fileUrls, signatureRequestCreateEmbeddedRequest.fileUrls) &&
+        Objects.equals(this.signers, signatureRequestCreateEmbeddedRequest.signers) &&
+        Objects.equals(this.groupedSigners, signatureRequestCreateEmbeddedRequest.groupedSigners) &&
         Objects.equals(this.allowDecline, signatureRequestCreateEmbeddedRequest.allowDecline) &&
         Objects.equals(this.allowReassign, signatureRequestCreateEmbeddedRequest.allowReassign) &&
         Objects.equals(this.attachments, signatureRequestCreateEmbeddedRequest.attachments) &&
@@ -859,7 +902,7 @@ public class SignatureRequestCreateEmbeddedRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, signers, files, fileUrls, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
+    return Objects.hash(clientId, files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, message, metadata, signingOptions, subject, testMode, title, useTextTags, populateAutoFillFields, expiresAt);
   }
 
   @Override
@@ -867,9 +910,10 @@ public class SignatureRequestCreateEmbeddedRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignatureRequestCreateEmbeddedRequest {\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
+    sb.append("    signers: ").append(toIndentedString(signers)).append("\n");
+    sb.append("    groupedSigners: ").append(toIndentedString(groupedSigners)).append("\n");
     sb.append("    allowDecline: ").append(toIndentedString(allowDecline)).append("\n");
     sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
@@ -916,25 +960,6 @@ public class SignatureRequestCreateEmbeddedRequest {
             map.put("client_id", JSON.getDefault().getMapper().writeValueAsString(clientId));
         }
     }
-    if (signers != null) {
-        if (isFileTypeOrListOfFiles(signers)) {
-            fileTypeFound = true;
-        }
-
-        if (signers.getClass().equals(java.io.File.class) ||
-            signers.getClass().equals(Integer.class) ||
-            signers.getClass().equals(String.class) ||
-            signers.getClass().isEnum()) {
-            map.put("signers", signers);
-        } else if (isListOfFile(signers)) {
-            for(int i = 0; i< getListSize(signers); i++) {
-                map.put("signers[" + i + "]", getFromList(signers, i));
-            }
-        }
-        else {
-            map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
-        }
-    }
     if (files != null) {
         if (isFileTypeOrListOfFiles(files)) {
             fileTypeFound = true;
@@ -971,6 +996,44 @@ public class SignatureRequestCreateEmbeddedRequest {
         }
         else {
             map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
+        }
+    }
+    if (signers != null) {
+        if (isFileTypeOrListOfFiles(signers)) {
+            fileTypeFound = true;
+        }
+
+        if (signers.getClass().equals(java.io.File.class) ||
+            signers.getClass().equals(Integer.class) ||
+            signers.getClass().equals(String.class) ||
+            signers.getClass().isEnum()) {
+            map.put("signers", signers);
+        } else if (isListOfFile(signers)) {
+            for(int i = 0; i< getListSize(signers); i++) {
+                map.put("signers[" + i + "]", getFromList(signers, i));
+            }
+        }
+        else {
+            map.put("signers", JSON.getDefault().getMapper().writeValueAsString(signers));
+        }
+    }
+    if (groupedSigners != null) {
+        if (isFileTypeOrListOfFiles(groupedSigners)) {
+            fileTypeFound = true;
+        }
+
+        if (groupedSigners.getClass().equals(java.io.File.class) ||
+            groupedSigners.getClass().equals(Integer.class) ||
+            groupedSigners.getClass().equals(String.class) ||
+            groupedSigners.getClass().isEnum()) {
+            map.put("grouped_signers", groupedSigners);
+        } else if (isListOfFile(groupedSigners)) {
+            for(int i = 0; i< getListSize(groupedSigners); i++) {
+                map.put("grouped_signers[" + i + "]", getFromList(groupedSigners, i));
+            }
+        }
+        else {
+            map.put("grouped_signers", JSON.getDefault().getMapper().writeValueAsString(groupedSigners));
         }
     }
     if (allowDecline != null) {

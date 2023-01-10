@@ -105,6 +105,7 @@ docs/SubFormFieldsPerDocumentTypeEnum.md
 docs/SubMergeField.md
 docs/SubOAuth.md
 docs/SubOptions.md
+docs/SubSignatureRequestGroupedSigners.md
 docs/SubSignatureRequestSigner.md
 docs/SubSignatureRequestTemplateSigner.md
 docs/SubSigningOptions.md
@@ -275,6 +276,7 @@ hellosign_sdk/model/sub_form_fields_per_document_type_enum.py
 hellosign_sdk/model/sub_merge_field.py
 hellosign_sdk/model/sub_o_auth.py
 hellosign_sdk/model/sub_options.py
+hellosign_sdk/model/sub_signature_request_grouped_signers.py
 hellosign_sdk/model/sub_signature_request_signer.py
 hellosign_sdk/model/sub_signature_request_template_signer.py
 hellosign_sdk/model/sub_signing_options.py
