@@ -7631,7 +7631,7 @@ components:
           description: |-
             Signers belonging to this Group.
 
-            **NOTE**: Only `name`, `email_address` and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+            **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestSigner'

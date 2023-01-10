@@ -18,7 +18,7 @@ module HelloSign
     # The name of the group.
     attr_accessor :group
 
-    # Signers belonging to this Group.  **NOTE**: Only `name`, `email_address` and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+    # Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
     attr_accessor :signers
 
     # The order the group is required to sign in. Use this instead of Signer-level `order`.
