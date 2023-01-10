@@ -42,7 +42,7 @@ module HelloSign
     # Time the signature request was created.
     attr_accessor :created_at
 
-    # The time when the signature request will expire pending signatures.
+    # The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
     attr_accessor :expires_at
 
     # Whether or not the SignatureRequest has been fully executed by all signers.

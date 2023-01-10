@@ -139,11 +139,11 @@ public class SignatureRequestUpdateRequest {
   }
 
    /**
-   * The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+   * The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    * @return expiresAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.")
+  @ApiModelProperty(value = "The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

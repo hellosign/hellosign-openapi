@@ -24,7 +24,7 @@ module HelloSign
     # The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.
     attr_accessor :name
 
-    # The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+    # The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
     attr_accessor :expires_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

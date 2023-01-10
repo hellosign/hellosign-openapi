@@ -50,7 +50,7 @@ namespace HelloSign.Model
         /// <param name="message">The custom message in the email that was initially sent to the signers..</param>
         /// <param name="metadata">The metadata attached to the signature request..</param>
         /// <param name="createdAt">Time the signature request was created..</param>
-        /// <param name="expiresAt">The time when the signature request will expire pending signatures..</param>
+        /// <param name="expiresAt">The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
         /// <param name="isComplete">Whether or not the SignatureRequest has been fully executed by all signers..</param>
         /// <param name="isDeclined">Whether or not the SignatureRequest has been declined by a signer..</param>
         /// <param name="hasError">Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings)..</param>
@@ -157,9 +157,9 @@ namespace HelloSign.Model
         public int CreatedAt { get; set; }
 
         /// <summary>
-        /// The time when the signature request will expire pending signatures.
+        /// The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
-        /// <value>The time when the signature request will expire pending signatures.</value>
+        /// <value>The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
 

@@ -44,7 +44,7 @@ namespace HelloSign.Model
         /// <param name="emailAddress">The new email address for the recipient.  **NOTE**: Optional if &#x60;name&#x60; is provided..</param>
         /// <param name="name">The new name for the recipient.  **NOTE**: Optional if &#x60;email_address&#x60; is provided..</param>
         /// <param name="signatureId">The signature ID for the recipient. (required).</param>
-        /// <param name="expiresAt">The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable..</param>
+        /// <param name="expiresAt">The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
         public SignatureRequestUpdateRequest(string emailAddress = default(string), string name = default(string), string signatureId = default(string), int? expiresAt = default(int?))
         {
             
@@ -81,9 +81,9 @@ namespace HelloSign.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+        /// The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
-        /// <value>The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.</value>
+        /// <value>The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
 

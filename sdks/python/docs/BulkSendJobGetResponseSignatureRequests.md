@@ -15,7 +15,7 @@
 | `message` | ```str, none_type``` |  The custom message in the email that was initially sent to the signers.  |  |
 | `metadata` | [```{str: (bool, date, datetime, dict, float, int, list, str, none_type)}```](.md) |  The metadata attached to the signature request.  |  |
 | `created_at` | ```int``` |  Time the signature request was created.  |  |
-| `expires_at` | ```int``` |  The time when the signature request will expire pending signatures.  |  |
+| `expires_at` | ```int``` |  The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
 | `is_complete` | ```bool``` |  Whether or not the SignatureRequest has been fully executed by all signers.  |  |
 | `is_declined` | ```bool``` |  Whether or not the SignatureRequest has been declined by a signer.  |  |
 | `has_error` | ```bool``` |  Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).  |  |

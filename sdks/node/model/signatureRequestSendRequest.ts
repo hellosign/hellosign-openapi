@@ -125,7 +125,7 @@ export class SignatureRequestSendRequest {
    */
   "useTextTags"?: boolean = false;
   /**
-   * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+   * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
   "expiresAt"?: number | null;
 

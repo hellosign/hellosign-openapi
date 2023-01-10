@@ -321,7 +321,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Sets expires_at
      *
-     * @param int|null $expires_at The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable.
+     * @param int|null $expires_at The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
      *
      * @return self
      */
