@@ -71,7 +71,7 @@ public class Example
 
         var files = new List<Stream> {
             new FileStream(
-                TestHelper.RootPath + "/example_signature_request.pdf",
+                "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
@@ -187,7 +187,7 @@ public class Example
 
         var files = new List<Stream> {
             new FileStream(
-                TestHelper.RootPath + "/example_signature_request.pdf",
+                "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
