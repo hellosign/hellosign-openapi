@@ -6061,9 +6061,9 @@ components:
     AccountUpdateRequest:
       properties:
         account_id:
-          nullable: true
           description: '_t__AccountUpdate::ACCOUNT_ID'
           type: string
+          nullable: true
         callback_url:
           description: '_t__AccountUpdate::CALLBACK_URL'
           type: string
@@ -6466,7 +6466,6 @@ components:
           type: string
       type: object
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest:
-      description: 'Calls SignatureRequestBulkSendWithTemplate in controller'
       required:
         - client_id
         - template_ids
@@ -6588,7 +6587,6 @@ components:
           maxLength: 255
       type: object
     SignatureRequestCreateEmbeddedRequest:
-      description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
       properties:
@@ -6694,13 +6692,12 @@ components:
           default: false
           x-beta: closed
         expires_at:
-          nullable: true
           description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
-      description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
         - template_ids
@@ -6891,9 +6888,9 @@ components:
           type: boolean
           default: false
         expires_at:
-          nullable: true
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     SignatureRequestSendWithTemplateRequest:
@@ -6986,9 +6983,9 @@ components:
           description: '_t__SignatureRequestUpdate::SIGNATURE_ID'
           type: string
         expires_at:
-          nullable: true
           description: '_t__SignatureRequestUpdate::EXPIRES_AT'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     SubAttachment:
@@ -7218,9 +7215,9 @@ components:
           description: '_t__Sub::FormFieldsPerDocument::NAME'
           type: string
         page:
-          nullable: true
           description: '_t__Sub::FormFieldsPerDocument::PAGE'
           type: integer
+          nullable: true
         required:
           description: '_t__Sub::FormFieldsPerDocument::REQUIRED'
           type: boolean
@@ -7263,9 +7260,9 @@ components:
           description: '_t__Sub::SignatureRequestGroupedSigners::GROUP_NAME'
           type: string
         order:
-          nullable: true
           description: '_t__Sub::SignatureRequestGroupedSigners::ORDER'
           type: integer
+          nullable: true
         signers:
           description: '_t__Sub::SignatureRequestGroupedSigners::SIGNERS'
           type: array
@@ -7332,9 +7329,9 @@ components:
           type: string
           format: email
         order:
-          nullable: true
           description: '_t__Sub::SignatureRequestSigner::SIGNER_ORDER'
           type: integer
+          nullable: true
         pin:
           description: '_t__Sub::SignatureRequestSigner::SIGNER_PIN'
           type: string
@@ -7396,9 +7393,9 @@ components:
           description: '_t__Sub::UnclaimedDraftSigner::NAME'
           type: string
         order:
-          nullable: true
           description: '_t__Sub::UnclaimedDraftSigner::ORDER'
           type: integer
+          nullable: true
       type: object
     SubUnclaimedDraftTemplateSigner:
       required:
@@ -7423,9 +7420,9 @@ components:
           description: '_t__Sub::SignerRole::NAME'
           type: string
         order:
-          nullable: true
           description: '_t__Sub::SignerRole::ORDER'
           type: integer
+          nullable: true
       type: object
     SubSigningOptions:
       description: '_t__Sub::SigningOptions::DESCRIPTION'
@@ -7837,9 +7834,9 @@ components:
           type: boolean
           default: false
         expires_at:
-          nullable: true
           description: '_t__UnclaimedDraftCreate::EXPIRES_AT'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
@@ -7995,9 +7992,9 @@ components:
           default: false
           x-beta: closed
         expires_at:
-          nullable: true
           description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
@@ -8174,21 +8171,21 @@ components:
         quotas:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
-          nullable: true
           description: '_t__Account::CALLBACK_URL'
           type: string
-        role_code:
           nullable: true
+        role_code:
           description: '_t__Account::ROLE_CODE'
           type: string
-        team_id:
           nullable: true
+        team_id:
           description: '_t__Account::TEAM_ID'
           type: string
-        locale:
           nullable: true
+        locale:
           description: '_t__Account::LOCALE'
           type: string
+          nullable: true
       type: object
       x-internal: true
     AccountCreateResponse:
@@ -8237,34 +8234,34 @@ components:
       description: '_t__Account::QUOTA'
       properties:
         api_signature_requests_left:
-          nullable: true
           description: '_t__AccountQuota::API_SIGNATURE_REQUESTS_LEFT'
           type: integer
-        documents_left:
           nullable: true
+        documents_left:
           description: '_t__AccountQuota::DOCUMENTS_LEFT'
           type: integer
-        templates_total:
           nullable: true
+        templates_total:
           description: '_t__AccountQuota::TEMPLATES_TOTAL'
           type: integer
-        templates_left:
           nullable: true
+        templates_left:
           description: '_t__AccountQuota::TEMPLATES_LEFT'
           type: integer
-        sms_verifications_left:
           nullable: true
+        sms_verifications_left:
           description: '_t__AccountQuota::SMS_VERIFICATIONS_LEFT'
           type: integer
+          nullable: true
       type: object
       x-internal: true
     ApiAppResponse:
       description: '_t__ApiAppResponse::DESCRIPTION'
       properties:
         callback_url:
-          nullable: true
           description: '_t__ApiAppResponse::CALLBACK_URL'
           type: string
+          nullable: true
         client_id:
           description: '_t__ApiAppResponse::CLIENT_ID'
           type: string
@@ -8397,9 +8394,9 @@ components:
       description: '_t__BulkSendJobResponse::DESCRIPTION'
       properties:
         bulk_send_job_id:
-          nullable: true
           description: '_t__BulkSendJobResponse::BULK_SEND_JOB_ID'
           type: string
+          nullable: true
         total:
           description: '_t__BulkSendJobResponse::TOTAL'
           type: integer
@@ -8596,21 +8593,21 @@ components:
       description: '_t__EventCallbackRequestEventMetadata::DESCRIPTION'
       properties:
         related_signature_id:
-          nullable: true
           description: '_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID'
           type: string
-        reported_for_account_id:
           nullable: true
+        reported_for_account_id:
           description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID'
           type: string
-        reported_for_app_id:
           nullable: true
+        reported_for_app_id:
           description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID'
           type: string
-        event_message:
           nullable: true
+        event_message:
           description: '_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE'
           type: string
+          nullable: true
       type: object
     FileResponse:
       properties:
@@ -8636,9 +8633,9 @@ components:
           description: '_t__ListInfoResponse::NUM_PAGES'
           type: integer
         num_results:
-          nullable: true
           description: '_t__ListInfoResponse::NUM_RESULTS'
           type: integer
+          nullable: true
         page:
           description: '_t__ListInfoResponse::PAGE'
           type: integer
@@ -8806,8 +8803,8 @@ components:
           description: '_t__OAuthTokenResponse::EXPIRES_IN'
           type: integer
         state:
-          nullable: true
           type: string
+          nullable: true
       type: object
       x-internal: true
     ReportResponse:
@@ -8846,10 +8843,10 @@ components:
       description: '_t__SignatureRequestResponse::DESCRIPTION'
       properties:
         test_mode:
-          nullable: true
           description: '_t__SignatureRequestResponse::TEST_MODE'
           type: boolean
           default: false
+          nullable: true
         signature_request_id:
           description: '_t__SignatureRequestResponse::SIGNATURE_REQUEST_ID'
           type: string
@@ -8863,13 +8860,13 @@ components:
           description: '_t__SignatureRequestResponse::ORIGINAL_TITLE'
           type: string
         subject:
-          nullable: true
           description: '_t__SignatureRequestResponse::SUBJECT'
           type: string
-        message:
           nullable: true
+        message:
           description: '_t__SignatureRequestResponse::MESSAGE'
           type: string
+          nullable: true
         metadata:
           description: '_t__SignatureRequestResponse::METADATA'
           type: object
@@ -8893,9 +8890,9 @@ components:
           description: '_t__SignatureRequestResponse::FILES_URL'
           type: string
         signing_url:
-          nullable: true
           description: '_t__SignatureRequestResponse::SIGNING_URL'
           type: string
+          nullable: true
         details_url:
           description: '_t__SignatureRequestResponse::DETAILS_URL'
           type: string
@@ -8905,33 +8902,33 @@ components:
           items:
             type: string
         signing_redirect_url:
-          nullable: true
           description: '_t__SignatureRequestResponse::SIGNING_REDIRECT_URL'
           type: string
-        template_ids:
           nullable: true
+        template_ids:
           description: '_t__SignatureRequestResponse::TEMPLATE_IDS'
           type: array
           items:
             type: string
-        custom_fields:
           nullable: true
+        custom_fields:
           description: '_t__SignatureRequestResponseCustomField::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
-        attachments:
           nullable: true
+        attachments:
           description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-        response_data:
           nullable: true
+        response_data:
           description: '_t__SignatureRequestResponseData::DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+          nullable: true
         signatures:
           description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
           type: array
@@ -8987,13 +8984,13 @@ components:
           description: '_t__SignatureRequestResponseAttachment::REQUIRED'
           type: boolean
         instructions:
-          nullable: true
           description: '_t__SignatureRequestResponseAttachment::INSTRUCTIONS'
           type: string
-        uploaded_at:
           nullable: true
+        uploaded_at:
           description: '_t__SignatureRequestResponseAttachment::UPLOADED_AT'
           type: integer
+          nullable: true
       type: object
       x-internal: true
     SignatureRequestResponseCustomFieldTypeEnum:
@@ -9107,74 +9104,74 @@ components:
           description: '_t__SignatureRequestResponseSignatures::SIGNATURE_ID'
           type: string
         signer_group_guid:
-          nullable: true
           description: '_t__SignatureRequestResponseSignatures::SIGNER_GROUP_GUID'
           type: string
+          nullable: true
         signer_email_address:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_EMAIL_ADDRESS'
           type: string
         signer_name:
-          nullable: true
           description: '_t__SignatureRequestResponseSignatures::SIGNER_NAME'
           type: string
-        signer_role:
           nullable: true
+        signer_role:
           description: '_t__SignatureRequestResponseSignatures::SIGNER_ROLE'
           type: string
-        order:
           nullable: true
+        order:
           description: '_t__SignatureRequestResponseSignatures::ORDER'
           type: integer
+          nullable: true
         status_code:
           description: '_t__SignatureRequestResponseSignatures::STATUS_CODE'
           type: string
         decline_reason:
-          nullable: true
           description: '_t__SignatureRequestResponseSignatures::DECLINE_REASON'
           type: string
-        signed_at:
           nullable: true
+        signed_at:
           description: '_t__SignatureRequestResponseSignatures::SIGNED_AT'
           type: integer
-        last_viewed_at:
           nullable: true
+        last_viewed_at:
           description: '_t__SignatureRequestResponseSignatures::LAST_VIEWED_AT'
           type: integer
-        last_reminded_at:
           nullable: true
+        last_reminded_at:
           description: '_t__SignatureRequestResponseSignatures::LAST_REMINDED_AT'
           type: integer
+          nullable: true
         has_pin:
           description: '_t__SignatureRequestResponseSignatures::HAS_PIN'
           type: boolean
         has_sms_auth:
-          nullable: true
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_AUTH'
           type: boolean
-        has_sms_delivery:
           nullable: true
+        has_sms_delivery:
           description: '_t__SignatureRequestResponseSignatures::HAS_SMS_DELIVERY'
           type: boolean
-        sms_phone_number:
           nullable: true
+        sms_phone_number:
           description: '_t__SignatureRequestResponseSignatures::SMS_PHONE_NUMBER'
           type: string
-        reassigned_by:
           nullable: true
+        reassigned_by:
           description: '_t__SignatureRequestResponseSignatures::REASSIGNED_BY'
           type: string
-        reassignment_reason:
           nullable: true
+        reassignment_reason:
           description: '_t__SignatureRequestResponseSignatures::REASSIGNMENT_REASON'
           type: string
-        reassigned_from:
           nullable: true
+        reassigned_from:
           description: '_t__SignatureRequestResponseSignatures::REASSIGNED_FROM'
           type: string
-        error:
           nullable: true
+        error:
           description: '_t__SignatureRequestResponseSignatures::ERROR'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TeamResponse:
@@ -9350,21 +9347,21 @@ components:
           description: '_t__TemplateResponse::UPDATED_AT'
           type: integer
         is_embedded:
-          nullable: true
           description: '_t__TemplateResponse::IS_EMBEDDED'
           type: boolean
-        is_creator:
           nullable: true
+        is_creator:
           description: '_t__TemplateResponse::IS_CREATOR'
           type: boolean
-        can_edit:
           nullable: true
+        can_edit:
           description: '_t__TemplateResponse::CAN_EDIT'
           type: boolean
-        is_locked:
           nullable: true
+        is_locked:
           description: '_t__TemplateResponse::IS_LOCKED'
           type: boolean
+          nullable: true
         metadata:
           description: '_t__TemplateResponse::METADATA'
           type: object
@@ -9384,24 +9381,24 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
-          nullable: true
           description: '_t__TemplateResponse::CUSTOM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCustomField'
-        named_form_fields:
           nullable: true
+        named_form_fields:
           description: '_t__TemplateResponse::NAMED_FORM_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseNamedFormField'
+          nullable: true
           deprecated: true
         accounts:
-          nullable: true
           description: '_t__TemplateResponse::ACCOUNTS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
+          nullable: true
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponse:
@@ -9561,23 +9558,23 @@ components:
           description: '_t__TemplateResponseCustomField::API_ID'
           type: string
         group:
-          nullable: true
           description: '_t__TemplateResponseCustomField::GROUP'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: '_t__TemplateResponseCustomField::IS_MULTILINE'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: '_t__TemplateResponseCustomField::FONT_FAMILY'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -9604,11 +9601,11 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
         static_fields:
-          nullable: true
           description: '_t__TemplateResponseDocument::STATIC_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
@@ -9644,31 +9641,31 @@ components:
           description: '_t__TemplateResponseDocumentCustomField::API_ID'
           type: string
         group:
-          nullable: true
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
           type: string
-        named_form_fields:
           nullable: true
+        named_form_fields:
           description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
           type: object
+          nullable: true
           deprecated: true
         reusable_form_id:
-          nullable: true
           type: string
+          nullable: true
           deprecated: true
       type: object
       x-internal: true
@@ -9723,23 +9720,23 @@ components:
           description: '_t__TemplateResponseDocumentFormField::REQUIRED'
           type: boolean
         group:
-          nullable: true
           description: '_t__TemplateResponseDocumentFormField::GROUP'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseDocumentStaticField:
@@ -9772,9 +9769,9 @@ components:
           description: '_t__TemplateResponseDocumentStaticField::API_ID'
           type: string
         group:
-          nullable: true
           description: '_t__TemplateResponseDocumentStaticField::GROUP'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseFieldAvgTextLength:
@@ -9818,23 +9815,23 @@ components:
           description: '_t__TemplateResponseNamedFormField::API_ID'
           type: string
         group:
-          nullable: true
           description: '_t__TemplateResponseNamedFormField::GROUP'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: '_t__TemplateResponseNamedFormField::FONT_FAMILY'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseSignerRole:
@@ -9851,24 +9848,24 @@ components:
       description: '_t__UnclaimedDraftResponse::DESCRIPTION'
       properties:
         signature_request_id:
-          nullable: true
           description: '_t__UnclaimedDraft::SIGNATURE_REQUEST_ID'
           type: string
+          nullable: true
         claim_url:
           description: '_t__UnclaimedDraft::CLAIM_URL'
           type: string
         signing_redirect_url:
-          nullable: true
           description: '_t__UnclaimedDraft::SIGNING_REDIRECT_URL'
           type: string
-        requesting_redirect_url:
           nullable: true
+        requesting_redirect_url:
           description: '_t__UnclaimedDraft::REQUESTING_REDIRECT_URL'
           type: string
-        expires_at:
           nullable: true
+        expires_at:
           description: '_t__UnclaimedDraft::EXPIRES_AT'
           type: integer
+          nullable: true
         test_mode:
           description: '_t__UnclaimedDraft::TEST_MODE'
           type: boolean

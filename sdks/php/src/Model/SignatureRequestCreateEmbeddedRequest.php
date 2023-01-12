@@ -38,7 +38,6 @@ use SplFileObject;
  * SignatureRequestCreateEmbeddedRequest Class Doc Comment
  *
  * @category Class
- * @description Calls SignatureRequestSend in controller
  * @author   OpenAPI Generator team
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

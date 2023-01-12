@@ -1,6 +1,6 @@
 # HelloSign::SignatureRequestCreateEmbeddedWithTemplateRequest
 
-Calls SignatureRequestSend in controller
+
 
 ## Properties
 

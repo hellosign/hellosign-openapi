@@ -6147,9 +6147,9 @@ components:
     AccountUpdateRequest:
       properties:
         account_id:
-          nullable: true
           description: 'The ID of the Account'
           type: string
+          nullable: true
         callback_url:
           description: 'The URL that Dropbox Sign should POST events to.'
           type: string
@@ -6561,7 +6561,6 @@ components:
           type: string
       type: object
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest:
-      description: 'Calls SignatureRequestBulkSendWithTemplate in controller'
       required:
         - client_id
         - template_ids
@@ -6737,7 +6736,6 @@ components:
           maxLength: 255
       type: object
     SignatureRequestCreateEmbeddedRequest:
-      description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
       properties:
@@ -6886,16 +6884,15 @@ components:
           default: false
           x-beta: closed
         expires_at:
-          nullable: true
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
             **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
-      description: 'Calls SignatureRequestSend in controller'
       required:
         - client_id
         - template_ids
@@ -7143,9 +7140,9 @@ components:
           type: boolean
           default: false
         expires_at:
-          nullable: true
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     SignatureRequestSendWithTemplateRequest:
@@ -7258,9 +7255,9 @@ components:
           description: 'The signature ID for the recipient.'
           type: string
         expires_at:
-          nullable: true
           description: 'The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     SubAttachment:
@@ -7572,13 +7569,13 @@ components:
           description: 'Display name for the field.'
           type: string
         page:
-          nullable: true
           description: |-
             Page in the document where the field should be placed (requires documents be PDF files).
 
             - When the page number parameter is supplied, the API will use the new coordinate system.
             - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
           type: integer
+          nullable: true
         required:
           description: 'Whether this field is required.'
           type: boolean
@@ -7624,9 +7621,9 @@ components:
           description: 'The name of the group.'
           type: string
         order:
-          nullable: true
           description: 'The order the group is required to sign in. Use this instead of Signer-level `order`.'
           type: integer
+          nullable: true
         signers:
           description: |-
             Signers belonging to this Group.
@@ -7696,9 +7693,9 @@ components:
           type: string
           format: email
         order:
-          nullable: true
           description: 'The order the signer is required to sign in.'
           type: integer
+          nullable: true
         pin:
           description: 'The 4- to 12-character access code that will secure this signer''s signature page.'
           type: string
@@ -7776,9 +7773,9 @@ components:
           description: 'The name of the signer.'
           type: string
         order:
-          nullable: true
           description: 'The order the signer is required to sign in.'
           type: integer
+          nullable: true
       type: object
     SubUnclaimedDraftTemplateSigner:
       required:
@@ -7803,9 +7800,9 @@ components:
           description: 'The role name of the signer that will be displayed when the template is used to create a signature request.'
           type: string
         order:
-          nullable: true
           description: 'The order in which this signer role is required to sign.'
           type: integer
+          nullable: true
       type: object
     SubSigningOptions:
       description: |-
@@ -8314,12 +8311,12 @@ components:
           type: boolean
           default: false
         expires_at:
-          nullable: true
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
             **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
@@ -8513,12 +8510,12 @@ components:
           default: false
           x-beta: closed
         expires_at:
-          nullable: true
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
             **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
+          nullable: true
           x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
@@ -8720,21 +8717,21 @@ components:
         quotas:
           $ref: '#/components/schemas/AccountResponseQuotas'
         callback_url:
-          nullable: true
           description: 'The URL that Dropbox Sign events will `POST` to.'
           type: string
-        role_code:
           nullable: true
+        role_code:
           description: 'The membership role for the team.'
           type: string
-        team_id:
           nullable: true
+        team_id:
           description: 'The id of the team account belongs to.'
           type: string
-        locale:
           nullable: true
+        locale:
           description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
+          nullable: true
       type: object
       x-internal: true
     AccountCreateResponse:
@@ -8783,34 +8780,34 @@ components:
       description: 'Details concerning remaining monthly quotas.'
       properties:
         api_signature_requests_left:
-          nullable: true
           description: 'API signature requests remaining.'
           type: integer
-        documents_left:
           nullable: true
+        documents_left:
           description: 'Signature requests remaining.'
           type: integer
-        templates_total:
           nullable: true
+        templates_total:
           description: 'Total API templates allowed.'
           type: integer
-        templates_left:
           nullable: true
+        templates_left:
           description: 'API templates remaining.'
           type: integer
-        sms_verifications_left:
           nullable: true
+        sms_verifications_left:
           description: 'SMS verifications  remaining.'
           type: integer
+          nullable: true
       type: object
       x-internal: true
     ApiAppResponse:
       description: 'Contains information about an API App.'
       properties:
         callback_url:
-          nullable: true
           description: 'The app''s callback URL (for events)'
           type: string
+          nullable: true
         client_id:
           description: 'The app''s client id'
           type: string
@@ -8943,9 +8940,9 @@ components:
       description: 'Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.'
       properties:
         bulk_send_job_id:
-          nullable: true
           description: 'The id of the BulkSendJob.'
           type: string
+          nullable: true
         total:
           description: 'The total amount of Signature Requests queued for sending.'
           type: integer
@@ -9142,21 +9139,21 @@ components:
       description: 'Specific metadata about the event.'
       properties:
         related_signature_id:
-          nullable: true
           description: 'Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.'
           type: string
-        reported_for_account_id:
           nullable: true
+        reported_for_account_id:
           description: 'Account ID the event was reported for.'
           type: string
-        reported_for_app_id:
           nullable: true
+        reported_for_app_id:
           description: 'App ID the event was reported for.'
           type: string
-        event_message:
           nullable: true
+        event_message:
           description: 'Message about a declined or failed (due to error) signature flow.'
           type: string
+          nullable: true
       type: object
     FileResponse:
       properties:
@@ -9182,9 +9179,9 @@ components:
           description: 'Total number of pages available.'
           type: integer
         num_results:
-          nullable: true
           description: 'Total number of objects available.'
           type: integer
+          nullable: true
         page:
           description: 'Number of the page being returned.'
           type: integer
@@ -9352,8 +9349,8 @@ components:
           description: 'Number of seconds until the `access_token` expires. Uses epoch time.'
           type: integer
         state:
-          nullable: true
           type: string
+          nullable: true
       type: object
       x-internal: true
     ReportResponse:
@@ -9392,10 +9389,10 @@ components:
       description: 'Contains information about a signature request.'
       properties:
         test_mode:
-          nullable: true
           description: 'Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.'
           type: boolean
           default: false
+          nullable: true
         signature_request_id:
           description: 'The id of the SignatureRequest.'
           type: string
@@ -9409,13 +9406,13 @@ components:
           description: 'Default Label for account.'
           type: string
         subject:
-          nullable: true
           description: 'The subject in the email that was initially sent to the signers.'
           type: string
-        message:
           nullable: true
+        message:
           description: 'The custom message in the email that was initially sent to the signers.'
           type: string
+          nullable: true
         metadata:
           description: 'The metadata attached to the signature request.'
           type: object
@@ -9439,9 +9436,9 @@ components:
           description: 'The URL where a copy of the request''s documents can be downloaded.'
           type: string
         signing_url:
-          nullable: true
           description: 'The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.'
           type: string
+          nullable: true
         details_url:
           description: 'The URL where the requester and the signers can view the current status of the SignatureRequest.'
           type: string
@@ -9451,17 +9448,16 @@ components:
           items:
             type: string
         signing_redirect_url:
-          nullable: true
           description: 'The URL you want the signer redirected to after they successfully sign.'
           type: string
-        template_ids:
           nullable: true
+        template_ids:
           description: 'Templates IDs used in this SignatureRequest (if any).'
           type: array
           items:
             type: string
-        custom_fields:
           nullable: true
+        custom_fields:
           description: |-
             An array of Custom Field objects containing the name and type of each custom field.
 
@@ -9470,18 +9466,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
-        attachments:
           nullable: true
+        attachments:
           description: 'Signer attachments.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseAttachment'
-        response_data:
           nullable: true
+        response_data:
           description: 'An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.'
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+          nullable: true
         signatures:
           description: 'An array of signature objects, 1 for each signer.'
           type: array
@@ -9537,13 +9534,13 @@ components:
           description: 'A boolean value denoting if this attachment is required.'
           type: boolean
         instructions:
-          nullable: true
           description: 'Instructions for Signer.'
           type: string
-        uploaded_at:
           nullable: true
+        uploaded_at:
           description: 'Timestamp when attachment was uploaded by Signer.'
           type: integer
+          nullable: true
       type: object
       x-internal: true
     SignatureRequestResponseCustomFieldTypeEnum:
@@ -9661,74 +9658,74 @@ components:
           description: 'Signature identifier.'
           type: string
         signer_group_guid:
-          nullable: true
           description: 'Signer Group GUID'
           type: string
+          nullable: true
         signer_email_address:
           description: 'The email address of the signer.'
           type: string
         signer_name:
-          nullable: true
           description: 'The name of the signer.'
           type: string
-        signer_role:
           nullable: true
+        signer_role:
           description: 'The role of the signer.'
           type: string
-        order:
           nullable: true
+        order:
           description: 'If signer order is assigned this is the 0-based index for this signer.'
           type: integer
+          nullable: true
         status_code:
           description: 'The current status of the signature. eg: awaiting_signature, signed, declined.'
           type: string
         decline_reason:
-          nullable: true
           description: 'The reason provided by the signer for declining the request.'
           type: string
-        signed_at:
           nullable: true
+        signed_at:
           description: 'Time that the document was signed or null.'
           type: integer
-        last_viewed_at:
           nullable: true
+        last_viewed_at:
           description: 'The time that the document was last viewed by this signer or null.'
           type: integer
-        last_reminded_at:
           nullable: true
+        last_reminded_at:
           description: 'The time the last reminder email was sent to the signer or null.'
           type: integer
+          nullable: true
         has_pin:
           description: 'Boolean to indicate whether this signature requires a PIN to access.'
           type: boolean
         has_sms_auth:
-          nullable: true
           description: 'Boolean to indicate whether this signature has SMS authentication enabled.'
           type: boolean
-        has_sms_delivery:
           nullable: true
+        has_sms_delivery:
           description: 'Boolean to indicate whether this signature has SMS delivery enabled.'
           type: boolean
-        sms_phone_number:
           nullable: true
+        sms_phone_number:
           description: 'The SMS phone number used for authentication or signature request delivery.'
           type: string
-        reassigned_by:
           nullable: true
+        reassigned_by:
           description: 'Email address of original signer who reassigned to this signer.'
           type: string
-        reassignment_reason:
           nullable: true
+        reassignment_reason:
           description: 'Reason provided by original signer who reassigned to this signer.'
           type: string
-        reassigned_from:
           nullable: true
+        reassigned_from:
           description: 'Previous signature identifier.'
           type: string
-        error:
           nullable: true
+        error:
           description: 'Error message pertaining to this signer, or null.'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TeamResponse:
@@ -9904,24 +9901,24 @@ components:
           description: 'Time the template was last updated.'
           type: integer
         is_embedded:
-          nullable: true
           description: '`true` if this template was created using an embedded flow, `false` if it was created on our website.'
           type: boolean
-        is_creator:
           nullable: true
+        is_creator:
           description: '`true` if you are the owner of this template, `false` if it''s been shared with you by a team member.'
           type: boolean
-        can_edit:
           nullable: true
+        can_edit:
           description: 'Indicates whether edit rights have been granted to you by the owner (always `true` if that''s you).'
           type: boolean
-        is_locked:
           nullable: true
+        is_locked:
           description: |-
             Indicates whether the template is locked.
             If `true`, then the template was created outside your quota and can only be used in `test_mode`.
             If `false`, then the template is within your quota and can be used to create signature requests.
           type: boolean
+          nullable: true
         metadata:
           description: 'The metadata attached to the template.'
           type: object
@@ -9941,24 +9938,24 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
-          nullable: true
           description: 'An array of Custom Field objects.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseCustomField'
-        named_form_fields:
           nullable: true
+        named_form_fields:
           description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseNamedFormField'
+          nullable: true
           deprecated: true
         accounts:
-          nullable: true
           description: 'An array of the Accounts that can use this Template.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseAccount'
+          nullable: true
       type: object
       x-internal: true
     TemplateCreateEmbeddedDraftResponse:
@@ -10118,23 +10115,23 @@ components:
           description: 'The unique ID for this field.'
           type: string
         group:
-          nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: 'Whether this form field is multiline text.'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: 'Original font size used in this form field''s text.'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: 'Font family used in this form field''s text.'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -10161,13 +10158,13 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
         static_fields:
-          nullable: true
           description: |-
             An array describing static overlay fields.
             <b>Note</b> only available for certain subscriptions.
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseDocumentCustomField:
@@ -10203,31 +10200,31 @@ components:
           description: 'The unique ID for this field.'
           type: string
         group:
-          nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: 'Whether this form field is multiline text.'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: 'Original font size used in this form field''s text.'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: 'Font family used in this form field''s text.'
           type: string
-        named_form_fields:
           nullable: true
+        named_form_fields:
           description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
           type: object
+          nullable: true
           deprecated: true
         reusable_form_id:
-          nullable: true
           type: string
+          nullable: true
           deprecated: true
       type: object
       x-internal: true
@@ -10282,23 +10279,23 @@ components:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
         group:
-          nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: 'Whether this form field is multiline text.'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: 'Original font size used in this form field''s text.'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: 'Font family used in this form field''s text.'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseDocumentStaticField:
@@ -10331,9 +10328,9 @@ components:
           description: 'A unique id for the static field.'
           type: string
         group:
-          nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseFieldAvgTextLength:
@@ -10377,23 +10374,23 @@ components:
           description: 'The unique ID for this field.'
           type: string
         group:
-          nullable: true
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
+          nullable: true
         avg_text_length:
           $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
         isMultiline:
-          nullable: true
           description: 'Whether this form field is multiline text.'
           type: boolean
-        originalFontSize:
           nullable: true
+        originalFontSize:
           description: 'Original font size used in this form field''s text.'
           type: integer
-        fontFamily:
           nullable: true
+        fontFamily:
           description: 'Font family used in this form field''s text.'
           type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseSignerRole:
@@ -10410,24 +10407,24 @@ components:
       description: 'A group of documents that a user can take ownership of via the claim URL.'
       properties:
         signature_request_id:
-          nullable: true
           description: 'The ID of the signature request that is represented by this UnclaimedDraft.'
           type: string
+          nullable: true
         claim_url:
           description: 'The URL to be used to claim this UnclaimedDraft.'
           type: string
         signing_redirect_url:
-          nullable: true
           description: 'The URL you want signers redirected to after they successfully sign.'
           type: string
-        requesting_redirect_url:
           nullable: true
+        requesting_redirect_url:
           description: 'The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).'
           type: string
-        expires_at:
           nullable: true
+        expires_at:
           description: 'When the link expires.'
           type: integer
+          nullable: true
         test_mode:
           description: 'Whether this is a test draft. Signature requests made from test drafts have no legal value.'
           type: boolean

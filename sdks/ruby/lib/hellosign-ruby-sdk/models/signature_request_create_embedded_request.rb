@@ -14,7 +14,6 @@ require 'date'
 require 'time'
 
 module HelloSign
-  # Calls SignatureRequestSend in controller
   class SignatureRequestCreateEmbeddedRequest
     # Client id of the app you're using to create this embedded signature request. Used for security purposes.
     attr_accessor :client_id
