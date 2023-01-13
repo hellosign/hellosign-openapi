@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -32,7 +32,7 @@ const data: HelloSignSDK.SignatureRequestCreateEmbeddedWithTemplateRequest = {
   testMode: true,
 };
 
-const result = api.signatureRequestCreateEmbeddedWithTemplate(data);
+const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

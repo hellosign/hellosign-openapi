@@ -2,7 +2,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -31,7 +31,7 @@ const data = {
   whiteLabelingOptions,
 };
 
-const result = api.apiAppCreate(data);
+const result = apiAppApi.apiAppCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

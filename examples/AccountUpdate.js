@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -12,7 +12,7 @@ const data = {
   callbackUrl: "https://www.example.com/callback",
 };
 
-const result = api.accountUpdate(data);
+const result = accountApi.accountUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

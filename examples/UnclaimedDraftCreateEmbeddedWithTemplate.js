@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -28,7 +28,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreateEmbeddedWithTemplate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

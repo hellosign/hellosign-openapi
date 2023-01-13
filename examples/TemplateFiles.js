@@ -1,7 +1,7 @@
 import * as HelloSignSDK from "hellosign-sdk";
 import * as fs from 'fs';
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -12,7 +12,7 @@ api.username = "YOUR_API_KEY";
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 const fileType = "pdf";
 
-const result = api.templateFiles(templateId, fileType);
+const result = templateApi.templateFiles(templateId, fileType);
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {

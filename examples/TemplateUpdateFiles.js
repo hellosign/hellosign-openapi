@@ -2,7 +2,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -16,7 +16,7 @@ const data = {
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateUpdateFiles(templateId, data);
+const result = templateApi.templateUpdateFiles(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

@@ -2,7 +2,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -56,7 +56,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

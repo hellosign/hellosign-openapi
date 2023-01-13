@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -10,7 +10,7 @@ api.username = "YOUR_API_KEY";
 
 const accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateList(accountId);
+const result = templateApi.templateList(accountId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

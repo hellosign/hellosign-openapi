@@ -2,7 +2,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -24,7 +24,7 @@ const data = {
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppUpdate(clientId, data);
+const result = apiAppApi.apiAppUpdate(clientId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

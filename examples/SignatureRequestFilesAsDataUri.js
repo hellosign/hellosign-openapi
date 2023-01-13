@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -10,7 +10,7 @@ api.username = "YOUR_API_KEY";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestFilesAsDataUri(signatureRequestId);
+const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

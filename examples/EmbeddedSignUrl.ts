@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.EmbeddedApi();
+const embeddedApi = new HelloSignSDK.EmbeddedApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -10,7 +10,7 @@ api.username = "YOUR_API_KEY";
 
 const signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
 
-const result = api.embeddedSignUrl(signatureId);
+const result = embeddedApi.embeddedSignUrl(signatureId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

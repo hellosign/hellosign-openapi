@@ -2,7 +2,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -53,7 +53,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestSend(data);
+const result = signatureRequestApi.signatureRequestSend(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

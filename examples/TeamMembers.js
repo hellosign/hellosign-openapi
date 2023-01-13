@@ -1,6 +1,6 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
 api.username = "YOUR_API_KEY";
@@ -10,7 +10,7 @@ api.username = "YOUR_API_KEY";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-const result = api.teamMembers(teamId);
+const result = teamApi.teamMembers(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
