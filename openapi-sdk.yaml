@@ -4157,8 +4157,8 @@ paths:
             $ref: examples/TeamInvites.sh
       x-meta:
         seo:
-          title: '_t__TeamInvites::SEO::TITLE'
-          description: '_t__TeamInvites::SEO::DESCRIPTION'
+          title: 'List Team Invites | Dropbox Sign for Developers'
+          description: 'The Dropbox Sign API allows you automate your team management. To find out how to get a list of team invites (and their roles), click here.'
   '/team/members/{team_id}':
     get:
       tags:
