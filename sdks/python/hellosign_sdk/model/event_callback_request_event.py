@@ -82,6 +82,7 @@ class EventCallbackRequestEvent(ModelNormal):
             'SIGNATURE_REQUEST_EXPIRED': "signature_request_expired",
             'TEMPLATE_CREATED': "template_created",
             'TEMPLATE_ERROR': "template_error",
+            'CALLBACK_TEST': "callback_test",
         },
     }
 

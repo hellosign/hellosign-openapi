@@ -19543,6 +19543,7 @@ EventCallbackRequestEvent.attributeTypeMap = [
     EventTypeEnum2["SignatureRequestExpired"] = "signature_request_expired";
     EventTypeEnum2["TemplateCreated"] = "template_created";
     EventTypeEnum2["TemplateError"] = "template_error";
+    EventTypeEnum2["CallbackTest"] = "callback_test";
   })(EventTypeEnum = EventCallbackRequestEvent2.EventTypeEnum || (EventCallbackRequestEvent2.EventTypeEnum = {}));
 })(EventCallbackRequestEvent || (EventCallbackRequestEvent = {}));
 

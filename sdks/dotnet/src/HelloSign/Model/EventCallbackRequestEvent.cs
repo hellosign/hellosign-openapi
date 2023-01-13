@@ -164,7 +164,13 @@ namespace HelloSign.Model
             /// Enum TemplateError for value: template_error
             /// </summary>
             [EnumMember(Value = "template_error")]
-            TemplateError = 21
+            TemplateError = 21,
+
+            /// <summary>
+            /// Enum CallbackTest for value: callback_test
+            /// </summary>
+            [EnumMember(Value = "callback_test")]
+            CallbackTest = 22
 
         }
 
