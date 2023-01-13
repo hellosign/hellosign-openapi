@@ -89,13 +89,13 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -144,8 +144,8 @@ public class Example {
     import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
     import org.glassfish.jersey.client.ClientConfig;
     import org.glassfish.jersey.client.ClientProperties;
-    import com.hellosign.openapi.*;
-    import com.hellosign.openapi.api.AccountApi;
+    import com.hellosign.*;
+    import com.hellosign.api.AccountApi;
 
     ...
 

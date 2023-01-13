@@ -96,7 +96,7 @@ uploadArchives {
 
                 developers {
                     developer {
-                        name 'HelloSign API Team'
+                        name 'Dropbox Sign API Team'
                         email 'apisupport@hellosign.com'
                         url 'https://www.hellosign.com'
                     }

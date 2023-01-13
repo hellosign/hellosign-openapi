@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,7 +60,7 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\HelloSignSDK\Model\TemplateUpdateFilesResponseTemplate',
+        'template' => '\HelloSign\Model\TemplateUpdateFilesResponseTemplate',
     ];
 
     /**

@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -59,10 +59,10 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'event' => '\HelloSignSDK\Model\EventCallbackRequestEvent',
-        'account' => '\HelloSignSDK\Model\AccountResponse',
-        'signature_request' => '\HelloSignSDK\Model\SignatureRequestResponse',
-        'template' => '\HelloSignSDK\Model\TemplateResponse',
+        'event' => '\HelloSign\Model\EventCallbackRequestEvent',
+        'account' => '\HelloSign\Model\AccountResponse',
+        'signature_request' => '\HelloSign\Model\SignatureRequestResponse',
+        'template' => '\HelloSign\Model\TemplateResponse',
     ];
 
     /**

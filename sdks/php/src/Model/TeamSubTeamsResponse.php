@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,9 +60,9 @@ class TeamSubTeamsResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'sub_teams' => '\HelloSignSDK\Model\SubTeamResponse[]',
-        'list_info' => '\HelloSignSDK\Model\ListInfoResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'sub_teams' => '\HelloSign\Model\SubTeamResponse[]',
+        'list_info' => '\HelloSign\Model\ListInfoResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

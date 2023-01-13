@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK;
+namespace HelloSign;
 
 /**
  * EventCallbackHelper Class Doc Comment

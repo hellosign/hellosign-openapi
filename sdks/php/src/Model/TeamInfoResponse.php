@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -61,7 +61,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $openAPITypes = [
         'team_id' => 'string',
-        'team_parent' => '\HelloSignSDK\Model\TeamParentResponse',
+        'team_parent' => '\HelloSign\Model\TeamParentResponse',
         'name' => 'string',
         'num_members' => 'int',
         'num_sub_teams' => 'int',

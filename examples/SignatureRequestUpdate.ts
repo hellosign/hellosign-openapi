@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -8,7 +8,7 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.SignatureRequestUpdateRequest = {
+const data: HelloSign.SignatureRequestUpdateRequest = {
   emailAddress: "john@example.com",
   signatureId: "78caf2a1d01cd39cea2bc1cbb340dac3",
 };

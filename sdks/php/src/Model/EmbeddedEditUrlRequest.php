@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -61,10 +61,10 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
     protected static $openAPITypes = [
         'allow_edit_ccs' => 'bool',
         'cc_roles' => 'string[]',
-        'editor_options' => '\HelloSignSDK\Model\SubEditorOptions',
+        'editor_options' => '\HelloSign\Model\SubEditorOptions',
         'force_signer_roles' => 'bool',
         'force_subject_message' => 'bool',
-        'merge_fields' => '\HelloSignSDK\Model\SubMergeField[]',
+        'merge_fields' => '\HelloSign\Model\SubMergeField[]',
         'preview_only' => 'bool',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 | `is_locked` | ```bool``` |  Returns `true` if the user has been locked out of their account by a team admin.  |  |
 | `is_paid_hs` | ```bool``` |  Returns `true` if the user has a paid Dropbox Sign account.  |  |
 | `is_paid_hf` | ```bool``` |  Returns `true` if the user has a paid HelloFax account.  |  |
-| `quotas` | [```\HelloSignSDK\Model\AccountResponseQuotas```](AccountResponseQuotas.md) |    |  |
+| `quotas` | [```\HelloSign\Model\AccountResponseQuotas```](AccountResponseQuotas.md) |    |  |
 | `callback_url` | ```string``` |  The URL that Dropbox Sign events will `POST` to.  |  |
 | `role_code` | ```string``` |  The membership role for the team.  |  |
 | `team_id` | ```string``` |  The id of the team account belongs to.  |  |

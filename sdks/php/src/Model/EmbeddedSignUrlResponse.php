@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class EmbeddedSignUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $openAPITypes = [
-        'embedded' => '\HelloSignSDK\Model\EmbeddedSignUrlResponseEmbedded',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'embedded' => '\HelloSign\Model\EmbeddedSignUrlResponseEmbedded',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

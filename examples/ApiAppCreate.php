@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -10,22 +10,22 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSign\Api\ApiAppApi($config);
 
-$oauth = new HelloSignSDK\Model\SubOAuth();
+$oauth = new HelloSign\Model\SubOAuth();
 $oauth->setCallbackUrl("https://example.com/oauth")
     ->setScopes([
-        HelloSignSDK\Model\SubOAuth::SCOPES_BASIC_ACCOUNT_INFO,
-        HelloSignSDK\Model\SubOAuth::SCOPES_REQUEST_SIGNATURE,
+        HelloSign\Model\SubOAuth::SCOPES_BASIC_ACCOUNT_INFO,
+        HelloSign\Model\SubOAuth::SCOPES_REQUEST_SIGNATURE,
     ]);
 
-$whiteLabelingOptions = new HelloSignSDK\Model\SubWhiteLabelingOptions();
+$whiteLabelingOptions = new HelloSign\Model\SubWhiteLabelingOptions();
 $whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
     ->setPrimaryButtonTextColor("#ffffff");
 
 $customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
 
-$data = new HelloSignSDK\Model\ApiAppCreateRequest();
+$data = new HelloSign\Model\ApiAppCreateRequest();
 $data->setName("My Production App")
     ->setDomains(["example.com"])
     ->setOauth($oauth)
@@ -35,7 +35,7 @@ $data->setName("My Production App")
 try {
     $result = $apiAppApi->apiAppCreate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());

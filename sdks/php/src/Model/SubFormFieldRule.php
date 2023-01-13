@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 
@@ -62,8 +62,8 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'trigger_operator' => 'string',
-        'triggers' => '\HelloSignSDK\Model\SubFormFieldRuleTrigger[]',
-        'actions' => '\HelloSignSDK\Model\SubFormFieldRuleAction[]',
+        'triggers' => '\HelloSign\Model\SubFormFieldRuleTrigger[]',
+        'actions' => '\HelloSign\Model\SubFormFieldRuleAction[]',
     ];
 
     /**

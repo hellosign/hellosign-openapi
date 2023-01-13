@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -65,20 +65,20 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'allow_decline' => 'bool',
-        'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
+        'attachments' => '\HelloSign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
         'client_id' => 'string',
-        'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
-        'field_options' => '\HelloSignSDK\Model\SubFieldOptions',
-        'form_field_groups' => '\HelloSignSDK\Model\SubFormFieldGroup[]',
-        'form_field_rules' => '\HelloSignSDK\Model\SubFormFieldRule[]',
-        'form_fields_per_document' => '\HelloSignSDK\Model\SubFormFieldsPerDocumentBase[]',
+        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
+        'field_options' => '\HelloSign\Model\SubFieldOptions',
+        'form_field_groups' => '\HelloSign\Model\SubFormFieldGroup[]',
+        'form_field_rules' => '\HelloSign\Model\SubFormFieldRule[]',
+        'form_fields_per_document' => '\HelloSign\Model\SubFormFieldsPerDocumentBase[]',
         'hide_text_tags' => 'bool',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'show_progress_stepper' => 'bool',
-        'signers' => '\HelloSignSDK\Model\SubUnclaimedDraftSigner[]',
-        'signing_options' => '\HelloSignSDK\Model\SubSigningOptions',
+        'signers' => '\HelloSign\Model\SubUnclaimedDraftSigner[]',
+        'signing_options' => '\HelloSign\Model\SubSigningOptions',
         'signing_redirect_url' => 'string',
         'subject' => 'string',
         'test_mode' => 'bool',

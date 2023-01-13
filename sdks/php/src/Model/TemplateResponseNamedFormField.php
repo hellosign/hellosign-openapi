@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -70,7 +70,7 @@ class TemplateResponseNamedFormField implements ModelInterface, ArrayAccess, Jso
         'required' => 'bool',
         'api_id' => 'string',
         'group' => 'string',
-        'avg_text_length' => '\HelloSignSDK\Model\TemplateResponseFieldAvgTextLength',
+        'avg_text_length' => '\HelloSign\Model\TemplateResponseFieldAvgTextLength',
         'is_multiline' => 'bool',
         'original_font_size' => 'int',
         'font_family' => 'string',

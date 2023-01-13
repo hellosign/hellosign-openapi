@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test\Api;
+namespace HelloSign\Test\Api;
 
 use GuzzleHttp;
 use GuzzleHttp\Psr7;
-use HelloSignSDK\Api;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\Model;
-use HelloSignSDK\ObjectSerializer;
-use HelloSignSDK\Test\HelloTestCase;
-use HelloSignSDK\Test\TestUtils;
+use HelloSign\Api;
+use HelloSign\Configuration;
+use HelloSign\Model;
+use HelloSign\ObjectSerializer;
+use HelloSign\Test\HelloTestCase;
+use HelloSign\Test\TestUtils;
 use SplFileObject;
 
 class ObjectSerializerTest extends HelloTestCase

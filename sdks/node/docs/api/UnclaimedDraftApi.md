@@ -23,11 +23,11 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -35,33 +35,33 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubUnclaimedDraftSigner = {
+const signer1: HelloSign.SubUnclaimedDraftSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSignSDK.SubUnclaimedDraftSigner = {
+const signer2: HelloSign.SubUnclaimedDraftSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const fieldOptions: HelloSignSDK.SubFieldOptions = {
-  dateFormat: HelloSignSDK.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: HelloSign.SubFieldOptions = {
+  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSignSDK.UnclaimedDraftCreateRequest = {
+const data: HelloSign.UnclaimedDraftCreateRequest = {
   subject: "The NDA we talked about",
-  type: HelloSignSDK.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
+  type: HelloSign.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [
     signer1,
@@ -94,11 +94,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -198,11 +198,11 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -210,7 +210,7 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedRequest = {
+const data: HelloSign.UnclaimedDraftCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   files: [fs.createReadStream("example_signature_request.pdf")],
   requesterEmailAddress: "jack@hellosign.com",
@@ -230,11 +230,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -295,9 +295,9 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -305,18 +305,18 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubUnclaimedDraftTemplateSigner = {
+const signer1: HelloSign.SubUnclaimedDraftTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
 };
 
-const cc1: HelloSignSDK.SubCC = {
+const cc1: HelloSign.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@hellosign.com",
 };
 
-const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
+const data: HelloSign.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   templateIds: ["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
   requesterEmailAddress: "jack@hellosign.com",
@@ -338,9 +338,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -414,9 +414,9 @@ Creates a new signature request from an embedded request that can be edited prio
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -424,7 +424,7 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.UnclaimedDraftEditAndResendRequest = {
+const data: HelloSign.UnclaimedDraftEditAndResendRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   testMode: true,
 };
@@ -444,9 +444,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";

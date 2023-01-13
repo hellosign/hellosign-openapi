@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 /**
  * SubFormFieldsPerDocumentTypeEnum Class Doc Comment

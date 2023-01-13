@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class TeamInvitesResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var string[]
      */
     protected static $openAPITypes = [
-        'team_invites' => '\HelloSignSDK\Model\TeamInviteResponse[]',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'team_invites' => '\HelloSign\Model\TeamInviteResponse[]',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

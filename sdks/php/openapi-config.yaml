@@ -5,7 +5,7 @@ additionalProperties:
   packageName: hellosign/hellosign-php-sdk
   packageVersion: "^6.0.0"
   artifactVersion: 6.0.0-beta23.1
-  invokerPackage: "HelloSignSDK"
+  invokerPackage: HelloSign
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src
 files:

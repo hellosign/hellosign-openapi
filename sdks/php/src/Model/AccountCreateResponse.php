@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,9 +60,9 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'account' => '\HelloSignSDK\Model\AccountResponse',
-        'oauth_data' => '\HelloSignSDK\Model\OAuthTokenResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'account' => '\HelloSign\Model\AccountResponse',
+        'oauth_data' => '\HelloSign\Model\OAuthTokenResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,7 +60,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      */
     protected static $openAPITypes = [
         'client_id' => 'string',
-        'editor_options' => '\HelloSignSDK\Model\SubEditorOptions',
+        'editor_options' => '\HelloSign\Model\SubEditorOptions',
         'is_for_embedded_signing' => 'bool',
         'requester_email_address' => 'string',
         'requesting_redirect_url' => 'string',

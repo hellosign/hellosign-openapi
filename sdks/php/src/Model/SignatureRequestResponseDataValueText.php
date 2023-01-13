@@ -26,9 +26,9 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 
 /**
  * SignatureRequestResponseDataValueText Class Doc Comment

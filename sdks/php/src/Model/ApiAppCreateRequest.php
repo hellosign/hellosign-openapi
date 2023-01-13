@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -65,9 +65,9 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'name' => 'string',
         'callback_url' => 'string',
         'custom_logo_file' => '\SplFileObject',
-        'oauth' => '\HelloSignSDK\Model\SubOAuth',
-        'options' => '\HelloSignSDK\Model\SubOptions',
-        'white_labeling_options' => '\HelloSignSDK\Model\SubWhiteLabelingOptions',
+        'oauth' => '\HelloSign\Model\SubOAuth',
+        'options' => '\HelloSign\Model\SubOptions',
+        'white_labeling_options' => '\HelloSign\Model\SubWhiteLabelingOptions',
     ];
 
     /**

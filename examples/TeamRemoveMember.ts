@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const teamApi = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSign.TeamApi();
 
 // Configure HTTP basic authorization: api_key
 teamApi.username = "YOUR_API_KEY";
@@ -8,7 +8,7 @@ teamApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.TeamRemoveMemberRequest = {
+const data: HelloSign.TeamRemoveMemberRequest = {
   emailAddress: "teammate@hellosign.com",
   newOwnerEmailAddress: "new_teammate@hellosign.com",
 };

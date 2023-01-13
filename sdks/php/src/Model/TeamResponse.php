@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -62,8 +62,8 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $openAPITypes = [
         'name' => 'string',
-        'accounts' => '\HelloSignSDK\Model\AccountResponse[]',
-        'invited_accounts' => '\HelloSignSDK\Model\AccountResponse[]',
+        'accounts' => '\HelloSign\Model\AccountResponse[]',
+        'invited_accounts' => '\HelloSign\Model\AccountResponse[]',
     ];
 
     /**

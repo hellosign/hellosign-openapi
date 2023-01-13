@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test\Api;
+namespace HelloSign\Test\Api;
 
 use GuzzleHttp;
-use HelloSignSDK\Api;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\Model;
-use HelloSignSDK\Test\HelloTestCase;
-use HelloSignSDK\Test\TestUtils;
+use HelloSign\Api;
+use HelloSign\Configuration;
+use HelloSign\Model;
+use HelloSign\Test\HelloTestCase;
+use HelloSign\Test\TestUtils;
 use SplFileObject;
 
 class ApiAppApiTest extends HelloTestCase

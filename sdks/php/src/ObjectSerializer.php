@@ -26,14 +26,14 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK;
+namespace HelloSign;
 
 use DateTime;
 use DateTimeInterface;
 use Exception;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Utils;
-use HelloSignSDK\Model\ModelInterface;
+use HelloSign\Model\ModelInterface;
 use InvalidArgumentException;
 use Psr\Http\Message;
 use SplFileObject;
@@ -423,7 +423,7 @@ class ObjectSerializer
 
             $discrimnatorSubclassFound = false;
             if (!empty($discriminator) && is_string($discriminatorValue)) {
-                $subclass = '\HelloSignSDK\Model\\' . $discriminatorValue;
+                $subclass = '\HelloSign\Model\\' . $discriminatorValue;
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                     $discrimnatorSubclassFound = true;

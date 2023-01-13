@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -64,7 +64,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
         'template_id' => 'string',
         'edit_url' => 'string',
         'expires_at' => 'int',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

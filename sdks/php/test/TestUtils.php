@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test;
+namespace HelloSign\Test;
 
 use ArrayAccess;
 use GuzzleHttp\Psr7;

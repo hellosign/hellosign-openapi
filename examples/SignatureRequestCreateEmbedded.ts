@@ -1,8 +1,8 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -10,27 +10,27 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubSignatureRequestSigner = {
+const signer1: HelloSign.SubSignatureRequestSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSignSDK.SubSignatureRequestSigner = {
+const signer2: HelloSign.SubSignatureRequestSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: true,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const data: HelloSignSDK.SignatureRequestCreateEmbeddedRequest = {
+const data: HelloSign.SignatureRequestCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   title: "NDA with Acme Co.",
   subject: "The NDA we talked about",

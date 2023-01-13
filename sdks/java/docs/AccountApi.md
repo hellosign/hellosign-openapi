@@ -22,13 +22,13 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -105,13 +105,13 @@ Returns the properties and settings of your Account.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -186,13 +186,13 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -269,13 +269,13 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {

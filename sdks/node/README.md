@@ -47,9 +47,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const accountApi = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -57,7 +57,7 @@ accountApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.AccountCreateRequest = {
+const data: HelloSign.AccountCreateRequest = {
   emailAddress: "newuser@hellosign.com",
 };
 
@@ -75,9 +75,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const accountApi = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";

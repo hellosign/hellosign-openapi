@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponseTemplate',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'template' => '\HelloSign\Model\TemplateCreateEmbeddedDraftResponseTemplate',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

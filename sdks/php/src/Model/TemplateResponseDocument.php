@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -62,10 +62,10 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     protected static $openAPITypes = [
         'name' => 'string',
         'index' => 'int',
-        'field_groups' => '\HelloSignSDK\Model\TemplateResponseDocumentFieldGroup[]',
-        'form_fields' => '\HelloSignSDK\Model\TemplateResponseDocumentFormField[]',
-        'custom_fields' => '\HelloSignSDK\Model\TemplateResponseDocumentCustomField[]',
-        'static_fields' => '\HelloSignSDK\Model\TemplateResponseDocumentStaticField[]',
+        'field_groups' => '\HelloSign\Model\TemplateResponseDocumentFieldGroup[]',
+        'form_fields' => '\HelloSign\Model\TemplateResponseDocumentFormField[]',
+        'custom_fields' => '\HelloSign\Model\TemplateResponseDocumentCustomField[]',
+        'static_fields' => '\HelloSign\Model\TemplateResponseDocumentStaticField[]',
     ];
 
     /**

@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -8,21 +8,21 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signer1: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   emailAddress: "george@example.com",
   name: "George",
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const data: HelloSignSDK.SignatureRequestCreateEmbeddedWithTemplateRequest = {
+const data: HelloSign.SignatureRequestCreateEmbeddedWithTemplateRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
   subject: "Purchase Order",

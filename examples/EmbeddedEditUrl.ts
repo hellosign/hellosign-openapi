@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const embeddedApi = new HelloSignSDK.EmbeddedApi();
+const embeddedApi = new HelloSign.EmbeddedApi();
 
 // Configure HTTP basic authorization: api_key
 embeddedApi.username = "YOUR_API_KEY";
@@ -8,7 +8,7 @@ embeddedApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // embeddedApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.EmbeddedEditUrlRequest = {
+const data: HelloSign.EmbeddedEditUrlRequest = {
   ccRoles: [""],
   mergeFields: [],
 };

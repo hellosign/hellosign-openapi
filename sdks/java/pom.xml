@@ -7,7 +7,7 @@
     <name>hellosign-java-sdk</name>
     <version>6.0.0-beta23.1</version>
     <url>https://github.com/hellosign/hellosign-java-sdk</url>
-    <description>Use the HelloSign Java SDK to connect your Java app to HelloSign\&#39;s service in microseconds!</description>
+    <description>Use the Dropbox Sign Java SDK to connect your Java app to Dropbox Sign\&#39;s service in microseconds!</description>
     <scm>
         <connection>scm:git:git://github.com/hellosign/hellosign-java-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:hellosign/hellosign-java-sdk.git</developerConnection>
@@ -24,9 +24,9 @@
 
     <developers>
         <developer>
-            <name>HelloSign API Team</name>
+            <name>Dropbox Sign API Team</name>
             <email>apisupport@hellosign.com</email>
-            <organization>HelloSign</organization>
+            <organization>Dropbox Sign</organization>
             <organizationUrl>https://hellosign.com</organizationUrl>
         </developer>
     </developers>

@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK;
+namespace HelloSign;
 
 /**
  * ApiException Class Doc Comment

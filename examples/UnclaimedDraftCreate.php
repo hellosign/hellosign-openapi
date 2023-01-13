@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -10,31 +10,31 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 
-$signer1 = new HelloSignSDK\Model\SubUnclaimedDraftSigner();
+$signer1 = new HelloSign\Model\SubUnclaimedDraftSigner();
 $signer1->setEmailAddress("jack@example.com")
     ->setName("Jack")
     ->setOrder(0);
 
-$signer2 = new HelloSignSDK\Model\SubUnclaimedDraftSigner();
+$signer2 = new HelloSign\Model\SubUnclaimedDraftSigner();
 $signer2->setEmailAddress("jill@example.com")
     ->setName("Jill")
     ->setOrder(1);
 
-$signingOptions = new HelloSignSDK\Model\SubSigningOptions();
+$signingOptions = new HelloSign\Model\SubSigningOptions();
 $signingOptions->setDraw(true)
     ->setType(true)
     ->setUpload(true)
     ->setPhone(false)
-    ->setDefaultType(HelloSignSDK\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+    ->setDefaultType(HelloSign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
 
-$fieldOptions = new HelloSignSDK\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(HelloSignSDK\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$fieldOptions = new HelloSign\Model\SubFieldOptions();
+$fieldOptions->setDateFormat(HelloSign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new HelloSignSDK\Model\UnclaimedDraftCreateRequest();
+$data = new HelloSign\Model\UnclaimedDraftCreateRequest();
 $data->setSubject("The NDA we talked about")
-    ->setType(HelloSignSDK\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
+    ->setType(HelloSign\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
     ->setSigners([$signer1, $signer2])
     ->setCcEmailAddresses([
@@ -53,7 +53,7 @@ $data->setSubject("The NDA we talked about")
 try {
     $result = $unclaimedDraftApi->unclaimedDraftCreate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());

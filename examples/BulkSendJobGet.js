@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSign.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
 bulkSendJobApi.username = "YOUR_API_KEY";

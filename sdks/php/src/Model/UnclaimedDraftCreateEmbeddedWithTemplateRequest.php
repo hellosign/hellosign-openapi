@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -66,10 +66,10 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'template_ids' => 'string[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
-        'ccs' => '\HelloSignSDK\Model\SubCC[]',
-        'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
-        'editor_options' => '\HelloSignSDK\Model\SubEditorOptions',
-        'field_options' => '\HelloSignSDK\Model\SubFieldOptions',
+        'ccs' => '\HelloSign\Model\SubCC[]',
+        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
+        'editor_options' => '\HelloSign\Model\SubEditorOptions',
+        'field_options' => '\HelloSign\Model\SubFieldOptions',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'force_signer_roles' => 'bool',
@@ -82,8 +82,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'requesting_redirect_url' => 'string',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'signers' => '\HelloSignSDK\Model\SubUnclaimedDraftTemplateSigner[]',
-        'signing_options' => '\HelloSignSDK\Model\SubSigningOptions',
+        'signers' => '\HelloSign\Model\SubUnclaimedDraftTemplateSigner[]',
+        'signing_options' => '\HelloSign\Model\SubSigningOptions',
         'signing_redirect_url' => 'string',
         'skip_me_now' => 'bool',
         'subject' => 'string',

@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -65,7 +65,7 @@ class TemplateResponseAccount implements ModelInterface, ArrayAccess, JsonSerial
         'is_locked' => 'bool',
         'is_paid_hs' => 'bool',
         'is_paid_hf' => 'bool',
-        'quotas' => '\HelloSignSDK\Model\TemplateResponseAccountQuota',
+        'quotas' => '\HelloSign\Model\TemplateResponseAccountQuota',
     ];
 
     /**

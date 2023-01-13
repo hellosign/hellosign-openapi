@@ -2,7 +2,7 @@
     "name": "hellosign/sandbox",
     "autoload": {
         "psr-4": {
-            "Hellosign\\Sandbox\\": "src/"
+            "DropboxSign\\Sandbox\\": "src/"
         }
     },
     "require": {

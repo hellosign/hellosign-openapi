@@ -1,4 +1,4 @@
-# HelloSignSDK\UnclaimedDraftApi
+# HelloSign\UnclaimedDraftApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `unclaimedDraftCreate()`
 
 ```php
-unclaimedDraftCreate($unclaimed_draft_create_request): \HelloSignSDK\Model\UnclaimedDraftCreateResponse
+unclaimedDraftCreate($unclaimed_draft_create_request): \HelloSign\Model\UnclaimedDraftCreateResponse
 ```
 
 Create Unclaimed Draft
@@ -27,7 +27,7 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -35,31 +35,31 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 
-$signer1 = new HelloSignSDK\Model\SubUnclaimedDraftSigner();
+$signer1 = new HelloSign\Model\SubUnclaimedDraftSigner();
 $signer1->setEmailAddress("jack@example.com")
     ->setName("Jack")
     ->setOrder(0);
 
-$signer2 = new HelloSignSDK\Model\SubUnclaimedDraftSigner();
+$signer2 = new HelloSign\Model\SubUnclaimedDraftSigner();
 $signer2->setEmailAddress("jill@example.com")
     ->setName("Jill")
     ->setOrder(1);
 
-$signingOptions = new HelloSignSDK\Model\SubSigningOptions();
+$signingOptions = new HelloSign\Model\SubSigningOptions();
 $signingOptions->setDraw(true)
     ->setType(true)
     ->setUpload(true)
     ->setPhone(false)
-    ->setDefaultType(HelloSignSDK\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+    ->setDefaultType(HelloSign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
 
-$fieldOptions = new HelloSignSDK\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(HelloSignSDK\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$fieldOptions = new HelloSign\Model\SubFieldOptions();
+$fieldOptions->setDateFormat(HelloSign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new HelloSignSDK\Model\UnclaimedDraftCreateRequest();
+$data = new HelloSign\Model\UnclaimedDraftCreateRequest();
 $data->setSubject("The NDA we talked about")
-    ->setType(HelloSignSDK\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
+    ->setType(HelloSign\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
     ->setSigners([$signer1, $signer2])
     ->setCcEmailAddresses([
@@ -78,7 +78,7 @@ $data->setSubject("The NDA we talked about")
 try {
     $result = $unclaimedDraftApi->unclaimedDraftCreate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -90,11 +90,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **unclaimed_draft_create_request** | [**\HelloSignSDK\Model\UnclaimedDraftCreateRequest**](../Model/UnclaimedDraftCreateRequest.md)|  | |
+| **unclaimed_draft_create_request** | [**\HelloSign\Model\UnclaimedDraftCreateRequest**](../Model/UnclaimedDraftCreateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
+[**\HelloSign\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ try {
 ## `unclaimedDraftCreateEmbedded()`
 
 ```php
-unclaimedDraftCreateEmbedded($unclaimed_draft_create_embedded_request): \HelloSignSDK\Model\UnclaimedDraftCreateResponse
+unclaimedDraftCreateEmbedded($unclaimed_draft_create_embedded_request): \HelloSign\Model\UnclaimedDraftCreateResponse
 ```
 
 Create Embedded Unclaimed Draft
@@ -126,7 +126,7 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -134,9 +134,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 
-$data = new HelloSignSDK\Model\UnclaimedDraftCreateEmbeddedRequest();
+$data = new HelloSign\Model\UnclaimedDraftCreateEmbeddedRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setRequesterEmailAddress("jack@hellosign.com")
@@ -145,7 +145,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
 try {
     $result = $unclaimedDraftApi->unclaimedDraftCreateEmbedded($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -157,11 +157,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **unclaimed_draft_create_embedded_request** | [**\HelloSignSDK\Model\UnclaimedDraftCreateEmbeddedRequest**](../Model/UnclaimedDraftCreateEmbeddedRequest.md)|  | |
+| **unclaimed_draft_create_embedded_request** | [**\HelloSign\Model\UnclaimedDraftCreateEmbeddedRequest**](../Model/UnclaimedDraftCreateEmbeddedRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
+[**\HelloSign\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ try {
 ## `unclaimedDraftCreateEmbeddedWithTemplate()`
 
 ```php
-unclaimedDraftCreateEmbeddedWithTemplate($unclaimed_draft_create_embedded_with_template_request): \HelloSignSDK\Model\UnclaimedDraftCreateResponse
+unclaimedDraftCreateEmbeddedWithTemplate($unclaimed_draft_create_embedded_with_template_request): \HelloSign\Model\UnclaimedDraftCreateResponse
 ```
 
 Create Embedded Unclaimed Draft with Template
@@ -193,7 +193,7 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -201,18 +201,18 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 
-$signer1 = new HelloSignSDK\Model\SubUnclaimedDraftTemplateSigner();
+$signer1 = new HelloSign\Model\SubUnclaimedDraftTemplateSigner();
 $signer1->setRole("Client")
     ->setName("George")
     ->setEmailAddress("george@example.com");
 
-$cc1 = new HelloSignSDK\Model\SubCC();
+$cc1 = new HelloSign\Model\SubCC();
 $cc1->setRole("Accounting")
     ->setEmailAddress("accounting@hellosign.com");
 
-$data = new HelloSignSDK\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest();
+$data = new HelloSign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTemplateIds(["61a832ff0d8423f91d503e76bfbcc750f7417c78"])
     ->setRequesterEmailAddress("jack@hellosign.com")
@@ -223,7 +223,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
 try {
     $result = $unclaimedDraftApi->unclaimedDraftCreateEmbeddedWithTemplate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -235,11 +235,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **unclaimed_draft_create_embedded_with_template_request** | [**\HelloSignSDK\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest**](../Model/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)|  | |
+| **unclaimed_draft_create_embedded_with_template_request** | [**\HelloSign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest**](../Model/UnclaimedDraftCreateEmbeddedWithTemplateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
+[**\HelloSign\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ try {
 ## `unclaimedDraftEditAndResend()`
 
 ```php
-unclaimedDraftEditAndResend($signature_request_id, $unclaimed_draft_edit_and_resend_request): \HelloSignSDK\Model\UnclaimedDraftCreateResponse
+unclaimedDraftEditAndResend($signature_request_id, $unclaimed_draft_edit_and_resend_request): \HelloSign\Model\UnclaimedDraftCreateResponse
 ```
 
 Edit and Resend Unclaimed Draft
@@ -271,7 +271,7 @@ Creates a new signature request from an embedded request that can be edited prio
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -279,9 +279,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 
-$data = new HelloSignSDK\Model\UnclaimedDraftEditAndResendRequest();
+$data = new HelloSign\Model\UnclaimedDraftEditAndResendRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTestMode(true);
 
@@ -290,7 +290,7 @@ $signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
 try {
     $result = $unclaimedDraftApi->unclaimedDraftEditAndResend($signatureRequestId, $data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -303,11 +303,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The ID of the signature request to edit and resend. | |
-| **unclaimed_draft_edit_and_resend_request** | [**\HelloSignSDK\Model\UnclaimedDraftEditAndResendRequest**](../Model/UnclaimedDraftEditAndResendRequest.md)|  | |
+| **unclaimed_draft_edit_and_resend_request** | [**\HelloSign\Model\UnclaimedDraftEditAndResendRequest**](../Model/UnclaimedDraftEditAndResendRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
+[**\HelloSign\Model\UnclaimedDraftCreateResponse**](../Model/UnclaimedDraftCreateResponse.md)
 
 ### Authorization
 

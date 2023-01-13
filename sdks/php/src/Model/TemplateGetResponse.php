@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class TemplateGetResponse implements ModelInterface, ArrayAccess, JsonSerializab
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\HelloSignSDK\Model\TemplateResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'template' => '\HelloSign\Model\TemplateResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**
