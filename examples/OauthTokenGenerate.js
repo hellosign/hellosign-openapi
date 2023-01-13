@@ -3,10 +3,10 @@ import * as HelloSignSDK from "hellosign-sdk";
 const oAuthApi = new HelloSignSDK.OAuthApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+oAuthApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// oAuthApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = new HelloSignSDK.OAuthTokenGenerateRequest();
 data.state = "900e06e2";

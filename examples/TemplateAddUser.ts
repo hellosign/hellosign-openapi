@@ -3,10 +3,10 @@ import * as HelloSignSDK from "hellosign-sdk";
 const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TemplateAddUserRequest = {
   emailAddress: "george@hellosign.com",

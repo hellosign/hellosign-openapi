@@ -5,10 +5,10 @@ const fs = require('fs');
 const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const whiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",

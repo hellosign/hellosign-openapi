@@ -3,7 +3,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 const signerList1Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
   role: "Client",

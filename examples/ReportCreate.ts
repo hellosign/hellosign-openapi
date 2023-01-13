@@ -3,7 +3,7 @@ import * as HelloSignSDK from "hellosign-sdk";
 const reportApi = new HelloSignSDK.ReportApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+reportApi.username = "YOUR_API_KEY";
 
 const data: HelloSignSDK.ReportCreateRequest = {
   startDate: "09/01/2020",

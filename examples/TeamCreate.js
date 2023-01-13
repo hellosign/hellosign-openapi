@@ -3,10 +3,10 @@ import * as HelloSignSDK from "hellosign-sdk";
 const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   name: "New Team Name"

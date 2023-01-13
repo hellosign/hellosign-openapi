@@ -5,10 +5,10 @@ const fs = require('fs');
 const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
