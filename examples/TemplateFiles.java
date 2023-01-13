@@ -9,27 +9,27 @@ import java.io.File;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi api = new TemplateApi(defaultClient);
+        TemplateApi templateApi = new TemplateApi(apiClient);
 
         String templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
-            File result = api.templateFiles(templateId, "pdf");
+            File result = templateApi.templateFiles(templateId, "pdf");
             result.renameTo(new File("file_response.pdf"));
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

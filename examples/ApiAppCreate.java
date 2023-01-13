@@ -13,22 +13,22 @@ import java.util.Collections;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        ApiAppApi api = new ApiAppApi(defaultClient);
+        ApiAppApi apiAppApi = new ApiAppApi(apiClient);
 
         SubOAuth oauth = new SubOAuth()
             .callbackUrl("https://example.com/oauth")
@@ -48,7 +48,7 @@ public class Example {
             .customLogoFile(customLogoFile);
 
         try {
-            ApiAppGetResponse result = api.apiAppCreate(data);
+            ApiAppGetResponse result = apiAppApi.apiAppCreate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

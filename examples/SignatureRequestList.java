@@ -8,27 +8,27 @@ import com.hellosign.openapi.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        SignatureRequestApi api = new SignatureRequestApi(defaultClient);
+        SignatureRequestApi signatureRequestApi = new SignatureRequestApi(apiClient);
 
         String accountId = "accountId";
 
         try {
-            SignatureRequestListResponse result = api.signatureRequestList(accountId, 1, 20, null);
+            SignatureRequestListResponse result = signatureRequestApi.signatureRequestList(accountId, 1, 20, null);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
