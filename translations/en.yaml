@@ -1542,6 +1542,8 @@
 "TeamGet::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to return information about your Team, click here."
 "TeamInfo::SEO::TITLE": "Get Team Info | Dropbox Sign for Developers"
 "TeamInfo::SEO::DESCRIPTION": "The Dropbox Sign API allows you automate your team management. To find out how to get information about a specific team, click here."
+"TeamInvites::SEO::TITLE": "List Team Invites | Dropbox Sign for Developers"
+"TeamInvites::SEO::DESCRIPTION": "The Dropbox Sign API allows you automate your team management. To find out how to get a list of team invites (and their roles), click here."
 "TeamMembers::SEO::TITLE": "List Team Members | Dropbox Sign for Developers"
 "TeamMembers::SEO::DESCRIPTION": "The Dropbox Sign API allows you automate your team management. To find out how to get a list of team members and their roles for a specific team, click here."
 "TeamRemoveMember::SEO::TITLE": "Remove User from Team | REST API | Dropbox Sign for Developers"
