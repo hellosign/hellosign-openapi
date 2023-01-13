@@ -31,13 +31,13 @@ Gives the specified Account access to the specified Template. The specified Acco
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TemplateAddUserRequest = {
   emailAddress: "george@hellosign.com",
@@ -45,7 +45,7 @@ const data: HelloSignSDK.TemplateAddUserRequest = {
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateAddUser(templateId, data);
+const result = templateApi.templateAddUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -60,13 +60,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "george@hellosign.com",
@@ -74,7 +74,7 @@ const data = {
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateAddUser(templateId, data);
+const result = templateApi.templateAddUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -125,13 +125,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const role1: HelloSignSDK.SubTemplateRole = {
   name: "Client",
@@ -176,7 +176,7 @@ const data: HelloSignSDK.TemplateCreateEmbeddedDraftRequest = {
   testMode: true,
 };
 
-const result = api.templateCreateEmbeddedDraft(data);
+const result = templateApi.templateCreateEmbeddedDraft(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -193,13 +193,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const role1 = {
   name: "Client",
@@ -244,7 +244,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.templateCreateEmbeddedDraft(data);
+const result = templateApi.templateCreateEmbeddedDraft(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -292,17 +292,17 @@ Completely deletes the template specified from the account.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateDelete(templateId);
+const result = templateApi.templateDelete(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -317,17 +317,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateDelete(templateId);
+const result = templateApi.templateDelete(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -376,18 +376,18 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 import * as HelloSignSDK from "hellosign-sdk";
 import * as fs from 'fs';
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 const fileType = "pdf";
 
-const result = api.templateFiles(templateId, fileType);
+const result = templateApi.templateFiles(templateId, fileType);
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
@@ -403,18 +403,18 @@ result.then(response => {
 import * as HelloSignSDK from "hellosign-sdk";
 import * as fs from 'fs';
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 const fileType = "pdf";
 
-const result = api.templateFiles(templateId, fileType);
+const result = templateApi.templateFiles(templateId, fileType);
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
@@ -463,17 +463,17 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateFilesAsDataUri(templateId);
+const result = templateApi.templateFilesAsDataUri(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -488,17 +488,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateFilesAsDataUri(templateId);
+const result = templateApi.templateFilesAsDataUri(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -546,17 +546,17 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateFilesAsFileUrl(templateId);
+const result = templateApi.templateFilesAsFileUrl(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -571,17 +571,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateFilesAsFileUrl(templateId);
+const result = templateApi.templateFilesAsFileUrl(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -629,17 +629,17 @@ Returns the Template specified by the `template_id` parameter.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateGet(templateId);
+const result = templateApi.templateGet(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -654,17 +654,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateGet(templateId);
+const result = templateApi.templateGet(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -712,17 +712,17 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateList(accountId);
+const result = templateApi.templateList(accountId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -737,17 +737,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateList(accountId);
+const result = templateApi.templateList(accountId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -798,13 +798,13 @@ Removes the specified Account\'s access to the specified Template.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TemplateRemoveUserRequest = {
   emailAddress: "george@hellosign.com",
@@ -812,7 +812,7 @@ const data: HelloSignSDK.TemplateRemoveUserRequest = {
 
 const templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
-const result = api.templateRemoveUser(templateId, data);
+const result = templateApi.templateRemoveUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -827,13 +827,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "george@hellosign.com",
@@ -841,7 +841,7 @@ const data = {
 
 const templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
-const result = api.templateRemoveUser(templateId, data);
+const result = templateApi.templateRemoveUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -892,13 +892,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TemplateUpdateFilesRequest = {
   files: [fs.createReadStream("example_signature_request.pdf")],
@@ -906,7 +906,7 @@ const data: HelloSignSDK.TemplateUpdateFilesRequest = {
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateUpdateFiles(templateId, data);
+const result = templateApi.templateUpdateFiles(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -923,13 +923,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   files: [fs.createReadStream("example_signature_request.pdf")],
@@ -937,7 +937,7 @@ const data = {
 
 const templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
-const result = api.templateUpdateFiles(templateId, data);
+const result = templateApi.templateUpdateFiles(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

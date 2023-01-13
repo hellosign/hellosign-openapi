@@ -43,7 +43,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateAddUserRequest(
         email_address="george@hellosign.com",
@@ -52,7 +52,7 @@ with ApiClient(configuration) as api_client:
     template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
     try:
-        response = api.template_add_user(template_id, data)
+        response = template_api.template_add_user(template_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -117,7 +117,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     role_1 = models.SubTemplateRole(
         name="Client",
@@ -157,7 +157,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.template_create_embedded_draft(data)
+        response = template_api.template_create_embedded_draft(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -221,12 +221,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.template_delete(template_id)
+        response = template_api.template_delete(template_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -290,12 +290,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.template_files(template_id, file_type="pdf")
+        response = template_api.template_files(template_id, file_type="pdf")
         open('file_response.pdf', 'wb').write(response.read())
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -360,12 +360,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.template_files_as_data_uri(template_id)
+        response = template_api.template_files_as_data_uri(template_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -429,12 +429,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.template_files_as_file_url(template_id)
+        response = template_api.template_files_as_file_url(template_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -498,12 +498,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
     try:
-        response = api.template_get(template_id)
+        response = template_api.template_get(template_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -567,12 +567,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     account_id = "f57db65d3f933b5316d398057a36176831451a35"
 
     try:
-        response = api.template_list(
+        response = template_api.template_list(
             account_id=account_id,
         )
         pprint(response)
@@ -641,7 +641,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateRemoveUserRequest(
         email_address="george@hellosign.com",
@@ -650,7 +650,7 @@ with ApiClient(configuration) as api_client:
     template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
 
     try:
-        response = api.template_remove_user(template_id, data)
+        response = template_api.template_remove_user(template_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -715,7 +715,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateUpdateFilesRequest(
         files=[open("example_signature_request.pdf", "rb")],
@@ -724,7 +724,7 @@ with ApiClient(configuration) as api_client:
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.template_update_files(template_id, data)
+        response = template_api.template_update_files(template_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

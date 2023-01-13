@@ -38,7 +38,7 @@ data.merge_fields = []
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.embedded_edit_url(template_id, data)
+  result = embedded_api.embedded_edit_url(template_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -111,7 +111,7 @@ api = HelloSign::EmbeddedApi.new
 signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
 
 begin
-  result = api.embedded_sign_url(signature_id)
+  result = embedded_api.embedded_sign_url(signature_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

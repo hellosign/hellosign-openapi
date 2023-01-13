@@ -43,7 +43,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_list_1_signer = HelloSign::SubSignatureRequestTemplateSigner.new
 signer_list_1_signer.role = "Client"
@@ -87,7 +87,7 @@ data.ccs = [cc_1]
 data.test_mode = true
 
 begin
-  result = api.signature_request_bulk_create_embedded_with_template(data)
+  result = signature_request_api.signature_request_bulk_create_embedded_with_template(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -154,7 +154,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_list_1_signer = HelloSign::SubSignatureRequestTemplateSigner.new
 signer_list_1_signer.role = "Client"
@@ -197,7 +197,7 @@ data.ccs = [cc_1]
 data.test_mode = true
 
 begin
-  result = api.signature_request_bulk_send_with_template(data)
+  result = signature_request_api.signature_request_bulk_send_with_template(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -264,12 +264,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
-  result = api.signature_request_cancel(signature_request_id)
+  result = signature_request_api.signature_request_cancel(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -336,7 +336,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_1 = HelloSign::SubSignatureRequestSigner.new
 signer_1.email_address = "jack@example.com"
@@ -367,7 +367,7 @@ data.signing_options = signing_options
 data.test_mode = true
 
 begin
-  result = api.signature_request_create_embedded(data)
+  result = signature_request_api.signature_request_create_embedded(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -434,7 +434,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_1 = HelloSign::SubSignatureRequestTemplateSigner.new
 signer_1.role = "Client"
@@ -458,7 +458,7 @@ data.signing_options = signing_options
 data.test_mode = true
 
 begin
-  result = api.signature_request_create_embedded_with_template(data)
+  result = signature_request_api.signature_request_create_embedded_with_template(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -525,12 +525,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  file_bin = api.signature_request_files(signature_request_id)
+  file_bin = signature_request_api.signature_request_files(signature_request_id)
   FileUtils.cp(file_bin.path, "path/to/file.pdf")
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -598,12 +598,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  result = api.signature_request_files_as_data_uri(signature_request_id)
+  result = signature_request_api.signature_request_files_as_data_uri(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -670,12 +670,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  result = api.signature_request_files_as_file_url(signature_request_id)
+  result = signature_request_api.signature_request_files_as_file_url(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -742,12 +742,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  result = api.signature_request_get(signature_request_id)
+  result = signature_request_api.signature_request_get(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -814,13 +814,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 account_id = null
 page = 1
 
 begin
-  result = api.signature_request_list({account_id: account_id, page: page})
+  result = signature_request_api.signature_request_list({account_id: account_id, page: page})
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -890,12 +890,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
-  result = api.signature_request_release_hold(signature_request_id)
+  result = signature_request_api.signature_request_release_hold(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -962,7 +962,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 data = HelloSign::SignatureRequestRemindRequest.new
 data.email_address = "john@example.com"
@@ -970,7 +970,7 @@ data.email_address = "john@example.com"
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
-  result = api.signature_request_remind(signature_request_id, data)
+  result = signature_request_api.signature_request_remind(signature_request_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -1038,12 +1038,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
-  result = api.signature_request_remove(signature_request_id)
+  result = signature_request_api.signature_request_remove(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -1110,7 +1110,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_1 = HelloSign::SubSignatureRequestSigner.new
 signer_1.email_address = "jack@example.com"
@@ -1151,7 +1151,7 @@ data.field_options = field_options
 data.test_mode = true
 
 begin
-  result = api.signature_request_send(data)
+  result = signature_request_api.signature_request_send(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -1218,7 +1218,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_1 = HelloSign::SubSignatureRequestTemplateSigner.new
 signer_1.role = "Client"
@@ -1253,7 +1253,7 @@ data.signing_options = signing_options
 data.test_mode = true
 
 begin
-  result = api.signature_request_send_with_template(data)
+  result = signature_request_api.signature_request_send_with_template(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -1320,7 +1320,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 data = HelloSign::SignatureRequestUpdateRequest.new
 data.email_address = "john@example.com"
@@ -1329,7 +1329,7 @@ data.signature_id = "78caf2a1d01cd39cea2bc1cbb340dac3"
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
-  result = api.signature_request_update(signature_request_id, data)
+  result = signature_request_api.signature_request_update(signature_request_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

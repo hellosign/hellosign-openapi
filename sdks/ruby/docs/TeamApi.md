@@ -37,13 +37,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 data = HelloSign::TeamAddMemberRequest.new
 data.email_address = "george@example.com"
 
 begin
-  result = api.team_add_member(data)
+  result = team_api.team_add_member(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -111,13 +111,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 data = HelloSign::TeamCreateRequest.new
 data.name = "New Team Name"
 
 begin
-  result = api.team_create(data)
+  result = team_api.team_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -184,10 +184,10 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 begin
-  result = api.team_delete
+  result = team_api.team_delete
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -252,10 +252,10 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 begin
-  result = api.team_get
+  result = team_api.team_get
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -320,10 +320,10 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 begin
-  result = api.team_info
+  result = team_api.team_info
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -390,12 +390,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 email_address = "user@hellosign.com"
 
 begin
-  result = api.team_invites({email_address: email_address})
+  result = team_api.team_invites({email_address: email_address})
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -462,12 +462,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
 begin
-  result = api.team_members(team_id)
+  result = team_api.team_members(team_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -536,14 +536,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 data = HelloSign::TeamRemoveMemberRequest.new
 data.email_address = "teammate@hellosign.com"
 data.new_owner_email_address = "new_teammate@hellosign.com"
 
 begin
-  result = api.team_remove_member(data)
+  result = team_api.team_remove_member(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -610,12 +610,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
 begin
-  result = api.team_sub_teams(team_id)
+  result = team_api.team_sub_teams(team_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -684,13 +684,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 data = HelloSign::TeamUpdateRequest.new
 data.name = "New Team Name"
 
 begin
-  result = api.team_update(data)
+  result = team_api.team_update(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

@@ -36,7 +36,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new AccountApi(config);
+        var accountApi = new AccountApi(config);
 
         var data = new AccountCreateRequest(
             emailAddress: "newuser@hellosign.com"
@@ -44,7 +44,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.AccountCreate(data);
+            var result = accountApi.AccountCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -133,11 +133,11 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new AccountApi(config);
+        var accountApi = new AccountApi(config);
 
         try
         {
-            var result = apiInstance.AccountGet(null, "jack@example.com");
+            var result = accountApi.AccountGet(null, "jack@example.com");
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -227,7 +227,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new AccountApi(config);
+        var accountApi = new AccountApi(config);
 
         var data = new AccountUpdateRequest(
             callbackUrl: "https://www.example.com/callback"
@@ -235,7 +235,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.AccountUpdate(data);
+            var result = accountApi.AccountUpdate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -324,7 +324,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new AccountApi(config);
+        var accountApi = new AccountApi(config);
 
         var data = new AccountVerifyRequest(
             emailAddress: "some_user@hellosign.com"
@@ -332,7 +332,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.AccountVerify(data);
+            var result = accountApi.AccountVerify(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

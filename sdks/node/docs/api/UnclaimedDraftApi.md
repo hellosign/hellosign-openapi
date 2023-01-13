@@ -27,13 +27,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubUnclaimedDraftSigner = {
   emailAddress: "jack@example.com",
@@ -81,7 +81,7 @@ const data: HelloSignSDK.UnclaimedDraftCreateRequest = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -98,13 +98,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   emailAddress: "jack@example.com",
@@ -152,7 +152,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -202,13 +202,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
@@ -217,7 +217,7 @@ const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedRequest = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreateEmbedded(data);
+const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -234,13 +234,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
@@ -249,7 +249,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreateEmbedded(data);
+const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -297,13 +297,13 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubUnclaimedDraftTemplateSigner = {
   role: "Client",
@@ -325,7 +325,7 @@ const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreateEmbeddedWithTemplate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -340,13 +340,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   role: "Client",
@@ -368,7 +368,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreateEmbeddedWithTemplate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -416,13 +416,13 @@ Creates a new signature request from an embedded request that can be edited prio
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.UnclaimedDraftEditAndResendRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
@@ -431,7 +431,7 @@ const data: HelloSignSDK.UnclaimedDraftEditAndResendRequest = {
 
 const signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
 
-const result = api.unclaimedDraftEditAndResend(signatureRequestId, data);
+const result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -446,13 +446,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
@@ -461,7 +461,7 @@ const data = {
 
 const signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
 
-const result = api.unclaimedDraftEditAndResend(signatureRequestId, data);
+const result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

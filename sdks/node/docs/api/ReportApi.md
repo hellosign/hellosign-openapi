@@ -22,10 +22,10 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ReportApi();
+const reportApi = new HelloSignSDK.ReportApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+reportApi.username = "YOUR_API_KEY";
 
 const data: HelloSignSDK.ReportCreateRequest = {
   startDate: "09/01/2020",
@@ -36,7 +36,7 @@ const data: HelloSignSDK.ReportCreateRequest = {
   ]
 };
 
-const result = api.reportCreate(data);
+const result = reportApi.reportCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -51,10 +51,10 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ReportApi();
+const reportApi = new HelloSignSDK.ReportApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+reportApi.username = "YOUR_API_KEY";
 
 const data = {
   startDate: "09/01/2020",
@@ -65,7 +65,7 @@ const data = {
   ]
 };
 
-const result = api.reportCreate(data);
+const result = reportApi.reportCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

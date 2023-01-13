@@ -23,17 +23,17 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+bulkSendJobApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
 
-const result = api.bulkSendJobGet(bulkSendJobId);
+const result = bulkSendJobApi.bulkSendJobGet(bulkSendJobId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -48,17 +48,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+bulkSendJobApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
 
-const result = api.bulkSendJobGet(bulkSendJobId);
+const result = bulkSendJobApi.bulkSendJobGet(bulkSendJobId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -106,18 +106,18 @@ Returns a list of BulkSendJob that you can access.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+bulkSendJobApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const page = 1;
 const pageSize = 20;
 
-const result = api.bulkSendJobList(page, pageSize);
+const result = bulkSendJobApi.bulkSendJobList(page, pageSize);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -132,18 +132,18 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+bulkSendJobApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// bulkSendJobApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const page = 1;
 const pageSize = 20;
 
-const result = api.bulkSendJobList(page, pageSize);
+const result = bulkSendJobApi.bulkSendJobList(page, pageSize);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

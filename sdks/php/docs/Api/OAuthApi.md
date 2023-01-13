@@ -25,7 +25,7 @@ Once you have retrieved the code from the user callback, you will need to exchan
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$api = new HelloSignSDK\Api\OAuthApi(
+$oauthApi = new HelloSignSDK\Api\OAuthApi(
     HelloSignSDK\Configuration::getDefaultConfiguration()
 );
 
@@ -36,7 +36,7 @@ $data->setState("900e06e2")
     ->setClientSecret("1d14434088507ffa390e6f5528465");
 
 try {
-    $result = $api->oauthTokenGenerate($data);
+    $result = $oauthApi->oauthTokenGenerate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -86,7 +86,7 @@ Access tokens are only valid for a given period of time (typically one hour) for
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$api = new HelloSignSDK\Api\OAuthApi(
+$oauthApi = new HelloSignSDK\Api\OAuthApi(
     HelloSignSDK\Configuration::getDefaultConfiguration()
 );
 
@@ -94,7 +94,7 @@ $data = new HelloSignSDK\Model\OAuthTokenRefreshRequest();
 $data->setRefreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
 
 try {
-    $result = $api->oauthTokenRefresh($data);
+    $result = $oauthApi->oauthTokenRefresh($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

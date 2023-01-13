@@ -33,12 +33,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\BulkSendJobApi($config);
+$bulkSendJobApi = new HelloSignSDK\Api\BulkSendJobApi($config);
 
 $bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
 
 try {
-    $result = $api->bulkSendJobGet($bulkSendJobId);
+    $result = $bulkSendJobApi->bulkSendJobGet($bulkSendJobId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -96,13 +96,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\BulkSendJobApi($config);
+$bulkSendJobApi = new HelloSignSDK\Api\BulkSendJobApi($config);
 
 $page = 1;
 $pageSize = 20;
 
 try {
-    $result = $api->bulkSendJobList($page, $pageSize);
+    $result = $bulkSendJobApi->bulkSendJobList($page, $pageSize);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

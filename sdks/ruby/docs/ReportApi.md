@@ -28,7 +28,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ReportApi.new
+report_api = HelloSign::ReportApi.new
 
 data = HelloSign::ReportCreateRequest.new
 data.start_date = "09/01/2020"
@@ -36,7 +36,7 @@ data.end_date = "09/01/2020"
 data.report_type = %w[user_activity document_status]
 
 begin
-  result = api.report_create(data)
+  result = report_api.report_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

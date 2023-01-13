@@ -35,13 +35,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSignSDK\Api\AccountApi($config);
 
 $data = new HelloSignSDK\Model\AccountCreateRequest();
 $data->setEmailAddress("newuser@hellosign.com");
 
 try {
-    $result = $api->accountCreate($data);
+    $result = $accountApi->accountCreate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -99,10 +99,10 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSignSDK\Api\AccountApi($config);
 
 try {
-    $result = $api->accountGet(null, 'jack@example.com');
+    $result = $accountApi->accountGet(null, 'jack@example.com');
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -161,13 +161,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSignSDK\Api\AccountApi($config);
 
 $data = new HelloSignSDK\Model\AccountUpdateRequest();
 $data->setCallbackUrl("https://www.example.com/callback");
 
 try {
-    $result = $api->accountUpdate($data);
+    $result = $accountApi->accountUpdate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -225,13 +225,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSignSDK\Api\AccountApi($config);
 
 $data = new HelloSignSDK\Model\AccountVerifyRequest();
 $data->setEmailAddress("some_user@hellosign.com");
 
 try {
-    $result = $api->accountVerify($data);
+    $result = $accountApi->accountVerify($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

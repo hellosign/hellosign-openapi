@@ -42,7 +42,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
@@ -52,7 +52,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateAddUser(templateId, data);
+            var result = templateApi.TemplateAddUser(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -143,7 +143,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var role1 = new SubTemplateRole(
             name: "Client",
@@ -193,7 +193,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateCreateEmbeddedDraft(data);
+            var result = templateApi.TemplateCreateEmbeddedDraft(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -282,13 +282,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            apiInstance.TemplateDelete(templateId);
+            templateApi.TemplateDelete(templateId);
         }
         catch (ApiException e)
         {
@@ -373,13 +373,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            var result = apiInstance.TemplateFiles(templateId, "pdf");
+            var result = templateApi.TemplateFiles(templateId, "pdf");
 
             var fileStream = File.Create("file_response.pdf");
             result.Seek(0, SeekOrigin.Begin);
@@ -473,13 +473,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            var result = apiInstance.TemplateFilesAsDataUri(templateId, "pdf", false, false);
+            var result = templateApi.TemplateFilesAsDataUri(templateId, "pdf", false, false);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -568,13 +568,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            var result = apiInstance.TemplateFilesAsFileUrl(templateId, "pdf", false, false);
+            var result = templateApi.TemplateFilesAsFileUrl(templateId, "pdf", false, false);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -663,13 +663,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            var result = apiInstance.TemplateGet(templateId);
+            var result = templateApi.TemplateGet(templateId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -758,13 +758,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            var result = apiInstance.TemplateList(accountId, 1, 20, null);
+            var result = templateApi.TemplateList(accountId, 1, 20, null);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -856,7 +856,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var data = new TemplateRemoveUserRequest(
             emailAddress: "george@hellosign.com"
@@ -866,7 +866,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateRemoveUser(templateId, data);
+            var result = templateApi.TemplateRemoveUser(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -957,7 +957,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var files = new List<Stream> {
             new FileStream(
@@ -976,7 +976,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateUpdateFiles(templateId, data);
+            var result = templateApi.TemplateUpdateFiles(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

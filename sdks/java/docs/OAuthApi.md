@@ -30,22 +30,22 @@ import com.hellosign.openapi.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        OAuthApi api = new OAuthApi(defaultClient);
+        OAuthApi oAuthApi = new OAuthApi(apiClient);
 
         OAuthTokenGenerateRequest data = new OAuthTokenGenerateRequest()
             .state("900e06e2")
@@ -54,7 +54,7 @@ public class Example {
             .clientSecret("1d14434088507ffa390e6f5528465");
 
         try {
-            OAuthTokenResponse result = api.oauthTokenGenerate(data);
+            OAuthTokenResponse result = oAuthApi.oauthTokenGenerate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -115,28 +115,28 @@ import com.hellosign.openapi.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        OAuthApi api = new OAuthApi(defaultClient);
+        OAuthApi oAuthApi = new OAuthApi(apiClient);
 
         OAuthTokenRefreshRequest data = new OAuthTokenRefreshRequest()
             .refreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
 
         try {
-            OAuthTokenResponse result = api.oauthTokenRefresh(data);
+            OAuthTokenResponse result = oAuthApi.oauthTokenRefresh(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

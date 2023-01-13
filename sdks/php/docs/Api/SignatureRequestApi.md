@@ -44,7 +44,7 @@ $config = HelloSignSDK\Configuration::getDefaultConfiguration();
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signerList1Signer = new HelloSignSDK\Model\SubSignatureRequestTemplateSigner();
 $signerList1Signer->setRole("Client")
@@ -88,7 +88,7 @@ $data->setClientId("1a659d9ad95bccd307ecad78d72192f8")
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestBulkCreateEmbeddedWithTemplate($data);
+    $result = $signatureRequestApi->signatureRequestBulkCreateEmbeddedWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -146,7 +146,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signerList1Signer = new HelloSignSDK\Model\SubSignatureRequestTemplateSigner();
 $signerList1Signer->setRole("Client")
@@ -189,7 +189,7 @@ $data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestBulkSendWithTemplate($data);
+    $result = $signatureRequestApi->signatureRequestBulkSendWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -247,12 +247,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
 try {
-    $api->signatureRequestCancel($signatureRequestId);
+    $signatureRequestApi->signatureRequestCancel($signatureRequestId);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
@@ -309,7 +309,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubSignatureRequestSigner();
 $signer1->setEmailAddress("jack@example.com")
@@ -343,7 +343,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestCreateEmbedded($data);
+    $result = $signatureRequestApi->signatureRequestCreateEmbedded($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -401,7 +401,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubSignatureRequestTemplateSigner();
 $signer1->setRole("Client")
@@ -425,7 +425,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestCreateEmbeddedWithTemplate($data);
+    $result = $signatureRequestApi->signatureRequestCreateEmbeddedWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -483,13 +483,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 $fileType = "pdf";
 
 try {
-    $result = $api->signatureRequestFiles($signatureRequestId, $fileType);
+    $result = $signatureRequestApi->signatureRequestFiles($signatureRequestId, $fileType);
     copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -548,12 +548,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $result = $api->signatureRequestFilesAsDataUri($signatureRequestId);
+    $result = $signatureRequestApi->signatureRequestFilesAsDataUri($signatureRequestId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -611,12 +611,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $result = $api->signatureRequestFilesAsFileUrl($signatureRequestId);
+    $result = $signatureRequestApi->signatureRequestFilesAsFileUrl($signatureRequestId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -674,12 +674,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
 try {
-    $result = $api->signatureRequestGet($signatureRequestId);
+    $result = $signatureRequestApi->signatureRequestGet($signatureRequestId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -737,13 +737,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $accountId = null;
 $page = 1;
 
 try {
-    $result = $api->signatureRequestList($accountId, $page);
+    $result = $signatureRequestApi->signatureRequestList($accountId, $page);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -804,12 +804,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
 try {
-    $result = $api->signatureRequestReleaseHold($signatureRequestId);
+    $result = $signatureRequestApi->signatureRequestReleaseHold($signatureRequestId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -867,7 +867,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $data = new HelloSignSDK\Model\SignatureRequestRemindRequest();
 $data->setEmailAddress("john@example.com");
@@ -875,7 +875,7 @@ $data->setEmailAddress("john@example.com");
 $signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
 try {
-    $result = $api->signatureRequestRemind($signatureRequestId, $data);
+    $result = $signatureRequestApi->signatureRequestRemind($signatureRequestId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -931,12 +931,12 @@ $config = HelloSignSDK\Configuration::getDefaultConfiguration();
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
 try {
-    $api->signatureRequestRemove($signatureRequestId);
+    $signatureRequestApi->signatureRequestRemove($signatureRequestId);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
@@ -993,7 +993,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubSignatureRequestSigner();
 $signer1->setEmailAddress("jack@example.com")
@@ -1034,7 +1034,7 @@ $data->setTitle("NDA with Acme Co.")
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestSend($data);
+    $result = $signatureRequestApi->signatureRequestSend($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -1092,7 +1092,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubSignatureRequestTemplateSigner();
 $signer1->setRole("Client")
@@ -1127,7 +1127,7 @@ $data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestSendWithTemplate($data);
+    $result = $signatureRequestApi->signatureRequestSendWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -1185,7 +1185,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $data = new HelloSignSDK\Model\SignatureRequestUpdateRequest();
 $data->setEmailAddress("john@example.com")
@@ -1194,7 +1194,7 @@ $data->setEmailAddress("john@example.com")
 $signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
 try {
-    $result = $api->signatureRequestUpdate($signatureRequestId, $data);
+    $result = $signatureRequestApi->signatureRequestUpdate($signatureRequestId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

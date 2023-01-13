@@ -33,7 +33,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\EmbeddedApi($config);
+$embeddedApi = new HelloSignSDK\Api\EmbeddedApi($config);
 
 $data = new HelloSignSDK\Model\EmbeddedEditUrlRequest();
 $data->setCcRoles([""])
@@ -42,7 +42,7 @@ $data->setCcRoles([""])
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
-    $result = $api->embeddedEditUrl($templateId, $data);
+    $result = $embeddedApi->embeddedEditUrl($templateId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -101,12 +101,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\EmbeddedApi($config);
+$embeddedApi = new HelloSignSDK\Api\EmbeddedApi($config);
 
 $signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
 
 try {
-    $result = $api->embeddedSignUrl($signatureId);
+    $result = $embeddedApi->embeddedSignUrl($signatureId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

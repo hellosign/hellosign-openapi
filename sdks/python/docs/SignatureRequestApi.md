@@ -48,7 +48,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_list_1_signer = models.SubSignatureRequestTemplateSigner(
         role="Client",
@@ -100,7 +100,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_bulk_create_embedded_with_template(data)
+        response = signature_request_api.signature_request_bulk_create_embedded_with_template(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -164,7 +164,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_list_1_signer = models.SubSignatureRequestTemplateSigner(
         role="Client",
@@ -215,7 +215,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_bulk_send_with_template(data)
+        response = signature_request_api.signature_request_bulk_send_with_template(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -279,12 +279,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.signature_request_cancel(signature_request_id)
+        response = signature_request_api.signature_request_cancel(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -348,7 +348,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_1 = models.SubSignatureRequestSigner(
         email_address="jack@example.com",
@@ -383,7 +383,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_create_embedded(data)
+        response = signature_request_api.signature_request_create_embedded(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -447,7 +447,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_1 = models.SubSignatureRequestTemplateSigner(
         role="Client",
@@ -474,7 +474,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_create_embedded_with_template(data)
+        response = signature_request_api.signature_request_create_embedded_with_template(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -538,12 +538,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        response = api.signature_request_files(signature_request_id, file_type="pdf")
+        response = signature_request_api.signature_request_files(signature_request_id, file_type="pdf")
         open('file_response.pdf', 'wb').write(response.read())
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -608,12 +608,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        response = api.signature_request_files_as_data_uri(signature_request_id)
+        response = signature_request_api.signature_request_files_as_data_uri(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -677,12 +677,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        response = api.signature_request_files_as_file_url(signature_request_id)
+        response = signature_request_api.signature_request_files_as_file_url(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -746,12 +746,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
     try:
-        response = api.signature_request_get(signature_request_id)
+        response = signature_request_api.signature_request_get(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -815,13 +815,13 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     account_id = None
     page = 1
 
     try:
-        response = api.signature_request_list(
+        response = signature_request_api.signature_request_list(
             account_id=account_id,
             page=page,
         )
@@ -891,12 +891,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.signature_request_release_hold(signature_request_id)
+        response = signature_request_api.signature_request_release_hold(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -960,7 +960,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     data = models.SignatureRequestRemindRequest(
         email_address="john@example.com",
@@ -969,7 +969,7 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.signature_request_remind(signature_request_id, data)
+        response = signature_request_api.signature_request_remind(signature_request_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -1033,12 +1033,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.signature_request_remove(signature_request_id)
+        response = signature_request_api.signature_request_remove(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -1102,7 +1102,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_1 = models.SubSignatureRequestSigner(
         email_address="jack@example.com",
@@ -1148,7 +1148,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_send(data)
+        response = signature_request_api.signature_request_send(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -1212,7 +1212,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_1 = models.SubSignatureRequestSigner(
         role="Client",
@@ -1252,7 +1252,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_send_with_template(data)
+        response = signature_request_api.signature_request_send_with_template(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -1316,7 +1316,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     data = models.SignatureRequestUpdateRequest(
         email_address = "john@example.com",
@@ -1326,7 +1326,7 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.signature_request_update(signature_request_id, data)
+        response = signature_request_api.signature_request_update(signature_request_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

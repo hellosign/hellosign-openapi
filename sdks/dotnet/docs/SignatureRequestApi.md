@@ -49,7 +49,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signerList1Signer = new SubSignatureRequestTemplateSigner(
             role: "Client",
@@ -102,7 +102,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestBulkCreateEmbeddedWithTemplate(data);
+            var result = signatureRequestApi.SignatureRequestBulkCreateEmbeddedWithTemplate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -192,7 +192,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signerList1Signer = new SubSignatureRequestTemplateSigner(
             role: "Client",
@@ -244,7 +244,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestBulkSendWithTemplate(data);
+            var result = signatureRequestApi.SignatureRequestBulkSendWithTemplate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -334,13 +334,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
         try
         {
-            apiInstance.SignatureRequestCancel(signatureRequestId);
+            signatureRequestApi.SignatureRequestCancel(signatureRequestId);
         }
         catch (ApiException e)
         {
@@ -426,7 +426,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signer1 = new SubSignatureRequestSigner(
             emailAddress: "jack@example.com",
@@ -471,7 +471,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestCreateEmbedded(data);
+            var result = signatureRequestApi.SignatureRequestCreateEmbedded(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -560,7 +560,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signer1 = new SubSignatureRequestTemplateSigner(
             role: "Client",
@@ -587,7 +587,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestCreateEmbeddedWithTemplate(data);
+            var result = signatureRequestApi.SignatureRequestCreateEmbeddedWithTemplate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -676,13 +676,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try
         {
-            var result = apiInstance.SignatureRequestFiles(signatureRequestId, "pdf");
+            var result = signatureRequestApi.SignatureRequestFiles(signatureRequestId, "pdf");
 
             var fileStream = File.Create("file_response.pdf");
             result.Seek(0, SeekOrigin.Begin);
@@ -776,13 +776,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try
         {
-            var result = apiInstance.SignatureRequestFilesAsDataUri(signatureRequestId);
+            var result = signatureRequestApi.SignatureRequestFilesAsDataUri(signatureRequestId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -871,13 +871,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try
         {
-            var result = apiInstance.SignatureRequestFilesAsFileUrl(signatureRequestId);
+            var result = signatureRequestApi.SignatureRequestFilesAsFileUrl(signatureRequestId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -966,13 +966,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
         try
         {
-            var result = apiInstance.SignatureRequestGet(signatureRequestId);
+            var result = signatureRequestApi.SignatureRequestGet(signatureRequestId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -1061,13 +1061,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var accountId = "accountId";
 
         try
         {
-            var result = apiInstance.SignatureRequestList(accountId);
+            var result = signatureRequestApi.SignatureRequestList(accountId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -1159,13 +1159,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
         try
         {
-            var result = apiInstance.SignatureRequestReleaseHold(signatureRequestId);
+            var result = signatureRequestApi.SignatureRequestReleaseHold(signatureRequestId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -1254,7 +1254,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var data = new SignatureRequestRemindRequest(
             emailAddress: "john@example.com"
@@ -1264,7 +1264,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestRemind(signatureRequestId, data);
+            var result = signatureRequestApi.SignatureRequestRemind(signatureRequestId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -1354,13 +1354,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
         try
         {
-            apiInstance.SignatureRequestRemove(signatureRequestId);
+            signatureRequestApi.SignatureRequestRemove(signatureRequestId);
         }
         catch (ApiException e)
         {
@@ -1446,7 +1446,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signer1 = new SubSignatureRequestSigner(
             emailAddress: "jack@example.com",
@@ -1502,7 +1502,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestSend(data);
+            var result = signatureRequestApi.SignatureRequestSend(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -1591,7 +1591,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signer1 = new SubSignatureRequestTemplateSigner(
             role: "Client",
@@ -1632,7 +1632,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestSendWithTemplate(data);
+            var result = signatureRequestApi.SignatureRequestSendWithTemplate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -1721,7 +1721,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
@@ -1732,7 +1732,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestUpdate(signatureRequestId, data);
+            var result = signatureRequestApi.SignatureRequestUpdate(signatureRequestId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

@@ -33,7 +33,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.ReportApi(api_client)
+    report_api = apis.ReportApi(api_client)
 
     data = models.ReportCreateRequest(
         start_date="09/01/2020",
@@ -42,7 +42,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.report_create(data)
+        response = report_api.report_create(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
