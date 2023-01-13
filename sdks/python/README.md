@@ -84,14 +84,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.AccountApi(api_client)
+    account_api = apis.AccountApi(api_client)
 
     data = models.AccountCreateRequest(
         email_address="newuser@hellosign.com",
     )
 
     try:
-        response = api.account_create(data)
+        response = account_api.account_create(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

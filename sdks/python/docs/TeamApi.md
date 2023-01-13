@@ -43,14 +43,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     data = models.TeamAddMemberRequest(
         email_address="george@example.com",
     )
 
     try:
-        response = api.team_add_member(data)
+        response = team_api.team_add_member(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -115,14 +115,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     data = models.TeamCreateRequest(
         name="New Team Name",
     )
 
     try:
-        response = api.team_create(data)
+        response = team_api.team_create(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -186,10 +186,10 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     try:
-        response = api.team_delete()
+        response = team_api.team_delete()
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -251,10 +251,10 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     try:
-        response = api.team_get()
+        response = team_api.team_get()
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -316,10 +316,10 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     try:
-        response = api.team_info()
+        response = team_api.team_info()
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -383,12 +383,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     email_address = "user@hellosign.com"
 
     try:
-        response = api.team_invites(email_address)
+        response = team_api.team_invites(email_address)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -452,12 +452,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
     try:
-        response = api.team_members(team_id)
+        response = team_api.team_members(team_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -523,7 +523,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     data = models.TeamRemoveMemberRequest(
         email_address="teammate@hellosign.com",
@@ -531,7 +531,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.team_remove_member(data)
+        response = team_api.team_remove_member(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -595,12 +595,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
     try:
-        response = api.team_sub_teams(team_id)
+        response = team_api.team_sub_teams(team_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -666,14 +666,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     data = models.TeamUpdateRequest(
         name="New Team Name",
     )
 
     try:
-        response = api.team_update(data)
+        response = team_api.team_update(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

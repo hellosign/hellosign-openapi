@@ -29,7 +29,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::OAuthApi.new
+oauth_api = HelloSign::OAuthApi.new
 
 data = HelloSign::OAuthTokenGenerateRequest.new
 data.state = "900e06e2"
@@ -38,7 +38,7 @@ data.client_id = "cc91c61d00f8bb2ece1428035716b"
 data.client_secret = "1d14434088507ffa390e6f5528465"
 
 begin
-  result = api.oauth_token_generate(data)
+  result = oauth_api.oauth_token_generate(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -105,13 +105,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::OAuthApi.new
+oauth_api = HelloSign::OAuthApi.new
 
 data = HelloSign::OAuthTokenRefreshRequest.new
 data.refresh_token = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3"
 
 begin
-  result = api.oauth_token_refresh(data)
+  result = oauth_api.oauth_token_refresh(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

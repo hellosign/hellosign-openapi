@@ -28,13 +28,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const oauth: HelloSignSDK.SubOAuth = {
   callbackUrl: "https://example.com/oauth",
@@ -57,7 +57,7 @@ const data: HelloSignSDK.ApiAppCreateRequest = {
   whiteLabelingOptions,
 };
 
-const result = api.apiAppCreate(data);
+const result = apiAppApi.apiAppCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -74,13 +74,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const oauth = {
   callbackUrl: "https://example.com/oauth",
@@ -103,7 +103,7 @@ const data = {
   whiteLabelingOptions,
 };
 
-const result = api.apiAppCreate(data);
+const result = apiAppApi.apiAppCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -151,17 +151,17 @@ Deletes an API App. Can only be invoked for apps you own.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppDelete(clientId);
+const result = apiAppApi.apiAppDelete(clientId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -176,17 +176,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppDelete(clientId);
+const result = apiAppApi.apiAppDelete(clientId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -234,17 +234,17 @@ Returns an object with information about an API App.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppGet(clientId);
+const result = apiAppApi.apiAppGet(clientId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -259,17 +259,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppGet(clientId);
+const result = apiAppApi.apiAppGet(clientId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -317,18 +317,18 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const page = 1;
 const pageSize = 2;
 
-const result = api.apiAppList(page, pageSize);
+const result = apiAppApi.apiAppList(page, pageSize);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -343,18 +343,18 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const page = 1;
 const pageSize = 2;
 
-const result = api.apiAppList(page, pageSize);
+const result = apiAppApi.apiAppList(page, pageSize);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -405,13 +405,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const whiteLabelingOptions: HelloSignSDK.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
@@ -427,7 +427,7 @@ const data: HelloSignSDK.ApiAppUpdateRequest = {
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppUpdate(clientId, data);
+const result = apiAppApi.apiAppUpdate(clientId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -444,13 +444,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSignSDK.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+apiAppApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const whiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
@@ -466,7 +466,7 @@ const data = {
 
 const clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-const result = api.apiAppUpdate(clientId, data);
+const result = apiAppApi.apiAppUpdate(clientId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

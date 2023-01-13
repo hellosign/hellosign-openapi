@@ -41,7 +41,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $data = new HelloSignSDK\Model\TemplateAddUserRequest();
 $data->setEmailAddress("george@hellosign.com");
@@ -49,7 +49,7 @@ $data->setEmailAddress("george@hellosign.com");
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
-    $result = $api->templateAddUser($templateId, $data);
+    $result = $templateApi->templateAddUser($templateId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -108,7 +108,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $role1 = new HelloSignSDK\Model\SubTemplateRole();
 $role1->setName("Client")
@@ -142,7 +142,7 @@ $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
     ->setTestMode(true);
 
 try {
-    $result = $api->templateCreateEmbeddedDraft($data);
+    $result = $templateApi->templateCreateEmbeddedDraft($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -200,12 +200,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
-    $api->templateDelete($templateId);
+    $templateApi->templateDelete($templateId);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
@@ -262,13 +262,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 $fileType = "pdf";
 
 try {
-    $result = $api->templateFiles($templateId, $fileType);
+    $result = $templateApi->templateFiles($templateId, $fileType);
     copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -327,12 +327,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
-    $result = $api->templateFilesAsDataUri($templateId);
+    $result = $templateApi->templateFilesAsDataUri($templateId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -390,12 +390,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
-    $result = $api->templateFilesAsFileUrl($templateId);
+    $result = $templateApi->templateFilesAsFileUrl($templateId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -453,12 +453,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
-    $result = $api->templateGet($templateId);
+    $result = $templateApi->templateGet($templateId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -516,12 +516,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
-    $result = $api->templateList($accountId);
+    $result = $templateApi->templateList($accountId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -582,7 +582,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $data = new HelloSignSDK\Model\TemplateRemoveUserRequest();
 $data->setEmailAddress("george@hellosign.com");
@@ -590,7 +590,7 @@ $data->setEmailAddress("george@hellosign.com");
 $templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
 try {
-    $result = $api->templateRemoveUser($templateId, $data);
+    $result = $templateApi->templateRemoveUser($templateId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -649,7 +649,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $data = new HelloSignSDK\Model\TemplateUpdateFilesRequest();
 $data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")]);
@@ -657,7 +657,7 @@ $data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
-    $result = $api->templateUpdateFiles($templateId, $data);
+    $result = $templateApi->templateUpdateFiles($templateId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

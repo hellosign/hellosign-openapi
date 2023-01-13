@@ -29,12 +29,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::BulkSendJobApi.new
+bulk_send_job_api = HelloSign::BulkSendJobApi.new
 
 bulk_send_job_id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174"
 
 begin
-  result = api.bulk_send_job_get(bulk_send_job_id)
+  result = bulk_send_job_api.bulk_send_job_get(bulk_send_job_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -101,13 +101,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::BulkSendJobApi.new
+bulk_send_job_api = HelloSign::BulkSendJobApi.new
 
 page = 1
 page_size = 20
 
 begin
-  result = api.bulk_send_job_list({page: page, page_size: page_size})
+  result = bulk_send_job_api.bulk_send_job_list({page: page, page_size: page_size})
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

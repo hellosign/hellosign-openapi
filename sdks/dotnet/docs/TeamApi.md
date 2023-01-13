@@ -42,7 +42,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         var data = new TeamAddMemberRequest(
             emailAddress: "george@example.com"
@@ -50,7 +50,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TeamAddMember(data);
+            var result = teamApi.TeamAddMember(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -140,7 +140,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         var data = new TeamCreateRequest(
             name: "New Team Name"
@@ -148,7 +148,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TeamCreate(data);
+            var result = teamApi.TeamCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -237,11 +237,11 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         try
         {
-            apiInstance.TeamDelete();
+            teamApi.TeamDelete();
         }
         catch (ApiException e)
         {
@@ -322,11 +322,11 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         try
         {
-            var result = apiInstance.TeamGet();
+            var result = teamApi.TeamGet();
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -411,11 +411,11 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         try
         {
-            var result = apiInstance.TeamInfo();
+            var result = teamApi.TeamInfo();
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -504,12 +504,12 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
         var emailAddress = "user@hellosign.com";
 
         try
         {
-            var result = apiInstance.TeamInvites(emailAddress);
+            var result = teamApi.TeamInvites(emailAddress);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -598,12 +598,12 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
         var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
         try
         {
-            var result = apiInstance.TeamMembers(teamId);
+            var result = teamApi.TeamMembers(teamId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -694,7 +694,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         var data = new TeamRemoveMemberRequest(
             emailAddress: "teammate@hellosign.com",
@@ -703,7 +703,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TeamRemoveMember(data);
+            var result = teamApi.TeamRemoveMember(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -792,12 +792,12 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
         var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
         try
         {
-            var result = apiInstance.TeamSubTeams(teamId);
+            var result = teamApi.TeamSubTeams(teamId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -888,7 +888,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         var data = new TeamUpdateRequest(
             name: "New Team Name"
@@ -896,7 +896,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TeamUpdate(data);
+            var result = teamApi.TeamUpdate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

@@ -38,7 +38,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
@@ -68,7 +68,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.ApiAppCreate(data);
+            var result = apiAppApi.ApiAppCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -158,13 +158,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
         try
         {
-            apiInstance.ApiAppDelete(clientId);
+            apiAppApi.ApiAppDelete(clientId);
         }
         catch (ApiException e)
         {
@@ -249,13 +249,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
         try
         {
-            var result = apiInstance.ApiAppGet(clientId);
+            var result = apiAppApi.ApiAppGet(clientId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -344,14 +344,14 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var page = 1;
         var pageSize = 2;
 
         try
         {
-            var result = apiInstance.ApiAppList(page, pageSize);
+            var result = apiAppApi.ApiAppList(page, pageSize);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -442,7 +442,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
@@ -474,7 +474,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.ApiAppUpdate(clientId, data);
+            var result = apiAppApi.ApiAppUpdate(clientId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

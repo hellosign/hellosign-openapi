@@ -37,7 +37,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateAddUserRequest.new
 data.email_address = "george@hellosign.com"
@@ -45,7 +45,7 @@ data.email_address = "george@hellosign.com"
 template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
 begin
-  result = api.template_add_user(template_id, data)
+  result = template_api.template_add_user(template_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -113,7 +113,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 role_1 = HelloSign::SubTemplateRole.new
 role_1.name = "Client"
@@ -147,7 +147,7 @@ data.field_options = field_options
 data.test_mode = true
 
 begin
-  result = api.template_create_embedded_draft(data)
+  result = template_api.template_create_embedded_draft(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -214,12 +214,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.template_delete(template_id)
+  result = template_api.template_delete(template_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -286,12 +286,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  file_bin = api.template_files(template_id)
+  file_bin = template_api.template_files(template_id)
   FileUtils.cp(file_bin.path, "path/to/file.pdf")
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -359,12 +359,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.template_files_as_data_uri(template_id)
+  result = template_api.template_files_as_data_uri(template_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -431,12 +431,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.template_files_as_file_url(template_id)
+  result = template_api.template_files_as_file_url(template_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -503,12 +503,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
 begin
-  result = api.template_get(template_id)
+  result = template_api.template_get(template_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -575,12 +575,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 account_id = "f57db65d3f933b5316d398057a36176831451a35"
 
 begin
-  result = api.template_list({account_id: account_id})
+  result = template_api.template_list({account_id: account_id})
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -650,7 +650,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateRemoveUserRequest.new
 data.email_address = "george@hellosign.com"
@@ -658,7 +658,7 @@ data.email_address = "george@hellosign.com"
 template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
 
 begin
-  result = api.template_remove_user(template_id, data)
+  result = template_api.template_remove_user(template_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -726,7 +726,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateUpdateFilesRequest.new
 data.files = [File.new("example_signature_request.pdf", "r")]
@@ -734,7 +734,7 @@ data.files = [File.new("example_signature_request.pdf", "r")]
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.template_update_files(template_id, data)
+  result = template_api.template_update_files(template_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

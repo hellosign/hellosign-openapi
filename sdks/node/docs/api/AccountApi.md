@@ -25,19 +25,19 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.AccountCreateRequest = {
   emailAddress: "newuser@hellosign.com",
 };
 
-const result = api.accountCreate(data);
+const result = accountApi.accountCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -52,19 +52,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "newuser@hellosign.com",
 };
 
-const result = api.accountCreate(data);
+const result = accountApi.accountCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -112,15 +112,15 @@ Returns the properties and settings of your Account.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.accountGet(undefined, "jack@example.com");
+const result = accountApi.accountGet(undefined, "jack@example.com");
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -135,15 +135,15 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.accountGet(undefined, "jack@example.com");
+const result = accountApi.accountGet(undefined, "jack@example.com");
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -192,19 +192,19 @@ Updates the properties and settings of your Account. Currently only allows for u
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.AccountUpdateRequest = {
   callbackUrl: "https://www.example.com/callback",
 };
 
-const result = api.accountUpdate(data);
+const result = accountApi.accountUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -219,19 +219,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   callbackUrl: "https://www.example.com/callback",
 };
 
-const result = api.accountUpdate(data);
+const result = accountApi.accountUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -279,19 +279,19 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.AccountVerifyRequest = {
   emailAddress: "some_user@hellosign.com",
 };
 
-const result = api.accountVerify(data);
+const result = accountApi.accountVerify(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -306,19 +306,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "some_user@hellosign.com",
 };
 
-const result = api.accountVerify(data);
+const result = accountApi.accountVerify(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

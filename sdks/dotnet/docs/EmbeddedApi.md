@@ -35,7 +35,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new EmbeddedApi(config);
+        var embeddedApi = new EmbeddedApi(config);
 
         var data = new EmbeddedEditUrlRequest(
             ccRoles: new List<string>(){""},
@@ -46,7 +46,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.EmbeddedEditUrl(templateId, data);
+            var result = embeddedApi.EmbeddedEditUrl(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -137,13 +137,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new EmbeddedApi(config);
+        var embeddedApi = new EmbeddedApi(config);
 
         var signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
 
         try
         {
-            var result = apiInstance.EmbeddedSignUrl(signatureId);
+            var result = embeddedApi.EmbeddedSignUrl(signatureId);
             Console.WriteLine(result);
         }
         catch (ApiException e)

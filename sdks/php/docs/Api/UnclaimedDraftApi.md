@@ -35,7 +35,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubUnclaimedDraftSigner();
 $signer1->setEmailAddress("jack@example.com")
@@ -76,7 +76,7 @@ $data->setSubject("The NDA we talked about")
     ->setTestMode(true);
 
 try {
-    $result = $api->unclaimedDraftCreate($data);
+    $result = $unclaimedDraftApi->unclaimedDraftCreate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -134,7 +134,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
 
 $data = new HelloSignSDK\Model\UnclaimedDraftCreateEmbeddedRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
@@ -143,7 +143,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTestMode(true);
 
 try {
-    $result = $api->unclaimedDraftCreateEmbedded($data);
+    $result = $unclaimedDraftApi->unclaimedDraftCreateEmbedded($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -201,7 +201,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubUnclaimedDraftTemplateSigner();
 $signer1->setRole("Client")
@@ -221,7 +221,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTestMode(true);
 
 try {
-    $result = $api->unclaimedDraftCreateEmbeddedWithTemplate($data);
+    $result = $unclaimedDraftApi->unclaimedDraftCreateEmbeddedWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -279,7 +279,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
 
 $data = new HelloSignSDK\Model\UnclaimedDraftEditAndResendRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
@@ -288,7 +288,7 @@ $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
 $signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
 
 try {
-    $result = $api->unclaimedDraftEditAndResend($signatureRequestId, $data);
+    $result = $unclaimedDraftApi->unclaimedDraftEditAndResend($signatureRequestId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

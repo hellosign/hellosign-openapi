@@ -31,13 +31,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::AccountApi.new
+account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountCreateRequest.new
 data.email_address = "newuser@hellosign.com"
 
 begin
-  result = api.account_create(data)
+  result = account_api.account_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -104,10 +104,10 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::AccountApi.new
+account_api = HelloSign::AccountApi.new
 
 begin
-  result = api.account_get({ email_address: "jack@example.com" })
+  result = account_api.account_get({ email_address: "jack@example.com" })
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -175,13 +175,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::AccountApi.new
+account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountUpdateRequest.new
 data.callback_url = "https://www.example.com/callback"
 
 begin
-  result = api.account_update(data)
+  result = account_api.account_update(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -248,13 +248,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::AccountApi.new
+account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountVerifyRequest.new
 data.email_address = "some_user@hellosign.com"
 
 begin
-  result = api.account_verify(data)
+  result = account_api.account_verify(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

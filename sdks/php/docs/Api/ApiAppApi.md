@@ -36,7 +36,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $oauth = new HelloSignSDK\Model\SubOAuth();
 $oauth->setCallbackUrl("https://example.com/oauth")
@@ -59,7 +59,7 @@ $data->setName("My Production App")
     ->setCustomLogoFile($customLogoFile);
 
 try {
-    $result = $api->apiAppCreate($data);
+    $result = $apiAppApi->apiAppCreate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -117,12 +117,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
 try {
-    $api->apiAppDelete($clientId);
+    $apiAppApi->apiAppDelete($clientId);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
@@ -179,12 +179,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
 try {
-    $result = $api->apiAppGet($clientId);
+    $result = $apiAppApi->apiAppGet($clientId);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -242,13 +242,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $page = 1;
 $pageSize = 2;
 
 try {
-    $result = $api->apiAppList($page, $pageSize);
+    $result = $apiAppApi->apiAppList($page, $pageSize);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
@@ -307,7 +307,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $whiteLabelingOptions = new HelloSignSDK\Model\SubWhiteLabelingOptions();
 $whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
@@ -324,7 +324,7 @@ $data->setName("New Name")
 $clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
 try {
-    $result = $api->apiAppUpdate($clientId, $data);
+    $result = $apiAppApi->apiAppUpdate($clientId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

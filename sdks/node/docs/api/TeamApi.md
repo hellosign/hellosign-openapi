@@ -31,19 +31,19 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TeamAddMemberRequest = {
   emailAddress: "george@example.com",
 };
 
-const result = api.teamAddMember(data);
+const result = teamApi.teamAddMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -58,19 +58,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "george@example.com",
 };
 
-const result = api.teamAddMember(data);
+const result = teamApi.teamAddMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -119,19 +119,19 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TeamCreateRequest = {
   name: "New Team Name"
 };
 
-const result = api.teamCreate(data);
+const result = teamApi.teamCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -146,19 +146,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   name: "New Team Name"
 };
 
-const result = api.teamCreate(data);
+const result = teamApi.teamCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -206,15 +206,15 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.teamDelete();
+const result = teamApi.teamDelete();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -229,15 +229,15 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.teamDelete();
+const result = teamApi.teamDelete();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -283,15 +283,15 @@ Returns information about your Team as well as a list of its members. If you do 
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.teamGet();
+const result = teamApi.teamGet();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -306,15 +306,15 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.teamGet();
+const result = teamApi.teamGet();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -360,15 +360,15 @@ Provides information about a team.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.teamInfo();
+const result = teamApi.teamInfo();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -383,15 +383,15 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const result = api.teamInfo();
+const result = teamApi.teamInfo();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -439,17 +439,17 @@ Provides a list of team invites (and their roles).
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const emailAddress = "user@hellosign.com";
 
-const result = api.teamInvites(emailAddress);
+const result = teamApi.teamInvites(emailAddress);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -464,17 +464,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const emailAddress = "user@hellosign.com";
 
-const result = api.teamInvites(emailAddress);
+const result = teamApi.teamInvites(emailAddress);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -522,17 +522,17 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-const result = api.teamMembers(teamId);
+const result = teamApi.teamMembers(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -547,17 +547,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-const result = api.teamMembers(teamId);
+const result = teamApi.teamMembers(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -607,20 +607,20 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TeamRemoveMemberRequest = {
   emailAddress: "teammate@hellosign.com",
   newOwnerEmailAddress: "new_teammate@hellosign.com",
 };
 
-const result = api.teamRemoveMember(data);
+const result = teamApi.teamRemoveMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -635,20 +635,20 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "teammate@hellosign.com",
   newOwnerEmailAddress: "new_teammate@hellosign.com",
 };
 
-const result = api.teamRemoveMember(data);
+const result = teamApi.teamRemoveMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -696,17 +696,17 @@ Provides a paginated list of sub teams that belong to a given team.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-const result = api.teamSubTeams(teamId);
+const result = teamApi.teamSubTeams(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -721,17 +721,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
-const result = api.teamSubTeams(teamId);
+const result = teamApi.teamSubTeams(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -781,19 +781,19 @@ Updates the name of your Team.
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.TeamUpdateRequest = {
   name: "New Team Name",
 };
 
-const result = api.teamUpdate(data);
+const result = teamApi.teamUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -808,19 +808,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   name: "New Team Name",
 };
 
-const result = api.teamUpdate(data);
+const result = teamApi.teamUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

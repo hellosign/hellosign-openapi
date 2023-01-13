@@ -35,12 +35,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.BulkSendJobApi(api_client)
+    bulk_send_job_api = apis.BulkSendJobApi(api_client)
 
     bulk_send_job_id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174"
 
     try:
-        response = api.bulk_send_job_get(bulk_send_job_id)
+        response = bulk_send_job_api.bulk_send_job_get(bulk_send_job_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
@@ -104,13 +104,13 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.BulkSendJobApi(api_client)
+    bulk_send_job_api = apis.BulkSendJobApi(api_client)
 
     page = 1
     page_size = 20
 
     try:
-        response = api.bulk_send_job_list(
+        response = bulk_send_job_api.bulk_send_job_list(
             page=page,
             page_size=page_size,
         )

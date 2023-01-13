@@ -32,7 +32,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 oauth = HelloSign::SubOAuth.new
 oauth.callback_url = "https://example.com/oauth"
@@ -52,7 +52,7 @@ data.white_labeling_options = white_labeling_options
 data.custom_logo_file = custom_logo_file
 
 begin
-  result = api.api_app_create(data)
+  result = api_app_api.api_app_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -119,12 +119,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
 begin
-  result = api.api_app_delete(client_id)
+  result = api_app_api.api_app_delete(client_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -191,12 +191,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
 begin
-  result = api.api_app_get(client_id)
+  result = api_app_api.api_app_get(client_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -263,13 +263,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 page = 1
 page_size = 2
 
 begin
-  result = api.api_app_list({ page: page, page_size: page_size })
+  result = api_app_api.api_app_list({ page: page, page_size: page_size })
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
@@ -337,7 +337,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 white_labeling_options = HelloSign::SubWhiteLabelingOptions.new
 white_labeling_options.primary_button_color = "#00b3e6"
@@ -354,7 +354,7 @@ data.custom_logo_file = custom_logo_file
 client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
 begin
-  result = api.api_app_update(client_id, data)
+  result = api_app_api.api_app_update(client_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

@@ -49,19 +49,19 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.AccountCreateRequest = {
   emailAddress: "newuser@hellosign.com",
 };
 
-const result = api.accountCreate(data);
+const result = accountApi.accountCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -77,19 +77,19 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.AccountApi();
+const accountApi = new HelloSignSDK.AccountApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+accountApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "newuser@hellosign.com",
 };
 
-const result = api.accountCreate(data);
+const result = accountApi.accountCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

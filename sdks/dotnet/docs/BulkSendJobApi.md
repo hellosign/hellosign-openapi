@@ -35,13 +35,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new BulkSendJobApi(config);
+        var bulkSendJobApi = new BulkSendJobApi(config);
 
         var bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
 
         try
         {
-            var result = apiInstance.BulkSendJobGet(bulkSendJobId);
+            var result = bulkSendJobApi.BulkSendJobGet(bulkSendJobId);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -131,14 +131,14 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new BulkSendJobApi(config);
+        var bulkSendJobApi = new BulkSendJobApi(config);
 
         var page = 1;
         var pageSize = 20;
 
         try
         {
-            var result = apiInstance.BulkSendJobList(page, pageSize);
+            var result = bulkSendJobApi.BulkSendJobList(page, pageSize);
             Console.WriteLine(result);
         }
         catch (ApiException e)

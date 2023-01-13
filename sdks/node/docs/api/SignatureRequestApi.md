@@ -37,10 +37,10 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 const signerList1Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
   role: "Client",
@@ -91,7 +91,7 @@ const data: HelloSignSDK.SignatureRequestBulkCreateEmbeddedWithTemplateRequest =
   testMode: true,
 };
 
-const result = api.signatureRequestBulkCreateEmbeddedWithTemplate(data);
+const result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -106,13 +106,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signerList1Signer = {
   role: "Client",
@@ -163,7 +163,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestBulkCreateEmbeddedWithTemplate(data);
+const result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -211,13 +211,13 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signerList1Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
   role: "Client",
@@ -267,7 +267,7 @@ const data: HelloSignSDK.SignatureRequestBulkSendWithTemplateRequest = {
   testMode: true,
 };
 
-const result = api.signatureRequestBulkSendWithTemplate(data);
+const result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -282,13 +282,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signerList1Signer = {
   role: "Client",
@@ -338,7 +338,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestBulkSendWithTemplate(data);
+const result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -386,17 +386,17 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestCancel(signatureRequestId);
+const result = signatureRequestApi.signatureRequestCancel(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -411,17 +411,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestCancel(signatureRequestId);
+const result = signatureRequestApi.signatureRequestCancel(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -471,13 +471,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubSignatureRequestSigner = {
   emailAddress: "jack@example.com",
@@ -514,7 +514,7 @@ const data: HelloSignSDK.SignatureRequestCreateEmbeddedRequest = {
   testMode: true,
 };
 
-const result = api.signatureRequestCreateEmbedded(data);
+const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -531,13 +531,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   emailAddress: "jack@example.com",
@@ -574,7 +574,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestCreateEmbedded(data);
+const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -622,13 +622,13 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubSignatureRequestTemplateSigner = {
   role: "Client",
@@ -654,7 +654,7 @@ const data: HelloSignSDK.SignatureRequestCreateEmbeddedWithTemplateRequest = {
   testMode: true,
 };
 
-const result = api.signatureRequestCreateEmbeddedWithTemplate(data);
+const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -669,13 +669,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   role: "Client",
@@ -701,7 +701,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestCreateEmbeddedWithTemplate(data);
+const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -750,18 +750,18 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 import * as HelloSignSDK from "hellosign-sdk";
 import * as fs from 'fs';
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 const fileType = "pdf";
 
-const result = api.signatureRequestFiles(signatureRequestId, fileType);
+const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fileType);
 
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
@@ -778,18 +778,18 @@ result.then(response => {
 import * as HelloSignSDK from "hellosign-sdk";
 import * as fs from 'fs';
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 const fileType = "pdf";
 
-const result = api.signatureRequestFiles(signatureRequestId, fileType);
+const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fileType);
 
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
@@ -839,17 +839,17 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestFilesAsDataUri(signatureRequestId);
+const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -864,17 +864,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestFilesAsDataUri(signatureRequestId);
+const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -922,17 +922,17 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestFilesAsFileUrl(signatureRequestId);
+const result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -947,17 +947,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestFilesAsFileUrl(signatureRequestId);
+const result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1005,17 +1005,17 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestGet(signatureRequestId);
+const result = signatureRequestApi.signatureRequestGet(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1030,17 +1030,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-const result = api.signatureRequestGet(signatureRequestId);
+const result = signatureRequestApi.signatureRequestGet(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1088,18 +1088,18 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const accountId = null;
 const page = 1;
 
-const result = api.signatureRequestList(accountId, page);
+const result = signatureRequestApi.signatureRequestList(accountId, page);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1114,18 +1114,18 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const accountId = null;
 const page = 1;
 
-const result = api.signatureRequestList(accountId, page);
+const result = signatureRequestApi.signatureRequestList(accountId, page);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1176,17 +1176,17 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestReleaseHold(signatureRequestId);
+const result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1201,17 +1201,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestReleaseHold(signatureRequestId);
+const result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1259,13 +1259,13 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.SignatureRequestRemindRequest = {
   emailAddress: "john@example.com",
@@ -1273,7 +1273,7 @@ const data: HelloSignSDK.SignatureRequestRemindRequest = {
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestRemind(signatureRequestId, data);
+const result = signatureRequestApi.signatureRequestRemind(signatureRequestId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1288,13 +1288,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "john@example.com",
@@ -1302,7 +1302,7 @@ const data = {
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestRemind(signatureRequestId, data);
+const result = signatureRequestApi.signatureRequestRemind(signatureRequestId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1351,17 +1351,17 @@ Removes your access to a completed signature request. This action is **not rever
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestRemove(signatureRequestId);
+const result = signatureRequestApi.signatureRequestRemove(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1376,17 +1376,17 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestRemove(signatureRequestId);
+const result = signatureRequestApi.signatureRequestRemove(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1436,13 +1436,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubSignatureRequestSigner = {
   emailAddress: "jack@example.com",
@@ -1487,7 +1487,7 @@ const data: HelloSignSDK.SignatureRequestSendRequest = {
   testMode: true,
 };
 
-const result = api.signatureRequestSend(data);
+const result = signatureRequestApi.signatureRequestSend(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1504,13 +1504,13 @@ import * as HelloSignSDK from "hellosign-sdk";
 
 const fs = require('fs');
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   emailAddress: "jack@example.com",
@@ -1555,7 +1555,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestSend(data);
+const result = signatureRequestApi.signatureRequestSend(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1603,13 +1603,13 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubSignatureRequestTemplateSigner = {
   role: "Client",
@@ -1648,7 +1648,7 @@ const data: HelloSignSDK.SignatureRequestSendWithTemplateRequest = {
   testMode: true,
 };
 
-const result = api.signatureRequestSendWithTemplate(data);
+const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1663,13 +1663,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   role: "Client",
@@ -1708,7 +1708,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestSendWithTemplate(data);
+const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1756,13 +1756,13 @@ Updates the email address and/or the name for a given signer on a signature requ
 ```typescript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSignSDK.SignatureRequestUpdateRequest = {
   emailAddress: "john@example.com",
@@ -1771,7 +1771,7 @@ const data: HelloSignSDK.SignatureRequestUpdateRequest = {
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestUpdate(signatureRequestId, data);
+const result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -1786,13 +1786,13 @@ result.then(response => {
 ```javascript
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "john@example.com",
@@ -1801,7 +1801,7 @@ const data = {
 
 const signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
 
-const result = api.signatureRequestUpdate(signatureRequestId, data);
+const result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
