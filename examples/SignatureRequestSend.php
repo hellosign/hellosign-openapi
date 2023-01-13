@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubSignatureRequestSigner();
 $signer1->setEmailAddress("jack@example.com")
@@ -51,7 +51,7 @@ $data->setTitle("NDA with Acme Co.")
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestSend($data);
+    $result = $signatureRequestApi->signatureRequestSend($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

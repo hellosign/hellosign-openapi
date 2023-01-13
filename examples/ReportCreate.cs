@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ReportApi(config);
+        var reportApi = new ReportApi(config);
 
         var data = new ReportCreateRequest(
             startDate: "09/01/2020",
@@ -29,7 +29,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.ReportCreate(data);
+            var result = reportApi.OauthCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

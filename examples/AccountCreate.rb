@@ -8,13 +8,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::AccountApi.new
+account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountCreateRequest.new
 data.email_address = "newuser@hellosign.com"
 
 begin
-  result = api.account_create(data)
+  result = account_api.account_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

@@ -10,13 +10,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $page = 1;
 $pageSize = 2;
 
 try {
-    $result = $api->apiAppList($page, $pageSize);
+    $result = $apiAppApi->apiAppList($page, $pageSize);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

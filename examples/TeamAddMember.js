@@ -1,18 +1,18 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSignSDK.TeamApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+teamApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
   emailAddress: "george@example.com",
 };
 
-const result = api.teamAddMember(data);
+const result = teamApi.teamAddMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

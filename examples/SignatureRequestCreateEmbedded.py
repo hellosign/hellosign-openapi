@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signer_1 = models.SubSignatureRequestSigner(
         email_address="jack@example.com",
@@ -47,7 +47,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.signature_request_create_embedded(data)
+        response = signature_request_api.signature_request_create_embedded(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

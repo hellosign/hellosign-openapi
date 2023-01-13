@@ -10,13 +10,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TeamApi($config);
+$teamApi = new HelloSignSDK\Api\TeamApi($config);
 
 $data = new HelloSignSDK\Model\TeamUpdateRequest();
 $data->setName("New Team Name");
 
 try {
-    $result = $api->teamUpdate($data);
+    $result = $teamApi->teamUpdate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

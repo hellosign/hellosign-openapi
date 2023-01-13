@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateRemoveUserRequest(
         email_address="george@hellosign.com",
@@ -21,7 +21,7 @@ with ApiClient(configuration) as api_client:
     template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
 
     try:
-        response = api.template_remove_user(template_id, data)
+        response = template_api.template_remove_user(template_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

@@ -12,14 +12,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     data = models.TeamAddMemberRequest(
         email_address="george@example.com",
     )
 
     try:
-        response = api.team_add_member(data)
+        response = team_api.team_add_member(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

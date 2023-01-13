@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.UnclaimedDraftApi(api_client)
+    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
 
     data = models.UnclaimedDraftCreateEmbeddedRequest(
         client_id="ec64a202072370a737edf4a0eb7f4437",
@@ -22,7 +22,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.unclaimed_draft_create_embedded(data)
+        response = unclaimed_draft_api.unclaimed_draft_create_embedded(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

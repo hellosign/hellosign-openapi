@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.EmbeddedApi(api_client)
+    embedded_api = apis.EmbeddedApi(api_client)
 
     data = models.EmbeddedEditUrlRequest(
         cc_roles=[""],
@@ -22,7 +22,7 @@ with ApiClient(configuration) as api_client:
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.embedded_edit_url(template_id, data)
+        response = embedded_api.embedded_edit_url(template_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new UnclaimedDraftApi(config);
+        var unclaimedDraftApi = new UnclaimedDraftApi(config);
 
         var signer1 = new SubUnclaimedDraftSigner(
             emailAddress: "jack@example.com",
@@ -72,7 +72,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.UnclaimedDraftCreate(data);
+            var result = unclaimedDraftApi.UnclaimedDraftCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

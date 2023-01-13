@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 role_1 = HelloSign::SubTemplateRole.new
 role_1.name = "Client"
@@ -42,7 +42,7 @@ data.field_options = field_options
 data.test_mode = true
 
 begin
-  result = api.template_create_embedded_draft(data)
+  result = template_api.template_create_embedded_draft(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

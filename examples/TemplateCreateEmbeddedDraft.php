@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSignSDK\Api\TemplateApi($config);
 
 $role1 = new HelloSignSDK\Model\SubTemplateRole();
 $role1->setName("Client")
@@ -44,7 +44,7 @@ $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
     ->setTestMode(true);
 
 try {
-    $result = $api->templateCreateEmbeddedDraft($data);
+    $result = $templateApi->templateCreateEmbeddedDraft($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

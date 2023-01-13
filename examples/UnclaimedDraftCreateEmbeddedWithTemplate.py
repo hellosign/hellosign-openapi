@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.UnclaimedDraftApi(api_client)
+    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
 
     signer_1 = models.SubUnclaimedDraftTemplateSigner(
         role="Client",
@@ -35,7 +35,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.unclaimed_draft_create_embedded_with_template(data)
+        response = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

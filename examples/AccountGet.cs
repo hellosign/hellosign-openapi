@@ -15,11 +15,11 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new AccountApi(config);
+        var accountApi = new AccountApi(config);
 
         try
         {
-            var result = apiInstance.AccountGet(null, "jack@example.com");
+            var result = accountApi.AccountGet(null, "jack@example.com");
             Console.WriteLine(result);
         }
         catch (ApiException e)

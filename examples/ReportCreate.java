@@ -11,22 +11,22 @@ import java.util.Arrays;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        ReportApi api = new ReportApi(defaultClient);
+        ReportApi reportApi = new ReportApi(apiClient);
 
         ReportCreateRequest data = new ReportCreateRequest()
             .startDate("09/01/2020")
@@ -34,7 +34,7 @@ public class Example {
             .reportType(Arrays.asList(ReportTypeEnum.USER_ACTIVITY, ReportTypeEnum.DOCUMENT_STATUS));
 
         try {
-            ReportCreateResponse result = api.reportCreate(data);
+            ReportCreateResponse result = reportApi.reportCreate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");

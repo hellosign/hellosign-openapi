@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signerList1Signer = new HelloSignSDK\Model\SubSignatureRequestTemplateSigner();
 $signerList1Signer->setRole("Client")
@@ -53,7 +53,7 @@ $data->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestBulkSendWithTemplate($data);
+    $result = $signatureRequestApi->signatureRequestBulkSendWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

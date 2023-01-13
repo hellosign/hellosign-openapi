@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new UnclaimedDraftApi(config);
+        var unclaimedDraftApi = new UnclaimedDraftApi(config);
 
         var files = new List<Stream> {
             new FileStream(
@@ -36,7 +36,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.UnclaimedDraftCreateEmbedded(data);
+            var result = unclaimedDraftApi.UnclaimedDraftCreateEmbedded(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

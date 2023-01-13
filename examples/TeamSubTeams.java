@@ -7,27 +7,27 @@ import com.hellosign.openapi.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        ApiClient apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth api_key = (HttpBasicAuth) defaultClient
+        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        api_key.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) defaultClient
+        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
 
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi api = new TeamApi(defaultClient);
+        TeamApi teamApi = new TeamApi(apiClient);
 
         String teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
         try {
-            TeamSubTeamsResponse result = api.teamSubTeams(teamId);
+            TeamSubTeamsResponse result = teamApi.teamSubTeams(teamId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TeamApi#teamSubTeams");

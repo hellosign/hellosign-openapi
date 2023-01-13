@@ -8,13 +8,13 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::OAuthApi.new
+oauth_api = HelloSign::OAuthApi.new
 
 data = HelloSign::OAuthTokenRefreshRequest.new
 data.refresh_token = "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3"
 
 begin
-  result = api.oauth_token_refresh(data)
+  result = oauth_api.oauth_token_refresh(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

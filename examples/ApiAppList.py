@@ -12,13 +12,13 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.ApiAppApi(api_client)
+    api_app_api = apis.ApiAppApi(api_client)
 
     page = 1
     page_size = 2
 
     try:
-        response = api.api_app_list(
+        response = api_app_api.api_app_list(
             page=page,
             page_size=page_size,
         )

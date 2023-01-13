@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.UnclaimedDraftApi(api_client)
+    unclaimed_draft_api = apis.UnclaimedDraftApi(api_client)
 
     data = models.UnclaimedDraftEditAndResendRequest(
         client_id="ec64a202072370a737edf4a0eb7f4437",
@@ -22,7 +22,7 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.unclaimed_draft_edit_and_resend(signature_request_id, data)
+        response = unclaimed_draft_api.unclaimed_draft_edit_and_resend(signature_request_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

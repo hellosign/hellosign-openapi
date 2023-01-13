@@ -1,12 +1,12 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+signatureRequestApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1 = {
   role: "Client",
@@ -45,7 +45,7 @@ const data = {
   testMode: true,
 };
 
-const result = api.signatureRequestSendWithTemplate(data);
+const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

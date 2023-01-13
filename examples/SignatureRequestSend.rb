@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_1 = HelloSign::SubSignatureRequestSigner.new
 signer_1.email_address = "jack@example.com"
@@ -49,7 +49,7 @@ data.field_options = field_options
 data.test_mode = true
 
 begin
-  result = api.signature_request_send(data)
+  result = signature_request_api.signature_request_send(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

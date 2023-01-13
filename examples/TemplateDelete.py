@@ -12,12 +12,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = api.template_delete(template_id)
+        response = template_api.template_delete(template_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

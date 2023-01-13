@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var signerList1Signer = new SubSignatureRequestTemplateSigner(
             role: "Client",
@@ -68,7 +68,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestBulkSendWithTemplate(data);
+            var result = signatureRequestApi.SignatureRequestBulkSendWithTemplate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

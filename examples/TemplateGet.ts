@@ -1,16 +1,16 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSignSDK.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+templateApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-const result = api.templateGet(templateId);
+const result = templateApi.templateGet(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

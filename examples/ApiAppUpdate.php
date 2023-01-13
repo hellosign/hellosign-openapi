@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $whiteLabelingOptions = new HelloSignSDK\Model\SubWhiteLabelingOptions();
 $whiteLabelingOptions->setPrimaryButtonColor("#00b3e6")
@@ -27,7 +27,7 @@ $data->setName("New Name")
 $clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
 try {
-    $result = $api->apiAppUpdate($clientId, $data);
+    $result = $apiAppApi->apiAppUpdate($clientId, $data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

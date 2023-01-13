@@ -15,13 +15,13 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try
         {
-            apiInstance.TemplateDelete(templateId);
+            templateApi.TemplateDelete(templateId);
         }
         catch (ApiException e)
         {

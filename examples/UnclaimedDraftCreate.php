@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new HelloSignSDK\Api\UnclaimedDraftApi($config);
 
 $signer1 = new HelloSignSDK\Model\SubUnclaimedDraftSigner();
 $signer1->setEmailAddress("jack@example.com")
@@ -51,7 +51,7 @@ $data->setSubject("The NDA we talked about")
     ->setTestMode(true);
 
 try {
-    $result = $api->unclaimedDraftCreate($data);
+    $result = $unclaimedDraftApi->unclaimedDraftCreate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

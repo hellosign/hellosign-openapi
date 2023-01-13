@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateAddUserRequest(
         email_address="george@hellosign.com",
@@ -21,7 +21,7 @@ with ApiClient(configuration) as api_client:
     template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
     try:
-        response = api.template_add_user(template_id, data)
+        response = template_api.template_add_user(template_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

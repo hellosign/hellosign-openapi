@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signer_list_1_signer = HelloSign::SubSignatureRequestTemplateSigner.new
 signer_list_1_signer.role = "Client"
@@ -51,7 +51,7 @@ data.ccs = [cc_1]
 data.test_mode = true
 
 begin
-  result = api.signature_request_bulk_send_with_template(data)
+  result = signature_request_api.signature_request_bulk_send_with_template(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

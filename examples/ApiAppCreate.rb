@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 oauth = HelloSign::SubOAuth.new
 oauth.callback_url = "https://example.com/oauth"
@@ -28,7 +28,7 @@ data.white_labeling_options = white_labeling_options
 data.custom_logo_file = custom_logo_file
 
 begin
-  result = api.api_app_create(data)
+  result = api_app_api.api_app_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

@@ -1,12 +1,12 @@
 import * as HelloSignSDK from "hellosign-sdk";
 
-const api = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
-api.username = "YOUR_API_KEY";
+unclaimedDraftApi.username = "YOUR_API_KEY";
 
 // or, configure Bearer (JWT) authorization: oauth2
-// api.accessToken = "YOUR_ACCESS_TOKEN";
+// unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const signer1: HelloSignSDK.SubUnclaimedDraftTemplateSigner = {
   role: "Client",
@@ -28,7 +28,7 @@ const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
   testMode: true,
 };
 
-const result = api.unclaimedDraftCreateEmbeddedWithTemplate(data);
+const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

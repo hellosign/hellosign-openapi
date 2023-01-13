@@ -10,14 +10,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\TeamApi($config);
+$teamApi = new HelloSignSDK\Api\TeamApi($config);
 
 $data = new HelloSignSDK\Model\TeamRemoveMemberRequest();
 $data->setEmailAddress("teammate@hellosign.com")
     ->setNewOwnerEmailAddress("new_teammate@hellosign.com");
 
 try {
-    $result = $api->teamRemoveMember($data);
+    $result = $teamApi->teamRemoveMember($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

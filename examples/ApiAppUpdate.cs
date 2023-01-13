@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var oauth = new SubOAuth(
             callbackUrl: "https://example.com/oauth",
@@ -48,7 +48,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.ApiAppUpdate(clientId, data);
+            var result = apiAppApi.ApiAppUpdate(clientId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

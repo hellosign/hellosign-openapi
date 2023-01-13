@@ -15,7 +15,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new AccountApi(config);
+        var accountApi = new AccountApi(config);
 
         var data = new AccountCreateRequest(
             emailAddress: "newuser@hellosign.com"
@@ -23,7 +23,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.AccountCreate(data);
+            var result = accountApi.AccountCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

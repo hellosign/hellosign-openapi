@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateRemoveUserRequest.new
 data.email_address = "george@hellosign.com"
@@ -16,7 +16,7 @@ data.email_address = "george@hellosign.com"
 template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
 
 begin
-  result = api.template_remove_user(template_id, data)
+  result = template_api.template_remove_user(template_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

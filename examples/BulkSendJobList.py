@@ -12,13 +12,13 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.BulkSendJobApi(api_client)
+    bulk_send_job_api = apis.BulkSendJobApi(api_client)
 
     page = 1
     page_size = 20
 
     try:
-        response = api.bulk_send_job_list(
+        response = bulk_send_job_api.bulk_send_job_list(
             page=page,
             page_size=page_size,
         )

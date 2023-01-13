@@ -12,12 +12,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     email_address = "user@hellosign.com"
 
     try:
-        response = api.team_invites(email_address)
+        response = team_api.team_invites(email_address)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

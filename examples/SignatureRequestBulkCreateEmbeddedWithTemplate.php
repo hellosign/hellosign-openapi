@@ -7,7 +7,7 @@ $config = HelloSignSDK\Configuration::getDefaultConfiguration();
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$signatureRequestApi = new HelloSignSDK\Api\SignatureRequestApi($config);
 
 $signerList1Signer = new HelloSignSDK\Model\SubSignatureRequestTemplateSigner();
 $signerList1Signer->setRole("Client")
@@ -51,7 +51,7 @@ $data->setClientId("1a659d9ad95bccd307ecad78d72192f8")
     ->setTestMode(true);
 
 try {
-    $result = $api->signatureRequestBulkCreateEmbeddedWithTemplate($data);
+    $result = $signatureRequestApi->signatureRequestBulkCreateEmbeddedWithTemplate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

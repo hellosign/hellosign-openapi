@@ -12,12 +12,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = api.signature_request_release_hold(signature_request_id)
+        response = signature_request_api.signature_request_release_hold(signature_request_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

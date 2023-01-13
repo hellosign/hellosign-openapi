@@ -8,12 +8,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::SignatureRequestApi.new
+signature_request_api = HelloSign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
-  result = api.signature_request_get(signature_request_id)
+  result = signature_request_api.signature_request_get(signature_request_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

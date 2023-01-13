@@ -7,7 +7,7 @@ $config = HelloSignSDK\Configuration::getDefaultConfiguration();
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSignSDK\Api\ReportApi($config);
+$reportApi = new HelloSignSDK\Api\ReportApi($config);
 
 $data = new HelloSignSDK\Model\ReportCreateRequest();
 $data->setStartDate("09/01/2020")
@@ -18,7 +18,7 @@ $data->setStartDate("09/01/2020")
     ]);
 
 try {
-    $result = $api->reportCreate($data);
+    $result = $reportApi->reportCreate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();

@@ -15,7 +15,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new SignatureRequestApi(config);
+        var signatureRequestApi = new SignatureRequestApi(config);
 
         var data = new SignatureRequestRemindRequest(
             emailAddress: "john@example.com"
@@ -25,7 +25,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.SignatureRequestRemind(signatureRequestId, data);
+            var result = signatureRequestApi.SignatureRequestRemind(signatureRequestId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
