@@ -28,12 +28,12 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -113,12 +113,12 @@ The first step in an embedded template workflow. Creates a draft template that c
 
 ```java
 import com.sun.tools.javac.util.List;
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 import java.io.File;
 
@@ -225,12 +225,12 @@ Completely deletes the template specified from the account.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -307,12 +307,12 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 import java.io.File;
 
@@ -393,12 +393,12 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -476,12 +476,12 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -557,12 +557,12 @@ Returns the Template specified by the `template_id` parameter.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -640,12 +640,12 @@ Take a look at our [search guide](/api/reference/search/) to learn more about qu
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -724,12 +724,12 @@ Removes the specified Account's access to the specified Template.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -821,12 +821,12 @@ If the page orientation or page count is different from the original template do
 
 ```java
 import com.sun.tools.javac.util.List;
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.model.*;
 
 import java.io.File;
 

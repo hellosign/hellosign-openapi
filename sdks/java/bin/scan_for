@@ -9,9 +9,9 @@ scan_for () {
   SEARCH_STRING=$1
   SCAN_TARGETS=( \
     "docs" \
-    "src/main/java/com/hellosign/openapi/api" \
-    "src/main/java/com/hellosign/openapi/model" \
-    "src/test/java/com/hellosign/openapi/api" \
+    "src/main/java/com/hellosign/api" \
+    "src/main/java/com/hellosign/model" \
+    "src/test/java/com/hellosign/api" \
     "README.md"
   )
 

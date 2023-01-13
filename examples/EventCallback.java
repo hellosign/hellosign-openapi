@@ -1,7 +1,7 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hellosign.openapi.EventCallbackHelper;
-import com.hellosign.openapi.JSON;
-import com.hellosign.openapi.model.EventCallbackRequest;
+import com.hellosign.EventCallbackHelper;
+import com.hellosign.JSON;
+import com.hellosign.model.EventCallbackRequest;
 
 import java.util.HashMap;
 import java.util.Map;

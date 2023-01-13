@@ -9,9 +9,9 @@ rep () {
   SEARCH_STRING=$1
   REPLACE_STRING=$2
   SCAN_DIRS=( \
-    "src/main/java/com/hellosign/openapi/api" \
-    "src/main/java/com/hellosign/openapi/model" \
-    "src/test/java/com/hellosign/openapi/api" \
+    "src/main/java/com/hellosign/api" \
+    "src/main/java/com/hellosign/model" \
+    "src/test/java/com/hellosign/api" \
   )
 
   printf "\nScanning for '${SEARCH_STRING}': "

@@ -23,14 +23,14 @@ Creates a new API App.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
-import com.hellosign.openapi.model.SubOAuth.ScopesEnum;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
+import com.hellosign.model.SubOAuth.ScopesEnum;
 
 import java.io.File;
 import java.util.Arrays;
@@ -125,13 +125,13 @@ Deletes an API App. Can only be invoked for apps you own.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -206,13 +206,13 @@ Returns an object with information about an API App.
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -288,13 +288,13 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -372,14 +372,14 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
-import com.hellosign.openapi.model.SubOAuth.ScopesEnum;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
+import com.hellosign.model.SubOAuth.ScopesEnum;
 
 import java.io.File;
 import java.util.Arrays;

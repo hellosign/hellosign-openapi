@@ -20,13 +20,13 @@ Once you have retrieved the code from the user callback, you will need to exchan
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -105,13 +105,13 @@ Access tokens are only valid for a given period of time (typically one hour) for
 ### Example
 
 ```java
-import com.hellosign.openapi.ApiClient;
-import com.hellosign.openapi.ApiException;
-import com.hellosign.openapi.Configuration;
-import com.hellosign.openapi.api.*;
-import com.hellosign.openapi.auth.HttpBasicAuth;
-import com.hellosign.openapi.auth.HttpBearerAuth;
-import com.hellosign.openapi.model.*;
+import com.hellosign.ApiClient;
+import com.hellosign.ApiException;
+import com.hellosign.Configuration;
+import com.hellosign.api.*;
+import com.hellosign.auth.HttpBasicAuth;
+import com.hellosign.auth.HttpBearerAuth;
+import com.hellosign.model.*;
 
 public class Example {
     public static void main(String[] args) {
