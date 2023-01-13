@@ -96,5 +96,6 @@ export namespace EventCallbackRequestEvent {
     SignatureRequestExpired = "signature_request_expired",
     TemplateCreated = "template_created",
     TemplateError = "template_error",
+    CallbackTest = "callback_test",
   }
 }

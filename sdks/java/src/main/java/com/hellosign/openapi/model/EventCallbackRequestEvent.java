@@ -89,7 +89,9 @@ public class EventCallbackRequestEvent {
     
     TEMPLATE_CREATED("template_created"),
     
-    TEMPLATE_ERROR("template_error");
+    TEMPLATE_ERROR("template_error"),
+    
+    CALLBACK_TEST("callback_test");
 
     private String value;
 

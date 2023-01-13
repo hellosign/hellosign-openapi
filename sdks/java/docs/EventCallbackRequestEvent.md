@@ -40,6 +40,7 @@ Name | Value
 | SIGNATURE_REQUEST_EXPIRED | &quot;signature_request_expired&quot; |
 | TEMPLATE_CREATED | &quot;template_created&quot; |
 | TEMPLATE_ERROR | &quot;template_error&quot; |
+| CALLBACK_TEST | &quot;callback_test&quot; |
 
 
 

@@ -8585,6 +8585,7 @@ components:
             - signature_request_expired
             - template_created
             - template_error
+            - callback_test
         event_hash:
           description: '_t__EventCallbackRequestEvent::EVENT_HASH'
           type: string
