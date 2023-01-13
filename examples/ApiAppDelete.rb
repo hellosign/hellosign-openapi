@@ -8,12 +8,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::ApiAppApi.new
+api_app_api = HelloSign::ApiAppApi.new
 
 client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
 begin
-  result = api.api_app_delete(client_id)
+  result = api_app_api.api_app_delete(client_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

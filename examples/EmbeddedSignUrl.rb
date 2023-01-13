@@ -13,7 +13,7 @@ api = HelloSign::EmbeddedApi.new
 signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
 
 begin
-  result = api.embedded_sign_url(signature_id)
+  result = embedded_api.embedded_sign_url(signature_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

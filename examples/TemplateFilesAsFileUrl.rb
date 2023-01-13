@@ -8,12 +8,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.template_files_as_file_url(template_id)
+  result = template_api.template_files_as_file_url(template_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

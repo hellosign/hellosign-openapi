@@ -8,14 +8,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 data = HelloSign::TeamRemoveMemberRequest.new
 data.email_address = "teammate@hellosign.com"
 data.new_owner_email_address = "new_teammate@hellosign.com"
 
 begin
-  result = api.team_remove_member(data)
+  result = team_api.team_remove_member(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

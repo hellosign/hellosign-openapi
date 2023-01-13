@@ -8,12 +8,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TeamApi.new
+team_api = HelloSign::TeamApi.new
 
 team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
 begin
-  result = api.team_sub_teams(team_id)
+  result = team_api.team_sub_teams(team_id)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

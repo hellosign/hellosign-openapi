@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::UnclaimedDraftApi.new
+unclaimed_draft_api = HelloSign::UnclaimedDraftApi.new
 
 signer_1 = HelloSign::SubUnclaimedDraftTemplateSigner.new
 signer_1.role = "Client"
@@ -28,7 +28,7 @@ data.ccs = [cc_1]
 data.test_mode = true
 
 begin
-  result = api.unclaimed_draft_create_embedded_with_template(data)
+  result = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

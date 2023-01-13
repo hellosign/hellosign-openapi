@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::TemplateApi.new
+template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateUpdateFilesRequest.new
 data.files = [File.new("example_signature_request.pdf", "r")]
@@ -16,7 +16,7 @@ data.files = [File.new("example_signature_request.pdf", "r")]
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
-  result = api.template_update_files(template_id, data)
+  result = template_api.template_update_files(template_id, data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"

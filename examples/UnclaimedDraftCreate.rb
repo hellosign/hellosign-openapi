@@ -8,7 +8,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::UnclaimedDraftApi.new
+unclaimed_draft_api = HelloSign::UnclaimedDraftApi.new
 
 signer_1 = HelloSign::SubUnclaimedDraftSigner.new
 signer_1.email_address = "jack@example.com"
@@ -49,7 +49,7 @@ data.field_options = field_options
 data.test_mode = true
 
 begin
-  result = api.unclaimed_draft_create(data)
+  result = unclaimed_draft_api.unclaimed_draft_create(data)
   p result
 rescue HelloSign::ApiError => e
   puts "Exception when calling HelloSign API: #{e}"
