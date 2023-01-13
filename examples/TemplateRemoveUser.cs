@@ -15,7 +15,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var data = new TemplateRemoveUserRequest(
             emailAddress: "george@hellosign.com"
@@ -25,7 +25,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateRemoveUser(templateId, data);
+            var result = templateApi.TemplateRemoveUser(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

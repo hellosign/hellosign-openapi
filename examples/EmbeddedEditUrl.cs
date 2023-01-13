@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new EmbeddedApi(config);
+        var embeddedApi = new EmbeddedApi(config);
 
         var data = new EmbeddedEditUrlRequest(
             ccRoles: new List<string>(){""},
@@ -27,7 +27,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.EmbeddedEditUrl(templateId, data);
+            var result = embeddedApi.EmbeddedEditUrl(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

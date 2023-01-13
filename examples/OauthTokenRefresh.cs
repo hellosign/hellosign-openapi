@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new OAuthApi(config);
+        var oAuthApi = new OAuthApi(config);
 
         var data = new OAuthTokenRefreshRequest(
             refreshToken: "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3"
@@ -24,7 +24,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.OauthTokenRefresh(data);
+            var result = oAuthApi.OauthTokenRefresh(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

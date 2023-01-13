@@ -15,7 +15,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
 
         var data = new TeamUpdateRequest(
             name: "New Team Name"
@@ -23,7 +23,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TeamUpdate(data);
+            var result = teamApi.TeamUpdate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

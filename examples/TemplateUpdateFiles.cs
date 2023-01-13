@@ -16,7 +16,7 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TemplateApi(config);
+        var templateApi = new TemplateApi(config);
 
         var files = new List<Stream> {
             new FileStream(
@@ -35,7 +35,7 @@ public class Example
 
         try
         {
-            var result = apiInstance.TemplateUpdateFiles(templateId, data);
+            var result = templateApi.TemplateUpdateFiles(templateId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)

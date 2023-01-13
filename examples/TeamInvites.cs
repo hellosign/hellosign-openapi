@@ -15,12 +15,12 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new TeamApi(config);
+        var teamApi = new TeamApi(config);
         var emailAddress = "user@hellosign.com";
 
         try
         {
-            var result = apiInstance.TeamInvites(emailAddress);
+            var result = teamApi.TeamInvites(emailAddress);
             Console.WriteLine(result);
         }
         catch (ApiException e)

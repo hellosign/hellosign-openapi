@@ -15,14 +15,14 @@ public class Example
         // or, configure Bearer (JWT) authorization: oauth2
         // config.AccessToken = "YOUR_BEARER_TOKEN";
 
-        var apiInstance = new ApiAppApi(config);
+        var apiAppApi = new ApiAppApi(config);
 
         var page = 1;
         var pageSize = 2;
 
         try
         {
-            var result = apiInstance.ApiAppList(page, pageSize);
+            var result = apiAppApi.ApiAppList(page, pageSize);
             Console.WriteLine(result);
         }
         catch (ApiException e)
