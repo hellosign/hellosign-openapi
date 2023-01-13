@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$api = new HelloSignSDK\Api\ApiAppApi($config);
+$apiAppApi = new HelloSignSDK\Api\ApiAppApi($config);
 
 $oauth = new HelloSignSDK\Model\SubOAuth();
 $oauth->setCallbackUrl("https://example.com/oauth")
@@ -33,7 +33,7 @@ $data->setName("My Production App")
     ->setCustomLogoFile($customLogoFile);
 
 try {
-    $result = $api->apiAppCreate($data);
+    $result = $apiAppApi->apiAppCreate($data);
     print_r($result);
 } catch (HelloSignSDK\ApiException $e) {
     $error = $e->getResponseObject();
