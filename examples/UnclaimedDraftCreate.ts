@@ -1,8 +1,8 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -10,33 +10,33 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubUnclaimedDraftSigner = {
+const signer1: HelloSign.SubUnclaimedDraftSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSignSDK.SubUnclaimedDraftSigner = {
+const signer2: HelloSign.SubUnclaimedDraftSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const fieldOptions: HelloSignSDK.SubFieldOptions = {
-  dateFormat: HelloSignSDK.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: HelloSign.SubFieldOptions = {
+  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSignSDK.UnclaimedDraftCreateRequest = {
+const data: HelloSign.UnclaimedDraftCreateRequest = {
   subject: "The NDA we talked about",
-  type: HelloSignSDK.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
+  type: HelloSign.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [
     signer1,

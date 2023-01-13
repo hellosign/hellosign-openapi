@@ -1,8 +1,8 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const apiAppApi = new HelloSignSDK.ApiAppApi();
+const apiAppApi = new HelloSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -10,12 +10,12 @@ apiAppApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const whiteLabelingOptions: HelloSignSDK.SubWhiteLabelingOptions = {
+const whiteLabelingOptions: HelloSign.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
   primaryButtonTextColor: "#ffffff",
 };
 
-const data: HelloSignSDK.ApiAppUpdateRequest = {
+const data: HelloSign.ApiAppUpdateRequest = {
   name: "New Name",
   callbackUrl: "http://example.com/hellosign",
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),

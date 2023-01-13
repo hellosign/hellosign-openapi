@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -8,18 +8,18 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubUnclaimedDraftTemplateSigner = {
+const signer1: HelloSign.SubUnclaimedDraftTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
 };
 
-const cc1: HelloSignSDK.SubCC = {
+const cc1: HelloSign.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@hellosign.com",
 };
 
-const data: HelloSignSDK.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
+const data: HelloSign.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   templateIds: ["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
   requesterEmailAddress: "jack@hellosign.com",

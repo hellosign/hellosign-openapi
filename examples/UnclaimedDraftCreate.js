@@ -1,8 +1,8 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSignSDK.UnclaimedDraftApi();
+const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";

@@ -1,7 +1,7 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 import * as fs from 'fs';
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";

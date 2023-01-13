@@ -20,19 +20,19 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const reportApi = new HelloSignSDK.ReportApi();
+const reportApi = new HelloSign.ReportApi();
 
 // Configure HTTP basic authorization: api_key
 reportApi.username = "YOUR_API_KEY";
 
-const data: HelloSignSDK.ReportCreateRequest = {
+const data: HelloSign.ReportCreateRequest = {
   startDate: "09/01/2020",
   endDate: "09/01/2020",
   reportType: [
-    HelloSignSDK.ReportCreateRequest.ReportTypeEnum.UserActivity,
-    HelloSignSDK.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
+    HelloSign.ReportCreateRequest.ReportTypeEnum.UserActivity,
+    HelloSign.ReportCreateRequest.ReportTypeEnum.DocumentStatus,
   ]
 };
 
@@ -49,9 +49,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const reportApi = new HelloSignSDK.ReportApi();
+const reportApi = new HelloSign.ReportApi();
 
 // Configure HTTP basic authorization: api_key
 reportApi.username = "YOUR_API_KEY";

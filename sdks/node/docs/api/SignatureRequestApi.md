@@ -35,53 +35,53 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
 
-const signerList1Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signerList1Signer: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
   pin: "d79a3td",
 };
 
-const signerList1CustomFields: HelloSignSDK.SubBulkSignerListCustomField = {
+const signerList1CustomFields: HelloSign.SubBulkSignerListCustomField = {
   name: "company",
   value: "ABC Corp",
 };
 
-const signerList1: HelloSignSDK.SubBulkSignerList = {
+const signerList1: HelloSign.SubBulkSignerList = {
   signers: [ signerList1Signer ],
   customFields: [ signerList1CustomFields ],
 };
 
-const signerList2Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signerList2Signer: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "Mary",
   emailAddress: "mary@example.com",
   pin: "gd9as5b",
 };
 
-const signerList2CustomFields: HelloSignSDK.SubBulkSignerListCustomField = {
+const signerList2CustomFields: HelloSign.SubBulkSignerListCustomField = {
   name: "company",
   value: "123 LLC",
 };
 
-const signerList2: HelloSignSDK.SubBulkSignerList = {
+const signerList2: HelloSign.SubBulkSignerList = {
   signers: [ signerList2Signer ],
   customFields: [ signerList2CustomFields ],
 };
 
-const cc1: HelloSignSDK.SubCC = {
+const cc1: HelloSign.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@example.com",
 };
 
-const data: HelloSignSDK.SignatureRequestBulkCreateEmbeddedWithTemplateRequest = {
+const data: HelloSign.SignatureRequestBulkCreateEmbeddedWithTemplateRequest = {
   clientId: "1a659d9ad95bccd307ecad78d72192f8",
   templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
   subject: "Purchase Order",
@@ -104,9 +104,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -209,9 +209,9 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -219,46 +219,46 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signerList1Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signerList1Signer: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "George",
   emailAddress: "george@example.com",
   pin: "d79a3td",
 };
 
-const signerList1CustomFields: HelloSignSDK.SubBulkSignerListCustomField = {
+const signerList1CustomFields: HelloSign.SubBulkSignerListCustomField = {
   name: "company",
   value: "ABC Corp",
 };
 
-const signerList1: HelloSignSDK.SubBulkSignerList = {
+const signerList1: HelloSign.SubBulkSignerList = {
   signers: [ signerList1Signer ],
   customFields: [ signerList1CustomFields ],
 };
 
-const signerList2Signer: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signerList2Signer: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   name: "Mary",
   emailAddress: "mary@example.com",
   pin: "gd9as5b",
 };
 
-const signerList2CustomFields: HelloSignSDK.SubBulkSignerListCustomField = {
+const signerList2CustomFields: HelloSign.SubBulkSignerListCustomField = {
   name: "company",
   value: "123 LLC",
 };
 
-const signerList2: HelloSignSDK.SubBulkSignerList = {
+const signerList2: HelloSign.SubBulkSignerList = {
   signers: [ signerList2Signer ],
   customFields: [ signerList2CustomFields ],
 };
 
-const cc1: HelloSignSDK.SubCC = {
+const cc1: HelloSign.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@example.com",
 };
 
-const data: HelloSignSDK.SignatureRequestBulkSendWithTemplateRequest = {
+const data: HelloSign.SignatureRequestBulkSendWithTemplateRequest = {
   templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
   subject: "Purchase Order",
   message: "Glad we could come to an agreement.",
@@ -280,9 +280,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -384,9 +384,9 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -409,9 +409,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -467,11 +467,11 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -479,27 +479,27 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubSignatureRequestSigner = {
+const signer1: HelloSign.SubSignatureRequestSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSignSDK.SubSignatureRequestSigner = {
+const signer2: HelloSign.SubSignatureRequestSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: true,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const data: HelloSignSDK.SignatureRequestCreateEmbeddedRequest = {
+const data: HelloSign.SignatureRequestCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   title: "NDA with Acme Co.",
   subject: "The NDA we talked about",
@@ -527,11 +527,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -620,9 +620,9 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -630,21 +630,21 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signer1: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   emailAddress: "george@example.com",
   name: "George",
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const data: HelloSignSDK.SignatureRequestCreateEmbeddedWithTemplateRequest = {
+const data: HelloSign.SignatureRequestCreateEmbeddedWithTemplateRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
   subject: "Purchase Order",
@@ -667,9 +667,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -747,10 +747,10 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 import * as fs from 'fs';
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -775,10 +775,10 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 import * as fs from 'fs';
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -837,9 +837,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -862,9 +862,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -920,9 +920,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -945,9 +945,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1003,9 +1003,9 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1028,9 +1028,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1086,9 +1086,9 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1112,9 +1112,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1174,9 +1174,9 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1199,9 +1199,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1257,9 +1257,9 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1267,7 +1267,7 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.SignatureRequestRemindRequest = {
+const data: HelloSign.SignatureRequestRemindRequest = {
   emailAddress: "john@example.com",
 };
 
@@ -1286,9 +1286,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1349,9 +1349,9 @@ Removes your access to a completed signature request. This action is **not rever
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1374,9 +1374,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1432,11 +1432,11 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1444,31 +1444,31 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubSignatureRequestSigner = {
+const signer1: HelloSign.SubSignatureRequestSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSignSDK.SubSignatureRequestSigner = {
+const signer2: HelloSign.SubSignatureRequestSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const fieldOptions: HelloSignSDK.SubFieldOptions = {
-  dateFormat: HelloSignSDK.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: HelloSign.SubFieldOptions = {
+  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSignSDK.SignatureRequestSendRequest = {
+const data: HelloSign.SignatureRequestSendRequest = {
   title: "NDA with Acme Co.",
   subject: "The NDA we talked about",
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
@@ -1500,11 +1500,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1601,9 +1601,9 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1611,33 +1611,33 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSignSDK.SubSignatureRequestTemplateSigner = {
+const signer1: HelloSign.SubSignatureRequestTemplateSigner = {
   role: "Client",
   emailAddress: "george@example.com",
   name: "George",
 };
 
-const cc1: HelloSignSDK.SubCC = {
+const cc1: HelloSign.SubCC = {
   role: "Accounting",
   emailAddress: "accounting@example.com",
 };
 
-const customField1: HelloSignSDK.SubCustomField = {
+const customField1: HelloSign.SubCustomField = {
   name: "Cost",
   value: "$20,000",
   editor: "Client",
   required: true,
 };
 
-const signingOptions: HelloSignSDK.SubSigningOptions = {
+const signingOptions: HelloSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSignSDK.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const data: HelloSignSDK.SignatureRequestSendWithTemplateRequest = {
+const data: HelloSign.SignatureRequestSendWithTemplateRequest = {
   templateIds: ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
   subject: "Purchase Order",
   message: "Glad we could come to an agreement.",
@@ -1661,9 +1661,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1754,9 +1754,9 @@ Updates the email address and/or the name for a given signer on a signature requ
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -1764,7 +1764,7 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSignSDK.SignatureRequestUpdateRequest = {
+const data: HelloSign.SignatureRequestUpdateRequest = {
   emailAddress: "john@example.com",
   signatureId: "78caf2a1d01cd39cea2bc1cbb340dac3",
 };
@@ -1784,9 +1784,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const signatureRequestApi = new HelloSignSDK.SignatureRequestApi();
+const signatureRequestApi = new HelloSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";

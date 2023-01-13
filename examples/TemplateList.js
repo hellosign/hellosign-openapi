@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const templateApi = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";

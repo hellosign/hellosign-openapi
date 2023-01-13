@@ -21,9 +21,9 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSign.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
 bulkSendJobApi.username = "YOUR_API_KEY";
@@ -46,9 +46,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSign.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
 bulkSendJobApi.username = "YOUR_API_KEY";
@@ -104,9 +104,9 @@ Returns a list of BulkSendJob that you can access.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSign.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
 bulkSendJobApi.username = "YOUR_API_KEY";
@@ -130,9 +130,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const bulkSendJobApi = new HelloSignSDK.BulkSendJobApi();
+const bulkSendJobApi = new HelloSign.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
 bulkSendJobApi.username = "YOUR_API_KEY";

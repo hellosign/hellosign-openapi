@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const teamApi = new HelloSignSDK.TeamApi();
+const teamApi = new HelloSign.TeamApi();
 
 // Configure HTTP basic authorization: api_key
 teamApi.username = "YOUR_API_KEY";

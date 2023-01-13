@@ -1,6 +1,6 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
-const reportApi = new HelloSignSDK.ReportApi();
+const reportApi = new HelloSign.ReportApi();
 
 // Configure HTTP basic authorization: api_key
 reportApi.username = "YOUR_API_KEY";

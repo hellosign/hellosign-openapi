@@ -1,8 +1,8 @@
-import * as HelloSignSDK from "hellosign-sdk";
+import * as HelloSign from "hellosign-sdk";
 
 const fs = require('fs');
 
-const templateApi = new HelloSignSDK.TemplateApi();
+const templateApi = new HelloSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -10,31 +10,31 @@ templateApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const role1: HelloSignSDK.SubTemplateRole = {
+const role1: HelloSign.SubTemplateRole = {
   name: "Client",
   order: 0,
 };
 
-const role2: HelloSignSDK.SubTemplateRole = {
+const role2: HelloSign.SubTemplateRole = {
   name: "Witness",
   order: 1,
 };
 
-const mergeField1: HelloSignSDK.SubMergeField = {
+const mergeField1: HelloSign.SubMergeField = {
   name: "Full Name",
-  type: HelloSignSDK.SubMergeField.TypeEnum.Text,
+  type: HelloSign.SubMergeField.TypeEnum.Text,
 };
 
-const mergeField2: HelloSignSDK.SubMergeField = {
+const mergeField2: HelloSign.SubMergeField = {
   name: "Is Registered?",
-  type: HelloSignSDK.SubMergeField.TypeEnum.Checkbox,
+  type: HelloSign.SubMergeField.TypeEnum.Checkbox,
 };
 
-const fieldOptions: HelloSignSDK.SubFieldOptions = {
-  dateFormat: HelloSignSDK.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: HelloSign.SubFieldOptions = {
+  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSignSDK.TemplateCreateEmbeddedDraftRequest = {
+const data: HelloSign.TemplateCreateEmbeddedDraftRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
   files: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
