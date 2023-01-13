@@ -2,14 +2,12 @@
 
 Dropbox Sign v3 API
 
-## ⚠ This package is not yet ready for production use ⚠
+## Migrating from legacy SDK
 
-We are working hard on getting this package ready, but it is not there, yet!
-
-You should think twice before using package on anything critical.
-
-The interfaces may change without warning. Backwards compatibility is not yet
-guaranteed nor implied!
+This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/development/openapi.yaml).
+We've made important updates that introduce new functionality and create feature parity between the Dropbox Sign API and the SDK.
+However, some of these changes are considered "breaking" in the sense that they'll require you to update your existing code in order to continue using the SDK.
+Please refer to this [migration guide](https://developers.hellosign.com/docs/sdks/python/migration-guide/) for more information.
 
 ## Contributing
 
