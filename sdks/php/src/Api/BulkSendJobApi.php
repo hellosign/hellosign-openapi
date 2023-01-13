@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Api;
+namespace HelloSign\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSignSDK\ApiException;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\HeaderSelector;
-use HelloSignSDK\Model;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ApiException;
+use HelloSign\Configuration;
+use HelloSign\HeaderSelector;
+use HelloSign\Model;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -186,14 +186,14 @@ class BulkSendJobApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\BulkSendJobGetResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\BulkSendJobGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\BulkSendJobGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\BulkSendJobGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -202,20 +202,20 @@ class BulkSendJobApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\BulkSendJobGetResponse';
+            $returnType = '\HelloSign\Model\BulkSendJobGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -233,7 +233,7 @@ class BulkSendJobApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\BulkSendJobGetResponse',
+                    '\HelloSign\Model\BulkSendJobGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -244,7 +244,7 @@ class BulkSendJobApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class BulkSendJobApi
      */
     public function bulkSendJobGetAsyncWithHttpInfo(string $bulk_send_job_id)
     {
-        $returnType = '\HelloSignSDK\Model\BulkSendJobGetResponse';
+        $returnType = '\HelloSign\Model\BulkSendJobGetResponse';
         $request = $this->bulkSendJobGetRequest($bulk_send_job_id);
 
         return $this->client
@@ -501,14 +501,14 @@ class BulkSendJobApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\BulkSendJobListResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\BulkSendJobListResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\BulkSendJobListResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\BulkSendJobListResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -517,20 +517,20 @@ class BulkSendJobApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\BulkSendJobListResponse';
+            $returnType = '\HelloSign\Model\BulkSendJobListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -548,7 +548,7 @@ class BulkSendJobApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\BulkSendJobListResponse',
+                    '\HelloSign\Model\BulkSendJobListResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -559,7 +559,7 @@ class BulkSendJobApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -603,7 +603,7 @@ class BulkSendJobApi
      */
     public function bulkSendJobListAsyncWithHttpInfo(int $page = 1, int $page_size = 20)
     {
-        $returnType = '\HelloSignSDK\Model\BulkSendJobListResponse';
+        $returnType = '\HelloSign\Model\BulkSendJobListResponse';
         $request = $this->bulkSendJobListRequest($page, $page_size);
 
         return $this->client

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test\Model;
+namespace HelloSign\Test\Model;
 
-use HelloSignSDK\Model\SignatureRequestSendRequest;
-use HelloSignSDK\Test\HelloTestCase;
-use HelloSignSDK\Test\TestUtils;
+use HelloSign\Model\SignatureRequestSendRequest;
+use HelloSign\Test\HelloTestCase;
+use HelloSign\Test\TestUtils;
 
 class SubFormFieldsPerDocumentTest extends HelloTestCase
 {
@@ -25,7 +25,7 @@ class SubFormFieldsPerDocumentTest extends HelloTestCase
 
         $field = $obj->getFormFieldsPerDocument()[0];
 
-        $this->assertInstanceOf("\\HelloSignSDK\\Model\\{$type}", $field);
+        $this->assertInstanceOf("\\HelloSign\\Model\\{$type}", $field);
         $this->assertEquals(
             $data['form_fields_per_document'],
             json_decode(json_encode($obj->getFormFieldsPerDocument()), true)
@@ -55,7 +55,7 @@ class SubFormFieldsPerDocumentTest extends HelloTestCase
 
         $field = $obj->getFormFieldsPerDocument()[0];
 
-        $this->assertInstanceOf("\\HelloSignSDK\\Model\\{$type}", $field);
+        $this->assertInstanceOf("\\HelloSign\\Model\\{$type}", $field);
         $this->assertEquals(
             $expected,
             json_decode(json_encode($obj->getFormFieldsPerDocument()), true)

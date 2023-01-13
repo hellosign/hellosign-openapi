@@ -88,12 +88,12 @@ You may also instantiate objects by calling the class' `fromArray()` method:
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$api = new HelloSign\Api\SignatureRequestApi($config);
 
-$data = HelloSignSDK\Model\SignatureRequestSendRequest::fromArray([
+$data = HelloSign\Model\SignatureRequestSendRequest::fromArray([
     "title"   => "NDA with Acme Co.",
     "signers" => [
         [

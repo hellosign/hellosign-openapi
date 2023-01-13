@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK;
+namespace HelloSign;
 
 use InvalidArgumentException;
 
@@ -399,7 +399,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report = 'PHP SDK (HelloSignSDK) Debug Report:' . PHP_EOL;
+        $report = 'PHP SDK (HelloSign) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 3.0.0' . PHP_EOL;

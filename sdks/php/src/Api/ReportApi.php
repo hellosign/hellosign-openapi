@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Api;
+namespace HelloSign\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSignSDK\ApiException;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\HeaderSelector;
-use HelloSignSDK\Model;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ApiException;
+use HelloSign\Configuration;
+use HelloSign\HeaderSelector;
+use HelloSign\Model;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -186,14 +186,14 @@ class ReportApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\ReportCreateResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ReportCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ReportCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ReportCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -202,20 +202,20 @@ class ReportApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\ReportCreateResponse';
+            $returnType = '\HelloSign\Model\ReportCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -233,7 +233,7 @@ class ReportApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ReportCreateResponse',
+                    '\HelloSign\Model\ReportCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -244,7 +244,7 @@ class ReportApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class ReportApi
      */
     public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request)
     {
-        $returnType = '\HelloSignSDK\Model\ReportCreateResponse';
+        $returnType = '\HelloSign\Model\ReportCreateResponse';
         $request = $this->reportCreateRequest($report_create_request);
 
         return $this->client

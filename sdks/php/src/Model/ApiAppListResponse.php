@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,9 +60,9 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'api_apps' => '\HelloSignSDK\Model\ApiAppResponse[]',
-        'list_info' => '\HelloSignSDK\Model\ListInfoResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'api_apps' => '\HelloSign\Model\ApiAppResponse[]',
+        'list_info' => '\HelloSign\Model\ListInfoResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

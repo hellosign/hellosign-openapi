@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,7 +60,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
      */
     protected static $openAPITypes = [
         'group' => 'string',
-        'signers' => '\HelloSignSDK\Model\SubSignatureRequestSigner[]',
+        'signers' => '\HelloSign\Model\SubSignatureRequestSigner[]',
         'order' => 'int',
     ];
 

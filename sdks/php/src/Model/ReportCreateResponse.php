@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'report' => '\HelloSignSDK\Model\ReportResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'report' => '\HelloSign\Model\ReportResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

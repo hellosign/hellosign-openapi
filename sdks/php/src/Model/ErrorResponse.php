@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -59,7 +59,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'error' => '\HelloSignSDK\Model\ErrorResponseError',
+        'error' => '\HelloSign\Model\ErrorResponseError',
     ];
 
     /**

@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -68,16 +68,16 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'allow_ccs' => 'bool',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
-        'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
+        'attachments' => '\HelloSign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
-        'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
-        'editor_options' => '\HelloSignSDK\Model\SubEditorOptions',
-        'field_options' => '\HelloSignSDK\Model\SubFieldOptions',
+        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
+        'editor_options' => '\HelloSign\Model\SubEditorOptions',
+        'field_options' => '\HelloSign\Model\SubFieldOptions',
         'force_signer_page' => 'bool',
         'force_subject_message' => 'bool',
-        'form_field_groups' => '\HelloSignSDK\Model\SubFormFieldGroup[]',
-        'form_field_rules' => '\HelloSignSDK\Model\SubFormFieldRule[]',
-        'form_fields_per_document' => '\HelloSignSDK\Model\SubFormFieldsPerDocumentBase[]',
+        'form_field_groups' => '\HelloSign\Model\SubFormFieldGroup[]',
+        'form_field_rules' => '\HelloSign\Model\SubFormFieldRule[]',
+        'form_fields_per_document' => '\HelloSign\Model\SubFormFieldsPerDocumentBase[]',
         'hide_text_tags' => 'bool',
         'hold_request' => 'bool',
         'is_for_embedded_signing' => 'bool',
@@ -86,8 +86,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'requesting_redirect_url' => 'string',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'signers' => '\HelloSignSDK\Model\SubUnclaimedDraftSigner[]',
-        'signing_options' => '\HelloSignSDK\Model\SubSigningOptions',
+        'signers' => '\HelloSign\Model\SubUnclaimedDraftSigner[]',
+        'signing_options' => '\HelloSign\Model\SubSigningOptions',
         'signing_redirect_url' => 'string',
         'skip_me_now' => 'bool',
         'subject' => 'string',

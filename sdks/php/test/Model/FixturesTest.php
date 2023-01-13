@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test\Model;
+namespace HelloSign\Test\Model;
 
-use HelloSignSDK\Model as ModelNS;
-use HelloSignSDK\ObjectSerializer;
-use HelloSignSDK\Test\HelloTestCase;
-use HelloSignSDK\Test\TestUtils;
+use HelloSign\Model as ModelNS;
+use HelloSign\ObjectSerializer;
+use HelloSign\Test\HelloTestCase;
+use HelloSign\Test\TestUtils;
 
 class FixturesTest extends HelloTestCase
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test\Api;
+namespace HelloSign\Test\Api;
 
 use GuzzleHttp;
-use HelloSignSDK\Api;
-use HelloSignSDK\ApiException;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\Model;
-use HelloSignSDK\Test\HelloTestCase;
-use HelloSignSDK\Test\TestUtils;
+use HelloSign\Api;
+use HelloSign\ApiException;
+use HelloSign\Configuration;
+use HelloSign\Model;
+use HelloSign\Test\HelloTestCase;
+use HelloSign\Test\TestUtils;
 
 class AccountApiTest extends HelloTestCase
 {

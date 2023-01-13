@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class AccountVerifyResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'account' => '\HelloSignSDK\Model\AccountVerifyResponseAccount',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'account' => '\HelloSign\Model\AccountVerifyResponseAccount',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

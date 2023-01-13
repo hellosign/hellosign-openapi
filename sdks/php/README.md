@@ -77,7 +77,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -85,15 +85,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSign\Api\AccountApi($config);
 
-$data = new HelloSignSDK\Model\AccountCreateRequest();
+$data = new HelloSign\Model\AccountCreateRequest();
 $data->setEmailAddress("newuser@hellosign.com");
 
 try {
     $result = $accountApi->accountCreate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -108,12 +108,12 @@ You may also instantiate objects by calling the class' `fromArray()` method:
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSignSDK\Api\SignatureRequestApi($config);
+$api = new HelloSign\Api\SignatureRequestApi($config);
 
-$data = HelloSignSDK\Model\SignatureRequestSendRequest::fromArray([
+$data = HelloSign\Model\SignatureRequestSendRequest::fromArray([
     "title"   => "NDA with Acme Co.",
     "signers" => [
         [

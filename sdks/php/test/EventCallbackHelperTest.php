@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test;
+namespace HelloSign\Test;
 
-use HelloSignSDK\EventCallbackHelper;
-use HelloSignSDK\Model\EventCallbackRequest;
+use HelloSign\EventCallbackHelper;
+use HelloSign\Model\EventCallbackRequest;
 
 class EventCallbackHelperTest extends HelloTestCase
 {

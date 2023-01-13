@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -70,12 +70,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'can_edit' => 'bool',
         'is_locked' => 'bool',
         'metadata' => 'array',
-        'signer_roles' => '\HelloSignSDK\Model\TemplateResponseSignerRole[]',
-        'cc_roles' => '\HelloSignSDK\Model\TemplateResponseCCRole[]',
-        'documents' => '\HelloSignSDK\Model\TemplateResponseDocument[]',
-        'custom_fields' => '\HelloSignSDK\Model\TemplateResponseCustomField[]',
-        'named_form_fields' => '\HelloSignSDK\Model\TemplateResponseNamedFormField[]',
-        'accounts' => '\HelloSignSDK\Model\TemplateResponseAccount[]',
+        'signer_roles' => '\HelloSign\Model\TemplateResponseSignerRole[]',
+        'cc_roles' => '\HelloSign\Model\TemplateResponseCCRole[]',
+        'documents' => '\HelloSign\Model\TemplateResponseDocument[]',
+        'custom_fields' => '\HelloSign\Model\TemplateResponseCustomField[]',
+        'named_form_fields' => '\HelloSign\Model\TemplateResponseNamedFormField[]',
+        'accounts' => '\HelloSign\Model\TemplateResponseAccount[]',
     ];
 
     /**

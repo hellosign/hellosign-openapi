@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 
@@ -64,7 +64,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
         'event_time' => 'string',
         'event_type' => 'string',
         'event_hash' => 'string',
-        'event_metadata' => '\HelloSignSDK\Model\EventCallbackRequestEventMetadata',
+        'event_metadata' => '\HelloSign\Model\EventCallbackRequestEventMetadata',
     ];
 
     /**

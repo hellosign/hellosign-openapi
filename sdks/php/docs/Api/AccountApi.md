@@ -1,4 +1,4 @@
-# HelloSignSDK\AccountApi
+# HelloSign\AccountApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `accountCreate()`
 
 ```php
-accountCreate($account_create_request): \HelloSignSDK\Model\AccountCreateResponse
+accountCreate($account_create_request): \HelloSign\Model\AccountCreateResponse
 ```
 
 Create Account
@@ -27,7 +27,7 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -35,15 +35,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSign\Api\AccountApi($config);
 
-$data = new HelloSignSDK\Model\AccountCreateRequest();
+$data = new HelloSign\Model\AccountCreateRequest();
 $data->setEmailAddress("newuser@hellosign.com");
 
 try {
     $result = $accountApi->accountCreate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -55,11 +55,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **account_create_request** | [**\HelloSignSDK\Model\AccountCreateRequest**](../Model/AccountCreateRequest.md)|  | |
+| **account_create_request** | [**\HelloSign\Model\AccountCreateRequest**](../Model/AccountCreateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\AccountCreateResponse**](../Model/AccountCreateResponse.md)
+[**\HelloSign\Model\AccountCreateResponse**](../Model/AccountCreateResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `accountGet()`
 
 ```php
-accountGet($account_id, $email_address): \HelloSignSDK\Model\AccountGetResponse
+accountGet($account_id, $email_address): \HelloSign\Model\AccountGetResponse
 ```
 
 Get Account
@@ -91,7 +91,7 @@ Returns the properties and settings of your Account.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -99,12 +99,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSign\Api\AccountApi($config);
 
 try {
     $result = $accountApi->accountGet(null, 'jack@example.com');
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -121,7 +121,7 @@ try {
 
 ### Return type
 
-[**\HelloSignSDK\Model\AccountGetResponse**](../Model/AccountGetResponse.md)
+[**\HelloSign\Model\AccountGetResponse**](../Model/AccountGetResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ try {
 ## `accountUpdate()`
 
 ```php
-accountUpdate($account_update_request): \HelloSignSDK\Model\AccountGetResponse
+accountUpdate($account_update_request): \HelloSign\Model\AccountGetResponse
 ```
 
 Update Account
@@ -153,7 +153,7 @@ Updates the properties and settings of your Account. Currently only allows for u
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -161,15 +161,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSign\Api\AccountApi($config);
 
-$data = new HelloSignSDK\Model\AccountUpdateRequest();
+$data = new HelloSign\Model\AccountUpdateRequest();
 $data->setCallbackUrl("https://www.example.com/callback");
 
 try {
     $result = $accountApi->accountUpdate($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -181,11 +181,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **account_update_request** | [**\HelloSignSDK\Model\AccountUpdateRequest**](../Model/AccountUpdateRequest.md)|  | |
+| **account_update_request** | [**\HelloSign\Model\AccountUpdateRequest**](../Model/AccountUpdateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\AccountGetResponse**](../Model/AccountGetResponse.md)
+[**\HelloSign\Model\AccountGetResponse**](../Model/AccountGetResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ try {
 ## `accountVerify()`
 
 ```php
-accountVerify($account_verify_request): \HelloSignSDK\Model\AccountVerifyResponse
+accountVerify($account_verify_request): \HelloSign\Model\AccountVerifyResponse
 ```
 
 Verify Account
@@ -217,7 +217,7 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -225,15 +225,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$accountApi = new HelloSignSDK\Api\AccountApi($config);
+$accountApi = new HelloSign\Api\AccountApi($config);
 
-$data = new HelloSignSDK\Model\AccountVerifyRequest();
+$data = new HelloSign\Model\AccountVerifyRequest();
 $data->setEmailAddress("some_user@hellosign.com");
 
 try {
     $result = $accountApi->accountVerify($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -245,11 +245,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **account_verify_request** | [**\HelloSignSDK\Model\AccountVerifyRequest**](../Model/AccountVerifyRequest.md)|  | |
+| **account_verify_request** | [**\HelloSign\Model\AccountVerifyRequest**](../Model/AccountVerifyRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\AccountVerifyResponse**](../Model/AccountVerifyResponse.md)
+[**\HelloSign\Model\AccountVerifyResponse**](../Model/AccountVerifyResponse.md)
 
 ### Authorization
 

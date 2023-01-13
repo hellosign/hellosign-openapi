@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -66,21 +66,21 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_reassign' => 'bool',
-        'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
+        'attachments' => '\HelloSign\Model\SubAttachment[]',
         'cc_roles' => 'string[]',
-        'editor_options' => '\HelloSignSDK\Model\SubEditorOptions',
-        'field_options' => '\HelloSignSDK\Model\SubFieldOptions',
+        'editor_options' => '\HelloSign\Model\SubEditorOptions',
+        'field_options' => '\HelloSign\Model\SubFieldOptions',
         'force_signer_roles' => 'bool',
         'force_subject_message' => 'bool',
-        'form_field_groups' => '\HelloSignSDK\Model\SubFormFieldGroup[]',
-        'form_field_rules' => '\HelloSignSDK\Model\SubFormFieldRule[]',
-        'form_fields_per_document' => '\HelloSignSDK\Model\SubFormFieldsPerDocumentBase[]',
-        'merge_fields' => '\HelloSignSDK\Model\SubMergeField[]',
+        'form_field_groups' => '\HelloSign\Model\SubFormFieldGroup[]',
+        'form_field_rules' => '\HelloSign\Model\SubFormFieldRule[]',
+        'form_fields_per_document' => '\HelloSign\Model\SubFormFieldsPerDocumentBase[]',
+        'merge_fields' => '\HelloSign\Model\SubMergeField[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'signer_roles' => '\HelloSignSDK\Model\SubTemplateRole[]',
+        'signer_roles' => '\HelloSign\Model\SubTemplateRole[]',
         'skip_me_now' => 'bool',
         'subject' => 'string',
         'test_mode' => 'bool',

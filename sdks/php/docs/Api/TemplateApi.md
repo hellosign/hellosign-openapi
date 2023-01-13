@@ -1,4 +1,4 @@
-# HelloSignSDK\TemplateApi
+# HelloSign\TemplateApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -19,7 +19,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `templateAddUser()`
 
 ```php
-templateAddUser($template_id, $template_add_user_request): \HelloSignSDK\Model\TemplateGetResponse
+templateAddUser($template_id, $template_add_user_request): \HelloSign\Model\TemplateGetResponse
 ```
 
 Add User to Template
@@ -33,7 +33,7 @@ Gives the specified Account access to the specified Template. The specified Acco
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -41,9 +41,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
-$data = new HelloSignSDK\Model\TemplateAddUserRequest();
+$data = new HelloSign\Model\TemplateAddUserRequest();
 $data->setEmailAddress("george@hellosign.com");
 
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
@@ -51,7 +51,7 @@ $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 try {
     $result = $templateApi->templateAddUser($templateId, $data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -64,11 +64,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to give the Account access to. | |
-| **template_add_user_request** | [**\HelloSignSDK\Model\TemplateAddUserRequest**](../Model/TemplateAddUserRequest.md)|  | |
+| **template_add_user_request** | [**\HelloSign\Model\TemplateAddUserRequest**](../Model/TemplateAddUserRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+[**\HelloSign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ try {
 ## `templateCreateEmbeddedDraft()`
 
 ```php
-templateCreateEmbeddedDraft($template_create_embedded_draft_request): \HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse
+templateCreateEmbeddedDraft($template_create_embedded_draft_request): \HelloSign\Model\TemplateCreateEmbeddedDraftResponse
 ```
 
 Create Embedded Template Draft
@@ -100,7 +100,7 @@ The first step in an embedded template workflow. Creates a draft template that c
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -108,28 +108,28 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
-$role1 = new HelloSignSDK\Model\SubTemplateRole();
+$role1 = new HelloSign\Model\SubTemplateRole();
 $role1->setName("Client")
     ->setOrder(0);
 
-$role2 = new HelloSignSDK\Model\SubTemplateRole();
+$role2 = new HelloSign\Model\SubTemplateRole();
 $role2->setName("Witness")
     ->setOrder(1);
 
-$mergeField1 = new HelloSignSDK\Model\SubMergeField();
+$mergeField1 = new HelloSign\Model\SubMergeField();
 $mergeField1->setName("Full Name")
-    ->setType(HelloSignSDK\Model\SubMergeField::TYPE_TEXT);
+    ->setType(HelloSign\Model\SubMergeField::TYPE_TEXT);
 
-$mergeField2 = new HelloSignSDK\Model\SubMergeField();
+$mergeField2 = new HelloSign\Model\SubMergeField();
 $mergeField2->setName("Is Registered?")
-    ->setType(HelloSignSDK\Model\SubMergeField::TYPE_CHECKBOX);
+    ->setType(HelloSign\Model\SubMergeField::TYPE_CHECKBOX);
 
-$fieldOptions = new HelloSignSDK\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(HelloSignSDK\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$fieldOptions = new HelloSign\Model\SubFieldOptions();
+$fieldOptions->setDateFormat(HelloSign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new HelloSignSDK\Model\TemplateCreateEmbeddedDraftRequest();
+$data = new HelloSign\Model\TemplateCreateEmbeddedDraftRequest();
 $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setTitle("Test Template")
@@ -144,7 +144,7 @@ $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
 try {
     $result = $templateApi->templateCreateEmbeddedDraft($data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -156,11 +156,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_create_embedded_draft_request** | [**\HelloSignSDK\Model\TemplateCreateEmbeddedDraftRequest**](../Model/TemplateCreateEmbeddedDraftRequest.md)|  | |
+| **template_create_embedded_draft_request** | [**\HelloSign\Model\TemplateCreateEmbeddedDraftRequest**](../Model/TemplateCreateEmbeddedDraftRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse**](../Model/TemplateCreateEmbeddedDraftResponse.md)
+[**\HelloSign\Model\TemplateCreateEmbeddedDraftResponse**](../Model/TemplateCreateEmbeddedDraftResponse.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Completely deletes the template specified from the account.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -200,13 +200,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
     $templateApi->templateDelete($templateId);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -254,7 +254,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -262,7 +262,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 $fileType = "pdf";
@@ -270,7 +270,7 @@ $fileType = "pdf";
 try {
     $result = $templateApi->templateFiles($templateId, $fileType);
     copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -305,7 +305,7 @@ try {
 ## `templateFilesAsDataUri()`
 
 ```php
-templateFilesAsDataUri($template_id): \HelloSignSDK\Model\FileResponseDataUri
+templateFilesAsDataUri($template_id): \HelloSign\Model\FileResponseDataUri
 ```
 
 Get Template Files as Data Uri
@@ -319,7 +319,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -327,14 +327,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
     $result = $templateApi->templateFilesAsDataUri($templateId);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -350,7 +350,7 @@ try {
 
 ### Return type
 
-[**\HelloSignSDK\Model\FileResponseDataUri**](../Model/FileResponseDataUri.md)
+[**\HelloSign\Model\FileResponseDataUri**](../Model/FileResponseDataUri.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ try {
 ## `templateFilesAsFileUrl()`
 
 ```php
-templateFilesAsFileUrl($template_id): \HelloSignSDK\Model\FileResponse
+templateFilesAsFileUrl($template_id): \HelloSign\Model\FileResponse
 ```
 
 Get Template Files as File Url
@@ -382,7 +382,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -390,14 +390,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
     $result = $templateApi->templateFilesAsFileUrl($templateId);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -413,7 +413,7 @@ try {
 
 ### Return type
 
-[**\HelloSignSDK\Model\FileResponse**](../Model/FileResponse.md)
+[**\HelloSign\Model\FileResponse**](../Model/FileResponse.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ try {
 ## `templateGet()`
 
 ```php
-templateGet($template_id): \HelloSignSDK\Model\TemplateGetResponse
+templateGet($template_id): \HelloSign\Model\TemplateGetResponse
 ```
 
 Get Template
@@ -445,7 +445,7 @@ Returns the Template specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -453,14 +453,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
     $result = $templateApi->templateGet($templateId);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -476,7 +476,7 @@ try {
 
 ### Return type
 
-[**\HelloSignSDK\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+[**\HelloSign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
 
 ### Authorization
 
@@ -494,7 +494,7 @@ try {
 ## `templateList()`
 
 ```php
-templateList($account_id, $page, $page_size, $query): \HelloSignSDK\Model\TemplateListResponse
+templateList($account_id, $page, $page_size, $query): \HelloSign\Model\TemplateListResponse
 ```
 
 List Templates
@@ -508,7 +508,7 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -516,14 +516,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
 $accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
     $result = $templateApi->templateList($accountId);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -542,7 +542,7 @@ try {
 
 ### Return type
 
-[**\HelloSignSDK\Model\TemplateListResponse**](../Model/TemplateListResponse.md)
+[**\HelloSign\Model\TemplateListResponse**](../Model/TemplateListResponse.md)
 
 ### Authorization
 
@@ -560,7 +560,7 @@ try {
 ## `templateRemoveUser()`
 
 ```php
-templateRemoveUser($template_id, $template_remove_user_request): \HelloSignSDK\Model\TemplateGetResponse
+templateRemoveUser($template_id, $template_remove_user_request): \HelloSign\Model\TemplateGetResponse
 ```
 
 Remove User from Template
@@ -574,7 +574,7 @@ Removes the specified Account's access to the specified Template.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -582,9 +582,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
-$data = new HelloSignSDK\Model\TemplateRemoveUserRequest();
+$data = new HelloSign\Model\TemplateRemoveUserRequest();
 $data->setEmailAddress("george@hellosign.com");
 
 $templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
@@ -592,7 +592,7 @@ $templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 try {
     $result = $templateApi->templateRemoveUser($templateId, $data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -605,11 +605,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to remove the Account&#39;s access to. | |
-| **template_remove_user_request** | [**\HelloSignSDK\Model\TemplateRemoveUserRequest**](../Model/TemplateRemoveUserRequest.md)|  | |
+| **template_remove_user_request** | [**\HelloSign\Model\TemplateRemoveUserRequest**](../Model/TemplateRemoveUserRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+[**\HelloSign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
 
 ### Authorization
 
@@ -627,7 +627,7 @@ try {
 ## `templateUpdateFiles()`
 
 ```php
-templateUpdateFiles($template_id, $template_update_files_request): \HelloSignSDK\Model\TemplateUpdateFilesResponse
+templateUpdateFiles($template_id, $template_update_files_request): \HelloSign\Model\TemplateUpdateFilesResponse
 ```
 
 Update Template Files
@@ -641,7 +641,7 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSignSDK\Configuration::getDefaultConfiguration();
+$config = HelloSign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -649,9 +649,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSignSDK\Api\TemplateApi($config);
+$templateApi = new HelloSign\Api\TemplateApi($config);
 
-$data = new HelloSignSDK\Model\TemplateUpdateFilesRequest();
+$data = new HelloSign\Model\TemplateUpdateFilesRequest();
 $data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")]);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
@@ -659,7 +659,7 @@ $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 try {
     $result = $templateApi->templateUpdateFiles($templateId, $data);
     print_r($result);
-} catch (HelloSignSDK\ApiException $e) {
+} catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling HelloSign API: "
         . print_r($error->getError());
@@ -672,11 +672,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The ID of the template whose files to update. | |
-| **template_update_files_request** | [**\HelloSignSDK\Model\TemplateUpdateFilesRequest**](../Model/TemplateUpdateFilesRequest.md)|  | |
+| **template_update_files_request** | [**\HelloSign\Model\TemplateUpdateFilesRequest**](../Model/TemplateUpdateFilesRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSignSDK\Model\TemplateUpdateFilesResponse**](../Model/TemplateUpdateFilesResponse.md)
+[**\HelloSign\Model\TemplateUpdateFilesResponse**](../Model/TemplateUpdateFilesResponse.md)
 
 ### Authorization
 

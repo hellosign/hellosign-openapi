@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
      * @var string[]
      */
     protected static $openAPITypes = [
-        'unclaimed_draft' => '\HelloSignSDK\Model\UnclaimedDraftResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'unclaimed_draft' => '\HelloSign\Model\UnclaimedDraftResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

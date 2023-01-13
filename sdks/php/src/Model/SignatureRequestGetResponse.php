@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'signature_request' => '\HelloSignSDK\Model\SignatureRequestResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'signature_request' => '\HelloSign\Model\SignatureRequestResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

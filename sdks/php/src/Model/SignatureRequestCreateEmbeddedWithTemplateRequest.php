@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -64,15 +64,15 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
     protected static $openAPITypes = [
         'template_ids' => 'string[]',
         'client_id' => 'string',
-        'signers' => '\HelloSignSDK\Model\SubSignatureRequestTemplateSigner[]',
+        'signers' => '\HelloSign\Model\SubSignatureRequestTemplateSigner[]',
         'allow_decline' => 'bool',
-        'ccs' => '\HelloSignSDK\Model\SubCC[]',
-        'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
+        'ccs' => '\HelloSign\Model\SubCC[]',
+        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
-        'signing_options' => '\HelloSignSDK\Model\SubSigningOptions',
+        'signing_options' => '\HelloSign\Model\SubSigningOptions',
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',

@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Api;
+namespace HelloSign\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSignSDK\ApiException;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\HeaderSelector;
-use HelloSignSDK\Model;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ApiException;
+use HelloSign\Configuration;
+use HelloSign\HeaderSelector;
+use HelloSign\Model;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -192,20 +192,20 @@ class OAuthApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\OAuthTokenResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\OAuthTokenResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\OAuthTokenResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\OAuthTokenResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\OAuthTokenResponse';
+            $returnType = '\HelloSign\Model\OAuthTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -223,7 +223,7 @@ class OAuthApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\OAuthTokenResponse',
+                    '\HelloSign\Model\OAuthTokenResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -271,7 +271,7 @@ class OAuthApi
      */
     public function oauthTokenGenerateAsyncWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request)
     {
-        $returnType = '\HelloSignSDK\Model\OAuthTokenResponse';
+        $returnType = '\HelloSign\Model\OAuthTokenResponse';
         $request = $this->oauthTokenGenerateRequest($o_auth_token_generate_request);
 
         return $this->client
@@ -494,20 +494,20 @@ class OAuthApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\OAuthTokenResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\OAuthTokenResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\OAuthTokenResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\OAuthTokenResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\OAuthTokenResponse';
+            $returnType = '\HelloSign\Model\OAuthTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -525,7 +525,7 @@ class OAuthApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\OAuthTokenResponse',
+                    '\HelloSign\Model\OAuthTokenResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -573,7 +573,7 @@ class OAuthApi
      */
     public function oauthTokenRefreshAsyncWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request)
     {
-        $returnType = '\HelloSignSDK\Model\OAuthTokenResponse';
+        $returnType = '\HelloSign\Model\OAuthTokenResponse';
         $request = $this->oauthTokenRefreshRequest($o_auth_token_refresh_request);
 
         return $this->client

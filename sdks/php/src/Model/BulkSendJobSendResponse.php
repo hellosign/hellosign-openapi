@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class BulkSendJobSendResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $openAPITypes = [
-        'bulk_send_job' => '\HelloSignSDK\Model\BulkSendJobResponse',
-        'warnings' => '\HelloSignSDK\Model\WarningResponse[]',
+        'bulk_send_job' => '\HelloSign\Model\BulkSendJobResponse',
+        'warnings' => '\HelloSign\Model\WarningResponse[]',
     ];
 
     /**

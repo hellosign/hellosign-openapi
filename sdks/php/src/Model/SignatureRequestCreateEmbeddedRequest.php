@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -65,21 +65,21 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         'client_id' => 'string',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
-        'signers' => '\HelloSignSDK\Model\SubSignatureRequestSigner[]',
-        'grouped_signers' => '\HelloSignSDK\Model\SubSignatureRequestGroupedSigners[]',
+        'signers' => '\HelloSign\Model\SubSignatureRequestSigner[]',
+        'grouped_signers' => '\HelloSign\Model\SubSignatureRequestGroupedSigners[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
-        'attachments' => '\HelloSignSDK\Model\SubAttachment[]',
+        'attachments' => '\HelloSign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
-        'custom_fields' => '\HelloSignSDK\Model\SubCustomField[]',
-        'field_options' => '\HelloSignSDK\Model\SubFieldOptions',
-        'form_field_groups' => '\HelloSignSDK\Model\SubFormFieldGroup[]',
-        'form_field_rules' => '\HelloSignSDK\Model\SubFormFieldRule[]',
-        'form_fields_per_document' => '\HelloSignSDK\Model\SubFormFieldsPerDocumentBase[]',
+        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
+        'field_options' => '\HelloSign\Model\SubFieldOptions',
+        'form_field_groups' => '\HelloSign\Model\SubFormFieldGroup[]',
+        'form_field_rules' => '\HelloSign\Model\SubFormFieldRule[]',
+        'form_fields_per_document' => '\HelloSign\Model\SubFormFieldsPerDocumentBase[]',
         'hide_text_tags' => 'bool',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
-        'signing_options' => '\HelloSignSDK\Model\SubSigningOptions',
+        'signing_options' => '\HelloSign\Model\SubSigningOptions',
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',

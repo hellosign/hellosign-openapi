@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HelloSignSDK\Test;
+namespace HelloSign\Test;
 
 use GuzzleHttp;
 use GuzzleHttp\Handler;
 use GuzzleHttp\Psr7;
-use HelloSignSDK\Configuration;
+use HelloSign\Configuration;
 use PHPUnit\Framework\TestCase;
 
 abstract class HelloTestCase extends TestCase

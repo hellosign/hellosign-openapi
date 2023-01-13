@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -67,10 +67,10 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'domains' => 'string[]',
         'name' => 'string',
         'is_approved' => 'bool',
-        'oauth' => '\HelloSignSDK\Model\ApiAppResponseOAuth',
-        'options' => '\HelloSignSDK\Model\ApiAppResponseOptions',
-        'owner_account' => '\HelloSignSDK\Model\ApiAppResponseOwnerAccount',
-        'white_labeling_options' => '\HelloSignSDK\Model\ApiAppResponseWhiteLabelingOptions',
+        'oauth' => '\HelloSign\Model\ApiAppResponseOAuth',
+        'options' => '\HelloSign\Model\ApiAppResponseOptions',
+        'owner_account' => '\HelloSign\Model\ApiAppResponseOwnerAccount',
+        'white_labeling_options' => '\HelloSign\Model\ApiAppResponseWhiteLabelingOptions',
     ];
 
     /**

@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 | `template_ids`<sup>*_required_</sup> | ```string[]``` |  Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.  |  |
 | `allow_decline` | ```bool``` |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  |  [default to false] |
 | `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  |  [default to false] |
-| `ccs` | [```\HelloSignSDK\Model\SubCC[]```](SubCC.md) |  Add CC email recipients. Required when a CC role exists for the Template.  |  |
-| `custom_fields` | [```\HelloSignSDK\Model\SubCustomField[]```](SubCustomField.md) |  An array defining values and options for custom fields. Required when a custom field exists in the Template.  |  |
-| `editor_options` | [```\HelloSignSDK\Model\SubEditorOptions```](SubEditorOptions.md) |    |  |
-| `field_options` | [```\HelloSignSDK\Model\SubFieldOptions```](SubFieldOptions.md) |    |  |
+| `ccs` | [```\HelloSign\Model\SubCC[]```](SubCC.md) |  Add CC email recipients. Required when a CC role exists for the Template.  |  |
+| `custom_fields` | [```\HelloSign\Model\SubCustomField[]```](SubCustomField.md) |  An array defining values and options for custom fields. Required when a custom field exists in the Template.  |  |
+| `editor_options` | [```\HelloSign\Model\SubEditorOptions```](SubEditorOptions.md) |    |  |
+| `field_options` | [```\HelloSign\Model\SubFieldOptions```](SubFieldOptions.md) |    |  |
 | `files` | ```\SplFileObject[]``` |  Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.<br><br>**files** or **file_urls[]** is required, but not both.  |  |
 | `file_urls` | ```string[]``` |  Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.<br><br>**files** or **file_urls[]** is required, but not both.  |  |
 | `force_signer_roles` | ```bool``` |  Provide users the ability to review/edit the template signer roles.  |  [default to false] |
@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 | `requesting_redirect_url` | ```string``` |  The URL you want signers redirected to after they successfully request a signature.  |  |
 | `show_preview` | ```bool``` |  This allows the requester to enable the editor/preview experience.<br><br>- `show_preview&#x3D;true`: Allows requesters to enable the editor/preview experience. - `show_preview&#x3D;false`: Allows requesters to disable the editor/preview experience.  |  [default to false] |
 | `show_progress_stepper` | ```bool``` |  When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.  |  [default to true] |
-| `signers` | [```\HelloSignSDK\Model\SubUnclaimedDraftTemplateSigner[]```](SubUnclaimedDraftTemplateSigner.md) |  Add Signers to your Templated-based Signature Request.  |  |
-| `signing_options` | [```\HelloSignSDK\Model\SubSigningOptions```](SubSigningOptions.md) |    |  |
+| `signers` | [```\HelloSign\Model\SubUnclaimedDraftTemplateSigner[]```](SubUnclaimedDraftTemplateSigner.md) |  Add Signers to your Templated-based Signature Request.  |  |
+| `signing_options` | [```\HelloSign\Model\SubSigningOptions```](SubSigningOptions.md) |    |  |
 | `signing_redirect_url` | ```string``` |  The URL you want signers redirected to after they successfully sign.  |  |
 | `skip_me_now` | ```bool``` |  Disables the &quot;Me (Now)&quot; option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.  |  [default to false] |
 | `subject` | ```string``` |  The subject in the email that will be sent to the signers.  |  |

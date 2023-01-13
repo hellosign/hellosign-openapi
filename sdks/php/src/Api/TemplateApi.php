@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Api;
+namespace HelloSign\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSignSDK\ApiException;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\HeaderSelector;
-use HelloSignSDK\Model;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ApiException;
+use HelloSign\Configuration;
+use HelloSign\HeaderSelector;
+use HelloSign\Model;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 use SplFileObject;
@@ -189,14 +189,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\TemplateGetResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\TemplateGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\TemplateGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\TemplateGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -205,20 +205,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\TemplateGetResponse';
+            $returnType = '\HelloSign\Model\TemplateGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -236,7 +236,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\TemplateGetResponse',
+                    '\HelloSign\Model\TemplateGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -247,7 +247,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -291,7 +291,7 @@ class TemplateApi
      */
     public function templateAddUserAsyncWithHttpInfo(string $template_id, Model\TemplateAddUserRequest $template_add_user_request)
     {
-        $returnType = '\HelloSignSDK\Model\TemplateGetResponse';
+        $returnType = '\HelloSign\Model\TemplateGetResponse';
         $request = $this->templateAddUserRequest($template_id, $template_add_user_request);
 
         return $this->client
@@ -524,14 +524,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\TemplateCreateEmbeddedDraftResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\TemplateCreateEmbeddedDraftResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -540,20 +540,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse';
+            $returnType = '\HelloSign\Model\TemplateCreateEmbeddedDraftResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -571,7 +571,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse',
+                    '\HelloSign\Model\TemplateCreateEmbeddedDraftResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -582,7 +582,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -624,7 +624,7 @@ class TemplateApi
      */
     public function templateCreateEmbeddedDraftAsyncWithHttpInfo(Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request)
     {
-        $returnType = '\HelloSignSDK\Model\TemplateCreateEmbeddedDraftResponse';
+        $returnType = '\HelloSign\Model\TemplateCreateEmbeddedDraftResponse';
         $request = $this->templateCreateEmbeddedDraftRequest($template_create_embedded_draft_request);
 
         return $this->client
@@ -845,7 +845,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1048,7 +1048,7 @@ class TemplateApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
-     * @return array of \SplFileObject|\HelloSignSDK\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\HelloSign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function templateFilesWithHttpInfo(string $template_id, string $file_type = null)
     {
@@ -1108,14 +1108,14 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1150,7 +1150,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1419,14 +1419,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\FileResponseDataUri' === '\SplFileObject') {
+                if ('\HelloSign\Model\FileResponseDataUri' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\FileResponseDataUri', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\FileResponseDataUri', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1435,20 +1435,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\FileResponseDataUri';
+            $returnType = '\HelloSign\Model\FileResponseDataUri';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1466,7 +1466,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\FileResponseDataUri',
+                    '\HelloSign\Model\FileResponseDataUri',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1477,7 +1477,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1519,7 +1519,7 @@ class TemplateApi
      */
     public function templateFilesAsDataUriAsyncWithHttpInfo(string $template_id)
     {
-        $returnType = '\HelloSignSDK\Model\FileResponseDataUri';
+        $returnType = '\HelloSign\Model\FileResponseDataUri';
         $request = $this->templateFilesAsDataUriRequest($template_id);
 
         return $this->client
@@ -1732,14 +1732,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\FileResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\FileResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\FileResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\FileResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1748,20 +1748,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\FileResponse';
+            $returnType = '\HelloSign\Model\FileResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1779,7 +1779,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\FileResponse',
+                    '\HelloSign\Model\FileResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1790,7 +1790,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1832,7 +1832,7 @@ class TemplateApi
      */
     public function templateFilesAsFileUrlAsyncWithHttpInfo(string $template_id)
     {
-        $returnType = '\HelloSignSDK\Model\FileResponse';
+        $returnType = '\HelloSign\Model\FileResponse';
         $request = $this->templateFilesAsFileUrlRequest($template_id);
 
         return $this->client
@@ -2045,14 +2045,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\TemplateGetResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\TemplateGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\TemplateGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\TemplateGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2061,20 +2061,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\TemplateGetResponse';
+            $returnType = '\HelloSign\Model\TemplateGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2092,7 +2092,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\TemplateGetResponse',
+                    '\HelloSign\Model\TemplateGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2103,7 +2103,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2145,7 +2145,7 @@ class TemplateApi
      */
     public function templateGetAsyncWithHttpInfo(string $template_id)
     {
-        $returnType = '\HelloSignSDK\Model\TemplateGetResponse';
+        $returnType = '\HelloSign\Model\TemplateGetResponse';
         $request = $this->templateGetRequest($template_id);
 
         return $this->client
@@ -2364,14 +2364,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\TemplateListResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\TemplateListResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\TemplateListResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\TemplateListResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2380,20 +2380,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\TemplateListResponse';
+            $returnType = '\HelloSign\Model\TemplateListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2411,7 +2411,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\TemplateListResponse',
+                    '\HelloSign\Model\TemplateListResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2422,7 +2422,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2470,7 +2470,7 @@ class TemplateApi
      */
     public function templateListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null)
     {
-        $returnType = '\HelloSignSDK\Model\TemplateListResponse';
+        $returnType = '\HelloSign\Model\TemplateListResponse';
         $request = $this->templateListRequest($account_id, $page, $page_size, $query);
 
         return $this->client
@@ -2720,14 +2720,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\TemplateGetResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\TemplateGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\TemplateGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\TemplateGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2736,20 +2736,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\TemplateGetResponse';
+            $returnType = '\HelloSign\Model\TemplateGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2767,7 +2767,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\TemplateGetResponse',
+                    '\HelloSign\Model\TemplateGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2778,7 +2778,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2822,7 +2822,7 @@ class TemplateApi
      */
     public function templateRemoveUserAsyncWithHttpInfo(string $template_id, Model\TemplateRemoveUserRequest $template_remove_user_request)
     {
-        $returnType = '\HelloSignSDK\Model\TemplateGetResponse';
+        $returnType = '\HelloSign\Model\TemplateGetResponse';
         $request = $this->templateRemoveUserRequest($template_id, $template_remove_user_request);
 
         return $this->client
@@ -3057,14 +3057,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\TemplateUpdateFilesResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\TemplateUpdateFilesResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\TemplateUpdateFilesResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\TemplateUpdateFilesResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -3073,20 +3073,20 @@ class TemplateApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\TemplateUpdateFilesResponse';
+            $returnType = '\HelloSign\Model\TemplateUpdateFilesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3104,7 +3104,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\TemplateUpdateFilesResponse',
+                    '\HelloSign\Model\TemplateUpdateFilesResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3115,7 +3115,7 @@ class TemplateApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3159,7 +3159,7 @@ class TemplateApi
      */
     public function templateUpdateFilesAsyncWithHttpInfo(string $template_id, Model\TemplateUpdateFilesRequest $template_update_files_request)
     {
-        $returnType = '\HelloSignSDK\Model\TemplateUpdateFilesResponse';
+        $returnType = '\HelloSign\Model\TemplateUpdateFilesResponse';
         $request = $this->templateUpdateFilesRequest($template_id, $template_update_files_request);
 
         return $this->client

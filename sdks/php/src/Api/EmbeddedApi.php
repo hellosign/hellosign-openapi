@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Api;
+namespace HelloSign\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -35,11 +35,11 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSignSDK\ApiException;
-use HelloSignSDK\Configuration;
-use HelloSignSDK\HeaderSelector;
-use HelloSignSDK\Model;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ApiException;
+use HelloSign\Configuration;
+use HelloSign\HeaderSelector;
+use HelloSign\Model;
+use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -188,14 +188,14 @@ class EmbeddedApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\EmbeddedEditUrlResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\EmbeddedEditUrlResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\EmbeddedEditUrlResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\EmbeddedEditUrlResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -204,20 +204,20 @@ class EmbeddedApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\EmbeddedEditUrlResponse';
+            $returnType = '\HelloSign\Model\EmbeddedEditUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -235,7 +235,7 @@ class EmbeddedApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\EmbeddedEditUrlResponse',
+                    '\HelloSign\Model\EmbeddedEditUrlResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -246,7 +246,7 @@ class EmbeddedApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class EmbeddedApi
      */
     public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request)
     {
-        $returnType = '\HelloSignSDK\Model\EmbeddedEditUrlResponse';
+        $returnType = '\HelloSign\Model\EmbeddedEditUrlResponse';
         $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request);
 
         return $this->client
@@ -523,14 +523,14 @@ class EmbeddedApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSignSDK\Model\EmbeddedSignUrlResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\EmbeddedSignUrlResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\EmbeddedSignUrlResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\EmbeddedSignUrlResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -539,20 +539,20 @@ class EmbeddedApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSignSDK\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSignSDK\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSignSDK\Model\EmbeddedSignUrlResponse';
+            $returnType = '\HelloSign\Model\EmbeddedSignUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -570,7 +570,7 @@ class EmbeddedApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\EmbeddedSignUrlResponse',
+                    '\HelloSign\Model\EmbeddedSignUrlResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -581,7 +581,7 @@ class EmbeddedApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSignSDK\Model\ErrorResponse',
+                    '\HelloSign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -623,7 +623,7 @@ class EmbeddedApi
      */
     public function embeddedSignUrlAsyncWithHttpInfo(string $signature_id)
     {
-        $returnType = '\HelloSignSDK\Model\EmbeddedSignUrlResponse';
+        $returnType = '\HelloSign\Model\EmbeddedSignUrlResponse';
         $request = $this->embeddedSignUrlRequest($signature_id);
 
         return $this->client

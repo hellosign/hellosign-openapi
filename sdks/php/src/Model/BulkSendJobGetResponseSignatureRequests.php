@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSignSDK\Model;
+namespace HelloSign\Model;
 
 use ArrayAccess;
-use HelloSignSDK\ObjectSerializer;
+use HelloSign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -79,10 +79,10 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'cc_email_addresses' => 'string[]',
         'signing_redirect_url' => 'string',
         'template_ids' => 'string[]',
-        'custom_fields' => '\HelloSignSDK\Model\SignatureRequestResponseCustomFieldBase[]',
-        'attachments' => '\HelloSignSDK\Model\SignatureRequestResponseAttachment[]',
-        'response_data' => '\HelloSignSDK\Model\SignatureRequestResponseDataBase[]',
-        'signatures' => '\HelloSignSDK\Model\SignatureRequestResponseSignatures[]',
+        'custom_fields' => '\HelloSign\Model\SignatureRequestResponseCustomFieldBase[]',
+        'attachments' => '\HelloSign\Model\SignatureRequestResponseAttachment[]',
+        'response_data' => '\HelloSign\Model\SignatureRequestResponseDataBase[]',
+        'signatures' => '\HelloSign\Model\SignatureRequestResponseSignatures[]',
         'bulk_send_job_id' => 'string',
     ];
 
