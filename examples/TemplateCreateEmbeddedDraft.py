@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TemplateApi(api_client)
+    template_api = apis.TemplateApi(api_client)
 
     role_1 = models.SubTemplateRole(
         name="Client",
@@ -52,7 +52,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.template_create_embedded_draft(data)
+        response = template_api.template_create_embedded_draft(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

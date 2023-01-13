@@ -12,13 +12,13 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.SignatureRequestApi(api_client)
+    signature_request_api = apis.SignatureRequestApi(api_client)
 
     account_id = None
     page = 1
 
     try:
-        response = api.signature_request_list(
+        response = signature_request_api.signature_request_list(
             account_id=account_id,
             page=page,
         )

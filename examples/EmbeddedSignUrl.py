@@ -12,12 +12,12 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.EmbeddedApi(api_client)
+    embedded_api = apis.EmbeddedApi(api_client)
 
     signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
 
     try:
-        response = api.embedded_sign_url(signature_id)
+        response = embedded_api.embedded_sign_url(signature_id)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

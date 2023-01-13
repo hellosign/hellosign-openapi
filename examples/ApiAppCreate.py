@@ -12,7 +12,7 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.ApiAppApi(api_client)
+    api_app_api = apis.ApiAppApi(api_client)
 
     oauth = models.SubOAuth(
         callback_url="https://example.com/oauth",
@@ -35,7 +35,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = api.api_app_create(data)
+        response = api_app_api.api_app_create(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

@@ -12,14 +12,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.AccountApi(api_client)
+    account_api = apis.AccountApi(api_client)
 
     data = models.AccountUpdateRequest(
         callback_url="https://www.example.com/callback",
     )
 
     try:
-        response = api.account_update(data)
+        response = account_api.account_update(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)

@@ -12,14 +12,14 @@ configuration = Configuration(
 )
 
 with ApiClient(configuration) as api_client:
-    api = apis.TeamApi(api_client)
+    team_api = apis.TeamApi(api_client)
 
     data = models.TeamUpdateRequest(
         name="New Team Name",
     )
 
     try:
-        response = api.team_update(data)
+        response = team_api.team_update(data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling HelloSign API: %s\n" % e)
