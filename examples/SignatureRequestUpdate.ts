@@ -1,6 +1,6 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const signatureRequestApi = new HelloSign.SignatureRequestApi();
+const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -8,7 +8,7 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.SignatureRequestUpdateRequest = {
+const data: DropboxSign.SignatureRequestUpdateRequest = {
   emailAddress: "john@example.com",
   signatureId: "78caf2a1d01cd39cea2bc1cbb340dac3",
 };

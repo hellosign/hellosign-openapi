@@ -1,4 +1,4 @@
-# hellosign-sdk
+# @dropbox/sign
 
 Dropbox Sign v3 API
 
@@ -26,17 +26,17 @@ directory that corresponds to the file you want updated.
 ### From NPM Package
 
 ```
-npm install hellosign-sdk@github:HelloFax/hellosign-nodejs-sdk#openapi
+npm install @dropbox/sign@github:hellosign/dropbox-sign-node
 ```
 
 ### From Repo
 
 * Clone this repo locally
 * Run `npm pack`
-* The generated file will be named similar to `hellosign-sdk-6.0.0.tgz`
+* The generated file will be named similar to `dropbox-sign-1.0.0-beta23.1.tgz`
 * Move this file to your project directory
 * Add the following to your project's `package.json` under `dependencies`:
-* `"hellosign-sdk": "file:hellosign-sdk-6.0.0.tgz"`
+* `"@dropbox/sign": "file:dropbox-sign-1.0.0-beta23.1.tgz"`
 * Run `npm install`
 
 ## Getting Started
@@ -47,9 +47,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -57,7 +57,7 @@ accountApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.AccountCreateRequest = {
+const data: DropboxSign.AccountCreateRequest = {
   emailAddress: "newuser@dropboxsign.com",
 };
 
@@ -75,9 +75,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";

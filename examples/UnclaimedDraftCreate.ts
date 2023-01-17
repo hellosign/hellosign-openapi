@@ -1,8 +1,8 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
+const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";
@@ -10,33 +10,33 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // unclaimedDraftApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSign.SubUnclaimedDraftSigner = {
+const signer1: DropboxSign.SubUnclaimedDraftSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSign.SubUnclaimedDraftSigner = {
+const signer2: DropboxSign.SubUnclaimedDraftSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSign.SubSigningOptions = {
+const signingOptions: DropboxSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const fieldOptions: HelloSign.SubFieldOptions = {
-  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: DropboxSign.SubFieldOptions = {
+  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSign.UnclaimedDraftCreateRequest = {
+const data: DropboxSign.UnclaimedDraftCreateRequest = {
   subject: "The NDA we talked about",
-  type: HelloSign.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
+  type: DropboxSign.UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [
     signer1,

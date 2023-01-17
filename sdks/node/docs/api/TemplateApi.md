@@ -29,9 +29,9 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -39,7 +39,7 @@ templateApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.TemplateAddUserRequest = {
+const data: DropboxSign.TemplateAddUserRequest = {
   emailAddress: "george@dropboxsign.com",
 };
 
@@ -58,9 +58,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -121,11 +121,11 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -133,31 +133,31 @@ templateApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const role1: HelloSign.SubTemplateRole = {
+const role1: DropboxSign.SubTemplateRole = {
   name: "Client",
   order: 0,
 };
 
-const role2: HelloSign.SubTemplateRole = {
+const role2: DropboxSign.SubTemplateRole = {
   name: "Witness",
   order: 1,
 };
 
-const mergeField1: HelloSign.SubMergeField = {
+const mergeField1: DropboxSign.SubMergeField = {
   name: "Full Name",
-  type: HelloSign.SubMergeField.TypeEnum.Text,
+  type: DropboxSign.SubMergeField.TypeEnum.Text,
 };
 
-const mergeField2: HelloSign.SubMergeField = {
+const mergeField2: DropboxSign.SubMergeField = {
   name: "Is Registered?",
-  type: HelloSign.SubMergeField.TypeEnum.Checkbox,
+  type: DropboxSign.SubMergeField.TypeEnum.Checkbox,
 };
 
-const fieldOptions: HelloSign.SubFieldOptions = {
-  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: DropboxSign.SubFieldOptions = {
+  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSign.TemplateCreateEmbeddedDraftRequest = {
+const data: DropboxSign.TemplateCreateEmbeddedDraftRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
   files: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
@@ -189,11 +189,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -290,9 +290,9 @@ Completely deletes the template specified from the account.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -315,9 +315,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -373,10 +373,10 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -400,10 +400,10 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 import * as fs from 'fs';
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -461,9 +461,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -486,9 +486,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -544,9 +544,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -569,9 +569,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -627,9 +627,9 @@ Returns the Template specified by the `template_id` parameter.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -652,9 +652,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -710,9 +710,9 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -735,9 +735,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -796,9 +796,9 @@ Removes the specified Account\'s access to the specified Template.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -806,7 +806,7 @@ templateApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.TemplateRemoveUserRequest = {
+const data: DropboxSign.TemplateRemoveUserRequest = {
   emailAddress: "george@dropboxsign.com",
 };
 
@@ -825,9 +825,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -888,11 +888,11 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -900,7 +900,7 @@ templateApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.TemplateUpdateFilesRequest = {
+const data: DropboxSign.TemplateUpdateFilesRequest = {
   files: [fs.createReadStream("example_signature_request.pdf")],
 };
 
@@ -919,11 +919,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";

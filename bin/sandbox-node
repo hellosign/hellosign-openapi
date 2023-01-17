@@ -22,7 +22,7 @@ docker run -it --rm \
   -w "${WORKING_DIR}" \
   node:17 npm pack --pack-destination /artifacts
 
-mv "${ARTIFACTS_DIR}/"*.tgz "${ARTIFACTS_DIR}/hellosign-sdk.tgz"
+mv "${ARTIFACTS_DIR}/"*.tgz "${ARTIFACTS_DIR}/dropbox-sign-sdk.tgz"
 
 docker run -it --rm \
   -v "${TARGET_DIR}:${WORKING_DIR}" \

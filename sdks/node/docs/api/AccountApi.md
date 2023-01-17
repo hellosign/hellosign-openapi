@@ -23,9 +23,9 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -33,7 +33,7 @@ accountApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.AccountCreateRequest = {
+const data: DropboxSign.AccountCreateRequest = {
   emailAddress: "newuser@dropboxsign.com",
 };
 
@@ -50,9 +50,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -110,9 +110,9 @@ Returns the properties and settings of your Account.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -133,9 +133,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -190,9 +190,9 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -200,7 +200,7 @@ accountApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.AccountUpdateRequest = {
+const data: DropboxSign.AccountUpdateRequest = {
   callbackUrl: "https://www.example.com/callback",
 };
 
@@ -217,9 +217,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -277,9 +277,9 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
@@ -287,7 +287,7 @@ accountApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.AccountVerifyRequest = {
+const data: DropboxSign.AccountVerifyRequest = {
   emailAddress: "some_user@dropboxsign.com",
 };
 
@@ -304,9 +304,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const accountApi = new HelloSign.AccountApi();
+const accountApi = new DropboxSign.AccountApi();
 
 // Configure HTTP basic authorization: api_key
 accountApi.username = "YOUR_API_KEY";
