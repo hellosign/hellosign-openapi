@@ -1,14 +1,14 @@
 # hellosign-openapi &middot; [![License for GitHub](https://img.shields.io/badge/license-Apache%202-blue)](LICENSE) [![OpenAPI badge](https://img.shields.io/badge/openapi-v3.0.3-orange)](https://spec.openapis.org/oas/v3.0.1) [![PRs and Issues](https://img.shields.io/badge/prs%20&%20issues-Welcome-brightgreen)](#contributing)
 
-This repository contains all source material used for HelloSign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and official SDKs (work in progress, currently in beta). The docs and SDKs are both powered by the [OpenAPI spec](openapi.yaml), which also keeps them in sync with our API development.  
+This repository contains all source material used for Dropbox Sign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and official SDKs (work in progress, currently in beta). The docs and SDKs are both powered by the [OpenAPI spec](openapi.yaml), which also keeps them in sync with our API development.  
 
-This repo is actively maintained by HelloSign's API Engineering team, but you can help us improve these resources for everyone by [contributing](#contributing).
+This repo is actively maintained by Dropbox Sign's API Engineering team, but you can help us improve these resources for everyone by [contributing](#contributing).
 
 ## ⚠ Important: work in progress ⚠
 
 The state of tooling based on this repo:
-- HelloSign's [API reference documentation](https://developers.hellosign.com/api/reference/overview/) - launched in production.
-- HelloSign [SDKs](#sdk-coverage) - available in beta only. See the "openapi" branch of your preferred SDK.
+- Dropbox Sign's [API reference documentation](https://developers.hellosign.com/api/reference/overview/) - launched in production.
+- Dropbox Sign [SDKs](#sdk-coverage) - available in beta only. See the "openapi" branch of your preferred SDK.
 
 Warnings:
 - Think twice before using the OpenAPI-powered SDKs for anything critical.
@@ -16,18 +16,18 @@ Warnings:
 
 ## Overview
 
-HelloSign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) is built using [openapi.yaml](openapi.yaml) and the SDKs are built using [openapi-sdk.yaml](openapi-sdk.yaml). Both of those files are **generated** as part of a build process. 
+Dropbox Sign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) is built using [openapi.yaml](openapi.yaml) and the SDKs are built using [openapi-sdk.yaml](openapi-sdk.yaml). Both of those files are **generated** as part of a build process. 
 These are the main parts of this repo you'll need to know about:
-- [openapi-raw.yaml](openapi-raw.yaml) -- The functional implementation of the HelloSign API as an OpenAPI spec. This file reflects all public-facing work from HelloSign's API Engineering team and is kept up-to-date.
+- [openapi-raw.yaml](openapi-raw.yaml) -- The functional implementation of the Dropbox Sign API as an OpenAPI spec. This file reflects all public-facing work from Dropbox Sign's API Engineering team and is kept up-to-date.
 - [/translations/en.yaml](translations/en.yaml) -- Contains all copy used for the API reference documentation. That includes descriptions for endpoints, parameters, schemas, and more. 
-- [/examples/json](examples/json) -- Contains example request and response payloads for the HelloSign API.
+- [/examples/json](examples/json) -- Contains example request and response payloads for the Dropbox Sign API.
 - [/examples](examples) -- Contains SDK-specific example requests for each endpoint.
 
 **Note:** Our API reference documentation supports having multiple examples for requests, responses, and SDK implementations for every endpoint. But we need your help to get there! Contributions that help us grow our example coverage are highly valuable at this stage.
 
 ## Contributing
 
-We accept contributions and feedback that help us provide a better a developer experience for users of the HelloSign API. Our OpenAPI-based tooling relies on multiple build processes, and this repo contains multiple directories that may seem confusing at first but allow us to more easily manage a single source of truth ([openapi-raw.yaml](openapi-raw.yaml)) and several tightly-coupled SDKs.
+We accept contributions and feedback that help us provide a better a developer experience for users of the Dropbox Sign API. Our OpenAPI-based tooling relies on multiple build processes, and this repo contains multiple directories that may seem confusing at first but allow us to more easily manage a single source of truth ([openapi-raw.yaml](openapi-raw.yaml)) and several tightly-coupled SDKs.
 
 A complete contribution workflow would look like the following:
 
@@ -153,7 +153,7 @@ This repo is published under the Apache 2.0 license. Please see [LICENSE](https:
 
 ## Thank you
 
-There's a wide world of APIs out there and we (HelloSign's API Engineering team) wanted to thank you for using ours. We've been working hard to improve our developer experience and have some big releases planned for this year (2022). We look forward to showing you that your trust is well placed. 
+There's a wide world of APIs out there and we (Dropbox Sign's API Engineering team) wanted to thank you for using ours. We've been working hard to improve our developer experience and have some big releases planned for this year (2022). We look forward to showing you that your trust is well placed. 
 
 # Appendix
 
@@ -161,7 +161,7 @@ Additional information about this repo, OpenAPI, and/or related tooling. May not
 
 ## Migrating to OpenAPI
 
-The API Engineering team at HelloSign adopted the [OpenAPI specification](https://oai.github.io/Documentation/introduction.html) in order to provide a better experience to HelloSign developers in a way that was scalable and sustainable. We're using it as the source of our [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and [SDKs](#sdk-coverage), which means both tools stay in total parity with the HelloSign API. 
+The API Engineering team at Dropbox Sign adopted the [OpenAPI specification](https://oai.github.io/Documentation/introduction.html) in order to provide a better experience to Dropbox Sign developers in a way that was scalable and sustainable. We're using it as the source of our [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and [SDKs](#sdk-coverage), which means both tools stay in total parity with the Dropbox Sign API. 
 
 ## SDK Coverage  
 

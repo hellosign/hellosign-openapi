@@ -20,4 +20,4 @@ with ApiClient(configuration) as api_client:
         response = signature_request_api.signature_request_files(signature_request_id, file_type="pdf")
         open('file_response.pdf', 'wb').write(response.read())
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

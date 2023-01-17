@@ -13,14 +13,14 @@ $config->setUsername("YOUR_API_KEY");
 $teamApi = new HelloSign\Api\TeamApi($config);
 
 $data = new HelloSign\Model\TeamRemoveMemberRequest();
-$data->setEmailAddress("teammate@hellosign.com")
-    ->setNewOwnerEmailAddress("new_teammate@hellosign.com");
+$data->setEmailAddress("teammate@dropboxsign.com")
+    ->setNewOwnerEmailAddress("new_teammate@dropboxsign.com");
 
 try {
     $result = $teamApi->teamRemoveMember($data);
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }

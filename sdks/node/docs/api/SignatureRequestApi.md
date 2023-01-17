@@ -95,7 +95,7 @@ const result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplat
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -167,7 +167,7 @@ const result = signatureRequestApi.signatureRequestBulkCreateEmbeddedWithTemplat
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -271,7 +271,7 @@ const result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -342,7 +342,7 @@ const result = signatureRequestApi.signatureRequestBulkSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -400,7 +400,7 @@ const result = signatureRequestApi.signatureRequestCancel(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -425,7 +425,7 @@ const result = signatureRequestApi.signatureRequestCancel(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -506,8 +506,8 @@ const data: HelloSign.SignatureRequestCreateEmbeddedRequest = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
-    "lawyer@example.com",
+    "lawyer@dropboxsign.com",
+    "lawyer@dropboxsign.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   signingOptions,
@@ -518,7 +518,7 @@ const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -566,7 +566,7 @@ const data = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
+    "lawyer@dropboxsign.com",
     "lawyer@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
@@ -578,7 +578,7 @@ const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -658,7 +658,7 @@ const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(da
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -705,7 +705,7 @@ const result = signatureRequestApi.signatureRequestCreateEmbeddedWithTemplate(da
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -766,7 +766,7 @@ const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fil
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -794,7 +794,7 @@ const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fil
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -853,7 +853,7 @@ const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureReque
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -878,7 +878,7 @@ const result = signatureRequestApi.signatureRequestFilesAsDataUri(signatureReque
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -936,7 +936,7 @@ const result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureReque
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -961,7 +961,7 @@ const result = signatureRequestApi.signatureRequestFilesAsFileUrl(signatureReque
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1019,7 +1019,7 @@ const result = signatureRequestApi.signatureRequestGet(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1044,7 +1044,7 @@ const result = signatureRequestApi.signatureRequestGet(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1103,7 +1103,7 @@ const result = signatureRequestApi.signatureRequestList(accountId, page);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1129,7 +1129,7 @@ const result = signatureRequestApi.signatureRequestList(accountId, page);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1190,7 +1190,7 @@ const result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestI
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1215,7 +1215,7 @@ const result = signatureRequestApi.signatureRequestReleaseHold(signatureRequestI
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1277,7 +1277,7 @@ const result = signatureRequestApi.signatureRequestRemind(signatureRequestId, da
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1306,7 +1306,7 @@ const result = signatureRequestApi.signatureRequestRemind(signatureRequestId, da
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1365,7 +1365,7 @@ const result = signatureRequestApi.signatureRequestRemove(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1390,7 +1390,7 @@ const result = signatureRequestApi.signatureRequestRemove(signatureRequestId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1474,8 +1474,8 @@ const data: HelloSign.SignatureRequestSendRequest = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
-    "lawyer@example.com",
+    "lawyer@dropboxsign.com",
+    "lawyer@dropboxsign.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
@@ -1491,7 +1491,7 @@ const result = signatureRequestApi.signatureRequestSend(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1542,7 +1542,7 @@ const data = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
+    "lawyer@dropboxsign.com",
     "lawyer@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
@@ -1559,7 +1559,7 @@ const result = signatureRequestApi.signatureRequestSend(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1652,7 +1652,7 @@ const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1712,7 +1712,7 @@ const result = signatureRequestApi.signatureRequestSendWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1775,7 +1775,7 @@ const result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, da
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -1805,7 +1805,7 @@ const result = signatureRequestApi.signatureRequestUpdate(signatureRequestId, da
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 

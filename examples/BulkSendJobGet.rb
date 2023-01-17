@@ -16,5 +16,5 @@ begin
   result = bulk_send_job_api.bulk_send_job_get(bulk_send_job_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

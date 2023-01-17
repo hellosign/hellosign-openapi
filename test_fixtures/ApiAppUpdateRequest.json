@@ -4,7 +4,7 @@
     "domains": [
       "example.com"
     ],
-    "callback_url": "http://example.com/hellosign",
+    "callback_url": "http://example.com/dropboxsign",
     "oauth": {
       "callback_url": "https://example.com/oauth",
       "scopes": [

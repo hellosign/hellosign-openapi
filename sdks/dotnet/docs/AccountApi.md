@@ -39,7 +39,7 @@ public class Example
         var accountApi = new AccountApi(config);
 
         var data = new AccountCreateRequest(
-            emailAddress: "newuser@hellosign.com"
+            emailAddress: "newuser@dropboxsign.com"
         );
 
         try
@@ -49,7 +49,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -142,7 +142,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -240,7 +240,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -327,7 +327,7 @@ public class Example
         var accountApi = new AccountApi(config);
 
         var data = new AccountVerifyRequest(
-            emailAddress: "some_user@hellosign.com"
+            emailAddress: "some_user@dropboxsign.com"
         );
 
         try
@@ -337,7 +337,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

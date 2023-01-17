@@ -20,5 +20,5 @@ begin
   result = signature_request_api.signature_request_update(signature_request_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

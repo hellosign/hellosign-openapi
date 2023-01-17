@@ -83,7 +83,7 @@ public class Example
             type: UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
             signers: new List<SubUnclaimedDraftSigner>(){signer1, signer2},
-            ccEmailAddresses: new List<string>(){"lawyer@hellosign.com", "lawyer@example.com"},
+            ccEmailAddresses: new List<string>(){"lawyer@dropboxsign.com", "lawyer@dropboxsign.com"},
             files: files,
             metadata: metadata,
             signingOptions: subSigningOptions,
@@ -98,7 +98,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -197,7 +197,7 @@ public class Example
         var data = new UnclaimedDraftCreateEmbeddedRequest(
             clientId: "ec64a202072370a737edf4a0eb7f4437",
             files: files,
-            requesterEmailAddress: "jack@hellosign.com",
+            requesterEmailAddress: "jack@dropboxsign.com",
             testMode: true
         );
 
@@ -208,7 +208,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -308,7 +308,7 @@ public class Example
         var data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest(
             clientId: "1a659d9ad95bccd307ecad78d72192f8",
             templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
-            requesterEmailAddress: "jack@hellosign.com",
+            requesterEmailAddress: "jack@dropboxsign.com",
             signers: new List<SubUnclaimedDraftTemplateSigner>(){signer},
             ccs: new List<SubCC>(){cc1},
             testMode: true
@@ -321,7 +321,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }
@@ -421,7 +421,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

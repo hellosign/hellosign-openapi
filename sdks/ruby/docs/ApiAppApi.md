@@ -55,7 +55,7 @@ begin
   result = api_app_api.api_app_create(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -127,7 +127,7 @@ begin
   result = api_app_api.api_app_delete(client_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -199,7 +199,7 @@ begin
   result = api_app_api.api_app_get(client_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -272,7 +272,7 @@ begin
   result = api_app_api.api_app_list({ page: page, page_size: page_size })
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -347,7 +347,7 @@ custom_logo_file = File.new('./CustomLogoFile.png')
 
 data = HelloSign::ApiAppUpdateRequest.new
 data.name = "New Name"
-data.callback_url = "http://example.com/hellosign"
+data.callback_url = "http://example.com/dropboxsign"
 data.white_labeling_options = white_labeling_options
 data.custom_logo_file = custom_logo_file
 
@@ -357,7 +357,7 @@ begin
   result = api_app_api.api_app_update(client_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```

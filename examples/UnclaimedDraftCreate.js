@@ -43,7 +43,7 @@ const data = {
     signer2,
   ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
+    "lawyer@dropboxsign.com",
     "lawyer@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
@@ -60,6 +60,6 @@ const result = unclaimedDraftApi.unclaimedDraftCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

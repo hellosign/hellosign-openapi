@@ -63,7 +63,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -125,7 +125,7 @@ try {
     $apiAppApi->apiAppDelete($clientId);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -188,7 +188,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -252,7 +252,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -317,7 +317,7 @@ $customLogoFile = new SplFileObject(__DIR__ . "/CustomLogoFile.png");
 
 $data = new HelloSign\Model\ApiAppUpdateRequest();
 $data->setName("New Name")
-    ->setCallbackUrl("http://example.com/hellosign")
+    ->setCallbackUrl("http://example.com/dropboxsign")
     ->setWhiteLabelingOptions($whiteLabelingOptions)
     ->setCustomLogoFile($customLogoFile);
 
@@ -328,7 +328,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 

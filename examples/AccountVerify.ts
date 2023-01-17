@@ -9,13 +9,13 @@ accountApi.username = "YOUR_API_KEY";
 // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSign.AccountVerifyRequest = {
-  emailAddress: "some_user@hellosign.com",
+  emailAddress: "some_user@dropboxsign.com",
 };
 
 const result = accountApi.accountVerify(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

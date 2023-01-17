@@ -25,7 +25,7 @@ public class Example {
         TemplateApi templateApi = new TemplateApi(apiClient);
 
         TemplateRemoveUserRequest data = new TemplateRemoveUserRequest()
-            .emailAddress("george@hellosign.com");
+            .emailAddress("george@dropboxsign.com");
 
         String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 

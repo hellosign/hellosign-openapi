@@ -88,14 +88,14 @@ $config->setUsername("YOUR_API_KEY");
 $accountApi = new HelloSign\Api\AccountApi($config);
 
 $data = new HelloSign\Model\AccountCreateRequest();
-$data->setEmailAddress("newuser@hellosign.com");
+$data->setEmailAddress("newuser@dropboxsign.com");
 
 try {
     $result = $accountApi->accountCreate($data);
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 

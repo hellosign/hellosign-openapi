@@ -6,7 +6,7 @@
       "allow_edit_documents": false
     },
     "is_for_embedded_signing": false,
-    "requester_email_address": "jack@hellosign.com",
+    "requester_email_address": "jack@dropboxsign.com",
     "requesting_redirect_url": "https://example.com/redirect",
     "show_progress_stepper": true,
     "signing_redirect_url": "https://example.com/redirect",

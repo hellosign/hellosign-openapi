@@ -14,10 +14,10 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     team_api = apis.TeamApi(api_client)
 
-    email_address = "user@hellosign.com"
+    email_address = "user@dropboxsign.com"
 
     try:
         response = team_api.team_invites(email_address)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

@@ -13,12 +13,12 @@ unclaimed_draft_api = HelloSign::UnclaimedDraftApi.new
 data = HelloSign::UnclaimedDraftCreateEmbeddedRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
 data.files = [File.new("example_signature_request.pdf", "r")]
-data.requester_email_address = "jack@hellosign.com"
+data.requester_email_address = "jack@dropboxsign.com"
 data.test_mode = true
 
 begin
   result = unclaimed_draft_api.unclaimed_draft_create_embedded(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

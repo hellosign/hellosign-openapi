@@ -26,7 +26,7 @@ public class Example {
         AccountApi accountApi = new AccountApi(apiClient);
 
         AccountVerifyRequest data = new AccountVerifyRequest()
-            .emailAddress("some_user@hellosign.com");
+            .emailAddress("some_user@dropboxsign.com");
 
         try {
             AccountVerifyResponse result = accountApi.accountVerify(data);

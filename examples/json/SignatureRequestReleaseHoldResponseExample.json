@@ -12,7 +12,7 @@
     "signing_url": "https://app.hellosign.com/sign/fa5c8a0b0f492d768749333ad6fcc214c111e967",
     "signing_redirect_url": null,
     "details_url": "https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967",
-    "requester_email_address": "me@hellosign.com",
+    "requester_email_address": "me@dropboxsign.com",
     "signatures": [
       {
         "signature_id": "5687fb7bd5aaacb1689728762b600c74",

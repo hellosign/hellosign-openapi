@@ -117,7 +117,7 @@ public class Example {
         AccountApi accountApi = new AccountApi(apiClient);
 
         AccountCreateRequest data = new AccountCreateRequest()
-            .emailAddress("newuser@hellosign.com");
+            .emailAddress("newuser@dropboxsign.com");
 
         try {
             AccountCreateResponse result = accountApi.accountCreate(data);

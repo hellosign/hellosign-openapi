@@ -31,5 +31,5 @@ begin
   result = api_app_api.api_app_create(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

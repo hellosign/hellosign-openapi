@@ -40,7 +40,7 @@ with ApiClient(configuration) as api_client:
         subject="The NDA we talked about",
         message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
         signers=[signer_1, signer_2],
-        cc_email_addresses=["lawyer@hellosign.com", "lawyer@example.com"],
+        cc_email_addresses=["lawyer@dropboxsign.com", "lawyer@dropboxsign.com"],
         files=[open("example_signature_request.pdf", "rb")],
         signing_options=signing_options,
         test_mode=True,
@@ -50,4 +50,4 @@ with ApiClient(configuration) as api_client:
         response = signature_request_api.signature_request_create_embedded(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

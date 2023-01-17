@@ -19,5 +19,5 @@ begin
   result = template_api.template_update_files(template_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

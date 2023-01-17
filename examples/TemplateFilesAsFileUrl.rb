@@ -16,5 +16,5 @@ begin
   result = template_api.template_files_as_file_url(template_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

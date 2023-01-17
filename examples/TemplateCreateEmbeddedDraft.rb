@@ -45,5 +45,5 @@ begin
   result = template_api.template_create_embedded_draft(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

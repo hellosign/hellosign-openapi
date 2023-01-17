@@ -44,8 +44,8 @@ with ApiClient(configuration) as api_client:
         message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
         signers=[signer_1, signer_2],
         cc_email_addresses=[
-            "lawyer@hellosign.com",
-            "lawyer@example.com",
+            "lawyer@dropboxsign.com",
+            "lawyer@dropboxsign.com",
         ],
         files=[open("example_signature_request.pdf", "rb")],
         metadata={
@@ -61,4 +61,4 @@ with ApiClient(configuration) as api_client:
         response = unclaimed_draft_api.unclaimed_draft_create(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

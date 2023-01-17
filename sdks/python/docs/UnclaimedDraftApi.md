@@ -69,8 +69,8 @@ with ApiClient(configuration) as api_client:
         message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
         signers=[signer_1, signer_2],
         cc_email_addresses=[
-            "lawyer@hellosign.com",
-            "lawyer@example.com",
+            "lawyer@dropboxsign.com",
+            "lawyer@dropboxsign.com",
         ],
         files=[open("example_signature_request.pdf", "rb")],
         metadata={
@@ -86,7 +86,7 @@ with ApiClient(configuration) as api_client:
         response = unclaimed_draft_api.unclaimed_draft_create(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -152,7 +152,7 @@ with ApiClient(configuration) as api_client:
     data = models.UnclaimedDraftCreateEmbeddedRequest(
         client_id="ec64a202072370a737edf4a0eb7f4437",
         files=[open("example_signature_request.pdf", "rb")],
-        requester_email_address="jack@hellosign.com",
+        requester_email_address="jack@dropboxsign.com",
         test_mode=True,
     )
 
@@ -160,7 +160,7 @@ with ApiClient(configuration) as api_client:
         response = unclaimed_draft_api.unclaimed_draft_create_embedded(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -237,7 +237,7 @@ with ApiClient(configuration) as api_client:
     data = models.UnclaimedDraftCreateEmbeddedWithTemplateRequest(
         client_id="ec64a202072370a737edf4a0eb7f4437",
         template_ids=["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
-        requester_email_address="jack@hellosign.com",
+        requester_email_address="jack@dropboxsign.com",
         signers=[signer_1],
         ccs=[cc_1],
         test_mode=True,
@@ -247,7 +247,7 @@ with ApiClient(configuration) as api_client:
         response = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -321,7 +321,7 @@ with ApiClient(configuration) as api_client:
         response = unclaimed_draft_api.unclaimed_draft_edit_and_resend(signature_request_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 

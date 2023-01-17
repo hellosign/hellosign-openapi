@@ -44,7 +44,7 @@ $config->setUsername("YOUR_API_KEY");
 $templateApi = new HelloSign\Api\TemplateApi($config);
 
 $data = new HelloSign\Model\TemplateAddUserRequest();
-$data->setEmailAddress("george@hellosign.com");
+$data->setEmailAddress("george@dropboxsign.com");
 
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
@@ -53,7 +53,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -146,7 +146,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -208,7 +208,7 @@ try {
     $templateApi->templateDelete($templateId);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -272,7 +272,7 @@ try {
     copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -336,7 +336,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -399,7 +399,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -462,7 +462,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -525,7 +525,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -585,7 +585,7 @@ $config->setUsername("YOUR_API_KEY");
 $templateApi = new HelloSign\Api\TemplateApi($config);
 
 $data = new HelloSign\Model\TemplateRemoveUserRequest();
-$data->setEmailAddress("george@hellosign.com");
+$data->setEmailAddress("george@dropboxsign.com");
 
 $templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
@@ -594,7 +594,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -661,7 +661,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 

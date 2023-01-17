@@ -64,7 +64,7 @@ with ApiClient(configuration) as api_client:
         response = api_app_api.api_app_create(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -133,7 +133,7 @@ with ApiClient(configuration) as api_client:
         response = api_app_api.api_app_delete(client_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -202,7 +202,7 @@ with ApiClient(configuration) as api_client:
         response = api_app_api.api_app_get(client_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -275,7 +275,7 @@ with ApiClient(configuration) as api_client:
         )
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -348,7 +348,7 @@ with ApiClient(configuration) as api_client:
 
     data = models.ApiAppUpdateRequest(
         name="New Name",
-        callback_url="http://example.com/hellosign",
+        callback_url="http://example.com/dropboxsign",
         white_labeling_options=white_labeling_options,
         custom_logo_file=custom_logo_file,
     )
@@ -359,7 +359,7 @@ with ApiClient(configuration) as api_client:
         response = api_app_api.api_app_update(client_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 

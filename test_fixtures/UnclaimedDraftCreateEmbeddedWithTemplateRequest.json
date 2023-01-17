@@ -38,7 +38,7 @@
     },
     "populate_auto_fill_fields": false,
     "preview_only": true,
-    "requester_email_address": "jack@hellosign.com",
+    "requester_email_address": "jack@dropboxsign.com",
     "requesting_redirect_url": "https://example.com/redirect",
     "show_preview": true,
     "signers": [

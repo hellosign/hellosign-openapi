@@ -63,8 +63,8 @@ $data->setSubject("The NDA we talked about")
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
     ->setSigners([$signer1, $signer2])
     ->setCcEmailAddresses([
-        "lawyer@hellosign.com",
-        "lawyer@example.com",
+        "lawyer@dropboxsign.com",
+        "lawyer@dropboxsign.com",
     ])
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setMetadata([
@@ -80,7 +80,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -139,7 +139,7 @@ $unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 $data = new HelloSign\Model\UnclaimedDraftCreateEmbeddedRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setRequesterEmailAddress("jack@hellosign.com")
+    ->setRequesterEmailAddress("jack@dropboxsign.com")
     ->setTestMode(true);
 
 try {
@@ -147,7 +147,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -210,12 +210,12 @@ $signer1->setRole("Client")
 
 $cc1 = new HelloSign\Model\SubCC();
 $cc1->setRole("Accounting")
-    ->setEmailAddress("accounting@hellosign.com");
+    ->setEmailAddress("accounting@dropboxsign.com");
 
 $data = new HelloSign\Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setTemplateIds(["61a832ff0d8423f91d503e76bfbcc750f7417c78"])
-    ->setRequesterEmailAddress("jack@hellosign.com")
+    ->setRequesterEmailAddress("jack@dropboxsign.com")
     ->setSigners([$signer1])
     ->setCcs([$cc1])
     ->setTestMode(true);
@@ -225,7 +225,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 
@@ -292,7 +292,7 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }
 

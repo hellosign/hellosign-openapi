@@ -40,14 +40,14 @@ with ApiClient(configuration) as api_client:
     account_api = apis.AccountApi(api_client)
 
     data = models.AccountCreateRequest(
-        email_address="newuser@hellosign.com",
+        email_address="newuser@dropboxsign.com",
     )
 
     try:
         response = account_api.account_create(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -114,7 +114,7 @@ with ApiClient(configuration) as api_client:
         response = account_api.account_get(email_address="jack@example.com")
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -186,7 +186,7 @@ with ApiClient(configuration) as api_client:
         response = account_api.account_update(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -250,14 +250,14 @@ with ApiClient(configuration) as api_client:
     account_api = apis.AccountApi(api_client)
 
     data = models.AccountVerifyRequest(
-        email_address="some_user@hellosign.com",
+        email_address="some_user@dropboxsign.com",
     )
 
     try:
         response = account_api.account_verify(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 

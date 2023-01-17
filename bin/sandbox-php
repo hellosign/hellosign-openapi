@@ -39,7 +39,7 @@ zip -9 -r "${ARTIFACTS_DIR}/hellosign-php-sdk.zip" \
 
 docker run -it --rm \
   -v "${TARGET_DIR}:${WORKING_DIR}" \
-  -v "hellosign-sdk-composer-cache:/.composer" \
+  -v "dropbox-sign-sdk-composer-cache:/.composer" \
   -w "${WORKING_DIR}" \
   -u root:root \
   jtreminio/php-cli:7.4 composer install

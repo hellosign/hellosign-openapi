@@ -18,7 +18,7 @@ rm -rf "${TARGET_DIR}/node_modules"
 docker run -it --rm \
   -v "${SDK_DIR}:${WORKING_DIR}" \
   -v "${ARTIFACTS_DIR}:/artifacts" \
-  -v "hellosign-sdk-npm-cache:/root/.npm" \
+  -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
   -w "${WORKING_DIR}" \
   node:17 npm pack --pack-destination /artifacts
 
@@ -26,7 +26,7 @@ mv "${ARTIFACTS_DIR}/"*.tgz "${ARTIFACTS_DIR}/hellosign-sdk.tgz"
 
 docker run -it --rm \
   -v "${TARGET_DIR}:${WORKING_DIR}" \
-  -v "hellosign-sdk-npm-cache:/root/.npm" \
+  -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
   -w "${WORKING_DIR}" \
   node:17 npm install
 

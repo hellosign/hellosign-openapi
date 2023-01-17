@@ -13,7 +13,7 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 const data: HelloSign.UnclaimedDraftCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   files: [fs.createReadStream("example_signature_request.pdf")],
-  requesterEmailAddress: "jack@hellosign.com",
+  requesterEmailAddress: "jack@dropboxsign.com",
   testMode: true,
 };
 
@@ -21,6 +21,6 @@ const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

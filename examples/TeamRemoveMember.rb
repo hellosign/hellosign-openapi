@@ -11,12 +11,12 @@ end
 team_api = HelloSign::TeamApi.new
 
 data = HelloSign::TeamRemoveMemberRequest.new
-data.email_address = "teammate@hellosign.com"
-data.new_owner_email_address = "new_teammate@hellosign.com"
+data.email_address = "teammate@dropboxsign.com"
+data.new_owner_email_address = "new_teammate@dropboxsign.com"
 
 begin
   result = team_api.team_remove_member(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

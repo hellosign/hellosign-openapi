@@ -68,8 +68,8 @@ const data: HelloSign.UnclaimedDraftCreateRequest = {
     signer2,
   ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
-    "lawyer@example.com",
+    "lawyer@dropboxsign.com",
+    "lawyer@dropboxsign.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
@@ -85,7 +85,7 @@ const result = unclaimedDraftApi.unclaimedDraftCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -139,7 +139,7 @@ const data = {
     signer2,
   ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
+    "lawyer@dropboxsign.com",
     "lawyer@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
@@ -156,7 +156,7 @@ const result = unclaimedDraftApi.unclaimedDraftCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -213,7 +213,7 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 const data: HelloSign.UnclaimedDraftCreateEmbeddedRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   files: [fs.createReadStream("example_signature_request.pdf")],
-  requesterEmailAddress: "jack@hellosign.com",
+  requesterEmailAddress: "jack@dropboxsign.com",
   testMode: true,
 };
 
@@ -221,7 +221,7 @@ const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -245,7 +245,7 @@ unclaimedDraftApi.username = "YOUR_API_KEY";
 const data = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   files: [fs.createReadStream("example_signature_request.pdf")],
-  requesterEmailAddress: "jack@hellosign.com",
+  requesterEmailAddress: "jack@dropboxsign.com",
   testMode: true,
 };
 
@@ -253,7 +253,7 @@ const result = unclaimedDraftApi.unclaimedDraftCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -313,13 +313,13 @@ const signer1: HelloSign.SubUnclaimedDraftTemplateSigner = {
 
 const cc1: HelloSign.SubCC = {
   role: "Accounting",
-  emailAddress: "accounting@hellosign.com",
+  emailAddress: "accounting@dropboxsign.com",
 };
 
 const data: HelloSign.UnclaimedDraftCreateEmbeddedWithTemplateRequest = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   templateIds: ["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
-  requesterEmailAddress: "jack@hellosign.com",
+  requesterEmailAddress: "jack@dropboxsign.com",
   signers: [ signer1 ],
   ccs: [ cc1 ],
   testMode: true,
@@ -329,7 +329,7 @@ const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -356,13 +356,13 @@ const signer1 = {
 
 const cc1 = {
   role: "Accounting",
-  emailAddress: "accounting@hellosign.com",
+  emailAddress: "accounting@dropboxsign.com",
 };
 
 const data = {
   clientId: "ec64a202072370a737edf4a0eb7f4437",
   templateIds: ["61a832ff0d8423f91d503e76bfbcc750f7417c78"],
-  requesterEmailAddress: "jack@hellosign.com",
+  requesterEmailAddress: "jack@dropboxsign.com",
   signers: [ signer1 ],
   ccs: [ cc1 ],
   testMode: true,
@@ -372,7 +372,7 @@ const result = unclaimedDraftApi.unclaimedDraftCreateEmbeddedWithTemplate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -435,7 +435,7 @@ const result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId,
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -465,7 +465,7 @@ const result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId,
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 

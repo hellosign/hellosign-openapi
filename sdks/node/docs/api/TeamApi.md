@@ -47,7 +47,7 @@ const result = teamApi.teamAddMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -74,7 +74,7 @@ const result = teamApi.teamAddMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -135,7 +135,7 @@ const result = teamApi.teamCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -162,7 +162,7 @@ const result = teamApi.teamCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -218,7 +218,7 @@ const result = teamApi.teamDelete();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -241,7 +241,7 @@ const result = teamApi.teamDelete();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -295,7 +295,7 @@ const result = teamApi.teamGet();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -318,7 +318,7 @@ const result = teamApi.teamGet();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -372,7 +372,7 @@ const result = teamApi.teamInfo();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -395,7 +395,7 @@ const result = teamApi.teamInfo();
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -447,13 +447,13 @@ teamApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const emailAddress = "user@hellosign.com";
+const emailAddress = "user@dropboxsign.com";
 
 const result = teamApi.teamInvites(emailAddress);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -472,13 +472,13 @@ teamApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const emailAddress = "user@hellosign.com";
+const emailAddress = "user@dropboxsign.com";
 
 const result = teamApi.teamInvites(emailAddress);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -536,7 +536,7 @@ const result = teamApi.teamMembers(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -561,7 +561,7 @@ const result = teamApi.teamMembers(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -616,15 +616,15 @@ teamApi.username = "YOUR_API_KEY";
 // teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSign.TeamRemoveMemberRequest = {
-  emailAddress: "teammate@hellosign.com",
-  newOwnerEmailAddress: "new_teammate@hellosign.com",
+  emailAddress: "teammate@dropboxsign.com",
+  newOwnerEmailAddress: "new_teammate@dropboxsign.com",
 };
 
 const result = teamApi.teamRemoveMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -644,15 +644,15 @@ teamApi.username = "YOUR_API_KEY";
 // teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
-  emailAddress: "teammate@hellosign.com",
-  newOwnerEmailAddress: "new_teammate@hellosign.com",
+  emailAddress: "teammate@dropboxsign.com",
+  newOwnerEmailAddress: "new_teammate@dropboxsign.com",
 };
 
 const result = teamApi.teamRemoveMember(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -710,7 +710,7 @@ const result = teamApi.teamSubTeams(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -735,7 +735,7 @@ const result = teamApi.teamSubTeams(teamId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -797,7 +797,7 @@ const result = teamApi.teamUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -824,7 +824,7 @@ const result = teamApi.teamUpdate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 

@@ -46,7 +46,7 @@ with ApiClient(configuration) as api_client:
     template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateAddUserRequest(
-        email_address="george@hellosign.com",
+        email_address="george@dropboxsign.com",
     )
 
     template_id = "f57db65d3f933b5316d398057a36176831451a35"
@@ -55,7 +55,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_add_user(template_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -160,7 +160,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_create_embedded_draft(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -229,7 +229,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_delete(template_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -298,7 +298,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_files(template_id, file_type="pdf")
         open('file_response.pdf', 'wb').write(response.read())
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -368,7 +368,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_files_as_data_uri(template_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -437,7 +437,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_files_as_file_url(template_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -506,7 +506,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_get(template_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -577,7 +577,7 @@ with ApiClient(configuration) as api_client:
         )
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -644,7 +644,7 @@ with ApiClient(configuration) as api_client:
     template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateRemoveUserRequest(
-        email_address="george@hellosign.com",
+        email_address="george@dropboxsign.com",
     )
 
     template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
@@ -653,7 +653,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_remove_user(template_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -727,7 +727,7 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_update_files(template_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
