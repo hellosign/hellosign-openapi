@@ -1,6 +1,6 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const bulkSendJobApi = new HelloSign.BulkSendJobApi();
+const bulkSendJobApi = new DropboxSign.BulkSendJobApi();
 
 // Configure HTTP basic authorization: api_key
 bulkSendJobApi.username = "YOUR_API_KEY";

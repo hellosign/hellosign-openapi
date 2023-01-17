@@ -1,10 +1,8 @@
 generatorName: typescript-node
 typeMappings: {}
 additionalProperties:
-  npmName: "hellosign-sdk"
-  npmVersion: 6.0.0-beta23.1
-  gitUserId: HelloFax
-  gitRepoId: hellosign-nodejs-sdk
+  npmName: "@dropbox/sign"
+  npmVersion: 1.0.0-beta23.1
   supportsES6: true
   apiDocPath: ./docs/api
   modelDocPath: ./docs/model

@@ -1,8 +1,8 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const templateApi = new HelloSign.TemplateApi();
+const templateApi = new DropboxSign.TemplateApi();
 
 // Configure HTTP basic authorization: api_key
 templateApi.username = "YOUR_API_KEY";
@@ -10,7 +10,7 @@ templateApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const data: HelloSign.TemplateUpdateFilesRequest = {
+const data: DropboxSign.TemplateUpdateFilesRequest = {
   files: [fs.createReadStream("example_signature_request.pdf")],
 };
 

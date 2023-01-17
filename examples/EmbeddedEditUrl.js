@@ -1,6 +1,6 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const embeddedApi = new HelloSign.EmbeddedApi();
+const embeddedApi = new DropboxSign.EmbeddedApi();
 
 // Configure HTTP basic authorization: api_key
 embeddedApi.username = "YOUR_API_KEY";

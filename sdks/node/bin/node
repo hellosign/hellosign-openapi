@@ -7,6 +7,6 @@ ROOT_DIR="${DIR}/.."
 
 docker run --rm \
   -v "${ROOT_DIR}:/app" \
-  -v "hellosign-sdk-npm-cache:/root/.npm" \
+  -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
   -w /app \
   node:17 "$@"

@@ -1,5 +1,5 @@
 {
-  "name": "dropboxsign-sandbox",
+  "name": "@dropbox/sign-sandbox",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "hellosign-sdk": "file:./artifacts/hellosign-sdk.tgz",
+    "@dropbox/sign": "file:./artifacts/dropbox-sign-sdk.tgz",
     "@types/node": "^17.0.10",
     "ts-node": "^10.4.0",
     "typescript": "^3.9.5"
