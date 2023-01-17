@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Hello\OpenApi;
 
 use Exception;
@@ -36,27 +38,17 @@ class RawFile
 
     /**
      * Contains the OpenAPI spec, in array form
-     *
-     * @var array
      */
     private array $openapi;
 
-    /**
-     * @var mixed
-     */
-    private $translations;
+    private array $translations = [];
 
-    /**
-     * @var mixed
-     */
-    private $fallback_translations;
+    private array $fallback_translations = [];
 
     /**
      * Keep track of which strings have been translated using the chosen
      * language, which needed to fallback to default language, and which ones
      * did not get translated at all
-     *
-     * @var array[]
      */
     private array $logs = [
         'translated'   => [],
@@ -69,19 +61,11 @@ class RawFile
         $this->openapi = Yaml::parse(file_get_contents($filename));
     }
 
-    /**
-     * @param string $surface_id
-     * @param string $translation_file
-     * @param string $fallback_file
-     * @param array $logs
-     * @return array
-     * @throws Exception
-     */
     public function translate(
         string $surface_id,
         string $translation_file,
         string $fallback_file
-    ): array {
+    ): void {
         $this->loadTranslations($translation_file, $fallback_file);
         $result = $this->recurse($this->openapi, $surface_id);
 
@@ -89,24 +73,51 @@ class RawFile
         $this->logs['fallback'] = array_unique($this->logs['fallback']);
         $this->logs['untranslated'] = array_unique($this->logs['untranslated']);
 
-        return $result->getData();
+        $this->openapi = $result->getData();
+    }
+
+    public function getData(): array
+    {
+        return $this->openapi;
+    }
+
+    public function setData(array $data): void
+    {
+        $this->openapi = $data;
     }
 
     /**
      * Provides information of which strings have been translated using the
      * chosen language, which needed to fallback to default language, and which
      * ones did not get translated at all
-     *
-     * @return array[]
      */
     public function getLogs(): array
     {
         return $this->logs;
     }
 
+    public function saveFile(string $targetFile): void
+    {
+        $yaml = Yaml::dump(
+            $this->openapi,
+            10,
+            2,
+            Yaml::DUMP_OBJECT_AS_MAP
+            ^ Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE
+            ^ Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK
+        );
+
+        // An empty JSON response of `{}` can't be represented as a PHP array
+        $yaml = str_replace('value: []', 'value: {}', $yaml);
+        $yaml = str_replace('metadata: []', 'metadata: {}', $yaml);
+        $yaml = str_replace('additionalProperties: []', 'additionalProperties: {}', $yaml);
+        $yaml = str_replace('application/json: []', 'application/json: {}', $yaml);
+
+        file_put_contents($targetFile, $yaml);
+    }
+
     /**
      * Load both chosen language and fallback translations
-     * @throws Exception
      */
     private function loadTranslations(string $file, string $fallback): void
     {
@@ -130,9 +141,6 @@ class RawFile
      * Recursive function that iterates through all keys in the OpenAPI spec,
      * searching for strings prepended with TRANSLATE_PREPEND and attempting
      * to translate them.
-     * @param array $data
-     * @param string $surface_id
-     * @return TranslationResult
      */
     private function recurse(array $data, string $surface_id): TranslationResult
     {
@@ -157,7 +165,7 @@ class RawFile
 
             $translationString = '';
             foreach (self::PREPENDS as $prepend) {
-                if (strpos($v, $prepend) !== 0) {
+                if (!is_string($v) || strpos($v, $prepend) !== 0) {
                     continue;
                 }
 
@@ -194,9 +202,6 @@ class RawFile
     }
 
     /**
-     * @param string $prepend
-     * @param string $translationString
-     * @param array $translations
      * @return array|mixed|void
      */
     private function getTranslation(

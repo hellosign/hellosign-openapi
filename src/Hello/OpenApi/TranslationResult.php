@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Hello\OpenApi;
 
 /**
@@ -13,15 +15,11 @@ class TranslationResult
 {
     /**
      * Contains the OpenAPI spec, in array form
-     *
-     * @var array
      */
     private array $data;
 
     /**
      * Set to true if data is empty because everything was hidden.
-     *
-     * @var bool
      */
     public bool $all_hidden;
 
@@ -31,11 +29,6 @@ class TranslationResult
         $this->all_hidden = $all_hidden;
     }
 
-    /**
-     * Returns data.
-     *
-     * @return array
-     */
     public function getData(): array
     {
         return $this->data;
@@ -43,8 +36,6 @@ class TranslationResult
 
     /**
      * Returns whether everything was hidden.
-     *
-     * @return bool
      */
     public function isAllHidden(): bool
     {
