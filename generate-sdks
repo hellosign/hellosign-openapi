@@ -96,6 +96,8 @@ function build_sdk()
 
   bash "${SDK_DIR}/run-build"
 
+  copy_to_docs $SDK
+
   printf "\n\n"
   printf "########\n"
   printf "######## Done building ${SDK} SDK\n"
@@ -167,6 +169,20 @@ function copy_examples()
   elif [[ "${SDK}" == "ruby" ]]; then
     cp -r "${DIR}/examples/"*.rb "${SDK_DIR}/examples/"
   fi
+}
+
+function copy_to_docs()
+{
+  SDK="$1"
+  SDK_DIR="${DIR}/sdks/${SDK}"
+  DOCS_DIR="${DIR}/../hellosign-developer-documentation/docs/sdks/${SDK}"
+
+  printf "Copying to docs ...\n"
+  rm -f "${DOCS_DIR}/README.md"
+  rm -rf "${DOCS_DIR}/docs"
+
+  cp "${SDK_DIR}/README.md" "${DOCS_DIR}/README.md"
+  cp -r "${SDK_DIR}/docs" "${DOCS_DIR}/"
 }
 
 function copy_test_fixtures()
