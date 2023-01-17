@@ -77,7 +77,7 @@ public class Example {
             .type(UnclaimedDraftCreateRequest.TypeEnum.REQUEST_SIGNATURE)
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(List.of(signer1, signer2))
-            .ccEmailAddresses(List.of("lawyer@hellosign.com", "lawyer@example.com"))
+            .ccEmailAddresses(List.of("lawyer@dropboxsign.com", "lawyer@dropboxsign.com"))
             .addFilesItem(new File("example_signature_request.pdf"));
             .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
             .signingOptions(subSigningOptions)
@@ -171,7 +171,7 @@ public class Example {
         UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
             .clientId("ec64a202072370a737edf4a0eb7f4437")
             .addFilesItem(new File("example_signature_request.pdf"));
-            .requesterEmailAddress("jack@hellosign.com")
+            .requesterEmailAddress("jack@dropboxsign.com")
             .testMode(true);
 
         try {
@@ -270,7 +270,7 @@ public class Example {
         UnclaimedDraftCreateEmbeddedWithTemplateRequest data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest()
             .clientId("1a659d9ad95bccd307ecad78d72192f8")
             .templateIds(Arrays.asList("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .requesterEmailAddress("jack@hellosign.com")
+            .requesterEmailAddress("jack@dropboxsign.com")
             .signers(Arrays.asList(signer))
             .ccs(Arrays.asList(cc1))
             .testMode(true);

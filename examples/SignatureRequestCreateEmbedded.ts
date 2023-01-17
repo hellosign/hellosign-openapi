@@ -37,8 +37,8 @@ const data: HelloSign.SignatureRequestCreateEmbeddedRequest = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@hellosign.com",
-    "lawyer@example.com",
+    "lawyer@dropboxsign.com",
+    "lawyer@dropboxsign.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   signingOptions,
@@ -49,6 +49,6 @@ const result = signatureRequestApi.signatureRequestCreateEmbedded(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

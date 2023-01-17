@@ -17,6 +17,6 @@ const result = signatureRequestApi.signatureRequestFiles(signatureRequestId, fil
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

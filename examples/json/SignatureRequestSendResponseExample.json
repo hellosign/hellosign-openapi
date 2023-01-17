@@ -20,7 +20,7 @@
     "signing_redirect_url": null,
     "files_url": "https://api.hellosign.com/v3/signature_request/files/2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
     "details_url": "https://app.hellosign.com/home/manage?guid=2b388914e3ae3b738bd4e2ee2850c677e6dc53d2",
-    "requester_email_address": "me@hellosign.com",
+    "requester_email_address": "me@dropboxsign.com",
     "signatures": [
       {
         "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
@@ -50,7 +50,7 @@
       }
     ],
     "cc_email_addresses": [
-      "lawyer1@hellosign.com",
+      "lawyer1@dropboxsign.com",
       "lawyer2@example.com"
     ],
     "attachments": [

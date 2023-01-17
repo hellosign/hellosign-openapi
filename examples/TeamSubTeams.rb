@@ -16,5 +16,5 @@ begin
   result = team_api.team_sub_teams(team_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

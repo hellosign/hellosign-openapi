@@ -15,12 +15,12 @@ with ApiClient(configuration) as api_client:
     team_api = apis.TeamApi(api_client)
 
     data = models.TeamRemoveMemberRequest(
-        email_address="teammate@hellosign.com",
-        new_owner_email_address="new_teammate@hellosign.com",
+        email_address="teammate@dropboxsign.com",
+        new_owner_email_address="new_teammate@dropboxsign.com",
     )
 
     try:
         response = team_api.team_remove_member(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

@@ -53,7 +53,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_add_member(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -125,7 +125,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_create(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -192,7 +192,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_delete()
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -257,7 +257,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_get()
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -322,7 +322,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_info()
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -385,13 +385,13 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     team_api = apis.TeamApi(api_client)
 
-    email_address = "user@hellosign.com"
+    email_address = "user@dropboxsign.com"
 
     try:
         response = team_api.team_invites(email_address)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -460,7 +460,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_members(team_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -526,15 +526,15 @@ with ApiClient(configuration) as api_client:
     team_api = apis.TeamApi(api_client)
 
     data = models.TeamRemoveMemberRequest(
-        email_address="teammate@hellosign.com",
-        new_owner_email_address="new_teammate@hellosign.com",
+        email_address="teammate@dropboxsign.com",
+        new_owner_email_address="new_teammate@dropboxsign.com",
     )
 
     try:
         response = team_api.team_remove_member(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -603,7 +603,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_sub_teams(team_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -676,7 +676,7 @@ with ApiClient(configuration) as api_client:
         response = team_api.team_update(data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 

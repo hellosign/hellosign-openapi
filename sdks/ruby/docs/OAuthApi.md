@@ -41,7 +41,7 @@ begin
   result = oauth_api.oauth_token_generate(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -114,7 +114,7 @@ begin
   result = oauth_api.oauth_token_refresh(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```

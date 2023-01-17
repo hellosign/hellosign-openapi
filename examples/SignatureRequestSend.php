@@ -38,8 +38,8 @@ $data->setTitle("NDA with Acme Co.")
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
     ->setSigners([$signer1, $signer2])
     ->setCcEmailAddresses([
-        "lawyer@hellosign.com",
-        "lawyer@example.com",
+        "lawyer@dropboxsign.com",
+        "lawyer@dropboxsign.com",
     ])
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setMetadata([
@@ -55,6 +55,6 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }

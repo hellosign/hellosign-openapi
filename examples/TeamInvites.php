@@ -12,13 +12,13 @@ $config->setUsername("YOUR_API_KEY");
 
 $teamApi = new HelloSign\Api\TeamApi($config);
 
-$emailAddress = "user@hellosign.com";
+$emailAddress = "user@dropboxsign.com";
 
 try {
     $result = $teamApi->teamInvites($emailAddress);
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }

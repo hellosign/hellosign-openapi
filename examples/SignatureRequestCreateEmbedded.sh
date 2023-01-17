@@ -11,8 +11,8 @@ curl -X POST 'https://api.hellosign.com/v3/signature_request/create_embedded' \
   -F 'signers[1][email_address]=jill@example.com' \
   -F 'signers[1][name]=Jill' \
   -F 'signers[1][order]=1' \
-  -F 'cc_email_addresses[]=lawyer@hellosign.com' \
-  -F 'cc_email_addresses[]=lawyer@example.com' \
+  -F 'cc_email_addresses[]=lawyer@dropboxsign.com' \
+  -F 'cc_email_addresses[]=lawyer@dropboxsign.com' \
   -F 'signing_options[draw]=1' \
   -F 'signing_options[type]=1' \
   -F 'signing_options[upload]=1' \

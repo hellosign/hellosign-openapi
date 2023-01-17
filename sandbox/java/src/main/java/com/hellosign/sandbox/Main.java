@@ -28,13 +28,13 @@ public class Main {
         AccountApi api = new AccountApi(defaultClient);
 
         AccountCreateRequest data = new AccountCreateRequest()
-            .emailAddress("newuser@hellosign.com");
+            .emailAddress("newuser@dropboxsign.com");
 
         try {
             AccountCreateResponse result = api.accountCreate(data);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Exception when calling Dropbox Sign API");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

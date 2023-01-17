@@ -24,4 +24,4 @@ with ApiClient(configuration) as api_client:
         response = signature_request_api.signature_request_remind(signature_request_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

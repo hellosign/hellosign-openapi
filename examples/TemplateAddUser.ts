@@ -9,7 +9,7 @@ templateApi.username = "YOUR_API_KEY";
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSign.TemplateAddUserRequest = {
-  emailAddress: "george@hellosign.com",
+  emailAddress: "george@dropboxsign.com",
 };
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
@@ -18,6 +18,6 @@ const result = templateApi.templateAddUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

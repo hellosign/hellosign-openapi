@@ -41,7 +41,7 @@ begin
   result = embedded_api.embedded_edit_url(template_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -114,7 +114,7 @@ begin
   result = embedded_api.embedded_sign_url(signature_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```

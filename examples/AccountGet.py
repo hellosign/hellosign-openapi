@@ -18,4 +18,4 @@ with ApiClient(configuration) as api_client:
         response = account_api.account_get(email_address="jack@example.com")
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

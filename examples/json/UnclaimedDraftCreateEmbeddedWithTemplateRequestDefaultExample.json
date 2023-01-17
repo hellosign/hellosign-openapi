@@ -3,7 +3,7 @@
   "template_ids": [
     "61a832ff0d8423f91d503e76bfbcc750f7417c78"
   ],
-  "requester_email_address": "jack@hellosign.com",
+  "requester_email_address": "jack@dropboxsign.com",
   "signers": [
     {
       "role": "Client",
@@ -14,7 +14,7 @@
   "ccs": [
     {
       "role": "Accounting",
-      "email_address": "accounting@hellosign.com"
+      "email_address": "accounting@dropboxsign.com"
     }
   ],
   "test_mode": false

@@ -39,7 +39,7 @@ public class Example {
         UnclaimedDraftCreateEmbeddedWithTemplateRequest data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest()
             .clientId("1a659d9ad95bccd307ecad78d72192f8")
             .templateIds(Arrays.asList("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
-            .requesterEmailAddress("jack@hellosign.com")
+            .requesterEmailAddress("jack@dropboxsign.com")
             .signers(Arrays.asList(signer))
             .ccs(Arrays.asList(cc1))
             .testMode(true);

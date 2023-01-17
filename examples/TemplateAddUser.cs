@@ -20,7 +20,7 @@ public class Example
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         var data = new TemplateAddUserRequest(
-            emailAddress: "george@hellosign.com"
+            emailAddress: "george@dropboxsign.com"
         );
 
         try
@@ -30,7 +30,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

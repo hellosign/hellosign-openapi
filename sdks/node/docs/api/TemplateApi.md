@@ -40,7 +40,7 @@ templateApi.username = "YOUR_API_KEY";
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSign.TemplateAddUserRequest = {
-  emailAddress: "george@hellosign.com",
+  emailAddress: "george@dropboxsign.com",
 };
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
@@ -49,7 +49,7 @@ const result = templateApi.templateAddUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -69,7 +69,7 @@ templateApi.username = "YOUR_API_KEY";
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
-  emailAddress: "george@hellosign.com",
+  emailAddress: "george@dropboxsign.com",
 };
 
 const templateId = "f57db65d3f933b5316d398057a36176831451a35";
@@ -78,7 +78,7 @@ const result = templateApi.templateAddUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -180,7 +180,7 @@ const result = templateApi.templateCreateEmbeddedDraft(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -248,7 +248,7 @@ const result = templateApi.templateCreateEmbeddedDraft(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -306,7 +306,7 @@ const result = templateApi.templateDelete(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -331,7 +331,7 @@ const result = templateApi.templateDelete(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -391,7 +391,7 @@ const result = templateApi.templateFiles(templateId, fileType);
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -418,7 +418,7 @@ const result = templateApi.templateFiles(templateId, fileType);
 result.then(response => {
   fs.createWriteStream('file_response.pdf').write(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -477,7 +477,7 @@ const result = templateApi.templateFilesAsDataUri(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -502,7 +502,7 @@ const result = templateApi.templateFilesAsDataUri(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -560,7 +560,7 @@ const result = templateApi.templateFilesAsFileUrl(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -585,7 +585,7 @@ const result = templateApi.templateFilesAsFileUrl(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -643,7 +643,7 @@ const result = templateApi.templateGet(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -668,7 +668,7 @@ const result = templateApi.templateGet(templateId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -726,7 +726,7 @@ const result = templateApi.templateList(accountId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -751,7 +751,7 @@ const result = templateApi.templateList(accountId);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -807,7 +807,7 @@ templateApi.username = "YOUR_API_KEY";
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data: HelloSign.TemplateRemoveUserRequest = {
-  emailAddress: "george@hellosign.com",
+  emailAddress: "george@dropboxsign.com",
 };
 
 const templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
@@ -816,7 +816,7 @@ const result = templateApi.templateRemoveUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -836,7 +836,7 @@ templateApi.username = "YOUR_API_KEY";
 // templateApi.accessToken = "YOUR_ACCESS_TOKEN";
 
 const data = {
-  emailAddress: "george@hellosign.com",
+  emailAddress: "george@dropboxsign.com",
 };
 
 const templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
@@ -845,7 +845,7 @@ const result = templateApi.templateRemoveUser(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -910,7 +910,7 @@ const result = templateApi.templateUpdateFiles(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 
@@ -941,7 +941,7 @@ const result = templateApi.templateUpdateFiles(templateId, data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
 

@@ -31,7 +31,7 @@ public class Example
         var data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest(
             clientId: "1a659d9ad95bccd307ecad78d72192f8",
             templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
-            requesterEmailAddress: "jack@hellosign.com",
+            requesterEmailAddress: "jack@dropboxsign.com",
             signers: new List<SubUnclaimedDraftTemplateSigner>(){signer},
             ccs: new List<SubCC>(){cc1},
             testMode: true
@@ -44,7 +44,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

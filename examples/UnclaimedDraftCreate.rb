@@ -36,8 +36,8 @@ data.type = "request_signature"
 data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
 data.signers = [signer_1, signer_2]
 data.cc_email_addresses = [
-  "lawyer@hellosign.com",
-  "lawyer@example.com",
+  "lawyer@dropboxsign.com",
+  "lawyer@dropboxsign.com",
 ]
 data.files = [File.new("example_signature_request.pdf", "r")]
 data.metadata = {
@@ -52,5 +52,5 @@ begin
   result = unclaimed_draft_api.unclaimed_draft_create(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

@@ -449,7 +449,7 @@ public class Example {
 
         TeamApi teamApi = new TeamApi(apiClient);
 
-        String emailAddress = "user@hellosign.com";
+        String emailAddress = "user@dropboxsign.com";
 
         try {
             TeamInvitesResponse result = teamApi.teamInvites(emailAddress);
@@ -614,8 +614,8 @@ public class Example {
         TeamApi teamApi = new TeamApi(apiClient);
 
         TeamRemoveMemberRequest data = new TeamRemoveMemberRequest()
-            .emailAddress("teammate@hellosign.com")
-            .newOwnerEmailAddress("new_teammate@hellosign.com");
+            .emailAddress("teammate@dropboxsign.com")
+            .newOwnerEmailAddress("new_teammate@dropboxsign.com");
 
         try {
             TeamGetResponse result = teamApi.teamRemoveMember(data);

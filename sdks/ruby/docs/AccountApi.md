@@ -34,13 +34,13 @@ end
 account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountCreateRequest.new
-data.email_address = "newuser@hellosign.com"
+data.email_address = "newuser@dropboxsign.com"
 
 begin
   result = account_api.account_create(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -110,7 +110,7 @@ begin
   result = account_api.account_get({ email_address: "jack@example.com" })
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -184,7 +184,7 @@ begin
   result = account_api.account_update(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -251,13 +251,13 @@ end
 account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountVerifyRequest.new
-data.email_address = "some_user@hellosign.com"
+data.email_address = "some_user@dropboxsign.com"
 
 begin
   result = account_api.account_verify(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```

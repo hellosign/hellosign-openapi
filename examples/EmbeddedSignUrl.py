@@ -20,4 +20,4 @@ with ApiClient(configuration) as api_client:
         response = embedded_api.embedded_sign_url(signature_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

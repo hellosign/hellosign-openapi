@@ -25,8 +25,8 @@ public class Example {
         TeamApi teamApi = new TeamApi(apiClient);
 
         TeamRemoveMemberRequest data = new TeamRemoveMemberRequest()
-            .emailAddress("teammate@hellosign.com")
-            .newOwnerEmailAddress("new_teammate@hellosign.com");
+            .emailAddress("teammate@dropboxsign.com")
+            .newOwnerEmailAddress("new_teammate@dropboxsign.com");
 
         try {
             TeamGetResponse result = teamApi.teamRemoveMember(data);

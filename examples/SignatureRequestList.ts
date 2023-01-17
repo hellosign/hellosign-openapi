@@ -15,6 +15,6 @@ const result = signatureRequestApi.signatureRequestList(accountId, page);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

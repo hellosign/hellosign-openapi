@@ -51,7 +51,7 @@ public class Example {
             .subject("The NDA we talked about")
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(Arrays.asList(signer1, signer2))
-            .ccEmailAddresses(Arrays.asList("lawyer@hellosign.com", "lawyer@example.com"))
+            .ccEmailAddresses(Arrays.asList("lawyer@dropboxsign.com", "lawyer@dropboxsign.com"))
             .addFilesItem(new File("example_signature_request.pdf"));
             .signingOptions(signingOptions)
             .testMode(true);

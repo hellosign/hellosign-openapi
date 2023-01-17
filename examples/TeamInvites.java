@@ -24,7 +24,7 @@ public class Example {
 
         TeamApi teamApi = new TeamApi(apiClient);
 
-        String emailAddress = "user@hellosign.com";
+        String emailAddress = "user@dropboxsign.com";
 
         try {
             TeamInvitesResponse result = teamApi.teamInvites(emailAddress);

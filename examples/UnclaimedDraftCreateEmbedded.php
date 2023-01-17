@@ -15,7 +15,7 @@ $unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
 $data = new HelloSign\Model\UnclaimedDraftCreateEmbeddedRequest();
 $data->setClientId("ec64a202072370a737edf4a0eb7f4437")
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setRequesterEmailAddress("jack@hellosign.com")
+    ->setRequesterEmailAddress("jack@dropboxsign.com")
     ->setTestMode(true);
 
 try {
@@ -23,6 +23,6 @@ try {
     print_r($result);
 } catch (HelloSign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling HelloSign API: "
+    echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
 }

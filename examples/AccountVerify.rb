@@ -11,11 +11,11 @@ end
 account_api = HelloSign::AccountApi.new
 
 data = HelloSign::AccountVerifyRequest.new
-data.email_address = "some_user@hellosign.com"
+data.email_address = "some_user@dropboxsign.com"
 
 begin
   result = account_api.account_verify(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

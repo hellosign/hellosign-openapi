@@ -44,8 +44,8 @@
     "height": 16,
     "x": 112,
     "y": 328,
-    "content": "HelloSign",
-    "content_url": "https://hellosign.com"
+    "content": "Dropbox Sign",
+    "content_url": "https://dropboxsign.com"
   },
   "SubFormFieldsPerDocumentInitials": {
     "type" : "initials",

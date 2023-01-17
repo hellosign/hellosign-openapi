@@ -11,7 +11,7 @@ end
 template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateAddUserRequest.new
-data.email_address = "george@hellosign.com"
+data.email_address = "george@dropboxsign.com"
 
 template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
@@ -19,5 +19,5 @@ begin
   result = template_api.template_add_user(template_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

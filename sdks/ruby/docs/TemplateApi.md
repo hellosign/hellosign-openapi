@@ -40,7 +40,7 @@ end
 template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateAddUserRequest.new
-data.email_address = "george@hellosign.com"
+data.email_address = "george@dropboxsign.com"
 
 template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
@@ -48,7 +48,7 @@ begin
   result = template_api.template_add_user(template_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -150,7 +150,7 @@ begin
   result = template_api.template_create_embedded_draft(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -222,7 +222,7 @@ begin
   result = template_api.template_delete(template_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -294,7 +294,7 @@ begin
   file_bin = template_api.template_files(template_id)
   FileUtils.cp(file_bin.path, "path/to/file.pdf")
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -367,7 +367,7 @@ begin
   result = template_api.template_files_as_data_uri(template_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -439,7 +439,7 @@ begin
   result = template_api.template_files_as_file_url(template_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -511,7 +511,7 @@ begin
   result = template_api.template_get(template_id)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -583,7 +583,7 @@ begin
   result = template_api.template_list({account_id: account_id})
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -653,7 +653,7 @@ end
 template_api = HelloSign::TemplateApi.new
 
 data = HelloSign::TemplateRemoveUserRequest.new
-data.email_address = "george@hellosign.com"
+data.email_address = "george@dropboxsign.com"
 
 template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
 
@@ -661,7 +661,7 @@ begin
   result = template_api.template_remove_user(template_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -737,7 +737,7 @@ begin
   result = template_api.template_update_files(template_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```

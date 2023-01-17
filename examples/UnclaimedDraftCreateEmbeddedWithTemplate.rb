@@ -22,7 +22,7 @@ cc_1.email_address = "accounting@example.com"
 data = HelloSign::UnclaimedDraftCreateEmbeddedWithTemplateRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
 data.template_ids = ["61a832ff0d8423f91d503e76bfbcc750f7417c78"]
-data.requester_email_address = "jack@hellosign.com"
+data.requester_email_address = "jack@dropboxsign.com"
 data.signers = [signer_1]
 data.ccs = [cc_1]
 data.test_mode = true
@@ -31,5 +31,5 @@ begin
   result = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

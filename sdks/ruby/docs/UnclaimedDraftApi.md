@@ -59,8 +59,8 @@ data.type = "request_signature"
 data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
 data.signers = [signer_1, signer_2]
 data.cc_email_addresses = [
-  "lawyer@hellosign.com",
-  "lawyer@example.com",
+  "lawyer@dropboxsign.com",
+  "lawyer@dropboxsign.com",
 ]
 data.files = [File.new("example_signature_request.pdf", "r")]
 data.metadata = {
@@ -75,7 +75,7 @@ begin
   result = unclaimed_draft_api.unclaimed_draft_create(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -144,14 +144,14 @@ unclaimed_draft_api = HelloSign::UnclaimedDraftApi.new
 data = HelloSign::UnclaimedDraftCreateEmbeddedRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
 data.files = [File.new("example_signature_request.pdf", "r")]
-data.requester_email_address = "jack@hellosign.com"
+data.requester_email_address = "jack@dropboxsign.com"
 data.test_mode = true
 
 begin
   result = unclaimed_draft_api.unclaimed_draft_create_embedded(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -229,7 +229,7 @@ cc_1.email_address = "accounting@example.com"
 data = HelloSign::UnclaimedDraftCreateEmbeddedWithTemplateRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
 data.template_ids = ["61a832ff0d8423f91d503e76bfbcc750f7417c78"]
-data.requester_email_address = "jack@hellosign.com"
+data.requester_email_address = "jack@dropboxsign.com"
 data.signers = [signer_1]
 data.ccs = [cc_1]
 data.test_mode = true
@@ -238,7 +238,7 @@ begin
   result = unclaimed_draft_api.unclaimed_draft_create_embedded_with_template(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```
@@ -314,7 +314,7 @@ begin
   result = unclaimed_draft_api.unclaimed_draft_edit_and_resend(signature_request_id, data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
 ```

@@ -23,7 +23,7 @@
     "signing_url": "https://app.hellosign.com/sign/17d163069282df5eb63857d31ff4a3bffa9e46c0",
     "signing_redirect_url": null,
     "details_url": "https://app.hellosign.com/home/manage?guid=17d163069282df5eb63857d31ff4a3bffa9e46c0",
-    "requester_email_address": "me@hellosign.com",
+    "requester_email_address": "me@dropboxsign.com",
     "signatures": [
       {
         "signature_id": "10ab1cd037d9b6cba7975d61ff428c8d",
@@ -40,7 +40,7 @@
       }
     ],
     "cc_email_addresses": [
-      "accounting@hellosign.com"
+      "accounting@dropboxsign.com"
     ]
   }
 }

@@ -22,7 +22,7 @@
         "response_data": [],
         "signing_url": "https://app.hellosign.com/sign/d10338cad145e1cb68afc828",
         "details_url": "https://app.hellosign.com/home/manage?guid=d10338cad145e1cb68afc828",
-        "requester_email_address": "me@hellosign.com",
+        "requester_email_address": "me@dropboxsign.com",
         "signatures": [
           {
             "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
@@ -83,7 +83,7 @@
           }
         ],
         "details_url": "https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333a",
-        "requester_email_address": "me@hellosign.com",
+        "requester_email_address": "me@dropboxsign.com",
         "signatures": [
           {
             "signature_id": "5687fb7bd5aaacb1689728762b600c74",

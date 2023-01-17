@@ -30,7 +30,7 @@ public class Example
         var data = new UnclaimedDraftCreateEmbeddedRequest(
             clientId: "ec64a202072370a737edf4a0eb7f4437",
             files: files,
-            requesterEmailAddress: "jack@hellosign.com",
+            requesterEmailAddress: "jack@dropboxsign.com",
             testMode: true
         );
 
@@ -41,7 +41,7 @@ public class Example
         }
         catch (ApiException e)
         {
-            Console.WriteLine("Exception when calling HelloSign API: " + e.Message);
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
             Console.WriteLine("Status Code: " + e.ErrorCode);
             Console.WriteLine(e.StackTrace);
         }

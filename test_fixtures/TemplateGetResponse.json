@@ -90,11 +90,11 @@
       "accounts": [
         {
           "account_id": "5008b25c7f67153e57d5a357b1687968068fb465",
-          "email_address": "me@hellosign.com"
+          "email_address": "me@dropboxsign.com"
         },
         {
           "account_id": "",
-          "email_address": "teammate@hellosign.com"
+          "email_address": "teammate@dropboxsign.com"
         }
       ]
     }

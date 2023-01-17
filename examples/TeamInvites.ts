@@ -8,12 +8,12 @@ teamApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // teamApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const emailAddress = "user@hellosign.com";
+const emailAddress = "user@dropboxsign.com";
 
 const result = teamApi.teamInvites(emailAddress);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
-  console.log("Exception when calling HelloSign API:");
+  console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

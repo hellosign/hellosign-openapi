@@ -112,7 +112,7 @@
       ],
       "signing_url": "https://app.hellosign.com/sign/a9f4825edef25f47e7b4c14ce8100d81d1693160",
       "details_url": "https://app.hellosign.com/home/manage?guid=a9f4825edef25f47e7b4c14ce8100d81d1693160",
-      "requester_email_address": "me@hellosign.com",
+      "requester_email_address": "me@dropboxsign.com",
       "signatures": [
         {
           "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
@@ -137,7 +137,7 @@
         }
       ],
       "cc_email_addresses": [
-        "lawyer@hellosign.com",
+        "lawyer@dropboxsign.com",
         "lawyer@example.com"
       ],
       "test_mode": false

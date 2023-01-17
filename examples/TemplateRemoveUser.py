@@ -15,7 +15,7 @@ with ApiClient(configuration) as api_client:
     template_api = apis.TemplateApi(api_client)
 
     data = models.TemplateRemoveUserRequest(
-        email_address="george@hellosign.com",
+        email_address="george@dropboxsign.com",
     )
 
     template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
@@ -24,4 +24,4 @@ with ApiClient(configuration) as api_client:
         response = template_api.template_remove_user(template_id, data)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)

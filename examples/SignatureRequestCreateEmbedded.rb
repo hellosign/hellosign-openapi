@@ -33,7 +33,7 @@ data.title = "NDA with Acme Co."
 data.subject = "The NDA we talked about"
 data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
 data.signers = [signer_1, signer_2]
-data.cc_email_addresses = ["lawyer@hellosign.com", "lawyer@example.com"]
+data.cc_email_addresses = ["lawyer@dropboxsign.com", "lawyer@dropboxsign.com"]
 data.files = [File.new("example_signature_request.pdf", "r")]
 data.signing_options = signing_options
 data.test_mode = true
@@ -42,5 +42,5 @@ begin
   result = signature_request_api.signature_request_create_embedded(data)
   p result
 rescue HelloSign::ApiError => e
-  puts "Exception when calling HelloSign API: #{e}"
+  puts "Exception when calling Dropbox Sign API: #{e}"
 end

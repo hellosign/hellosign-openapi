@@ -43,7 +43,7 @@ with ApiClient(configuration) as api_client:
         response = bulk_send_job_api.bulk_send_job_get(bulk_send_job_id)
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
@@ -116,7 +116,7 @@ with ApiClient(configuration) as api_client:
         )
         pprint(response)
     except ApiException as e:
-        print("Exception when calling HelloSign API: %s\n" % e)
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
 
 ```
 
