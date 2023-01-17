@@ -27,7 +27,7 @@ using OpenAPIDateConverter = HelloSign.Client.OpenAPIDateConverter;
 namespace HelloSign.Model
 {
     /// <summary>
-    /// Calls SignatureRequestBulkSendWithTemplate in controller
+    /// SignatureRequestBulkCreateEmbeddedWithTemplateRequest
     /// </summary>
     [DataContract(Name = "SignatureRequestBulkCreateEmbeddedWithTemplateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

@@ -33,9 +33,6 @@ import { SubSignatureRequestGroupedSigners } from "./subSignatureRequestGroupedS
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 import { SubSigningOptions } from "./subSigningOptions";
 
-/**
- * Calls SignatureRequestSend in controller
- */
 export class SignatureRequestCreateEmbeddedRequest {
   /**
    * Client id of the app you\'re using to create this embedded signature request. Used for security purposes.

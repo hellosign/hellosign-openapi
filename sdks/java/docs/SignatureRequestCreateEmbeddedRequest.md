@@ -2,7 +2,7 @@
 
 # SignatureRequestCreateEmbeddedRequest
 
-Calls SignatureRequestSend in controller
+
 
 ## Properties
 

@@ -2,7 +2,7 @@
 
 # SignatureRequestBulkCreateEmbeddedWithTemplateRequest
 
-Calls SignatureRequestBulkSendWithTemplate in controller
+
 
 ## Properties
 

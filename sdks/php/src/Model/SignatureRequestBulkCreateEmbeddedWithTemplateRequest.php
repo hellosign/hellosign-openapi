@@ -38,7 +38,6 @@ use SplFileObject;
  * SignatureRequestBulkCreateEmbeddedWithTemplateRequest Class Doc Comment
  *
  * @category Class
- * @description Calls SignatureRequestBulkSendWithTemplate in controller
  * @author   OpenAPI Generator team
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

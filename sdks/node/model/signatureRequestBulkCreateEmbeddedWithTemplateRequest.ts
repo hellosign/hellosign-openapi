@@ -27,9 +27,6 @@ import { SubBulkSignerList } from "./subBulkSignerList";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 
-/**
- * Calls SignatureRequestBulkSendWithTemplate in controller
- */
 export class SignatureRequestBulkCreateEmbeddedWithTemplateRequest {
   /**
    * Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.

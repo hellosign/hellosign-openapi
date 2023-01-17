@@ -39,9 +39,8 @@ import com.hellosign.JSON;
 
 import com.hellosign.ApiException;
 /**
- * Calls SignatureRequestSend in controller
+ * SignatureRequestCreateEmbeddedWithTemplateRequest
  */
-@ApiModel(description = "Calls SignatureRequestSend in controller")
 @JsonPropertyOrder({
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEMPLATE_IDS,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,

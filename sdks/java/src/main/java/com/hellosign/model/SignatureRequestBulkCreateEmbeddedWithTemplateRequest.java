@@ -38,9 +38,8 @@ import com.hellosign.JSON;
 
 import com.hellosign.ApiException;
 /**
- * Calls SignatureRequestBulkSendWithTemplate in controller
+ * SignatureRequestBulkCreateEmbeddedWithTemplateRequest
  */
-@ApiModel(description = "Calls SignatureRequestBulkSendWithTemplate in controller")
 @JsonPropertyOrder({
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEMPLATE_IDS,
     SignatureRequestBulkCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
