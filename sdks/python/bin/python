@@ -10,6 +10,6 @@ WORKING_DIR="/app/python"
 
 docker run --rm \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "hellosign-sdk-pip-cache:/usr/local/lib/python3.10" \
+  -v "dropbox-sign-sdk-pip-cache:/usr/local/lib/python3.10" \
   -w "${WORKING_DIR}" \
   python:3.10-buster "$@"

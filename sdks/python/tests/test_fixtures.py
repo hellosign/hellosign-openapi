@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, models
+from dropbox_sign import ApiClient, Configuration, models
 from test_utils import get_fixture_data
 
 

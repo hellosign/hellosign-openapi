@@ -1,4 +1,4 @@
-# ```hellosign_sdk.ApiAppApi```
+# ```dropbox_sign.ApiAppApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -26,7 +26,7 @@ Creates a new API App.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -113,7 +113,7 @@ Deletes an API App. Can only be invoked for apps you own.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -182,7 +182,7 @@ Returns an object with information about an API App.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -251,7 +251,7 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -325,7 +325,7 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(

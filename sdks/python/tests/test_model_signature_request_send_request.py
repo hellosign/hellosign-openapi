@@ -1,6 +1,6 @@
 import unittest
 
-from hellosign_sdk import models
+from dropbox_sign import models
 
 
 class TestModelSignatureRequestSendRequest(unittest.TestCase):

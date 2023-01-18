@@ -1,8 +1,8 @@
 import json
 import unittest
 
-from hellosign_sdk import EventCallbackHelper
-from hellosign_sdk.models import EventCallbackRequest
+from dropbox_sign import EventCallbackHelper
+from dropbox_sign.models import EventCallbackRequest
 from test_utils import get_fixture_data
 
 

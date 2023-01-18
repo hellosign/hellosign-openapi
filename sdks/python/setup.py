@@ -11,8 +11,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "hellosign-python-sdk"
-VERSION = "6.0.0-beta23.1"
+NAME = "dropbox-sign"
+VERSION = "1.0.0-beta23.1"
 # To install the library, run the following
 #
 # python setup.py install

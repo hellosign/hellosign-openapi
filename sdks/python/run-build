@@ -44,7 +44,7 @@ if [[ -z "$GITHUB_ACTIONS" ]]; then
   find "${DIR}/docs/" -type f -exec chmod 644 {} \;
   find "${DIR}/examples/" -type f -exec chmod 644 {} \;
   find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
-  find "${DIR}/hellosign_sdk/" -type f -exec chmod 644 {} \;
+  find "${DIR}/dropbox_sign/" -type f -exec chmod 644 {} \;
 fi
 
 printf "Running tests ...\n"
