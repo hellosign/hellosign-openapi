@@ -5,4 +5,5 @@ export declare class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerD
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubFormFieldsPerDocumentTextMerge;
 }

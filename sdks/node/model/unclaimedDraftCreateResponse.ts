@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { UnclaimedDraftResponse } from "./unclaimedDraftResponse";
 import { WarningResponse } from "./warningResponse";
 
@@ -50,5 +50,10 @@ export class UnclaimedDraftCreateResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return UnclaimedDraftCreateResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): UnclaimedDraftCreateResponse {
+    return ObjectSerializer.deserialize(data, "UnclaimedDraftCreateResponse");
   }
 }

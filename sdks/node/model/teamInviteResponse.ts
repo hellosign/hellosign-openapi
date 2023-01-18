@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class TeamInviteResponse {
   /**
@@ -87,5 +87,10 @@ export class TeamInviteResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TeamInviteResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TeamInviteResponse {
+    return ObjectSerializer.deserialize(data, "TeamInviteResponse");
   }
 }

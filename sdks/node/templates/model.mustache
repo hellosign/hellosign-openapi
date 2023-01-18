@@ -1,7 +1,7 @@
 {{>licenseInfo}}
 {{#models}}
 {{#model}}
-import { RequestFile, AttributeTypeMap } from './models';
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from './models';
 {{#tsImports}}
 import { {{classname}} } from '{{filename}}';
 {{/tsImports}}
@@ -63,6 +63,12 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         {{/discriminator.mappedModels}}
 
         return null;
+    }
+{{/discriminator}}
+{{^discriminator}}
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    static init(data: any): {{classname}} {
+        return ObjectSerializer.deserialize(data, '{{classname}}');
     }
 {{/discriminator}}
     {{/isArray}}

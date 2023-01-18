@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 
 /**
@@ -66,5 +66,13 @@ export class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
     return super
       .getAttributeTypeMap()
       .concat(SubFormFieldsPerDocumentDropdown.attributeTypeMap);
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubFormFieldsPerDocumentDropdown {
+    return ObjectSerializer.deserialize(
+      data,
+      "SubFormFieldsPerDocumentDropdown"
+    );
   }
 }

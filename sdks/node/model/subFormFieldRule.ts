@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubFormFieldRuleAction } from "./subFormFieldRuleAction";
 import { SubFormFieldRuleTrigger } from "./subFormFieldRuleTrigger";
 
@@ -71,5 +71,10 @@ export class SubFormFieldRule {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubFormFieldRule.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubFormFieldRule {
+    return ObjectSerializer.deserialize(data, "SubFormFieldRule");
   }
 }

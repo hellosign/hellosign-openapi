@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmbeddedDraftResponseTemplate";
 import { WarningResponse } from "./warningResponse";
 
@@ -50,5 +50,13 @@ export class TemplateCreateEmbeddedDraftResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TemplateCreateEmbeddedDraftResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TemplateCreateEmbeddedDraftResponse {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateCreateEmbeddedDraftResponse"
+    );
   }
 }

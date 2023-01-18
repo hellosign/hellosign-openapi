@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubOAuth } from "./subOAuth";
 import { SubOptions } from "./subOptions";
 import { SubWhiteLabelingOptions } from "./subWhiteLabelingOptions";
@@ -90,5 +90,10 @@ export class ApiAppUpdateRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApiAppUpdateRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ApiAppUpdateRequest {
+    return ObjectSerializer.deserialize(data, "ApiAppUpdateRequest");
   }
 }

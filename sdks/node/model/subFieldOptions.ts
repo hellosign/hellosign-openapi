@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * This allows the requester to specify field options for a signature request.
@@ -45,6 +45,11 @@ export class SubFieldOptions {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubFieldOptions.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubFieldOptions {
+    return ObjectSerializer.deserialize(data, "SubFieldOptions");
   }
 }
 

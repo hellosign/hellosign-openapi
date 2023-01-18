@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Contains pagination information about the data returned.
@@ -72,5 +72,10 @@ export class ListInfoResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ListInfoResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ListInfoResponse {
+    return ObjectSerializer.deserialize(data, "ListInfoResponse");
   }
 }

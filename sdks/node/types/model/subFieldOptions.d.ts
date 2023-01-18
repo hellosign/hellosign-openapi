@@ -4,6 +4,7 @@ export declare class SubFieldOptions {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubFieldOptions;
 }
 export declare namespace SubFieldOptions {
     enum DateFormatEnum {

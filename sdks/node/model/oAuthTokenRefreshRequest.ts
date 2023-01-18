@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class OAuthTokenRefreshRequest {
   /**
@@ -51,5 +51,10 @@ export class OAuthTokenRefreshRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return OAuthTokenRefreshRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): OAuthTokenRefreshRequest {
+    return ObjectSerializer.deserialize(data, "OAuthTokenRefreshRequest");
   }
 }

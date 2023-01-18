@@ -6,6 +6,7 @@ export declare class ReportCreateRequest {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): ReportCreateRequest;
 }
 export declare namespace ReportCreateRequest {
     enum ReportTypeEnum {

@@ -6,4 +6,5 @@ export declare class SignatureRequestResponseDataValueCheckboxMerge extends Sign
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SignatureRequestResponseDataValueCheckboxMerge;
 }

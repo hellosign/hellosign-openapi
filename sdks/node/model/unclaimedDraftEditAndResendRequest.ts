@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubEditorOptions } from "./subEditorOptions";
 
 export class UnclaimedDraftEditAndResendRequest {
@@ -103,5 +103,13 @@ export class UnclaimedDraftEditAndResendRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return UnclaimedDraftEditAndResendRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): UnclaimedDraftEditAndResendRequest {
+    return ObjectSerializer.deserialize(
+      data,
+      "UnclaimedDraftEditAndResendRequest"
+    );
   }
 }

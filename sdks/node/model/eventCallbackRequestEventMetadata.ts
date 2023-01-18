@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Specific metadata about the event.
@@ -72,5 +72,13 @@ export class EventCallbackRequestEventMetadata {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventCallbackRequestEventMetadata.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): EventCallbackRequestEventMetadata {
+    return ObjectSerializer.deserialize(
+      data,
+      "EventCallbackRequestEventMetadata"
+    );
   }
 }

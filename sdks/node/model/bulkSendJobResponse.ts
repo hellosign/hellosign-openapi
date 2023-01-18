@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
@@ -72,5 +72,10 @@ export class BulkSendJobResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return BulkSendJobResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): BulkSendJobResponse {
+    return ObjectSerializer.deserialize(data, "BulkSendJobResponse");
   }
 }

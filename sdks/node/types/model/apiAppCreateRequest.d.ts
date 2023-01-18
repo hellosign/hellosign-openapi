@@ -13,4 +13,5 @@ export declare class ApiAppCreateRequest {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): ApiAppCreateRequest;
 }

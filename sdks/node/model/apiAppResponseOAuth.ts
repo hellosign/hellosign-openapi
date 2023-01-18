@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * An object describing the app\'s OAuth properties, or null if OAuth is not configured for the app.
@@ -72,5 +72,10 @@ export class ApiAppResponseOAuth {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApiAppResponseOAuth.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ApiAppResponseOAuth {
+    return ObjectSerializer.deserialize(data, "ApiAppResponseOAuth");
   }
 }

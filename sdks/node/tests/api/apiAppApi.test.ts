@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -32,13 +31,13 @@ describe('ApiAppApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200, 'multipart/form-data');
 
-    const obj = toObj<m.ApiAppCreateRequest>(requestData, requestClass);
+    const obj = m.ApiAppCreateRequest.init(requestData);
     obj.customLogoFile = fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`);
 
     api.apiAppCreate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.ApiAppGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -59,7 +58,7 @@ describe('ApiAppApiTest', () => {
     api.apiAppGet(clientId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.ApiAppGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -80,13 +79,13 @@ describe('ApiAppApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.ApiAppUpdateRequest>(requestData, requestClass);
+    const obj = m.ApiAppUpdateRequest.init(requestData);
     obj.customLogoFile = fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`);
 
     api.apiAppUpdate(clientId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.ApiAppGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -110,7 +109,7 @@ describe('ApiAppApiTest', () => {
     api.apiAppList(page, pageSize).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.ApiAppListResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

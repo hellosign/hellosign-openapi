@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubAttachment } from "./subAttachment";
 import { SubCustomField } from "./subCustomField";
 import { SubEditorOptions } from "./subEditorOptions";
@@ -358,6 +358,14 @@ export class UnclaimedDraftCreateEmbeddedRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return UnclaimedDraftCreateEmbeddedRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): UnclaimedDraftCreateEmbeddedRequest {
+    return ObjectSerializer.deserialize(
+      data,
+      "UnclaimedDraftCreateEmbeddedRequest"
+    );
   }
 }
 

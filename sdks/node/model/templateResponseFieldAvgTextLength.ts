@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Average text length in this field.
@@ -54,5 +54,13 @@ export class TemplateResponseFieldAvgTextLength {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TemplateResponseFieldAvgTextLength.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TemplateResponseFieldAvgTextLength {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseFieldAvgTextLength"
+    );
   }
 }

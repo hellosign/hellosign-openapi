@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Contains information about the report request.
@@ -72,6 +72,11 @@ export class ReportResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ReportResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ReportResponse {
+    return ObjectSerializer.deserialize(data, "ReportResponse");
   }
 }
 

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Signer attachments.
@@ -90,5 +90,13 @@ export class SignatureRequestResponseAttachment {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SignatureRequestResponseAttachment.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestResponseAttachment {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestResponseAttachment"
+    );
   }
 }

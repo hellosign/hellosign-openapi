@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -33,12 +32,12 @@ describe('TemplateApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TemplateAddUserRequest>(requestData, requestClass);
+    const obj = m.TemplateAddUserRequest.init(requestData);
 
     api.templateAddUser(templateId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TemplateGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -57,13 +56,13 @@ describe('TemplateApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TemplateCreateEmbeddedDraftRequest>(requestData, requestClass);
+    const obj = m.TemplateCreateEmbeddedDraftRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.templateCreateEmbeddedDraft(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TemplateCreateEmbeddedDraftResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -77,9 +76,6 @@ describe('TemplateApiTest', () => {
 
   it('testTemplateFiles', () => {
     const templateId = 'f57db65d3f933b5316d398057a36176831451a35';
-    const fileType = 'pdf';
-    const getUrl = false;
-    const getDataUri = false;
 
     const responseClass = 'FileResponse';
     const responseData = getFixtureData(responseClass)['default'];
@@ -89,7 +85,7 @@ describe('TemplateApiTest', () => {
     api.templateFilesAsFileUrl(templateId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.FileResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -110,7 +106,7 @@ describe('TemplateApiTest', () => {
     api.templateGet(templateId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TemplateGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -131,7 +127,7 @@ describe('TemplateApiTest', () => {
     api.templateList(accountId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TemplateListResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -152,12 +148,12 @@ describe('TemplateApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TemplateRemoveUserRequest>(requestData, requestClass);
+    const obj = m.TemplateRemoveUserRequest.init(requestData);
 
     api.templateRemoveUser(templateId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TemplateGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -178,13 +174,13 @@ describe('TemplateApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TemplateUpdateFilesRequest>(requestData, requestClass);
+    const obj = m.TemplateUpdateFilesRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.templateUpdateFiles(templateId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TemplateUpdateFilesResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

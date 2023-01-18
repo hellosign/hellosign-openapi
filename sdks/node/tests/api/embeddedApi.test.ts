@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -32,12 +31,12 @@ describe('EmbeddedApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.EmbeddedEditUrlRequest>(requestData, requestClass);
+    const obj = m.EmbeddedEditUrlRequest.init(requestData);
 
     api.embeddedEditUrl(templateId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.EmbeddedEditUrlResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -58,7 +57,7 @@ describe('EmbeddedApiTest', () => {
     api.embeddedSignUrl(signatureId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.EmbeddedSignUrlResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

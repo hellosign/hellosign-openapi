@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { TemplateResponseAccountQuota } from "./templateResponseAccountQuota";
 
 export class TemplateResponseAccount {
@@ -85,5 +85,10 @@ export class TemplateResponseAccount {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TemplateResponseAccount.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TemplateResponseAccount {
+    return ObjectSerializer.deserialize(data, "TemplateResponseAccount");
   }
 }

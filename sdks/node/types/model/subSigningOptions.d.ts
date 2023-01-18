@@ -8,6 +8,7 @@ export declare class SubSigningOptions {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubSigningOptions;
 }
 export declare namespace SubSigningOptions {
     enum DefaultTypeEnum {

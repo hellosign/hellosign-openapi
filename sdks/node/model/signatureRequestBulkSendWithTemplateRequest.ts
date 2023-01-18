@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubBulkSignerList } from "./subBulkSignerList";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
@@ -153,5 +153,13 @@ export class SignatureRequestBulkSendWithTemplateRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SignatureRequestBulkSendWithTemplateRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestBulkSendWithTemplateRequest {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestBulkSendWithTemplateRequest"
+    );
   }
 }

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 
 /**
@@ -57,5 +57,13 @@ export class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return super
       .getAttributeTypeMap()
       .concat(SignatureRequestResponseCustomFieldText.attributeTypeMap);
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestResponseCustomFieldText {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestResponseCustomFieldText"
+    );
   }
 }

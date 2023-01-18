@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -32,13 +31,13 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.SignatureRequestBulkCreateEmbeddedWithTemplateRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestBulkCreateEmbeddedWithTemplateRequest.init(requestData);
     obj.signerFile = fs.createReadStream(`${rootFilePath}/bulk-send-sample.csv`);
 
     api.signatureRequestBulkCreateEmbeddedWithTemplate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.BulkSendJobSendResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -57,13 +56,13 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.SignatureRequestBulkSendWithTemplateRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestBulkSendWithTemplateRequest.init(requestData);
     obj.signerFile = fs.createReadStream(`${rootFilePath}/bulk-send-sample.csv`);
 
     api.signatureRequestBulkSendWithTemplate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.BulkSendJobSendResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -84,13 +83,13 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.SignatureRequestCreateEmbeddedRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestCreateEmbeddedRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestCreateEmbedded(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -109,13 +108,13 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.SignatureRequestCreateEmbeddedWithTemplateRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestCreateEmbeddedWithTemplateRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestCreateEmbeddedWithTemplate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -127,9 +126,6 @@ describe('SignatureRequestApiTest', () => {
 
   it('testSignatureRequestFiles', () => {
     const signatureRequestId = 'fa5c8a0b0f492d768749333ad6fcc214c111e967';
-    const fileType = 'pdf';
-    const getUrl = false;
-    const getDataUri = false;
 
     const responseClass = 'FileResponse';
     const responseData = getFixtureData(responseClass)['default'];
@@ -141,7 +137,7 @@ describe('SignatureRequestApiTest', () => {
     ).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.FileResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -162,7 +158,7 @@ describe('SignatureRequestApiTest', () => {
     api.signatureRequestGet(signatureRequestId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -183,7 +179,7 @@ describe('SignatureRequestApiTest', () => {
     api.signatureRequestList(accountId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestListResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -204,7 +200,7 @@ describe('SignatureRequestApiTest', () => {
     api.signatureRequestReleaseHold(signatureRequestId).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -225,12 +221,12 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.SignatureRequestRemindRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestRemindRequest.init(requestData);
 
     api.signatureRequestRemind(signatureRequestId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -251,13 +247,13 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.SignatureRequestSendRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestSendRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestSend(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -276,13 +272,13 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200, 'multipart/form-data');
 
-    const obj = toObj<m.SignatureRequestSendRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestSendRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.signatureRequestSend(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -301,12 +297,12 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200, 'application/json');
 
-    const obj = toObj<m.SignatureRequestSendRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestSendRequest.init(requestData);
 
     api.signatureRequestSend(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -325,12 +321,12 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200, 'application/json');
 
-    const obj = toObj<m.SignatureRequestSendWithTemplateRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestSendWithTemplateRequest.init(requestData);
 
     api.signatureRequestSendWithTemplate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -351,12 +347,12 @@ describe('SignatureRequestApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200, 'application/json');
 
-    const obj = toObj<m.SignatureRequestUpdateRequest>(requestData, requestClass);
+    const obj = m.SignatureRequestUpdateRequest.init(requestData);
 
     api.signatureRequestUpdate(signatureRequestId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.SignatureRequestGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

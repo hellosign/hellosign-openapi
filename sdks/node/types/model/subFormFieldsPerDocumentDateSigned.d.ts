@@ -5,4 +5,5 @@ export declare class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPer
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubFormFieldsPerDocumentDateSigned;
 }

@@ -8,6 +8,7 @@ export declare class TeamRemoveMemberRequest {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): TeamRemoveMemberRequest;
 }
 export declare namespace TeamRemoveMemberRequest {
     enum NewRoleEnum {

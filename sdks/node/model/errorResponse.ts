@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { ErrorResponseError } from "./errorResponseError";
 
 export class ErrorResponse {
@@ -40,5 +40,10 @@ export class ErrorResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ErrorResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ErrorResponse {
+    return ObjectSerializer.deserialize(data, "ErrorResponse");
   }
 }

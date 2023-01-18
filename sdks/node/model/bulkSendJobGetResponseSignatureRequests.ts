@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SignatureRequestResponse } from "./signatureRequestResponse";
 import { SignatureRequestResponseAttachment } from "./signatureRequestResponseAttachment";
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
@@ -254,5 +254,13 @@ export class BulkSendJobGetResponseSignatureRequests {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return BulkSendJobGetResponseSignatureRequests.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): BulkSendJobGetResponseSignatureRequests {
+    return ObjectSerializer.deserialize(
+      data,
+      "BulkSendJobGetResponseSignatureRequests"
+    );
   }
 }

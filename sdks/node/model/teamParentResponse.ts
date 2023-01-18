@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Information about the parent team if a team has one, set to `null` otherwise.
@@ -54,5 +54,10 @@ export class TeamParentResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TeamParentResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TeamParentResponse {
+    return ObjectSerializer.deserialize(data, "TeamParentResponse");
   }
 }

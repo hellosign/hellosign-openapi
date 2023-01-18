@@ -5,6 +5,7 @@ export declare class SubOAuth {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubOAuth;
 }
 export declare namespace SubOAuth {
     enum ScopesEnum {

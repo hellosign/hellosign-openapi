@@ -6,4 +6,5 @@ export declare class SignatureRequestResponseDataValueRadio extends SignatureReq
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SignatureRequestResponseDataValueRadio;
 }

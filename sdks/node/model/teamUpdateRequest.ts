@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class TeamUpdateRequest {
   /**
@@ -42,5 +42,10 @@ export class TeamUpdateRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TeamUpdateRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TeamUpdateRequest {
+    return ObjectSerializer.deserialize(data, "TeamUpdateRequest");
   }
 }

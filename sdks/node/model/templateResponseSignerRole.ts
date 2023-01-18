@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class TemplateResponseSignerRole {
   /**
@@ -51,5 +51,10 @@ export class TemplateResponseSignerRole {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TemplateResponseSignerRole.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TemplateResponseSignerRole {
+    return ObjectSerializer.deserialize(data, "TemplateResponseSignerRole");
   }
 }
