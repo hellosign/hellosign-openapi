@@ -1,10 +1,10 @@
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -22,12 +22,12 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
 import java.util.List;
@@ -139,12 +139,12 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
 import java.util.List;
@@ -229,12 +229,12 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -330,12 +330,12 @@ Creates a new signature request from an embedded request that can be edited prio
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
