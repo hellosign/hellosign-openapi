@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -68,16 +68,16 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'allow_ccs' => 'bool',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
-        'attachments' => '\HelloSign\Model\SubAttachment[]',
+        'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_email_addresses' => 'string[]',
-        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
-        'editor_options' => '\HelloSign\Model\SubEditorOptions',
-        'field_options' => '\HelloSign\Model\SubFieldOptions',
+        'custom_fields' => '\Dropbox\Sign\Model\SubCustomField[]',
+        'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
+        'field_options' => '\Dropbox\Sign\Model\SubFieldOptions',
         'force_signer_page' => 'bool',
         'force_subject_message' => 'bool',
-        'form_field_groups' => '\HelloSign\Model\SubFormFieldGroup[]',
-        'form_field_rules' => '\HelloSign\Model\SubFormFieldRule[]',
-        'form_fields_per_document' => '\HelloSign\Model\SubFormFieldsPerDocumentBase[]',
+        'form_field_groups' => '\Dropbox\Sign\Model\SubFormFieldGroup[]',
+        'form_field_rules' => '\Dropbox\Sign\Model\SubFormFieldRule[]',
+        'form_fields_per_document' => '\Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]',
         'hide_text_tags' => 'bool',
         'hold_request' => 'bool',
         'is_for_embedded_signing' => 'bool',
@@ -86,8 +86,8 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         'requesting_redirect_url' => 'string',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'signers' => '\HelloSign\Model\SubUnclaimedDraftSigner[]',
-        'signing_options' => '\HelloSign\Model\SubSigningOptions',
+        'signers' => '\Dropbox\Sign\Model\SubUnclaimedDraftSigner[]',
+        'signing_options' => '\Dropbox\Sign\Model\SubSigningOptions',
         'signing_redirect_url' => 'string',
         'skip_me_now' => 'bool',
         'subject' => 'string',

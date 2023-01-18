@@ -1,4 +1,4 @@
-# HelloSign\OAuthApi
+# Dropbox\Sign\OAuthApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -11,7 +11,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `oauthTokenGenerate()`
 
 ```php
-oauthTokenGenerate($o_auth_token_generate_request): \HelloSign\Model\OAuthTokenResponse
+oauthTokenGenerate($o_auth_token_generate_request): \Dropbox\Sign\Model\OAuthTokenResponse
 ```
 
 OAuth Token Generate
@@ -25,11 +25,11 @@ Once you have retrieved the code from the user callback, you will need to exchan
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$oauthApi = new HelloSign\Api\OAuthApi(
-    HelloSign\Configuration::getDefaultConfiguration()
+$oauthApi = new Dropbox\Sign\Api\OAuthApi(
+    Dropbox\Sign\Configuration::getDefaultConfiguration()
 );
 
-$data = new HelloSign\Model\OAuthTokenGenerateRequest();
+$data = new Dropbox\Sign\Model\OAuthTokenGenerateRequest();
 $data->setState("900e06e2")
     ->setCode("1b0d28d90c86c141")
     ->setClientId("cc91c61d00f8bb2ece1428035716b")
@@ -38,7 +38,7 @@ $data->setState("900e06e2")
 try {
     $result = $oauthApi->oauthTokenGenerate($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -50,11 +50,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **o_auth_token_generate_request** | [**\HelloSign\Model\OAuthTokenGenerateRequest**](../Model/OAuthTokenGenerateRequest.md)|  | |
+| **o_auth_token_generate_request** | [**\Dropbox\Sign\Model\OAuthTokenGenerateRequest**](../Model/OAuthTokenGenerateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\OAuthTokenResponse**](../Model/OAuthTokenResponse.md)
+[**\Dropbox\Sign\Model\OAuthTokenResponse**](../Model/OAuthTokenResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 ## `oauthTokenRefresh()`
 
 ```php
-oauthTokenRefresh($o_auth_token_refresh_request): \HelloSign\Model\OAuthTokenResponse
+oauthTokenRefresh($o_auth_token_refresh_request): \Dropbox\Sign\Model\OAuthTokenResponse
 ```
 
 OAuth Token Refresh
@@ -86,17 +86,17 @@ Access tokens are only valid for a given period of time (typically one hour) for
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$oauthApi = new HelloSign\Api\OAuthApi(
-    HelloSign\Configuration::getDefaultConfiguration()
+$oauthApi = new Dropbox\Sign\Api\OAuthApi(
+    Dropbox\Sign\Configuration::getDefaultConfiguration()
 );
 
-$data = new HelloSign\Model\OAuthTokenRefreshRequest();
+$data = new Dropbox\Sign\Model\OAuthTokenRefreshRequest();
 $data->setRefreshToken("hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3");
 
 try {
     $result = $oauthApi->oauthTokenRefresh($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -108,11 +108,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **o_auth_token_refresh_request** | [**\HelloSign\Model\OAuthTokenRefreshRequest**](../Model/OAuthTokenRefreshRequest.md)|  | |
+| **o_auth_token_refresh_request** | [**\Dropbox\Sign\Model\OAuthTokenRefreshRequest**](../Model/OAuthTokenRefreshRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\OAuthTokenResponse**](../Model/OAuthTokenResponse.md)
+[**\Dropbox\Sign\Model\OAuthTokenResponse**](../Model/OAuthTokenResponse.md)
 
 ### Authorization
 

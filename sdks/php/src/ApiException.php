@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign;
+namespace Dropbox\Sign;
 
 use Exception;
 use stdClass;

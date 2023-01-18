@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,7 +60,7 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\HelloSign\Model\TemplateUpdateFilesResponseTemplate',
+        'template' => '\Dropbox\Sign\Model\TemplateUpdateFilesResponseTemplate',
     ];
 
     /**

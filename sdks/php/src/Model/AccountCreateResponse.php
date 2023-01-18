@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,9 +60,9 @@ class AccountCreateResponse implements ModelInterface, ArrayAccess, JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'account' => '\HelloSign\Model\AccountResponse',
-        'oauth_data' => '\HelloSign\Model\OAuthTokenResponse',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'account' => '\Dropbox\Sign\Model\AccountResponse',
+        'oauth_data' => '\Dropbox\Sign\Model\OAuthTokenResponse',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

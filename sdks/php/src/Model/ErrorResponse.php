@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -59,7 +59,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'error' => '\HelloSign\Model\ErrorResponseError',
+        'error' => '\Dropbox\Sign\Model\ErrorResponseError',
     ];
 
     /**

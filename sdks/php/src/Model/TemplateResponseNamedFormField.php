@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -70,7 +70,7 @@ class TemplateResponseNamedFormField implements ModelInterface, ArrayAccess, Jso
         'required' => 'bool',
         'api_id' => 'string',
         'group' => 'string',
-        'avg_text_length' => '\HelloSign\Model\TemplateResponseFieldAvgTextLength',
+        'avg_text_length' => '\Dropbox\Sign\Model\TemplateResponseFieldAvgTextLength',
         'is_multiline' => 'bool',
         'original_font_size' => 'int',
         'font_family' => 'string',

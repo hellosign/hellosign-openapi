@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 
@@ -62,8 +62,8 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'trigger_operator' => 'string',
-        'triggers' => '\HelloSign\Model\SubFormFieldRuleTrigger[]',
-        'actions' => '\HelloSign\Model\SubFormFieldRuleAction[]',
+        'triggers' => '\Dropbox\Sign\Model\SubFormFieldRuleTrigger[]',
+        'actions' => '\Dropbox\Sign\Model\SubFormFieldRuleAction[]',
     ];
 
     /**

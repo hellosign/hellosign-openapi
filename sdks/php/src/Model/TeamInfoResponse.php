@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -61,7 +61,7 @@ class TeamInfoResponse implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $openAPITypes = [
         'team_id' => 'string',
-        'team_parent' => '\HelloSign\Model\TeamParentResponse',
+        'team_parent' => '\Dropbox\Sign\Model\TeamParentResponse',
         'name' => 'string',
         'num_members' => 'int',
         'num_sub_teams' => 'int',

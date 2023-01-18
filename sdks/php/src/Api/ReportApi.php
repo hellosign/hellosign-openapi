@@ -25,8 +25,13 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Api;
+namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +40,6 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSign\ApiException;
-use HelloSign\Configuration;
-use HelloSign\HeaderSelector;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -186,14 +186,14 @@ class ReportApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\ReportCreateResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ReportCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ReportCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ReportCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -202,20 +202,20 @@ class ReportApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\ReportCreateResponse';
+            $returnType = '\Dropbox\Sign\Model\ReportCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -233,7 +233,7 @@ class ReportApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ReportCreateResponse',
+                    '\Dropbox\Sign\Model\ReportCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -244,7 +244,7 @@ class ReportApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class ReportApi
      */
     public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request)
     {
-        $returnType = '\HelloSign\Model\ReportCreateResponse';
+        $returnType = '\Dropbox\Sign\Model\ReportCreateResponse';
         $request = $this->reportCreateRequest($report_create_request);
 
         return $this->client

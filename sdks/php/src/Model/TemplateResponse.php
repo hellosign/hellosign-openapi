@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -70,12 +70,12 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'can_edit' => 'bool',
         'is_locked' => 'bool',
         'metadata' => 'array',
-        'signer_roles' => '\HelloSign\Model\TemplateResponseSignerRole[]',
-        'cc_roles' => '\HelloSign\Model\TemplateResponseCCRole[]',
-        'documents' => '\HelloSign\Model\TemplateResponseDocument[]',
-        'custom_fields' => '\HelloSign\Model\TemplateResponseCustomField[]',
-        'named_form_fields' => '\HelloSign\Model\TemplateResponseNamedFormField[]',
-        'accounts' => '\HelloSign\Model\TemplateResponseAccount[]',
+        'signer_roles' => '\Dropbox\Sign\Model\TemplateResponseSignerRole[]',
+        'cc_roles' => '\Dropbox\Sign\Model\TemplateResponseCCRole[]',
+        'documents' => '\Dropbox\Sign\Model\TemplateResponseDocument[]',
+        'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseCustomField[]',
+        'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseNamedFormField[]',
+        'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
     ];
 
     /**

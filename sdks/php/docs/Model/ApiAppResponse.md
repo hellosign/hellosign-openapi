@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 | `domains` | ```string[]``` |  The domain name(s) associated with the app  |  |
 | `name` | ```string``` |  The name of the app  |  |
 | `is_approved` | ```bool``` |  Boolean to indicate if the app has been approved  |  |
-| `oauth` | [```\HelloSign\Model\ApiAppResponseOAuth```](ApiAppResponseOAuth.md) |    |  |
-| `options` | [```\HelloSign\Model\ApiAppResponseOptions```](ApiAppResponseOptions.md) |    |  |
-| `owner_account` | [```\HelloSign\Model\ApiAppResponseOwnerAccount```](ApiAppResponseOwnerAccount.md) |    |  |
-| `white_labeling_options` | [```\HelloSign\Model\ApiAppResponseWhiteLabelingOptions```](ApiAppResponseWhiteLabelingOptions.md) |    |  |
+| `oauth` | [```\Dropbox\Sign\Model\ApiAppResponseOAuth```](ApiAppResponseOAuth.md) |    |  |
+| `options` | [```\Dropbox\Sign\Model\ApiAppResponseOptions```](ApiAppResponseOptions.md) |    |  |
+| `owner_account` | [```\Dropbox\Sign\Model\ApiAppResponseOwnerAccount```](ApiAppResponseOwnerAccount.md) |    |  |
+| `white_labeling_options` | [```\Dropbox\Sign\Model\ApiAppResponseWhiteLabelingOptions```](ApiAppResponseWhiteLabelingOptions.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

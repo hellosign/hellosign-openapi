@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,7 +60,7 @@ class UnclaimedDraftEditAndResendRequest implements ModelInterface, ArrayAccess,
      */
     protected static $openAPITypes = [
         'client_id' => 'string',
-        'editor_options' => '\HelloSign\Model\SubEditorOptions',
+        'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
         'is_for_embedded_signing' => 'bool',
         'requester_email_address' => 'string',
         'requesting_redirect_url' => 'string',

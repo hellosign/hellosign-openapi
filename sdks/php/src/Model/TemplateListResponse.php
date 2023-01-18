@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,9 +60,9 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'templates' => '\HelloSign\Model\TemplateResponse[]',
-        'list_info' => '\HelloSign\Model\ListInfoResponse',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'templates' => '\Dropbox\Sign\Model\TemplateResponse[]',
+        'list_info' => '\Dropbox\Sign\Model\ListInfoResponse',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

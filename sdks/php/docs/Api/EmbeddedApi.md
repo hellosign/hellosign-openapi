@@ -1,4 +1,4 @@
-# HelloSign\EmbeddedApi
+# Dropbox\Sign\EmbeddedApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -11,7 +11,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `embeddedEditUrl()`
 
 ```php
-embeddedEditUrl($template_id, $embedded_edit_url_request): \HelloSign\Model\EmbeddedEditUrlResponse
+embeddedEditUrl($template_id, $embedded_edit_url_request): \Dropbox\Sign\Model\EmbeddedEditUrlResponse
 ```
 
 Get Embedded Template Edit URL
@@ -25,7 +25,7 @@ Retrieves an embedded object containing a template url that can be opened in an 
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -33,9 +33,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$embeddedApi = new HelloSign\Api\EmbeddedApi($config);
+$embeddedApi = new Dropbox\Sign\Api\EmbeddedApi($config);
 
-$data = new HelloSign\Model\EmbeddedEditUrlRequest();
+$data = new Dropbox\Sign\Model\EmbeddedEditUrlRequest();
 $data->setCcRoles([""])
     ->setMergeFields([]);
 
@@ -44,7 +44,7 @@ $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 try {
     $result = $embeddedApi->embeddedEditUrl($templateId, $data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -57,11 +57,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the template to edit. | |
-| **embedded_edit_url_request** | [**\HelloSign\Model\EmbeddedEditUrlRequest**](../Model/EmbeddedEditUrlRequest.md)|  | |
+| **embedded_edit_url_request** | [**\Dropbox\Sign\Model\EmbeddedEditUrlRequest**](../Model/EmbeddedEditUrlRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\EmbeddedEditUrlResponse**](../Model/EmbeddedEditUrlResponse.md)
+[**\Dropbox\Sign\Model\EmbeddedEditUrlResponse**](../Model/EmbeddedEditUrlResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `embeddedSignUrl()`
 
 ```php
-embeddedSignUrl($signature_id): \HelloSign\Model\EmbeddedSignUrlResponse
+embeddedSignUrl($signature_id): \Dropbox\Sign\Model\EmbeddedSignUrlResponse
 ```
 
 Get Embedded Sign URL
@@ -93,7 +93,7 @@ Retrieves an embedded object containing a signature url that can be opened in an
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -101,14 +101,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$embeddedApi = new HelloSign\Api\EmbeddedApi($config);
+$embeddedApi = new Dropbox\Sign\Api\EmbeddedApi($config);
 
 $signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
 
 try {
     $result = $embeddedApi->embeddedSignUrl($signatureId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -124,7 +124,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\EmbeddedSignUrlResponse**](../Model/EmbeddedSignUrlResponse.md)
+[**\Dropbox\Sign\Model\EmbeddedSignUrlResponse**](../Model/EmbeddedSignUrlResponse.md)
 
 ### Authorization
 

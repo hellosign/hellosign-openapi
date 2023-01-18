@@ -88,12 +88,12 @@ You may also instantiate objects by calling the class' `::init()` method:
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 $config->setUsername("YOUR_API_KEY");
 
-$api = new HelloSign\Api\SignatureRequestApi($config);
+$api = new Dropbox\Sign\Api\SignatureRequestApi($config);
 
-$data = HelloSign\Model\SignatureRequestSendRequest::init([
+$data = Dropbox\Sign\Model\SignatureRequestSendRequest::init([
     "title"   => "NDA with Acme Co.",
     "signers" => [
         [
@@ -107,7 +107,7 @@ $data = HelloSign\Model\SignatureRequestSendRequest::init([
             "order"         => 1,
         ],
     ],
-    "file"    => [
+    "files"    => [
         new SplFileObject("/absolute/path/to/file.pdf"),
     ],
 ]);
@@ -115,8 +115,8 @@ $data = HelloSign\Model\SignatureRequestSendRequest::init([
 try {
     $result = $api->signatureRequestSend($data);
     print_r($result);
-} catch (Exception $e) {
-    echo "Exception when calling HelloSign API: "
+} catch (Dropbox\Sign\ApiException $e) {
+    echo "Exception when calling Dropbox Sign API: "
         . $e->getMessage() . PHP_EOL;
 }
 ```

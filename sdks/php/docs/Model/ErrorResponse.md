@@ -6,6 +6,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `error`<sup>*_required_</sup> | [```\HelloSign\Model\ErrorResponseError```](ErrorResponseError.md) |    |  |
+| `error`<sup>*_required_</sup> | [```\Dropbox\Sign\Model\ErrorResponseError```](ErrorResponseError.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

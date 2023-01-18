@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class EmbeddedEditUrlResponse implements ModelInterface, ArrayAccess, JsonSerial
      * @var string[]
      */
     protected static $openAPITypes = [
-        'embedded' => '\HelloSign\Model\EmbeddedEditUrlResponseEmbedded',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'embedded' => '\Dropbox\Sign\Model\EmbeddedEditUrlResponseEmbedded',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

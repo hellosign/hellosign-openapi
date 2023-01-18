@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -10,31 +10,31 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$unclaimedDraftApi = new HelloSign\Api\UnclaimedDraftApi($config);
+$unclaimedDraftApi = new Dropbox\Sign\Api\UnclaimedDraftApi($config);
 
-$signer1 = new HelloSign\Model\SubUnclaimedDraftSigner();
+$signer1 = new Dropbox\Sign\Model\SubUnclaimedDraftSigner();
 $signer1->setEmailAddress("jack@example.com")
     ->setName("Jack")
     ->setOrder(0);
 
-$signer2 = new HelloSign\Model\SubUnclaimedDraftSigner();
+$signer2 = new Dropbox\Sign\Model\SubUnclaimedDraftSigner();
 $signer2->setEmailAddress("jill@example.com")
     ->setName("Jill")
     ->setOrder(1);
 
-$signingOptions = new HelloSign\Model\SubSigningOptions();
+$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
 $signingOptions->setDraw(true)
     ->setType(true)
     ->setUpload(true)
     ->setPhone(false)
-    ->setDefaultType(HelloSign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
 
-$fieldOptions = new HelloSign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(HelloSign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
+$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new HelloSign\Model\UnclaimedDraftCreateRequest();
+$data = new Dropbox\Sign\Model\UnclaimedDraftCreateRequest();
 $data->setSubject("The NDA we talked about")
-    ->setType(HelloSign\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
+    ->setType(Dropbox\Sign\Model\UnclaimedDraftCreateRequest::TYPE_REQUEST_SIGNATURE)
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
     ->setSigners([$signer1, $signer2])
     ->setCcEmailAddresses([
@@ -53,7 +53,7 @@ $data->setSubject("The NDA we talked about")
 try {
     $result = $unclaimedDraftApi->unclaimedDraftCreate($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());

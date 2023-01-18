@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -62,10 +62,10 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     protected static $openAPITypes = [
         'name' => 'string',
         'index' => 'int',
-        'field_groups' => '\HelloSign\Model\TemplateResponseDocumentFieldGroup[]',
-        'form_fields' => '\HelloSign\Model\TemplateResponseDocumentFormField[]',
-        'custom_fields' => '\HelloSign\Model\TemplateResponseDocumentCustomField[]',
-        'static_fields' => '\HelloSign\Model\TemplateResponseDocumentStaticField[]',
+        'field_groups' => '\Dropbox\Sign\Model\TemplateResponseDocumentFieldGroup[]',
+        'form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormField[]',
+        'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomField[]',
+        'static_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentStaticField[]',
     ];
 
     /**

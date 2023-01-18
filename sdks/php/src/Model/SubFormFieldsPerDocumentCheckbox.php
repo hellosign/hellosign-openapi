@@ -26,9 +26,9 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 
 /**
  * SubFormFieldsPerDocumentCheckbox Class Doc Comment

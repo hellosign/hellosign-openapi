@@ -405,7 +405,7 @@ class ObjectSerializer
 
             $discrimnatorSubclassFound = false;
             if (!empty($discriminator) && is_string($discriminatorValue)) {
-                $subclass = '\HelloSign\Model\\' . $discriminatorValue;
+                $subclass = '\Dropbox\Sign\Model\\' . $discriminatorValue;
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                     $discrimnatorSubclassFound = true;

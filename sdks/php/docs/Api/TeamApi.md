@@ -1,4 +1,4 @@
-# HelloSign\TeamApi
+# Dropbox\Sign\TeamApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -19,7 +19,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `teamAddMember()`
 
 ```php
-teamAddMember($team_add_member_request, $team_id): \HelloSign\Model\TeamGetResponse
+teamAddMember($team_add_member_request, $team_id): \Dropbox\Sign\Model\TeamGetResponse
 ```
 
 Add User to Team
@@ -33,7 +33,7 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -41,15 +41,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
-$data = new HelloSign\Model\TeamAddMemberRequest();
+$data = new Dropbox\Sign\Model\TeamAddMemberRequest();
 $data->setEmailAddress("george@example.com");
 
 try {
     $result = $teamApi->teamAddMember($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -61,12 +61,12 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **team_add_member_request** | [**\HelloSign\Model\TeamAddMemberRequest**](../Model/TeamAddMemberRequest.md)|  | |
+| **team_add_member_request** | [**\Dropbox\Sign\Model\TeamAddMemberRequest**](../Model/TeamAddMemberRequest.md)|  | |
 | **team_id** | **string**| The id of the team. | [optional] |
 
 ### Return type
 
-[**\HelloSign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
+[**\Dropbox\Sign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ try {
 ## `teamCreate()`
 
 ```php
-teamCreate($team_create_request): \HelloSign\Model\TeamGetResponse
+teamCreate($team_create_request): \Dropbox\Sign\Model\TeamGetResponse
 ```
 
 Create Team
@@ -98,7 +98,7 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -106,15 +106,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
-$data = new HelloSign\Model\TeamCreateRequest();
+$data = new Dropbox\Sign\Model\TeamCreateRequest();
 $data->setName("New Team Name");
 
 try {
     $result = $teamApi->teamCreate($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -126,11 +126,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **team_create_request** | [**\HelloSign\Model\TeamCreateRequest**](../Model/TeamCreateRequest.md)|  | |
+| **team_create_request** | [**\Dropbox\Sign\Model\TeamCreateRequest**](../Model/TeamCreateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
+[**\Dropbox\Sign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -170,11 +170,11 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
 try {
     $teamApi->teamDelete();
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -206,7 +206,7 @@ void (empty response body)
 ## `teamGet()`
 
 ```php
-teamGet(): \HelloSign\Model\TeamGetResponse
+teamGet(): \Dropbox\Sign\Model\TeamGetResponse
 ```
 
 Get Team
@@ -220,7 +220,7 @@ Returns information about your Team as well as a list of its members. If you do 
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -228,12 +228,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
 try {
     $result = $teamApi->teamGet();
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -247,7 +247,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
+[**\Dropbox\Sign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ try {
 ## `teamInfo()`
 
 ```php
-teamInfo($team_id): \HelloSign\Model\TeamGetInfoResponse
+teamInfo($team_id): \Dropbox\Sign\Model\TeamGetInfoResponse
 ```
 
 Get Team Info
@@ -279,7 +279,7 @@ Provides information about a team.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -287,12 +287,12 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
 try {
     $result = $teamApi->teamInfo();
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -308,7 +308,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TeamGetInfoResponse**](../Model/TeamGetInfoResponse.md)
+[**\Dropbox\Sign\Model\TeamGetInfoResponse**](../Model/TeamGetInfoResponse.md)
 
 ### Authorization
 
@@ -326,7 +326,7 @@ try {
 ## `teamInvites()`
 
 ```php
-teamInvites($email_address): \HelloSign\Model\TeamInvitesResponse
+teamInvites($email_address): \Dropbox\Sign\Model\TeamInvitesResponse
 ```
 
 List Team Invites
@@ -340,7 +340,7 @@ Provides a list of team invites (and their roles).
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -348,14 +348,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
 $emailAddress = "user@dropboxsign.com";
 
 try {
     $result = $teamApi->teamInvites($emailAddress);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -371,7 +371,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TeamInvitesResponse**](../Model/TeamInvitesResponse.md)
+[**\Dropbox\Sign\Model\TeamInvitesResponse**](../Model/TeamInvitesResponse.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ try {
 ## `teamMembers()`
 
 ```php
-teamMembers($team_id, $page, $page_size): \HelloSign\Model\TeamMembersResponse
+teamMembers($team_id, $page, $page_size): \Dropbox\Sign\Model\TeamMembersResponse
 ```
 
 List Team Members
@@ -403,7 +403,7 @@ Provides a paginated list of members (and their roles) that belong to a given te
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -411,14 +411,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
 $teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
 try {
     $result = $teamApi->teamMembers($teamId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -436,7 +436,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TeamMembersResponse**](../Model/TeamMembersResponse.md)
+[**\Dropbox\Sign\Model\TeamMembersResponse**](../Model/TeamMembersResponse.md)
 
 ### Authorization
 
@@ -454,7 +454,7 @@ try {
 ## `teamRemoveMember()`
 
 ```php
-teamRemoveMember($team_remove_member_request): \HelloSign\Model\TeamGetResponse
+teamRemoveMember($team_remove_member_request): \Dropbox\Sign\Model\TeamGetResponse
 ```
 
 Remove User from Team
@@ -468,7 +468,7 @@ Removes the provided user Account from your Team. If the Account had an outstand
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -476,16 +476,16 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
-$data = new HelloSign\Model\TeamRemoveMemberRequest();
+$data = new Dropbox\Sign\Model\TeamRemoveMemberRequest();
 $data->setEmailAddress("teammate@dropboxsign.com")
     ->setNewOwnerEmailAddress("new_teammate@dropboxsign.com");
 
 try {
     $result = $teamApi->teamRemoveMember($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -497,11 +497,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **team_remove_member_request** | [**\HelloSign\Model\TeamRemoveMemberRequest**](../Model/TeamRemoveMemberRequest.md)|  | |
+| **team_remove_member_request** | [**\Dropbox\Sign\Model\TeamRemoveMemberRequest**](../Model/TeamRemoveMemberRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
+[**\Dropbox\Sign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
 
 ### Authorization
 
@@ -519,7 +519,7 @@ try {
 ## `teamSubTeams()`
 
 ```php
-teamSubTeams($team_id, $page, $page_size): \HelloSign\Model\TeamSubTeamsResponse
+teamSubTeams($team_id, $page, $page_size): \Dropbox\Sign\Model\TeamSubTeamsResponse
 ```
 
 List Sub Teams
@@ -533,7 +533,7 @@ Provides a paginated list of sub teams that belong to a given team.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -541,14 +541,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
 $teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
 
 try {
     $result = $teamApi->teamSubTeams($teamId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -566,7 +566,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TeamSubTeamsResponse**](../Model/TeamSubTeamsResponse.md)
+[**\Dropbox\Sign\Model\TeamSubTeamsResponse**](../Model/TeamSubTeamsResponse.md)
 
 ### Authorization
 
@@ -584,7 +584,7 @@ try {
 ## `teamUpdate()`
 
 ```php
-teamUpdate($team_update_request): \HelloSign\Model\TeamGetResponse
+teamUpdate($team_update_request): \Dropbox\Sign\Model\TeamGetResponse
 ```
 
 Update Team
@@ -598,7 +598,7 @@ Updates the name of your Team.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -606,15 +606,15 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$teamApi = new HelloSign\Api\TeamApi($config);
+$teamApi = new Dropbox\Sign\Api\TeamApi($config);
 
-$data = new HelloSign\Model\TeamUpdateRequest();
+$data = new Dropbox\Sign\Model\TeamUpdateRequest();
 $data->setName("New Team Name");
 
 try {
     $result = $teamApi->teamUpdate($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -626,11 +626,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **team_update_request** | [**\HelloSign\Model\TeamUpdateRequest**](../Model/TeamUpdateRequest.md)|  | |
+| **team_update_request** | [**\Dropbox\Sign\Model\TeamUpdateRequest**](../Model/TeamUpdateRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
+[**\Dropbox\Sign\Model\TeamGetResponse**](../Model/TeamGetResponse.md)
 
 ### Authorization
 

@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -67,10 +67,10 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'domains' => 'string[]',
         'name' => 'string',
         'is_approved' => 'bool',
-        'oauth' => '\HelloSign\Model\ApiAppResponseOAuth',
-        'options' => '\HelloSign\Model\ApiAppResponseOptions',
-        'owner_account' => '\HelloSign\Model\ApiAppResponseOwnerAccount',
-        'white_labeling_options' => '\HelloSign\Model\ApiAppResponseWhiteLabelingOptions',
+        'oauth' => '\Dropbox\Sign\Model\ApiAppResponseOAuth',
+        'options' => '\Dropbox\Sign\Model\ApiAppResponseOptions',
+        'owner_account' => '\Dropbox\Sign\Model\ApiAppResponseOwnerAccount',
+        'white_labeling_options' => '\Dropbox\Sign\Model\ApiAppResponseWhiteLabelingOptions',
     ];
 
     /**

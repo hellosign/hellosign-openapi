@@ -25,8 +25,13 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Api;
+namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +40,6 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSign\ApiException;
-use HelloSign\Configuration;
-use HelloSign\HeaderSelector;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 use SplFileObject;
@@ -187,14 +187,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\BulkSendJobSendResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\BulkSendJobSendResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\BulkSendJobSendResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\BulkSendJobSendResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -203,20 +203,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\BulkSendJobSendResponse';
+            $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -234,7 +234,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\BulkSendJobSendResponse',
+                    '\Dropbox\Sign\Model\BulkSendJobSendResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -245,7 +245,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -287,7 +287,7 @@ class SignatureRequestApi
      */
     public function signatureRequestBulkCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request)
     {
-        $returnType = '\HelloSign\Model\BulkSendJobSendResponse';
+        $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
         $request = $this->signatureRequestBulkCreateEmbeddedWithTemplateRequest($signature_request_bulk_create_embedded_with_template_request);
 
         return $this->client
@@ -500,14 +500,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\BulkSendJobSendResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\BulkSendJobSendResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\BulkSendJobSendResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\BulkSendJobSendResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -516,20 +516,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\BulkSendJobSendResponse';
+            $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -547,7 +547,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\BulkSendJobSendResponse',
+                    '\Dropbox\Sign\Model\BulkSendJobSendResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -558,7 +558,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -600,7 +600,7 @@ class SignatureRequestApi
      */
     public function signatureRequestBulkSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request)
     {
-        $returnType = '\HelloSign\Model\BulkSendJobSendResponse';
+        $returnType = '\Dropbox\Sign\Model\BulkSendJobSendResponse';
         $request = $this->signatureRequestBulkSendWithTemplateRequest($signature_request_bulk_send_with_template_request);
 
         return $this->client
@@ -821,7 +821,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1066,14 +1066,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1082,20 +1082,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1113,7 +1113,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1124,7 +1124,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1166,7 +1166,7 @@ class SignatureRequestApi
      */
     public function signatureRequestCreateEmbeddedAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestCreateEmbeddedRequest($signature_request_create_embedded_request);
 
         return $this->client
@@ -1383,14 +1383,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1399,20 +1399,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1430,7 +1430,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1441,7 +1441,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1483,7 +1483,7 @@ class SignatureRequestApi
      */
     public function signatureRequestCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestCreateEmbeddedWithTemplateRequest($signature_request_create_embedded_with_template_request);
 
         return $this->client
@@ -1658,7 +1658,7 @@ class SignatureRequestApi
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
-     * @return array of \SplFileObject|\HelloSign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function signatureRequestFilesWithHttpInfo(string $signature_request_id, string $file_type = 'pdf')
     {
@@ -1718,14 +1718,14 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1760,7 +1760,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2029,14 +2029,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\FileResponseDataUri' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\FileResponseDataUri' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\FileResponseDataUri', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FileResponseDataUri', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2045,20 +2045,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\FileResponseDataUri';
+            $returnType = '\Dropbox\Sign\Model\FileResponseDataUri';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2076,7 +2076,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\FileResponseDataUri',
+                    '\Dropbox\Sign\Model\FileResponseDataUri',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2087,7 +2087,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2129,7 +2129,7 @@ class SignatureRequestApi
      */
     public function signatureRequestFilesAsDataUriAsyncWithHttpInfo(string $signature_request_id)
     {
-        $returnType = '\HelloSign\Model\FileResponseDataUri';
+        $returnType = '\Dropbox\Sign\Model\FileResponseDataUri';
         $request = $this->signatureRequestFilesAsDataUriRequest($signature_request_id);
 
         return $this->client
@@ -2342,14 +2342,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\FileResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\FileResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\FileResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\FileResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2358,20 +2358,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\FileResponse';
+            $returnType = '\Dropbox\Sign\Model\FileResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2389,7 +2389,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\FileResponse',
+                    '\Dropbox\Sign\Model\FileResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2400,7 +2400,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2442,7 +2442,7 @@ class SignatureRequestApi
      */
     public function signatureRequestFilesAsFileUrlAsyncWithHttpInfo(string $signature_request_id)
     {
-        $returnType = '\HelloSign\Model\FileResponse';
+        $returnType = '\Dropbox\Sign\Model\FileResponse';
         $request = $this->signatureRequestFilesAsFileUrlRequest($signature_request_id);
 
         return $this->client
@@ -2655,14 +2655,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2671,20 +2671,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2702,7 +2702,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2713,7 +2713,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -2755,7 +2755,7 @@ class SignatureRequestApi
      */
     public function signatureRequestGetAsyncWithHttpInfo(string $signature_request_id)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestGetRequest($signature_request_id);
 
         return $this->client
@@ -2974,14 +2974,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestListResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestListResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestListResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestListResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -2990,20 +2990,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestListResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3021,7 +3021,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestListResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestListResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3032,7 +3032,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3080,7 +3080,7 @@ class SignatureRequestApi
      */
     public function signatureRequestListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, string $query = null)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestListResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestListResponse';
         $request = $this->signatureRequestListRequest($account_id, $page, $page_size, $query);
 
         return $this->client
@@ -3321,14 +3321,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -3337,20 +3337,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3368,7 +3368,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3379,7 +3379,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3421,7 +3421,7 @@ class SignatureRequestApi
      */
     public function signatureRequestReleaseHoldAsyncWithHttpInfo(string $signature_request_id)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestReleaseHoldRequest($signature_request_id);
 
         return $this->client
@@ -3636,14 +3636,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -3652,20 +3652,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3683,7 +3683,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3694,7 +3694,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -3738,7 +3738,7 @@ class SignatureRequestApi
      */
     public function signatureRequestRemindAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestRemindRequest $signature_request_remind_request)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestRemindRequest($signature_request_id, $signature_request_remind_request);
 
         return $this->client
@@ -3975,7 +3975,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4216,14 +4216,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -4232,20 +4232,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4263,7 +4263,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4274,7 +4274,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4316,7 +4316,7 @@ class SignatureRequestApi
      */
     public function signatureRequestSendAsyncWithHttpInfo(Model\SignatureRequestSendRequest $signature_request_send_request)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestSendRequest($signature_request_send_request);
 
         return $this->client
@@ -4533,14 +4533,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -4549,20 +4549,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4580,7 +4580,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4591,7 +4591,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4633,7 +4633,7 @@ class SignatureRequestApi
      */
     public function signatureRequestSendWithTemplateAsyncWithHttpInfo(Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestSendWithTemplateRequest($signature_request_send_with_template_request);
 
         return $this->client
@@ -4852,14 +4852,14 @@ class SignatureRequestApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\SignatureRequestGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -4868,20 +4868,20 @@ class SignatureRequestApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4899,7 +4899,7 @@ class SignatureRequestApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\SignatureRequestGetResponse',
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4910,7 +4910,7 @@ class SignatureRequestApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -4954,7 +4954,7 @@ class SignatureRequestApi
      */
     public function signatureRequestUpdateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestUpdateRequest $signature_request_update_request)
     {
-        $returnType = '\HelloSign\Model\SignatureRequestGetResponse';
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
         $request = $this->signatureRequestUpdateRequest($signature_request_id, $signature_request_update_request);
 
         return $this->client
