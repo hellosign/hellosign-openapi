@@ -14,9 +14,6 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
-
 describe HelloSign::OAuthApi do
   context 'OAuthApiTest' do
     api = HelloSign::OAuthApi.new
@@ -29,13 +26,13 @@ describe HelloSign::OAuthApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || OAuthTokenResponse
-      obj = api_client.convert_to_type(request_data, request_class) || OAuthTokenGenerateRequest
+      expected = HelloSign::OAuthTokenResponse.init(response_data)
+      obj = HelloSign::OAuthTokenGenerateRequest.init(request_data)
 
       result = api.oauth_token_generate(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTokenRefresh' do
@@ -46,13 +43,13 @@ describe HelloSign::OAuthApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || OAuthTokenResponse
-      obj = api_client.convert_to_type(request_data, request_class) || OAuthTokenRefreshRequest
+      expected = HelloSign::OAuthTokenResponse.init(response_data)
+      obj = HelloSign::OAuthTokenRefreshRequest.init(request_data)
 
       result = api.oauth_token_refresh(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end
 end

@@ -64,6 +64,16 @@ module HelloSign
       self.openapi_nullable
     end
 
+    # Attempt to instantiate and hydrate a new instance of this class
+    # @param [Object] data Data to be converted
+    # @return [TemplateResponseFieldAvgTextLength]
+    def self.init(data)
+      return ApiClient.default.convert_to_type(
+        data,
+        "TemplateResponseFieldAvgTextLength"
+      ) || TemplateResponseFieldAvgTextLength.new
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})

@@ -64,6 +64,16 @@ module HelloSign
       self.openapi_nullable
     end
 
+    # Attempt to instantiate and hydrate a new instance of this class
+    # @param [Object] data Data to be converted
+    # @return [SubTemplateRole]
+    def self.init(data)
+      return ApiClient.default.convert_to_type(
+        data,
+        "SubTemplateRole"
+      ) || SubTemplateRole.new
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})

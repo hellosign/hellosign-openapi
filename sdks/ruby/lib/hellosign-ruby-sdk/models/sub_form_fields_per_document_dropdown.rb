@@ -69,6 +69,16 @@ module HelloSign
       self.superclass.openapi_nullable.merge(self.openapi_nullable)
     end
 
+    # Attempt to instantiate and hydrate a new instance of this class
+    # @param [Object] data Data to be converted
+    # @return [SubFormFieldsPerDocumentDropdown]
+    def self.init(data)
+      return ApiClient.default.convert_to_type(
+        data,
+        "SubFormFieldsPerDocumentDropdown"
+      ) || SubFormFieldsPerDocumentDropdown.new
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})

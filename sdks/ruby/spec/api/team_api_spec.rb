@@ -14,9 +14,6 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
-
 describe HelloSign::TeamApi do
   context 'TeamApiTest' do
     api = HelloSign::TeamApi.new
@@ -29,13 +26,13 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TeamAddMemberRequest
-      obj = api_client.convert_to_type(request_data, request_class) || TeamGetResponse
+      expected = HelloSign::TeamGetResponse.init(response_data)
+      obj = HelloSign::TeamAddMemberRequest.init(request_data)
 
       result = api.team_add_member(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTeamCreate' do
@@ -46,13 +43,13 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TeamGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TeamCreateRequest
+      expected = HelloSign::TeamGetResponse.init(response_data)
+      obj = HelloSign::TeamCreateRequest.init(request_data)
 
       result = api.team_create(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     skip 'testTeamDelete' do
@@ -63,12 +60,12 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TeamGetResponse
+      expected = HelloSign::TeamGetResponse.init(response_data)
 
       result = api.team_get
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTeamUpdate' do
@@ -79,13 +76,13 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TeamGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TeamUpdateRequest
+      expected = HelloSign::TeamGetResponse.init(response_data)
+      obj = HelloSign::TeamUpdateRequest.init(request_data)
 
       result = api.team_update(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTeamRemoveMember' do
@@ -96,13 +93,13 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TeamGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TeamRemoveMemberRequest
+      expected = HelloSign::TeamGetResponse.init(response_data)
+      obj = HelloSign::TeamRemoveMemberRequest.init(request_data)
 
       result = api.team_remove_member(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end
 end

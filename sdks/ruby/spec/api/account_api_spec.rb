@@ -14,9 +14,6 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
-
 describe HelloSign::AccountApi do
   context 'AccountApiTest' do
     api = HelloSign::AccountApi.new
@@ -31,15 +28,15 @@ describe HelloSign::AccountApi do
       code = rand(400..499)
 
       set_expected_response(code, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || ErrorResponse
-      obj = api_client.convert_to_type(request_data, request_class) || AccountCreateRequest
+      expected = HelloSign::ErrorResponse.init(response_data)
+      obj = HelloSign::AccountCreateRequest.init(request_data)
 
       begin
         result = api.account_create(obj)
         fail_with("Should have thrown error: #{result}")
       rescue HelloSign::ApiError => e
         expect(e.response_body.class.to_s).to eq("HelloSign::#{response_class}")
-        expect(e.response_body.to_json).to be_json_eql(expected.to_json)
+        expect(e.response_body.to_json).to be_json_eql(JSON.dump(expected))
       end
     end
 
@@ -51,13 +48,13 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || AccountCreateResponse
-      obj = api_client.convert_to_type(request_data, request_class) || AccountCreateRequest
+      expected = HelloSign::AccountCreateResponse.init(response_data)
+      obj = HelloSign::AccountCreateRequest.init(request_data)
 
       result = api.account_create(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testAccountGet' do
@@ -65,12 +62,12 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || AccountGetResponse
+      expected = HelloSign::AccountGetResponse.init(response_data)
 
       result = api.account_get({ email_address: "jack@example.com" })
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testAccountUpdate' do
@@ -81,13 +78,13 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || AccountGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || AccountUpdateRequest
+      expected = HelloSign::AccountGetResponse.init(response_data)
+      obj = HelloSign::AccountUpdateRequest.init(request_data)
 
       result = api.account_update(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testAccountVerify' do
@@ -98,13 +95,13 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || AccountVerifyResponse
-      obj = api_client.convert_to_type(request_data, request_class) || AccountVerifyRequest
+      expected = HelloSign::AccountVerifyResponse.init(response_data)
+      obj = HelloSign::AccountVerifyRequest.init(request_data)
 
       result = api.account_verify(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end
 end
