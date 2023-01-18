@@ -1,4 +1,4 @@
-# HelloSign.Model.BulkSendJobSendResponse
+# Dropbox.Sign.Model.BulkSendJobSendResponse
 
 ## Properties
 

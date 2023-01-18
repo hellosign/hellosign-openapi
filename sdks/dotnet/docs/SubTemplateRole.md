@@ -1,4 +1,4 @@
-# HelloSign.Model.SubTemplateRole
+# Dropbox.Sign.Model.SubTemplateRole
 
 ## Properties
 

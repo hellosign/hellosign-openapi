@@ -1,4 +1,4 @@
-# HelloSign.Model.TeamParentResponse
+# Dropbox.Sign.Model.TeamParentResponse
 Information about the parent team if a team has one, set to `null` otherwise.
 
 ## Properties

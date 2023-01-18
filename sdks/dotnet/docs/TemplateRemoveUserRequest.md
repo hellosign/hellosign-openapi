@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateRemoveUserRequest
+# Dropbox.Sign.Model.TemplateRemoveUserRequest
 
 ## Properties
 

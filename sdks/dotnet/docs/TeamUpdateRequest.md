@@ -1,4 +1,4 @@
-# HelloSign.Model.TeamUpdateRequest
+# Dropbox.Sign.Model.TeamUpdateRequest
 
 ## Properties
 

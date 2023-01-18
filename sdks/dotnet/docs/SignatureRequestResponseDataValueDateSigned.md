@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponseDataValueDateSigned
+# Dropbox.Sign.Model.SignatureRequestResponseDataValueDateSigned
 
 ## Properties
 

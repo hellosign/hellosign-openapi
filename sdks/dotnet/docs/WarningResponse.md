@@ -1,4 +1,4 @@
-# HelloSign.Model.WarningResponse
+# Dropbox.Sign.Model.WarningResponse
 A list of warnings.
 
 ## Properties

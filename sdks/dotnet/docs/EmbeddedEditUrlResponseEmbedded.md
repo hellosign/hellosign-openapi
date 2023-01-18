@@ -1,4 +1,4 @@
-# HelloSign.Model.EmbeddedEditUrlResponseEmbedded
+# Dropbox.Sign.Model.EmbeddedEditUrlResponseEmbedded
 An embedded template object.
 
 ## Properties

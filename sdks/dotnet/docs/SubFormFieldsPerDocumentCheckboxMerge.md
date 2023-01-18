@@ -1,4 +1,4 @@
-# HelloSign.Model.SubFormFieldsPerDocumentCheckboxMerge
+# Dropbox.Sign.Model.SubFormFieldsPerDocumentCheckboxMerge
 This class extends `SubFormFieldsPerDocumentBase`.
 
 ## Properties

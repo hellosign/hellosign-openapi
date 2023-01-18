@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponseCustomFieldText
+# Dropbox.Sign.Model.SignatureRequestResponseCustomFieldText
 This class extends `SignatureRequestResponseCustomFieldBase`.
 
 ## Properties

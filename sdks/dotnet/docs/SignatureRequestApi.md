@@ -1,4 +1,4 @@
-# HelloSign.Api.SignatureRequestApi
+# Dropbox.Sign.Api.SignatureRequestApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -34,9 +34,9 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -177,9 +177,9 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -319,9 +319,9 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -411,9 +411,9 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -545,9 +545,9 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -661,9 +661,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -761,9 +761,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -856,9 +856,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -951,9 +951,9 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1046,9 +1046,9 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1144,9 +1144,9 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1239,9 +1239,9 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1339,9 +1339,9 @@ Removes your access to a completed signature request. This action is **not rever
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1431,9 +1431,9 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1576,9 +1576,9 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -1706,9 +1706,9 @@ Updates the email address and/or the name for a given signer on a signature requ
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

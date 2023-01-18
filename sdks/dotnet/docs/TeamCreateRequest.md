@@ -1,4 +1,4 @@
-# HelloSign.Model.TeamCreateRequest
+# Dropbox.Sign.Model.TeamCreateRequest
 
 ## Properties
 

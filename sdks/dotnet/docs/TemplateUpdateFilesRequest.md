@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateUpdateFilesRequest
+# Dropbox.Sign.Model.TemplateUpdateFilesRequest
 
 ## Properties
 

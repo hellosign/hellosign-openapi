@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateCreateEmbeddedDraftRequest
+# Dropbox.Sign.Model.TemplateCreateEmbeddedDraftRequest
 
 ## Properties
 

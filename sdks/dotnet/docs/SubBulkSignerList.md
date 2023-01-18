@@ -1,4 +1,4 @@
-# HelloSign.Model.SubBulkSignerList
+# Dropbox.Sign.Model.SubBulkSignerList
 
 ## Properties
 

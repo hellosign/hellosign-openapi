@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateCreateEmbeddedDraftResponseTemplate
+# Dropbox.Sign.Model.TemplateCreateEmbeddedDraftResponseTemplate
 Template object with parameters: `template_id`, `edit_url`, `expires_at`.
 
 ## Properties

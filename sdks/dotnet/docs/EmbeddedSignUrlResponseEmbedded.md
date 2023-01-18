@@ -1,4 +1,4 @@
-# HelloSign.Model.EmbeddedSignUrlResponseEmbedded
+# Dropbox.Sign.Model.EmbeddedSignUrlResponseEmbedded
 An object that contains necessary information to set up embedded signing.
 
 ## Properties

@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateResponse
+# Dropbox.Sign.Model.TemplateResponse
 Contains information about the templates you and your team have created.
 
 ## Properties

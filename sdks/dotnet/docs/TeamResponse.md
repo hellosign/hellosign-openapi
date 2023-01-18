@@ -1,4 +1,4 @@
-# HelloSign.Model.TeamResponse
+# Dropbox.Sign.Model.TeamResponse
 Contains information about your team and its members
 
 ## Properties

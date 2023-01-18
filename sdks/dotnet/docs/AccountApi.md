@@ -1,4 +1,4 @@
-# HelloSign.Api.AccountApi
+# Dropbox.Sign.Api.AccountApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -21,9 +21,9 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ```csharp
 using System;
 
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -118,9 +118,9 @@ Returns the properties and settings of your Account.
 ```csharp
 using System;
 
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -212,9 +212,9 @@ Updates the properties and settings of your Account. Currently only allows for u
 ```csharp
 using System;
 
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -309,9 +309,9 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ```csharp
 using System;
 
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

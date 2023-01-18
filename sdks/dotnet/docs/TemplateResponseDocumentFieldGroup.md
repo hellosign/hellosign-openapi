@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateResponseDocumentFieldGroup
+# Dropbox.Sign.Model.TemplateResponseDocumentFieldGroup
 
 ## Properties
 

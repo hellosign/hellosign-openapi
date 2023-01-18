@@ -1,4 +1,4 @@
-# HelloSign.Model.SubEditorOptions
+# Dropbox.Sign.Model.SubEditorOptions
 This allows the requester to specify editor options when a preparing a document
 
 ## Properties

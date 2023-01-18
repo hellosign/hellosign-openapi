@@ -1,4 +1,4 @@
-# HelloSign.Api.BulkSendJobApi
+# Dropbox.Sign.Api.BulkSendJobApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -20,9 +20,9 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -116,9 +116,9 @@ Returns a list of BulkSendJob that you can access.
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

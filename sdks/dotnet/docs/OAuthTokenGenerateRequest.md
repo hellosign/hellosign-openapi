@@ -1,4 +1,4 @@
-# HelloSign.Model.OAuthTokenGenerateRequest
+# Dropbox.Sign.Model.OAuthTokenGenerateRequest
 
 ## Properties
 

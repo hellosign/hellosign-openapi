@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateListResponse
+# Dropbox.Sign.Model.TemplateListResponse
 
 ## Properties
 

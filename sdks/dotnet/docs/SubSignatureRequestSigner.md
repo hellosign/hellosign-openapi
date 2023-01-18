@@ -1,4 +1,4 @@
-# HelloSign.Model.SubSignatureRequestSigner
+# Dropbox.Sign.Model.SubSignatureRequestSigner
 
 ## Properties
 

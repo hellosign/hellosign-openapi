@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateUpdateFilesResponseTemplate
+# Dropbox.Sign.Model.TemplateUpdateFilesResponseTemplate
 Contains template id
 
 ## Properties

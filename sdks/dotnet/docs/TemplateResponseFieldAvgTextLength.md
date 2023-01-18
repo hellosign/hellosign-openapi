@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateResponseFieldAvgTextLength
+# Dropbox.Sign.Model.TemplateResponseFieldAvgTextLength
 Average text length in this field.
 
 ## Properties

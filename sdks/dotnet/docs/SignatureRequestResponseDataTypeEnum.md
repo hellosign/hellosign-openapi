@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponseDataTypeEnum
+# Dropbox.Sign.Model.SignatureRequestResponseDataTypeEnum
 
 ## Properties
 

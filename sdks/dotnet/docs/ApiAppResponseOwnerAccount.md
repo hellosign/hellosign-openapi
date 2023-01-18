@@ -1,4 +1,4 @@
-# HelloSign.Model.ApiAppResponseOwnerAccount
+# Dropbox.Sign.Model.ApiAppResponseOwnerAccount
 An object describing the app's owner
 
 ## Properties

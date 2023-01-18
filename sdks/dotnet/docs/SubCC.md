@@ -1,4 +1,4 @@
-# HelloSign.Model.SubCC
+# Dropbox.Sign.Model.SubCC
 
 ## Properties
 

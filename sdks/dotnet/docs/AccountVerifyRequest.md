@@ -1,4 +1,4 @@
-# HelloSign.Model.AccountVerifyRequest
+# Dropbox.Sign.Model.AccountVerifyRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# HelloSign.Model.TeamRemoveMemberRequest
+# Dropbox.Sign.Model.TeamRemoveMemberRequest
 
 ## Properties
 

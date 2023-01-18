@@ -1,4 +1,4 @@
-# HelloSign.Model.SubOAuth
+# Dropbox.Sign.Model.SubOAuth
 OAuth related parameters.
 
 ## Properties

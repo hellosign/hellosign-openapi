@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponse
+# Dropbox.Sign.Model.SignatureRequestResponse
 Contains information about a signature request.
 
 ## Properties

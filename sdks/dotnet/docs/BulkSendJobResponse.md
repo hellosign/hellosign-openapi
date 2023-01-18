@@ -1,4 +1,4 @@
-# HelloSign.Model.BulkSendJobResponse
+# Dropbox.Sign.Model.BulkSendJobResponse
 Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
 
 ## Properties

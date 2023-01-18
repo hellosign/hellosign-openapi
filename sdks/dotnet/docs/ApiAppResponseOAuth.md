@@ -1,4 +1,4 @@
-# HelloSign.Model.ApiAppResponseOAuth
+# Dropbox.Sign.Model.ApiAppResponseOAuth
 An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
 
 ## Properties

@@ -1,4 +1,4 @@
-# HelloSign.Model.SubFormFieldsPerDocumentText
+# Dropbox.Sign.Model.SubFormFieldsPerDocumentText
 This class extends `SubFormFieldsPerDocumentBase`.
 
 ## Properties

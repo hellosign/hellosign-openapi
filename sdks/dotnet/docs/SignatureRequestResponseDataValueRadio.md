@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponseDataValueRadio
+# Dropbox.Sign.Model.SignatureRequestResponseDataValueRadio
 
 ## Properties
 

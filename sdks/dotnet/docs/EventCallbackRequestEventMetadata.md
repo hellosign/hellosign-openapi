@@ -1,4 +1,4 @@
-# HelloSign.Model.EventCallbackRequestEventMetadata
+# Dropbox.Sign.Model.EventCallbackRequestEventMetadata
 Specific metadata about the event.
 
 ## Properties

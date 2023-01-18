@@ -1,4 +1,4 @@
-# HelloSign.Model.ListInfoResponse
+# Dropbox.Sign.Model.ListInfoResponse
 Contains pagination information about the data returned.
 
 ## Properties

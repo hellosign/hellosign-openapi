@@ -1,4 +1,4 @@
-# HelloSign.Model.EmbeddedEditUrlRequest
+# Dropbox.Sign.Model.EmbeddedEditUrlRequest
 
 ## Properties
 

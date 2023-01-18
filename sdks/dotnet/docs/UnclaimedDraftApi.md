@@ -1,4 +1,4 @@
-# HelloSign.Api.UnclaimedDraftApi
+# Dropbox.Sign.Api.UnclaimedDraftApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -22,9 +22,9 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -168,9 +168,9 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -277,9 +277,9 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -390,9 +390,9 @@ Creates a new signature request from an embedded request that can be edited prio
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
