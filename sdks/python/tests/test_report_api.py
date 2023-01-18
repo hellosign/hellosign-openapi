@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager
 
 
 class TestReportApi(unittest.TestCase):
@@ -25,8 +25,8 @@ class TestReportApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.ReportCreateResponse.init(response_data)
+        obj = m.ReportCreateRequest.init(request_data)
 
         result = self.api.report_create(obj)
 

@@ -1,8 +1,10 @@
 {{> partial_header }}
 
+import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
 
+from {{packageName}} import ApiClient
 from {{packageName}}.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,

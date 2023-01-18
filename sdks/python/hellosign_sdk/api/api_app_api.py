@@ -318,7 +318,7 @@ class ApiAppApi(object):
         self,
         api_app_create_request,
         **kwargs
-    ):
+    ) -> "ApiAppGetResponse":
         """Create API App  # noqa: E501
 
         Creates a new API App.  # noqa: E501
@@ -418,7 +418,7 @@ class ApiAppApi(object):
         self,
         client_id,
         **kwargs
-    ):
+    ) -> None:
         """Delete API App  # noqa: E501
 
         Deletes an API App. Can only be invoked for apps you own.  # noqa: E501
@@ -496,7 +496,7 @@ class ApiAppApi(object):
         self,
         client_id,
         **kwargs
-    ):
+    ) -> "ApiAppGetResponse":
         """Get API App  # noqa: E501
 
         Returns an object with information about an API App.  # noqa: E501
@@ -595,7 +595,7 @@ class ApiAppApi(object):
     def api_app_list(
         self,
         **kwargs
-    ):
+    ) -> "ApiAppListResponse":
         """List API Apps  # noqa: E501
 
         Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.  # noqa: E501
@@ -694,7 +694,7 @@ class ApiAppApi(object):
         client_id,
         api_app_update_request,
         **kwargs
-    ):
+    ) -> "ApiAppGetResponse":
         """Update API App  # noqa: E501
 
         Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.  # noqa: E501

@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize, get_base_path
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager, get_base_path
 
 
 class TestSignatureRequestApi(unittest.TestCase):
@@ -25,8 +25,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.BulkSendJobSendResponse.init(response_data)
+        obj = m.SignatureRequestBulkCreateEmbeddedWithTemplateRequest.init(request_data)
         obj.signer_file = open(f'{get_base_path()}/bulk-send-sample.csv', 'rb')
 
         result = self.api.signature_request_bulk_create_embedded_with_template(obj)
@@ -46,8 +46,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.BulkSendJobSendResponse.init(response_data)
+        obj = m.SignatureRequestBulkSendWithTemplateRequest.init(request_data)
         obj.signer_file = open(f'{get_base_path()}/bulk-send-sample.csv', 'rb')
 
         result = self.api.signature_request_bulk_send_with_template(obj)
@@ -67,8 +67,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestCreateEmbeddedRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.signature_request_create_embedded(obj)
@@ -88,8 +88,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestCreateEmbeddedWithTemplateRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.signature_request_create_embedded_with_template(obj)
@@ -110,7 +110,7 @@ class TestSignatureRequestApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
 
         result = self.api.signature_request_get(signature_request_id)
 
@@ -127,7 +127,7 @@ class TestSignatureRequestApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.SignatureRequestListResponse.init(response_data)
 
         result = self.api.signature_request_list(account_id=account_id)
 
@@ -144,7 +144,7 @@ class TestSignatureRequestApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
 
         result = self.api.signature_request_release_hold(signature_request_id)
 
@@ -165,8 +165,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestRemindRequest.init(request_data)
 
         result = self.api.signature_request_remind(signature_request_id, obj)
 
@@ -188,8 +188,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestSendRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.signature_request_send(obj)
@@ -209,8 +209,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestSendRequest.init(request_data)
 
         result = self.api.signature_request_send(obj)
 
@@ -229,8 +229,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestSendWithTemplateRequest.init(request_data)
 
         result = self.api.signature_request_send_with_template(obj)
 
@@ -251,8 +251,8 @@ class TestSignatureRequestApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.SignatureRequestGetResponse.init(response_data)
+        obj = m.SignatureRequestUpdateRequest.init(request_data)
 
         result = self.api.signature_request_update(signature_request_id, obj)
 

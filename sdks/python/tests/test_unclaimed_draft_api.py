@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize, get_base_path
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager, get_base_path
 
 
 class TestUnclaimedDraftApi(unittest.TestCase):
@@ -25,8 +25,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.UnclaimedDraftCreateResponse.init(response_data)
+        obj = m.UnclaimedDraftCreateRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.unclaimed_draft_create(obj)
@@ -46,8 +46,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.UnclaimedDraftCreateResponse.init(response_data)
+        obj = m.UnclaimedDraftCreateEmbeddedRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.unclaimed_draft_create_embedded(obj)
@@ -67,8 +67,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.UnclaimedDraftCreateResponse.init(response_data)
+        obj = m.UnclaimedDraftCreateEmbeddedWithTemplateRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.unclaimed_draft_create_embedded_with_template(obj)
@@ -90,8 +90,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.UnclaimedDraftCreateResponse.init(response_data)
+        obj = m.UnclaimedDraftEditAndResendRequest.init(request_data)
 
         result = self.api.unclaimed_draft_edit_and_resend(signature_request_id, obj)
 

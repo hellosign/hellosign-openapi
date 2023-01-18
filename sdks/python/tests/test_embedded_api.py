@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager
 
 
 class TestEmbeddedApi(unittest.TestCase):
@@ -27,8 +27,8 @@ class TestEmbeddedApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.EmbeddedEditUrlResponse.init(response_data)
+        obj = m.EmbeddedEditUrlRequest.init(request_data)
 
         result = self.api.embedded_edit_url(template_id, obj)
 
@@ -45,7 +45,7 @@ class TestEmbeddedApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.EmbeddedSignUrlResponse.init(response_data)
 
         result = self.api.embedded_sign_url(signature_id)
 

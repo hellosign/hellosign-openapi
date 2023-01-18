@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager
 
 
 class TestBulkSendJobApi(unittest.TestCase):
@@ -23,7 +23,7 @@ class TestBulkSendJobApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.BulkSendJobGetResponse.init(response_data)
 
         result = self.api.bulk_send_job_get(bulk_send_job_id)
 
@@ -41,7 +41,7 @@ class TestBulkSendJobApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.BulkSendJobListResponse.init(response_data)
 
         result = self.api.bulk_send_job_list(page=page, page_size=page_size)
 

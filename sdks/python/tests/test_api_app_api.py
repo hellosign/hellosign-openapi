@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize, get_base_path
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager, get_base_path
 
 
 class TestApiAppApi(unittest.TestCase):
@@ -26,10 +26,10 @@ class TestApiAppApi(unittest.TestCase):
             response=response_data
         )
 
-        obj = deserialize(request_data, f'models.{request_class}')
+        obj = m.ApiAppCreateRequest.init(request_data)
         obj.custom_logo_file = open(f'{get_base_path()}/pdf-sample.pdf', 'rb')
 
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.ApiAppGetResponse.init(response_data)
 
         result = self.api.api_app_create(obj)
 
@@ -46,7 +46,7 @@ class TestApiAppApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.ApiAppGetResponse.init(response_data)
 
         result = self.api.api_app_get(client_id)
 
@@ -68,10 +68,10 @@ class TestApiAppApi(unittest.TestCase):
             response=response_data
         )
 
-        obj = deserialize(request_data, f'models.{request_class}')
+        obj = m.ApiAppUpdateRequest.init(request_data)
         obj.custom_logo_file = open(f'{get_base_path()}/pdf-sample.pdf', 'rb')
 
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.ApiAppGetResponse.init(response_data)
 
         result = self.api.api_app_update(client_id, obj)
 
@@ -92,7 +92,7 @@ class TestApiAppApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.ApiAppListResponse.init(response_data)
 
         result = self.api.api_app_list(page=page, page_size=page_size)
 

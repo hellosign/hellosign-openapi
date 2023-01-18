@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize, get_base_path
+from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager, get_base_path
 
 
 class TestTemplateApi(unittest.TestCase):
@@ -27,8 +27,8 @@ class TestTemplateApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.TemplateGetResponse.init(response_data)
+        obj = m.TemplateAddUserRequest.init(request_data)
 
         result = self.api.template_add_user(template_id, obj)
 
@@ -47,8 +47,8 @@ class TestTemplateApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.TemplateCreateEmbeddedDraftResponse.init(response_data)
+        obj = m.TemplateCreateEmbeddedDraftRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.template_create_embedded_draft(obj)
@@ -72,7 +72,7 @@ class TestTemplateApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.TemplateGetResponse.init(response_data)
 
         result = self.api.template_get(template_id)
 
@@ -89,7 +89,7 @@ class TestTemplateApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.TemplateListResponse.init(response_data)
 
         result = self.api.template_list(account_id=account_id)
 
@@ -110,8 +110,8 @@ class TestTemplateApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.TemplateGetResponse.init(response_data)
+        obj = m.TemplateRemoveUserRequest.init(request_data)
 
         result = self.api.template_remove_user(template_id, obj)
 
@@ -132,8 +132,8 @@ class TestTemplateApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.TemplateUpdateFilesResponse.init(response_data)
+        obj = m.TemplateUpdateFilesRequest.init(request_data)
         obj.files = [open(f'{get_base_path()}/pdf-sample.pdf', 'rb')]
 
         result = self.api.template_update_files(template_id, obj)

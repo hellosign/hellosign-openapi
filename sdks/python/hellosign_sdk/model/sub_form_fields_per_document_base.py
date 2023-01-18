@@ -9,9 +9,11 @@
 """
 
 
+import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
 
+from hellosign_sdk import ApiClient
 from hellosign_sdk.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -136,6 +138,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
         if not val:
             return None
         return {'type': val}
+
 
     attribute_map = {
         'document_index': 'document_index',  # noqa: E501
