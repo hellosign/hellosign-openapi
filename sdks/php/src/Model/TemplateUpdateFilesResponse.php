@@ -181,7 +181,14 @@ class TemplateUpdateFilesResponse implements ModelInterface, ArrayAccess, JsonSe
         $this->container['template'] = $data['template'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateUpdateFilesResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateUpdateFilesResponse
     {
         /** @var TemplateUpdateFilesResponse $obj */
         $obj = ObjectSerializer::deserialize(

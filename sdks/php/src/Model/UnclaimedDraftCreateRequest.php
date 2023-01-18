@@ -336,7 +336,14 @@ class UnclaimedDraftCreateRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->container['expires_at'] = $data['expires_at'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): UnclaimedDraftCreateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): UnclaimedDraftCreateRequest
     {
         /** @var UnclaimedDraftCreateRequest $obj */
         $obj = ObjectSerializer::deserialize(

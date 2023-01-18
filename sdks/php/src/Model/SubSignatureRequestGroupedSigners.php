@@ -192,7 +192,14 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
         $this->container['order'] = $data['order'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubSignatureRequestGroupedSigners
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubSignatureRequestGroupedSigners
     {
         /** @var SubSignatureRequestGroupedSigners $obj */
         $obj = ObjectSerializer::deserialize(

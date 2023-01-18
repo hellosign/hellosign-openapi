@@ -187,7 +187,14 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): UnclaimedDraftCreateResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): UnclaimedDraftCreateResponse
     {
         /** @var UnclaimedDraftCreateResponse $obj */
         $obj = ObjectSerializer::deserialize(

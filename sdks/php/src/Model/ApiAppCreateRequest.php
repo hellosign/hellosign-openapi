@@ -218,7 +218,14 @@ class ApiAppCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['white_labeling_options'] = $data['white_labeling_options'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppCreateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ApiAppCreateRequest
     {
         /** @var ApiAppCreateRequest $obj */
         $obj = ObjectSerializer::deserialize(

@@ -187,7 +187,14 @@ class AccountGetResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): AccountGetResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): AccountGetResponse
     {
         /** @var AccountGetResponse $obj */
         $obj = ObjectSerializer::deserialize(

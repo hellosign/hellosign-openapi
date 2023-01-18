@@ -101,7 +101,7 @@ try {
 
 ```
 
-You may also instantiate objects by calling the class' `fromArray()` method:
+You may also instantiate objects by calling the class' `::init()` method:
 
 ```php
 <?php
@@ -113,7 +113,7 @@ $config->setUsername("YOUR_API_KEY");
 
 $api = new HelloSign\Api\SignatureRequestApi($config);
 
-$data = HelloSign\Model\SignatureRequestSendRequest::fromArray([
+$data = HelloSign\Model\SignatureRequestSendRequest::init([
     "title"   => "NDA with Acme Co.",
     "signers" => [
         [

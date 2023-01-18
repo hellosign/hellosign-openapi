@@ -20,7 +20,7 @@ $callback_data = [
     ],
 ];
 
-$callback_event = HelloSign\Model\EventCallbackRequest::fromArray($callback_data);
+$callback_event = HelloSign\Model\EventCallbackRequest::init($callback_data);
 
 // verify that a callback came from HelloSign.com
 if (HelloSign\EventCallbackHelper::isValid($api_key, $callback_event)) {

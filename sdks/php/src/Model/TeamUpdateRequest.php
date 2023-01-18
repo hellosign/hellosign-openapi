@@ -180,7 +180,14 @@ class TeamUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TeamUpdateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TeamUpdateRequest
     {
         /** @var TeamUpdateRequest $obj */
         $obj = ObjectSerializer::deserialize(

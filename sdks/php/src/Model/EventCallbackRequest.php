@@ -198,7 +198,14 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['template'] = $data['template'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): EventCallbackRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): EventCallbackRequest
     {
         /** @var EventCallbackRequest $obj */
         $obj = ObjectSerializer::deserialize(

@@ -205,7 +205,14 @@ class OAuthTokenResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->container['state'] = $data['state'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): OAuthTokenResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): OAuthTokenResponse
     {
         /** @var OAuthTokenResponse $obj */
         $obj = ObjectSerializer::deserialize(

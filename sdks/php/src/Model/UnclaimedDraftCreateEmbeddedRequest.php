@@ -408,7 +408,14 @@ class UnclaimedDraftCreateEmbeddedRequest implements ModelInterface, ArrayAccess
         $this->container['expires_at'] = $data['expires_at'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): UnclaimedDraftCreateEmbeddedRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): UnclaimedDraftCreateEmbeddedRequest
     {
         /** @var UnclaimedDraftCreateEmbeddedRequest $obj */
         $obj = ObjectSerializer::deserialize(

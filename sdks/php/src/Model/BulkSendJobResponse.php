@@ -200,7 +200,14 @@ class BulkSendJobResponse implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['created_at'] = $data['created_at'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): BulkSendJobResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): BulkSendJobResponse
     {
         /** @var BulkSendJobResponse $obj */
         $obj = ObjectSerializer::deserialize(

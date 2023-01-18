@@ -42,7 +42,7 @@ class EmbeddedApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\EmbeddedEditUrlRequest::fromArray($requestData);
+        $obj = Model\EmbeddedEditUrlRequest::init($requestData);
 
         $response = $this->api->embeddedEditUrl($templateId, $obj);
         $serialized = TestUtils::toArray($response);

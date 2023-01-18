@@ -174,7 +174,14 @@ class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentBase
         $this->container['type'] = $data['type'] ?? 'text-merge';
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldsPerDocumentTextMerge
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFormFieldsPerDocumentTextMerge
     {
         /** @var SubFormFieldsPerDocumentTextMerge $obj */
         $obj = ObjectSerializer::deserialize(

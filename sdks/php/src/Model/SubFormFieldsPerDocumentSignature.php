@@ -174,7 +174,14 @@ class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentBase
         $this->container['type'] = $data['type'] ?? 'signature';
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldsPerDocumentSignature
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFormFieldsPerDocumentSignature
     {
         /** @var SubFormFieldsPerDocumentSignature $obj */
         $obj = ObjectSerializer::deserialize(

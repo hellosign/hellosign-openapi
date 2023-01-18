@@ -21,7 +21,7 @@ class SubFormFieldsPerDocumentTest extends HelloTestCase
             'form_fields_per_document' => [$form_field],
         ];
 
-        $obj = SignatureRequestSendRequest::fromArray($data);
+        $obj = SignatureRequestSendRequest::init($data);
 
         $field = $obj->getFormFieldsPerDocument()[0];
 
@@ -51,7 +51,7 @@ class SubFormFieldsPerDocumentTest extends HelloTestCase
             null,
         ];
 
-        $obj = SignatureRequestSendRequest::fromArray($data);
+        $obj = SignatureRequestSendRequest::init($data);
 
         $field = $obj->getFormFieldsPerDocument()[0];
 

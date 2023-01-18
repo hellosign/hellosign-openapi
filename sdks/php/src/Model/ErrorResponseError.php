@@ -193,7 +193,14 @@ class ErrorResponseError implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->container['error_path'] = $data['error_path'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ErrorResponseError
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ErrorResponseError
     {
         /** @var ErrorResponseError $obj */
         $obj = ObjectSerializer::deserialize(

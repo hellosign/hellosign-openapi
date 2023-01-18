@@ -319,7 +319,14 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         $this->container['bulk_send_job_id'] = $data['bulk_send_job_id'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): BulkSendJobGetResponseSignatureRequests
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): BulkSendJobGetResponseSignatureRequests
     {
         /** @var BulkSendJobGetResponseSignatureRequests $obj */
         $obj = ObjectSerializer::deserialize(

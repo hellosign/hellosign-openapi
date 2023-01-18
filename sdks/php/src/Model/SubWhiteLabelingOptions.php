@@ -282,7 +282,14 @@ class SubWhiteLabelingOptions implements ModelInterface, ArrayAccess, JsonSerial
         $this->container['reset_to_default'] = $data['reset_to_default'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubWhiteLabelingOptions
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubWhiteLabelingOptions
     {
         /** @var SubWhiteLabelingOptions $obj */
         $obj = ObjectSerializer::deserialize(

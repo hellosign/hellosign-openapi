@@ -266,7 +266,14 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
         $this->container['populate_auto_fill_fields'] = $data['populate_auto_fill_fields'] ?? false;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestCreateEmbeddedWithTemplateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestCreateEmbeddedWithTemplateRequest
     {
         /** @var SignatureRequestCreateEmbeddedWithTemplateRequest $obj */
         $obj = ObjectSerializer::deserialize(

@@ -204,7 +204,14 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
         $this->container['state'] = $data['state'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): OAuthTokenGenerateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): OAuthTokenGenerateRequest
     {
         /** @var OAuthTokenGenerateRequest $obj */
         $obj = ObjectSerializer::deserialize(

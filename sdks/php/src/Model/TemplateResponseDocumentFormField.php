@@ -292,7 +292,14 @@ class TemplateResponseDocumentFormField implements ModelInterface, ArrayAccess, 
         $this->container['font_family'] = $data['font_family'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseDocumentFormField
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateResponseDocumentFormField
     {
         /** @var TemplateResponseDocumentFormField $obj */
         $obj = ObjectSerializer::deserialize(

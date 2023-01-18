@@ -40,7 +40,7 @@ class ReportApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\ReportCreateRequest::fromArray($requestData);
+        $obj = Model\ReportCreateRequest::init($requestData);
 
         $response = $this->api->reportCreate($obj);
         $serialized = TestUtils::toArray($response);

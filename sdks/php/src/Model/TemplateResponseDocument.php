@@ -211,7 +211,14 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['static_fields'] = $data['static_fields'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseDocument
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateResponseDocument
     {
         /** @var TemplateResponseDocument $obj */
         $obj = ObjectSerializer::deserialize(

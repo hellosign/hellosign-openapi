@@ -200,7 +200,14 @@ class ApiAppResponseOAuth implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['charges_users'] = $data['charges_users'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppResponseOAuth
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ApiAppResponseOAuth
     {
         /** @var ApiAppResponseOAuth $obj */
         $obj = ObjectSerializer::deserialize(

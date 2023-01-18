@@ -187,7 +187,14 @@ class ReportCreateResponse implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ReportCreateResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ReportCreateResponse
     {
         /** @var ReportCreateResponse $obj */
         $obj = ObjectSerializer::deserialize(

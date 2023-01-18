@@ -41,7 +41,7 @@ class ApiAppApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\ApiAppCreateRequest::fromArray($requestData);
+        $obj = Model\ApiAppCreateRequest::init($requestData);
         $obj->setCustomLogoFile(
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf')
         );
@@ -83,7 +83,7 @@ class ApiAppApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\ApiAppUpdateRequest::fromArray($requestData);
+        $obj = Model\ApiAppUpdateRequest::init($requestData);
         $obj->setCustomLogoFile(
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf')
         );

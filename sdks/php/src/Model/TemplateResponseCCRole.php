@@ -181,7 +181,14 @@ class TemplateResponseCCRole implements ModelInterface, ArrayAccess, JsonSeriali
         $this->container['name'] = $data['name'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseCCRole
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateResponseCCRole
     {
         /** @var TemplateResponseCCRole $obj */
         $obj = ObjectSerializer::deserialize(

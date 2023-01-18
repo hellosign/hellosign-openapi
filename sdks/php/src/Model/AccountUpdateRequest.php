@@ -192,7 +192,14 @@ class AccountUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['locale'] = $data['locale'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): AccountUpdateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): AccountUpdateRequest
     {
         /** @var AccountUpdateRequest $obj */
         $obj = ObjectSerializer::deserialize(

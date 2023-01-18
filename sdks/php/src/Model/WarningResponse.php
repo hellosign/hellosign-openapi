@@ -187,7 +187,14 @@ class WarningResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['warning_name'] = $data['warning_name'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): WarningResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): WarningResponse
     {
         /** @var WarningResponse $obj */
         $obj = ObjectSerializer::deserialize(

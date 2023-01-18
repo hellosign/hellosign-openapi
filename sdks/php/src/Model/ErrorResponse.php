@@ -180,7 +180,14 @@ class ErrorResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['error'] = $data['error'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ErrorResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ErrorResponse
     {
         /** @var ErrorResponse $obj */
         $obj = ObjectSerializer::deserialize(

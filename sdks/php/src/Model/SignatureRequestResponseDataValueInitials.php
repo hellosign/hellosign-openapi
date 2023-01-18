@@ -179,7 +179,14 @@ class SignatureRequestResponseDataValueInitials extends SignatureRequestResponse
         $this->container['value'] = $data['value'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestResponseDataValueInitials
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestResponseDataValueInitials
     {
         /** @var SignatureRequestResponseDataValueInitials $obj */
         $obj = ObjectSerializer::deserialize(

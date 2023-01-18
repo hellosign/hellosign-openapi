@@ -272,7 +272,14 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         $this->container['title'] = $data['title'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestSendWithTemplateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestSendWithTemplateRequest
     {
         /** @var SignatureRequestSendWithTemplateRequest $obj */
         $obj = ObjectSerializer::deserialize(

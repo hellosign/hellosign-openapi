@@ -188,7 +188,14 @@ class TeamParentResponse implements ModelInterface, ArrayAccess, JsonSerializabl
         $this->container['name'] = $data['name'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TeamParentResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TeamParentResponse
     {
         /** @var TeamParentResponse $obj */
         $obj = ObjectSerializer::deserialize(

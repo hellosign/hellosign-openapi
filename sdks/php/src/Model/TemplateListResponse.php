@@ -193,7 +193,14 @@ class TemplateListResponse implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateListResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateListResponse
     {
         /** @var TemplateListResponse $obj */
         $obj = ObjectSerializer::deserialize(
