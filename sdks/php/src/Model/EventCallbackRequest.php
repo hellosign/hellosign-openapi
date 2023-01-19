@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -59,10 +59,10 @@ class EventCallbackRequest implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'event' => '\HelloSign\Model\EventCallbackRequestEvent',
-        'account' => '\HelloSign\Model\AccountResponse',
-        'signature_request' => '\HelloSign\Model\SignatureRequestResponse',
-        'template' => '\HelloSign\Model\TemplateResponse',
+        'event' => '\Dropbox\Sign\Model\EventCallbackRequestEvent',
+        'account' => '\Dropbox\Sign\Model\AccountResponse',
+        'signature_request' => '\Dropbox\Sign\Model\SignatureRequestResponse',
+        'template' => '\Dropbox\Sign\Model\TemplateResponse',
     ];
 
     /**

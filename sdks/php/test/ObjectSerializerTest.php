@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace HelloSign\Test\Api;
+namespace Dropbox\Sign\Test\Api;
 
+use Dropbox\Sign\Api;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
+use Dropbox\Sign\Test\SignTestCase;
+use Dropbox\Sign\Test\TestUtils;
 use GuzzleHttp;
 use GuzzleHttp\Psr7;
-use HelloSign\Api;
-use HelloSign\Configuration;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
-use HelloSign\Test\HelloTestCase;
-use HelloSign\Test\TestUtils;
 use SplFileObject;
 
-class ObjectSerializerTest extends HelloTestCase
+class ObjectSerializerTest extends SignTestCase
 {
     /** @var Api\SignatureRequestApi */
     protected $api;

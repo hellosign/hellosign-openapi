@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HelloSign\Test;
+namespace Dropbox\Sign\Test;
 
 use ArrayAccess;
 
@@ -24,10 +24,7 @@ abstract class TestUtils
         );
     }
 
-    /**
-     * @param ArrayAccess|iterable $data
-     */
-    public static function toArray($data): array
+    public static function toArray(ArrayAccess $data): array
     {
         return json_decode(json_encode($data), true);
     }

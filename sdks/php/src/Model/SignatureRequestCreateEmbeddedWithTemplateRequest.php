@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -63,15 +63,15 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
     protected static $openAPITypes = [
         'template_ids' => 'string[]',
         'client_id' => 'string',
-        'signers' => '\HelloSign\Model\SubSignatureRequestTemplateSigner[]',
+        'signers' => '\Dropbox\Sign\Model\SubSignatureRequestTemplateSigner[]',
         'allow_decline' => 'bool',
-        'ccs' => '\HelloSign\Model\SubCC[]',
-        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
+        'ccs' => '\Dropbox\Sign\Model\SubCC[]',
+        'custom_fields' => '\Dropbox\Sign\Model\SubCustomField[]',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
-        'signing_options' => '\HelloSign\Model\SubSigningOptions',
+        'signing_options' => '\Dropbox\Sign\Model\SubSigningOptions',
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',

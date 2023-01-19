@@ -25,8 +25,13 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Api;
+namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +40,6 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSign\ApiException;
-use HelloSign\Configuration;
-use HelloSign\HeaderSelector;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -186,14 +186,14 @@ class AccountApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\AccountCreateResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\AccountCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\AccountCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -202,20 +202,20 @@ class AccountApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\AccountCreateResponse';
+            $returnType = '\Dropbox\Sign\Model\AccountCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -233,7 +233,7 @@ class AccountApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\AccountCreateResponse',
+                    '\Dropbox\Sign\Model\AccountCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -244,7 +244,7 @@ class AccountApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class AccountApi
      */
     public function accountCreateAsyncWithHttpInfo(Model\AccountCreateRequest $account_create_request)
     {
-        $returnType = '\HelloSign\Model\AccountCreateResponse';
+        $returnType = '\Dropbox\Sign\Model\AccountCreateResponse';
         $request = $this->accountCreateRequest($account_create_request);
 
         return $this->client
@@ -505,14 +505,14 @@ class AccountApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\AccountGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\AccountGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\AccountGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -521,20 +521,20 @@ class AccountApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\AccountGetResponse';
+            $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -552,7 +552,7 @@ class AccountApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\AccountGetResponse',
+                    '\Dropbox\Sign\Model\AccountGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -563,7 +563,7 @@ class AccountApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -607,7 +607,7 @@ class AccountApi
      */
     public function accountGetAsyncWithHttpInfo(string $account_id = null, string $email_address = null)
     {
-        $returnType = '\HelloSign\Model\AccountGetResponse';
+        $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
         $request = $this->accountGetRequest($account_id, $email_address);
 
         return $this->client
@@ -826,14 +826,14 @@ class AccountApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\AccountGetResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\AccountGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\AccountGetResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountGetResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -842,20 +842,20 @@ class AccountApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\AccountGetResponse';
+            $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -873,7 +873,7 @@ class AccountApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\AccountGetResponse',
+                    '\Dropbox\Sign\Model\AccountGetResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -884,7 +884,7 @@ class AccountApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -926,7 +926,7 @@ class AccountApi
      */
     public function accountUpdateAsyncWithHttpInfo(Model\AccountUpdateRequest $account_update_request)
     {
-        $returnType = '\HelloSign\Model\AccountGetResponse';
+        $returnType = '\Dropbox\Sign\Model\AccountGetResponse';
         $request = $this->accountUpdateRequest($account_update_request);
 
         return $this->client
@@ -1143,14 +1143,14 @@ class AccountApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\AccountVerifyResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\AccountVerifyResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\AccountVerifyResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\AccountVerifyResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1159,20 +1159,20 @@ class AccountApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\AccountVerifyResponse';
+            $returnType = '\Dropbox\Sign\Model\AccountVerifyResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1190,7 +1190,7 @@ class AccountApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\AccountVerifyResponse',
+                    '\Dropbox\Sign\Model\AccountVerifyResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1201,7 +1201,7 @@ class AccountApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1243,7 +1243,7 @@ class AccountApi
      */
     public function accountVerifyAsyncWithHttpInfo(Model\AccountVerifyRequest $account_verify_request)
     {
-        $returnType = '\HelloSign\Model\AccountVerifyResponse';
+        $returnType = '\Dropbox\Sign\Model\AccountVerifyResponse';
         $request = $this->accountVerifyRequest($account_verify_request);
 
         return $this->client

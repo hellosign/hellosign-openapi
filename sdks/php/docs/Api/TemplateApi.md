@@ -1,4 +1,4 @@
-# HelloSign\TemplateApi
+# Dropbox\Sign\TemplateApi
 
 All URIs are relative to https://api.hellosign.com/v3.
 
@@ -19,7 +19,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `templateAddUser()`
 
 ```php
-templateAddUser($template_id, $template_add_user_request): \HelloSign\Model\TemplateGetResponse
+templateAddUser($template_id, $template_add_user_request): \Dropbox\Sign\Model\TemplateGetResponse
 ```
 
 Add User to Template
@@ -33,7 +33,7 @@ Gives the specified Account access to the specified Template. The specified Acco
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -41,9 +41,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
-$data = new HelloSign\Model\TemplateAddUserRequest();
+$data = new Dropbox\Sign\Model\TemplateAddUserRequest();
 $data->setEmailAddress("george@dropboxsign.com");
 
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
@@ -51,7 +51,7 @@ $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 try {
     $result = $templateApi->templateAddUser($templateId, $data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -64,11 +64,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to give the Account access to. | |
-| **template_add_user_request** | [**\HelloSign\Model\TemplateAddUserRequest**](../Model/TemplateAddUserRequest.md)|  | |
+| **template_add_user_request** | [**\Dropbox\Sign\Model\TemplateAddUserRequest**](../Model/TemplateAddUserRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+[**\Dropbox\Sign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ try {
 ## `templateCreateEmbeddedDraft()`
 
 ```php
-templateCreateEmbeddedDraft($template_create_embedded_draft_request): \HelloSign\Model\TemplateCreateEmbeddedDraftResponse
+templateCreateEmbeddedDraft($template_create_embedded_draft_request): \Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse
 ```
 
 Create Embedded Template Draft
@@ -100,7 +100,7 @@ The first step in an embedded template workflow. Creates a draft template that c
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -108,28 +108,28 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
-$role1 = new HelloSign\Model\SubTemplateRole();
+$role1 = new Dropbox\Sign\Model\SubTemplateRole();
 $role1->setName("Client")
     ->setOrder(0);
 
-$role2 = new HelloSign\Model\SubTemplateRole();
+$role2 = new Dropbox\Sign\Model\SubTemplateRole();
 $role2->setName("Witness")
     ->setOrder(1);
 
-$mergeField1 = new HelloSign\Model\SubMergeField();
+$mergeField1 = new Dropbox\Sign\Model\SubMergeField();
 $mergeField1->setName("Full Name")
-    ->setType(HelloSign\Model\SubMergeField::TYPE_TEXT);
+    ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_TEXT);
 
-$mergeField2 = new HelloSign\Model\SubMergeField();
+$mergeField2 = new Dropbox\Sign\Model\SubMergeField();
 $mergeField2->setName("Is Registered?")
-    ->setType(HelloSign\Model\SubMergeField::TYPE_CHECKBOX);
+    ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_CHECKBOX);
 
-$fieldOptions = new HelloSign\Model\SubFieldOptions();
-$fieldOptions->setDateFormat(HelloSign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
+$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new HelloSign\Model\TemplateCreateEmbeddedDraftRequest();
+$data = new Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest();
 $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setTitle("Test Template")
@@ -144,7 +144,7 @@ $data->setClientId("37dee8d8440c66d54cfa05d92c160882")
 try {
     $result = $templateApi->templateCreateEmbeddedDraft($data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -156,11 +156,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_create_embedded_draft_request** | [**\HelloSign\Model\TemplateCreateEmbeddedDraftRequest**](../Model/TemplateCreateEmbeddedDraftRequest.md)|  | |
+| **template_create_embedded_draft_request** | [**\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftRequest**](../Model/TemplateCreateEmbeddedDraftRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TemplateCreateEmbeddedDraftResponse**](../Model/TemplateCreateEmbeddedDraftResponse.md)
+[**\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponse**](../Model/TemplateCreateEmbeddedDraftResponse.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Completely deletes the template specified from the account.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -200,13 +200,13 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
     $templateApi->templateDelete($templateId);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -254,7 +254,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -262,7 +262,7 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 $fileType = "pdf";
@@ -270,7 +270,7 @@ $fileType = "pdf";
 try {
     $result = $templateApi->templateFiles($templateId, $fileType);
     copy($result->getRealPath(), __DIR__ . '/file_response.pdf');
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -305,7 +305,7 @@ try {
 ## `templateFilesAsDataUri()`
 
 ```php
-templateFilesAsDataUri($template_id): \HelloSign\Model\FileResponseDataUri
+templateFilesAsDataUri($template_id): \Dropbox\Sign\Model\FileResponseDataUri
 ```
 
 Get Template Files as Data Uri
@@ -319,7 +319,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -327,14 +327,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
     $result = $templateApi->templateFilesAsDataUri($templateId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -350,7 +350,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\FileResponseDataUri**](../Model/FileResponseDataUri.md)
+[**\Dropbox\Sign\Model\FileResponseDataUri**](../Model/FileResponseDataUri.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ try {
 ## `templateFilesAsFileUrl()`
 
 ```php
-templateFilesAsFileUrl($template_id): \HelloSign\Model\FileResponse
+templateFilesAsFileUrl($template_id): \Dropbox\Sign\Model\FileResponse
 ```
 
 Get Template Files as File Url
@@ -382,7 +382,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -390,14 +390,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
 try {
     $result = $templateApi->templateFilesAsFileUrl($templateId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -413,7 +413,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\FileResponse**](../Model/FileResponse.md)
+[**\Dropbox\Sign\Model\FileResponse**](../Model/FileResponse.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ try {
 ## `templateGet()`
 
 ```php
-templateGet($template_id): \HelloSign\Model\TemplateGetResponse
+templateGet($template_id): \Dropbox\Sign\Model\TemplateGetResponse
 ```
 
 Get Template
@@ -445,7 +445,7 @@ Returns the Template specified by the `template_id` parameter.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -453,14 +453,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
     $result = $templateApi->templateGet($templateId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -476,7 +476,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+[**\Dropbox\Sign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
 
 ### Authorization
 
@@ -494,7 +494,7 @@ try {
 ## `templateList()`
 
 ```php
-templateList($account_id, $page, $page_size, $query): \HelloSign\Model\TemplateListResponse
+templateList($account_id, $page, $page_size, $query): \Dropbox\Sign\Model\TemplateListResponse
 ```
 
 List Templates
@@ -508,7 +508,7 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -516,14 +516,14 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $accountId = "f57db65d3f933b5316d398057a36176831451a35";
 
 try {
     $result = $templateApi->templateList($accountId);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -542,7 +542,7 @@ try {
 
 ### Return type
 
-[**\HelloSign\Model\TemplateListResponse**](../Model/TemplateListResponse.md)
+[**\Dropbox\Sign\Model\TemplateListResponse**](../Model/TemplateListResponse.md)
 
 ### Authorization
 
@@ -560,7 +560,7 @@ try {
 ## `templateRemoveUser()`
 
 ```php
-templateRemoveUser($template_id, $template_remove_user_request): \HelloSign\Model\TemplateGetResponse
+templateRemoveUser($template_id, $template_remove_user_request): \Dropbox\Sign\Model\TemplateGetResponse
 ```
 
 Remove User from Template
@@ -574,7 +574,7 @@ Removes the specified Account's access to the specified Template.
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -582,9 +582,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
-$data = new HelloSign\Model\TemplateRemoveUserRequest();
+$data = new Dropbox\Sign\Model\TemplateRemoveUserRequest();
 $data->setEmailAddress("george@dropboxsign.com");
 
 $templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
@@ -592,7 +592,7 @@ $templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 try {
     $result = $templateApi->templateRemoveUser($templateId, $data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -605,11 +605,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the Template to remove the Account&#39;s access to. | |
-| **template_remove_user_request** | [**\HelloSign\Model\TemplateRemoveUserRequest**](../Model/TemplateRemoveUserRequest.md)|  | |
+| **template_remove_user_request** | [**\Dropbox\Sign\Model\TemplateRemoveUserRequest**](../Model/TemplateRemoveUserRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
+[**\Dropbox\Sign\Model\TemplateGetResponse**](../Model/TemplateGetResponse.md)
 
 ### Authorization
 
@@ -627,7 +627,7 @@ try {
 ## `templateUpdateFiles()`
 
 ```php
-templateUpdateFiles($template_id, $template_update_files_request): \HelloSign\Model\TemplateUpdateFilesResponse
+templateUpdateFiles($template_id, $template_update_files_request): \Dropbox\Sign\Model\TemplateUpdateFilesResponse
 ```
 
 Update Template Files
@@ -641,7 +641,7 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$config = HelloSign\Configuration::getDefaultConfiguration();
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
 $config->setUsername("YOUR_API_KEY");
@@ -649,9 +649,9 @@ $config->setUsername("YOUR_API_KEY");
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
 
-$templateApi = new HelloSign\Api\TemplateApi($config);
+$templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
-$data = new HelloSign\Model\TemplateUpdateFilesRequest();
+$data = new Dropbox\Sign\Model\TemplateUpdateFilesRequest();
 $data->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")]);
 
 $templateId = "5de8179668f2033afac48da1868d0093bf133266";
@@ -659,7 +659,7 @@ $templateId = "5de8179668f2033afac48da1868d0093bf133266";
 try {
     $result = $templateApi->templateUpdateFiles($templateId, $data);
     print_r($result);
-} catch (HelloSign\ApiException $e) {
+} catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
         . print_r($error->getError());
@@ -672,11 +672,11 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The ID of the template whose files to update. | |
-| **template_update_files_request** | [**\HelloSign\Model\TemplateUpdateFilesRequest**](../Model/TemplateUpdateFilesRequest.md)|  | |
+| **template_update_files_request** | [**\Dropbox\Sign\Model\TemplateUpdateFilesRequest**](../Model/TemplateUpdateFilesRequest.md)|  | |
 
 ### Return type
 
-[**\HelloSign\Model\TemplateUpdateFilesResponse**](../Model/TemplateUpdateFilesResponse.md)
+[**\Dropbox\Sign\Model\TemplateUpdateFilesResponse**](../Model/TemplateUpdateFilesResponse.md)
 
 ### Authorization
 

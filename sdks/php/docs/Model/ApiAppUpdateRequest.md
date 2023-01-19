@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 | `custom_logo_file` | ```\SplFileObject``` |  An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)  |  |
 | `domains` | ```string[]``` |  The domain names the ApiApp will be associated with.  |  |
 | `name` | ```string``` |  The name you want to assign to the ApiApp.  |  |
-| `oauth` | [```\HelloSign\Model\SubOAuth```](SubOAuth.md) |    |  |
-| `options` | [```\HelloSign\Model\SubOptions```](SubOptions.md) |    |  |
-| `white_labeling_options` | [```\HelloSign\Model\SubWhiteLabelingOptions```](SubWhiteLabelingOptions.md) |    |  |
+| `oauth` | [```\Dropbox\Sign\Model\SubOAuth```](SubOAuth.md) |    |  |
+| `options` | [```\Dropbox\Sign\Model\SubOptions```](SubOptions.md) |    |  |
+| `white_labeling_options` | [```\Dropbox\Sign\Model\SubWhiteLabelingOptions```](SubWhiteLabelingOptions.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

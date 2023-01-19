@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -79,10 +79,10 @@ class BulkSendJobGetResponseSignatureRequests implements ModelInterface, ArrayAc
         'cc_email_addresses' => 'string[]',
         'signing_redirect_url' => 'string',
         'template_ids' => 'string[]',
-        'custom_fields' => '\HelloSign\Model\SignatureRequestResponseCustomFieldBase[]',
-        'attachments' => '\HelloSign\Model\SignatureRequestResponseAttachment[]',
-        'response_data' => '\HelloSign\Model\SignatureRequestResponseDataBase[]',
-        'signatures' => '\HelloSign\Model\SignatureRequestResponseSignatures[]',
+        'custom_fields' => '\Dropbox\Sign\Model\SignatureRequestResponseCustomFieldBase[]',
+        'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
+        'response_data' => '\Dropbox\Sign\Model\SignatureRequestResponseDataBase[]',
+        'signatures' => '\Dropbox\Sign\Model\SignatureRequestResponseSignatures[]',
         'bulk_send_job_id' => 'string',
     ];
 

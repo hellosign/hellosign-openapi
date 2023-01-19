@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -66,10 +66,10 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'template_ids' => 'string[]',
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
-        'ccs' => '\HelloSign\Model\SubCC[]',
-        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
-        'editor_options' => '\HelloSign\Model\SubEditorOptions',
-        'field_options' => '\HelloSign\Model\SubFieldOptions',
+        'ccs' => '\Dropbox\Sign\Model\SubCC[]',
+        'custom_fields' => '\Dropbox\Sign\Model\SubCustomField[]',
+        'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
+        'field_options' => '\Dropbox\Sign\Model\SubFieldOptions',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
         'force_signer_roles' => 'bool',
@@ -82,8 +82,8 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'requesting_redirect_url' => 'string',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'signers' => '\HelloSign\Model\SubUnclaimedDraftTemplateSigner[]',
-        'signing_options' => '\HelloSign\Model\SubSigningOptions',
+        'signers' => '\Dropbox\Sign\Model\SubUnclaimedDraftTemplateSigner[]',
+        'signing_options' => '\Dropbox\Sign\Model\SubSigningOptions',
         'signing_redirect_url' => 'string',
         'skip_me_now' => 'bool',
         'subject' => 'string',

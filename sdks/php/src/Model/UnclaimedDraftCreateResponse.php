@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class UnclaimedDraftCreateResponse implements ModelInterface, ArrayAccess, JsonS
      * @var string[]
      */
     protected static $openAPITypes = [
-        'unclaimed_draft' => '\HelloSign\Model\UnclaimedDraftResponse',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'unclaimed_draft' => '\Dropbox\Sign\Model\UnclaimedDraftResponse',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,10 +60,10 @@ class BulkSendJobGetResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'bulk_send_job' => '\HelloSign\Model\BulkSendJobResponse',
-        'list_info' => '\HelloSign\Model\ListInfoResponse',
-        'signature_requests' => '\HelloSign\Model\BulkSendJobGetResponseSignatureRequests[]',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'bulk_send_job' => '\Dropbox\Sign\Model\BulkSendJobResponse',
+        'list_info' => '\Dropbox\Sign\Model\ListInfoResponse',
+        'signature_requests' => '\Dropbox\Sign\Model\BulkSendJobGetResponseSignatureRequests[]',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

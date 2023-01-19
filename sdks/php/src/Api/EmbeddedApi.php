@@ -25,8 +25,13 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Api;
+namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +40,6 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSign\ApiException;
-use HelloSign\Configuration;
-use HelloSign\HeaderSelector;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -188,14 +188,14 @@ class EmbeddedApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\EmbeddedEditUrlResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\EmbeddedEditUrlResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\EmbeddedEditUrlResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\EmbeddedEditUrlResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -204,20 +204,20 @@ class EmbeddedApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\EmbeddedEditUrlResponse';
+            $returnType = '\Dropbox\Sign\Model\EmbeddedEditUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -235,7 +235,7 @@ class EmbeddedApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\EmbeddedEditUrlResponse',
+                    '\Dropbox\Sign\Model\EmbeddedEditUrlResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -246,7 +246,7 @@ class EmbeddedApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class EmbeddedApi
      */
     public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request)
     {
-        $returnType = '\HelloSign\Model\EmbeddedEditUrlResponse';
+        $returnType = '\Dropbox\Sign\Model\EmbeddedEditUrlResponse';
         $request = $this->embeddedEditUrlRequest($template_id, $embedded_edit_url_request);
 
         return $this->client
@@ -523,14 +523,14 @@ class EmbeddedApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\EmbeddedSignUrlResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\EmbeddedSignUrlResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\EmbeddedSignUrlResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\EmbeddedSignUrlResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -539,20 +539,20 @@ class EmbeddedApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\EmbeddedSignUrlResponse';
+            $returnType = '\Dropbox\Sign\Model\EmbeddedSignUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -570,7 +570,7 @@ class EmbeddedApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\EmbeddedSignUrlResponse',
+                    '\Dropbox\Sign\Model\EmbeddedSignUrlResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -581,7 +581,7 @@ class EmbeddedApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -623,7 +623,7 @@ class EmbeddedApi
      */
     public function embeddedSignUrlAsyncWithHttpInfo(string $signature_id)
     {
-        $returnType = '\HelloSign\Model\EmbeddedSignUrlResponse';
+        $returnType = '\Dropbox\Sign\Model\EmbeddedSignUrlResponse';
         $request = $this->embeddedSignUrlRequest($signature_id);
 
         return $this->client

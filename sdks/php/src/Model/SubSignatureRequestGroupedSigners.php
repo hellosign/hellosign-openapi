@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,7 +60,7 @@ class SubSignatureRequestGroupedSigners implements ModelInterface, ArrayAccess, 
      */
     protected static $openAPITypes = [
         'group' => 'string',
-        'signers' => '\HelloSign\Model\SubSignatureRequestSigner[]',
+        'signers' => '\Dropbox\Sign\Model\SubSignatureRequestSigner[]',
         'order' => 'int',
     ];
 

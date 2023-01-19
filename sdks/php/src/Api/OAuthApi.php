@@ -25,8 +25,13 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Api;
+namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +40,6 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSign\ApiException;
-use HelloSign\Configuration;
-use HelloSign\HeaderSelector;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -192,20 +192,20 @@ class OAuthApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\OAuthTokenResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\OAuthTokenResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\OAuthTokenResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\OAuthTokenResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\OAuthTokenResponse';
+            $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -223,7 +223,7 @@ class OAuthApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\OAuthTokenResponse',
+                    '\Dropbox\Sign\Model\OAuthTokenResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -271,7 +271,7 @@ class OAuthApi
      */
     public function oauthTokenGenerateAsyncWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request)
     {
-        $returnType = '\HelloSign\Model\OAuthTokenResponse';
+        $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
         $request = $this->oauthTokenGenerateRequest($o_auth_token_generate_request);
 
         return $this->client
@@ -494,20 +494,20 @@ class OAuthApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\OAuthTokenResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\OAuthTokenResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\OAuthTokenResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\OAuthTokenResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\OAuthTokenResponse';
+            $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -525,7 +525,7 @@ class OAuthApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\OAuthTokenResponse',
+                    '\Dropbox\Sign\Model\OAuthTokenResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -573,7 +573,7 @@ class OAuthApi
      */
     public function oauthTokenRefreshAsyncWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request)
     {
-        $returnType = '\HelloSign\Model\OAuthTokenResponse';
+        $returnType = '\Dropbox\Sign\Model\OAuthTokenResponse';
         $request = $this->oauthTokenRefreshRequest($o_auth_token_refresh_request);
 
         return $this->client

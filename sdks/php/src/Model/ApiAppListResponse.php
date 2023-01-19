@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,9 +60,9 @@ class ApiAppListResponse implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'api_apps' => '\HelloSign\Model\ApiAppResponse[]',
-        'list_info' => '\HelloSign\Model\ListInfoResponse',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'api_apps' => '\Dropbox\Sign\Model\ApiAppResponse[]',
+        'list_info' => '\Dropbox\Sign\Model\ListInfoResponse',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

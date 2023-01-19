@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -63,11 +63,11 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
     protected static $openAPITypes = [
         'template_ids' => 'string[]',
         'signer_file' => '\SplFileObject',
-        'signer_list' => '\HelloSign\Model\SubBulkSignerList[]',
+        'signer_list' => '\Dropbox\Sign\Model\SubBulkSignerList[]',
         'allow_decline' => 'bool',
-        'ccs' => '\HelloSign\Model\SubCC[]',
+        'ccs' => '\Dropbox\Sign\Model\SubCC[]',
         'client_id' => 'string',
-        'custom_fields' => '\HelloSign\Model\SubCustomField[]',
+        'custom_fields' => '\Dropbox\Sign\Model\SubCustomField[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'signing_redirect_url' => 'string',

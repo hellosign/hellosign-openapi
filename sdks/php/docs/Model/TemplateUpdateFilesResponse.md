@@ -6,6 +6,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `template` | [```\HelloSign\Model\TemplateUpdateFilesResponseTemplate```](TemplateUpdateFilesResponseTemplate.md) |    |  |
+| `template` | [```\Dropbox\Sign\Model\TemplateUpdateFilesResponseTemplate```](TemplateUpdateFilesResponseTemplate.md) |    |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

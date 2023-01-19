@@ -25,8 +25,13 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Api;
+namespace Dropbox\Sign\Api;
 
+use Dropbox\Sign\ApiException;
+use Dropbox\Sign\Configuration;
+use Dropbox\Sign\HeaderSelector;
+use Dropbox\Sign\Model;
+use Dropbox\Sign\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ConnectException;
@@ -35,11 +40,6 @@ use GuzzleHttp\Promise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
-use HelloSign\ApiException;
-use HelloSign\Configuration;
-use HelloSign\HeaderSelector;
-use HelloSign\Model;
-use HelloSign\ObjectSerializer;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -186,14 +186,14 @@ class UnclaimedDraftApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\UnclaimedDraftCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -202,20 +202,20 @@ class UnclaimedDraftApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+            $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -233,7 +233,7 @@ class UnclaimedDraftApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\UnclaimedDraftCreateResponse',
+                    '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -244,7 +244,7 @@ class UnclaimedDraftApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -286,7 +286,7 @@ class UnclaimedDraftApi
      */
     public function unclaimedDraftCreateAsyncWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request)
     {
-        $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+        $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftCreateRequest($unclaimed_draft_create_request);
 
         return $this->client
@@ -503,14 +503,14 @@ class UnclaimedDraftApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\UnclaimedDraftCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -519,20 +519,20 @@ class UnclaimedDraftApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+            $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -550,7 +550,7 @@ class UnclaimedDraftApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\UnclaimedDraftCreateResponse',
+                    '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -561,7 +561,7 @@ class UnclaimedDraftApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -603,7 +603,7 @@ class UnclaimedDraftApi
      */
     public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request)
     {
-        $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+        $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftCreateEmbeddedRequest($unclaimed_draft_create_embedded_request);
 
         return $this->client
@@ -820,14 +820,14 @@ class UnclaimedDraftApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\UnclaimedDraftCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -836,20 +836,20 @@ class UnclaimedDraftApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+            $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -867,7 +867,7 @@ class UnclaimedDraftApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\UnclaimedDraftCreateResponse',
+                    '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -878,7 +878,7 @@ class UnclaimedDraftApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -920,7 +920,7 @@ class UnclaimedDraftApi
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request)
     {
-        $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+        $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftCreateEmbeddedWithTemplateRequest($unclaimed_draft_create_embedded_with_template_request);
 
         return $this->client
@@ -1139,14 +1139,14 @@ class UnclaimedDraftApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\HelloSign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\UnclaimedDraftCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\UnclaimedDraftCreateResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -1155,20 +1155,20 @@ class UnclaimedDraftApi
             $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
             $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
-                if ('\HelloSign\Model\ErrorResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\HelloSign\Model\ErrorResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
             }
 
-            $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+            $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1186,7 +1186,7 @@ class UnclaimedDraftApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\UnclaimedDraftCreateResponse',
+                    '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1197,7 +1197,7 @@ class UnclaimedDraftApi
             if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\HelloSign\Model\ErrorResponse',
+                    '\Dropbox\Sign\Model\ErrorResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1241,7 +1241,7 @@ class UnclaimedDraftApi
      */
     public function unclaimedDraftEditAndResendAsyncWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request)
     {
-        $returnType = '\HelloSign\Model\UnclaimedDraftCreateResponse';
+        $returnType = '\Dropbox\Sign\Model\UnclaimedDraftCreateResponse';
         $request = $this->unclaimedDraftEditAndResendRequest($signature_request_id, $unclaimed_draft_edit_and_resend_request);
 
         return $this->client

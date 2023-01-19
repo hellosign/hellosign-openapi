@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign;
+namespace Dropbox\Sign;
 
 /**
  * EventCallbackHelper Class Doc Comment

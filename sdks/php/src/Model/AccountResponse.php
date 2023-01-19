@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -65,7 +65,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'is_locked' => 'bool',
         'is_paid_hs' => 'bool',
         'is_paid_hf' => 'bool',
-        'quotas' => '\HelloSign\Model\AccountResponseQuotas',
+        'quotas' => '\Dropbox\Sign\Model\AccountResponseQuotas',
         'callback_url' => 'string',
         'role_code' => 'string',
         'team_id' => 'string',

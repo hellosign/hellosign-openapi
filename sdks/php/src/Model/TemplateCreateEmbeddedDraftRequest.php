@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -66,21 +66,21 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
         'file_urls' => 'string[]',
         'allow_ccs' => 'bool',
         'allow_reassign' => 'bool',
-        'attachments' => '\HelloSign\Model\SubAttachment[]',
+        'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_roles' => 'string[]',
-        'editor_options' => '\HelloSign\Model\SubEditorOptions',
-        'field_options' => '\HelloSign\Model\SubFieldOptions',
+        'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
+        'field_options' => '\Dropbox\Sign\Model\SubFieldOptions',
         'force_signer_roles' => 'bool',
         'force_subject_message' => 'bool',
-        'form_field_groups' => '\HelloSign\Model\SubFormFieldGroup[]',
-        'form_field_rules' => '\HelloSign\Model\SubFormFieldRule[]',
-        'form_fields_per_document' => '\HelloSign\Model\SubFormFieldsPerDocumentBase[]',
-        'merge_fields' => '\HelloSign\Model\SubMergeField[]',
+        'form_field_groups' => '\Dropbox\Sign\Model\SubFormFieldGroup[]',
+        'form_field_rules' => '\Dropbox\Sign\Model\SubFormFieldRule[]',
+        'form_fields_per_document' => '\Dropbox\Sign\Model\SubFormFieldsPerDocumentBase[]',
+        'merge_fields' => '\Dropbox\Sign\Model\SubMergeField[]',
         'message' => 'string',
         'metadata' => 'array<string,mixed>',
         'show_preview' => 'bool',
         'show_progress_stepper' => 'bool',
-        'signer_roles' => '\HelloSign\Model\SubTemplateRole[]',
+        'signer_roles' => '\Dropbox\Sign\Model\SubTemplateRole[]',
         'skip_me_now' => 'bool',
         'subject' => 'string',
         'test_mode' => 'bool',

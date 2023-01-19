@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -60,8 +60,8 @@ class TemplateCreateEmbeddedDraftResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\HelloSign\Model\TemplateCreateEmbeddedDraftResponseTemplate',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'template' => '\Dropbox\Sign\Model\TemplateCreateEmbeddedDraftResponseTemplate',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

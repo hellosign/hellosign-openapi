@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
 
 /**
@@ -64,7 +64,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
         'template_id' => 'string',
         'edit_url' => 'string',
         'expires_at' => 'int',
-        'warnings' => '\HelloSign\Model\WarningResponse[]',
+        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**

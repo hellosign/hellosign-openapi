@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 /**
  * SignatureRequestResponseDataTypeEnum Class Doc Comment

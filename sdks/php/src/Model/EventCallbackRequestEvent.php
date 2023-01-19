@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 
@@ -64,7 +64,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
         'event_time' => 'string',
         'event_type' => 'string',
         'event_hash' => 'string',
-        'event_metadata' => '\HelloSign\Model\EventCallbackRequestEventMetadata',
+        'event_metadata' => '\Dropbox\Sign\Model\EventCallbackRequestEventMetadata',
     ];
 
     /**

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace HelloSign\Test;
+namespace Dropbox\Sign\Test;
 
+use Dropbox\Sign\Configuration;
 use GuzzleHttp;
 use GuzzleHttp\Handler;
 use GuzzleHttp\Psr7;
-use HelloSign\Configuration;
 use PHPUnit\Framework\TestCase;
 
-abstract class HelloTestCase extends TestCase
+abstract class SignTestCase extends TestCase
 {
     public const ROOT_FILE_PATH = __DIR__ . '/../test_fixtures';
 

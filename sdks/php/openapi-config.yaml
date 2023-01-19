@@ -2,12 +2,13 @@ generatorName: php
 typeMappings:
   "object": "array"
 additionalProperties:
-  packageName: hellosign/hellosign-php-sdk
-  packageVersion: "^6.0.0"
-  artifactVersion: 6.0.0-beta23.1
-  invokerPackage: HelloSign
+  packageName: dropbox/sign
+  packageVersion: "^1.0.0"
+  artifactVersion: 1.0.0-beta23.1
+  invokerPackage: "Dropbox\\Sign"
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src
+  phpVersion: 7.4
 files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles

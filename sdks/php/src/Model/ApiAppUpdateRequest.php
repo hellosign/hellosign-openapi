@@ -26,10 +26,10 @@
  * Do not edit the class manually.
  */
 
-namespace HelloSign\Model;
+namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
-use HelloSign\ObjectSerializer;
+use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
 use SplFileObject;
@@ -65,9 +65,9 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'custom_logo_file' => '\SplFileObject',
         'domains' => 'string[]',
         'name' => 'string',
-        'oauth' => '\HelloSign\Model\SubOAuth',
-        'options' => '\HelloSign\Model\SubOptions',
-        'white_labeling_options' => '\HelloSign\Model\SubWhiteLabelingOptions',
+        'oauth' => '\Dropbox\Sign\Model\SubOAuth',
+        'options' => '\Dropbox\Sign\Model\SubOptions',
+        'white_labeling_options' => '\Dropbox\Sign\Model\SubWhiteLabelingOptions',
     ];
 
     /**

@@ -1,12 +1,12 @@
 {
-    "name": "hellosign/sandbox",
+    "name": "dropbox/sign-sandbox",
     "autoload": {
         "psr-4": {
-            "DropboxSign\\Sandbox\\": "src/"
+            "Dropbox\\Sign\\Sandbox\\": "src/"
         }
     },
     "require": {
-        "hellosign/hellosign-php-sdk": "*"
+        "dropbox/sign": "*"
     },
     "repositories": [
       {
