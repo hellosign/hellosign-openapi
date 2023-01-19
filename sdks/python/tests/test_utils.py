@@ -22,6 +22,7 @@ class MockPoolManager(object):
         self._tc = tc
         self._expected_request = {}
         self._expected_response = {}
+        self._request_fields = []
 
     def expect_request(self, content_type, data=None, response=None, status=200):
         self._expected_request = {
@@ -40,8 +41,14 @@ class MockPoolManager(object):
         else:
             self._tc.assertFalse('encode_multipart' in kwargs.keys())
 
+        if 'fields' in kwargs:
+            self._request_fields = kwargs['fields']
+
         return urllib3.HTTPResponse(
             status=self._expected_response['status'],
             preload_content=True,
             body=json.dumps(self._expected_response['data']).encode()
         )
+
+    def get_fields(self):
+        return self._request_fields
