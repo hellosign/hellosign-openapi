@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.hellosign</groupId>
-    <artifactId>hellosign-java-sdk</artifactId>
+    <groupId>com.dropbox.sign</groupId>
+    <artifactId>dropbox-sign</artifactId>
     <packaging>jar</packaging>
-    <name>hellosign-java-sdk</name>
-    <version>6.0.0-beta23.1</version>
+    <name>dropbox-sign</name>
+    <version>1.0.0-beta23.1</version>
     <url>https://github.com/hellosign/hellosign-java-sdk</url>
     <description>Use the Dropbox Sign Java SDK to connect your Java app to Dropbox Sign\&#39;s service in microseconds!</description>
     <scm>

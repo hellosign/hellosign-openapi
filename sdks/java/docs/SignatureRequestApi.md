@@ -36,13 +36,13 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.util.Arrays;
 
@@ -160,13 +160,13 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.util.Arrays;
 
@@ -290,13 +290,13 @@ To be eligible for cancelation, a signature request must have been sent successf
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.util.Arrays;
 
@@ -373,13 +373,13 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
 import java.util.Arrays;
@@ -578,13 +578,13 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
 
@@ -665,13 +665,13 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -749,13 +749,13 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -831,13 +831,13 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -915,13 +915,13 @@ Take a look at our [search guide](/api/reference/search/) to learn more about qu
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -1000,12 +1000,12 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -1083,12 +1083,12 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -1172,12 +1172,12 @@ Unlike /signature_request/cancel, this endpoint is synchronous and your access w
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -1252,13 +1252,13 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.io.File;
 import java.util.Arrays;
@@ -1369,13 +1369,13 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -1487,12 +1487,12 @@ Updates the email address and/or the name for a given signer on a signature requ
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {

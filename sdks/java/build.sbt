@@ -1,8 +1,8 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "com.hellosign",
-    name := "hellosign-java-sdk",
-    version := "6.0.0-beta23.1",
+    organization := "com.dropbox.sign",
+    name := "dropbox-sign",
+    version := "1.0.0-beta23.1",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),

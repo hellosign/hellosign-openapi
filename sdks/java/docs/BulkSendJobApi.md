@@ -20,13 +20,13 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -102,13 +102,13 @@ Returns a list of BulkSendJob that you can access.
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {

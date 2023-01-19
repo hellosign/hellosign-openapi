@@ -21,14 +21,14 @@ When the report(s) have been generated, you will receive an email (one per reque
 ### Example
 
 ```java
-import com.hellosign.ApiClient;
-import com.hellosign.ApiException;
-import com.hellosign.Configuration;
-import com.hellosign.api.*;
-import com.hellosign.auth.HttpBasicAuth;
-import com.hellosign.auth.HttpBearerAuth;
-import com.hellosign.model.*;
-import com.hellosign.model.ReportCreateRequest.ReportTypeEnum;
+import com.dropbox.sign.ApiClient;
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.model.*;
+import com.dropbox.sign.model.ReportCreateRequest.ReportTypeEnum;
 
 import java.util.Arrays;
 

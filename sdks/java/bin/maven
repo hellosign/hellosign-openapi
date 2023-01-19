@@ -10,7 +10,7 @@ WORKING_DIR="/app/java"
 
 docker run --rm \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "hellosign-sdk-maven-cache:/root/.m2" \
+  -v "dropbox-sign-sdk-maven-cache:/root/.m2" \
   -w "${WORKING_DIR}" \
   -e GEN_DIR=/app \
   -e MAVEN_OPTS="-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=/root/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -Djacoco.skip=true" \

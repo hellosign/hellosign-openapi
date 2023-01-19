@@ -3,18 +3,18 @@ additionalProperties:
   library: jersey2
   openApiNullable: false
   java8: true
-  invokerPackage: com.hellosign
-  apiPackage: com.hellosign.api
-  modelPackage: com.hellosign.model
+  invokerPackage: com.dropbox.sign
+  apiPackage: com.dropbox.sign.api
+  modelPackage: com.dropbox.sign.model
   developerEmail: apisupport@hellosign.com
   developerName: Dropbox Sign API Team
   developerOrganization: Dropbox Sign
   developerOrganizationUrl: https://hellosign.com
   hideGenerationTimestamp: true
   sortModelPropertiesByRequiredFlag: true
-  groupId: com.hellosign
-  artifactId: hellosign-java-sdk
-  artifactVersion: 6.0.0-beta23.1
+  groupId: com.dropbox.sign
+  artifactId: dropbox-sign
+  artifactVersion: 1.0.0-beta23.1
   artifactUrl: https://github.com/hellosign/hellosign-java-sdk
   artifactDescription: Use the Dropbox Sign Java SDK to connect your Java app to Dropbox Sign\'s service in microseconds!
   scmConnection: scm:git:git://github.com/hellosign/hellosign-java-sdk.git
@@ -25,7 +25,7 @@ additionalProperties:
 files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles
-    destinationFilename: src/main/java/com/hellosign/EventCallbackHelper.java
+    destinationFilename: src/main/java/com/dropbox/sign/EventCallbackHelper.java
 globalProperties:
   apiTests: false
   modelTests: false
