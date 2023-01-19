@@ -134,6 +134,65 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+    def test_signature_request_list_null_query_value_removed(self):
+        account_id = None
+
+        self.mock_pool.expect_request(
+            content_type='application/json',
+            response=None,
+        )
+
+        self.api.signature_request_list(account_id=account_id)
+
+        request_fields = self.mock_pool.get_fields()
+        self.assertTrue(not request_fields)
+
+        account_id = None
+        query = None
+
+        self.mock_pool.expect_request(
+            content_type='application/json',
+            response=None,
+        )
+
+        self.api.signature_request_list(account_id=account_id, query=query)
+
+        request_fields = self.mock_pool.get_fields()
+        self.assertTrue(not request_fields)
+
+        account_id = 'ABC123'
+        query = None
+
+        self.mock_pool.expect_request(
+            content_type='application/json',
+            response=None,
+        )
+
+        self.api.signature_request_list(account_id=account_id, query=query)
+
+        request_fields = self.mock_pool.get_fields()
+        expected_fields = [
+            ('account_id', account_id),
+        ]
+        self.assertTrue(expected_fields == request_fields)
+
+        account_id = 'ABC123'
+        query = 'My amazing query'
+
+        self.mock_pool.expect_request(
+            content_type='application/json',
+            response=None,
+        )
+
+        self.api.signature_request_list(account_id=account_id, query=query)
+
+        request_fields = self.mock_pool.get_fields()
+        expected_fields = [
+            ('account_id', account_id),
+            ('query', query),
+        ]
+        self.assertTrue(expected_fields == request_fields)
+
     def test_signature_request_release_hold(self):
         signature_request_id = 'fa5c8a0b0f492d768749333ad6fcc214c111e967'
 
