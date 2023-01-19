@@ -17,7 +17,7 @@ rm -rf "${TARGET_DIR}/vendor/hellosign"
 
 cd "${SDK_DIR}"
 
-zip -9 -r "${ARTIFACTS_DIR}/hellosign-php-sdk.zip" \
+zip -9 -r "${ARTIFACTS_DIR}/dropbox-sign.zip" \
   ./ \
   -x "./.DS_Store" \
      "./.gitmodules" \

@@ -82,9 +82,9 @@ uploadArchives {
                 url 'https://www.hellosign.com/'
 
                 scm {
-                    connection 'scm:git:git://github.com/hellosign/hellosign-java-sdk.git'
-                    developerConnection 'scm:git:git@github.com:hellosign/hellosign-java-sdk.git'
-                    url 'https://github.com/hellosign/hellosign-java-sdk'
+                    connection 'scm:git:git://github.com/hellosign/dropbox-sign-java.git'
+                    developerConnection 'scm:git:git@github.com:hellosign/dropbox-sign-java.git'
+                    url 'https://github.com/hellosign/dropbox-sign-java'
                 }
 
                 licenses {

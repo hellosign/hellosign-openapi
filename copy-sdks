@@ -7,12 +7,12 @@ SDKS=( dotnet java node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
 
-REPO_DOTNET="https://github.com/hellosign/hellosign-dotnet-sdk.git"
-REPO_JAVA="https://github.com/hellosign/hellosign-java-sdk.git"
-REPO_NODE="https://github.com/hellosign/hellosign-nodejs-sdk.git"
-REPO_PHP="https://github.com/hellosign/hellosign-php-sdk.git"
-REPO_PYTHON="https://github.com/hellosign/hellosign-python-sdk.git"
-REPO_RUBY="https://github.com/hellosign/hellosign-ruby-sdk.git"
+REPO_DOTNET="https://github.com/hellosign/dropbox-sign-dotnet.git"
+REPO_JAVA="https://github.com/hellosign/dropbox-sign-java.git"
+REPO_NODE="https://github.com/hellosign/dropbox-sign-node.git"
+REPO_PHP="https://github.com/hellosign/dropbox-sign-php.git"
+REPO_PYTHON="https://github.com/hellosign/dropbox-sign-python.git"
+REPO_RUBY="https://github.com/hellosign/dropbox-sign-ruby.git"
 
 while getopts ":t:h" opt; do
   case $opt in
