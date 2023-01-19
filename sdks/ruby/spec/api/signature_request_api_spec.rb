@@ -14,8 +14,6 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
 root_file_path = __dir__ + "/../../test_fixtures"
 
 describe HelloSign::SignatureRequestApi do
@@ -30,14 +28,14 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || BulkSendJobSendResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+      expected = HelloSign::BulkSendJobSendResponse.init(response_data)
+      obj = HelloSign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest.init(request_data)
       obj.signer_file = File.new("#{root_file_path}/bulk-send-sample.csv", "r")
 
       result = api.signature_request_bulk_create_embedded_with_template(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestBulkSendWithTemplate' do
@@ -48,14 +46,14 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || BulkSendJobSendResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestBulkSendWithTemplateRequest
+      expected = HelloSign::BulkSendJobSendResponse.init(response_data)
+      obj = HelloSign::SignatureRequestBulkSendWithTemplateRequest.init(request_data)
       obj.signer_file = File.new("#{root_file_path}/bulk-send-sample.csv", "r")
 
       result = api.signature_request_bulk_send_with_template(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     skip 'testSignatureRequestCancel' do
@@ -69,14 +67,14 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestCreateEmbeddedRequest
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
+      obj = HelloSign::SignatureRequestCreateEmbeddedRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.signature_request_create_embedded(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestCreateEmbeddedWithTemplate' do
@@ -87,14 +85,14 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestCreateEmbeddedWithTemplateRequest
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
+      obj = HelloSign::SignatureRequestCreateEmbeddedWithTemplateRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.signature_request_create_embedded_with_template(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestFiles' do
@@ -104,12 +102,12 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || FileResponse
+      expected = HelloSign::FileResponse.init(response_data)
 
       result = api.signature_request_files_as_file_url(signature_request_id,{})
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestGet' do
@@ -119,12 +117,12 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
 
       result = api.signature_request_get(signature_request_id)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestList' do
@@ -134,12 +132,12 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestListResponse
+      expected = HelloSign::SignatureRequestListResponse.init(response_data)
 
       result = api.signature_request_list({:account_id => account_id})
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestReleaseHold' do
@@ -149,12 +147,12 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
 
       result = api.signature_request_release_hold(signature_request_list)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestRemind' do
@@ -167,13 +165,13 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestRemindRequest
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
+      obj = HelloSign::SignatureRequestRemindRequest.init(request_data)
 
       result = api.signature_request_remind(signature_request_list, obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     skip 'testSignatureRequestRemove' do
@@ -187,24 +185,24 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestSendRequest
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
+      obj = HelloSign::SignatureRequestSendRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.signature_request_send(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testFileForcesMultipartFormData' do
       request_class = 'SignatureRequestSendRequest'
       request_data = get_fixture_data(request_class)[:default]
 
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestSendRequest
+      obj = HelloSign::SignatureRequestSendRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
-      result = api_client.generate_form_data(
+      result = HelloSign::ApiClient.default.generate_form_data(
         obj,
         HelloSign::SignatureRequestSendRequest.openapi_types,
       )
@@ -216,9 +214,9 @@ describe HelloSign::SignatureRequestApi do
       request_class = 'SignatureRequestSendRequest'
       request_data = get_fixture_data(request_class)[:default]
 
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestSendRequest
+      obj = HelloSign::SignatureRequestSendRequest.init(request_data)
 
-      result = api_client.generate_form_data(
+      result = HelloSign::ApiClient.default.generate_form_data(
         obj,
         HelloSign::SignatureRequestSendRequest.openapi_types,
       )
@@ -234,13 +232,13 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestSendWithTemplateRequest
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
+      obj = HelloSign::SignatureRequestSendWithTemplateRequest.init(request_data)
 
       result = api.signature_request_send_with_template(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testSignatureRequestUpdate' do
@@ -253,13 +251,13 @@ describe HelloSign::SignatureRequestApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || SignatureRequestGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || SignatureRequestUpdateRequest
+      expected = HelloSign::SignatureRequestGetResponse.init(response_data)
+      obj = HelloSign::SignatureRequestUpdateRequest.init(request_data)
 
       result = api.signature_request_update(signature_request_id, obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end
 end

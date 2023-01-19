@@ -14,9 +14,6 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
-
 describe HelloSign::BulkSendJobApi do
   context 'BulkSendJobApiTest' do
     api = HelloSign::BulkSendJobApi.new
@@ -28,12 +25,12 @@ describe HelloSign::BulkSendJobApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || BulkSendJobGetResponse
+      expected = HelloSign::BulkSendJobGetResponse.init(response_data)
 
       result = api.bulk_send_job_get(id)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testBulkSendJobList' do
@@ -44,12 +41,12 @@ describe HelloSign::BulkSendJobApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || BulkSendJobListResponse
+      expected = HelloSign::BulkSendJobListResponse.init(response_data)
 
       result = api.bulk_send_job_list({ :page => page, :page_size => page_size})
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end
 end

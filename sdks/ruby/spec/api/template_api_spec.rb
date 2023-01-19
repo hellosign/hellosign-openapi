@@ -14,8 +14,6 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
 root_file_path = __dir__ + "/../../test_fixtures"
 
 describe HelloSign::TemplateApi do
@@ -32,13 +30,13 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TemplateGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TemplateAddUserRequest
+      expected = HelloSign::TemplateGetResponse.init(response_data)
+      obj = HelloSign::TemplateAddUserRequest.init(request_data)
 
       result = api.template_add_user(template_id, obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTemplateCreateEmbeddedDraft' do
@@ -49,14 +47,14 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TemplateCreateEmbeddedDraftResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TemplateCreateEmbeddedDraftRequest
+      expected = HelloSign::TemplateCreateEmbeddedDraftResponse.init(response_data)
+      obj = HelloSign::TemplateCreateEmbeddedDraftRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.template_create_embedded_draft(obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     skip 'testTemplateDelete' do
@@ -69,12 +67,12 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || FileResponse
+      expected = HelloSign::FileResponse.init(response_data)
 
       result = api.template_files_as_file_url(template_id, {})
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTemplateGet' do
@@ -84,12 +82,12 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TemplateGetResponse
+      expected = HelloSign::TemplateGetResponse.init(response_data)
 
       result = api.template_get(template_id)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTemplateList' do
@@ -99,12 +97,12 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TemplateListResponse
+      expected = HelloSign::TemplateListResponse.init(response_data)
 
       result = api.template_list({:account_id => account_id})
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTemplateRemoveUser' do
@@ -117,13 +115,13 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TemplateGetResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TemplateRemoveUserRequest
+      expected = HelloSign::TemplateGetResponse.init(response_data)
+      obj = HelloSign::TemplateRemoveUserRequest.init(request_data)
 
       result = api.template_remove_user(template_id, obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
     it 'testTemplateUpdateFiles' do
@@ -136,14 +134,14 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = api_client.convert_to_type(response_data, response_class) || TemplateUpdateFilesResponse
-      obj = api_client.convert_to_type(request_data, request_class) || TemplateUpdateFilesRequest
+      expected = HelloSign::TemplateUpdateFilesResponse.init(response_data)
+      obj = HelloSign::TemplateUpdateFilesRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.template_update_files(template_id, obj)
 
       expect(result.class.to_s).to eq("HelloSign::#{response_class}")
-      expect(result.to_json).to be_json_eql(expected.to_json)
+      expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end
 end
