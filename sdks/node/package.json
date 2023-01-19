@@ -1,10 +1,10 @@
 {
-    "name": "hellosign-sdk",
-    "version": "6.0.0-beta23.1",
-    "description": "NodeJS client for Dropbox Sign",
+    "name": "@dropbox/sign",
+    "version": "1.0.0-beta23.1",
+    "description": "Official Node client for Dropbox Sign",
     "repository": {
-    "type": "git",
-    "url": "https://github.com/HelloFax/hellosign-nodejs-sdk"
+        "type": "git",
+        "url": "https://github.com/hellosign/dropbox-sign-node"
     },
     "bugs:": "apisupport@hellosign.com",
     "main": "dist/api.js",

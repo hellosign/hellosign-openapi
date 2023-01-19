@@ -1,8 +1,8 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -10,12 +10,12 @@ apiAppApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const whiteLabelingOptions: HelloSign.SubWhiteLabelingOptions = {
+const whiteLabelingOptions: DropboxSign.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
   primaryButtonTextColor: "#ffffff",
 };
 
-const data: HelloSign.ApiAppUpdateRequest = {
+const data: DropboxSign.ApiAppUpdateRequest = {
   name: "New Name",
   callbackUrl: "http://example.com/dropboxsign",
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),

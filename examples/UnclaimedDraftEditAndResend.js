@@ -1,6 +1,6 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const unclaimedDraftApi = new HelloSign.UnclaimedDraftApi();
+const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
 
 // Configure HTTP basic authorization: api_key
 unclaimedDraftApi.username = "YOUR_API_KEY";

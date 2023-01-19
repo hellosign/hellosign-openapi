@@ -1,8 +1,8 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSign.SignatureRequestApi();
+const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";

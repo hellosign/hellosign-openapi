@@ -1,8 +1,8 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const signatureRequestApi = new HelloSign.SignatureRequestApi();
+const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
 // Configure HTTP basic authorization: api_key
 signatureRequestApi.username = "YOUR_API_KEY";
@@ -10,31 +10,31 @@ signatureRequestApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // signatureRequestApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const signer1: HelloSign.SubSignatureRequestSigner = {
+const signer1: DropboxSign.SubSignatureRequestSigner = {
   emailAddress: "jack@example.com",
   name: "Jack",
   order: 0,
 };
 
-const signer2: HelloSign.SubSignatureRequestSigner = {
+const signer2: DropboxSign.SubSignatureRequestSigner = {
   emailAddress: "jill@example.com",
   name: "Jill",
   order: 1,
 };
 
-const signingOptions: HelloSign.SubSigningOptions = {
+const signingOptions: DropboxSign.SubSigningOptions = {
   draw: true,
   type: true,
   upload: true,
   phone: false,
-  defaultType: HelloSign.SubSigningOptions.DefaultTypeEnum.Draw,
+  defaultType: DropboxSign.SubSigningOptions.DefaultTypeEnum.Draw,
 };
 
-const fieldOptions: HelloSign.SubFieldOptions = {
-  dateFormat: HelloSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
+const fieldOptions: DropboxSign.SubFieldOptions = {
+  dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: HelloSign.SignatureRequestSendRequest = {
+const data: DropboxSign.SignatureRequestSendRequest = {
   title: "NDA with Acme Co.",
   subject: "The NDA we talked about",
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",

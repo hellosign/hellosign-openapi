@@ -1,6 +1,6 @@
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const teamApi = new HelloSign.TeamApi();
+const teamApi = new DropboxSign.TeamApi();
 
 // Configure HTTP basic authorization: api_key
 teamApi.username = "YOUR_API_KEY";

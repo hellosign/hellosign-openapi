@@ -24,11 +24,11 @@ Creates a new API App.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -36,20 +36,20 @@ apiAppApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const oauth: HelloSign.SubOAuth = {
+const oauth: DropboxSign.SubOAuth = {
   callbackUrl: "https://example.com/oauth",
   scopes: [
-    HelloSign.SubOAuth.ScopesEnum.BasicAccountInfo,
-    HelloSign.SubOAuth.ScopesEnum.RequestSignature,
+    DropboxSign.SubOAuth.ScopesEnum.BasicAccountInfo,
+    DropboxSign.SubOAuth.ScopesEnum.RequestSignature,
   ],
 };
 
-const whiteLabelingOptions: HelloSign.SubWhiteLabelingOptions = {
+const whiteLabelingOptions: DropboxSign.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
   primaryButtonTextColor: "#ffffff",
 };
 
-const data: HelloSign.ApiAppCreateRequest = {
+const data: DropboxSign.ApiAppCreateRequest = {
   name: "My Production App",
   domains: ["example.com"],
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),
@@ -70,11 +70,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -149,9 +149,9 @@ Deletes an API App. Can only be invoked for apps you own.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -174,9 +174,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -232,9 +232,9 @@ Returns an object with information about an API App.
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -257,9 +257,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -315,9 +315,9 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -341,9 +341,9 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -401,11 +401,11 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### TypeScript Example
 
 ```typescript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
@@ -413,12 +413,12 @@ apiAppApi.username = "YOUR_API_KEY";
 // or, configure Bearer (JWT) authorization: oauth2
 // apiAppApi.accessToken = "YOUR_ACCESS_TOKEN";
 
-const whiteLabelingOptions: HelloSign.SubWhiteLabelingOptions = {
+const whiteLabelingOptions: DropboxSign.SubWhiteLabelingOptions = {
   primaryButtonColor: "#00b3e6",
   primaryButtonTextColor: "#ffffff",
 };
 
-const data: HelloSign.ApiAppUpdateRequest = {
+const data: DropboxSign.ApiAppUpdateRequest = {
   name: "New Name",
   callbackUrl: "http://example.com/dropboxsign",
   customLogoFile: fs.createReadStream("CustomLogoFile.png"),
@@ -440,11 +440,11 @@ result.then(response => {
 ### JavaScript Example
 
 ```javascript
-import * as HelloSign from "hellosign-sdk";
+import * as DropboxSign from "@dropbox/sign";
 
 const fs = require('fs');
 
-const apiAppApi = new HelloSign.ApiAppApi();
+const apiAppApi = new DropboxSign.ApiAppApi();
 
 // Configure HTTP basic authorization: api_key
 apiAppApi.username = "YOUR_API_KEY";
