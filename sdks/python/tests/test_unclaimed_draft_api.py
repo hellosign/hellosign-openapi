@@ -1,6 +1,6 @@
 import unittest
 
-from hellosign_sdk import ApiClient, Configuration, apis, models as m
+from dropbox_sign import ApiClient, Configuration, apis, models as m
 from test_utils import get_fixture_data, MockPoolManager, get_base_path
 
 

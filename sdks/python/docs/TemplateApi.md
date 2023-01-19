@@ -1,4 +1,4 @@
-# ```hellosign_sdk.TemplateApi```
+# ```dropbox_sign.TemplateApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -31,7 +31,7 @@ Gives the specified Account access to the specified Template. The specified Acco
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -105,7 +105,7 @@ The first step in an embedded template workflow. Creates a draft template that c
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -209,7 +209,7 @@ Completely deletes the template specified from the account.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -278,7 +278,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -348,7 +348,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -417,7 +417,7 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -486,7 +486,7 @@ Returns the Template specified by the `template_id` parameter.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -555,7 +555,7 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -629,7 +629,7 @@ Removes the specified Account's access to the specified Template.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -703,7 +703,7 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(

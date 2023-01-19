@@ -1,4 +1,4 @@
-# ```hellosign_sdk.EmbeddedApi```
+# ```dropbox_sign.EmbeddedApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -23,7 +23,7 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -98,7 +98,7 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(

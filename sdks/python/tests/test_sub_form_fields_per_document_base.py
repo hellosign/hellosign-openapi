@@ -1,7 +1,7 @@
 import unittest
 
-from hellosign_sdk import models
-from hellosign_sdk.models import SignatureRequestSendRequest
+from dropbox_sign import models
+from dropbox_sign.models import SignatureRequestSendRequest
 from test_utils import get_fixture_data
 
 

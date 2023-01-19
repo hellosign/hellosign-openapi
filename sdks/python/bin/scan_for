@@ -9,8 +9,8 @@ scan_for () {
   SEARCH_STRING=$1
   SCAN_TARGETS=( \
     "docs" \
-    "hellosign_sdk/model" \
-    "hellosign_sdk/models" \
+    "dropbox_sign/model" \
+    "dropbox_sign/models" \
     "README.md"
   )
 

@@ -10,8 +10,8 @@ rep () {
   REPLACE_STRING=$2
   SCAN_DIRS=( \
     "docs" \
-    "hellosign_sdk/model" \
-    "hellosign_sdk/models" \
+    "dropbox_sign/model" \
+    "dropbox_sign/models" \
   )
 
   printf "\nScanning for '${SEARCH_STRING}': "

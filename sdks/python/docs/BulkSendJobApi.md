@@ -1,4 +1,4 @@
-# ```hellosign_sdk.BulkSendJobApi```
+# ```dropbox_sign.BulkSendJobApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -23,7 +23,7 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -92,7 +92,7 @@ Returns a list of BulkSendJob that you can access.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(

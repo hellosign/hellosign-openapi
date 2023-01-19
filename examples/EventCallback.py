@@ -1,7 +1,7 @@
 import json
 
-from hellosign_sdk import ApiClient, EventCallbackHelper
-from hellosign_sdk.models import EventCallbackRequest
+from dropbox_sign import ApiClient, EventCallbackHelper
+from dropbox_sign.models import EventCallbackRequest
 
 # use your API key
 api_key = "324e3b0840f065eb51f3fd63231d0d33daa35d4ed10d27718839e81737065782"

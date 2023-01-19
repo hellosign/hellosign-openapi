@@ -1,4 +1,4 @@
-# ```hellosign_sdk.ReportApi```
+# ```dropbox_sign.ReportApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -21,7 +21,7 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(

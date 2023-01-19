@@ -1,4 +1,4 @@
-# ```hellosign_sdk.UnclaimedDraftApi```
+# ```dropbox_sign.UnclaimedDraftApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -25,7 +25,7 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -135,7 +135,7 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -209,7 +209,7 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -296,7 +296,7 @@ Creates a new signature request from an embedded request that can be edited prio
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(

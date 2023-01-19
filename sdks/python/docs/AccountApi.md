@@ -1,4 +1,4 @@
-# ```hellosign_sdk.AccountApi```
+# ```dropbox_sign.AccountApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -25,7 +25,7 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -96,7 +96,7 @@ Returns the properties and settings of your Account.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -164,7 +164,7 @@ Updates the properties and settings of your Account. Currently only allows for u
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -235,7 +235,7 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(

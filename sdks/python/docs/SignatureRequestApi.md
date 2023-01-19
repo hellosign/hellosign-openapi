@@ -1,4 +1,4 @@
-# ```hellosign_sdk.SignatureRequestApi```
+# ```dropbox_sign.SignatureRequestApi```
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -36,7 +36,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -152,7 +152,7 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -267,7 +267,7 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -336,7 +336,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -435,7 +435,7 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -526,7 +526,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -596,7 +596,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -665,7 +665,7 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -734,7 +734,7 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -803,7 +803,7 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -879,7 +879,7 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -948,7 +948,7 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -1021,7 +1021,7 @@ Removes your access to a completed signature request. This action is **not rever
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
@@ -1090,7 +1090,7 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -1200,7 +1200,7 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
@@ -1304,7 +1304,7 @@ Updates the email address and/or the name for a given signer on a signature requ
 ```python
 from pprint import pprint
 
-from hellosign_sdk import \
+from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis, models
 
 configuration = Configuration(
