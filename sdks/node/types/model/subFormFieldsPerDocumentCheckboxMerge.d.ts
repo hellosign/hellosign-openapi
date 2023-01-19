@@ -5,4 +5,5 @@ export declare class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFields
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubFormFieldsPerDocumentCheckboxMerge;
 }

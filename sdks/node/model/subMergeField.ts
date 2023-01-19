@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class SubMergeField {
   /**
@@ -51,6 +51,11 @@ export class SubMergeField {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubMergeField.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubMergeField {
+    return ObjectSerializer.deserialize(data, "SubMergeField");
   }
 }
 

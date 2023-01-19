@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * An array of signature objects, 1 for each signer.
@@ -207,5 +207,13 @@ export class SignatureRequestResponseSignatures {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SignatureRequestResponseSignatures.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestResponseSignatures {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestResponseSignatures"
+    );
   }
 }

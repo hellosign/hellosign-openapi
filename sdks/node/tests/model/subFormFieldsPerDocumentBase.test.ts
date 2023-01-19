@@ -1,12 +1,11 @@
 import 'jest';
 import {
+  ObjectSerializer,
   SignatureRequestSendRequest,
 } from '../../model/models';
 import {
   getFixtureData,
   diffJson,
-  toObj,
-  fromObj
 } from '../test_utils';
 
 describe('SubFormFieldsPerDocument', () => {
@@ -16,11 +15,8 @@ describe('SubFormFieldsPerDocument', () => {
     it(`SubFormFieldsPerDocument of type ${type} is instantiated`, () => {
       const payload = { form_fields_per_document: [data] };
 
-      const obj: SignatureRequestSendRequest = toObj<SignatureRequestSendRequest>(
-        payload,
-        'SignatureRequestSendRequest'
-      );
-      const serialized = fromObj(obj, 'SignatureRequestSendRequest');
+      const obj = SignatureRequestSendRequest.init(payload);
+      const serialized = ObjectSerializer.serialize(obj, 'SignatureRequestSendRequest')
 
       const resultFormFieldsPerDocument = obj?.formFieldsPerDocument;
       // @ts-ignore

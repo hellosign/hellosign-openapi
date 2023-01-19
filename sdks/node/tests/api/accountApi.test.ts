@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -31,7 +30,7 @@ describe('AccountApiTest', () => {
     const code = Math.round(Math.random() * (499 - 400)) + 400;
     setExpectedResponse(mock, responseData, code);
 
-    const obj = toObj<m.AccountVerifyRequest>(requestData, requestClass);
+    const obj = m.AccountVerifyRequest.init(requestData);
 
     api.accountVerify(obj).then(response => {
       throw new Error('Should have thrown error: ' + response);
@@ -49,12 +48,12 @@ describe('AccountApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.AccountCreateRequest>(requestData, requestClass);
+    const obj = m.AccountCreateRequest.init(requestData);
 
     api.accountCreate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.AccountCreateResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -73,7 +72,7 @@ describe('AccountApiTest', () => {
     api.accountGet(undefined, "jack@example.com").then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.AccountGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -92,12 +91,12 @@ describe('AccountApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.AccountUpdateRequest>(requestData, requestClass);
+    const obj = m.AccountUpdateRequest.init(requestData);
 
     api.accountUpdate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.AccountGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -116,12 +115,12 @@ describe('AccountApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.AccountVerifyRequest>(requestData, requestClass);
+    const obj = m.AccountVerifyRequest.init(requestData);
 
     api.accountVerify(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.AccountVerifyResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

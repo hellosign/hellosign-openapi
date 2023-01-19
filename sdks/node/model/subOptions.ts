@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * Additional options supported by API App.
@@ -45,5 +45,10 @@ export class SubOptions {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubOptions.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubOptions {
+    return ObjectSerializer.deserialize(data, "SubOptions");
   }
 }

@@ -6,6 +6,7 @@ export declare class TeamAddMemberRequest {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): TeamAddMemberRequest;
 }
 export declare namespace TeamAddMemberRequest {
     enum RoleEnum {

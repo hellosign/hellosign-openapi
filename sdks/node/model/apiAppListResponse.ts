@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { ApiAppResponse } from "./apiAppResponse";
 import { ListInfoResponse } from "./listInfoResponse";
 import { WarningResponse } from "./warningResponse";
@@ -60,5 +60,10 @@ export class ApiAppListResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApiAppListResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ApiAppListResponse {
+    return ObjectSerializer.deserialize(data, "ApiAppListResponse");
   }
 }

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class SubAttachment {
   /**
@@ -69,5 +69,10 @@ export class SubAttachment {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubAttachment.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubAttachment {
+    return ObjectSerializer.deserialize(data, "SubAttachment");
   }
 }

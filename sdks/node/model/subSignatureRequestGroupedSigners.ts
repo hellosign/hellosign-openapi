@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 
 export class SubSignatureRequestGroupedSigners {
@@ -61,5 +61,13 @@ export class SubSignatureRequestGroupedSigners {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubSignatureRequestGroupedSigners.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubSignatureRequestGroupedSigners {
+    return ObjectSerializer.deserialize(
+      data,
+      "SubSignatureRequestGroupedSigners"
+    );
   }
 }

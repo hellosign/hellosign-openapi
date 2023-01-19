@@ -1,5 +1,3 @@
-import { ObjectSerializer } from '../model/models';
-
 import jsonDiff from 'json-diff';
 import MockAdapter from 'axios-mock-adapter';
 
@@ -31,13 +29,3 @@ export const diffJson = (
   val1: any,
   val2: any
 ) => jsonDiff.diffString(val1, val2, { color: false });
-
-export const toObj = <T>(
-  data: any,
-  type: string
-): T => ObjectSerializer.deserialize(data, type);
-
-export const fromObj = (
-  data: any,
-  type: string
-) => ObjectSerializer.serialize(data, type);

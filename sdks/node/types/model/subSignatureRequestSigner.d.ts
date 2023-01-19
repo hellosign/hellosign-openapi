@@ -9,6 +9,7 @@ export declare class SubSignatureRequestSigner {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubSignatureRequestSigner;
 }
 export declare namespace SubSignatureRequestSigner {
     enum SmsPhoneNumberTypeEnum {

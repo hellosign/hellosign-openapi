@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
@@ -169,5 +169,13 @@ export class SignatureRequestCreateEmbeddedWithTemplateRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SignatureRequestCreateEmbeddedWithTemplateRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestCreateEmbeddedWithTemplateRequest {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestCreateEmbeddedWithTemplateRequest"
+    );
   }
 }

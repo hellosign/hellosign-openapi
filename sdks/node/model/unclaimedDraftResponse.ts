@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * A group of documents that a user can take ownership of via the claim URL.
@@ -90,5 +90,10 @@ export class UnclaimedDraftResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return UnclaimedDraftResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): UnclaimedDraftResponse {
+    return ObjectSerializer.deserialize(data, "UnclaimedDraftResponse");
   }
 }

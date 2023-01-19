@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 
 /**
@@ -48,5 +48,13 @@ export class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFieldsPerDocum
     return super
       .getAttributeTypeMap()
       .concat(SubFormFieldsPerDocumentCheckboxMerge.attributeTypeMap);
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubFormFieldsPerDocumentCheckboxMerge {
+    return ObjectSerializer.deserialize(
+      data,
+      "SubFormFieldsPerDocumentCheckboxMerge"
+    );
   }
 }

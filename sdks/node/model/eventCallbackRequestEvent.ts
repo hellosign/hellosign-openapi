@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
 
 /**
@@ -70,6 +70,11 @@ export class EventCallbackRequestEvent {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventCallbackRequestEvent.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): EventCallbackRequestEvent {
+    return ObjectSerializer.deserialize(data, "EventCallbackRequestEvent");
   }
 }
 

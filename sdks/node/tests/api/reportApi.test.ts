@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -30,12 +29,12 @@ describe('ReportApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.ReportCreateRequest>(requestData, requestClass);
+    const obj = m.ReportCreateRequest.init(requestData);
 
     api.reportCreate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.ReportCreateResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

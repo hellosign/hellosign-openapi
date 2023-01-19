@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * An object with options that override account settings.
@@ -45,5 +45,10 @@ export class ApiAppResponseOptions {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApiAppResponseOptions.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): ApiAppResponseOptions {
+    return ObjectSerializer.deserialize(data, "ApiAppResponseOptions");
   }
 }

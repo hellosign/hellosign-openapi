@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -30,12 +29,12 @@ describe('TeamApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TeamAddMemberRequest>(requestData, requestClass);
+    const obj = m.TeamAddMemberRequest.init(requestData);
 
     api.teamAddMember(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TeamGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -54,12 +53,12 @@ describe('TeamApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TeamCreateRequest>(requestData, requestClass);
+    const obj = m.TeamCreateRequest.init(requestData);
 
     api.teamCreate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TeamGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -80,7 +79,7 @@ describe('TeamApiTest', () => {
     api.teamGet().then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TeamGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -99,12 +98,12 @@ describe('TeamApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TeamUpdateRequest>(requestData, requestClass);
+    const obj = m.TeamUpdateRequest.init(requestData);
 
     api.teamUpdate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TeamGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -123,12 +122,12 @@ describe('TeamApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.TeamRemoveMemberRequest>(requestData, requestClass);
+    const obj = m.TeamRemoveMemberRequest.init(requestData);
 
     api.teamRemoveMember(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.TeamGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

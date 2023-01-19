@@ -5,6 +5,7 @@ export declare class SubMergeField {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubMergeField;
 }
 export declare namespace SubMergeField {
     enum TypeEnum {

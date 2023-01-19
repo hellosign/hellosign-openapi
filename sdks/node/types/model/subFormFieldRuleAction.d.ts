@@ -7,6 +7,7 @@ export declare class SubFormFieldRuleAction {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubFormFieldRuleAction;
 }
 export declare namespace SubFormFieldRuleAction {
     enum TypeEnum {

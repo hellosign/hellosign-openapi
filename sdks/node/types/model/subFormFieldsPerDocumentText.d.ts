@@ -12,6 +12,7 @@ export declare class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocume
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubFormFieldsPerDocumentText;
 }
 export declare namespace SubFormFieldsPerDocumentText {
     enum ValidationTypeEnum {

@@ -18,6 +18,7 @@ export declare class SubWhiteLabelingOptions {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SubWhiteLabelingOptions;
 }
 export declare namespace SubWhiteLabelingOptions {
     enum LegalVersionEnum {

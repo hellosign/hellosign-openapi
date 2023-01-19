@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 
 export class TemplateResponseNamedFormField {
@@ -157,5 +157,10 @@ export class TemplateResponseNamedFormField {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TemplateResponseNamedFormField.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TemplateResponseNamedFormField {
+    return ObjectSerializer.deserialize(data, "TemplateResponseNamedFormField");
   }
 }

@@ -6,4 +6,5 @@ export declare class SignatureRequestResponseDataValueText extends SignatureRequ
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): SignatureRequestResponseDataValueText;
 }

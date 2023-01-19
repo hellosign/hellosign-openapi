@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { ListInfoResponse } from "./listInfoResponse";
 import { WarningResponse } from "./warningResponse";
@@ -60,5 +60,10 @@ export class BulkSendJobListResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return BulkSendJobListResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): BulkSendJobListResponse {
+    return ObjectSerializer.deserialize(data, "BulkSendJobListResponse");
   }
 }

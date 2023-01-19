@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubAttachment } from "./subAttachment";
 import { SubCustomField } from "./subCustomField";
 import { SubFieldOptions } from "./subFieldOptions";
@@ -261,5 +261,10 @@ export class SignatureRequestSendRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SignatureRequestSendRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestSendRequest {
+    return ObjectSerializer.deserialize(data, "SignatureRequestSendRequest");
   }
 }

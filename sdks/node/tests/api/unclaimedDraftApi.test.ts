@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -32,13 +31,13 @@ describe('UnclaimedDraftApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.UnclaimedDraftCreateRequest>(requestData, requestClass);
+    const obj = m.UnclaimedDraftCreateRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.unclaimedDraftCreate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.UnclaimedDraftCreateResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -57,13 +56,13 @@ describe('UnclaimedDraftApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.UnclaimedDraftCreateEmbeddedRequest>(requestData, requestClass);
+    const obj = m.UnclaimedDraftCreateEmbeddedRequest.init(requestData);
     obj.files = [fs.createReadStream(`${rootFilePath}/pdf-sample.pdf`)];
 
     api.unclaimedDraftCreateEmbedded(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.UnclaimedDraftCreateResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -82,12 +81,12 @@ describe('UnclaimedDraftApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.UnclaimedDraftCreateEmbeddedWithTemplateRequest>(requestData, requestClass);
+    const obj = m.UnclaimedDraftCreateEmbeddedWithTemplateRequest.init(requestData);
 
     api.unclaimedDraftCreateEmbeddedWithTemplate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.UnclaimedDraftCreateResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -108,12 +107,12 @@ describe('UnclaimedDraftApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.UnclaimedDraftEditAndResendRequest>(requestData, requestClass);
+    const obj = m.UnclaimedDraftEditAndResendRequest.init(requestData);
 
     api.unclaimedDraftEditAndResend(signatureRequestId, obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.UnclaimedDraftCreateResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

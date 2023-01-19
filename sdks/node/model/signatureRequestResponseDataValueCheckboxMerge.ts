@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 
 export class SignatureRequestResponseDataValueCheckboxMerge extends SignatureRequestResponseDataBase {
@@ -54,5 +54,13 @@ export class SignatureRequestResponseDataValueCheckboxMerge extends SignatureReq
     return super
       .getAttributeTypeMap()
       .concat(SignatureRequestResponseDataValueCheckboxMerge.attributeTypeMap);
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestResponseDataValueCheckboxMerge {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestResponseDataValueCheckboxMerge"
+    );
   }
 }

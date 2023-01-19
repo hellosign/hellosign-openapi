@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class SubFormFieldGroup {
   /**
@@ -60,5 +60,10 @@ export class SubFormFieldGroup {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubFormFieldGroup.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubFormFieldGroup {
+    return ObjectSerializer.deserialize(data, "SubFormFieldGroup");
   }
 }

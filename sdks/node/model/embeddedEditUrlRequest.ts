@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubMergeField } from "./subMergeField";
 
@@ -122,5 +122,10 @@ export class EmbeddedEditUrlRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return EmbeddedEditUrlRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): EmbeddedEditUrlRequest {
+    return ObjectSerializer.deserialize(data, "EmbeddedEditUrlRequest");
   }
 }

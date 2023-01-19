@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { ListInfoResponse } from "./listInfoResponse";
 import { TeamMemberResponse } from "./teamMemberResponse";
 import { WarningResponse } from "./warningResponse";
@@ -57,5 +57,10 @@ export class TeamMembersResponse {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TeamMembersResponse.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TeamMembersResponse {
+    return ObjectSerializer.deserialize(data, "TeamMembersResponse");
   }
 }

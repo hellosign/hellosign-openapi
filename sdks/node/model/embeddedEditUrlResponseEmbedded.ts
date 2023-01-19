@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * An embedded template object.
@@ -54,5 +54,13 @@ export class EmbeddedEditUrlResponseEmbedded {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return EmbeddedEditUrlResponseEmbedded.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): EmbeddedEditUrlResponseEmbedded {
+    return ObjectSerializer.deserialize(
+      data,
+      "EmbeddedEditUrlResponseEmbedded"
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'jest';
 import { EventCallbackRequest, EventCallbackHelper } from '../../model/models';
 
-import { getFixtureData, toObj } from '../test_utils';
+import { getFixtureData } from '../test_utils';
 
 describe('eventCallbackHelper', () => {
   const fixtureData = getFixtureData('EventCallbackHelper');
@@ -10,7 +10,7 @@ describe('eventCallbackHelper', () => {
 
   for (const [key, data] of Object.entries(fixtureData)) {
     it(`event callback for type ${key} is valid`, () => {
-      const obj = toObj<EventCallbackRequest>(data, EventCallbackRequest.name);
+      const obj = EventCallbackRequest.init(data);
 
       expect(EventCallbackHelper.isValid(apiKey, obj)).toBeTruthy();
       expect(EventCallbackHelper.isValid(apiKeyRev, obj)).toBeFalsy();

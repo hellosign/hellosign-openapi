@@ -6,7 +6,6 @@ import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -30,12 +29,12 @@ describe('OAuthApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.OAuthTokenGenerateRequest>(requestData, requestClass);
+    const obj = m.OAuthTokenGenerateRequest.init(requestData);
 
     api.oauthTokenGenerate(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.OAuthTokenResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -54,12 +53,12 @@ describe('OAuthApiTest', () => {
 
     setExpectedResponse(mock, responseData, 200);
 
-    const obj = toObj<m.OAuthTokenRefreshRequest>(requestData, requestClass);
+    const obj = m.OAuthTokenRefreshRequest.init(requestData);
 
     api.oauthTokenRefresh(obj).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.OAuthTokenResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);

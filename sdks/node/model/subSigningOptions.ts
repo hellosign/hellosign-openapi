@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * This allows the requester to specify the types allowed for creating a signature.  **Note**: If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
@@ -81,6 +81,11 @@ export class SubSigningOptions {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SubSigningOptions.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SubSigningOptions {
+    return ObjectSerializer.deserialize(data, "SubSigningOptions");
   }
 }
 

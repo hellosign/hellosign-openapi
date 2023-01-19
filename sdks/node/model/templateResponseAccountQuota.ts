@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 /**
  * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
@@ -72,5 +72,10 @@ export class TemplateResponseAccountQuota {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return TemplateResponseAccountQuota.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): TemplateResponseAccountQuota {
+    return ObjectSerializer.deserialize(data, "TemplateResponseAccountQuota");
   }
 }

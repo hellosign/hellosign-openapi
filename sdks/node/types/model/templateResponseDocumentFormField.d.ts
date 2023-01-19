@@ -18,6 +18,7 @@ export declare class TemplateResponseDocumentFormField {
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
+    static init(data: any): TemplateResponseDocumentFormField;
 }
 export declare namespace TemplateResponseDocumentFormField {
     enum TypeEnum {

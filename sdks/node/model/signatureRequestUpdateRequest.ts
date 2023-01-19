@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 
 export class SignatureRequestUpdateRequest {
   /**
@@ -69,5 +69,10 @@ export class SignatureRequestUpdateRequest {
 
   static getAttributeTypeMap(): AttributeTypeMap {
     return SignatureRequestUpdateRequest.attributeTypeMap;
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestUpdateRequest {
+    return ObjectSerializer.deserialize(data, "SignatureRequestUpdateRequest");
   }
 }

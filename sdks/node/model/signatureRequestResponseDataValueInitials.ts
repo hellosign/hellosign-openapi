@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 
 export class SignatureRequestResponseDataValueInitials extends SignatureRequestResponseDataBase {
@@ -54,5 +54,13 @@ export class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     return super
       .getAttributeTypeMap()
       .concat(SignatureRequestResponseDataValueInitials.attributeTypeMap);
+  }
+
+  /** Attempt to instantiate and hydrate a new instance of this class */
+  static init(data: any): SignatureRequestResponseDataValueInitials {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestResponseDataValueInitials"
+    );
   }
 }

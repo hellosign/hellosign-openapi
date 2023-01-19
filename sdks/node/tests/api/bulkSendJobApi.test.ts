@@ -1,11 +1,11 @@
 import 'jest';
 
 import { BulkSendJobApi } from '../../api/apis';
+import * as m from '../../model/models';
 import {
   getFixtureData,
   setExpectedResponse,
   diffJson,
-  toObj,
 } from '../test_utils';
 
 const axios = require('axios');
@@ -31,7 +31,7 @@ describe('BulkSendJobApiTest', () => {
     api.bulkSendJobGet(id).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.BulkSendJobGetResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
@@ -53,7 +53,7 @@ describe('BulkSendJobApiTest', () => {
     api.bulkSendJobList(page, pageSize).then(response => {
       const diff = diffJson(
         response.body,
-        toObj<typeof response.body>(responseData, responseClass),
+        m.BulkSendJobListResponse.init(responseData),
       );
 
       expect(response.body.constructor.name).toBe(responseClass);
