@@ -56,7 +56,7 @@ python3 pipenv install dropbox-sign==1.0.0-beta23.1
 Alternatively:
 
 ```shell
-pip install git+https://github.com/hellosign/hellosign-python-sdk.git@openapi
+pip install git+https://github.com/hellosign/dropbox-sign-python.git
 ```
 
 Then import the package:

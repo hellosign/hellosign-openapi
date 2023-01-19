@@ -167,14 +167,14 @@ The API Engineering team at Dropbox Sign adopted the [OpenAPI specification](htt
 
 The SDKs based on our OpenAPI spec are a work in progress and none have moved past beta quite yet. They're currently available as an "openapi" branch in each respective repo.
 
-| Link to SDK                                                                 | Status |
-|-----------------------------------------------------------------------------| --- |
-| [NodeJS](https://github.com/hellosign/hellosign-nodejs-sdk/tree/openapi)    | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-nodejs-sdk/tree/openapi) |
-| [PHP](https://github.com/hellosign/hellosign-php-sdk/tree/openapi)          | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-php-sdk/tree/openapi) |
-| [C# dotnet](https://github.com/hellosign/hellosign-dotnet-sdk/tree/openapi) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-dotnet-sdk/tree/openapi) |
-| [Python](https://github.com/hellosign/hellosign-python-sdk/tree/openapi)    | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-python-sdk/tree/openapi) |
-| [Ruby](https://github.com/hellosign/hellosign-ruby-sdk/tree/openapi)        | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-ruby-sdk/tree/openapi) |
-| [Java](https://github.com/hellosign/hellosign-java-sdk/tree/openapi)        | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/hellosign-java-sdk/tree/openapi) |
+| Link to SDK                                                   | Status                                                                                                          |
+|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [NodeJS](https://github.com/hellosign/dropbox-sign-node)      | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-node)   |
+| [PHP](https://github.com/hellosign/dropbox-sign-php)          | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-php)    |
+| [C# dotnet](https://github.com/hellosign/dropbox-sign-dotnet) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-dotnet) |
+| [Python](https://github.com/hellosign/dropbox-sign-python)    | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-python) |
+| [Ruby](https://github.com/hellosign/dropbox-sign-ruby)        | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-ruby)   |
+| [Java](https://github.com/hellosign/dropbox-sign-java)        | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-java)   |
 
 **Note:** You can help us accelerate the launch of an SDK by being an early adopter. Please jump right in and start using it, then open an Issue in that SDK's GitHub repo when you find something that needs to be fixed. 
 
