@@ -1,4 +1,4 @@
-# HelloSign.Api.EmbeddedApi
+# Dropbox.Sign.Api.EmbeddedApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -20,9 +20,9 @@ Retrieves an embedded object containing a template url that can be opened in an 
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -122,9 +122,9 @@ Retrieves an embedded object containing a signature url that can be opened in an
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

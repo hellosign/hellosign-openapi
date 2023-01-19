@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using HelloSign.Model;
-using HelloSign;
+using Dropbox.Sign.Model;
+using Dropbox.Sign;
 
 public class Example
 {

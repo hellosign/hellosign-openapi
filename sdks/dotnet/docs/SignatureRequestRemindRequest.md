@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestRemindRequest
+# Dropbox.Sign.Model.SignatureRequestRemindRequest
 
 ## Properties
 

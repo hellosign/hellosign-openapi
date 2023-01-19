@@ -1,4 +1,4 @@
-# HelloSign.Model.ReportCreateResponse
+# Dropbox.Sign.Model.ReportCreateResponse
 
 ## Properties
 

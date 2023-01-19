@@ -1,4 +1,4 @@
-# HelloSign.Model.SubSignatureRequestGroupedSigners
+# Dropbox.Sign.Model.SubSignatureRequestGroupedSigners
 
 ## Properties
 

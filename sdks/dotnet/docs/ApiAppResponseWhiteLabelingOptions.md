@@ -1,4 +1,4 @@
-# HelloSign.Model.ApiAppResponseWhiteLabelingOptions
+# Dropbox.Sign.Model.ApiAppResponseWhiteLabelingOptions
 An object with options to customize the app's signer page
 
 ## Properties

@@ -1,4 +1,4 @@
-# HelloSign.Model.SubOptions
+# Dropbox.Sign.Model.SubOptions
 Additional options supported by API App.
 
 ## Properties

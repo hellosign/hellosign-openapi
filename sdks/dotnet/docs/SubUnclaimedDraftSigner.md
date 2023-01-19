@@ -1,4 +1,4 @@
-# HelloSign.Model.SubUnclaimedDraftSigner
+# Dropbox.Sign.Model.SubUnclaimedDraftSigner
 
 ## Properties
 

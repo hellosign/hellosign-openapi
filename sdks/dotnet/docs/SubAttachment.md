@@ -1,4 +1,4 @@
-# HelloSign.Model.SubAttachment
+# Dropbox.Sign.Model.SubAttachment
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# HelloSign.Model.OAuthTokenResponse
+# Dropbox.Sign.Model.OAuthTokenResponse
 
 ## Properties
 

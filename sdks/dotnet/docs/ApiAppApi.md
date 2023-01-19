@@ -1,4 +1,4 @@
-# HelloSign.Api.ApiAppApi
+# Dropbox.Sign.Api.ApiAppApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -23,9 +23,9 @@ Creates a new API App.
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -143,9 +143,9 @@ Deletes an API App. Can only be invoked for apps you own.
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -234,9 +234,9 @@ Returns an object with information about an API App.
 ```csharp
 using System;
 
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -329,9 +329,9 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ```csharp
 using System;
 
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -427,9 +427,9 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

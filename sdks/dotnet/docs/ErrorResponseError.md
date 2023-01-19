@@ -1,4 +1,4 @@
-# HelloSign.Model.ErrorResponseError
+# Dropbox.Sign.Model.ErrorResponseError
 Contains information about an error that occurred.
 
 ## Properties

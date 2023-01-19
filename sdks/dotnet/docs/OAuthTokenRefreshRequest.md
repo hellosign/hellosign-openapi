@@ -1,4 +1,4 @@
-# HelloSign.Model.OAuthTokenRefreshRequest
+# Dropbox.Sign.Model.OAuthTokenRefreshRequest
 
 ## Properties
 

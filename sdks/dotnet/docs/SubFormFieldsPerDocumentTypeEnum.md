@@ -1,4 +1,4 @@
-# HelloSign.Model.SubFormFieldsPerDocumentTypeEnum
+# Dropbox.Sign.Model.SubFormFieldsPerDocumentTypeEnum
 
 ## Properties
 

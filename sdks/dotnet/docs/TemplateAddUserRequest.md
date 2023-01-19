@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateAddUserRequest
+# Dropbox.Sign.Model.TemplateAddUserRequest
 
 ## Properties
 

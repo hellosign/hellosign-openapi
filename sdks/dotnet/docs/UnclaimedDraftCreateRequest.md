@@ -1,4 +1,4 @@
-# HelloSign.Model.UnclaimedDraftCreateRequest
+# Dropbox.Sign.Model.UnclaimedDraftCreateRequest
 
 ## Properties
 

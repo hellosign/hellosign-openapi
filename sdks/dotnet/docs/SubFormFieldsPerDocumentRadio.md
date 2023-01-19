@@ -1,4 +1,4 @@
-# HelloSign.Model.SubFormFieldsPerDocumentRadio
+# Dropbox.Sign.Model.SubFormFieldsPerDocumentRadio
 This class extends `SubFormFieldsPerDocumentBase`.
 
 ## Properties

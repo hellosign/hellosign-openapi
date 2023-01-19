@@ -1,4 +1,4 @@
-# HelloSign.Model.AccountUpdateRequest
+# Dropbox.Sign.Model.AccountUpdateRequest
 
 ## Properties
 

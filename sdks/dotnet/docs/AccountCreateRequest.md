@@ -1,4 +1,4 @@
-# HelloSign.Model.AccountCreateRequest
+# Dropbox.Sign.Model.AccountCreateRequest
 
 ## Properties
 

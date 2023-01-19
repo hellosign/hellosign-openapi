@@ -1,4 +1,4 @@
-# HelloSign.Model.ApiAppUpdateRequest
+# Dropbox.Sign.Model.ApiAppUpdateRequest
 
 ## Properties
 

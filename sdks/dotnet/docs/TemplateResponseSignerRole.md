@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateResponseSignerRole
+# Dropbox.Sign.Model.TemplateResponseSignerRole
 
 ## Properties
 

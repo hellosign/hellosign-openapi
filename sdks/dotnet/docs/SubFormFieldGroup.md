@@ -1,4 +1,4 @@
-# HelloSign.Model.SubFormFieldGroup
+# Dropbox.Sign.Model.SubFormFieldGroup
 
 ## Properties
 

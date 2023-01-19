@@ -1,15 +1,12 @@
 generatorName: csharp-netcore
 additionalProperties:
-  clientPackage: HelloSign.Api
-  packageName: HelloSign
-  packageAuthors: HelloSign
-  packageCompany: HelloSign
-  packageDescription: Client library for using the HelloSign API
-  packageVersion: 6.0.0-beta23.1
-  packageTitle: HelloSign .Net SDK
-  gitHost: github.com
-  gitUserId: hellosign
-  gitRepoId: hellosign-dotnet-sdk
+  clientPackage: Dropbox.Sign.Api
+  packageName: Dropbox.Sign
+  packageAuthors: Dropbox Sign API Team
+  packageCompany: Dropbox Sign API Team
+  packageDescription: Client library for using the Dropbox Sign API
+  packageVersion: 1.0.0-beta23.1
+  packageTitle: Dropbox Sign .Net SDK
   sortModelPropertiesByRequiredFlag: true
   optionalEmitDefaultValues: true
   targetFramework: net6.0
@@ -17,7 +14,7 @@ additionalProperties:
 files:
   EventCallbackHelper.cs:
     templateType: SupportingFiles
-    destinationFilename: src/HelloSign/EventCallbackHelper.cs
+    destinationFilename: src/Dropbox.Sign/EventCallbackHelper.cs
 globalProperties:
   apiTests: false
   modelTests: false

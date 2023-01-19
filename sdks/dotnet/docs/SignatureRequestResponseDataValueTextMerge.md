@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponseDataValueTextMerge
+# Dropbox.Sign.Model.SignatureRequestResponseDataValueTextMerge
 
 ## Properties
 

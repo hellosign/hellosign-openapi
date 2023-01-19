@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestSendRequest
+# Dropbox.Sign.Model.SignatureRequestSendRequest
 
 ## Properties
 

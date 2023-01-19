@@ -1,4 +1,4 @@
-# HelloSign.Model.EventCallbackRequestEvent
+# Dropbox.Sign.Model.EventCallbackRequestEvent
 Basic information about the event that occurred.
 
 ## Properties

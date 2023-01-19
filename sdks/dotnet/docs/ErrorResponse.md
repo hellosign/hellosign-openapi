@@ -1,4 +1,4 @@
-# HelloSign.Model.ErrorResponse
+# Dropbox.Sign.Model.ErrorResponse
 
 ## Properties
 

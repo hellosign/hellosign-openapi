@@ -45,6 +45,6 @@ if [[ -z "$GITHUB_ACTIONS" ]]; then
 fi
 
 printf "Running tests ...\n"
-bash "${DIR}/bin/dotnet" dotnet test src/HelloSign.Test/
+bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/
 
 printf "Success!\n"

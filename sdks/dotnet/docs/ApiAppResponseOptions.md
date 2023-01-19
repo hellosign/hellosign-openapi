@@ -1,4 +1,4 @@
-# HelloSign.Model.ApiAppResponseOptions
+# Dropbox.Sign.Model.ApiAppResponseOptions
 An object with options that override account settings.
 
 ## Properties

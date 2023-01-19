@@ -1,4 +1,4 @@
-# HelloSign.Model.EmbeddedSignUrlResponse
+# Dropbox.Sign.Model.EmbeddedSignUrlResponse
 
 ## Properties
 

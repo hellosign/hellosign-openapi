@@ -1,4 +1,4 @@
-# HelloSign.Model.SubFormFieldRuleAction
+# Dropbox.Sign.Model.SubFormFieldRuleAction
 
 ## Properties
 

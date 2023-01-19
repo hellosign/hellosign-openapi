@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateResponseNamedFormField
+# Dropbox.Sign.Model.TemplateResponseNamedFormField
 
 ## Properties
 

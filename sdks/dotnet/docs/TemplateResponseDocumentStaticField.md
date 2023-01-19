@@ -1,4 +1,4 @@
-# HelloSign.Model.TemplateResponseDocumentStaticField
+# Dropbox.Sign.Model.TemplateResponseDocumentStaticField
 
 ## Properties
 

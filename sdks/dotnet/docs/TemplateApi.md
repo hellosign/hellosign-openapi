@@ -1,4 +1,4 @@
-# HelloSign.Api.TemplateApi
+# Dropbox.Sign.Api.TemplateApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -27,9 +27,9 @@ Gives the specified Account access to the specified Template. The specified Acco
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -128,9 +128,9 @@ The first step in an embedded template workflow. Creates a draft template that c
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -267,9 +267,9 @@ Completely deletes the template specified from the account.
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -358,9 +358,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -458,9 +458,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -553,9 +553,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -648,9 +648,9 @@ Returns the Template specified by the `template_id` parameter.
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -743,9 +743,9 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -841,9 +841,9 @@ Removes the specified Account's access to the specified Template.
 ```csharp
 using System;
 using System.Collections.Generic;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -942,9 +942,9 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

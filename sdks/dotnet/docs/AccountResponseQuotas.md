@@ -1,4 +1,4 @@
-# HelloSign.Model.AccountResponseQuotas
+# Dropbox.Sign.Model.AccountResponseQuotas
 Details concerning remaining monthly quotas.
 
 ## Properties

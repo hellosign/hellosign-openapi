@@ -1,4 +1,4 @@
-# HelloSign.Api.ReportApi
+# Dropbox.Sign.Api.ReportApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -19,9 +19,9 @@ Request the creation of one or more report(s).  When the report(s) have been gen
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

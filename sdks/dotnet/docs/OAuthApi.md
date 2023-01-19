@@ -1,4 +1,4 @@
-# HelloSign.Api.OAuthApi
+# Dropbox.Sign.Api.OAuthApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -20,9 +20,9 @@ Once you have retrieved the code from the user callback, you will need to exchan
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {
@@ -120,9 +120,9 @@ Access tokens are only valid for a given period of time (typically one hour) for
 using System;
 using System.Collections.Generic;
 using System.IO;
-using HelloSign.Api;
-using HelloSign.Client;
-using HelloSign.Model;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
 
 public class Example
 {

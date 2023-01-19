@@ -1,4 +1,4 @@
-# HelloSign.Model.SignatureRequestResponseAttachment
+# Dropbox.Sign.Model.SignatureRequestResponseAttachment
 Signer attachments.
 
 ## Properties
