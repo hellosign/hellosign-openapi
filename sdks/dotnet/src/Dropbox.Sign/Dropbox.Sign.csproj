@@ -13,7 +13,7 @@
     <RootNamespace>Dropbox.Sign</RootNamespace>
     <Version>1.0.0-beta23.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Dropbox.Sign.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/hellosign/dropbox-sign-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
     <Nullable>annotations</Nullable>
