@@ -198,7 +198,14 @@ class SubAttachment implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['required'] = $data['required'] ?? false;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubAttachment
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubAttachment
     {
         /** @var SubAttachment $obj */
         $obj = ObjectSerializer::deserialize(

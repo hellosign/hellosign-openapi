@@ -320,7 +320,14 @@ class SignatureRequestCreateEmbeddedRequest implements ModelInterface, ArrayAcce
         $this->container['expires_at'] = $data['expires_at'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestCreateEmbeddedRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestCreateEmbeddedRequest
     {
         /** @var SignatureRequestCreateEmbeddedRequest $obj */
         $obj = ObjectSerializer::deserialize(

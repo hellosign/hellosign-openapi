@@ -217,7 +217,14 @@ class ReportResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['report_type'] = $data['report_type'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ReportResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ReportResponse
     {
         /** @var ReportResponse $obj */
         $obj = ObjectSerializer::deserialize(

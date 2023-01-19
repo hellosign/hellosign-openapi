@@ -326,7 +326,14 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->container['expires_at'] = $data['expires_at'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestSendRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestSendRequest
     {
         /** @var SignatureRequestSendRequest $obj */
         $obj = ObjectSerializer::deserialize(

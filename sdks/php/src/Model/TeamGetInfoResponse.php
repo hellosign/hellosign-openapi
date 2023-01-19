@@ -187,7 +187,14 @@ class TeamGetInfoResponse implements ModelInterface, ArrayAccess, JsonSerializab
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TeamGetInfoResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TeamGetInfoResponse
     {
         /** @var TeamGetInfoResponse $obj */
         $obj = ObjectSerializer::deserialize(

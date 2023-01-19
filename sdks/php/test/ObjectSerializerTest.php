@@ -43,7 +43,7 @@ class ObjectSerializerTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\SignatureRequestSendRequest::fromArray($requestData);
+        $obj = Model\SignatureRequestSendRequest::init($requestData);
         $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
@@ -75,7 +75,7 @@ class ObjectSerializerTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\SignatureRequestSendRequest::fromArray($requestData);
+        $obj = Model\SignatureRequestSendRequest::init($requestData);
 
         $response = $this->api->signatureRequestSend($obj);
         $request = $this->handler->getLastRequest();

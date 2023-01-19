@@ -206,7 +206,14 @@ class SubFieldOptions implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['date_format'] = $data['date_format'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFieldOptions
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFieldOptions
     {
         /** @var SubFieldOptions $obj */
         $obj = ObjectSerializer::deserialize(

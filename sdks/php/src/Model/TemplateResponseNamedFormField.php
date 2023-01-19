@@ -259,7 +259,14 @@ class TemplateResponseNamedFormField implements ModelInterface, ArrayAccess, Jso
         $this->container['font_family'] = $data['font_family'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateResponseNamedFormField
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateResponseNamedFormField
     {
         /** @var TemplateResponseNamedFormField $obj */
         $obj = ObjectSerializer::deserialize(

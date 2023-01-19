@@ -174,7 +174,14 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
         $this->container['type'] = $data['type'] ?? 'date_signed';
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldsPerDocumentDateSigned
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFormFieldsPerDocumentDateSigned
     {
         /** @var SubFormFieldsPerDocumentDateSigned $obj */
         $obj = ObjectSerializer::deserialize(

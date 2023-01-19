@@ -179,7 +179,14 @@ class SignatureRequestResponseDataValueCheckbox extends SignatureRequestResponse
         $this->container['value'] = $data['value'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestResponseDataValueCheckbox
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestResponseDataValueCheckbox
     {
         /** @var SignatureRequestResponseDataValueCheckbox $obj */
         $obj = ObjectSerializer::deserialize(

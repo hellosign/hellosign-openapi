@@ -41,7 +41,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\UnclaimedDraftCreateRequest::fromArray($requestData);
+        $obj = Model\UnclaimedDraftCreateRequest::init($requestData);
         $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
@@ -64,7 +64,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\UnclaimedDraftCreateEmbeddedRequest::fromArray($requestData);
+        $obj = Model\UnclaimedDraftCreateEmbeddedRequest::init($requestData);
         $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
@@ -87,7 +87,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest::fromArray(
+        $obj = Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest::init(
             $requestData
         );
         $obj->setFiles([
@@ -113,7 +113,7 @@ class UnclaimedDraftApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\UnclaimedDraftEditAndResendRequest::fromArray($requestData);
+        $obj = Model\UnclaimedDraftEditAndResendRequest::init($requestData);
 
         $response = $this->api->unclaimedDraftEditAndResend(
             $signatureRequestId,

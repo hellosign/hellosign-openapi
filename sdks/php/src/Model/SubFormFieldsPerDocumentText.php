@@ -249,7 +249,14 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         $this->container['validation_custom_regex_format_label'] = $data['validation_custom_regex_format_label'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldsPerDocumentText
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFormFieldsPerDocumentText
     {
         /** @var SubFormFieldsPerDocumentText $obj */
         $obj = ObjectSerializer::deserialize(

@@ -194,7 +194,14 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['invited_accounts'] = $data['invited_accounts'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TeamResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TeamResponse
     {
         /** @var TeamResponse $obj */
         $obj = ObjectSerializer::deserialize(

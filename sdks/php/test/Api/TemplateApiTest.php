@@ -42,7 +42,7 @@ class TemplateApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TemplateAddUserRequest::fromArray($requestData);
+        $obj = Model\TemplateAddUserRequest::init($requestData);
 
         $response = $this->api->templateAddUser($templateId, $obj);
         $serialized = TestUtils::toArray($response);
@@ -62,7 +62,7 @@ class TemplateApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TemplateCreateEmbeddedDraftRequest::fromArray($requestData);
+        $obj = Model\TemplateCreateEmbeddedDraftRequest::init($requestData);
         $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);
@@ -130,7 +130,7 @@ class TemplateApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TemplateRemoveUserRequest::fromArray($requestData);
+        $obj = Model\TemplateRemoveUserRequest::init($requestData);
 
         $response = $this->api->templateRemoveUser($templateId, $obj);
         $serialized = TestUtils::toArray($response);
@@ -151,7 +151,7 @@ class TemplateApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TemplateUpdateFilesRequest::fromArray($requestData);
+        $obj = Model\TemplateUpdateFilesRequest::init($requestData);
         $obj->setFiles([
             new SplFileObject(self::ROOT_FILE_PATH . '/pdf-sample.pdf'),
         ]);

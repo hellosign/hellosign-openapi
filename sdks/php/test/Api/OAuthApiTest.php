@@ -40,7 +40,7 @@ class OAuthApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\OAuthTokenGenerateRequest::fromArray($requestData);
+        $obj = Model\OAuthTokenGenerateRequest::init($requestData);
 
         $response = $this->api->oauthTokenGenerate($obj);
         $serialized = TestUtils::toArray($response);
@@ -60,7 +60,7 @@ class OAuthApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\OAuthTokenRefreshRequest::fromArray($requestData);
+        $obj = Model\OAuthTokenRefreshRequest::init($requestData);
 
         $response = $this->api->oauthTokenRefresh($obj);
         $serialized = TestUtils::toArray($response);

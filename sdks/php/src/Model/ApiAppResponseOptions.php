@@ -182,7 +182,14 @@ class ApiAppResponseOptions implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['can_insert_everywhere'] = $data['can_insert_everywhere'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppResponseOptions
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ApiAppResponseOptions
     {
         /** @var ApiAppResponseOptions $obj */
         $obj = ObjectSerializer::deserialize(

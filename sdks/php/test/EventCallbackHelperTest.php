@@ -19,7 +19,7 @@ class EventCallbackHelperTest extends HelloTestCase
         array $data,
         bool $passes
     ) {
-        $callback_event = EventCallbackRequest::fromArray($data);
+        $callback_event = EventCallbackRequest::init($data);
 
         $isValid = EventCallbackHelper::isValid($apiKey, $callback_event);
 

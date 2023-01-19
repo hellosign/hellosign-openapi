@@ -174,7 +174,14 @@ class SubFormFieldsPerDocumentInitials extends SubFormFieldsPerDocumentBase
         $this->container['type'] = $data['type'] ?? 'initials';
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldsPerDocumentInitials
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFormFieldsPerDocumentInitials
     {
         /** @var SubFormFieldsPerDocumentInitials $obj */
         $obj = ObjectSerializer::deserialize(

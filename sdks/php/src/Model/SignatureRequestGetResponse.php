@@ -187,7 +187,14 @@ class SignatureRequestGetResponse implements ModelInterface, ArrayAccess, JsonSe
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestGetResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestGetResponse
     {
         /** @var SignatureRequestGetResponse $obj */
         $obj = ObjectSerializer::deserialize(

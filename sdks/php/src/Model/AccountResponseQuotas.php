@@ -206,7 +206,14 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['sms_verifications_left'] = $data['sms_verifications_left'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): AccountResponseQuotas
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): AccountResponseQuotas
     {
         /** @var AccountResponseQuotas $obj */
         $obj = ObjectSerializer::deserialize(

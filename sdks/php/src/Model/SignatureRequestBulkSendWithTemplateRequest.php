@@ -254,7 +254,14 @@ class SignatureRequestBulkSendWithTemplateRequest implements ModelInterface, Arr
         $this->container['title'] = $data['title'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestBulkSendWithTemplateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestBulkSendWithTemplateRequest
     {
         /** @var SignatureRequestBulkSendWithTemplateRequest $obj */
         $obj = ObjectSerializer::deserialize(

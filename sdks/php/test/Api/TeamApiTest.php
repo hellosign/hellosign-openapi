@@ -40,7 +40,7 @@ class TeamApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TeamAddMemberRequest::fromArray($requestData);
+        $obj = Model\TeamAddMemberRequest::init($requestData);
 
         $response = $this->api->teamAddMember($obj);
         $serialized = TestUtils::toArray($response);
@@ -60,7 +60,7 @@ class TeamApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TeamCreateRequest::fromArray($requestData);
+        $obj = Model\TeamCreateRequest::init($requestData);
 
         $response = $this->api->teamCreate($obj);
         $serialized = TestUtils::toArray($response);
@@ -100,7 +100,7 @@ class TeamApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TeamUpdateRequest::fromArray($requestData);
+        $obj = Model\TeamUpdateRequest::init($requestData);
 
         $response = $this->api->teamUpdate($obj);
         $serialized = TestUtils::toArray($response);
@@ -120,7 +120,7 @@ class TeamApiTest extends HelloTestCase
 
         $this->setExpectedResponse($responseData);
 
-        $obj = Model\TeamRemoveMemberRequest::fromArray($requestData);
+        $obj = Model\TeamRemoveMemberRequest::init($requestData);
 
         $response = $this->api->teamRemoveMember($obj);
         $serialized = TestUtils::toArray($response);

@@ -254,7 +254,14 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest implements ModelInte
         $this->container['title'] = $data['title'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SignatureRequestBulkCreateEmbeddedWithTemplateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SignatureRequestBulkCreateEmbeddedWithTemplateRequest
     {
         /** @var SignatureRequestBulkCreateEmbeddedWithTemplateRequest $obj */
         $obj = ObjectSerializer::deserialize(

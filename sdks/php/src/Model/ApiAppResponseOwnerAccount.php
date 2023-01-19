@@ -188,7 +188,14 @@ class ApiAppResponseOwnerAccount implements ModelInterface, ArrayAccess, JsonSer
         $this->container['email_address'] = $data['email_address'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppResponseOwnerAccount
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ApiAppResponseOwnerAccount
     {
         /** @var ApiAppResponseOwnerAccount $obj */
         $obj = ObjectSerializer::deserialize(

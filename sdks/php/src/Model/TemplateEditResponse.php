@@ -180,7 +180,14 @@ class TemplateEditResponse implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['template_id'] = $data['template_id'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TemplateEditResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TemplateEditResponse
     {
         /** @var TemplateEditResponse $obj */
         $obj = ObjectSerializer::deserialize(

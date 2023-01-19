@@ -180,7 +180,14 @@ class TeamCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['name'] = $data['name'] ?? 'Untitled Team';
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): TeamCreateRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): TeamCreateRequest
     {
         /** @var TeamCreateRequest $obj */
         $obj = ObjectSerializer::deserialize(

@@ -180,7 +180,14 @@ class AccountVerifyRequest implements ModelInterface, ArrayAccess, JsonSerializa
         $this->container['email_address'] = $data['email_address'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): AccountVerifyRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): AccountVerifyRequest
     {
         /** @var AccountVerifyRequest $obj */
         $obj = ObjectSerializer::deserialize(

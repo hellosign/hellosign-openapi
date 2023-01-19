@@ -234,7 +234,14 @@ class EmbeddedEditUrlRequest implements ModelInterface, ArrayAccess, JsonSeriali
         $this->container['test_mode'] = $data['test_mode'] ?? false;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): EmbeddedEditUrlRequest
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): EmbeddedEditUrlRequest
     {
         /** @var EmbeddedEditUrlRequest $obj */
         $obj = ObjectSerializer::deserialize(

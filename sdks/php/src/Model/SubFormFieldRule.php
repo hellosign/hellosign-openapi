@@ -199,7 +199,14 @@ class SubFormFieldRule implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['actions'] = $data['actions'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): SubFormFieldRule
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): SubFormFieldRule
     {
         /** @var SubFormFieldRule $obj */
         $obj = ObjectSerializer::deserialize(

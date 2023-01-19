@@ -187,7 +187,14 @@ class ApiAppGetResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
+    /** @deprecated use ::init() */
     public static function fromArray(array $data): ApiAppGetResponse
+    {
+        return self::init($data);
+    }
+
+    /** Attempt to instantiate and hydrate a new instance of this class */
+    public static function init(array $data): ApiAppGetResponse
     {
         /** @var ApiAppGetResponse $obj */
         $obj = ObjectSerializer::deserialize(
