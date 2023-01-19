@@ -2,7 +2,7 @@ generatorName: typescript-node
 typeMappings: {}
 additionalProperties:
   npmName: "@dropbox/sign"
-  npmVersion: 1.0.0-beta23.1
+  npmVersion: 1.0.0-beta2301
   supportsES6: true
   apiDocPath: ./docs/api
   modelDocPath: ./docs/model

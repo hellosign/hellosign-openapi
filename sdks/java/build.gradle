@@ -5,7 +5,7 @@ apply plugin: 'signing'
 
 group = 'com.dropbox.sign'
 archivesBaseName = 'dropbox-sign'
-version = '1.0.0-beta23.1'
+version = '1.0.0-beta2301'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 

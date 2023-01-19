@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "dropbox-sign"
-VERSION = "1.0.0-beta23.1"
+VERSION = "1.0.0-beta2301"
 # To install the library, run the following
 #
 # python setup.py install
