@@ -138,3 +138,15 @@
         if not val:
             return None
         return {'{{{discriminatorName}}}': val}{{/discriminator}}
+{{^discriminator}}
+    @staticmethod
+    def init(data: any) -> "{{classname}}":
+        """
+        Attempt to instantiate and hydrate a new instance of this class
+        """
+        return ApiClient().deserialize(
+            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response_type=[{{classname}}],
+            _check_type=True,
+        )
+{{/discriminator}}

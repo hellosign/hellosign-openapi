@@ -2,8 +2,6 @@ import os
 import json
 import urllib3
 
-from hellosign_sdk import ApiClient, apis, models
-
 
 def get_base_path():
     return os.path.dirname(os.path.abspath(__file__)) + f'/../test_fixtures'
@@ -17,16 +15,6 @@ def get_fixture_data(filename):
     file.close()
 
     return fixture_data
-
-
-def deserialize(data, response_type):
-    api_client = ApiClient()
-
-    return api_client.deserialize(
-        response=type('obj_dict', (object,), {'data': json.dumps(data)}),
-        response_type=[eval(response_type)],
-        _check_type=True,
-    )
 
 
 class MockPoolManager(object):

@@ -9,9 +9,11 @@
 """
 
 
+import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
 
+from hellosign_sdk import ApiClient
 from hellosign_sdk.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -82,6 +84,17 @@ class SignatureRequestResponseCustomFieldTypeEnum(ModelSimple):
     @cached_property
     def discriminator():
         return None
+
+    @staticmethod
+    def init(data: any) -> "SignatureRequestResponseCustomFieldTypeEnum":
+        """
+        Attempt to instantiate and hydrate a new instance of this class
+        """
+        return ApiClient().deserialize(
+            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response_type=[SignatureRequestResponseCustomFieldTypeEnum],
+            _check_type=True,
+        )
 
 
     attribute_map = {}

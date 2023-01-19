@@ -1,8 +1,8 @@
 import unittest
 import random
 
-from hellosign_sdk import ApiClient, ApiException, Configuration, apis
-from test_utils import get_fixture_data, MockPoolManager, deserialize
+from hellosign_sdk import ApiClient, ApiException, Configuration, apis, models as m
+from test_utils import get_fixture_data, MockPoolManager
 
 
 class TestAccountApi(unittest.TestCase):
@@ -29,8 +29,8 @@ class TestAccountApi(unittest.TestCase):
             response=response_data,
             status=code,
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.ErrorResponse.init(response_data)
+        obj = m.AccountCreateRequest.init(request_data)
 
         try:
             self.api.account_create(obj)
@@ -50,8 +50,8 @@ class TestAccountApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.AccountCreateResponse.init(response_data)
+        obj = m.AccountCreateRequest.init(request_data)
 
         result = self.api.account_create(obj)
 
@@ -66,7 +66,7 @@ class TestAccountApi(unittest.TestCase):
             content_type='application/json',
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
+        expected = m.AccountGetResponse.init(response_data)
 
         result = self.api.account_get(email_address="jack@example.com")
 
@@ -85,8 +85,8 @@ class TestAccountApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.AccountGetResponse.init(response_data)
+        obj = m.AccountUpdateRequest.init(request_data)
 
         result = self.api.account_update(obj)
 
@@ -105,8 +105,8 @@ class TestAccountApi(unittest.TestCase):
             data=request_data,
             response=response_data
         )
-        expected = deserialize(response_data, f'models.{response_class}')
-        obj = deserialize(request_data, f'models.{request_class}')
+        expected = m.AccountVerifyResponse.init(response_data)
+        obj = m.AccountVerifyRequest.init(request_data)
 
         result = self.api.account_verify(obj)
 
