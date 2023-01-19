@@ -1,4 +1,4 @@
-# HelloSign::AccountVerifyResponseAccount
+# Dropbox::Sign::AccountVerifyResponseAccount
 
 
 

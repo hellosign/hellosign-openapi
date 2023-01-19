@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestGetResponse
+# Dropbox::Sign::SignatureRequestGetResponse
 
 
 

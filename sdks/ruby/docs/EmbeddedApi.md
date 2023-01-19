@@ -1,4 +1,4 @@
-# HelloSign::EmbeddedApi
+# Dropbox::Sign::EmbeddedApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -19,9 +19,9 @@ Retrieves an embedded object containing a template url that can be opened in an 
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -29,9 +29,9 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::EmbeddedApi.new
+api = Dropbox::Sign::EmbeddedApi.new
 
-data = HelloSign::EmbeddedEditUrlRequest.new
+data = Dropbox::Sign::EmbeddedEditUrlRequest.new
 data.cc_roles = [""]
 data.merge_fields = []
 
@@ -40,7 +40,7 @@ template_id = "5de8179668f2033afac48da1868d0093bf133266"
 begin
   result = embedded_api.embedded_edit_url(template_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -59,7 +59,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmbeddedEditUrlResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling EmbeddedApi->embedded_edit_url_with_http_info: #{e}"
 end
 ```
@@ -96,9 +96,9 @@ Retrieves an embedded object containing a signature url that can be opened in an
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -106,14 +106,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api = HelloSign::EmbeddedApi.new
+api = Dropbox::Sign::EmbeddedApi.new
 
 signature_id = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b"
 
 begin
   result = embedded_api.embedded_sign_url(signature_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -132,7 +132,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmbeddedSignUrlResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling EmbeddedApi->embedded_sign_url_with_http_info: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# HelloSign::ApiAppApi
+# Dropbox::Sign::ApiAppApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -22,9 +22,9 @@ Creates a new API App.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -32,19 +32,19 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = HelloSign::ApiAppApi.new
+api_app_api = Dropbox::Sign::ApiAppApi.new
 
-oauth = HelloSign::SubOAuth.new
+oauth = Dropbox::Sign::SubOAuth.new
 oauth.callback_url = "https://example.com/oauth"
 oauth.scopes = %w[basic_account_info request_signature]
 
-white_labeling_options = HelloSign::SubWhiteLabelingOptions.new
+white_labeling_options = Dropbox::Sign::SubWhiteLabelingOptions.new
 white_labeling_options.primary_button_color = "#00b3e6"
 white_labeling_options.primary_button_text_color = "#ffffff"
 
 custom_logo_file = File.new('./CustomLogoFile.png')
 
-data = HelloSign::ApiAppCreateRequest.new
+data = Dropbox::Sign::ApiAppCreateRequest.new
 data.name = "My Production App"
 data.domains = ["example.com"]
 data.oauth = oauth
@@ -54,7 +54,7 @@ data.custom_logo_file = custom_logo_file
 begin
   result = api_app_api.api_app_create(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -73,7 +73,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiAppGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling ApiAppApi->api_app_create_with_http_info: #{e}"
 end
 ```
@@ -109,9 +109,9 @@ Deletes an API App. Can only be invoked for apps you own.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -119,14 +119,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = HelloSign::ApiAppApi.new
+api_app_api = Dropbox::Sign::ApiAppApi.new
 
 client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
 begin
   result = api_app_api.api_app_delete(client_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -145,7 +145,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling ApiAppApi->api_app_delete_with_http_info: #{e}"
 end
 ```
@@ -181,9 +181,9 @@ Returns an object with information about an API App.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -191,14 +191,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = HelloSign::ApiAppApi.new
+api_app_api = Dropbox::Sign::ApiAppApi.new
 
 client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
 begin
   result = api_app_api.api_app_get(client_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -217,7 +217,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiAppGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling ApiAppApi->api_app_get_with_http_info: #{e}"
 end
 ```
@@ -253,9 +253,9 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -263,7 +263,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = HelloSign::ApiAppApi.new
+api_app_api = Dropbox::Sign::ApiAppApi.new
 
 page = 1
 page_size = 2
@@ -271,7 +271,7 @@ page_size = 2
 begin
   result = api_app_api.api_app_list({ page: page, page_size: page_size })
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -290,7 +290,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiAppListResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling ApiAppApi->api_app_list_with_http_info: #{e}"
 end
 ```
@@ -327,9 +327,9 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -337,15 +337,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = HelloSign::ApiAppApi.new
+api_app_api = Dropbox::Sign::ApiAppApi.new
 
-white_labeling_options = HelloSign::SubWhiteLabelingOptions.new
+white_labeling_options = Dropbox::Sign::SubWhiteLabelingOptions.new
 white_labeling_options.primary_button_color = "#00b3e6"
 white_labeling_options.primary_button_text_color = "#ffffff"
 
 custom_logo_file = File.new('./CustomLogoFile.png')
 
-data = HelloSign::ApiAppUpdateRequest.new
+data = Dropbox::Sign::ApiAppUpdateRequest.new
 data.name = "New Name"
 data.callback_url = "http://example.com/dropboxsign"
 data.white_labeling_options = white_labeling_options
@@ -356,7 +356,7 @@ client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 begin
   result = api_app_api.api_app_update(client_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -375,7 +375,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiAppGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling ApiAppApi->api_app_update_with_http_info: #{e}"
 end
 ```

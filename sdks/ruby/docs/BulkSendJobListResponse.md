@@ -1,4 +1,4 @@
-# HelloSign::BulkSendJobListResponse
+# Dropbox::Sign::BulkSendJobListResponse
 
 
 

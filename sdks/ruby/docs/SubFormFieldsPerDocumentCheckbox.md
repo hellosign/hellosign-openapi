@@ -1,4 +1,4 @@
-# HelloSign::SubFormFieldsPerDocumentCheckbox
+# Dropbox::Sign::SubFormFieldsPerDocumentCheckbox
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

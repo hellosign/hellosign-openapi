@@ -1,7 +1,7 @@
 =begin
-#HelloSign API
+#Dropbox Sign API
 
-#HelloSign v3 API
+#Dropbox Sign v3 API
 
 The version of the OpenAPI document: 3.0.0
 Contact: apisupport@hellosign.com
@@ -14,9 +14,9 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-describe HelloSign::AccountApi do
+describe Dropbox::Sign::AccountApi do
   context 'AccountApiTest' do
-    api = HelloSign::AccountApi.new
+    api = Dropbox::Sign::AccountApi.new
 
     it 'testHttpCodeRange' do
       request_class = 'AccountCreateRequest'
@@ -28,14 +28,14 @@ describe HelloSign::AccountApi do
       code = rand(400..499)
 
       set_expected_response(code, JSON.dump(response_data))
-      expected = HelloSign::ErrorResponse.init(response_data)
-      obj = HelloSign::AccountCreateRequest.init(request_data)
+      expected = Dropbox::Sign::ErrorResponse.init(response_data)
+      obj = Dropbox::Sign::AccountCreateRequest.init(request_data)
 
       begin
         result = api.account_create(obj)
         fail_with("Should have thrown error: #{result}")
-      rescue HelloSign::ApiError => e
-        expect(e.response_body.class.to_s).to eq("HelloSign::#{response_class}")
+      rescue Dropbox::Sign::ApiError => e
+        expect(e.response_body.class.to_s).to eq("Dropbox::Sign::#{response_class}")
         expect(e.response_body.to_json).to be_json_eql(JSON.dump(expected))
       end
     end
@@ -48,12 +48,12 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::AccountCreateResponse.init(response_data)
-      obj = HelloSign::AccountCreateRequest.init(request_data)
+      expected = Dropbox::Sign::AccountCreateResponse.init(response_data)
+      obj = Dropbox::Sign::AccountCreateRequest.init(request_data)
 
       result = api.account_create(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -62,11 +62,11 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::AccountGetResponse.init(response_data)
+      expected = Dropbox::Sign::AccountGetResponse.init(response_data)
 
       result = api.account_get({ email_address: "jack@example.com" })
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -78,12 +78,12 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::AccountGetResponse.init(response_data)
-      obj = HelloSign::AccountUpdateRequest.init(request_data)
+      expected = Dropbox::Sign::AccountGetResponse.init(response_data)
+      obj = Dropbox::Sign::AccountUpdateRequest.init(request_data)
 
       result = api.account_update(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -95,12 +95,12 @@ describe HelloSign::AccountApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::AccountVerifyResponse.init(response_data)
-      obj = HelloSign::AccountVerifyRequest.init(request_data)
+      expected = Dropbox::Sign::AccountVerifyResponse.init(response_data)
+      obj = Dropbox::Sign::AccountVerifyRequest.init(request_data)
 
       result = api.account_verify(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end

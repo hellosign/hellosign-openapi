@@ -1,4 +1,4 @@
-# HelloSign::SubOptions
+# Dropbox::Sign::SubOptions
 
 Additional options supported by API App.
 

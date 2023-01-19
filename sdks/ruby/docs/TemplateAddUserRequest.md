@@ -1,4 +1,4 @@
-# HelloSign::TemplateAddUserRequest
+# Dropbox::Sign::TemplateAddUserRequest
 
 
 

@@ -1,4 +1,4 @@
-# HelloSign::AccountApi
+# Dropbox::Sign::AccountApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -21,9 +21,9 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -31,15 +31,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-account_api = HelloSign::AccountApi.new
+account_api = Dropbox::Sign::AccountApi.new
 
-data = HelloSign::AccountCreateRequest.new
+data = Dropbox::Sign::AccountCreateRequest.new
 data.email_address = "newuser@dropboxsign.com"
 
 begin
   result = account_api.account_create(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -58,7 +58,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountCreateResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling AccountApi->account_create_with_http_info: #{e}"
 end
 ```
@@ -94,9 +94,9 @@ Returns the properties and settings of your Account.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -104,12 +104,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-account_api = HelloSign::AccountApi.new
+account_api = Dropbox::Sign::AccountApi.new
 
 begin
   result = account_api.account_get({ email_address: "jack@example.com" })
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -128,7 +128,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling AccountApi->account_get_with_http_info: #{e}"
 end
 ```
@@ -165,9 +165,9 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -175,15 +175,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-account_api = HelloSign::AccountApi.new
+account_api = Dropbox::Sign::AccountApi.new
 
-data = HelloSign::AccountUpdateRequest.new
+data = Dropbox::Sign::AccountUpdateRequest.new
 data.callback_url = "https://www.example.com/callback"
 
 begin
   result = account_api.account_update(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -202,7 +202,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling AccountApi->account_update_with_http_info: #{e}"
 end
 ```
@@ -238,9 +238,9 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -248,15 +248,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-account_api = HelloSign::AccountApi.new
+account_api = Dropbox::Sign::AccountApi.new
 
-data = HelloSign::AccountVerifyRequest.new
+data = Dropbox::Sign::AccountVerifyRequest.new
 data.email_address = "some_user@dropboxsign.com"
 
 begin
   result = account_api.account_verify(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -275,7 +275,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountVerifyResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling AccountApi->account_verify_with_http_info: #{e}"
 end
 ```

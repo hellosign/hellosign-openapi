@@ -1,7 +1,7 @@
 =begin
-#HelloSign API
+#Dropbox Sign API
 
-#HelloSign v3 API
+#Dropbox Sign v3 API
 
 The version of the OpenAPI document: 3.0.0
 Contact: apisupport@hellosign.com
@@ -14,9 +14,9 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-describe HelloSign::TeamApi do
+describe Dropbox::Sign::TeamApi do
   context 'TeamApiTest' do
-    api = HelloSign::TeamApi.new
+    api = Dropbox::Sign::TeamApi.new
 
     it 'testTeamAddMember' do
       request_class = 'TeamAddMemberRequest'
@@ -26,12 +26,12 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TeamGetResponse.init(response_data)
-      obj = HelloSign::TeamAddMemberRequest.init(request_data)
+      expected = Dropbox::Sign::TeamGetResponse.init(response_data)
+      obj = Dropbox::Sign::TeamAddMemberRequest.init(request_data)
 
       result = api.team_add_member(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -43,12 +43,12 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TeamGetResponse.init(response_data)
-      obj = HelloSign::TeamCreateRequest.init(request_data)
+      expected = Dropbox::Sign::TeamGetResponse.init(response_data)
+      obj = Dropbox::Sign::TeamCreateRequest.init(request_data)
 
       result = api.team_create(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -60,11 +60,11 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TeamGetResponse.init(response_data)
+      expected = Dropbox::Sign::TeamGetResponse.init(response_data)
 
       result = api.team_get
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -76,12 +76,12 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TeamGetResponse.init(response_data)
-      obj = HelloSign::TeamUpdateRequest.init(request_data)
+      expected = Dropbox::Sign::TeamGetResponse.init(response_data)
+      obj = Dropbox::Sign::TeamUpdateRequest.init(request_data)
 
       result = api.team_update(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -93,12 +93,12 @@ describe HelloSign::TeamApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TeamGetResponse.init(response_data)
-      obj = HelloSign::TeamRemoveMemberRequest.init(request_data)
+      expected = Dropbox::Sign::TeamGetResponse.init(response_data)
+      obj = Dropbox::Sign::TeamRemoveMemberRequest.init(request_data)
 
       result = api.team_remove_member(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end

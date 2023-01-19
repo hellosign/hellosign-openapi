@@ -1,4 +1,4 @@
-# HelloSign::TemplateResponseDocumentFieldGroup
+# Dropbox::Sign::TemplateResponseDocumentFieldGroup
 
 
 

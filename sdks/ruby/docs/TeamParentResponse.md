@@ -1,4 +1,4 @@
-# HelloSign::TeamParentResponse
+# Dropbox::Sign::TeamParentResponse
 
 Information about the parent team if a team has one, set to `null` otherwise.
 

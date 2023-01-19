@@ -1,4 +1,4 @@
-# HelloSign::ApiAppResponseOptions
+# Dropbox::Sign::ApiAppResponseOptions
 
 An object with options that override account settings.
 

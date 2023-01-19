@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-describe HelloSign::SubFormFieldsPerDocumentBase do
+describe Dropbox::Sign::SubFormFieldsPerDocumentBase do
   context 'SubFormFieldsPerDocument' do
     fixture_data = get_fixture_data('SubFormFieldsPerDocument')
 
@@ -10,11 +10,11 @@ describe HelloSign::SubFormFieldsPerDocumentBase do
       it "SubFormFieldsPerDocument of type #{type} is instantiated" do
         payload = { form_fields_per_document: [data] }
 
-        obj = HelloSign::SignatureRequestSendRequest.init(payload)
+        obj = Dropbox::Sign::SignatureRequestSendRequest.init(payload)
 
         form_fields_per_document = obj.form_fields_per_document[0]
         serialized = form_fields_per_document.to_hash(false)
-        classname = "HelloSign::#{type}"
+        classname = "Dropbox::Sign::#{type}"
 
         expect(form_fields_per_document.class.to_s).to eq(classname)
         expect(serialized.to_json).to be_json_eql(JSON.dump(data))

@@ -1,4 +1,4 @@
-# HelloSign::SubFormFieldsPerDocumentBase
+# Dropbox::Sign::SubFormFieldsPerDocumentBase
 
 The fields that should appear on the document, expressed as an array of objects. (We&#39;re currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: &lt;a href&#x3D;&quot;/docs/openapi/form-fields-per-document&quot; target&#x3D;&quot;_blank&quot;&gt;Using Form Fields per Document&lt;/a&gt;.)
 

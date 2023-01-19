@@ -3,10 +3,10 @@ require 'json_spec'
 require 'json'
 require_relative './test_utils'
 
-config = HelloSign.configure
-api_client = HelloSign::ApiClient.new(config)
+config = Dropbox::Sign.configure
+api_client = Dropbox::Sign::ApiClient.new(config)
 
-describe HelloSign::ApiClient do
+describe Dropbox::Sign::ApiClient do
   fixtures = [
     'AccountCreateRequest',
     'AccountUpdateRequest',
@@ -45,7 +45,7 @@ describe HelloSign::ApiClient do
 
       fixture_data.each do |key, data|
         it "#{fixture}.#{key}" do
-          classname = "HelloSign::#{fixture}"
+          classname = "Dropbox::Sign::#{fixture}"
           obj = api_client.convert_to_type(data, classname)
           serialized = obj.to_hash(false)
 

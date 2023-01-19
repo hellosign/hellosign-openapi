@@ -1,4 +1,4 @@
-# HelloSign::TemplateUpdateFilesResponse
+# Dropbox::Sign::TemplateUpdateFilesResponse
 
 
 

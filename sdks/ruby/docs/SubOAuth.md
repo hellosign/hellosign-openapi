@@ -1,4 +1,4 @@
-# HelloSign::SubOAuth
+# Dropbox::Sign::SubOAuth
 
 OAuth related parameters.
 

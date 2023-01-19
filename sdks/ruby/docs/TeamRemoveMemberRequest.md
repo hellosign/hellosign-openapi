@@ -1,4 +1,4 @@
-# HelloSign::TeamRemoveMemberRequest
+# Dropbox::Sign::TeamRemoveMemberRequest
 
 
 

@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestBulkSendWithTemplateRequest
+# Dropbox::Sign::SignatureRequestBulkSendWithTemplateRequest
 
 
 

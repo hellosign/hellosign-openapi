@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestApi
+# Dropbox::Sign::SignatureRequestApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -33,9 +33,9 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -43,41 +43,41 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-signer_list_1_signer = HelloSign::SubSignatureRequestTemplateSigner.new
+signer_list_1_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signer_list_1_signer.role = "Client"
 signer_list_1_signer.name = "George"
 signer_list_1_signer.email_address = "george@example.com"
 signer_list_1_signer.pin = "d79a3td"
 
-signer_list_1_custom_fields = HelloSign::SubBulkSignerListCustomField.new
+signer_list_1_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
 signer_list_1_custom_fields.name = "company"
 signer_list_1_custom_fields.value = "ABC Corp"
 
-signer_list_1 = HelloSign::SubBulkSignerList.new
+signer_list_1 = Dropbox::Sign::SubBulkSignerList.new
 signer_list_1.signers = [signer_list_1_signer]
 signer_list_1.custom_fields = [signer_list_1_custom_fields]
 
-signer_list_2_signer = HelloSign::SubSignatureRequestTemplateSigner.new
+signer_list_2_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signer_list_2_signer.role = "Client"
 signer_list_2_signer.name = "Mary"
 signer_list_2_signer.email_address = "mary@example.com"
 signer_list_2_signer.pin = "gd9as5b"
 
-signer_list_2_custom_fields = HelloSign::SubBulkSignerListCustomField.new
+signer_list_2_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
 signer_list_2_custom_fields.name = "company"
 signer_list_2_custom_fields.value = "123 LLC"
 
-signer_list_2 = HelloSign::SubBulkSignerList.new
+signer_list_2 = Dropbox::Sign::SubBulkSignerList.new
 signer_list_2.signers = [signer_list_2_signer]
 signer_list_2.custom_fields = [signer_list_2_custom_fields]
 
-cc_1 = HelloSign::SubCC.new
+cc_1 = Dropbox::Sign::SubCC.new
 cc_1.role = "Accounting"
 cc_1.email_address = "accounting@example.com"
 
-data = HelloSign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest.new
+data = Dropbox::Sign::SignatureRequestBulkCreateEmbeddedWithTemplateRequest.new
 data.client_id = "1a659d9ad95bccd307ecad78d72192f8"
 data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
 data.subject = "Purchase Order"
@@ -89,7 +89,7 @@ data.test_mode = true
 begin
   result = signature_request_api.signature_request_bulk_create_embedded_with_template(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -108,7 +108,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobSendResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_bulk_create_embedded_with_template_with_http_info: #{e}"
 end
 ```
@@ -144,9 +144,9 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -154,41 +154,41 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-signer_list_1_signer = HelloSign::SubSignatureRequestTemplateSigner.new
+signer_list_1_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signer_list_1_signer.role = "Client"
 signer_list_1_signer.name = "George"
 signer_list_1_signer.email_address = "george@example.com"
 signer_list_1_signer.pin = "d79a3td"
 
-signer_list_1_custom_fields = HelloSign::SubBulkSignerListCustomField.new
+signer_list_1_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
 signer_list_1_custom_fields.name = "company"
 signer_list_1_custom_fields.value = "ABC Corp"
 
-signer_list_1 = HelloSign::SubBulkSignerList.new
+signer_list_1 = Dropbox::Sign::SubBulkSignerList.new
 signer_list_1.signers = [signer_list_1_signer]
 signer_list_1.custom_fields = [signer_list_1_custom_fields]
 
-signer_list_2_signer = HelloSign::SubSignatureRequestTemplateSigner.new
+signer_list_2_signer = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signer_list_2_signer.role = "Client"
 signer_list_2_signer.name = "Mary"
 signer_list_2_signer.email_address = "mary@example.com"
 signer_list_2_signer.pin = "gd9as5b"
 
-signer_list_2_custom_fields = HelloSign::SubBulkSignerListCustomField.new
+signer_list_2_custom_fields = Dropbox::Sign::SubBulkSignerListCustomField.new
 signer_list_2_custom_fields.name = "company"
 signer_list_2_custom_fields.value = "123 LLC"
 
-signer_list_2 = HelloSign::SubBulkSignerList.new
+signer_list_2 = Dropbox::Sign::SubBulkSignerList.new
 signer_list_2.signers = [signer_list_2_signer]
 signer_list_2.custom_fields = [signer_list_2_custom_fields]
 
-cc_1 = HelloSign::SubCC.new
+cc_1 = Dropbox::Sign::SubCC.new
 cc_1.role = "Accounting"
 cc_1.email_address = "accounting@example.com"
 
-data = HelloSign::SignatureRequestBulkSendWithTemplateRequest.new
+data = Dropbox::Sign::SignatureRequestBulkSendWithTemplateRequest.new
 data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
 data.subject = "Purchase Order"
 data.message = "Glad we could come to an agreement."
@@ -199,7 +199,7 @@ data.test_mode = true
 begin
   result = signature_request_api.signature_request_bulk_send_with_template(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -218,7 +218,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobSendResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_bulk_send_with_template_with_http_info: #{e}"
 end
 ```
@@ -254,9 +254,9 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -264,14 +264,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
   result = signature_request_api.signature_request_cancel(signature_request_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -290,7 +290,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_cancel_with_http_info: #{e}"
 end
 ```
@@ -326,9 +326,9 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -336,26 +336,26 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-signer_1 = HelloSign::SubSignatureRequestSigner.new
+signer_1 = Dropbox::Sign::SubSignatureRequestSigner.new
 signer_1.email_address = "jack@example.com"
 signer_1.name = "Jack"
 signer_1.order = 0
 
-signer_2 = HelloSign::SubSignatureRequestSigner.new
+signer_2 = Dropbox::Sign::SubSignatureRequestSigner.new
 signer_2.email_address = "jill@example.com"
 signer_2.name = "Jill"
 signer_2.order = 1
 
-signing_options = HelloSign::SubSigningOptions.new
+signing_options = Dropbox::Sign::SubSigningOptions.new
 signing_options.draw = true
 signing_options.type = true
 signing_options.upload = true
 signing_options.phone = true
 signing_options.default_type = "draw"
 
-data = HelloSign::SignatureRequestCreateEmbeddedRequest.new
+data = Dropbox::Sign::SignatureRequestCreateEmbeddedRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
 data.title = "NDA with Acme Co."
 data.subject = "The NDA we talked about"
@@ -369,7 +369,7 @@ data.test_mode = true
 begin
   result = signature_request_api.signature_request_create_embedded(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -388,7 +388,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_create_embedded_with_http_info: #{e}"
 end
 ```
@@ -424,9 +424,9 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -434,21 +434,21 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-signer_1 = HelloSign::SubSignatureRequestTemplateSigner.new
+signer_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signer_1.role = "Client"
 signer_1.email_address = "jack@example.com"
 signer_1.name = "Jack"
 
-signing_options = HelloSign::SubSigningOptions.new
+signing_options = Dropbox::Sign::SubSigningOptions.new
 signing_options.draw = true
 signing_options.type = true
 signing_options.upload = true
 signing_options.phone = true
 signing_options.default_type = "draw"
 
-data = HelloSign::SignatureRequestCreateEmbeddedWithTemplateRequest.new
+data = Dropbox::Sign::SignatureRequestCreateEmbeddedWithTemplateRequest.new
 data.client_id = "ec64a202072370a737edf4a0eb7f4437"
 data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
 data.subject = "Purchase Order"
@@ -460,7 +460,7 @@ data.test_mode = true
 begin
   result = signature_request_api.signature_request_create_embedded_with_template(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -479,7 +479,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_create_embedded_with_template_with_http_info: #{e}"
 end
 ```
@@ -515,9 +515,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -525,14 +525,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
   file_bin = signature_request_api.signature_request_files(signature_request_id)
   FileUtils.cp(file_bin.path, "path/to/file.pdf")
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -551,7 +551,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => File
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_files_with_http_info: #{e}"
 end
 ```
@@ -588,9 +588,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -598,14 +598,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
   result = signature_request_api.signature_request_files_as_data_uri(signature_request_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -624,7 +624,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponseDataUri>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_files_as_data_uri_with_http_info: #{e}"
 end
 ```
@@ -660,9 +660,9 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -670,14 +670,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
   result = signature_request_api.signature_request_files_as_file_url(signature_request_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -696,7 +696,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_files_as_file_url_with_http_info: #{e}"
 end
 ```
@@ -732,9 +732,9 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -742,14 +742,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "fa5c8a0b0f492d768749333ad6fcc214c111e967"
 
 begin
   result = signature_request_api.signature_request_get(signature_request_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -768,7 +768,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_get_with_http_info: #{e}"
 end
 ```
@@ -804,9 +804,9 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -814,7 +814,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 account_id = null
 page = 1
@@ -822,7 +822,7 @@ page = 1
 begin
   result = signature_request_api.signature_request_list({account_id: account_id, page: page})
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -841,7 +841,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestListResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_list_with_http_info: #{e}"
 end
 ```
@@ -880,9 +880,9 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -890,14 +890,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
   result = signature_request_api.signature_request_release_hold(signature_request_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -916,7 +916,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_release_hold_with_http_info: #{e}"
 end
 ```
@@ -952,9 +952,9 @@ Sends an email to the signer reminding them to sign the signature request. You c
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -962,9 +962,9 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-data = HelloSign::SignatureRequestRemindRequest.new
+data = Dropbox::Sign::SignatureRequestRemindRequest.new
 data.email_address = "john@example.com"
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
@@ -972,7 +972,7 @@ signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 begin
   result = signature_request_api.signature_request_remind(signature_request_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -991,7 +991,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_remind_with_http_info: #{e}"
 end
 ```
@@ -1028,9 +1028,9 @@ Removes your access to a completed signature request. This action is **not rever
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -1038,14 +1038,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
 signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
 begin
   result = signature_request_api.signature_request_remove(signature_request_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -1064,7 +1064,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_remove_with_http_info: #{e}"
 end
 ```
@@ -1100,9 +1100,9 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -1110,29 +1110,29 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-signer_1 = HelloSign::SubSignatureRequestSigner.new
+signer_1 = Dropbox::Sign::SubSignatureRequestSigner.new
 signer_1.email_address = "jack@example.com"
 signer_1.name = "Jack"
 signer_1.order = 0
 
-signer_2 = HelloSign::SubSignatureRequestSigner.new
+signer_2 = Dropbox::Sign::SubSignatureRequestSigner.new
 signer_2.email_address = "jill@example.com"
 signer_2.name = "Jill"
 signer_2.order = 1
 
-signing_options = HelloSign::SubSigningOptions.new
+signing_options = Dropbox::Sign::SubSigningOptions.new
 signing_options.draw = true
 signing_options.type = true
 signing_options.upload = true
 signing_options.phone = true
 signing_options.default_type = "draw"
 
-field_options = HelloSign::SubFieldOptions.new
+field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = HelloSign::SignatureRequestSendRequest.new
+data = Dropbox::Sign::SignatureRequestSendRequest.new
 data.title = "NDA with Acme Co."
 data.subject = "The NDA we talked about"
 data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
@@ -1153,7 +1153,7 @@ data.test_mode = true
 begin
   result = signature_request_api.signature_request_send(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -1172,7 +1172,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_send_with_http_info: #{e}"
 end
 ```
@@ -1208,9 +1208,9 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -1218,31 +1218,31 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-signer_1 = HelloSign::SubSignatureRequestTemplateSigner.new
+signer_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
 signer_1.role = "Client"
 signer_1.email_address = "george@example.com"
 signer_1.name = "George"
 
-cc_1 = HelloSign::SubCC.new
+cc_1 = Dropbox::Sign::SubCC.new
 cc_1.role = "Accounting"
 cc_1.email_address = "accounting@example.com"
 
-custom_field_1 = HelloSign::SubCustomField.new
+custom_field_1 = Dropbox::Sign::SubCustomField.new
 custom_field_1.name = "Cost"
 custom_field_1.value = "$20,000"
 custom_field_1.editor = "Client"
 custom_field_1.required = true
 
-signing_options = HelloSign::SubSigningOptions.new
+signing_options = Dropbox::Sign::SubSigningOptions.new
 signing_options.draw = true
 signing_options.type = true
 signing_options.upload = true
 signing_options.phone = false
 signing_options.default_type = "draw"
 
-data = HelloSign::SignatureRequestSendWithTemplateRequest.new
+data = Dropbox::Sign::SignatureRequestSendWithTemplateRequest.new
 data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
 data.subject = "Purchase Order"
 data.message = "Glad we could come to an agreement."
@@ -1255,7 +1255,7 @@ data.test_mode = true
 begin
   result = signature_request_api.signature_request_send_with_template(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -1274,7 +1274,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_send_with_template_with_http_info: #{e}"
 end
 ```
@@ -1310,9 +1310,9 @@ Updates the email address and/or the name for a given signer on a signature requ
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -1320,9 +1320,9 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-signature_request_api = HelloSign::SignatureRequestApi.new
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
 
-data = HelloSign::SignatureRequestUpdateRequest.new
+data = Dropbox::Sign::SignatureRequestUpdateRequest.new
 data.email_address = "john@example.com"
 data.signature_id = "78caf2a1d01cd39cea2bc1cbb340dac3"
 
@@ -1331,7 +1331,7 @@ signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 begin
   result = signature_request_api.signature_request_update(signature_request_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -1350,7 +1350,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignatureRequestGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling SignatureRequestApi->signature_request_update_with_http_info: #{e}"
 end
 ```

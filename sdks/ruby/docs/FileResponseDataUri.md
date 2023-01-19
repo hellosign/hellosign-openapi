@@ -1,4 +1,4 @@
-# HelloSign::FileResponseDataUri
+# Dropbox::Sign::FileResponseDataUri
 
 
 

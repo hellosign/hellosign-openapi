@@ -1,4 +1,4 @@
-# HelloSign::TemplateListResponse
+# Dropbox::Sign::TemplateListResponse
 
 
 

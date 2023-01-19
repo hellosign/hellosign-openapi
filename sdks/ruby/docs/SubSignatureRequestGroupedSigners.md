@@ -1,4 +1,4 @@
-# HelloSign::SubSignatureRequestGroupedSigners
+# Dropbox::Sign::SubSignatureRequestGroupedSigners
 
 
 

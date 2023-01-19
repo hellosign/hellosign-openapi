@@ -1,21 +1,21 @@
 generatorName: ruby
 typeMappings: {}
 additionalProperties:
-  gemAuthor: HelloSign
+  gemAuthor: Dropbox
   gemAuthorEmail: apisupport@hellosign.com
-  gemDescription: Official HelloSign APIv3 OpenAPI Ruby SDK
+  gemDescription: Official Dropbox Sign APIv3 OpenAPI Ruby SDK
   gemHomepage: https://hellosign.com
   gemLicense: MIT
-  gemName: hellosign-ruby-sdk
+  gemName: dropbox-sign
   gemRequiredRubyVersion: '>= 2.7'
-  moduleName: HelloSign
-  gemVersion: 6.0.0-beta23.1
+  moduleName: "Dropbox::Sign"
+  gemVersion: 1.0.0-beta23.1
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
 files:
   event_callback_helper.mustache:
     templateType: SupportingFiles
-    destinationFilename: lib/hellosign-ruby-sdk/event_callback_helper.rb
+    destinationFilename: lib/dropbox-sign/event_callback_helper.rb
 globalProperties:
   apiTests: false
   modelTests: false

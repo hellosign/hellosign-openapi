@@ -1,4 +1,4 @@
-# HelloSign::ListInfoResponse
+# Dropbox::Sign::ListInfoResponse
 
 Contains pagination information about the data returned.
 

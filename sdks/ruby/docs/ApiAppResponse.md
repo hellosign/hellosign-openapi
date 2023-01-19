@@ -1,4 +1,4 @@
-# HelloSign::ApiAppResponse
+# Dropbox::Sign::ApiAppResponse
 
 Contains information about an API App.
 

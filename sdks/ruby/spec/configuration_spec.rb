@@ -12,14 +12,14 @@ OpenAPI Generator version: 5.3.0
 
 require 'spec_helper'
 
-describe HelloSign::Configuration do
-  let(:config) { HelloSign::Configuration.default }
+describe Dropbox::Sign::Configuration do
+  let(:config) { Dropbox::Sign::Configuration.default }
 
   before(:each) do
     # uncomment below to setup host and base_path
     # require 'URI'
     # uri = URI.parse("https://api.hellosign.com/v3")
-    # HelloSign.configure do |c|
+    # Dropbox::Sign.configure do |c|
     #   c.host = uri.host
     #   c.base_path = uri.path
     # end

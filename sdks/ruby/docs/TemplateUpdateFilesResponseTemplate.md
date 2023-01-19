@@ -1,4 +1,4 @@
-# HelloSign::TemplateUpdateFilesResponseTemplate
+# Dropbox::Sign::TemplateUpdateFilesResponseTemplate
 
 Contains template id
 

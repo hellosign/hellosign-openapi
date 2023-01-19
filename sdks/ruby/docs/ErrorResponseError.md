@@ -1,4 +1,4 @@
-# HelloSign::ErrorResponseError
+# Dropbox::Sign::ErrorResponseError
 
 Contains information about an error that occurred.
 

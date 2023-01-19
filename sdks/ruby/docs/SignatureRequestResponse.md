@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponse
+# Dropbox::Sign::SignatureRequestResponse
 
 Contains information about a signature request.
 

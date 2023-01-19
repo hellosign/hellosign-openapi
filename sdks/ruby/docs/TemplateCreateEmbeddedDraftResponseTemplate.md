@@ -1,4 +1,4 @@
-# HelloSign::TemplateCreateEmbeddedDraftResponseTemplate
+# Dropbox::Sign::TemplateCreateEmbeddedDraftResponseTemplate
 
 Template object with parameters: `template_id`, `edit_url`, `expires_at`.
 

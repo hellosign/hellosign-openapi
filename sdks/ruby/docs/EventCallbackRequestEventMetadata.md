@@ -1,4 +1,4 @@
-# HelloSign::EventCallbackRequestEventMetadata
+# Dropbox::Sign::EventCallbackRequestEventMetadata
 
 Specific metadata about the event.
 

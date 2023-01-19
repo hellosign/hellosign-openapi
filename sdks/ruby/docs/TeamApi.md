@@ -1,4 +1,4 @@
-# HelloSign::TeamApi
+# Dropbox::Sign::TeamApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -27,9 +27,9 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -37,15 +37,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
-data = HelloSign::TeamAddMemberRequest.new
+data = Dropbox::Sign::TeamAddMemberRequest.new
 data.email_address = "george@example.com"
 
 begin
   result = team_api.team_add_member(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -64,7 +64,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_add_member_with_http_info: #{e}"
 end
 ```
@@ -101,9 +101,9 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -111,15 +111,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
-data = HelloSign::TeamCreateRequest.new
+data = Dropbox::Sign::TeamCreateRequest.new
 data.name = "New Team Name"
 
 begin
   result = team_api.team_create(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -138,7 +138,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_create_with_http_info: #{e}"
 end
 ```
@@ -174,9 +174,9 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -184,12 +184,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
 begin
   result = team_api.team_delete
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -208,7 +208,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_delete_with_http_info: #{e}"
 end
 ```
@@ -242,9 +242,9 @@ Returns information about your Team as well as a list of its members. If you do 
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -252,12 +252,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
 begin
   result = team_api.team_get
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -276,7 +276,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_get_with_http_info: #{e}"
 end
 ```
@@ -310,9 +310,9 @@ Provides information about a team.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -320,12 +320,12 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
 begin
   result = team_api.team_info
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -344,7 +344,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetInfoResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_info_with_http_info: #{e}"
 end
 ```
@@ -380,9 +380,9 @@ Provides a list of team invites (and their roles).
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -390,14 +390,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
 email_address = "user@dropboxsign.com"
 
 begin
   result = team_api.team_invites({email_address: email_address})
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -416,7 +416,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamInvitesResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_invites_with_http_info: #{e}"
 end
 ```
@@ -452,9 +452,9 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -462,14 +462,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
 team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
 begin
   result = team_api.team_members(team_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -488,7 +488,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamMembersResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_members_with_http_info: #{e}"
 end
 ```
@@ -526,9 +526,9 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -536,16 +536,16 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
-data = HelloSign::TeamRemoveMemberRequest.new
+data = Dropbox::Sign::TeamRemoveMemberRequest.new
 data.email_address = "teammate@dropboxsign.com"
 data.new_owner_email_address = "new_teammate@dropboxsign.com"
 
 begin
   result = team_api.team_remove_member(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -564,7 +564,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_remove_member_with_http_info: #{e}"
 end
 ```
@@ -600,9 +600,9 @@ Provides a paginated list of sub teams that belong to a given team.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -610,14 +610,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
 team_id = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c"
 
 begin
   result = team_api.team_sub_teams(team_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -636,7 +636,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamSubTeamsResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_sub_teams_with_http_info: #{e}"
 end
 ```
@@ -674,9 +674,9 @@ Updates the name of your Team.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -684,15 +684,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-team_api = HelloSign::TeamApi.new
+team_api = Dropbox::Sign::TeamApi.new
 
-data = HelloSign::TeamUpdateRequest.new
+data = Dropbox::Sign::TeamUpdateRequest.new
 data.name = "New Team Name"
 
 begin
   result = team_api.team_update(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -711,7 +711,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TeamGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TeamApi->team_update_with_http_info: #{e}"
 end
 ```

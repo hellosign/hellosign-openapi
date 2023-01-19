@@ -1,4 +1,4 @@
-# HelloSign::EmbeddedEditUrlResponseEmbedded
+# Dropbox::Sign::EmbeddedEditUrlResponseEmbedded
 
 An embedded template object.
 

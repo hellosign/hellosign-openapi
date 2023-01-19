@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponseAttachment
+# Dropbox::Sign::SignatureRequestResponseAttachment
 
 Signer attachments.
 

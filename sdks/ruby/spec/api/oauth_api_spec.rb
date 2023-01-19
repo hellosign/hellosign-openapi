@@ -1,7 +1,7 @@
 =begin
-#HelloSign API
+#Dropbox Sign API
 
-#HelloSign v3 API
+#Dropbox Sign v3 API
 
 The version of the OpenAPI document: 3.0.0
 Contact: apisupport@hellosign.com
@@ -14,9 +14,9 @@ require 'spec_helper'
 require 'json_spec'
 require_relative '../test_utils'
 
-describe HelloSign::OAuthApi do
+describe Dropbox::Sign::OAuthApi do
   context 'OAuthApiTest' do
-    api = HelloSign::OAuthApi.new
+    api = Dropbox::Sign::OAuthApi.new
 
     it 'testTokenGenerate' do
       request_class = 'OAuthTokenGenerateRequest'
@@ -26,12 +26,12 @@ describe HelloSign::OAuthApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::OAuthTokenResponse.init(response_data)
-      obj = HelloSign::OAuthTokenGenerateRequest.init(request_data)
+      expected = Dropbox::Sign::OAuthTokenResponse.init(response_data)
+      obj = Dropbox::Sign::OAuthTokenGenerateRequest.init(request_data)
 
       result = api.oauth_token_generate(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -43,12 +43,12 @@ describe HelloSign::OAuthApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::OAuthTokenResponse.init(response_data)
-      obj = HelloSign::OAuthTokenRefreshRequest.init(request_data)
+      expected = Dropbox::Sign::OAuthTokenResponse.init(response_data)
+      obj = Dropbox::Sign::OAuthTokenRefreshRequest.init(request_data)
 
       result = api.oauth_token_refresh(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end

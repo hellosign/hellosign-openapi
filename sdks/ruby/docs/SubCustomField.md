@@ -1,4 +1,4 @@
-# HelloSign::SubCustomField
+# Dropbox::Sign::SubCustomField
 
 When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
 
