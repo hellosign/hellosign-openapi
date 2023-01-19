@@ -4,6 +4,9 @@
 
 require 'cgi'
 
+module Dropbox
+end
+
 module {{moduleName}}
 {{#operations}}
   class {{classname}}
@@ -203,7 +206,7 @@ module {{moduleName}}
 
       begin
         data, status_code, headers = @api_client.call_api(:{{httpMethod}}, local_var_path, new_options)
-      rescue HelloSign::ApiError => e
+      rescue Dropbox::Sign::ApiError => e
         {{#returnType}}
         {{#responses}}
         {{#dataType}}

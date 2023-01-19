@@ -1,4 +1,4 @@
-# HelloSign::ErrorResponse
+# Dropbox::Sign::ErrorResponse
 
 
 

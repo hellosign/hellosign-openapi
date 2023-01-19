@@ -1,4 +1,4 @@
-# HelloSign::TemplateApi
+# Dropbox::Sign::TemplateApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -27,9 +27,9 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -37,9 +37,9 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
-data = HelloSign::TemplateAddUserRequest.new
+data = Dropbox::Sign::TemplateAddUserRequest.new
 data.email_address = "george@dropboxsign.com"
 
 template_id = "f57db65d3f933b5316d398057a36176831451a35"
@@ -47,7 +47,7 @@ template_id = "f57db65d3f933b5316d398057a36176831451a35"
 begin
   result = template_api.template_add_user(template_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -66,7 +66,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_add_user_with_http_info: #{e}"
 end
 ```
@@ -103,9 +103,9 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -113,28 +113,28 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
-role_1 = HelloSign::SubTemplateRole.new
+role_1 = Dropbox::Sign::SubTemplateRole.new
 role_1.name = "Client"
 role_1.order = 0
 
-role_2 = HelloSign::SubTemplateRole.new
+role_2 = Dropbox::Sign::SubTemplateRole.new
 role_2.name = "Witness"
 role_2.order = 1
 
-merge_field_1 = HelloSign::SubMergeField.new
+merge_field_1 = Dropbox::Sign::SubMergeField.new
 merge_field_1.name = "Full Name"
 merge_field_1.type = "text"
 
-merge_field_2 = HelloSign::SubMergeField.new
+merge_field_2 = Dropbox::Sign::SubMergeField.new
 merge_field_2.name = "Is Registered?"
 merge_field_2.type = "checkbox"
 
-field_options = HelloSign::SubFieldOptions.new
+field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = HelloSign::TemplateCreateEmbeddedDraftRequest.new
+data = Dropbox::Sign::TemplateCreateEmbeddedDraftRequest.new
 data.client_id = "37dee8d8440c66d54cfa05d92c160882"
 data.files = [File.new("example_signature_request.pdf", "r")]
 data.title = "Test Template"
@@ -149,7 +149,7 @@ data.test_mode = true
 begin
   result = template_api.template_create_embedded_draft(data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -168,7 +168,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateCreateEmbeddedDraftResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_create_embedded_draft_with_http_info: #{e}"
 end
 ```
@@ -204,9 +204,9 @@ Completely deletes the template specified from the account.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -214,14 +214,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
   result = template_api.template_delete(template_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -240,7 +240,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_delete_with_http_info: #{e}"
 end
 ```
@@ -276,9 +276,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -286,14 +286,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
   file_bin = template_api.template_files(template_id)
   FileUtils.cp(file_bin.path, "path/to/file.pdf")
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -312,7 +312,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => File
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_files_with_http_info: #{e}"
 end
 ```
@@ -349,9 +349,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -359,14 +359,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
   result = template_api.template_files_as_data_uri(template_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -385,7 +385,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponseDataUri>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_files_as_data_uri_with_http_info: #{e}"
 end
 ```
@@ -421,9 +421,9 @@ Obtain a copy of the current documents specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -431,14 +431,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
 begin
   result = template_api.template_files_as_file_url(template_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -457,7 +457,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_files_as_file_url_with_http_info: #{e}"
 end
 ```
@@ -493,9 +493,9 @@ Returns the Template specified by the `template_id` parameter.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -503,14 +503,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
 template_id = "f57db65d3f933b5316d398057a36176831451a35"
 
 begin
   result = template_api.template_get(template_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -529,7 +529,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_get_with_http_info: #{e}"
 end
 ```
@@ -565,9 +565,9 @@ Returns a list of the Templates that are accessible by you.  Take a look at our 
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -575,14 +575,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
 account_id = "f57db65d3f933b5316d398057a36176831451a35"
 
 begin
   result = template_api.template_list({account_id: account_id})
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -601,7 +601,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateListResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_list_with_http_info: #{e}"
 end
 ```
@@ -640,9 +640,9 @@ Removes the specified Account's access to the specified Template.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -650,9 +650,9 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
-data = HelloSign::TemplateRemoveUserRequest.new
+data = Dropbox::Sign::TemplateRemoveUserRequest.new
 data.email_address = "george@dropboxsign.com"
 
 template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
@@ -660,7 +660,7 @@ template_id = "21f920ec2b7f4b6bb64d3ed79f26303843046536"
 begin
   result = template_api.template_remove_user(template_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -679,7 +679,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_remove_user_with_http_info: #{e}"
 end
 ```
@@ -716,9 +716,9 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -726,9 +726,9 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-template_api = HelloSign::TemplateApi.new
+template_api = Dropbox::Sign::TemplateApi.new
 
-data = HelloSign::TemplateUpdateFilesRequest.new
+data = Dropbox::Sign::TemplateUpdateFilesRequest.new
 data.files = [File.new("example_signature_request.pdf", "r")]
 
 template_id = "5de8179668f2033afac48da1868d0093bf133266"
@@ -736,7 +736,7 @@ template_id = "5de8179668f2033afac48da1868d0093bf133266"
 begin
   result = template_api.template_update_files(template_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -755,7 +755,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateUpdateFilesResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling TemplateApi->template_update_files_with_http_info: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponseDataTypeEnum
+# Dropbox::Sign::SignatureRequestResponseDataTypeEnum
 
 
 

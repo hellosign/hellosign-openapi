@@ -1,4 +1,4 @@
-# HelloSign::FileResponse
+# Dropbox::Sign::FileResponse
 
 
 

@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponseCustomFieldText
+# Dropbox::Sign::SignatureRequestResponseCustomFieldText
 
 This class extends `SignatureRequestResponseCustomFieldBase`.
 

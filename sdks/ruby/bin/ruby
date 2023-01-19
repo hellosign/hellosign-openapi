@@ -10,7 +10,7 @@ docker run --rm \
   -e GEM_HOME="/.gem-cache" \
   -e BUNDLE_PATH="/.bundle-cache" \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
-  -v "hellosign-sdk-gem-cache:/.gem-cache" \
-  -v "hellosign-sdk-bundle-cache:/.bundle-cache" \
+  -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
+  -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
   -w "${WORKING_DIR}" \
   ruby:3.1 "$@"

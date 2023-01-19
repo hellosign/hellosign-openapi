@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponseCustomFieldBase
+# Dropbox::Sign::SignatureRequestResponseCustomFieldBase
 
 An array of Custom Field objects containing the name and type of each custom field.
 

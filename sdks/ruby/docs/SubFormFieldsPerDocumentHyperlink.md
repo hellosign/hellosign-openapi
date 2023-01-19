@@ -1,4 +1,4 @@
-# HelloSign::SubFormFieldsPerDocumentHyperlink
+# Dropbox::Sign::SubFormFieldsPerDocumentHyperlink
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

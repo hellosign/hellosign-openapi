@@ -1,6 +1,6 @@
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -8,15 +8,15 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-api_app_api = HelloSign::ApiAppApi.new
+api_app_api = Dropbox::Sign::ApiAppApi.new
 
-white_labeling_options = HelloSign::SubWhiteLabelingOptions.new
+white_labeling_options = Dropbox::Sign::SubWhiteLabelingOptions.new
 white_labeling_options.primary_button_color = "#00b3e6"
 white_labeling_options.primary_button_text_color = "#ffffff"
 
 custom_logo_file = File.new('./CustomLogoFile.png')
 
-data = HelloSign::ApiAppUpdateRequest.new
+data = Dropbox::Sign::ApiAppUpdateRequest.new
 data.name = "New Name"
 data.callback_url = "http://example.com/dropboxsign"
 data.white_labeling_options = white_labeling_options
@@ -27,6 +27,6 @@ client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 begin
   result = api_app_api.api_app_update(client_id, data)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end

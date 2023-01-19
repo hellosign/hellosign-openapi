@@ -1,4 +1,4 @@
-# HelloSign::TemplateCreateEmbeddedDraftResponse
+# Dropbox::Sign::TemplateCreateEmbeddedDraftResponse
 
 
 

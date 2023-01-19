@@ -1,4 +1,4 @@
-# HelloSign::EmbeddedSignUrlResponse
+# Dropbox::Sign::EmbeddedSignUrlResponse
 
 
 

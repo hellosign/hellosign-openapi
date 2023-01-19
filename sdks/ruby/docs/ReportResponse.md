@@ -1,4 +1,4 @@
-# HelloSign::ReportResponse
+# Dropbox::Sign::ReportResponse
 
 Contains information about the report request.
 

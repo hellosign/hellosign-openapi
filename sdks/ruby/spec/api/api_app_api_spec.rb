@@ -1,7 +1,7 @@
 =begin
-#HelloSign API
+#Dropbox Sign API
 
-#HelloSign v3 API
+#Dropbox Sign v3 API
 
 The version of the OpenAPI document: 3.0.0
 Contact: apisupport@hellosign.com
@@ -16,9 +16,9 @@ require_relative '../test_utils'
 
 root_file_path = __dir__ + "/../../test_fixtures"
 
-describe HelloSign::ApiAppApi do
+describe Dropbox::Sign::ApiAppApi do
   context 'ApiAppApiTest' do
-    api = HelloSign::ApiAppApi.new
+    api = Dropbox::Sign::ApiAppApi.new
 
     it 'testApiAppCreate' do
       request_class = 'ApiAppCreateRequest'
@@ -28,13 +28,13 @@ describe HelloSign::ApiAppApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::ApiAppGetResponse.init(response_data)
-      obj = HelloSign::ApiAppCreateRequest.init(request_data)
+      expected = Dropbox::Sign::ApiAppGetResponse.init(response_data)
+      obj = Dropbox::Sign::ApiAppCreateRequest.init(request_data)
       obj.custom_logo_file = File.new("#{root_file_path}/pdf-sample.pdf", "r")
 
       result = api.api_app_create(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -45,11 +45,11 @@ describe HelloSign::ApiAppApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::ApiAppGetResponse.init(response_data)
+      expected = Dropbox::Sign::ApiAppGetResponse.init(response_data)
 
       result = api.api_app_get(client_id)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -63,13 +63,13 @@ describe HelloSign::ApiAppApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::ApiAppGetResponse.init(response_data)
-      obj = HelloSign::ApiAppUpdateRequest.init(request_data)
+      expected = Dropbox::Sign::ApiAppGetResponse.init(response_data)
+      obj = Dropbox::Sign::ApiAppUpdateRequest.init(request_data)
       obj.custom_logo_file = File.new("#{root_file_path}/pdf-sample.pdf", "r")
 
       result = api.api_app_update(client_id, obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -84,11 +84,11 @@ describe HelloSign::ApiAppApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::ApiAppListResponse.init(response_data)
+      expected = Dropbox::Sign::ApiAppListResponse.init(response_data)
 
       result = api.api_app_list({ :page => page, :page_size => page_size })
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end

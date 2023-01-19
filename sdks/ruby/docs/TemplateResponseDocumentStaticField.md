@@ -1,4 +1,4 @@
-# HelloSign::TemplateResponseDocumentStaticField
+# Dropbox::Sign::TemplateResponseDocumentStaticField
 
 
 

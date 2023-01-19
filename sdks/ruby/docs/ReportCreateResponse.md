@@ -1,4 +1,4 @@
-# HelloSign::ReportCreateResponse
+# Dropbox::Sign::ReportCreateResponse
 
 
 

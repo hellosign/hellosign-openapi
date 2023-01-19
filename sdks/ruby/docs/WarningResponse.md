@@ -1,4 +1,4 @@
-# HelloSign::WarningResponse
+# Dropbox::Sign::WarningResponse
 
 A list of warnings.
 

@@ -1,4 +1,4 @@
-# HelloSign::SubWhiteLabelingOptions
+# Dropbox::Sign::SubWhiteLabelingOptions
 
 An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)
 

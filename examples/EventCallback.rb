@@ -1,4 +1,4 @@
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
 # use your API key
 api_key = "324e3b0840f065eb51f3fd63231d0d33daa35d4ed10d27718839e81737065782"
@@ -18,15 +18,15 @@ callback_data = {
   },
 }
 
-callback_event = HelloSign::ApiClient.new.convert_to_type(
+callback_event = Dropbox::Sign::ApiClient.new.convert_to_type(
   callback_data,
-  "HelloSign::EventCallbackRequest"
-) || HelloSign::EventCallbackRequest.new
+  "Dropbox::Sign::EventCallbackRequest"
+) || Dropbox::Sign::EventCallbackRequest.new
 
 # verify that a callback came from HelloSign.com
-if HelloSign::EventCallbackHelper.is_valid(api_key, callback_event)
+if Dropbox::Sign::EventCallbackHelper.is_valid(api_key, callback_event)
   # one of "account_callback" or "api_app_callback"
-  callback_type = HelloSign::EventCallbackHelper.get_callback_type(callback_event)
+  callback_type = Dropbox::Sign::EventCallbackHelper.get_callback_type(callback_event)
 
   # do your magic below!
 end

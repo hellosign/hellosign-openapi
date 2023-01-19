@@ -1,4 +1,4 @@
-# HelloSign::TemplateResponseFieldAvgTextLength
+# Dropbox::Sign::TemplateResponseFieldAvgTextLength
 
 Average text length in this field.
 

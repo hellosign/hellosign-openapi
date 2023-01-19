@@ -1,4 +1,4 @@
-# HelloSign::TeamGetInfoResponse
+# Dropbox::Sign::TeamGetInfoResponse
 
 
 

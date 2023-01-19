@@ -1,4 +1,4 @@
-# HelloSign::OAuthTokenResponse
+# Dropbox::Sign::OAuthTokenResponse
 
 
 

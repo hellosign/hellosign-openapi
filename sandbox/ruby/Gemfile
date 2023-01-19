@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'hellosign-ruby-sdk',
+gem 'dropbox-sign',
   path: "../../sdks/ruby"

@@ -1,7 +1,7 @@
 =begin
-#HelloSign API
+#Dropbox Sign API
 
-#HelloSign v3 API
+#Dropbox Sign v3 API
 
 The version of the OpenAPI document: 3.0.0
 Contact: apisupport@hellosign.com
@@ -16,9 +16,9 @@ require_relative '../test_utils'
 
 root_file_path = __dir__ + "/../../test_fixtures"
 
-describe HelloSign::TemplateApi do
+describe Dropbox::Sign::TemplateApi do
   context 'TemplateApiTest' do
-    api = HelloSign::TemplateApi.new
+    api = Dropbox::Sign::TemplateApi.new
 
     it 'testTemplateAddUser' do
       template_id = 'f57db65d3f933b5316d398057a36176831451a35'
@@ -30,12 +30,12 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TemplateGetResponse.init(response_data)
-      obj = HelloSign::TemplateAddUserRequest.init(request_data)
+      expected = Dropbox::Sign::TemplateGetResponse.init(response_data)
+      obj = Dropbox::Sign::TemplateAddUserRequest.init(request_data)
 
       result = api.template_add_user(template_id, obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -47,13 +47,13 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TemplateCreateEmbeddedDraftResponse.init(response_data)
-      obj = HelloSign::TemplateCreateEmbeddedDraftRequest.init(request_data)
+      expected = Dropbox::Sign::TemplateCreateEmbeddedDraftResponse.init(response_data)
+      obj = Dropbox::Sign::TemplateCreateEmbeddedDraftRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.template_create_embedded_draft(obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -67,11 +67,11 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::FileResponse.init(response_data)
+      expected = Dropbox::Sign::FileResponse.init(response_data)
 
       result = api.template_files_as_file_url(template_id, {})
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -82,11 +82,11 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TemplateGetResponse.init(response_data)
+      expected = Dropbox::Sign::TemplateGetResponse.init(response_data)
 
       result = api.template_get(template_id)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -97,11 +97,11 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TemplateListResponse.init(response_data)
+      expected = Dropbox::Sign::TemplateListResponse.init(response_data)
 
       result = api.template_list({:account_id => account_id})
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -115,12 +115,12 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TemplateGetResponse.init(response_data)
-      obj = HelloSign::TemplateRemoveUserRequest.init(request_data)
+      expected = Dropbox::Sign::TemplateGetResponse.init(response_data)
+      obj = Dropbox::Sign::TemplateRemoveUserRequest.init(request_data)
 
       result = api.template_remove_user(template_id, obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
 
@@ -134,13 +134,13 @@ describe HelloSign::TemplateApi do
       response_data = get_fixture_data(response_class)[:default]
 
       set_expected_response(200, JSON.dump(response_data))
-      expected = HelloSign::TemplateUpdateFilesResponse.init(response_data)
-      obj = HelloSign::TemplateUpdateFilesRequest.init(request_data)
+      expected = Dropbox::Sign::TemplateUpdateFilesResponse.init(response_data)
+      obj = Dropbox::Sign::TemplateUpdateFilesRequest.init(request_data)
       obj.files = [File.new("#{root_file_path}/pdf-sample.pdf", "r")]
 
       result = api.template_update_files(template_id, obj)
 
-      expect(result.class.to_s).to eq("HelloSign::#{response_class}")
+      expect(result.class.to_s).to eq("Dropbox::Sign::#{response_class}")
       expect(result.to_json).to be_json_eql(JSON.dump(expected))
     end
   end

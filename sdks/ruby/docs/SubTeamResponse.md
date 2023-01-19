@@ -1,4 +1,4 @@
-# HelloSign::SubTeamResponse
+# Dropbox::Sign::SubTeamResponse
 
 
 

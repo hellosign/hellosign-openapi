@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponseCustomFieldCheckbox
+# Dropbox::Sign::SignatureRequestResponseCustomFieldCheckbox
 
 This class extends `SignatureRequestResponseCustomFieldBase`.
 

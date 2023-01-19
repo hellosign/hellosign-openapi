@@ -1,4 +1,4 @@
-# HelloSign::SubEditorOptions
+# Dropbox::Sign::SubEditorOptions
 
 This allows the requester to specify editor options when a preparing a document
 

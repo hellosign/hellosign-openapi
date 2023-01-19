@@ -1,4 +1,4 @@
-# HelloSign::ApiAppResponseOAuth
+# Dropbox::Sign::ApiAppResponseOAuth
 
 An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the app.
 

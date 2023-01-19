@@ -1,4 +1,4 @@
-# HelloSign::TemplateRemoveUserRequest
+# Dropbox::Sign::TemplateRemoveUserRequest
 
 
 

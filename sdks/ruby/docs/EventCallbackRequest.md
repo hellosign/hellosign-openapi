@@ -1,4 +1,4 @@
-# HelloSign::EventCallbackRequest
+# Dropbox::Sign::EventCallbackRequest
 
 
 

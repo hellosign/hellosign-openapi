@@ -1,4 +1,4 @@
-# HelloSign::SubSignatureRequestTemplateSigner
+# Dropbox::Sign::SubSignatureRequestTemplateSigner
 
 
 

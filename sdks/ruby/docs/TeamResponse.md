@@ -1,4 +1,4 @@
-# HelloSign::TeamResponse
+# Dropbox::Sign::TeamResponse
 
 Contains information about your team and its members
 

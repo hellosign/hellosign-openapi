@@ -1,4 +1,4 @@
-# HelloSign::SignatureRequestResponseDataValueCheckbox
+# Dropbox::Sign::SignatureRequestResponseDataValueCheckbox
 
 
 

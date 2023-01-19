@@ -1,4 +1,4 @@
-# HelloSign::BulkSendJobApi
+# Dropbox::Sign::BulkSendJobApi
 
 All URIs are relative to *https://api.hellosign.com/v3*
 
@@ -19,9 +19,9 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -29,14 +29,14 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-bulk_send_job_api = HelloSign::BulkSendJobApi.new
+bulk_send_job_api = Dropbox::Sign::BulkSendJobApi.new
 
 bulk_send_job_id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174"
 
 begin
   result = bulk_send_job_api.bulk_send_job_get(bulk_send_job_id)
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -55,7 +55,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobGetResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling BulkSendJobApi->bulk_send_job_get_with_http_info: #{e}"
 end
 ```
@@ -91,9 +91,9 @@ Returns a list of BulkSendJob that you can access.
 ### Examples
 
 ```ruby
-require "hellosign-ruby-sdk"
+require "dropbox-sign"
 
-HelloSign.configure do |config|
+Dropbox::Sign.configure do |config|
   # Configure HTTP basic authorization: api_key
   config.username = "YOUR_API_KEY"
 
@@ -101,7 +101,7 @@ HelloSign.configure do |config|
   # config.access_token = "YOUR_ACCESS_TOKEN"
 end
 
-bulk_send_job_api = HelloSign::BulkSendJobApi.new
+bulk_send_job_api = Dropbox::Sign::BulkSendJobApi.new
 
 page = 1
 page_size = 20
@@ -109,7 +109,7 @@ page_size = 20
 begin
   result = bulk_send_job_api.bulk_send_job_list({page: page, page_size: page_size})
   p result
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
 
@@ -128,7 +128,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobListResponse>
-rescue HelloSign::ApiError => e
+rescue Dropbox::Sign::ApiError => e
   puts "Error when calling BulkSendJobApi->bulk_send_job_list_with_http_info: #{e}"
 end
 ```

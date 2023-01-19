@@ -1,4 +1,4 @@
-# HelloSign::SubSigningOptions
+# Dropbox::Sign::SubSigningOptions
 
 This allows the requester to specify the types allowed for creating a signature.
 

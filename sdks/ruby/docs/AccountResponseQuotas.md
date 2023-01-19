@@ -1,4 +1,4 @@
-# HelloSign::AccountResponseQuotas
+# Dropbox::Sign::AccountResponseQuotas
 
 Details concerning remaining monthly quotas.
 

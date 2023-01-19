@@ -10,5 +10,5 @@ rvm:
 script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
-  - gem build hellosign-ruby-sdk.gemspec
-  - gem install ./hellosign-ruby-sdk-6.0.0-beta23.1.gem
+  - gem build dropbox-sign.gemspec
+  - gem install ./dropbox-sign-1.0.0-beta23.1.gem

@@ -1,4 +1,4 @@
-# HelloSign::EmbeddedSignUrlResponseEmbedded
+# Dropbox::Sign::EmbeddedSignUrlResponseEmbedded
 
 An object that contains necessary information to set up embedded signing.
 

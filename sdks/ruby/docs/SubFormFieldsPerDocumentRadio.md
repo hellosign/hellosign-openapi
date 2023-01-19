@@ -1,4 +1,4 @@
-# HelloSign::SubFormFieldsPerDocumentRadio
+# Dropbox::Sign::SubFormFieldsPerDocumentRadio
 
 This class extends `SubFormFieldsPerDocumentBase`.
 

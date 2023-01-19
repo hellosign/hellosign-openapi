@@ -1,4 +1,4 @@
-# HelloSign::TeamCreateRequest
+# Dropbox::Sign::TeamCreateRequest
 
 
 
