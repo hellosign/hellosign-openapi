@@ -44,7 +44,7 @@ this command.
 
 ### Requirements
 
-PHP 7.3 and later.
+PHP 7.4 and later.
 
 ### Composer
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Configuration
- * PHP version 7.3
+ * PHP version 7.4
  *
  * @category Class
  * @author   OpenAPI Generator team
@@ -31,7 +31,7 @@ use InvalidArgumentException;
 
 /**
  * Configuration Class Doc Comment
- * PHP version 7.3
+ * PHP version 7.4
  *
  * @category Class
  * @author   OpenAPI Generator team
@@ -43,20 +43,6 @@ class Configuration
      * @var Configuration
      */
     private static $defaultConfiguration;
-
-    /**
-     * Associate array to store API key(s)
-     *
-     * @var string[]
-     */
-    protected $apiKeys = [];
-
-    /**
-     * Associate array to store API prefix (e.g. Bearer)
-     *
-     * @var string[]
-     */
-    protected $apiKeyPrefixes = [];
 
     /**
      * Access token for OAuth/Bearer authentication
@@ -71,13 +57,6 @@ class Configuration
      * @var string
      */
     protected $username = '';
-
-    /**
-     * Password for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $password = '';
 
     /**
      * The host
@@ -133,59 +112,6 @@ class Configuration
     }
 
     /**
-     * Sets API key
-     *
-     * @param string $key API key or token
-     *
-     * @return self
-     */
-    public function setApiKey(string $key)
-    {
-        $this->username = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets API key
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string API key or token
-     */
-    public function getApiKey(string $apiKeyIdentifier)
-    {
-        return $this->username;
-    }
-
-    /**
-     * Sets the prefix for API key (e.g. Bearer)
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $prefix API key prefix, e.g. Bearer
-     *
-     * @return self
-     */
-    public function setApiKeyPrefix(string $apiKeyIdentifier, string $prefix)
-    {
-        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
-
-        return $this;
-    }
-
-    /**
-     * Gets API key prefix
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string|null
-     */
-    public function getApiKeyPrefix(string $apiKeyIdentifier)
-    {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
-    }
-
-    /**
      * Sets the access token for OAuth
      *
      * @param string $accessToken Token for OAuth
@@ -229,16 +155,6 @@ class Configuration
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
@@ -407,31 +323,6 @@ class Configuration
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
-    }
-
-    /**
-     * Get API key (with prefix if set)
-     *
-     * @param string $apiKeyIdentifier name of apikey
-     *
-     * @return string|null API key with the prefix
-     */
-    public function getApiKeyWithPrefix(string $apiKeyIdentifier)
-    {
-        $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
-        $apiKey = $this->getApiKey($apiKeyIdentifier);
-
-        if ($apiKey === null) {
-            return null;
-        }
-
-        if ($prefix === null) {
-            $keyWithPrefix = $apiKey;
-        } else {
-            $keyWithPrefix = $prefix . ' ' . $apiKey;
-        }
-
-        return $keyWithPrefix;
     }
 
     /**
