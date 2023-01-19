@@ -43,8 +43,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dropbox\\Sign\\": "src/",
-            "HelloSignLegacy\\": "legacy/library/HelloSignLegacy/"
+            "Dropbox\\Sign\\": "src/"
         }
     },
     "autoload-dev": {
