@@ -1,7 +1,7 @@
 <?php
 /**
  * {{classname}}
- * PHP version 7.3
+ * PHP version {{phpVersion}}
  *
  * @category Class
  * @package  {{invokerPackage}}
@@ -729,8 +729,8 @@ use {{invokerPackage}}\ObjectSerializer;
         {{#isBasic}}
         {{#isBasicBasic}}
         // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
         }
         {{/isBasicBasic}}
         {{#isBasicBearer}}
