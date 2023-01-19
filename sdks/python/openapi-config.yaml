@@ -7,6 +7,9 @@ additionalProperties:
   packageVersion: 1.0.0-beta2301
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
+  packageAuthor: Dropbox Sign API Team
+  packageUrl: https://github.com/hellosign/dropbox-sign-python
+  infoName: Official Python SDK for the Dropbox Sign API
 files:
   event_callback_helper.mustache:
     templateType: SupportingFiles
