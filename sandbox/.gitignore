@@ -6,7 +6,9 @@ dotnet/*
 
 java/*
 !java/pom.xml
-!java/src/main/java/com/hellosign/sandbox/Main.java
+!java/src
+java/src/main/java/com/dropbox/sign_sandbox/*
+!java/src/main/java/com/dropbox/sign_sandbox/Main.java
 
 node/*
 !node/Example.ts
