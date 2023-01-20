@@ -13,14 +13,13 @@ namespace Dropbox.Sign.Test.Api
         {
             var id = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
 
-            var responseData = TestHelper.SerializeFromFile<BulkSendJobGetResponse>("BulkSendJobGetResponse");
+            var responseData = TestHelper.GetJsonContents(nameof(BulkSendJobGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<BulkSendJobGetResponse, BulkSendJobApi>(responseData);
-
+            var api = MockRestClientHelper.CreateApi<BulkSendJobApi>(responseData);
             var response = api.BulkSendJobGet(id);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -31,14 +30,13 @@ namespace Dropbox.Sign.Test.Api
             var page = 1;
             var pageSize = 2;
 
-            var responseData = TestHelper.SerializeFromFile<BulkSendJobListResponse>("BulkSendJobListResponse");
+            var responseData = TestHelper.GetJsonContents(nameof(BulkSendJobListResponse));
 
-            var api = MockRestClientHelper.CreateApi<BulkSendJobListResponse, BulkSendJobApi>(responseData);
-
+            var api = MockRestClientHelper.CreateApi<BulkSendJobApi>(responseData);
             var response = api.BulkSendJobList(page, pageSize);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }

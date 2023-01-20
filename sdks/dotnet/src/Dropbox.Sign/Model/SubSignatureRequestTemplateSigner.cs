@@ -102,6 +102,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubSignatureRequestTemplateSigner Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubSignatureRequestTemplateSigner>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubSignatureRequestTemplateSigner");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Must match an existing role in chosen Template(s). It&#39;s case-sensitive.
         /// </summary>
         /// <value>Must match an existing role in chosen Template(s). It&#39;s case-sensitive.</value>

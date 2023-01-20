@@ -11,15 +11,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TokenGenerateTest()
         {
-            var requestData = TestHelper.SerializeFromFile<OAuthTokenGenerateRequest>("OAuthTokenGenerateRequest");
-            var responseData = TestHelper.SerializeFromFile<OAuthTokenResponse>("OAuthTokenResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(OAuthTokenGenerateRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(OAuthTokenResponse));
 
-            var api = MockRestClientHelper.CreateApi<OAuthTokenResponse, OAuthApi>(responseData);
+            var obj = OAuthTokenGenerateRequest.Init(requestData.ToString());
 
-            var response = api.OauthTokenGenerate(requestData);
+            var api = MockRestClientHelper.CreateApi<OAuthApi>(responseData);
+            var response = api.OauthTokenGenerate(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -27,15 +28,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TokenRefreshTest()
         {
-            var requestData = TestHelper.SerializeFromFile<OAuthTokenRefreshRequest>("OAuthTokenRefreshRequest");
-            var responseData = TestHelper.SerializeFromFile<OAuthTokenResponse>("OAuthTokenResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(OAuthTokenRefreshRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(OAuthTokenResponse));
 
-            var api = MockRestClientHelper.CreateApi<OAuthTokenResponse, OAuthApi>(responseData);
+            var obj = OAuthTokenRefreshRequest.Init(requestData.ToString());
+            var api = MockRestClientHelper.CreateApi<OAuthApi>(responseData);
 
-            var response = api.OauthTokenRefresh(requestData);
+            var response = api.OauthTokenRefresh(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }

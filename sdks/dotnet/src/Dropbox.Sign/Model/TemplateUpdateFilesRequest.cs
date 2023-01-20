@@ -59,6 +59,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TemplateUpdateFilesRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TemplateUpdateFilesRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TemplateUpdateFilesRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Client id of the app you&#39;re using to update this template.
         /// </summary>
         /// <value>Client id of the app you&#39;re using to update this template.</value>

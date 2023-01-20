@@ -55,6 +55,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TemplateResponseAccountQuota Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TemplateResponseAccountQuota>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseAccountQuota");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// API templates remaining.
         /// </summary>
         /// <value>API templates remaining.</value>

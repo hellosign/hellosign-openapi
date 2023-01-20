@@ -61,6 +61,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static OAuthTokenRefreshRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<OAuthTokenRefreshRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of OAuthTokenRefreshRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// When refreshing an existing token use &#x60;refresh_token&#x60;.
         /// </summary>
         /// <value>When refreshing an existing token use &#x60;refresh_token&#x60;.</value>

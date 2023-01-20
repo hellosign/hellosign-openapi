@@ -71,6 +71,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SignatureRequestResponseDataValueTextMerge Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseDataValueTextMerge>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestResponseDataValueTextMerge");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A text field that has default text set by the api
         /// </summary>
         /// <value>A text field that has default text set by the api</value>

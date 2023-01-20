@@ -61,6 +61,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubCC Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubCC>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubCC");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.
         /// </summary>
         /// <value>Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.</value>

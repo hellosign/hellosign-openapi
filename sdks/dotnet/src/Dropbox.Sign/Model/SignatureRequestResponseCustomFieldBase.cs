@@ -73,6 +73,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SignatureRequestResponseCustomFieldBase Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseCustomFieldBase>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestResponseCustomFieldBase");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
         /// </summary>
         /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>

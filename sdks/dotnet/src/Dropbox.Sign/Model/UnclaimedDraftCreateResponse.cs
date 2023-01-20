@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static UnclaimedDraftCreateResponse Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<UnclaimedDraftCreateResponse>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of UnclaimedDraftCreateResponse");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Gets or Sets UnclaimedDraft
         /// </summary>
         [DataMember(Name = "unclaimed_draft", EmitDefaultValue = true)]

@@ -71,6 +71,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SignatureRequestResponseDataValueDropdown Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseDataValueDropdown>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestResponseDataValueDropdown");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// An input field for dropdowns
         /// </summary>
         /// <value>An input field for dropdowns</value>

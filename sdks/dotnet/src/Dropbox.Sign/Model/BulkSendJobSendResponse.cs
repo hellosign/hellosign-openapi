@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static BulkSendJobSendResponse Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<BulkSendJobSendResponse>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of BulkSendJobSendResponse");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Gets or Sets BulkSendJob
         /// </summary>
         [DataMember(Name = "bulk_send_job", EmitDefaultValue = true)]

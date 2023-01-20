@@ -68,6 +68,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static UnclaimedDraftEditAndResendRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<UnclaimedDraftEditAndResendRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of UnclaimedDraftEditAndResendRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
         /// </summary>
         /// <value>Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.</value>

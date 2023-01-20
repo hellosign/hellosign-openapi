@@ -55,6 +55,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static EventCallbackRequestEventMetadata Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<EventCallbackRequestEventMetadata>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of EventCallbackRequestEventMetadata");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.
         /// </summary>
         /// <value>Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.</value>

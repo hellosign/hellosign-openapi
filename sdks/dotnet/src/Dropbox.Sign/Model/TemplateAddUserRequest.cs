@@ -53,6 +53,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TemplateAddUserRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TemplateAddUserRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TemplateAddUserRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The id of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if email address is also provided.
         /// </summary>
         /// <value>The id of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if email address is also provided.</value>

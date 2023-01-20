@@ -11,14 +11,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TeamAddMemberTest()
         {
-            var requestData = TestHelper.SerializeFromFile<TeamAddMemberRequest>("TeamAddMemberRequest");
-            var responseData = TestHelper.SerializeFromFile<TeamGetResponse>("TeamGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TeamAddMemberRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TeamGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TeamGetResponse, TeamApi>(responseData);
-            var response = api.TeamAddMember(requestData);
+            var obj = TeamAddMemberRequest.Init(requestData.ToString());
+
+            var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
+            var response = api.TeamAddMember(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -26,14 +28,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TeamCreateTest()
         {
-            var requestData = TestHelper.SerializeFromFile<TeamCreateRequest>("TeamCreateRequest");
-            var responseData = TestHelper.SerializeFromFile<TeamGetResponse>("TeamGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TeamCreateRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TeamGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TeamGetResponse, TeamApi>(responseData);
-            var response = api.TeamCreate(requestData);
+            var obj = TeamCreateRequest.Init(requestData.ToString());
+
+            var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
+            var response = api.TeamCreate(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -46,13 +50,13 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TeamGetTest()
         {
-            var responseData = TestHelper.SerializeFromFile<TeamGetResponse>("TeamGetResponse");
-            var api = MockRestClientHelper.CreateApi<TeamGetResponse, TeamApi>(responseData);
+            var responseData = TestHelper.GetJsonContents(nameof(TeamGetResponse));
 
+            var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
             var response = api.TeamGet();
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -60,15 +64,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TeamUpdateTest()
         {
-            var requestData = TestHelper.SerializeFromFile<TeamUpdateRequest>("TeamUpdateRequest");
-            var responseData = TestHelper.SerializeFromFile<TeamGetResponse>("TeamGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TeamUpdateRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TeamGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TeamGetResponse, TeamApi>(responseData);
+            var obj = TeamUpdateRequest.Init(requestData.ToString());
 
-            var response = api.TeamUpdate(requestData);
+            var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
+            var response = api.TeamUpdate(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -76,15 +81,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TeamRemoveTest()
         {
-            var requestData = TestHelper.SerializeFromFile<TeamRemoveMemberRequest>("TeamRemoveMemberRequest");
-            var responseData = TestHelper.SerializeFromFile<TeamGetResponse>("TeamGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TeamRemoveMemberRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TeamGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TeamGetResponse, TeamApi>(responseData);
+            var obj = TeamRemoveMemberRequest.Init(requestData.ToString());
 
-            var response = api.TeamRemoveMember(requestData);
+            var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
+            var response = api.TeamRemoveMember(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }

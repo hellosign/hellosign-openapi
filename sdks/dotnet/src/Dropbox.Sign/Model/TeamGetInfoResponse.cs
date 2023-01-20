@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TeamGetInfoResponse Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TeamGetInfoResponse>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TeamGetInfoResponse");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Gets or Sets Team
         /// </summary>
         [DataMember(Name = "team", EmitDefaultValue = true)]

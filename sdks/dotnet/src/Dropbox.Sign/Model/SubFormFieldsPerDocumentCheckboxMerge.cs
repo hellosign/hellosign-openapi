@@ -86,6 +86,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldsPerDocumentCheckboxMerge Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentCheckboxMerge>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentCheckboxMerge");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A checkbox field that has default value set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60; class.
         /// </summary>
         /// <value>A checkbox field that has default value set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60; class.</value>

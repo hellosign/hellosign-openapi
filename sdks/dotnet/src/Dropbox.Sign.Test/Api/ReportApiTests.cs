@@ -11,15 +11,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void ReportCreateTest()
         {
-            var requestData = TestHelper.SerializeFromFile<ReportCreateRequest>("ReportCreateRequest");
-            var responseData = TestHelper.SerializeFromFile<ReportCreateResponse>("ReportCreateResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(ReportCreateRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(ReportCreateResponse));
 
-            var api = MockRestClientHelper.CreateApi<ReportCreateResponse, ReportApi>(responseData);
+            var obj = ReportCreateRequest.Init(requestData.ToString());
 
-            var response = api.ReportCreate(requestData);
+            var api = MockRestClientHelper.CreateApi<ReportApi>(responseData);
+            var response = api.ReportCreate(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }

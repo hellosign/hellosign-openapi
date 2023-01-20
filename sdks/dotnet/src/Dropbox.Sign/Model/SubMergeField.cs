@@ -84,6 +84,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubMergeField Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubMergeField>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubMergeField");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The name of the merge field. Must be unique.
         /// </summary>
         /// <value>The name of the merge field. Must be unique.</value>

@@ -82,6 +82,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static OAuthTokenGenerateRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<OAuthTokenGenerateRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of OAuthTokenGenerateRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The client id of the app requesting authorization.
         /// </summary>
         /// <value>The client id of the app requesting authorization.</value>

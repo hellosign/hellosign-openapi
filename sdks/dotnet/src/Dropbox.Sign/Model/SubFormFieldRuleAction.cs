@@ -81,6 +81,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldRuleAction Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldRuleAction>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldRuleAction");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// &#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;.
         /// </summary>
         /// <value>&#x60;true&#x60; to hide the target field when rule is satisfied, otherwise &#x60;false&#x60;.</value>

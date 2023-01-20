@@ -13,16 +13,22 @@ namespace Dropbox.Sign.Test
         [Fact]
         public void IsValidTest()
         {
-            using (var r = TestHelper.ReadFileFromResource("EventCallbackHelper"))
+            var keys = new List<string>
             {
-                var payload = JsonConvert.DeserializeObject<Dictionary<string, EventCallbackRequest>>(r.ReadToEnd());
-                Assert.NotNull(payload);
+                "base",
+                "account",
+                "signature_request",
+                "template",
+            };
 
-                foreach(var callbackEvent in payload.Values)
-                {
-                    Assert.True(EventCallbackHelper.IsValid(ApiKey, callbackEvent));
-                    Assert.False(EventCallbackHelper.IsValid(Reverse(ApiKey), callbackEvent));
-                }
+            foreach (var key in keys)
+            {
+                var requestData = TestHelper.GetJsonContents(nameof(EventCallbackHelper), key);
+                var callbackEvent = EventCallbackRequest.Init(requestData.ToString());
+
+                Assert.True(EventCallbackHelper.IsValid(ApiKey, callbackEvent));
+                Assert.False(EventCallbackHelper.IsValid(Reverse(ApiKey), callbackEvent));
+
             }
         }
 

@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubEditorOptions Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubEditorOptions>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubEditorOptions");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Allows requesters to edit the list of signers
         /// </summary>
         /// <value>Allows requesters to edit the list of signers</value>

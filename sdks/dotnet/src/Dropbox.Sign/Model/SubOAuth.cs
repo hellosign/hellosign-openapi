@@ -115,6 +115,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubOAuth Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubOAuth>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubOAuth");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)
         /// </summary>
         /// <value>The callback URL to be used for OAuth flows. (Required if &#x60;oauth[scopes]&#x60; is provided)</value>

@@ -96,6 +96,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static ReportCreateRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<ReportCreateRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of ReportCreateRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The (inclusive) end date for the report data in &#x60;MM/DD/YYYY&#x60; format.
         /// </summary>
         /// <value>The (inclusive) end date for the report data in &#x60;MM/DD/YYYY&#x60; format.</value>

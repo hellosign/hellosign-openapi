@@ -100,6 +100,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SignatureRequestCreateEmbeddedRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SignatureRequestCreateEmbeddedRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestCreateEmbeddedRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.
         /// </summary>
         /// <value>Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.</value>

@@ -93,6 +93,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TeamAddMemberRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TeamAddMemberRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TeamAddMemberRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.
         /// </summary>
         /// <value>&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.</value>

@@ -13,18 +13,20 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void HttpCodeRangeTest()
         {
-            var requestData = TestHelper.SerializeFromFile<AccountVerifyRequest>("AccountVerifyRequest");
-            var responseData = TestHelper.SerializeFromFile<AccountVerifyResponse>("AccountVerifyResponse");
-            var errorData = TestHelper.SerializeFromFile<ErrorResponse>("ErrorResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(AccountVerifyRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(AccountVerifyResponse));
+            var errorData = TestHelper.GetJsonContents(nameof(ErrorResponse));
 
-            var api = MockRestClientHelper.CreateApi<ErrorResponse, AccountApi>(errorData, HttpStatusCode.BadRequest);
+            var obj = AccountVerifyRequest.Init(requestData.ToString());
+
+            var api = MockRestClientHelper.CreateApi<AccountApi>(errorData, HttpStatusCode.BadRequest);
 
             var ex = Assert.Throws<ApiException>(() =>
-                api.AccountVerify(requestData)
+                api.AccountVerify(obj)
             );
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 ex.ErrorContent.ToString()
             );
         }
@@ -32,15 +34,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void AccountCreateTest()
         {
-            var requestData = TestHelper.SerializeFromFile<AccountCreateRequest>("AccountCreateRequest");
-            var responseData = TestHelper.SerializeFromFile<AccountCreateResponse>("AccountCreateResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(AccountCreateRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(AccountCreateResponse));
 
-            var api = MockRestClientHelper.CreateApi<AccountCreateResponse, AccountApi>(responseData);
+            var obj = AccountCreateRequest.Init(requestData.ToString());
 
-            var response = api.AccountCreate(requestData);
+            var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
+            var response = api.AccountCreate(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -48,14 +51,13 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void AccountGetTest()
         {
-            var responseData = TestHelper.SerializeFromFile<AccountGetResponse>("AccountGetResponse");
+            var responseData = TestHelper.GetJsonContents(nameof(AccountGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<AccountGetResponse, AccountApi>(responseData);
-
+            var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
             var response = api.AccountGet(null, "jack@example.com");
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -63,15 +65,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void AccountUpdateTest()
         {
-            var requestData = TestHelper.SerializeFromFile<AccountUpdateRequest>("AccountUpdateRequest");
-            var responseData = TestHelper.SerializeFromFile<AccountGetResponse>("AccountGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(AccountUpdateRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(AccountGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<AccountGetResponse, AccountApi>(responseData);
+            var obj = AccountUpdateRequest.Init(requestData.ToString());
 
-            var response = api.AccountUpdate(requestData);
+            var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
+            var response = api.AccountUpdate(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -79,15 +82,16 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void AccountVerifyTest()
         {
-            var requestData = TestHelper.SerializeFromFile<AccountVerifyRequest>("AccountVerifyRequest");
-            var responseData = TestHelper.SerializeFromFile<AccountVerifyResponse>("AccountVerifyResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(AccountVerifyRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(AccountVerifyResponse));
 
-            var api = MockRestClientHelper.CreateApi<AccountVerifyResponse, AccountApi>(responseData);
+            var obj = AccountVerifyRequest.Init(requestData.ToString());
 
-            var response = api.AccountVerify(requestData);
+            var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
+            var response = api.AccountVerify(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }

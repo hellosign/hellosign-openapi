@@ -97,6 +97,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubSignatureRequestSigner Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubSignatureRequestSigner>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubSignatureRequestSigner");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The name of the signer.
         /// </summary>
         /// <value>The name of the signer.</value>

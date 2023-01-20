@@ -49,6 +49,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubOptions Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubOptions>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubOptions");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Determines if signers can use \&quot;Insert Everywhere\&quot; when signing a document.
         /// </summary>
         /// <value>Determines if signers can use \&quot;Insert Everywhere\&quot; when signing a document.</value>

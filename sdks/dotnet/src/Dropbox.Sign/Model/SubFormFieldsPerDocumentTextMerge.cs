@@ -86,6 +86,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldsPerDocumentTextMerge Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentTextMerge>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentTextMerge");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class.
         /// </summary>
         /// <value>A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class.</value>

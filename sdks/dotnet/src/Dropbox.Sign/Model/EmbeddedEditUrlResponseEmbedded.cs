@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static EmbeddedEditUrlResponseEmbedded Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<EmbeddedEditUrlResponseEmbedded>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of EmbeddedEditUrlResponseEmbedded");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A template url that can be opened in an iFrame.
         /// </summary>
         /// <value>A template url that can be opened in an iFrame.</value>

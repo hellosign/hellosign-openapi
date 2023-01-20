@@ -60,6 +60,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static AccountCreateRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<AccountCreateRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of AccountCreateRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The email address which will be associated with the new Account.
         /// </summary>
         /// <value>The email address which will be associated with the new Account.</value>

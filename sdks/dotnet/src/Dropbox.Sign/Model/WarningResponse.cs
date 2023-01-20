@@ -61,6 +61,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static WarningResponse Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<WarningResponse>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of WarningResponse");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Warning message
         /// </summary>
         /// <value>Warning message</value>

@@ -86,6 +86,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldsPerDocumentSignature Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentSignature>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentSignature");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A signature input field. Use the &#x60;SubFormFieldsPerDocumentSignature&#x60; class.
         /// </summary>
         /// <value>A signature input field. Use the &#x60;SubFormFieldsPerDocumentSignature&#x60; class.</value>
