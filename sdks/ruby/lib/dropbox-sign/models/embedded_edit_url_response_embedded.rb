@@ -20,9 +20,11 @@ module Dropbox::Sign
   # An embedded template object.
   class EmbeddedEditUrlResponseEmbedded
     # A template url that can be opened in an iFrame.
+    # @return [String]
     attr_accessor :edit_url
 
     # The specific time that the the `edit_url` link expires, in epoch.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

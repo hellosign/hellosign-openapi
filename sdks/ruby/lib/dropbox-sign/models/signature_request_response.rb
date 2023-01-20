@@ -20,72 +20,95 @@ module Dropbox::Sign
   # Contains information about a signature request.
   class SignatureRequestResponse
     # Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # The id of the SignatureRequest.
+    # @return [String]
     attr_accessor :signature_request_id
 
     # The email address of the initiator of the SignatureRequest.
+    # @return [String]
     attr_accessor :requester_email_address
 
     # The title the specified Account uses for the SignatureRequest.
+    # @return [String]
     attr_accessor :title
 
     # Default Label for account.
+    # @return [String]
     attr_accessor :original_title
 
     # The subject in the email that was initially sent to the signers.
+    # @return [String]
     attr_accessor :subject
 
     # The custom message in the email that was initially sent to the signers.
+    # @return [String]
     attr_accessor :message
 
     # The metadata attached to the signature request.
+    # @return [Object]
     attr_accessor :metadata
 
     # Time the signature request was created.
+    # @return [Integer]
     attr_accessor :created_at
 
     # The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # Whether or not the SignatureRequest has been fully executed by all signers.
+    # @return [Boolean]
     attr_accessor :is_complete
 
     # Whether or not the SignatureRequest has been declined by a signer.
+    # @return [Boolean]
     attr_accessor :is_declined
 
     # Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
+    # @return [Boolean]
     attr_accessor :has_error
 
     # The URL where a copy of the request's documents can be downloaded.
+    # @return [String]
     attr_accessor :files_url
 
     # The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
+    # @return [String]
     attr_accessor :signing_url
 
     # The URL where the requester and the signers can view the current status of the SignatureRequest.
+    # @return [String]
     attr_accessor :details_url
 
     # A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
+    # @return [Array<String>]
     attr_accessor :cc_email_addresses
 
     # The URL you want the signer redirected to after they successfully sign.
+    # @return [String]
     attr_accessor :signing_redirect_url
 
     # Templates IDs used in this SignatureRequest (if any).
+    # @return [Array<String>]
     attr_accessor :template_ids
 
     # An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
+    # @return [Array<SignatureRequestResponseCustomFieldBase>]
     attr_accessor :custom_fields
 
     # Signer attachments.
+    # @return [Array<SignatureRequestResponseAttachment>]
     attr_accessor :attachments
 
     # An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
+    # @return [Array<SignatureRequestResponseDataBase>]
     attr_accessor :response_data
 
     # An array of signature objects, 1 for each signer.
+    # @return [Array<SignatureRequestResponseSignatures>]
     attr_accessor :signatures
 
     # Attribute mapping from ruby-style variable name to JSON key.

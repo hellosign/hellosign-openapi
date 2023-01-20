@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SubCC
     # Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.
+    # @return [String]
     attr_accessor :role
 
     # The email address of the CC recipient.
+    # @return [String]
     attr_accessor :email_address
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -20,12 +20,15 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentCheckbox < SubFormFieldsPerDocumentBase
     # A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
+    # @return [String]
     attr_accessor :type
 
     # `true` for checking the checkbox field by default, otherwise `false`.
+    # @return [Boolean]
     attr_accessor :is_checked
 
     # String referencing group defined in `form_field_groups` parameter.
+    # @return [String]
     attr_accessor :group
 
     # Attribute mapping from ruby-style variable name to JSON key.

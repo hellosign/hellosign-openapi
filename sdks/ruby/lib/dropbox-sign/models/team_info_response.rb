@@ -19,17 +19,22 @@ end
 module Dropbox::Sign
   class TeamInfoResponse
     # The id of a team
+    # @return [String]
     attr_accessor :team_id
 
+    # @return [TeamParentResponse]
     attr_accessor :team_parent
 
     # The name of a team
+    # @return [String]
     attr_accessor :name
 
     # Number of members within a team
+    # @return [Integer]
     attr_accessor :num_members
 
     # Number of sub teams within a team
+    # @return [Integer]
     attr_accessor :num_sub_teams
 
     # Attribute mapping from ruby-style variable name to JSON key.

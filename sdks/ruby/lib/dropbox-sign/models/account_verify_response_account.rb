@@ -19,6 +19,7 @@ end
 module Dropbox::Sign
   class AccountVerifyResponseAccount
     # The email address associated with the Account.
+    # @return [String]
     attr_accessor :email_address
 
     # Attribute mapping from ruby-style variable name to JSON key.

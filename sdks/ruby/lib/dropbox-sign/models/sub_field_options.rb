@@ -20,6 +20,7 @@ module Dropbox::Sign
   # This allows the requester to specify field options for a signature request.
   class SubFieldOptions
     # Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.
+    # @return [String]
     attr_accessor :date_format
 
     class EnumAttributeValidator

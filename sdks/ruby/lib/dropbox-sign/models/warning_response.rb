@@ -20,9 +20,11 @@ module Dropbox::Sign
   # A list of warnings.
   class WarningResponse
     # Warning message
+    # @return [String]
     attr_accessor :warning_msg
 
     # Warning name
+    # @return [String]
     attr_accessor :warning_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

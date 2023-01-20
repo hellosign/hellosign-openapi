@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class OAuthTokenRefreshRequest
     # When refreshing an existing token use `refresh_token`.
+    # @return [String]
     attr_accessor :grant_type
 
     # The token provided when you got the expired access token.
+    # @return [String]
     attr_accessor :refresh_token
 
     # Attribute mapping from ruby-style variable name to JSON key.

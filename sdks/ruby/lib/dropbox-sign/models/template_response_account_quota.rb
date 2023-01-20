@@ -20,15 +20,19 @@ module Dropbox::Sign
   # An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
   class TemplateResponseAccountQuota
     # API templates remaining.
+    # @return [Integer]
     attr_accessor :templates_left
 
     # API signature requests remaining.
+    # @return [Integer]
     attr_accessor :api_signature_requests_left
 
     # Signature requests remaining.
+    # @return [Integer]
     attr_accessor :documents_left
 
     # SMS verifications remaining.
+    # @return [Integer]
     attr_accessor :sms_verifications_left
 
     # Attribute mapping from ruby-style variable name to JSON key.

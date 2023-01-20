@@ -19,32 +19,42 @@ end
 module Dropbox::Sign
   class AccountResponse
     # The ID of the Account
+    # @return [String]
     attr_accessor :account_id
 
     # The email address associated with the Account.
+    # @return [String]
     attr_accessor :email_address
 
     # Returns `true` if the user has been locked out of their account by a team admin.
+    # @return [Boolean]
     attr_accessor :is_locked
 
     # Returns `true` if the user has a paid Dropbox Sign account.
+    # @return [Boolean]
     attr_accessor :is_paid_hs
 
     # Returns `true` if the user has a paid HelloFax account.
+    # @return [Boolean]
     attr_accessor :is_paid_hf
 
+    # @return [AccountResponseQuotas]
     attr_accessor :quotas
 
     # The URL that Dropbox Sign events will `POST` to.
+    # @return [String]
     attr_accessor :callback_url
 
     # The membership role for the team.
+    # @return [String]
     attr_accessor :role_code
 
     # The id of the team account belongs to.
+    # @return [String]
     attr_accessor :team_id
 
     # The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+    # @return [String]
     attr_accessor :locale
 
     # Attribute mapping from ruby-style variable name to JSON key.

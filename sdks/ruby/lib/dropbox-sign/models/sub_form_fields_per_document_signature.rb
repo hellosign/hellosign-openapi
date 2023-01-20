@@ -20,6 +20,7 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentSignature < SubFormFieldsPerDocumentBase
     # A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.
+    # @return [String]
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

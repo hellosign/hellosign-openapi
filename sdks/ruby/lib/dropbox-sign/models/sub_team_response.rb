@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SubTeamResponse
     # The id of a team
+    # @return [String]
     attr_accessor :team_id
 
     # The name of a team
+    # @return [String]
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

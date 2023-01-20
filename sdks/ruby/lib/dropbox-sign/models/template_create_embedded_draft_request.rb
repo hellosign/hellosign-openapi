@@ -19,76 +19,101 @@ end
 module Dropbox::Sign
   class TemplateCreateEmbeddedDraftRequest
     # Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
+    # @return [String]
     attr_accessor :client_id
 
     # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    # @return [Array<File>]
     attr_accessor :files
 
     # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    # @return [Array<String>]
     attr_accessor :file_urls
 
     # This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
+    # @return [Boolean]
     attr_accessor :allow_ccs
 
     # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+    # @return [Boolean]
     attr_accessor :allow_reassign
 
     # A list describing the attachments
+    # @return [Array<SubAttachment>]
     attr_accessor :attachments
 
     # The CC roles that must be assigned when using the template to send a signature request
+    # @return [Array<String>]
     attr_accessor :cc_roles
 
+    # @return [SubEditorOptions]
     attr_accessor :editor_options
 
+    # @return [SubFieldOptions]
     attr_accessor :field_options
 
     # Provide users the ability to review/edit the template signer roles.
+    # @return [Boolean]
     attr_accessor :force_signer_roles
 
     # Provide users the ability to review/edit the template subject and message.
+    # @return [Boolean]
     attr_accessor :force_subject_message
 
     # Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
+    # @return [Array<SubFormFieldGroup>]
     attr_accessor :form_field_groups
 
     # Conditional Logic rules for fields defined in `form_fields_per_document`.
+    # @return [Array<SubFormFieldRule>]
     attr_accessor :form_field_rules
 
     # The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href=\"/docs/openapi/form-fields-per-document\" target=\"_blank\">Using Form Fields per Document</a>.)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+    # @return [Array<SubFormFieldsPerDocumentBase>]
     attr_accessor :form_fields_per_document
 
     # Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
+    # @return [Array<SubMergeField>]
     attr_accessor :merge_fields
 
     # The default template email message.
+    # @return [String]
     attr_accessor :message
 
     # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+    # @return [Hash<String, Object>]
     attr_accessor :metadata
 
     # This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.
+    # @return [Boolean]
     attr_accessor :show_preview
 
     # When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+    # @return [Boolean]
     attr_accessor :show_progress_stepper
 
     # An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+    # @return [Array<SubTemplateRole>]
     attr_accessor :signer_roles
 
     # Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :skip_me_now
 
     # The template title (alias).
+    # @return [String]
     attr_accessor :subject
 
     # Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # The title you want to assign to the SignatureRequest.
+    # @return [String]
     attr_accessor :title
 
     # Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+    # @return [Boolean]
     attr_accessor :use_preexisting_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.

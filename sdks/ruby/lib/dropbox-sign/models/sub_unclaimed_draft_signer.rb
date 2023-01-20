@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class SubUnclaimedDraftSigner
     # The email address of the signer.
+    # @return [String]
     attr_accessor :email_address
 
     # The name of the signer.
+    # @return [String]
     attr_accessor :name
 
     # The order the signer is required to sign in.
+    # @return [Integer]
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -20,6 +20,7 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentCheckboxMerge < SubFormFieldsPerDocumentBase
     # A checkbox field that has default value set using pre-filled data. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
+    # @return [String]
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

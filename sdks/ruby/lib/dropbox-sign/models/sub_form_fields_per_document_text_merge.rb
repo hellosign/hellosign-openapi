@@ -20,6 +20,7 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentTextMerge < SubFormFieldsPerDocumentBase
     # A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
+    # @return [String]
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

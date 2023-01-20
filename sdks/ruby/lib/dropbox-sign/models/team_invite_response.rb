@@ -19,21 +19,27 @@ end
 module Dropbox::Sign
   class TeamInviteResponse
     # Email address of the user invited to this team.
+    # @return [String]
     attr_accessor :email_address
 
     # Id of the team.
+    # @return [String]
     attr_accessor :team_id
 
     # Role of the user invited to this team.
+    # @return [String]
     attr_accessor :role
 
     # Timestamp when the invitation was sent.
+    # @return [Integer]
     attr_accessor :sent_at
 
     # Timestamp when the invitation was redeemed.
+    # @return [Integer]
     attr_accessor :redeemed_at
 
     # Timestamp when the invitation is expiring.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

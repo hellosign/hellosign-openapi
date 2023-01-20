@@ -20,6 +20,7 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentDateSigned < SubFormFieldsPerDocumentBase
     # A date. Use the `SubFormFieldsPerDocumentDateSigned` class.
+    # @return [String]
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

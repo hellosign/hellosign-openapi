@@ -20,35 +20,46 @@ module Dropbox::Sign
   # The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href=\"/docs/openapi/form-fields-per-document\" target=\"_blank\">Using Form Fields per Document</a>.)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
   class SubFormFieldsPerDocumentBase
     # Represents the integer index of the `file` or `file_url` document the field should be attached to.
+    # @return [Integer]
     attr_accessor :document_index
 
     # An identifier for the field that is unique across all documents in the request.
+    # @return [String]
     attr_accessor :api_id
 
     # Size of the field in pixels.
+    # @return [Integer]
     attr_accessor :height
 
     # Whether this field is required.
+    # @return [Boolean]
     attr_accessor :required
 
     # Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+    # @return [String]
     attr_accessor :signer
 
+    # @return [String]
     attr_accessor :type
 
     # Size of the field in pixels.
+    # @return [Integer]
     attr_accessor :width
 
     # Location coordinates of the field in pixels.
+    # @return [Integer]
     attr_accessor :x
 
     # Location coordinates of the field in pixels.
+    # @return [Integer]
     attr_accessor :y
 
     # Display name for the field.
+    # @return [String]
     attr_accessor :name
 
     # Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
+    # @return [Integer]
     attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.

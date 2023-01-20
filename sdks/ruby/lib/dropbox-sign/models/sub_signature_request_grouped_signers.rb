@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class SubSignatureRequestGroupedSigners
     # The name of the group.
+    # @return [String]
     attr_accessor :group
 
     # Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+    # @return [Array<SubSignatureRequestSigner>]
     attr_accessor :signers
 
     # The order the group is required to sign in. Use this instead of Signer-level `order`.
+    # @return [Integer]
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

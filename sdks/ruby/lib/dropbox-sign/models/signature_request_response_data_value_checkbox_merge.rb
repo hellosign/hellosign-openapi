@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SignatureRequestResponseDataValueCheckboxMerge < SignatureRequestResponseDataBase
     # A checkbox field that has default value set by the api
+    # @return [String]
     attr_accessor :type
 
     # The value of the form field.
+    # @return [String]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

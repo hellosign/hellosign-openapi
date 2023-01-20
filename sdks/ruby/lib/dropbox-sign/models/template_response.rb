@@ -20,48 +20,63 @@ module Dropbox::Sign
   # Contains information about the templates you and your team have created.
   class TemplateResponse
     # The id of the Template.
+    # @return [String]
     attr_accessor :template_id
 
     # The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+    # @return [String]
     attr_accessor :title
 
     # The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
+    # @return [String]
     attr_accessor :message
 
     # Time the template was last updated.
+    # @return [Integer]
     attr_accessor :updated_at
 
     # `true` if this template was created using an embedded flow, `false` if it was created on our website.
+    # @return [Boolean]
     attr_accessor :is_embedded
 
     # `true` if you are the owner of this template, `false` if it's been shared with you by a team member.
+    # @return [Boolean]
     attr_accessor :is_creator
 
     # Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
+    # @return [Boolean]
     attr_accessor :can_edit
 
     # Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
+    # @return [Boolean]
     attr_accessor :is_locked
 
     # The metadata attached to the template.
+    # @return [Object]
     attr_accessor :metadata
 
     # An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+    # @return [Array<TemplateResponseSignerRole>]
     attr_accessor :signer_roles
 
     # An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
+    # @return [Array<TemplateResponseCCRole>]
     attr_accessor :cc_roles
 
     # An array describing each document associated with this Template. Includes form field data for each document.
+    # @return [Array<TemplateResponseDocument>]
     attr_accessor :documents
 
     # An array of Custom Field objects.
+    # @return [Array<TemplateResponseCustomField>]
     attr_accessor :custom_fields
 
     # Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+    # @return [Array<TemplateResponseNamedFormField>]
     attr_accessor :named_form_fields
 
     # An array of the Accounts that can use this Template.
+    # @return [Array<TemplateResponseAccount>]
     attr_accessor :accounts
 
     # Attribute mapping from ruby-style variable name to JSON key.

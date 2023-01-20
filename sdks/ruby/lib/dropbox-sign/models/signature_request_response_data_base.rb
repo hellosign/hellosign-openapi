@@ -20,17 +20,22 @@ module Dropbox::Sign
   # An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
   class SignatureRequestResponseDataBase
     # The unique ID for this field.
+    # @return [String]
     attr_accessor :api_id
 
     # The ID of the signature to which this response is linked.
+    # @return [String]
     attr_accessor :signature_id
 
     # The name of the form field.
+    # @return [String]
     attr_accessor :name
 
     # A boolean value denoting if this field is required.
+    # @return [Boolean]
     attr_accessor :required
 
+    # @return [String]
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

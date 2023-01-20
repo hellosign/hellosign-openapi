@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SubBulkSignerList
     # An array of custom field values.
+    # @return [Array<SubBulkSignerListCustomField>]
     attr_accessor :custom_fields
 
     # Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.
+    # @return [Array<SubSignatureRequestTemplateSigner>]
     attr_accessor :signers
 
     # Attribute mapping from ruby-style variable name to JSON key.

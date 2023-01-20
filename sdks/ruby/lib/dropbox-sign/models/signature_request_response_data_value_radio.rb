@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SignatureRequestResponseDataValueRadio < SignatureRequestResponseDataBase
     # An input field for radios
+    # @return [String]
     attr_accessor :type
 
     # The value of the form field.
+    # @return [Boolean]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

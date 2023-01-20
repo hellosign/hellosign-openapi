@@ -20,9 +20,11 @@ module Dropbox::Sign
   # Average text length in this field.
   class TemplateResponseFieldAvgTextLength
     # Number of lines.
+    # @return [Integer]
     attr_accessor :num_lines
 
     # Number of character per line.
+    # @return [Integer]
     attr_accessor :num_chars_per_line
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -19,15 +19,19 @@ end
 module Dropbox::Sign
   class SignatureRequestUpdateRequest
     # The signature ID for the recipient.
+    # @return [String]
     attr_accessor :signature_id
 
     # The new email address for the recipient.  **NOTE**: Optional if `name` is provided.
+    # @return [String]
     attr_accessor :email_address
 
     # The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.
+    # @return [String]
     attr_accessor :name
 
     # The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

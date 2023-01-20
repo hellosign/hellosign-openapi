@@ -18,6 +18,7 @@ end
 
 module Dropbox::Sign
   class ErrorResponse
+    # @return [ErrorResponseError]
     attr_accessor :error
 
     # Attribute mapping from ruby-style variable name to JSON key.

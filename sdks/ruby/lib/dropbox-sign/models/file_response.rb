@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class FileResponse
     # URL to the file.
+    # @return [String]
     attr_accessor :file_url
 
     # When the link expires.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

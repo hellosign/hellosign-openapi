@@ -19,18 +19,23 @@ end
 module Dropbox::Sign
   class OAuthTokenGenerateRequest
     # The client id of the app requesting authorization.
+    # @return [String]
     attr_accessor :client_id
 
     # The secret token of your app.
+    # @return [String]
     attr_accessor :client_secret
 
     # The code passed to your callback when the user granted access.
+    # @return [String]
     attr_accessor :code
 
     # When generating a new token use `authorization_code`.
+    # @return [String]
     attr_accessor :grant_type
 
     # Same as the state you specified earlier.
+    # @return [String]
     attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.

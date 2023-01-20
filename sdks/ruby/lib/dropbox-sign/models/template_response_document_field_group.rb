@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class TemplateResponseDocumentFieldGroup
     # The name of the form field group.
+    # @return [String]
     attr_accessor :name
 
     # The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+    # @return [String]
     attr_accessor :rule
 
     # Attribute mapping from ruby-style variable name to JSON key.

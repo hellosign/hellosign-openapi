@@ -20,9 +20,11 @@ module Dropbox::Sign
   # This allows the requester to specify editor options when a preparing a document
   class SubEditorOptions
     # Allows requesters to edit the list of signers
+    # @return [Boolean]
     attr_accessor :allow_edit_signers
 
     # Allows requesters to edit documents, including delete and add
+    # @return [Boolean]
     attr_accessor :allow_edit_documents
 
     # Attribute mapping from ruby-style variable name to JSON key.

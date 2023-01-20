@@ -20,21 +20,27 @@ module Dropbox::Sign
   # Signer attachments.
   class SignatureRequestResponseAttachment
     # The unique ID for this attachment.
+    # @return [String]
     attr_accessor :id
 
     # The Signer this attachment is assigned to.
+    # @return [String]
     attr_accessor :signer
 
     # The name of this attachment.
+    # @return [String]
     attr_accessor :name
 
     # A boolean value denoting if this attachment is required.
+    # @return [Boolean]
     attr_accessor :required
 
     # Instructions for Signer.
+    # @return [String]
     attr_accessor :instructions
 
     # Timestamp when attachment was uploaded by Signer.
+    # @return [Integer]
     attr_accessor :uploaded_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

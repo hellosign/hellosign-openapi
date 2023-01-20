@@ -19,32 +19,42 @@ end
 module Dropbox::Sign
   class EmbeddedEditUrlRequest
     # This allows the requester to enable/disable to add or change CC roles when editing the template.
+    # @return [Boolean]
     attr_accessor :allow_edit_ccs
 
     # The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.
+    # @return [Array<String>]
     attr_accessor :cc_roles
 
+    # @return [SubEditorOptions]
     attr_accessor :editor_options
 
     # Provide users the ability to review/edit the template signer roles.
+    # @return [Boolean]
     attr_accessor :force_signer_roles
 
     # Provide users the ability to review/edit the template subject and message.
+    # @return [Boolean]
     attr_accessor :force_subject_message
 
     # Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.
+    # @return [Array<SubMergeField>]
     attr_accessor :merge_fields
 
     # This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **Note**: This parameter overwrites `show_preview=true` (if set).
+    # @return [Boolean]
     attr_accessor :preview_only
 
     # This allows the requester to enable the editor/preview experience.
+    # @return [Boolean]
     attr_accessor :show_preview
 
     # When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+    # @return [Boolean]
     attr_accessor :show_progress_stepper
 
     # Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.

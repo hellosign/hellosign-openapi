@@ -19,15 +19,19 @@ end
 module Dropbox::Sign
   class AccountCreateRequest
     # The email address which will be associated with the new Account.
+    # @return [String]
     attr_accessor :email_address
 
     # Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
+    # @return [String]
     attr_accessor :client_id
 
     # Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
+    # @return [String]
     attr_accessor :client_secret
 
     # The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
+    # @return [String]
     attr_accessor :locale
 
     # Attribute mapping from ruby-style variable name to JSON key.

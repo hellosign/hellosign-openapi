@@ -20,9 +20,11 @@ module Dropbox::Sign
   # An object that contains necessary information to set up embedded signing.
   class EmbeddedSignUrlResponseEmbedded
     # A signature url that can be opened in an iFrame.
+    # @return [String]
     attr_accessor :sign_url
 
     # The specific time that the the `sign_url` link expires, in epoch.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

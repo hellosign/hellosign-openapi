@@ -20,15 +20,19 @@ module Dropbox::Sign
   # Template object with parameters: `template_id`, `edit_url`, `expires_at`.
   class TemplateCreateEmbeddedDraftResponseTemplate
     # The id of the Template.
+    # @return [String]
     attr_accessor :template_id
 
     # Link to edit the template.
+    # @return [String]
     attr_accessor :edit_url
 
     # When the link expires.
+    # @return [Integer]
     attr_accessor :expires_at
 
     # A list of warnings.
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

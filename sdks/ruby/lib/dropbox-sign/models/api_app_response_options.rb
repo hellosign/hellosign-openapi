@@ -20,6 +20,7 @@ module Dropbox::Sign
   # An object with options that override account settings.
   class ApiAppResponseOptions
     # Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document
+    # @return [Boolean]
     attr_accessor :can_insert_everywhere
 
     # Attribute mapping from ruby-style variable name to JSON key.

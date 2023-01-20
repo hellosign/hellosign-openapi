@@ -19,20 +19,26 @@ end
 module Dropbox::Sign
   class TemplateResponseAccount
     # The id of the Account.
+    # @return [String]
     attr_accessor :account_id
 
     # The email address associated with the Account.
+    # @return [String]
     attr_accessor :email_address
 
     # Returns `true` if the user has been locked out of their account by a team admin.
+    # @return [Boolean]
     attr_accessor :is_locked
 
     # Returns `true` if the user has a paid Dropbox Sign account.
+    # @return [Boolean]
     attr_accessor :is_paid_hs
 
     # Returns `true` if the user has a paid HelloFax account.
+    # @return [Boolean]
     attr_accessor :is_paid_hf
 
+    # @return [TemplateResponseAccountQuota]
     attr_accessor :quotas
 
     # Attribute mapping from ruby-style variable name to JSON key.

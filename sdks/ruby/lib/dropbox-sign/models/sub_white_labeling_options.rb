@@ -19,35 +19,50 @@ end
 module Dropbox::Sign
   # An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](/api/reference/white-labeling/) to learn more.
   class SubWhiteLabelingOptions
+    # @return [String]
     attr_accessor :header_background_color
 
+    # @return [String]
     attr_accessor :legal_version
 
+    # @return [String]
     attr_accessor :link_color
 
+    # @return [String]
     attr_accessor :page_background_color
 
+    # @return [String]
     attr_accessor :primary_button_color
 
+    # @return [String]
     attr_accessor :primary_button_color_hover
 
+    # @return [String]
     attr_accessor :primary_button_text_color
 
+    # @return [String]
     attr_accessor :primary_button_text_color_hover
 
+    # @return [String]
     attr_accessor :secondary_button_color
 
+    # @return [String]
     attr_accessor :secondary_button_color_hover
 
+    # @return [String]
     attr_accessor :secondary_button_text_color
 
+    # @return [String]
     attr_accessor :secondary_button_text_color_hover
 
+    # @return [String]
     attr_accessor :text_color1
 
+    # @return [String]
     attr_accessor :text_color2
 
     # Resets white labeling options to defaults. Only useful when updating an API App.
+    # @return [Boolean]
     attr_accessor :reset_to_default
 
     class EnumAttributeValidator

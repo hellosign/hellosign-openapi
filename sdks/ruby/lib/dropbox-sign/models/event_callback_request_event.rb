@@ -20,14 +20,18 @@ module Dropbox::Sign
   # Basic information about the event that occurred.
   class EventCallbackRequestEvent
     # Time the event was created (using Unix time).
+    # @return [String]
     attr_accessor :event_time
 
     # Type of callback event that was triggered.
+    # @return [String]
     attr_accessor :event_type
 
     # Generated hash used to verify source of event data.
+    # @return [String]
     attr_accessor :event_hash
 
+    # @return [EventCallbackRequestEventMetadata]
     attr_accessor :event_metadata
 
     class EnumAttributeValidator
