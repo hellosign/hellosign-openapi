@@ -17,11 +17,15 @@ public class TestHelper {
         return Files.newInputStream(Paths.get("test_fixtures/" + fileName + ".json"));
     }
 
-    public static <T> T getFixtureData(Class<T> classType, String topLevelFieldName) throws Exception {
-        ObjectMapper objectMapper = JSON.getDefault().getMapper();
-        JsonNode jsonNode = objectMapper.readTree(readFileFromResource(classType.getSimpleName()));
+    public static JsonNode getJsonContents(String filename) throws Exception {
+        return getJsonContents(filename, "default");
+    }
 
-        return objectMapper.convertValue(jsonNode.get(topLevelFieldName), classType);
+    public static JsonNode getJsonContents(String filename, String topLevelFieldName) throws Exception {
+        ObjectMapper objectMapper = JSON.getDefault().getMapper();
+        JsonNode jsonNode = objectMapper.readTree(readFileFromResource(filename));
+
+        return jsonNode.get(topLevelFieldName);
     }
 
     public static ApiClient setUpMock(int statusCode, Object obj) throws ApiException {

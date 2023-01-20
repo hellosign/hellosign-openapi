@@ -30,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,6 +44,7 @@ import com.dropbox.sign.ApiException;
     TeamSubTeamsResponse.JSON_PROPERTY_LIST_INFO,
     TeamSubTeamsResponse.JSON_PROPERTY_WARNINGS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamSubTeamsResponse {
   public static final String JSON_PROPERTY_SUB_TEAMS = "sub_teams";
@@ -54,6 +57,14 @@ public class TeamSubTeamsResponse {
   private List<WarningResponse> warnings = null;
 
   public TeamSubTeamsResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TeamSubTeamsResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TeamSubTeamsResponse.class);
   }
 
   public TeamSubTeamsResponse subTeams(List<SubTeamResponse> subTeams) {

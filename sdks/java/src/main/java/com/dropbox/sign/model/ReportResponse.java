@@ -27,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,6 +43,7 @@ import com.dropbox.sign.ApiException;
     ReportResponse.JSON_PROPERTY_END_DATE,
     ReportResponse.JSON_PROPERTY_REPORT_TYPE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReportResponse {
   public static final String JSON_PROPERTY_SUCCESS = "success";
@@ -91,6 +94,14 @@ public class ReportResponse {
   private List<ReportTypeEnum> reportType = null;
 
   public ReportResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public ReportResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, ReportResponse.class);
   }
 
   public ReportResponse success(String success) {

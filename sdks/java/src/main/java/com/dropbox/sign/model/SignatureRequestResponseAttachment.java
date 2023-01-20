@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,6 +43,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestResponseAttachment.JSON_PROPERTY_INSTRUCTIONS,
     SignatureRequestResponseAttachment.JSON_PROPERTY_UPLOADED_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestResponseAttachment {
   public static final String JSON_PROPERTY_ID = "id";
@@ -62,6 +65,14 @@ public class SignatureRequestResponseAttachment {
   private Integer uploadedAt;
 
   public SignatureRequestResponseAttachment() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestResponseAttachment init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestResponseAttachment.class);
   }
 
   public SignatureRequestResponseAttachment id(String id) {

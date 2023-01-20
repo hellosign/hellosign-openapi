@@ -3,6 +3,7 @@ package com.dropbox.sign.api;
 import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,21 +12,19 @@ import java.io.File;
 public class ApiAppApiTest {
     @Test
     public void apiAppCreateTest() throws Exception {
-        ApiAppCreateRequest request = TestHelper.getFixtureData(
-            ApiAppCreateRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(ApiAppGetResponse.class.getSimpleName());
+        ApiAppGetResponse expectedResponse = ApiAppGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(ApiAppCreateRequest.class.getSimpleName());
+
+        ApiAppCreateRequest request = ApiAppCreateRequest.init(requestData.toString());
         request.customLogoFile(new File("test_fixtures/pdf-sample.pdf"));
 
-        ApiAppGetResponse expected = TestHelper.getFixtureData(
-            ApiAppGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         ApiAppApi api = new ApiAppApi(apiClient);
-        ApiAppGetResponse actual = api.apiAppCreate(request);
-        Assert.assertEquals(expected, actual);
+        ApiAppGetResponse response = api.apiAppCreate(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -39,48 +38,44 @@ public class ApiAppApiTest {
     public void apiAppGetTest() throws Exception {
         String clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-        ApiAppGetResponse expected = TestHelper.getFixtureData(
-            ApiAppGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(ApiAppGetResponse.class.getSimpleName());
+        ApiAppGetResponse expectedResponse = ApiAppGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         ApiAppApi api = new ApiAppApi(apiClient);
-        ApiAppGetResponse actual = api.apiAppGet(clientId);
-        Assert.assertEquals(expected, actual);
+        ApiAppGetResponse response = api.apiAppGet(clientId);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void apiAppListTest() throws Exception {
-        ApiAppListResponse expected = TestHelper.getFixtureData(
-            ApiAppListResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(ApiAppListResponse.class.getSimpleName());
+        ApiAppListResponse expectedResponse = ApiAppListResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         ApiAppApi api = new ApiAppApi(apiClient);
-        ApiAppListResponse actual = api.apiAppList(1, 20);
-        Assert.assertEquals(expected, actual);
+        ApiAppListResponse response = api.apiAppList(1, 20);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void apiAppUpdateTest() throws Exception {
         String clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
 
-        ApiAppUpdateRequest request = TestHelper.getFixtureData(
-            ApiAppUpdateRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(ApiAppGetResponse.class.getSimpleName());
+        ApiAppGetResponse expectedResponse = ApiAppGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(ApiAppUpdateRequest.class.getSimpleName());
+
+        ApiAppUpdateRequest request = ApiAppUpdateRequest.init(requestData.toString());
         request.customLogoFile(new File("test_fixtures/pdf-sample.pdf"));
 
-        ApiAppGetResponse expected = TestHelper.getFixtureData(
-            ApiAppGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         ApiAppApi api = new ApiAppApi(apiClient);
-        ApiAppGetResponse actual = api.apiAppUpdate(clientId, request);
-        Assert.assertEquals(expected, actual);
+        ApiAppGetResponse response = api.apiAppUpdate(clientId, request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 }

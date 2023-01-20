@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,6 +43,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HF,
     TemplateResponseAccount.JSON_PROPERTY_QUOTAS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -62,6 +65,14 @@ public class TemplateResponseAccount {
   private TemplateResponseAccountQuota quotas;
 
   public TemplateResponseAccount() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponseAccount init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponseAccount.class);
   }
 
   public TemplateResponseAccount accountId(String accountId) {

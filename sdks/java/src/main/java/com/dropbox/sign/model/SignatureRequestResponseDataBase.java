@@ -36,6 +36,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -51,6 +53,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestResponseDataBase.JSON_PROPERTY_REQUIRED,
     SignatureRequestResponseDataBase.JSON_PROPERTY_TYPE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
@@ -91,6 +94,14 @@ public class SignatureRequestResponseDataBase {
   private String type;
 
   public SignatureRequestResponseDataBase() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestResponseDataBase init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataBase.class);
   }
 
   public SignatureRequestResponseDataBase apiId(String apiId) {

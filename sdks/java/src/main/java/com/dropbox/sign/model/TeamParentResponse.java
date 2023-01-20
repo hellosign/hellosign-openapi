@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     TeamParentResponse.JSON_PROPERTY_TEAM_ID,
     TeamParentResponse.JSON_PROPERTY_NAME
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamParentResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
@@ -46,6 +49,14 @@ public class TeamParentResponse {
   private String name;
 
   public TeamParentResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TeamParentResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TeamParentResponse.class);
   }
 
   public TeamParentResponse teamId(String teamId) {

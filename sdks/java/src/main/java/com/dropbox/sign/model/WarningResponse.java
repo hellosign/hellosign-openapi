@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     WarningResponse.JSON_PROPERTY_WARNING_MSG,
     WarningResponse.JSON_PROPERTY_WARNING_NAME
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WarningResponse {
   public static final String JSON_PROPERTY_WARNING_MSG = "warning_msg";
@@ -46,6 +49,14 @@ public class WarningResponse {
   private String warningName;
 
   public WarningResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public WarningResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, WarningResponse.class);
   }
 
   public WarningResponse warningMsg(String warningMsg) {

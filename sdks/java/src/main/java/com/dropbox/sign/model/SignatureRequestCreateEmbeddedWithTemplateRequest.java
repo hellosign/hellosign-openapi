@@ -34,6 +34,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -58,6 +60,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
     SignatureRequestCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
@@ -106,6 +109,14 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
   private Boolean populateAutoFillFields = false;
 
   public SignatureRequestCreateEmbeddedWithTemplateRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestCreateEmbeddedWithTemplateRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestCreateEmbeddedWithTemplateRequest.class);
   }
 
   public SignatureRequestCreateEmbeddedWithTemplateRequest templateIds(List<String> templateIds) {

@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponseAccountQuota.JSON_PROPERTY_DOCUMENTS_LEFT,
     TemplateResponseAccountQuota.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseAccountQuota {
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
@@ -54,6 +57,14 @@ public class TemplateResponseAccountQuota {
   private Integer smsVerificationsLeft;
 
   public TemplateResponseAccountQuota() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponseAccountQuota init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponseAccountQuota.class);
   }
 
   public TemplateResponseAccountQuota templatesLeft(Integer templatesLeft) {

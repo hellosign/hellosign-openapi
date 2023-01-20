@@ -37,6 +37,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -48,6 +50,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestResponseDataValueDropdown.JSON_PROPERTY_TYPE,
     SignatureRequestResponseDataValueDropdown.JSON_PROPERTY_VALUE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
@@ -70,6 +73,14 @@ public class SignatureRequestResponseDataValueDropdown extends SignatureRequestR
   private String value;
 
   public SignatureRequestResponseDataValueDropdown() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestResponseDataValueDropdown init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataValueDropdown.class);
   }
 
   public SignatureRequestResponseDataValueDropdown type(String type) {

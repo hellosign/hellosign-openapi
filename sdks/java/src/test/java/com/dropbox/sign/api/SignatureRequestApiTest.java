@@ -3,6 +3,7 @@ package com.dropbox.sign.api;
 import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -15,40 +16,36 @@ import java.io.File;
 public class SignatureRequestApiTest {
     @Test
     public void signatureRequestBulkCreateEmbeddedWithTemplateTest() throws Exception {
-        SignatureRequestBulkCreateEmbeddedWithTemplateRequest request = TestHelper.getFixtureData(
-            SignatureRequestBulkCreateEmbeddedWithTemplateRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(BulkSendJobSendResponse.class.getSimpleName());
+        BulkSendJobSendResponse expectedResponse = BulkSendJobSendResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestBulkCreateEmbeddedWithTemplateRequest.class.getSimpleName());
+
+        SignatureRequestBulkCreateEmbeddedWithTemplateRequest request = SignatureRequestBulkCreateEmbeddedWithTemplateRequest.init(requestData.toString());
         request.signerFile(new File("test_fixtures/bulk-send-sample.csv"));
 
-        BulkSendJobSendResponse expected = TestHelper.getFixtureData(
-            BulkSendJobSendResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        BulkSendJobSendResponse actual = api.signatureRequestBulkCreateEmbeddedWithTemplate(request);
-        Assert.assertEquals(expected, actual);
+        BulkSendJobSendResponse response = api.signatureRequestBulkCreateEmbeddedWithTemplate(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestBulkSendWithTemplateTest() throws Exception {
-        SignatureRequestBulkSendWithTemplateRequest request = TestHelper.getFixtureData(
-            SignatureRequestBulkSendWithTemplateRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(BulkSendJobSendResponse.class.getSimpleName());
+        BulkSendJobSendResponse expectedResponse = BulkSendJobSendResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestBulkSendWithTemplateRequest.class.getSimpleName());
+
+        SignatureRequestBulkSendWithTemplateRequest request = SignatureRequestBulkSendWithTemplateRequest.init(requestData.toString());
         request.signerFile(new File("test_fixtures/bulk-send-sample.csv"));
 
-        BulkSendJobSendResponse expected = TestHelper.getFixtureData(
-            BulkSendJobSendResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        BulkSendJobSendResponse actual = api.signatureRequestBulkSendWithTemplate(request);
-        Assert.assertEquals(expected, actual);
+        BulkSendJobSendResponse response = api.signatureRequestBulkSendWithTemplate(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -60,40 +57,36 @@ public class SignatureRequestApiTest {
 
     @Test
     public void signatureRequestCreateEmbeddedTest() throws Exception {
-        SignatureRequestCreateEmbeddedRequest request = TestHelper.getFixtureData(
-            SignatureRequestCreateEmbeddedRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestCreateEmbeddedRequest.class.getSimpleName());
+
+        SignatureRequestCreateEmbeddedRequest request = SignatureRequestCreateEmbeddedRequest.init(requestData.toString());
         request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestCreateEmbedded(request);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestCreateEmbedded(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestCreateEmbeddedWithTemplateTest() throws Exception {
-        SignatureRequestCreateEmbeddedWithTemplateRequest request = TestHelper.getFixtureData(
-            SignatureRequestCreateEmbeddedWithTemplateRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestCreateEmbeddedWithTemplateRequest.class.getSimpleName());
+
+        SignatureRequestCreateEmbeddedWithTemplateRequest request = SignatureRequestCreateEmbeddedWithTemplateRequest.init(requestData.toString());
         request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestCreateEmbeddedWithTemplate(request);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestCreateEmbeddedWithTemplate(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -105,68 +98,65 @@ public class SignatureRequestApiTest {
     public void signatureRequestGetTest() throws Exception {
         String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestGet(signatureRequestId);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestGet(signatureRequestId);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestListTest() throws Exception {
         String accountId = "all";
-        SignatureRequestListResponse expected = TestHelper.getFixtureData(
-            SignatureRequestListResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestListResponse.class.getSimpleName());
+        SignatureRequestListResponse expectedResponse = SignatureRequestListResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestListResponse actual = api.signatureRequestList(
+        SignatureRequestListResponse response = api.signatureRequestList(
             accountId,
             1,
             20,
             null
         );
-        Assert.assertEquals(expected, actual);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestReleaseHoldTest() throws Exception {
         String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestReleaseHold(signatureRequestId);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestReleaseHold(signatureRequestId);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestRemindTest() throws Exception {
         String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-        SignatureRequestRemindRequest request = TestHelper.getFixtureData(
-            SignatureRequestRemindRequest.class,
-            "default"
-        );
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestRemindRequest.class.getSimpleName());
+
+        SignatureRequestRemindRequest request = SignatureRequestRemindRequest.init(requestData.toString());
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestRemind(signatureRequestId, request);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestRemind(signatureRequestId, request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -178,36 +168,31 @@ public class SignatureRequestApiTest {
 
     @Test
     public void signatureRequestSendTest() throws Exception {
-        SignatureRequestSendRequest request = TestHelper.getFixtureData(
-            SignatureRequestSendRequest.class,
-            "default"
-        );
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestSendRequest.class.getSimpleName());
+
+        SignatureRequestSendRequest request = SignatureRequestSendRequest.init(requestData.toString());
         request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
-
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestSend(request);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestSend(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestSendFileForcesMultipartFormDataTest() throws Exception {
-        SignatureRequestSendRequest request = TestHelper.getFixtureData(
-            SignatureRequestSendRequest.class,
-            "default"
-        );
-        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
 
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestSendRequest.class.getSimpleName());
+
+        SignatureRequestSendRequest request = SignatureRequestSendRequest.init(requestData.toString());
+        request.addFilesItem(new File("test_fixtures/pdf-sample.pdf"));
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         api.signatureRequestSend(request);
@@ -231,15 +216,13 @@ public class SignatureRequestApiTest {
 
     @Test
     public void signatureRequestSendNoFileForcesApplicationJsonTest() throws Exception {
-        SignatureRequestSendRequest request = TestHelper.getFixtureData(
-            SignatureRequestSendRequest.class,
-            "default"
-        );
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestSendRequest.class.getSimpleName());
+
+        SignatureRequestSendRequest request = SignatureRequestSendRequest.init(requestData.toString());
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
         api.signatureRequestSend(request);
@@ -263,37 +246,35 @@ public class SignatureRequestApiTest {
 
     @Test
     public void signatureRequestSendWithTemplateTest() throws Exception {
-        SignatureRequestSendWithTemplateRequest request = TestHelper.getFixtureData(
-            SignatureRequestSendWithTemplateRequest.class,
-            "default"
-        );
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestSendWithTemplateRequest.class.getSimpleName());
+
+        SignatureRequestSendWithTemplateRequest request = SignatureRequestSendWithTemplateRequest.init(requestData.toString());
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestSendWithTemplate(request);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestSendWithTemplate(request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 
     @Test
     public void signatureRequestUpdateTest() throws Exception {
         String signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
 
-        SignatureRequestUpdateRequest request = TestHelper.getFixtureData(
-            SignatureRequestUpdateRequest.class,
-            "default"
-        );
-        SignatureRequestGetResponse expected = TestHelper.getFixtureData(
-            SignatureRequestGetResponse.class,
-            "default"
-        );
-        ApiClient apiClient = TestHelper.setUpMock(200, expected);
+        JsonNode expectedResponseData = TestHelper.getJsonContents(SignatureRequestGetResponse.class.getSimpleName());
+        SignatureRequestGetResponse expectedResponse = SignatureRequestGetResponse.init(expectedResponseData.toString());
+        ApiClient apiClient = TestHelper.setUpMock(200, expectedResponse);
+
+        JsonNode requestData = TestHelper.getJsonContents(SignatureRequestUpdateRequest.class.getSimpleName());
+
+        SignatureRequestUpdateRequest request = SignatureRequestUpdateRequest.init(requestData.toString());
 
         SignatureRequestApi api = new SignatureRequestApi(apiClient);
-        SignatureRequestGetResponse actual = api.signatureRequestUpdate(signatureRequestId, request);
-        Assert.assertEquals(expected, actual);
+        SignatureRequestGetResponse response = api.signatureRequestUpdate(signatureRequestId, request);
+
+        Assert.assertEquals(expectedResponse, response);
     }
 }

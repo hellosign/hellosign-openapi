@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -45,6 +47,7 @@ import com.dropbox.sign.ApiException;
     AccountResponse.JSON_PROPERTY_TEAM_ID,
     AccountResponse.JSON_PROPERTY_LOCALE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountResponse {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -78,6 +81,14 @@ public class AccountResponse {
   private String locale;
 
   public AccountResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public AccountResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, AccountResponse.class);
   }
 
   public AccountResponse accountId(String accountId) {

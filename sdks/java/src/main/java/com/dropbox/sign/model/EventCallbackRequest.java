@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,6 +44,7 @@ import com.dropbox.sign.ApiException;
     EventCallbackRequest.JSON_PROPERTY_SIGNATURE_REQUEST,
     EventCallbackRequest.JSON_PROPERTY_TEMPLATE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackRequest {
   public static final String JSON_PROPERTY_EVENT = "event";
@@ -57,6 +60,14 @@ public class EventCallbackRequest {
   private TemplateResponse template;
 
   public EventCallbackRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public EventCallbackRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, EventCallbackRequest.class);
   }
 
   public EventCallbackRequest event(EventCallbackRequestEvent event) {

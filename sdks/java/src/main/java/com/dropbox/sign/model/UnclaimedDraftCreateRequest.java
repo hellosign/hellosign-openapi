@@ -38,6 +38,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -71,6 +73,7 @@ import com.dropbox.sign.ApiException;
     UnclaimedDraftCreateRequest.JSON_PROPERTY_USE_TEXT_TAGS,
     UnclaimedDraftCreateRequest.JSON_PROPERTY_EXPIRES_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UnclaimedDraftCreateRequest {
   /**
@@ -181,6 +184,14 @@ public class UnclaimedDraftCreateRequest {
   private Integer expiresAt;
 
   public UnclaimedDraftCreateRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public UnclaimedDraftCreateRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateRequest.class);
   }
 
   public UnclaimedDraftCreateRequest type(TypeEnum type) {

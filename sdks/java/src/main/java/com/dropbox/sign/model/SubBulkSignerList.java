@@ -29,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
     SubBulkSignerList.JSON_PROPERTY_CUSTOM_FIELDS,
     SubBulkSignerList.JSON_PROPERTY_SIGNERS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubBulkSignerList {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
@@ -49,6 +52,14 @@ public class SubBulkSignerList {
   private List<SubSignatureRequestTemplateSigner> signers = null;
 
   public SubBulkSignerList() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubBulkSignerList init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubBulkSignerList.class);
   }
 
   public SubBulkSignerList customFields(List<SubBulkSignerListCustomField> customFields) {

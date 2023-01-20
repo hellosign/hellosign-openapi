@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
     EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_APP_ID,
     EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackRequestEventMetadata {
   public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
@@ -54,6 +57,14 @@ public class EventCallbackRequestEventMetadata {
   private String eventMessage;
 
   public EventCallbackRequestEventMetadata() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public EventCallbackRequestEventMetadata init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, EventCallbackRequestEventMetadata.class);
   }
 
   public EventCallbackRequestEventMetadata relatedSignatureId(String relatedSignatureId) {

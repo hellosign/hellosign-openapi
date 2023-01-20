@@ -29,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
     TemplateCreateEmbeddedDraftResponse.JSON_PROPERTY_TEMPLATE,
     TemplateCreateEmbeddedDraftResponse.JSON_PROPERTY_WARNINGS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateCreateEmbeddedDraftResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
@@ -49,6 +52,14 @@ public class TemplateCreateEmbeddedDraftResponse {
   private List<WarningResponse> warnings = null;
 
   public TemplateCreateEmbeddedDraftResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateCreateEmbeddedDraftResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateCreateEmbeddedDraftResponse.class);
   }
 
   public TemplateCreateEmbeddedDraftResponse template(TemplateCreateEmbeddedDraftResponseTemplate template) {

@@ -38,6 +38,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -72,6 +74,7 @@ import com.dropbox.sign.ApiException;
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_TITLE,
     TemplateCreateEmbeddedDraftRequest.JSON_PROPERTY_USE_PREEXISTING_FIELDS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateCreateEmbeddedDraftRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
@@ -150,6 +153,14 @@ public class TemplateCreateEmbeddedDraftRequest {
   private Boolean usePreexistingFields = false;
 
   public TemplateCreateEmbeddedDraftRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateCreateEmbeddedDraftRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateCreateEmbeddedDraftRequest.class);
   }
 
   public TemplateCreateEmbeddedDraftRequest clientId(String clientId) {

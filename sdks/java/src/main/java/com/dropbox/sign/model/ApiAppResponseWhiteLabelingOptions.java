@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -49,6 +51,7 @@ import com.dropbox.sign.ApiException;
     ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_TEXT_COLOR1,
     ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_TEXT_COLOR2
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppResponseWhiteLabelingOptions {
   public static final String JSON_PROPERTY_HEADER_BACKGROUND_COLOR = "header_background_color";
@@ -94,6 +97,14 @@ public class ApiAppResponseWhiteLabelingOptions {
   private String textColor2;
 
   public ApiAppResponseWhiteLabelingOptions() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public ApiAppResponseWhiteLabelingOptions init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, ApiAppResponseWhiteLabelingOptions.class);
   }
 
   public ApiAppResponseWhiteLabelingOptions headerBackgroundColor(String headerBackgroundColor) {

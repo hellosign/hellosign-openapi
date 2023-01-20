@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
     BulkSendJobResponse.JSON_PROPERTY_IS_CREATOR,
     BulkSendJobResponse.JSON_PROPERTY_CREATED_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BulkSendJobResponse {
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
@@ -54,6 +57,14 @@ public class BulkSendJobResponse {
   private Integer createdAt;
 
   public BulkSendJobResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public BulkSendJobResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, BulkSendJobResponse.class);
   }
 
   public BulkSendJobResponse bulkSendJobId(String bulkSendJobId) {

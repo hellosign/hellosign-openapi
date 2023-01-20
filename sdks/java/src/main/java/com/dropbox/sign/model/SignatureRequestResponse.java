@@ -31,6 +31,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -64,6 +66,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestResponse.JSON_PROPERTY_RESPONSE_DATA,
     SignatureRequestResponse.JSON_PROPERTY_SIGNATURES
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestResponse {
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
@@ -136,6 +139,14 @@ public class SignatureRequestResponse {
   private List<SignatureRequestResponseSignatures> signatures = null;
 
   public SignatureRequestResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestResponse.class);
   }
 
   public SignatureRequestResponse testMode(Boolean testMode) {

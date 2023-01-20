@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -36,12 +38,21 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
     SubOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubOptions {
   public static final String JSON_PROPERTY_CAN_INSERT_EVERYWHERE = "can_insert_everywhere";
   private Boolean canInsertEverywhere = false;
 
   public SubOptions() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubOptions init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubOptions.class);
   }
 
   public SubOptions canInsertEverywhere(Boolean canInsertEverywhere) {

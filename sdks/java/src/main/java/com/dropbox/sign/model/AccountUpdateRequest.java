@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     AccountUpdateRequest.JSON_PROPERTY_CALLBACK_URL,
     AccountUpdateRequest.JSON_PROPERTY_LOCALE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountUpdateRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -49,6 +52,14 @@ public class AccountUpdateRequest {
   private String locale;
 
   public AccountUpdateRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public AccountUpdateRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, AccountUpdateRequest.class);
   }
 
   public AccountUpdateRequest accountId(String accountId) {

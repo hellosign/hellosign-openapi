@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -36,6 +38,7 @@ import com.dropbox.sign.ApiException;
     FileResponse.JSON_PROPERTY_FILE_URL,
     FileResponse.JSON_PROPERTY_EXPIRES_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileResponse {
   public static final String JSON_PROPERTY_FILE_URL = "file_url";
@@ -45,6 +48,14 @@ public class FileResponse {
   private Integer expiresAt;
 
   public FileResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public FileResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, FileResponse.class);
   }
 
   public FileResponse fileUrl(String fileUrl) {

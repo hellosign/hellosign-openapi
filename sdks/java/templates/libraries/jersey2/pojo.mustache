@@ -11,6 +11,7 @@ import com.dropbox.sign.ApiException;
     {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
 {{/vars}}
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 {{/jackson}}
 {{>additionalModelTypeAnnotations}}{{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{>xmlAnnotation}}
 public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
@@ -95,6 +96,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
   {{/readOnlyVars}}
   }{{/jackson}}{{/withXml}}{{/vendorExtensions.x-has-readonly-properties}}
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public {{classname}} init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, {{classname}}.class);
+  }
   {{#vars}}
 
   {{^isReadOnly}}
