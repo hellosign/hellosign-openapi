@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -36,6 +38,7 @@ import com.dropbox.sign.ApiException;
     SubBulkSignerListCustomField.JSON_PROPERTY_NAME,
     SubBulkSignerListCustomField.JSON_PROPERTY_VALUE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubBulkSignerListCustomField {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -45,6 +48,14 @@ public class SubBulkSignerListCustomField {
   private String value;
 
   public SubBulkSignerListCustomField() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubBulkSignerListCustomField init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubBulkSignerListCustomField.class);
   }
 
   public SubBulkSignerListCustomField name(String name) {

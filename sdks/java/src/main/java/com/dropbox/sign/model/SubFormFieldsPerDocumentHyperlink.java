@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -51,6 +53,7 @@ import com.dropbox.sign.ApiException;
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT,
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT_URL
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
@@ -77,6 +80,14 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   private String contentUrl;
 
   public SubFormFieldsPerDocumentHyperlink() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubFormFieldsPerDocumentHyperlink init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentHyperlink.class);
   }
 
   public SubFormFieldsPerDocumentHyperlink type(String type) {

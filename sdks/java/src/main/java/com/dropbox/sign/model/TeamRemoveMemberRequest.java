@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
     TeamRemoveMemberRequest.JSON_PROPERTY_NEW_TEAM_ID,
     TeamRemoveMemberRequest.JSON_PROPERTY_NEW_ROLE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamRemoveMemberRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -96,6 +99,14 @@ public class TeamRemoveMemberRequest {
   private NewRoleEnum newRole;
 
   public TeamRemoveMemberRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TeamRemoveMemberRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TeamRemoveMemberRequest.class);
   }
 
   public TeamRemoveMemberRequest accountId(String accountId) {

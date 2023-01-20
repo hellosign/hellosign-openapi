@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -36,12 +38,21 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
     ErrorResponse.JSON_PROPERTY_ERROR
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
   private ErrorResponseError error;
 
   public ErrorResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public ErrorResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, ErrorResponse.class);
   }
 
   public ErrorResponse error(ErrorResponseError error) {

@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -38,6 +40,7 @@ import com.dropbox.sign.ApiException;
     SubAttachment.JSON_PROPERTY_INSTRUCTIONS,
     SubAttachment.JSON_PROPERTY_REQUIRED
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubAttachment {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -53,6 +56,14 @@ public class SubAttachment {
   private Boolean required = false;
 
   public SubAttachment() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubAttachment init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubAttachment.class);
   }
 
   public SubAttachment name(String name) {

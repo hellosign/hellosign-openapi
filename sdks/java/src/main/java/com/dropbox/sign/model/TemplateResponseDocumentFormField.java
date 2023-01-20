@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -49,6 +51,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponseDocumentFormField.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
     TemplateResponseDocumentFormField.JSON_PROPERTY_FONT_FAMILY
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseDocumentFormField {
   public static final String JSON_PROPERTY_API_ID = "api_id";
@@ -145,6 +148,14 @@ public class TemplateResponseDocumentFormField {
   private String fontFamily;
 
   public TemplateResponseDocumentFormField() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponseDocumentFormField init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentFormField.class);
   }
 
   public TemplateResponseDocumentFormField apiId(String apiId) {

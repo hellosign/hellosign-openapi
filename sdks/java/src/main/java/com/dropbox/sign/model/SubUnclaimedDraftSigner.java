@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     SubUnclaimedDraftSigner.JSON_PROPERTY_NAME,
     SubUnclaimedDraftSigner.JSON_PROPERTY_ORDER
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubUnclaimedDraftSigner {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -49,6 +52,14 @@ public class SubUnclaimedDraftSigner {
   private Integer order;
 
   public SubUnclaimedDraftSigner() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubUnclaimedDraftSigner init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubUnclaimedDraftSigner.class);
   }
 
   public SubUnclaimedDraftSigner emailAddress(String emailAddress) {

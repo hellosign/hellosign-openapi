@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
     SubSignatureRequestTemplateSigner.JSON_PROPERTY_SMS_PHONE_NUMBER,
     SubSignatureRequestTemplateSigner.JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubSignatureRequestTemplateSigner {
   public static final String JSON_PROPERTY_ROLE = "role";
@@ -96,6 +99,14 @@ public class SubSignatureRequestTemplateSigner {
   private SmsPhoneNumberTypeEnum smsPhoneNumberType;
 
   public SubSignatureRequestTemplateSigner() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubSignatureRequestTemplateSigner init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubSignatureRequestTemplateSigner.class);
   }
 
   public SubSignatureRequestTemplateSigner role(String role) {

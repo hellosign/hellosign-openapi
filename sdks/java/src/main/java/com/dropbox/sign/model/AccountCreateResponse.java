@@ -30,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,6 +44,7 @@ import com.dropbox.sign.ApiException;
     AccountCreateResponse.JSON_PROPERTY_OAUTH_DATA,
     AccountCreateResponse.JSON_PROPERTY_WARNINGS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountCreateResponse {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
@@ -54,6 +57,14 @@ public class AccountCreateResponse {
   private List<WarningResponse> warnings = null;
 
   public AccountCreateResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public AccountCreateResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, AccountCreateResponse.class);
   }
 
   public AccountCreateResponse account(AccountResponse account) {

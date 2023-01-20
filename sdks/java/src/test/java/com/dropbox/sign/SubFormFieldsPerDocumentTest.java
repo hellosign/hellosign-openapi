@@ -26,7 +26,8 @@ public class SubFormFieldsPerDocumentTest {
             Map.Entry<String, JsonNode> kv = fields.next();
             String fieldName = kv.getKey();
             JsonNode expected = kv.getValue();
-            SubFormFieldsPerDocumentBase base = mapper.convertValue(expected, SubFormFieldsPerDocumentBase.class);
+
+            SubFormFieldsPerDocumentBase base = SubFormFieldsPerDocumentBase.init(expected.toString());
 
             Assert.assertTrue(Class.forName(packageNamePrefix + fieldName).isInstance(base));
 

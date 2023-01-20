@@ -39,6 +39,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -73,6 +75,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestSendRequest.JSON_PROPERTY_USE_TEXT_TAGS,
     SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestSendRequest {
   public static final String JSON_PROPERTY_FILES = "files";
@@ -151,6 +154,14 @@ public class SignatureRequestSendRequest {
   private Integer expiresAt;
 
   public SignatureRequestSendRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestSendRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestSendRequest.class);
   }
 
   public SignatureRequestSendRequest files(List<File> files) {

@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     TemplateAddUserRequest.JSON_PROPERTY_EMAIL_ADDRESS,
     TemplateAddUserRequest.JSON_PROPERTY_SKIP_NOTIFICATION
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateAddUserRequest {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
@@ -49,6 +52,14 @@ public class TemplateAddUserRequest {
   private Boolean skipNotification = false;
 
   public TemplateAddUserRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateAddUserRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateAddUserRequest.class);
   }
 
   public TemplateAddUserRequest accountId(String accountId) {

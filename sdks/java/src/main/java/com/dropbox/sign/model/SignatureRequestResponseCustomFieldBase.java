@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -44,6 +46,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_API_ID,
     SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_EDITOR
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
@@ -70,6 +73,14 @@ public class SignatureRequestResponseCustomFieldBase {
   private String editor;
 
   public SignatureRequestResponseCustomFieldBase() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SignatureRequestResponseCustomFieldBase init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SignatureRequestResponseCustomFieldBase.class);
   }
 
   public SignatureRequestResponseCustomFieldBase type(String type) {

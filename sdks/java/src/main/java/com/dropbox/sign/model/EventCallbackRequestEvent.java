@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
     EventCallbackRequestEvent.JSON_PROPERTY_EVENT_HASH,
     EventCallbackRequestEvent.JSON_PROPERTY_EVENT_METADATA
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackRequestEvent {
   public static final String JSON_PROPERTY_EVENT_TIME = "event_time";
@@ -130,6 +133,14 @@ public class EventCallbackRequestEvent {
   private EventCallbackRequestEventMetadata eventMetadata;
 
   public EventCallbackRequestEvent() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public EventCallbackRequestEvent init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, EventCallbackRequestEvent.class);
   }
 
   public EventCallbackRequestEvent eventTime(String eventTime) {

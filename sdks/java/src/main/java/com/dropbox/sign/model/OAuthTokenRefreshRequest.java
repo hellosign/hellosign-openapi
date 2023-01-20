@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -36,6 +38,7 @@ import com.dropbox.sign.ApiException;
     OAuthTokenRefreshRequest.JSON_PROPERTY_GRANT_TYPE,
     OAuthTokenRefreshRequest.JSON_PROPERTY_REFRESH_TOKEN
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OAuthTokenRefreshRequest {
   public static final String JSON_PROPERTY_GRANT_TYPE = "grant_type";
@@ -45,6 +48,14 @@ public class OAuthTokenRefreshRequest {
   private String refreshToken;
 
   public OAuthTokenRefreshRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public OAuthTokenRefreshRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, OAuthTokenRefreshRequest.class);
   }
 
   public OAuthTokenRefreshRequest grantType(String grantType) {

@@ -33,6 +33,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -58,6 +60,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponse.JSON_PROPERTY_NAMED_FORM_FIELDS,
     TemplateResponse.JSON_PROPERTY_ACCOUNTS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponse {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
@@ -106,6 +109,14 @@ public class TemplateResponse {
   private List<TemplateResponseAccount> accounts = null;
 
   public TemplateResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponse.class);
   }
 
   public TemplateResponse templateId(String templateId) {

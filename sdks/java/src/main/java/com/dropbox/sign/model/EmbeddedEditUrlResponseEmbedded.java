@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
     EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedEditUrlResponseEmbedded {
   public static final String JSON_PROPERTY_EDIT_URL = "edit_url";
@@ -46,6 +49,14 @@ public class EmbeddedEditUrlResponseEmbedded {
   private Integer expiresAt;
 
   public EmbeddedEditUrlResponseEmbedded() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public EmbeddedEditUrlResponseEmbedded init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, EmbeddedEditUrlResponseEmbedded.class);
   }
 
   public EmbeddedEditUrlResponseEmbedded editUrl(String editUrl) {

@@ -26,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -51,6 +53,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponseDocumentCustomField.JSON_PROPERTY_NAMED_FORM_FIELDS,
     TemplateResponseDocumentCustomField.JSON_PROPERTY_REUSABLE_FORM_ID
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseDocumentCustomField {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -137,6 +140,14 @@ public class TemplateResponseDocumentCustomField {
   private String reusableFormId;
 
   public TemplateResponseDocumentCustomField() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponseDocumentCustomField init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentCustomField.class);
   }
 
   public TemplateResponseDocumentCustomField name(String name) {

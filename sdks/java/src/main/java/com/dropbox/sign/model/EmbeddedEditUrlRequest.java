@@ -29,6 +29,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -48,6 +50,7 @@ import com.dropbox.sign.ApiException;
     EmbeddedEditUrlRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
     EmbeddedEditUrlRequest.JSON_PROPERTY_TEST_MODE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmbeddedEditUrlRequest {
   public static final String JSON_PROPERTY_ALLOW_EDIT_CCS = "allow_edit_ccs";
@@ -81,6 +84,14 @@ public class EmbeddedEditUrlRequest {
   private Boolean testMode = false;
 
   public EmbeddedEditUrlRequest() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public EmbeddedEditUrlRequest init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, EmbeddedEditUrlRequest.class);
   }
 
   public EmbeddedEditUrlRequest allowEditCcs(Boolean allowEditCcs) {

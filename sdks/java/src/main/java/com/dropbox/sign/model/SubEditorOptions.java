@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_SIGNERS,
     SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubEditorOptions {
   public static final String JSON_PROPERTY_ALLOW_EDIT_SIGNERS = "allow_edit_signers";
@@ -46,6 +49,14 @@ public class SubEditorOptions {
   private Boolean allowEditDocuments = false;
 
   public SubEditorOptions() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubEditorOptions init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubEditorOptions.class);
   }
 
   public SubEditorOptions allowEditSigners(Boolean allowEditSigners) {

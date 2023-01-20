@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
     TeamInviteResponse.JSON_PROPERTY_REDEEMED_AT,
     TeamInviteResponse.JSON_PROPERTY_EXPIRES_AT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamInviteResponse {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
@@ -61,6 +64,14 @@ public class TeamInviteResponse {
   private Integer expiresAt;
 
   public TeamInviteResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TeamInviteResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TeamInviteResponse.class);
   }
 
   public TeamInviteResponse emailAddress(String emailAddress) {

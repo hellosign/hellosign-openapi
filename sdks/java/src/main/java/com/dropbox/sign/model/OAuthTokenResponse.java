@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -39,6 +41,7 @@ import com.dropbox.sign.ApiException;
     OAuthTokenResponse.JSON_PROPERTY_EXPIRES_IN,
     OAuthTokenResponse.JSON_PROPERTY_STATE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OAuthTokenResponse {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
@@ -57,6 +60,14 @@ public class OAuthTokenResponse {
   private String state;
 
   public OAuthTokenResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public OAuthTokenResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, OAuthTokenResponse.class);
   }
 
   public OAuthTokenResponse accessToken(String accessToken) {

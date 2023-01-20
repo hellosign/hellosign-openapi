@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -36,6 +38,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponseDocumentFieldGroup.JSON_PROPERTY_NAME,
     TemplateResponseDocumentFieldGroup.JSON_PROPERTY_RULE
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseDocumentFieldGroup {
   public static final String JSON_PROPERTY_NAME = "name";
@@ -45,6 +48,14 @@ public class TemplateResponseDocumentFieldGroup {
   private String rule;
 
   public TemplateResponseDocumentFieldGroup() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public TemplateResponseDocumentFieldGroup init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentFieldGroup.class);
   }
 
   public TemplateResponseDocumentFieldGroup name(String name) {

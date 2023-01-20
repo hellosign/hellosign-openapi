@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -37,6 +39,7 @@ import com.dropbox.sign.ApiException;
     SubFormFieldGroup.JSON_PROPERTY_GROUP_LABEL,
     SubFormFieldGroup.JSON_PROPERTY_REQUIREMENT
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubFormFieldGroup {
   public static final String JSON_PROPERTY_GROUP_ID = "group_id";
@@ -49,6 +52,14 @@ public class SubFormFieldGroup {
   private String requirement;
 
   public SubFormFieldGroup() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubFormFieldGroup init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubFormFieldGroup.class);
   }
 
   public SubFormFieldGroup groupId(String groupId) {

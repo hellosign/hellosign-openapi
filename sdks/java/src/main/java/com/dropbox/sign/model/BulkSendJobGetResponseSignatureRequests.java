@@ -32,6 +32,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -65,6 +67,7 @@ import com.dropbox.sign.ApiException;
     BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURES,
     BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_BULK_SEND_JOB_ID
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BulkSendJobGetResponseSignatureRequests {
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
@@ -140,6 +143,14 @@ public class BulkSendJobGetResponseSignatureRequests {
   private String bulkSendJobId;
 
   public BulkSendJobGetResponseSignatureRequests() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public BulkSendJobGetResponseSignatureRequests init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, BulkSendJobGetResponseSignatureRequests.class);
   }
 
   public BulkSendJobGetResponseSignatureRequests testMode(Boolean testMode) {

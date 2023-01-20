@@ -27,6 +27,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -41,6 +43,7 @@ import com.dropbox.sign.ApiException;
     ApiAppResponseOAuth.JSON_PROPERTY_SCOPES,
     ApiAppResponseOAuth.JSON_PROPERTY_CHARGES_USERS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppResponseOAuth {
   public static final String JSON_PROPERTY_CALLBACK_URL = "callback_url";
@@ -56,6 +59,14 @@ public class ApiAppResponseOAuth {
   private Boolean chargesUsers;
 
   public ApiAppResponseOAuth() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public ApiAppResponseOAuth init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, ApiAppResponseOAuth.class);
   }
 
   public ApiAppResponseOAuth callbackUrl(String callbackUrl) {

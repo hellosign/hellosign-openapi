@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -40,6 +42,7 @@ import com.dropbox.sign.ApiException;
     SubSigningOptions.JSON_PROPERTY_TYPE,
     SubSigningOptions.JSON_PROPERTY_UPLOAD
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubSigningOptions {
   /**
@@ -97,6 +100,14 @@ public class SubSigningOptions {
   private Boolean upload = false;
 
   public SubSigningOptions() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public SubSigningOptions init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, SubSigningOptions.class);
   }
 
   public SubSigningOptions defaultType(DefaultTypeEnum defaultType) {

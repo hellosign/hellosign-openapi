@@ -30,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.JSON;
 
 
@@ -42,6 +44,7 @@ import com.dropbox.sign.ApiException;
     ApiAppListResponse.JSON_PROPERTY_LIST_INFO,
     ApiAppListResponse.JSON_PROPERTY_WARNINGS
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiAppListResponse {
   public static final String JSON_PROPERTY_API_APPS = "api_apps";
@@ -54,6 +57,14 @@ public class ApiAppListResponse {
   private List<WarningResponse> warnings = null;
 
   public ApiAppListResponse() { 
+  }
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public ApiAppListResponse init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, ApiAppListResponse.class);
   }
 
   public ApiAppListResponse apiApps(List<ApiAppResponse> apiApps) {
