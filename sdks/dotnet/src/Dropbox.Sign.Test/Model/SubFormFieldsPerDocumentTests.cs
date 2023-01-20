@@ -24,10 +24,7 @@ namespace Dropbox.Sign.Test.Model
                     new JProperty("form_fields_per_document", new JArray(item.Value))
                 );
 
-                var obj = JsonConvert.DeserializeObject<SignatureRequestSendRequest>(data.ToString());
-
-                Assert.NotNull(obj);
-
+                var obj = SignatureRequestSendRequest.Init(data.ToString());
                 var field = obj.FormFieldsPerDocument[0];
 
                 Assert.Equal(item.Key, field.GetType().Name);

@@ -106,6 +106,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldsPerDocumentBase Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentBase>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentBase");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to.
         /// </summary>
         /// <value>Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to.</value>

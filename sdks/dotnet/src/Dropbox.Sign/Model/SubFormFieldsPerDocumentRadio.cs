@@ -95,6 +95,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldsPerDocumentRadio Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentRadio>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentRadio");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// An input field for radios. Use the &#x60;SubFormFieldsPerDocumentRadio&#x60; class.
         /// </summary>
         /// <value>An input field for radios. Use the &#x60;SubFormFieldsPerDocumentRadio&#x60; class.</value>

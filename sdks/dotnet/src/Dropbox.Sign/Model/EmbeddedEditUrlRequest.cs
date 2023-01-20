@@ -67,6 +67,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static EmbeddedEditUrlRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<EmbeddedEditUrlRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of EmbeddedEditUrlRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// This allows the requester to enable/disable to add or change CC roles when editing the template.
         /// </summary>
         /// <value>This allows the requester to enable/disable to add or change CC roles when editing the template.</value>

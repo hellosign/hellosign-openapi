@@ -68,6 +68,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldGroup Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldGroup>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldGroup");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// ID of group. Use this to reference a specific group from the &#x60;group&#x60; value in &#x60;form_fields_per_document&#x60;.
         /// </summary>
         /// <value>ID of group. Use this to reference a specific group from the &#x60;group&#x60; value in &#x60;form_fields_per_document&#x60;.</value>

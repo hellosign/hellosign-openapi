@@ -151,6 +151,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TemplateResponseDocumentFormField Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TemplateResponseDocumentFormField>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseDocumentFormField");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A unique id for the form field.
         /// </summary>
         /// <value>A unique id for the form field.</value>

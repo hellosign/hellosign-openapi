@@ -60,6 +60,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static EventCallbackRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<EventCallbackRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of EventCallbackRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Gets or Sets Event
         /// </summary>
         [DataMember(Name = "event", IsRequired = true, EmitDefaultValue = true)]

@@ -61,6 +61,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubBulkSignerListCustomField Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubBulkSignerListCustomField>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubBulkSignerListCustomField");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.
         /// </summary>
         /// <value>The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.</value>

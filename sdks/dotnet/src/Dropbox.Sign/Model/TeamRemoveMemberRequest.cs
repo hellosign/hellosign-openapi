@@ -97,6 +97,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TeamRemoveMemberRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TeamRemoveMemberRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TeamRemoveMemberRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// **account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.
         /// </summary>
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.</value>

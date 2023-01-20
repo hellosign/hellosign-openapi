@@ -54,6 +54,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static AccountVerifyRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<AccountVerifyRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of AccountVerifyRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Email address to run the verification for.
         /// </summary>
         /// <value>Email address to run the verification for.</value>

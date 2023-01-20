@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Newtonsoft.Json;
 using Dropbox.Sign.Model;
+using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace Dropbox.Sign.Test
@@ -46,6 +47,20 @@ namespace Dropbox.Sign.Test
                 Assert.NotNull(requestData.GetType());
 
                 return requestData;
+            }
+        }
+
+        public static JObject GetJsonContents(string fileName, string key = "default")
+        {
+            using (var r = TestHelper.ReadFileFromResource(fileName))
+            {
+                dynamic json = JsonConvert.DeserializeObject<object>(r.ReadToEnd());
+                Assert.NotNull(json);
+
+                var requestedData = json[key];
+                Assert.NotNull(requestedData);
+
+                return requestedData;
             }
         }
     }

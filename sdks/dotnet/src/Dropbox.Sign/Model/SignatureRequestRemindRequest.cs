@@ -56,6 +56,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SignatureRequestRemindRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SignatureRequestRemindRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestRemindRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The email address of the signer to send a reminder to.
         /// </summary>
         /// <value>The email address of the signer to send a reminder to.</value>

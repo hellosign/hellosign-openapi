@@ -100,6 +100,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldsPerDocumentHyperlink Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentHyperlink>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentHyperlink");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// A hyperlink field. Use the &#x60;SubFormFieldsPerDocumentHyperlink&#x60; class.
         /// </summary>
         /// <value>A hyperlink field. Use the &#x60;SubFormFieldsPerDocumentHyperlink&#x60; class.</value>

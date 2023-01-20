@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TemplateResponseFieldAvgTextLength Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TemplateResponseFieldAvgTextLength>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseFieldAvgTextLength");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Number of lines.
         /// </summary>
         /// <value>Number of lines.</value>

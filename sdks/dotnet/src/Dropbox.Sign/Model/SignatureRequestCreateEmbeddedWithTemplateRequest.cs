@@ -92,6 +92,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SignatureRequestCreateEmbeddedWithTemplateRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SignatureRequestCreateEmbeddedWithTemplateRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestCreateEmbeddedWithTemplateRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the template will be used.
         /// </summary>
         /// <value>Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the template will be used.</value>

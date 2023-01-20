@@ -55,6 +55,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static ApiAppResponseOAuth Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<ApiAppResponseOAuth>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of ApiAppResponseOAuth");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The app&#39;s OAuth callback URL.
         /// </summary>
         /// <value>The app&#39;s OAuth callback URL.</value>

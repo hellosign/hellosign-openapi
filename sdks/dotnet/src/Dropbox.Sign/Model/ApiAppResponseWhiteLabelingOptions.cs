@@ -75,6 +75,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static ApiAppResponseWhiteLabelingOptions Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<ApiAppResponseWhiteLabelingOptions>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of ApiAppResponseWhiteLabelingOptions");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Gets or Sets HeaderBackgroundColor
         /// </summary>
         [DataMember(Name = "header_background_color", EmitDefaultValue = true)]

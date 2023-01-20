@@ -106,6 +106,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubFormFieldRuleTrigger Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubFormFieldRuleTrigger>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldRuleTrigger");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the same signer.
         /// </summary>
         /// <value>Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;. Trigger and action fields and groups must belong to the same signer.</value>

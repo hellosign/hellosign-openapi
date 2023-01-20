@@ -49,6 +49,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static FileResponseDataUri Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<FileResponseDataUri>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of FileResponseDataUri");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// File as base64 encoded string.
         /// </summary>
         /// <value>File as base64 encoded string.</value>

@@ -51,6 +51,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static TemplateRemoveUserRequest Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<TemplateRemoveUserRequest>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of TemplateRemoveUserRequest");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
         /// </summary>
         /// <value>The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.</value>

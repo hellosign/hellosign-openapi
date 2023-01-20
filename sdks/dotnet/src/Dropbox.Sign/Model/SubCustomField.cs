@@ -60,6 +60,22 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
+        /// Attempt to instantiate and hydrate a new instance of this class
+        /// </summary>
+        /// <param name="jsonData">String of JSON data representing target object</param>
+        public static SubCustomField Init(string jsonData)
+        {
+            var obj = JsonConvert.DeserializeObject<SubCustomField>(jsonData);
+
+            if (obj == null)
+            {
+                throw new Exception("Unable to deserialize JSON to instance of SubCustomField");
+            }
+
+            return obj;
+        }
+
+        /// <summary>
         /// The name of a custom field. When working with pre-filled data, the custom field&#39;s name must have a matching merge field name or the field will remain empty on the document during signing.
         /// </summary>
         /// <value>The name of a custom field. When working with pre-filled data, the custom field&#39;s name must have a matching merge field name or the field will remain empty on the document during signing.</value>

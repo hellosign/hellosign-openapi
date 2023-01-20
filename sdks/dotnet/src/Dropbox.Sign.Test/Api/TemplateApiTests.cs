@@ -15,15 +15,16 @@ namespace Dropbox.Sign.Test.Api
         {
             var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-            var requestData = TestHelper.SerializeFromFile<TemplateAddUserRequest>("TemplateAddUserRequest");
-            var responseData = TestHelper.SerializeFromFile<TemplateGetResponse>("TemplateGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TemplateAddUserRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TemplateGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TemplateGetResponse, TemplateApi>(responseData);
+            var obj = TemplateAddUserRequest.Init(requestData.ToString());
 
-            var response = api.TemplateAddUser(templateId, requestData);
+            var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
+            var response = api.TemplateAddUser(templateId, obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -31,12 +32,11 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TemplateCreateEmbeddedDraftTest()
         {
-            var requestData = TestHelper.SerializeFromFile<TemplateCreateEmbeddedDraftRequest>("TemplateCreateEmbeddedDraftRequest");
-            var responseData = TestHelper.SerializeFromFile<TemplateCreateEmbeddedDraftResponse>("TemplateCreateEmbeddedDraftResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TemplateCreateEmbeddedDraftRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TemplateCreateEmbeddedDraftResponse));
 
-            var api = MockRestClientHelper.CreateApi<TemplateCreateEmbeddedDraftResponse, TemplateApi>(responseData);
-
-            requestData.Files = new List<Stream> {
+            var obj = TemplateCreateEmbeddedDraftRequest.Init(requestData.ToString());
+            obj.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
@@ -45,10 +45,11 @@ namespace Dropbox.Sign.Test.Api
                 )
             };
 
-            var response = api.TemplateCreateEmbeddedDraft(requestData);
+            var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
+            var response = api.TemplateCreateEmbeddedDraft(obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -68,14 +69,13 @@ namespace Dropbox.Sign.Test.Api
         {
             var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-            var responseData = TestHelper.SerializeFromFile<TemplateGetResponse>("TemplateGetResponse");
+            var responseData = TestHelper.GetJsonContents(nameof(TemplateGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TemplateGetResponse, TemplateApi>(responseData);
-
+            var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateGet(templateId);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -85,14 +85,13 @@ namespace Dropbox.Sign.Test.Api
         {
             var accountId = "all";
 
-            var responseData = TestHelper.SerializeFromFile<TemplateListResponse>("TemplateListResponse");
+            var responseData = TestHelper.GetJsonContents(nameof(TemplateListResponse));
 
-            var api = MockRestClientHelper.CreateApi<TemplateListResponse, TemplateApi>(responseData);
-
+            var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateList(accountId);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -102,15 +101,16 @@ namespace Dropbox.Sign.Test.Api
         {
             var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
-            var requestData = TestHelper.SerializeFromFile<TemplateRemoveUserRequest>("TemplateRemoveUserRequest");
-            var responseData = TestHelper.SerializeFromFile<TemplateGetResponse>("TemplateGetResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TemplateRemoveUserRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TemplateGetResponse));
 
-            var api = MockRestClientHelper.CreateApi<TemplateGetResponse, TemplateApi>(responseData);
+            var obj = TemplateRemoveUserRequest.Init(requestData.ToString());
 
-            var response = api.TemplateRemoveUser(templateId, requestData);
+            var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
+            var response = api.TemplateRemoveUser(templateId, obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }
@@ -120,12 +120,11 @@ namespace Dropbox.Sign.Test.Api
         {
             var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
-            var requestData = TestHelper.SerializeFromFile<TemplateUpdateFilesRequest>("TemplateUpdateFilesRequest");
-            var responseData = TestHelper.SerializeFromFile<TemplateUpdateFilesResponse>("TemplateUpdateFilesResponse");
+            var requestData = TestHelper.GetJsonContents(nameof(TemplateUpdateFilesRequest));
+            var responseData = TestHelper.GetJsonContents(nameof(TemplateUpdateFilesResponse));
 
-            var api = MockRestClientHelper.CreateApi<TemplateUpdateFilesResponse, TemplateApi>(responseData);
-
-            requestData.Files = new List<Stream> {
+            var obj = TemplateUpdateFilesRequest.Init(requestData.ToString());
+            obj.Files = new List<Stream> {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
@@ -134,10 +133,11 @@ namespace Dropbox.Sign.Test.Api
                 )
             };
 
-            var response = api.TemplateUpdateFiles(templateId, requestData);
+            var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
+            var response = api.TemplateUpdateFiles(templateId, obj);
 
             JToken.DeepEquals(
-                responseData.ToJson(),
+                responseData.ToString(),
                 response.ToJson()
             );
         }

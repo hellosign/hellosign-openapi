@@ -6,51 +6,52 @@ using System.Net.Http;
 using Dropbox.Sign.Client;
 using RestSharp;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RichardSzalay.MockHttp;
 
 namespace Dropbox.Sign.Test
 {
-    public class MockRestClientHelper 
+    public class MockRestClientHelper
     {
-        public static T CreateApi<S, T>(S data, 
+        public static T CreateApi<T>(JObject data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
             string contentType = "application/json")
         {
             var mockHttp = new MockHttpMessageHandler();
-            
+
             mockHttp.Expect("https://api.hellosign.com/*")
                 .Respond(statusCode, contentType, JsonConvert.SerializeObject(data));
 
             return CreateApiInternal<T>(mockHttp);
         }
-        
-        public static T CreateApiExpectMultiFormRequest<S, T>(S data, 
+
+        public static T CreateApiExpectMultiFormRequest<S, T>(S data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
             string contentType = "application/json")
         {
             var mockHttp = new MockHttpMessageHandler();
-            
+
             mockHttp.Expect("https://api.hellosign.com/*")
                 .With(request => request.Content.GetType() == typeof(MultipartFormDataContent))
                 .Respond(statusCode, contentType, JsonConvert.SerializeObject(data));
-            
+
             return CreateApiInternal<T>(mockHttp);
         }
-        
-        public static T CreateApiExpectJsonRequest<S, T>(S data, 
+
+        public static T CreateApiExpectJsonRequest<S, T>(S data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
             string contentType = "application/json")
         {
             var mockHttp = new MockHttpMessageHandler();
-            
+
             mockHttp.Expect("https://api.hellosign.com/*")
                 .With(request => request.Content.GetType() == typeof(StringContent))
                 .Respond(statusCode, contentType, JsonConvert.SerializeObject(data));
-            
+
             return CreateApiInternal<T>(mockHttp);
         }
-        
-        public static T CreateApiExpectContentContains<S, T>(S data, 
+
+        public static T CreateApiExpectContentContains<S, T>(S data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
             string contentType = "application/json", params string[] values)
         {
@@ -67,7 +68,7 @@ namespace Dropbox.Sign.Test
 
             return CreateApiInternal<T>(mockHttp);
         }
-        
+
         private static T CreateApiInternal<T>(MockHttpMessageHandler handler)
         {
             var options = new RestClientOptions
