@@ -18,9 +18,11 @@ end
 
 module Dropbox::Sign
   class AccountGetResponse
+    # @return [AccountResponse]
     attr_accessor :account
 
     # A list of warnings.
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

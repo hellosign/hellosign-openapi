@@ -19,18 +19,23 @@ end
 module Dropbox::Sign
   class TeamRemoveMemberRequest
     # **account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.
+    # @return [String]
     attr_accessor :account_id
 
     # **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
+    # @return [String]
     attr_accessor :email_address
 
     # The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans.
+    # @return [String]
     attr_accessor :new_owner_email_address
 
     # Id of the new Team.
+    # @return [String]
     attr_accessor :new_team_id
 
     # A new role member will take in a new Team.  **Note**: This parameter is used only if `new_team_id` is provided.
+    # @return [String]
     attr_accessor :new_role
 
     class EnumAttributeValidator

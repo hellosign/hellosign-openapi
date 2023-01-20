@@ -19,15 +19,19 @@ end
 module Dropbox::Sign
   class SubFormFieldRule
     # Must be unique across all defined rules.
+    # @return [String]
     attr_accessor :id
 
     # Currently only `AND` is supported. Support for `OR` is being worked on.
+    # @return [String]
     attr_accessor :trigger_operator
 
     # An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.
+    # @return [Array<SubFormFieldRuleTrigger>]
     attr_accessor :triggers
 
     # An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.
+    # @return [Array<SubFormFieldRuleAction>]
     attr_accessor :actions
 
     # Attribute mapping from ruby-style variable name to JSON key.

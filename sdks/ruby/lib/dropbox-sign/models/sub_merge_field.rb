@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SubMergeField
     # The name of the merge field. Must be unique.
+    # @return [String]
     attr_accessor :name
 
     # The type of merge field.
+    # @return [String]
     attr_accessor :type
 
     class EnumAttributeValidator

@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class TemplateResponseSignerRole
     # The name of the Role.
+    # @return [String]
     attr_accessor :name
 
     # If signer order is assigned this is the 0-based index for this role.
+    # @return [Integer]
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

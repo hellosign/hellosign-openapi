@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class TemplateAddUserRequest
     # The id of the Account to give access to the Template. <b>Note</b> The account id prevails if email address is also provided.
+    # @return [String]
     attr_accessor :account_id
 
     # The email address of the Account to give access to the Template. <b>Note</b> The account id prevails if it is also provided.
+    # @return [String]
     attr_accessor :email_address
 
     # If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :skip_notification
 
     # Attribute mapping from ruby-style variable name to JSON key.

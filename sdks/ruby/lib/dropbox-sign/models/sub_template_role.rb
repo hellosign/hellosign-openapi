@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SubTemplateRole
     # The role name of the signer that will be displayed when the template is used to create a signature request.
+    # @return [String]
     attr_accessor :name
 
     # The order in which this signer role is required to sign.
+    # @return [Integer]
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

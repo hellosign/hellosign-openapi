@@ -18,9 +18,11 @@ end
 
 module Dropbox::Sign
   class TeamGetResponse
+    # @return [TeamResponse]
     attr_accessor :team
 
     # A list of warnings.
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

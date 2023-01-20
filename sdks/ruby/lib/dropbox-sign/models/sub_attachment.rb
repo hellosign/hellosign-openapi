@@ -19,15 +19,19 @@ end
 module Dropbox::Sign
   class SubAttachment
     # The name of attachment.
+    # @return [String]
     attr_accessor :name
 
     # The signer's index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+    # @return [Integer]
     attr_accessor :signer_index
 
     # The instructions for uploading the attachment.
+    # @return [String]
     attr_accessor :instructions
 
     # Determines if the attachment must be uploaded.
+    # @return [Boolean]
     attr_accessor :required
 
     # Attribute mapping from ruby-style variable name to JSON key.

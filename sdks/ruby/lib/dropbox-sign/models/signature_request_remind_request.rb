@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SignatureRequestRemindRequest
     # The email address of the signer to send a reminder to.
+    # @return [String]
     attr_accessor :email_address
 
     # The name of the signer to send a reminder to. Include if two or more signers share an email address.
+    # @return [String]
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

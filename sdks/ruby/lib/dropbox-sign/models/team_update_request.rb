@@ -19,6 +19,7 @@ end
 module Dropbox::Sign
   class TeamUpdateRequest
     # The name of your Team.
+    # @return [String]
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

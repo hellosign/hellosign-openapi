@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SignatureRequestResponseDataValueDropdown < SignatureRequestResponseDataBase
     # An input field for dropdowns
+    # @return [String]
     attr_accessor :type
 
     # The value of the form field.
+    # @return [String]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

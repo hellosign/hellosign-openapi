@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class SubUnclaimedDraftTemplateSigner
     # Must match an existing role in chosen Template(s).
+    # @return [String]
     attr_accessor :role
 
     # The name of the signer filling the role of `role`.
+    # @return [String]
     attr_accessor :name
 
     # The email address of the signer filling the role of `role`.
+    # @return [String]
     attr_accessor :email_address
 
     # Attribute mapping from ruby-style variable name to JSON key.

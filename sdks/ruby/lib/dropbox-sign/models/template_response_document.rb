@@ -19,21 +19,27 @@ end
 module Dropbox::Sign
   class TemplateResponseDocument
     # Name of the associated file.
+    # @return [String]
     attr_accessor :name
 
     # Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
+    # @return [Integer]
     attr_accessor :index
 
     # An array of Form Field Group objects.
+    # @return [Array<TemplateResponseDocumentFieldGroup>]
     attr_accessor :field_groups
 
     # An array of Form Field objects containing the name and type of each named textbox and checkmark field.
+    # @return [Array<TemplateResponseDocumentFormField>]
     attr_accessor :form_fields
 
     # An array of Document Custom Field objects.
+    # @return [Array<TemplateResponseDocumentCustomField>]
     attr_accessor :custom_fields
 
     # An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.
+    # @return [Array<TemplateResponseDocumentStaticField>]
     attr_accessor :static_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.

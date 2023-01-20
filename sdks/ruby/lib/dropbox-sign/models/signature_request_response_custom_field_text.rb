@@ -20,9 +20,11 @@ module Dropbox::Sign
   # This class extends `SignatureRequestResponseCustomFieldBase`.
   class SignatureRequestResponseCustomFieldText < SignatureRequestResponseCustomFieldBase
     # The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
+    # @return [String]
     attr_accessor :type
 
     # A text string for text fields
+    # @return [String]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

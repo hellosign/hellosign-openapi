@@ -19,41 +19,54 @@ end
 module Dropbox::Sign
   class TemplateResponseCustomField
     # The name of the Custom Field.
+    # @return [String]
     attr_accessor :name
 
     # The type of this Custom Field. Only `text` and `checkbox` are currently supported.
+    # @return [String]
     attr_accessor :type
 
     # The horizontal offset in pixels for this form field.
+    # @return [Integer]
     attr_accessor :x
 
     # The vertical offset in pixels for this form field.
+    # @return [Integer]
     attr_accessor :y
 
     # The width in pixels of this form field.
+    # @return [Integer]
     attr_accessor :width
 
     # The height in pixels of this form field.
+    # @return [Integer]
     attr_accessor :height
 
     # Boolean showing whether or not this field is required.
+    # @return [Boolean]
     attr_accessor :required
 
     # The unique ID for this field.
+    # @return [String]
     attr_accessor :api_id
 
     # The name of the group this field is in. If this field is not a group, this defaults to `null`.
+    # @return [String]
     attr_accessor :group
 
+    # @return [TemplateResponseFieldAvgTextLength]
     attr_accessor :avg_text_length
 
     # Whether this form field is multiline text.
+    # @return [Boolean]
     attr_accessor :is_multiline
 
     # Original font size used in this form field's text.
+    # @return [Integer]
     attr_accessor :original_font_size
 
     # Font family used in this form field's text.
+    # @return [String]
     attr_accessor :font_family
 
     class EnumAttributeValidator

@@ -20,25 +20,33 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentText < SubFormFieldsPerDocumentBase
     # A text input field. Use the `SubFormFieldsPerDocumentText` class.
+    # @return [String]
     attr_accessor :type
 
     # Placeholder value for text field.
+    # @return [String]
     attr_accessor :placeholder
 
     # Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
+    # @return [String]
     attr_accessor :auto_fill_type
 
     # Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
+    # @return [String]
     attr_accessor :link_id
 
     # Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.
+    # @return [Boolean]
     attr_accessor :masked
 
     # Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
+    # @return [String]
     attr_accessor :validation_type
 
+    # @return [String]
     attr_accessor :validation_custom_regex
 
+    # @return [String]
     attr_accessor :validation_custom_regex_format_label
 
     class EnumAttributeValidator

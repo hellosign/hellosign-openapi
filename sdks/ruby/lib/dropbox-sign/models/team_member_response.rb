@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class TeamMemberResponse
     # Account id of the team member.
+    # @return [String]
     attr_accessor :account_id
 
     # Email address of the team member.
+    # @return [String]
     attr_accessor :email_address
 
     # The specific role a member has on the team.
+    # @return [String]
     attr_accessor :role
 
     # Attribute mapping from ruby-style variable name to JSON key.

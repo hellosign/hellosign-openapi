@@ -20,12 +20,15 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentDropdown < SubFormFieldsPerDocumentBase
     # An input field for dropdowns. Use the `SubFormFieldsPerDocumentDropdown` class.
+    # @return [String]
     attr_accessor :type
 
     # Array of string values representing dropdown values.
+    # @return [Array<String>]
     attr_accessor :options
 
     # Selected value in `options` array. Value must exist in array.
+    # @return [String]
     attr_accessor :content
 
     # Attribute mapping from ruby-style variable name to JSON key.

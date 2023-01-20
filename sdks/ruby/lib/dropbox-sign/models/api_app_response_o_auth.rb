@@ -20,15 +20,19 @@ module Dropbox::Sign
   # An object describing the app's OAuth properties, or null if OAuth is not configured for the app.
   class ApiAppResponseOAuth
     # The app's OAuth callback URL.
+    # @return [String]
     attr_accessor :callback_url
 
     # The app's OAuth secret, or null if the app does not belong to user.
+    # @return [String]
     attr_accessor :secret
 
     # Array of OAuth scopes used by the app.
+    # @return [Array<String>]
     attr_accessor :scopes
 
     # Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
+    # @return [Boolean]
     attr_accessor :charges_users
 
     # Attribute mapping from ruby-style variable name to JSON key.

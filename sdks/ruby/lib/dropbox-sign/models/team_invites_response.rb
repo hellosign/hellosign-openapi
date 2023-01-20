@@ -19,8 +19,10 @@ end
 module Dropbox::Sign
   class TeamInvitesResponse
     # Contains a list of team invites and their roles.
+    # @return [Array<TeamInviteResponse>]
     attr_accessor :team_invites
 
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

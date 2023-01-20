@@ -20,12 +20,15 @@ module Dropbox::Sign
   # Contains information about an error that occurred.
   class ErrorResponseError
     # Message describing an error.
+    # @return [String]
     attr_accessor :error_msg
 
     # Name of the error.
+    # @return [String]
     attr_accessor :error_name
 
     # Path at which an error occurred.
+    # @return [String]
     attr_accessor :error_path
 
     # Attribute mapping from ruby-style variable name to JSON key.

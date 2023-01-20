@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class ReportCreateRequest
     # The (inclusive) end date for the report data in `MM/DD/YYYY` format.
+    # @return [String]
     attr_accessor :end_date
 
     # The type(s) of the report you are requesting. Allowed values are `user_activity` and `document_status`. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
+    # @return [Array<String>]
     attr_accessor :report_type
 
     # The (inclusive) start date for the report data in `MM/DD/YYYY` format.
+    # @return [String]
     attr_accessor :start_date
 
     class EnumAttributeValidator

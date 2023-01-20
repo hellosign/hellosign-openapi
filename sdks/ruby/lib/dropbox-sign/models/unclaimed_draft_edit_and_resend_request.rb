@@ -19,26 +19,34 @@ end
 module Dropbox::Sign
   class UnclaimedDraftEditAndResendRequest
     # Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
+    # @return [String]
     attr_accessor :client_id
 
+    # @return [SubEditorOptions]
     attr_accessor :editor_options
 
     # The request created from this draft will also be signable in embedded mode if set to `true`.
+    # @return [Boolean]
     attr_accessor :is_for_embedded_signing
 
     # The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.
+    # @return [String]
     attr_accessor :requester_email_address
 
     # The URL you want signers redirected to after they successfully request a signature.
+    # @return [String]
     attr_accessor :requesting_redirect_url
 
     # When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+    # @return [Boolean]
     attr_accessor :show_progress_stepper
 
     # The URL you want signers redirected to after they successfully sign.
+    # @return [String]
     attr_accessor :signing_redirect_url
 
     # Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.

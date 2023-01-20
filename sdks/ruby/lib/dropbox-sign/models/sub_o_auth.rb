@@ -20,9 +20,11 @@ module Dropbox::Sign
   # OAuth related parameters.
   class SubOAuth
     # The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)
+    # @return [String]
     attr_accessor :callback_url
 
     # A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).
+    # @return [Array<String>]
     attr_accessor :scopes
 
     class EnumAttributeValidator

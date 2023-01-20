@@ -19,87 +19,116 @@ end
 module Dropbox::Sign
   class UnclaimedDraftCreateEmbeddedWithTemplateRequest
     # Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
+    # @return [String]
     attr_accessor :client_id
 
     # The email address of the user that should be designated as the requester of this draft.
+    # @return [String]
     attr_accessor :requester_email_address
 
     # Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the templates will be used.
+    # @return [Array<String>]
     attr_accessor :template_ids
 
     # Allows signers to decline to sign a document if `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :allow_decline
 
     # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+    # @return [Boolean]
     attr_accessor :allow_reassign
 
     # Add CC email recipients. Required when a CC role exists for the Template.
+    # @return [Array<SubCC>]
     attr_accessor :ccs
 
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
+    # @return [Array<SubCustomField>]
     attr_accessor :custom_fields
 
+    # @return [SubEditorOptions]
     attr_accessor :editor_options
 
+    # @return [SubFieldOptions]
     attr_accessor :field_options
 
     # Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
+    # @return [Array<File>]
     attr_accessor :files
 
     # Use file_urls[] to append additional files to the signature request being created from the template. Dropbox Sign will download the file, then parse it for [text tags](https://app.hellosign.com/api/textTagsWalkthrough), and append to the signature request. Text tags for signers not on the template(s) will be ignored.  **files** or **file_urls[]** is required, but not both.
+    # @return [Array<String>]
     attr_accessor :file_urls
 
     # Provide users the ability to review/edit the template signer roles.
+    # @return [Boolean]
     attr_accessor :force_signer_roles
 
     # Provide users the ability to review/edit the template subject and message.
+    # @return [Boolean]
     attr_accessor :force_subject_message
 
     # The request from this draft will not automatically send to signers post-claim if set to 1. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :hold_request
 
     # The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :is_for_embedded_signing
 
     # The custom message in the email that will be sent to the signers.
+    # @return [String]
     attr_accessor :message
 
     # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+    # @return [Hash<String, Object>]
     attr_accessor :metadata
 
     # This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites `show_preview=1` (if set).
+    # @return [Boolean]
     attr_accessor :preview_only
 
     # The URL you want signers redirected to after they successfully request a signature.
+    # @return [String]
     attr_accessor :requesting_redirect_url
 
     # This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.
+    # @return [Boolean]
     attr_accessor :show_preview
 
     # When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
+    # @return [Boolean]
     attr_accessor :show_progress_stepper
 
     # Add Signers to your Templated-based Signature Request.
+    # @return [Array<SubUnclaimedDraftTemplateSigner>]
     attr_accessor :signers
 
+    # @return [SubSigningOptions]
     attr_accessor :signing_options
 
     # The URL you want signers redirected to after they successfully sign.
+    # @return [String]
     attr_accessor :signing_redirect_url
 
     # Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :skip_me_now
 
     # The subject in the email that will be sent to the signers.
+    # @return [String]
     attr_accessor :subject
 
     # Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # The title you want to assign to the SignatureRequest.
+    # @return [String]
     attr_accessor :title
 
     # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+    # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.

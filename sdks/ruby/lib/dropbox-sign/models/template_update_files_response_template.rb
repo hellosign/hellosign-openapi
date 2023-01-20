@@ -20,9 +20,11 @@ module Dropbox::Sign
   # Contains template id
   class TemplateUpdateFilesResponseTemplate
     # The id of the Template.
+    # @return [String]
     attr_accessor :template_id
 
     # A list of warnings.
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

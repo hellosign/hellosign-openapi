@@ -19,21 +19,27 @@ end
 module Dropbox::Sign
   class TemplateUpdateFilesRequest
     # Client id of the app you're using to update this template.
+    # @return [String]
     attr_accessor :client_id
 
     # Use `files[]` to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    # @return [Array<File>]
     attr_accessor :files
 
     # Use `file_urls[]` to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
+    # @return [Array<String>]
     attr_accessor :file_urls
 
     # The new default template email message.
+    # @return [String]
     attr_accessor :message
 
     # The new default template email subject.
+    # @return [String]
     attr_accessor :subject
 
     # Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.

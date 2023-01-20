@@ -19,33 +19,43 @@ end
 module Dropbox::Sign
   class TemplateResponseDocumentStaticField
     # The name of the static field.
+    # @return [String]
     attr_accessor :name
 
     # The type of this static field. See [field types](/api/reference/constants/#field-types).
+    # @return [String]
     attr_accessor :type
 
     # The signer of the Static Field.
+    # @return [String]
     attr_accessor :signer
 
     # The horizontal offset in pixels for this static field.
+    # @return [Integer]
     attr_accessor :x
 
     # The vertical offset in pixels for this static field.
+    # @return [Integer]
     attr_accessor :y
 
     # The width in pixels of this static field.
+    # @return [Integer]
     attr_accessor :width
 
     # The height in pixels of this static field.
+    # @return [Integer]
     attr_accessor :height
 
     # Boolean showing whether or not this field is required.
+    # @return [Boolean]
     attr_accessor :required
 
     # A unique id for the static field.
+    # @return [String]
     attr_accessor :api_id
 
     # The name of the group this field is in. If this field is not a group, this defaults to `null`.
+    # @return [String]
     attr_accessor :group
 
     # Attribute mapping from ruby-style variable name to JSON key.

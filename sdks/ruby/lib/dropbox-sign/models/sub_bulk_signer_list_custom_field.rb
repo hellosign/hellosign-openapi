@@ -19,9 +19,11 @@ end
 module Dropbox::Sign
   class SubBulkSignerListCustomField
     # The name of the custom field. Must be the field's `name` or `api_id`.
+    # @return [String]
     attr_accessor :name
 
     # The value of the custom field.
+    # @return [String]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

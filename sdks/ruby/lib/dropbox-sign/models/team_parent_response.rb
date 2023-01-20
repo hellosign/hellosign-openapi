@@ -20,9 +20,11 @@ module Dropbox::Sign
   # Information about the parent team if a team has one, set to `null` otherwise.
   class TeamParentResponse
     # The id of a team
+    # @return [String]
     attr_accessor :team_id
 
     # The name of a team
+    # @return [String]
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

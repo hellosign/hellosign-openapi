@@ -20,6 +20,7 @@ module Dropbox::Sign
   # Additional options supported by API App.
   class SubOptions
     # Determines if signers can use \"Insert Everywhere\" when signing a document.
+    # @return [Boolean]
     attr_accessor :can_insert_everywhere
 
     # Attribute mapping from ruby-style variable name to JSON key.

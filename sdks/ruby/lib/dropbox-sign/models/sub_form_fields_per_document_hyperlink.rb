@@ -20,12 +20,15 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentHyperlink < SubFormFieldsPerDocumentBase
     # A hyperlink field. Use the `SubFormFieldsPerDocumentHyperlink` class.
+    # @return [String]
     attr_accessor :type
 
     # Link Text.
+    # @return [String]
     attr_accessor :content
 
     # Link URL.
+    # @return [String]
     attr_accessor :content_url
 
     # Attribute mapping from ruby-style variable name to JSON key.

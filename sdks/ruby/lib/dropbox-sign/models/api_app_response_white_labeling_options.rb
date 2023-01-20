@@ -19,32 +19,46 @@ end
 module Dropbox::Sign
   # An object with options to customize the app's signer page
   class ApiAppResponseWhiteLabelingOptions
+    # @return [String]
     attr_accessor :header_background_color
 
+    # @return [String]
     attr_accessor :legal_version
 
+    # @return [String]
     attr_accessor :link_color
 
+    # @return [String]
     attr_accessor :page_background_color
 
+    # @return [String]
     attr_accessor :primary_button_color
 
+    # @return [String]
     attr_accessor :primary_button_color_hover
 
+    # @return [String]
     attr_accessor :primary_button_text_color
 
+    # @return [String]
     attr_accessor :primary_button_text_color_hover
 
+    # @return [String]
     attr_accessor :secondary_button_color
 
+    # @return [String]
     attr_accessor :secondary_button_color_hover
 
+    # @return [String]
     attr_accessor :secondary_button_text_color
 
+    # @return [String]
     attr_accessor :secondary_button_text_color_hover
 
+    # @return [String]
     attr_accessor :text_color1
 
+    # @return [String]
     attr_accessor :text_color2
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -19,12 +19,15 @@ end
 module Dropbox::Sign
   class SubFormFieldGroup
     # ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.
+    # @return [String]
     attr_accessor :group_id
 
     # Name of the group
+    # @return [String]
     attr_accessor :group_label
 
     # Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
+    # @return [String]
     attr_accessor :requirement
 
     # Attribute mapping from ruby-style variable name to JSON key.

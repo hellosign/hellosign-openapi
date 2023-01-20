@@ -20,12 +20,15 @@ module Dropbox::Sign
   # This class extends `SubFormFieldsPerDocumentBase`.
   class SubFormFieldsPerDocumentRadio < SubFormFieldsPerDocumentBase
     # An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.
+    # @return [String]
     attr_accessor :type
 
     # String referencing group defined in `form_field_groups` parameter.
+    # @return [String]
     attr_accessor :group
 
     # `true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.
+    # @return [Boolean]
     attr_accessor :is_checked
 
     # Attribute mapping from ruby-style variable name to JSON key.
