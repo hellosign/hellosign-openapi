@@ -20,27 +20,27 @@ module Dropbox::Sign
   # A group of documents that a user can take ownership of via the claim URL.
   class UnclaimedDraftResponse
     # The ID of the signature request that is represented by this UnclaimedDraft.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signature_request_id
 
     # The URL to be used to claim this UnclaimedDraft.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :claim_url
 
     # The URL you want signers redirected to after they successfully sign.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signing_redirect_url
 
     # The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :requesting_redirect_url
 
     # When the link expires.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :expires_at
 
     # Whether this is a test draft. Signature requests made from test drafts have no legal value.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :test_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.

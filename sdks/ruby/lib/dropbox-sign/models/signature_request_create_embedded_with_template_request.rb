@@ -31,50 +31,50 @@ module Dropbox::Sign
     attr_accessor :signers
 
     # Allows signers to decline to sign a document if `true`. Defaults to `false`.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :allow_decline
 
     # Add CC email recipients. Required when a CC role exists for the Template.
-    # @return [Array<SubCC>]
+    # @return [Array<SubCC>, nil]
     attr_accessor :ccs
 
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
-    # @return [Array<SubCustomField>]
+    # @return [Array<SubCustomField>, nil]
     attr_accessor :custom_fields
 
     # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-    # @return [Array<File>]
+    # @return [Array<File>, nil]
     attr_accessor :files
 
     # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-    # @return [Array<String>]
+    # @return [Array<String>, nil]
     attr_accessor :file_urls
 
     # The custom message in the email that will be sent to the signers.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :message
 
     # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-    # @return [Hash<String, Object>]
+    # @return [Hash<String, Object>, nil]
     attr_accessor :metadata
 
-    # @return [SubSigningOptions]
+    # @return [SubSigningOptions, nil]
     attr_accessor :signing_options
 
     # The subject in the email that will be sent to the signers.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :subject
 
     # Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :test_mode
 
     # The title you want to assign to the SignatureRequest.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :title
 
     # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :populate_auto_fill_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.

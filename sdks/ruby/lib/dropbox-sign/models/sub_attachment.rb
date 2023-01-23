@@ -27,11 +27,11 @@ module Dropbox::Sign
     attr_accessor :signer_index
 
     # The instructions for uploading the attachment.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :instructions
 
     # Determines if the attachment must be uploaded.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :required
 
     # Attribute mapping from ruby-style variable name to JSON key.

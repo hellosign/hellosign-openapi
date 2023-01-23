@@ -28,15 +28,15 @@ module Dropbox::Sign
     attr_accessor :name
 
     # A boolean value denoting if this field is required.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :required
 
     # The unique ID for this field.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :api_id
 
     # The name of the Role that is able to edit this field.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :editor
 
     # Attribute mapping from ruby-style variable name to JSON key.

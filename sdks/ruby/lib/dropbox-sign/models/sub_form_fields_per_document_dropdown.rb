@@ -28,7 +28,7 @@ module Dropbox::Sign
     attr_accessor :options
 
     # Selected value in `options` array. Value must exist in array.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :content
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class TemplateGetResponse
-    # @return [TemplateResponse]
+    # @return [TemplateResponse, nil]
     attr_accessor :template
 
     # A list of warnings.
-    # @return [Array<WarningResponse>]
+    # @return [Array<WarningResponse>, nil]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

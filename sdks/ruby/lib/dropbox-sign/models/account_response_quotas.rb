@@ -20,23 +20,23 @@ module Dropbox::Sign
   # Details concerning remaining monthly quotas.
   class AccountResponseQuotas
     # API signature requests remaining.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :api_signature_requests_left
 
     # Signature requests remaining.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :documents_left
 
     # Total API templates allowed.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :templates_total
 
     # API templates remaining.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :templates_left
 
     # SMS verifications  remaining.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :sms_verifications_left
 
     # Attribute mapping from ruby-style variable name to JSON key.

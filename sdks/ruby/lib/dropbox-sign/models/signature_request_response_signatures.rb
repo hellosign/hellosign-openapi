@@ -20,79 +20,79 @@ module Dropbox::Sign
   # An array of signature objects, 1 for each signer.
   class SignatureRequestResponseSignatures
     # Signature identifier.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signature_id
 
     # Signer Group GUID
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signer_group_guid
 
     # The email address of the signer.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signer_email_address
 
     # The name of the signer.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signer_name
 
     # The role of the signer.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signer_role
 
     # If signer order is assigned this is the 0-based index for this signer.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :order
 
     # The current status of the signature. eg: awaiting_signature, signed, declined.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :status_code
 
     # The reason provided by the signer for declining the request.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :decline_reason
 
     # Time that the document was signed or null.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :signed_at
 
     # The time that the document was last viewed by this signer or null.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :last_viewed_at
 
     # The time the last reminder email was sent to the signer or null.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :last_reminded_at
 
     # Boolean to indicate whether this signature requires a PIN to access.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :has_pin
 
     # Boolean to indicate whether this signature has SMS authentication enabled.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :has_sms_auth
 
     # Boolean to indicate whether this signature has SMS delivery enabled.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :has_sms_delivery
 
     # The SMS phone number used for authentication or signature request delivery.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :sms_phone_number
 
     # Email address of original signer who reassigned to this signer.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :reassigned_by
 
     # Reason provided by original signer who reassigned to this signer.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :reassignment_reason
 
     # Previous signature identifier.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :reassigned_from
 
     # Error message pertaining to this signer, or null.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :error
 
     # Attribute mapping from ruby-style variable name to JSON key.

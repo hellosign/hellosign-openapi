@@ -19,14 +19,14 @@ end
 module Dropbox::Sign
   class ApiAppListResponse
     # Contains information about API Apps.
-    # @return [Array<ApiAppResponse>]
+    # @return [Array<ApiAppResponse>, nil]
     attr_accessor :api_apps
 
-    # @return [ListInfoResponse]
+    # @return [ListInfoResponse, nil]
     attr_accessor :list_info
 
     # A list of warnings.
-    # @return [Array<WarningResponse>]
+    # @return [Array<WarningResponse>, nil]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

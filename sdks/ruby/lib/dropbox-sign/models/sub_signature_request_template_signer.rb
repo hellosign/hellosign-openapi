@@ -31,15 +31,15 @@ module Dropbox::Sign
     attr_accessor :email_address
 
     # The 4- to 12-character access code that will secure this signer's signature page.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :pin
 
     # An E.164 formatted phone number.  **Note**: Not available in test mode and requires a Standard plan or higher.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :sms_phone_number
 
     # Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :sms_phone_number_type
 
     class EnumAttributeValidator

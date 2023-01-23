@@ -19,7 +19,7 @@ end
 module Dropbox::Sign
   class TemplateResponseCCRole
     # The name of the Role.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

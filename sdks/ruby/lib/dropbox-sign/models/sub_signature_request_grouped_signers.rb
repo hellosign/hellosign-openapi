@@ -27,7 +27,7 @@ module Dropbox::Sign
     attr_accessor :signers
 
     # The order the group is required to sign in. Use this instead of Signer-level `order`.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -19,14 +19,14 @@ end
 module Dropbox::Sign
   class TemplateListResponse
     # List of templates that the API caller has access to.
-    # @return [Array<TemplateResponse>]
+    # @return [Array<TemplateResponse>, nil]
     attr_accessor :templates
 
-    # @return [ListInfoResponse]
+    # @return [ListInfoResponse, nil]
     attr_accessor :list_info
 
     # A list of warnings.
-    # @return [Array<WarningResponse>]
+    # @return [Array<WarningResponse>, nil]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

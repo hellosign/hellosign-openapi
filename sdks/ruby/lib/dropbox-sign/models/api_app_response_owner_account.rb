@@ -20,11 +20,11 @@ module Dropbox::Sign
   # An object describing the app's owner
   class ApiAppResponseOwnerAccount
     # The owner account's ID
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :account_id
 
     # The owner account's email address
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :email_address
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class BulkSendJobSendResponse
-    # @return [BulkSendJobResponse]
+    # @return [BulkSendJobResponse, nil]
     attr_accessor :bulk_send_job
 
     # A list of warnings.
-    # @return [Array<WarningResponse>]
+    # @return [Array<WarningResponse>, nil]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

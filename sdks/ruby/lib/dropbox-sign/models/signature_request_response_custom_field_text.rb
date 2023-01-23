@@ -24,7 +24,7 @@ module Dropbox::Sign
     attr_accessor :type
 
     # A text string for text fields
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

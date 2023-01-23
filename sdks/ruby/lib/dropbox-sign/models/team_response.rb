@@ -20,14 +20,14 @@ module Dropbox::Sign
   # Contains information about your team and its members
   class TeamResponse
     # The name of your Team
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :name
 
-    # @return [Array<AccountResponse>]
+    # @return [Array<AccountResponse>, nil]
     attr_accessor :accounts
 
     # A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
-    # @return [Array<AccountResponse>]
+    # @return [Array<AccountResponse>, nil]
     attr_accessor :invited_accounts
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -19,28 +19,28 @@ end
 module Dropbox::Sign
   class ApiAppUpdateRequest
     # The URL at which the API App should receive event callbacks.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :callback_url
 
     # An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
-    # @return [File]
+    # @return [File, nil]
     attr_accessor :custom_logo_file
 
     # The domain names the ApiApp will be associated with.
-    # @return [Array<String>]
+    # @return [Array<String>, nil]
     attr_accessor :domains
 
     # The name you want to assign to the ApiApp.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :name
 
-    # @return [SubOAuth]
+    # @return [SubOAuth, nil]
     attr_accessor :oauth
 
-    # @return [SubOptions]
+    # @return [SubOptions, nil]
     attr_accessor :options
 
-    # @return [SubWhiteLabelingOptions]
+    # @return [SubWhiteLabelingOptions, nil]
     attr_accessor :white_labeling_options
 
     # Attribute mapping from ruby-style variable name to JSON key.

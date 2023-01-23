@@ -19,7 +19,7 @@ end
 module Dropbox::Sign
   class TemplateEditResponse
     # The id of the Template.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :template_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

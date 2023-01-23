@@ -19,14 +19,14 @@ end
 module Dropbox::Sign
   class SignatureRequestListResponse
     # Contains information about signature requests.
-    # @return [Array<SignatureRequestResponse>]
+    # @return [Array<SignatureRequestResponse>, nil]
     attr_accessor :signature_requests
 
-    # @return [ListInfoResponse]
+    # @return [ListInfoResponse, nil]
     attr_accessor :list_info
 
     # A list of warnings.
-    # @return [Array<WarningResponse>]
+    # @return [Array<WarningResponse>, nil]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

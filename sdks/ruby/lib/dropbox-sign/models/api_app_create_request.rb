@@ -27,20 +27,20 @@ module Dropbox::Sign
     attr_accessor :name
 
     # The URL at which the ApiApp should receive event callbacks.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :callback_url
 
     # An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
-    # @return [File]
+    # @return [File, nil]
     attr_accessor :custom_logo_file
 
-    # @return [SubOAuth]
+    # @return [SubOAuth, nil]
     attr_accessor :oauth
 
-    # @return [SubOptions]
+    # @return [SubOptions, nil]
     attr_accessor :options
 
-    # @return [SubWhiteLabelingOptions]
+    # @return [SubWhiteLabelingOptions, nil]
     attr_accessor :white_labeling_options
 
     # Attribute mapping from ruby-style variable name to JSON key.

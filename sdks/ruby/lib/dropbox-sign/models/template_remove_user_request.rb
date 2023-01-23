@@ -19,11 +19,11 @@ end
 module Dropbox::Sign
   class TemplateRemoveUserRequest
     # The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :account_id
 
     # The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :email_address
 
     # Attribute mapping from ruby-style variable name to JSON key.

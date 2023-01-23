@@ -19,15 +19,15 @@ end
 module Dropbox::Sign
   class AccountUpdateRequest
     # The ID of the Account
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :account_id
 
     # The URL that Dropbox Sign should POST events to.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :callback_url
 
     # The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :locale
 
     # Attribute mapping from ruby-style variable name to JSON key.

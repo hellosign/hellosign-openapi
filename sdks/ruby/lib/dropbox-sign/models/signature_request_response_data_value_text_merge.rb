@@ -19,11 +19,11 @@ end
 module Dropbox::Sign
   class SignatureRequestResponseDataValueTextMerge < SignatureRequestResponseDataBase
     # A text field that has default text set by the api
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :type
 
     # The value of the form field.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

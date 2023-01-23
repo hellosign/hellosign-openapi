@@ -28,7 +28,7 @@ module Dropbox::Sign
     attr_accessor :is_checked
 
     # String referencing group defined in `form_field_groups` parameter.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :group
 
     # Attribute mapping from ruby-style variable name to JSON key.
