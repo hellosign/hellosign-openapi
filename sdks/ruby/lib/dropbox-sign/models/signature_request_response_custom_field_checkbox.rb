@@ -24,7 +24,7 @@ module Dropbox::Sign
     attr_accessor :type
 
     # A true/false for checkbox fields
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

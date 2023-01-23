@@ -28,7 +28,7 @@ module Dropbox::Sign
     attr_accessor :error_name
 
     # Path at which an error occurred.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :error_path
 
     # Attribute mapping from ruby-style variable name to JSON key.

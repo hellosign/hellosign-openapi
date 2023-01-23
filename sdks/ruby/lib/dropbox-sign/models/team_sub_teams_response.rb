@@ -19,13 +19,13 @@ end
 module Dropbox::Sign
   class TeamSubTeamsResponse
     # Contains a list with sub teams.
-    # @return [Array<SubTeamResponse>, nil]
+    # @return [Array<SubTeamResponse>]
     attr_accessor :sub_teams
 
-    # @return [ListInfoResponse, nil]
+    # @return [ListInfoResponse]
     attr_accessor :list_info
 
-    # @return [Array<WarningResponse>, nil]
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

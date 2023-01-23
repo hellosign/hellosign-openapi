@@ -6,7 +6,7 @@
     {{#description}}
     # {{{.}}}
     {{/description}}
-    # @return [{{{dataType}}}{{^required}}, nil{{/required}}]
+    # @return [{{{dataType}}}{{#isNullable}}, nil{{/isNullable}}]
     attr_accessor :{{{name}}}
 
   {{/vars}}

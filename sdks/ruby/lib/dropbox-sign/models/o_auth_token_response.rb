@@ -18,17 +18,17 @@ end
 
 module Dropbox::Sign
   class OAuthTokenResponse
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :access_token
 
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :token_type
 
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :refresh_token
 
     # Number of seconds until the `access_token` expires. Uses epoch time.
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :expires_in
 
     # @return [String, nil]

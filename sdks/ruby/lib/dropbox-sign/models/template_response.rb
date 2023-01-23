@@ -20,19 +20,19 @@ module Dropbox::Sign
   # Contains information about the templates you and your team have created.
   class TemplateResponse
     # The id of the Template.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :template_id
 
     # The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :title
 
     # The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :message
 
     # Time the template was last updated.
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :updated_at
 
     # `true` if this template was created using an embedded flow, `false` if it was created on our website.
@@ -52,19 +52,19 @@ module Dropbox::Sign
     attr_accessor :is_locked
 
     # The metadata attached to the template.
-    # @return [Object, nil]
+    # @return [Object]
     attr_accessor :metadata
 
     # An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
-    # @return [Array<TemplateResponseSignerRole>, nil]
+    # @return [Array<TemplateResponseSignerRole>]
     attr_accessor :signer_roles
 
     # An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
-    # @return [Array<TemplateResponseCCRole>, nil]
+    # @return [Array<TemplateResponseCCRole>]
     attr_accessor :cc_roles
 
     # An array describing each document associated with this Template. Includes form field data for each document.
-    # @return [Array<TemplateResponseDocument>, nil]
+    # @return [Array<TemplateResponseDocument>]
     attr_accessor :documents
 
     # An array of Custom Field objects.

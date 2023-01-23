@@ -20,7 +20,7 @@ module Dropbox::Sign
   # An array of signature objects, 1 for each signer.
   class SignatureRequestResponseSignatures
     # Signature identifier.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :signature_id
 
     # Signer Group GUID
@@ -28,7 +28,7 @@ module Dropbox::Sign
     attr_accessor :signer_group_guid
 
     # The email address of the signer.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :signer_email_address
 
     # The name of the signer.
@@ -44,7 +44,7 @@ module Dropbox::Sign
     attr_accessor :order
 
     # The current status of the signature. eg: awaiting_signature, signed, declined.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :status_code
 
     # The reason provided by the signer for declining the request.
@@ -64,7 +64,7 @@ module Dropbox::Sign
     attr_accessor :last_reminded_at
 
     # Boolean to indicate whether this signature requires a PIN to access.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :has_pin
 
     # Boolean to indicate whether this signature has SMS authentication enabled.

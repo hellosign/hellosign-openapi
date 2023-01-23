@@ -24,19 +24,19 @@ module Dropbox::Sign
     attr_accessor :default_type
 
     # Allows drawing the signature
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :draw
 
     # Allows using a smartphone to email the signature
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :phone
 
     # Allows typing the signature
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :type
 
     # Allows uploading the signature
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :upload
 
     class EnumAttributeValidator

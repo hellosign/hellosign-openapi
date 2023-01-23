@@ -24,15 +24,15 @@ module Dropbox::Sign
     attr_accessor :name
 
     # Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.  **Note**: Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :editor
 
     # Used to set an editable merge field when working with pre-filled data. When `true`, the custom field must specify a signer role in `editor`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :required
 
     # The string that resolves (aka \"pre-fills\") to the merge field on the final document(s) used for signing.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

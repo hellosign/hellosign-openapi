@@ -19,26 +19,26 @@ end
 module Dropbox::Sign
   class AccountResponse
     # The ID of the Account
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :account_id
 
     # The email address associated with the Account.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :email_address
 
     # Returns `true` if the user has been locked out of their account by a team admin.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_locked
 
     # Returns `true` if the user has a paid Dropbox Sign account.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_paid_hs
 
     # Returns `true` if the user has a paid HelloFax account.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_paid_hf
 
-    # @return [AccountResponseQuotas, nil]
+    # @return [AccountResponseQuotas]
     attr_accessor :quotas
 
     # The URL that Dropbox Sign events will `POST` to.

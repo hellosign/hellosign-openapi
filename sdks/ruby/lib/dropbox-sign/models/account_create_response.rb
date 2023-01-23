@@ -18,14 +18,14 @@ end
 
 module Dropbox::Sign
   class AccountCreateResponse
-    # @return [AccountResponse, nil]
+    # @return [AccountResponse]
     attr_accessor :account
 
-    # @return [OAuthTokenResponse, nil]
+    # @return [OAuthTokenResponse]
     attr_accessor :oauth_data
 
     # A list of warnings.
-    # @return [Array<WarningResponse>, nil]
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

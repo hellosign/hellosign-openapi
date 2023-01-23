@@ -27,11 +27,11 @@ module Dropbox::Sign
     attr_accessor :operator
 
     # **value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be `String`:   - `is`   - `not`   - `match`  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be `0` or `1` - **radio**: When **type** of trigger is **radio**, **value** must be `1`
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :value
 
     # **values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - `any` - `none`
-    # @return [Array<String>, nil]
+    # @return [Array<String>]
     attr_accessor :values
 
     class EnumAttributeValidator

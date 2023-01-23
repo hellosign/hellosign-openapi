@@ -19,7 +19,7 @@ end
 module Dropbox::Sign
   class FileResponseDataUri
     # File as base64 encoded string.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :data_uri
 
     # Attribute mapping from ruby-style variable name to JSON key.

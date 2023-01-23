@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class EmbeddedEditUrlResponse
-    # @return [EmbeddedEditUrlResponseEmbedded, nil]
+    # @return [EmbeddedEditUrlResponseEmbedded]
     attr_accessor :embedded
 
     # A list of warnings.
-    # @return [Array<WarningResponse>, nil]
+    # @return [Array<WarningResponse>]
     attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.

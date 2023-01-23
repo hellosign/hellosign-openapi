@@ -27,132 +27,132 @@ module Dropbox::Sign
     attr_accessor :requester_email_address
 
     # Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-    # @return [Array<File>, nil]
+    # @return [Array<File>]
     attr_accessor :files
 
     # Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
-    # @return [Array<String>, nil]
+    # @return [Array<String>]
     attr_accessor :file_urls
 
     # This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :allow_ccs
 
     # Allows signers to decline to sign a document if `true`. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :allow_decline
 
     # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :allow_reassign
 
     # A list describing the attachments
-    # @return [Array<SubAttachment>, nil]
+    # @return [Array<SubAttachment>]
     attr_accessor :attachments
 
     # The email addresses that should be CCed.
-    # @return [Array<String>, nil]
+    # @return [Array<String>]
     attr_accessor :cc_email_addresses
 
     # When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
-    # @return [Array<SubCustomField>, nil]
+    # @return [Array<SubCustomField>]
     attr_accessor :custom_fields
 
-    # @return [SubEditorOptions, nil]
+    # @return [SubEditorOptions]
     attr_accessor :editor_options
 
-    # @return [SubFieldOptions, nil]
+    # @return [SubFieldOptions]
     attr_accessor :field_options
 
     # Provide users the ability to review/edit the signers.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :force_signer_page
 
     # Provide users the ability to review/edit the subject and message.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :force_subject_message
 
     # Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
-    # @return [Array<SubFormFieldGroup>, nil]
+    # @return [Array<SubFormFieldGroup>]
     attr_accessor :form_field_groups
 
     # Conditional Logic rules for fields defined in `form_fields_per_document`.
-    # @return [Array<SubFormFieldRule>, nil]
+    # @return [Array<SubFormFieldRule>]
     attr_accessor :form_field_rules
 
     # The fields that should appear on the document, expressed as an array of objects. (We're currently fixing a bug where this property only accepts a two-dimensional array. You can read about it here: <a href=\"/docs/openapi/form-fields-per-document\" target=\"_blank\">Using Form Fields per Document</a>.)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
-    # @return [Array<SubFormFieldsPerDocumentBase>, nil]
+    # @return [Array<SubFormFieldsPerDocumentBase>]
     attr_accessor :form_fields_per_document
 
     # Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :hide_text_tags
 
     # The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :hold_request
 
     # The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_for_embedded_signing
 
     # The custom message in the email that will be sent to the signers.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :message
 
     # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
-    # @return [Hash<String, Object>, nil]
+    # @return [Hash<String, Object>]
     attr_accessor :metadata
 
     # The URL you want signers redirected to after they successfully request a signature.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :requesting_redirect_url
 
     # This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :show_preview
 
     # When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :show_progress_stepper
 
     # Add Signers to your Unclaimed Draft Signature Request.
-    # @return [Array<SubUnclaimedDraftSigner>, nil]
+    # @return [Array<SubUnclaimedDraftSigner>]
     attr_accessor :signers
 
-    # @return [SubSigningOptions, nil]
+    # @return [SubSigningOptions]
     attr_accessor :signing_options
 
     # The URL you want signers redirected to after they successfully sign.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :signing_redirect_url
 
     # Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :skip_me_now
 
     # The subject in the email that will be sent to the signers.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :subject
 
     # Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :type
 
     # Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :use_preexisting_fields
 
     # Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :use_text_tags
 
     # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 
     # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **Note**: This does not correspond to the **expires_at** returned in the response.

@@ -21,13 +21,13 @@ module Dropbox::Sign
     # @return [EventCallbackRequestEvent]
     attr_accessor :event
 
-    # @return [AccountResponse, nil]
+    # @return [AccountResponse]
     attr_accessor :account
 
-    # @return [SignatureRequestResponse, nil]
+    # @return [SignatureRequestResponse]
     attr_accessor :signature_request
 
-    # @return [TemplateResponse, nil]
+    # @return [TemplateResponse]
     attr_accessor :template
 
     # Attribute mapping from ruby-style variable name to JSON key.

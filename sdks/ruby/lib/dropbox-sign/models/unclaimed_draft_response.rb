@@ -24,7 +24,7 @@ module Dropbox::Sign
     attr_accessor :signature_request_id
 
     # The URL to be used to claim this UnclaimedDraft.
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :claim_url
 
     # The URL you want signers redirected to after they successfully sign.
@@ -40,7 +40,7 @@ module Dropbox::Sign
     attr_accessor :expires_at
 
     # Whether this is a test draft. Signature requests made from test drafts have no legal value.
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :test_mode
 
     # Attribute mapping from ruby-style variable name to JSON key.

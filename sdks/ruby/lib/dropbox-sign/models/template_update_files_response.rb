@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class TemplateUpdateFilesResponse
-    # @return [TemplateUpdateFilesResponseTemplate, nil]
+    # @return [TemplateUpdateFilesResponseTemplate]
     attr_accessor :template
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -24,23 +24,23 @@ module Dropbox::Sign
     attr_accessor :callback_url
 
     # The app's client id
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :client_id
 
     # The time that the app was created
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :created_at
 
     # The domain name(s) associated with the app
-    # @return [Array<String>, nil]
+    # @return [Array<String>]
     attr_accessor :domains
 
     # The name of the app
-    # @return [String, nil]
+    # @return [String]
     attr_accessor :name
 
     # Boolean to indicate if the app has been approved
-    # @return [Boolean, nil]
+    # @return [Boolean]
     attr_accessor :is_approved
 
     # @return [ApiAppResponseOAuth, nil]
@@ -49,7 +49,7 @@ module Dropbox::Sign
     # @return [ApiAppResponseOptions, nil]
     attr_accessor :options
 
-    # @return [ApiAppResponseOwnerAccount, nil]
+    # @return [ApiAppResponseOwnerAccount]
     attr_accessor :owner_account
 
     # @return [ApiAppResponseWhiteLabelingOptions, nil]

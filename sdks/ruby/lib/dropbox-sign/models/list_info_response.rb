@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Contains pagination information about the data returned.
   class ListInfoResponse
     # Total number of pages available.
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :num_pages
 
     # Total number of objects available.
@@ -28,11 +28,11 @@ module Dropbox::Sign
     attr_accessor :num_results
 
     # Number of the page being returned.
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :page
 
     # Objects returned per page.
-    # @return [Integer, nil]
+    # @return [Integer]
     attr_accessor :page_size
 
     # Attribute mapping from ruby-style variable name to JSON key.
