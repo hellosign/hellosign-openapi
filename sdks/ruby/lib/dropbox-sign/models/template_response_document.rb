@@ -39,7 +39,7 @@ module Dropbox::Sign
     attr_accessor :custom_fields
 
     # An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.
-    # @return [Array<TemplateResponseDocumentStaticField>]
+    # @return [Array<TemplateResponseDocumentStaticField>, nil]
     attr_accessor :static_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.

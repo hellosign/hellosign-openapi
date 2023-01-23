@@ -31,7 +31,7 @@ module Dropbox::Sign
     # @return [Integer]
     attr_accessor :expires_in
 
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.

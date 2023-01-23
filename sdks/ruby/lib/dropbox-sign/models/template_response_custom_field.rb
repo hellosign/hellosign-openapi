@@ -51,22 +51,22 @@ module Dropbox::Sign
     attr_accessor :api_id
 
     # The name of the group this field is in. If this field is not a group, this defaults to `null`.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :group
 
     # @return [TemplateResponseFieldAvgTextLength]
     attr_accessor :avg_text_length
 
     # Whether this form field is multiline text.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :is_multiline
 
     # Original font size used in this form field's text.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :original_font_size
 
     # Font family used in this form field's text.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :font_family
 
     class EnumAttributeValidator

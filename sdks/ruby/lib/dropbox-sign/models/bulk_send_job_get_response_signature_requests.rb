@@ -19,7 +19,7 @@ end
 module Dropbox::Sign
   class BulkSendJobGetResponseSignatureRequests
     # Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :test_mode
 
     # The id of the SignatureRequest.
@@ -39,11 +39,11 @@ module Dropbox::Sign
     attr_accessor :original_title
 
     # The subject in the email that was initially sent to the signers.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :subject
 
     # The custom message in the email that was initially sent to the signers.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :message
 
     # The metadata attached to the signature request.
@@ -75,7 +75,7 @@ module Dropbox::Sign
     attr_accessor :files_url
 
     # The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signing_url
 
     # The URL where the requester and the signers can view the current status of the SignatureRequest.
@@ -87,23 +87,23 @@ module Dropbox::Sign
     attr_accessor :cc_email_addresses
 
     # The URL you want the signer redirected to after they successfully sign.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :signing_redirect_url
 
     # Templates IDs used in this SignatureRequest (if any).
-    # @return [Array<String>]
+    # @return [Array<String>, nil]
     attr_accessor :template_ids
 
     # An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`
-    # @return [Array<SignatureRequestResponseCustomFieldBase>]
+    # @return [Array<SignatureRequestResponseCustomFieldBase>, nil]
     attr_accessor :custom_fields
 
     # Signer attachments.
-    # @return [Array<SignatureRequestResponseAttachment>]
+    # @return [Array<SignatureRequestResponseAttachment>, nil]
     attr_accessor :attachments
 
     # An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
-    # @return [Array<SignatureRequestResponseDataBase>]
+    # @return [Array<SignatureRequestResponseDataBase>, nil]
     attr_accessor :response_data
 
     # An array of signature objects, 1 for each signer.

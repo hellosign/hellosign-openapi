@@ -20,19 +20,19 @@ module Dropbox::Sign
   # Specific metadata about the event.
   class EventCallbackRequestEventMetadata
     # Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :related_signature_id
 
     # Account ID the event was reported for.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :reported_for_account_id
 
     # App ID the event was reported for.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :reported_for_app_id
 
     # Message about a declined or failed (due to error) signature flow.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :event_message
 
     # Attribute mapping from ruby-style variable name to JSON key.

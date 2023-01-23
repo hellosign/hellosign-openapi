@@ -22,7 +22,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :team_id
 
-    # @return [TeamParentResponse]
+    # @return [TeamParentResponse, nil]
     attr_accessor :team_parent
 
     # The name of a team

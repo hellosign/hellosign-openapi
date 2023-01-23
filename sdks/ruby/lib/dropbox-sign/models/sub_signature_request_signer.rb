@@ -27,7 +27,7 @@ module Dropbox::Sign
     attr_accessor :email_address
 
     # The order the signer is required to sign in.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :order
 
     # The 4- to 12-character access code that will secure this signer's signature page.

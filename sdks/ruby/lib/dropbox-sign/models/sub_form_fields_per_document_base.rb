@@ -59,7 +59,7 @@ module Dropbox::Sign
     attr_accessor :name
 
     # Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :page
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
   class BulkSendJobResponse
     # The id of the BulkSendJob.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :bulk_send_job_id
 
     # The total amount of Signature Requests queued for sending.

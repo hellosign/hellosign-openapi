@@ -55,7 +55,7 @@ module Dropbox::Sign
     attr_accessor :api_id
 
     # The name of the group this field is in. If this field is not a group, this defaults to `null`.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :group
 
     # Attribute mapping from ruby-style variable name to JSON key.

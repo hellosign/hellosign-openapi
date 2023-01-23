@@ -36,19 +36,19 @@ module Dropbox::Sign
     attr_accessor :updated_at
 
     # `true` if this template was created using an embedded flow, `false` if it was created on our website.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :is_embedded
 
     # `true` if you are the owner of this template, `false` if it's been shared with you by a team member.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :is_creator
 
     # Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :can_edit
 
     # Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.
-    # @return [Boolean]
+    # @return [Boolean, nil]
     attr_accessor :is_locked
 
     # The metadata attached to the template.
@@ -68,15 +68,15 @@ module Dropbox::Sign
     attr_accessor :documents
 
     # An array of Custom Field objects.
-    # @return [Array<TemplateResponseCustomField>]
+    # @return [Array<TemplateResponseCustomField>, nil]
     attr_accessor :custom_fields
 
     # Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
-    # @return [Array<TemplateResponseNamedFormField>]
+    # @return [Array<TemplateResponseNamedFormField>, nil]
     attr_accessor :named_form_fields
 
     # An array of the Accounts that can use this Template.
-    # @return [Array<TemplateResponseAccount>]
+    # @return [Array<TemplateResponseAccount>, nil]
     attr_accessor :accounts
 
     # Attribute mapping from ruby-style variable name to JSON key.

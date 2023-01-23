@@ -20,7 +20,7 @@ module Dropbox::Sign
   # Contains information about an API App.
   class ApiAppResponse
     # The app's callback URL (for events)
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :callback_url
 
     # The app's client id
@@ -43,16 +43,16 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :is_approved
 
-    # @return [ApiAppResponseOAuth]
+    # @return [ApiAppResponseOAuth, nil]
     attr_accessor :oauth
 
-    # @return [ApiAppResponseOptions]
+    # @return [ApiAppResponseOptions, nil]
     attr_accessor :options
 
     # @return [ApiAppResponseOwnerAccount]
     attr_accessor :owner_account
 
-    # @return [ApiAppResponseWhiteLabelingOptions]
+    # @return [ApiAppResponseWhiteLabelingOptions, nil]
     attr_accessor :white_labeling_options
 
     # Attribute mapping from ruby-style variable name to JSON key.

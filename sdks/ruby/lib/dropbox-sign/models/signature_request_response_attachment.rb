@@ -36,11 +36,11 @@ module Dropbox::Sign
     attr_accessor :required
 
     # Instructions for Signer.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :instructions
 
     # Timestamp when attachment was uploaded by Signer.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :uploaded_at
 
     # Attribute mapping from ruby-style variable name to JSON key.

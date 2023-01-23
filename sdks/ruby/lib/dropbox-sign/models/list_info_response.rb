@@ -24,7 +24,7 @@ module Dropbox::Sign
     attr_accessor :num_pages
 
     # Total number of objects available.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :num_results
 
     # Number of the page being returned.

@@ -23,7 +23,7 @@ module Dropbox::Sign
     attr_accessor :name
 
     # The order in which this signer role is required to sign.
-    # @return [Integer]
+    # @return [Integer, nil]
     attr_accessor :order
 
     # Attribute mapping from ruby-style variable name to JSON key.

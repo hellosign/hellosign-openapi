@@ -19,7 +19,7 @@ end
 module Dropbox::Sign
   class AccountUpdateRequest
     # The ID of the Account
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :account_id
 
     # The URL that Dropbox Sign should POST events to.

@@ -42,19 +42,19 @@ module Dropbox::Sign
     attr_accessor :quotas
 
     # The URL that Dropbox Sign events will `POST` to.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :callback_url
 
     # The membership role for the team.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :role_code
 
     # The id of the team account belongs to.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :team_id
 
     # The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
-    # @return [String]
+    # @return [String, nil]
     attr_accessor :locale
 
     # Attribute mapping from ruby-style variable name to JSON key.
