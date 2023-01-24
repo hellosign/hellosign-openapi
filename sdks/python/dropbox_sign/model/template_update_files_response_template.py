@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -99,7 +103,7 @@ class TemplateUpdateFilesResponseTemplate(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateUpdateFilesResponseTemplate":
+    def init(data: any) -> TemplateUpdateFilesResponseTemplate:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -108,7 +112,6 @@ class TemplateUpdateFilesResponseTemplate(ModelNormal):
             response_type=[TemplateUpdateFilesResponseTemplate],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template_id': 'template_id',  # noqa: E501
@@ -119,6 +122,22 @@ class TemplateUpdateFilesResponseTemplate(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template_id(self) -> str:
+        return self.get("template_id")
+
+    @template_id.setter
+    def template_id(self, value: str):
+        setattr(self, "template_id", value)
+
+    @property
+    def warnings(self) -> [WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: [WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

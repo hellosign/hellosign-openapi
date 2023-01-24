@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,19 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+
+if TYPE_CHECKING:
+    from dropbox_sign.models import SubFormFieldsPerDocumentCheckbox
+    from dropbox_sign.models import SubFormFieldsPerDocumentCheckboxMerge
+    from dropbox_sign.models import SubFormFieldsPerDocumentDateSigned
+    from dropbox_sign.models import SubFormFieldsPerDocumentDropdown
+    from dropbox_sign.models import SubFormFieldsPerDocumentHyperlink
+    from dropbox_sign.models import SubFormFieldsPerDocumentInitials
+    from dropbox_sign.models import SubFormFieldsPerDocumentRadio
+    from dropbox_sign.models import SubFormFieldsPerDocumentSignature
+    from dropbox_sign.models import SubFormFieldsPerDocumentText
+    from dropbox_sign.models import SubFormFieldsPerDocumentTextMerge
+
 
 def lazy_import():
     from dropbox_sign.models import SubFormFieldsPerDocumentCheckbox
@@ -139,7 +154,6 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             return None
         return {'type': val}
 
-
     attribute_map = {
         'document_index': 'document_index',  # noqa: E501
         'api_id': 'api_id',  # noqa: E501
@@ -158,6 +172,94 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def document_index(self) -> int:
+        return self.get("document_index")
+
+    @document_index.setter
+    def document_index(self, value: int):
+        setattr(self, "document_index", value)
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def height(self) -> int:
+        return self.get("height")
+
+    @height.setter
+    def height(self, value: int):
+        setattr(self, "height", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def signer(self) -> str:
+        return self.get("signer")
+
+    @signer.setter
+    def signer(self, value: str):
+        setattr(self, "signer", value)
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def width(self) -> int:
+        return self.get("width")
+
+    @width.setter
+    def width(self, value: int):
+        setattr(self, "width", value)
+
+    @property
+    def x(self) -> int:
+        return self.get("x")
+
+    @x.setter
+    def x(self, value: int):
+        setattr(self, "x", value)
+
+    @property
+    def y(self) -> int:
+        return self.get("y")
+
+    @y.setter
+    def y(self, value: int):
+        setattr(self, "y", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def page(self) -> Optional[int]:
+        return self.get("page")
+
+    @page.setter
+    def page(self, value: Optional[int]):
+        setattr(self, "page", value)
 
     @classmethod
     @convert_js_args_to_python_args

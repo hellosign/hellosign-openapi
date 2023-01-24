@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.unclaimed_draft_response import UnclaimedDraftResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,7 +106,7 @@ class UnclaimedDraftCreateResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "UnclaimedDraftCreateResponse":
+    def init(data: any) -> UnclaimedDraftCreateResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -110,7 +115,6 @@ class UnclaimedDraftCreateResponse(ModelNormal):
             response_type=[UnclaimedDraftCreateResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'unclaimed_draft': 'unclaimed_draft',  # noqa: E501
@@ -121,6 +125,22 @@ class UnclaimedDraftCreateResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def unclaimed_draft(self) -> UnclaimedDraftResponse:
+        return self.get("unclaimed_draft")
+
+    @unclaimed_draft.setter
+    def unclaimed_draft(self, value: UnclaimedDraftResponse):
+        setattr(self, "unclaimed_draft", value)
+
+    @property
+    def warnings(self) -> [WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: [WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

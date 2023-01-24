@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -93,7 +95,7 @@ class SignatureRequestResponseDataTypeEnum(ModelSimple):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestResponseDataTypeEnum":
+    def init(data: any) -> SignatureRequestResponseDataTypeEnum:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """

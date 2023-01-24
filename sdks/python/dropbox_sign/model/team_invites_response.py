@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.team_invite_response import TeamInviteResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,7 +106,7 @@ class TeamInvitesResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TeamInvitesResponse":
+    def init(data: any) -> TeamInvitesResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -110,7 +115,6 @@ class TeamInvitesResponse(ModelNormal):
             response_type=[TeamInvitesResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'team_invites': 'team_invites',  # noqa: E501
@@ -121,6 +125,22 @@ class TeamInvitesResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def team_invites(self) -> [TeamInviteResponse]:
+        return self.get("team_invites")
+
+    @team_invites.setter
+    def team_invites(self, value: [TeamInviteResponse]):
+        setattr(self, "team_invites", value)
+
+    @property
+    def warnings(self) -> [WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: [WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

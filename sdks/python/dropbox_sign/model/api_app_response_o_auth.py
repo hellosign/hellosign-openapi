@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,7 +97,7 @@ class ApiAppResponseOAuth(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ApiAppResponseOAuth":
+    def init(data: any) -> ApiAppResponseOAuth:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -104,7 +106,6 @@ class ApiAppResponseOAuth(ModelNormal):
             response_type=[ApiAppResponseOAuth],
             _check_type=True,
         )
-
 
     attribute_map = {
         'callback_url': 'callback_url',  # noqa: E501
@@ -117,6 +118,38 @@ class ApiAppResponseOAuth(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def callback_url(self) -> str:
+        return self.get("callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: str):
+        setattr(self, "callback_url", value)
+
+    @property
+    def secret(self) -> str:
+        return self.get("secret")
+
+    @secret.setter
+    def secret(self, value: str):
+        setattr(self, "secret", value)
+
+    @property
+    def scopes(self) -> [str]:
+        return self.get("scopes")
+
+    @scopes.setter
+    def scopes(self, value: [str]):
+        setattr(self, "scopes", value)
+
+    @property
+    def charges_users(self) -> bool:
+        return self.get("charges_users")
+
+    @charges_users.setter
+    def charges_users(self, value: bool):
+        setattr(self, "charges_users", value)
 
     @classmethod
     @convert_js_args_to_python_args

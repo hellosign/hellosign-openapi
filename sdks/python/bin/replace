@@ -29,3 +29,5 @@ perl -pi -e 's/(.*)AllOf.md\)\n//g' "${ROOT_DIR}/README.md"
 rep '([^\\r\n]+?)from (.*)_all_of import (.*)\n' ''
 rep 'from (.*)_all_of import (.*)\n' ''
 rep "\s+globals\(\)\['[a-zA-Z]+AllOf(.*)\n" ''
+rep 'def (.*)\(self\) -> (.*), none_type:' 'def $1(self) -> Optional[$2]:'
+rep 'def (.*)\(self, value: (.*), none_type\):' 'def $1(self, value: Optional[$2]):'

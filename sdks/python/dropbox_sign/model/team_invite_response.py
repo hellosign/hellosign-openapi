@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -97,7 +99,7 @@ class TeamInviteResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TeamInviteResponse":
+    def init(data: any) -> TeamInviteResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -106,7 +108,6 @@ class TeamInviteResponse(ModelNormal):
             response_type=[TeamInviteResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'email_address': 'email_address',  # noqa: E501
@@ -121,6 +122,54 @@ class TeamInviteResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def team_id(self) -> str:
+        return self.get("team_id")
+
+    @team_id.setter
+    def team_id(self, value: str):
+        setattr(self, "team_id", value)
+
+    @property
+    def role(self) -> str:
+        return self.get("role")
+
+    @role.setter
+    def role(self, value: str):
+        setattr(self, "role", value)
+
+    @property
+    def sent_at(self) -> int:
+        return self.get("sent_at")
+
+    @sent_at.setter
+    def sent_at(self, value: int):
+        setattr(self, "sent_at", value)
+
+    @property
+    def redeemed_at(self) -> int:
+        return self.get("redeemed_at")
+
+    @redeemed_at.setter
+    def redeemed_at(self, value: int):
+        setattr(self, "redeemed_at", value)
+
+    @property
+    def expires_at(self) -> int:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: int):
+        setattr(self, "expires_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

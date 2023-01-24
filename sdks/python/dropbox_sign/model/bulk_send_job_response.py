@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,7 +97,7 @@ class BulkSendJobResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "BulkSendJobResponse":
+    def init(data: any) -> BulkSendJobResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -104,7 +106,6 @@ class BulkSendJobResponse(ModelNormal):
             response_type=[BulkSendJobResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'bulk_send_job_id': 'bulk_send_job_id',  # noqa: E501
@@ -117,6 +118,38 @@ class BulkSendJobResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def bulk_send_job_id(self) -> Optional[str]:
+        return self.get("bulk_send_job_id")
+
+    @bulk_send_job_id.setter
+    def bulk_send_job_id(self, value: Optional[str]):
+        setattr(self, "bulk_send_job_id", value)
+
+    @property
+    def total(self) -> int:
+        return self.get("total")
+
+    @total.setter
+    def total(self, value: int):
+        setattr(self, "total", value)
+
+    @property
+    def is_creator(self) -> bool:
+        return self.get("is_creator")
+
+    @is_creator.setter
+    def is_creator(self, value: bool):
+        setattr(self, "is_creator", value)
+
+    @property
+    def created_at(self) -> int:
+        return self.get("created_at")
+
+    @created_at.setter
+    def created_at(self, value: int):
+        setattr(self, "created_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

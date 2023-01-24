@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -94,7 +96,7 @@ class AccountUpdateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "AccountUpdateRequest":
+    def init(data: any) -> AccountUpdateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -103,7 +105,6 @@ class AccountUpdateRequest(ModelNormal):
             response_type=[AccountUpdateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'account_id': 'account_id',  # noqa: E501
@@ -115,6 +116,30 @@ class AccountUpdateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def account_id(self) -> Optional[str]:
+        return self.get("account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[str]):
+        setattr(self, "account_id", value)
+
+    @property
+    def callback_url(self) -> str:
+        return self.get("callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: str):
+        setattr(self, "callback_url", value)
+
+    @property
+    def locale(self) -> str:
+        return self.get("locale")
+
+    @locale.setter
+    def locale(self, value: str):
+        setattr(self, "locale", value)
 
     @classmethod
     @convert_js_args_to_python_args

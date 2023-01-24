@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -94,7 +96,7 @@ class TeamMemberResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TeamMemberResponse":
+    def init(data: any) -> TeamMemberResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -103,7 +105,6 @@ class TeamMemberResponse(ModelNormal):
             response_type=[TeamMemberResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'account_id': 'account_id',  # noqa: E501
@@ -115,6 +116,30 @@ class TeamMemberResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def account_id(self) -> str:
+        return self.get("account_id")
+
+    @account_id.setter
+    def account_id(self, value: str):
+        setattr(self, "account_id", value)
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def role(self) -> str:
+        return self.get("role")
+
+    @role.setter
+    def role(self, value: str):
+        setattr(self, "role", value)
 
     @classmethod
     @convert_js_args_to_python_args

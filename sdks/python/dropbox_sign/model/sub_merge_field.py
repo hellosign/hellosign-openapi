@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -97,7 +99,7 @@ class SubMergeField(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubMergeField":
+    def init(data: any) -> SubMergeField:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -106,7 +108,6 @@ class SubMergeField(ModelNormal):
             response_type=[SubMergeField],
             _check_type=True,
         )
-
 
     attribute_map = {
         'name': 'name',  # noqa: E501
@@ -117,6 +118,22 @@ class SubMergeField(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
 
     @classmethod
     @convert_js_args_to_python_args

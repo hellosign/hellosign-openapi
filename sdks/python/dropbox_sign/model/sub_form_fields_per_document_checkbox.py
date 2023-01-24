@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
 
 
 def lazy_import():
@@ -110,7 +114,7 @@ class SubFormFieldsPerDocumentCheckbox(ModelComposed):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubFormFieldsPerDocumentCheckbox":
+    def init(data: any) -> SubFormFieldsPerDocumentCheckbox:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -139,6 +143,110 @@ class SubFormFieldsPerDocumentCheckbox(ModelComposed):
 
     read_only_vars = {
     }
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def is_checked(self) -> bool:
+        return self.get("is_checked")
+
+    @is_checked.setter
+    def is_checked(self, value: bool):
+        setattr(self, "is_checked", value)
+
+    @property
+    def document_index(self) -> int:
+        return self.get("document_index")
+
+    @document_index.setter
+    def document_index(self, value: int):
+        setattr(self, "document_index", value)
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def height(self) -> int:
+        return self.get("height")
+
+    @height.setter
+    def height(self, value: int):
+        setattr(self, "height", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def signer(self) -> str:
+        return self.get("signer")
+
+    @signer.setter
+    def signer(self, value: str):
+        setattr(self, "signer", value)
+
+    @property
+    def width(self) -> int:
+        return self.get("width")
+
+    @width.setter
+    def width(self, value: int):
+        setattr(self, "width", value)
+
+    @property
+    def x(self) -> int:
+        return self.get("x")
+
+    @x.setter
+    def x(self, value: int):
+        setattr(self, "x", value)
+
+    @property
+    def y(self) -> int:
+        return self.get("y")
+
+    @y.setter
+    def y(self, value: int):
+        setattr(self, "y", value)
+
+    @property
+    def group(self) -> str:
+        return self.get("group")
+
+    @group.setter
+    def group(self, value: str):
+        setattr(self, "group", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def page(self) -> Optional[int]:
+        return self.get("page")
+
+    @page.setter
+    def page(self, value: Optional[int]):
+        setattr(self, "page", value)
 
     @classmethod
     @convert_js_args_to_python_args

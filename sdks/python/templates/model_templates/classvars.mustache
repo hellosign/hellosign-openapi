@@ -140,7 +140,7 @@
         return {'{{{discriminatorName}}}': val}{{/discriminator}}
 {{^discriminator}}
     @staticmethod
-    def init(data: any) -> "{{classname}}":
+    def init(data: any) -> {{classname}}:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """

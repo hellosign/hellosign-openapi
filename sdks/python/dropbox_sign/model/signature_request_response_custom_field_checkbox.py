@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.signature_request_response_custom_field_base import SignatureRequestResponseCustomFieldBase
 
 
 def lazy_import():
@@ -103,7 +107,7 @@ class SignatureRequestResponseCustomFieldCheckbox(ModelComposed):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestResponseCustomFieldCheckbox":
+    def init(data: any) -> SignatureRequestResponseCustomFieldCheckbox:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -125,6 +129,54 @@ class SignatureRequestResponseCustomFieldCheckbox(ModelComposed):
 
     read_only_vars = {
     }
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def value(self) -> bool:
+        return self.get("value")
+
+    @value.setter
+    def value(self, value: bool):
+        setattr(self, "value", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def editor(self) -> str:
+        return self.get("editor")
+
+    @editor.setter
+    def editor(self, value: str):
+        setattr(self, "editor", value)
 
     @classmethod
     @convert_js_args_to_python_args

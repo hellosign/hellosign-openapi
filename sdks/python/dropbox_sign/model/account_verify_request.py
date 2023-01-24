@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -92,7 +94,7 @@ class AccountVerifyRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "AccountVerifyRequest":
+    def init(data: any) -> AccountVerifyRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -102,7 +104,6 @@ class AccountVerifyRequest(ModelNormal):
             _check_type=True,
         )
 
-
     attribute_map = {
         'email_address': 'email_address',  # noqa: E501
     }
@@ -111,6 +112,14 @@ class AccountVerifyRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
 
     @classmethod
     @convert_js_args_to_python_args
