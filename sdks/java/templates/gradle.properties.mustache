@@ -4,6 +4,9 @@
 # Gradle properties reference: https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties
 # For example, uncomment below to build for Android
 #target = android
+GROUP={{groupId}}
+ARCHIVES_BASE_NAME={{artifactId}}
+VERSION_NAME={{artifactVersion}}
 {{#gradleProperties}}
 {{{.}}}
 {{/gradleProperties}}
