@@ -48,6 +48,6 @@ fi
 rm -rf "${DIR}/api"
 
 printf "Building ...\n"
-bash "${DIR}/bin/maven" mvn clean install
+bash "${DIR}/bin/gradle" ./gradlew clean build
 
 printf "Success!\n"
