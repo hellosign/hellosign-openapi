@@ -55,11 +55,11 @@ rep 'def ([a-zA-Z_]+)\(self\) -> ([a-zA-Z]+)\[\[(.*)\]\]:' 'def $1(self) -> $2\[
 rep 'def ([a-zA-Z_]+)\(self, value: ([a-zA-Z]+)\[\[(.*)\]\]\):' 'def $1(self, value: $2\[List[$3]]):'
 
 # def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
-# def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
-rep 'def ([a-zA-Z_]+)\(self\) -> \{([a-zA-Z]+): \((.*)\)\}:' 'def $1(self) -> Dict[$2, Dict[$3]]:'
+# def metadata(self) -> Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]:
+rep 'def ([a-zA-Z_]+)\(self\) -> \{([a-zA-Z]+): \((.*)\)\}:' 'def $1(self) -> Dict[$2, Union[$3]]:'
 
 # def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-# def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
-rep 'def ([a-zA-Z_]+)\(self\, value: \{([a-zA-Z]+): \((.*)\)\}\):' 'def $1(self, value: Dict[$2, Dict[$3]]):'
+# def metadata(self, value: Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]):
+rep 'def ([a-zA-Z_]+)\(self\, value: \{([a-zA-Z]+): \((.*)\)\}\):' 'def $1(self, value: Dict[$2, Union[$3]]):'
 
 printf "\n"

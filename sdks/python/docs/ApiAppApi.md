@@ -111,8 +111,6 @@ Deletes an API App. Can only be invoked for apps you own.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
 from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
