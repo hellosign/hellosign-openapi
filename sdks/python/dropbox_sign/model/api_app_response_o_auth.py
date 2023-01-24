@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -136,11 +136,11 @@ class ApiAppResponseOAuth(ModelNormal):
         setattr(self, "secret", value)
 
     @property
-    def scopes(self) -> [str]:
+    def scopes(self) -> List[str]:
         return self.get("scopes")
 
     @scopes.setter
-    def scopes(self, value: [str]):
+    def scopes(self, value: List[str]):
         setattr(self, "scopes", value)
 
     @property

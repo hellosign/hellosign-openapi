@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -173,11 +173,11 @@ class ApiAppResponse(ModelNormal):
         setattr(self, "created_at", value)
 
     @property
-    def domains(self) -> [str]:
+    def domains(self) -> List[str]:
         return self.get("domains")
 
     @domains.setter
-    def domains(self, value: [str]):
+    def domains(self, value: List[str]):
         setattr(self, "domains", value)
 
     @property

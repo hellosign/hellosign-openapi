@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -229,59 +229,59 @@ class TemplateResponse(ModelNormal):
         setattr(self, "is_locked", value)
 
     @property
-    def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
+    def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
         return self.get("metadata")
 
     @metadata.setter
-    def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+    def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
         setattr(self, "metadata", value)
 
     @property
-    def signer_roles(self) -> [TemplateResponseSignerRole]:
+    def signer_roles(self) -> List[TemplateResponseSignerRole]:
         return self.get("signer_roles")
 
     @signer_roles.setter
-    def signer_roles(self, value: [TemplateResponseSignerRole]):
+    def signer_roles(self, value: List[TemplateResponseSignerRole]):
         setattr(self, "signer_roles", value)
 
     @property
-    def cc_roles(self) -> [TemplateResponseCCRole]:
+    def cc_roles(self) -> List[TemplateResponseCCRole]:
         return self.get("cc_roles")
 
     @cc_roles.setter
-    def cc_roles(self, value: [TemplateResponseCCRole]):
+    def cc_roles(self, value: List[TemplateResponseCCRole]):
         setattr(self, "cc_roles", value)
 
     @property
-    def documents(self) -> [TemplateResponseDocument]:
+    def documents(self) -> List[TemplateResponseDocument]:
         return self.get("documents")
 
     @documents.setter
-    def documents(self, value: [TemplateResponseDocument]):
+    def documents(self, value: List[TemplateResponseDocument]):
         setattr(self, "documents", value)
 
     @property
-    def custom_fields(self) -> Optional[[TemplateResponseCustomField]]:
+    def custom_fields(self) -> Optional[List[TemplateResponseCustomField]]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[[TemplateResponseCustomField]]):
+    def custom_fields(self, value: Optional[List[TemplateResponseCustomField]]):
         setattr(self, "custom_fields", value)
 
     @property
-    def named_form_fields(self) -> Optional[[TemplateResponseNamedFormField]]:
+    def named_form_fields(self) -> Optional[List[TemplateResponseNamedFormField]]:
         return self.get("named_form_fields")
 
     @named_form_fields.setter
-    def named_form_fields(self, value: Optional[[TemplateResponseNamedFormField]]):
+    def named_form_fields(self, value: Optional[List[TemplateResponseNamedFormField]]):
         setattr(self, "named_form_fields", value)
 
     @property
-    def accounts(self) -> Optional[[TemplateResponseAccount]]:
+    def accounts(self) -> Optional[List[TemplateResponseAccount]]:
         return self.get("accounts")
 
     @accounts.setter
-    def accounts(self, value: Optional[[TemplateResponseAccount]]):
+    def accounts(self, value: Optional[List[TemplateResponseAccount]]):
         setattr(self, "accounts", value)
 
     @classmethod

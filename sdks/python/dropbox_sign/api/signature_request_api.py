@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -936,7 +937,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_bulk_create_embedded_with_template_request,
         **kwargs
-    ) -> "BulkSendJobSendResponse":
+    ) -> BulkSendJobSendResponse:
         """Embedded Bulk Send with Template  # noqa: E501
 
         Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE**: Only available for Standard plan and higher.  # noqa: E501
@@ -1036,7 +1037,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_bulk_send_with_template_request,
         **kwargs
-    ) -> "BulkSendJobSendResponse":
+    ) -> BulkSendJobSendResponse:
         """Bulk Send with Template  # noqa: E501
 
         Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.  **NOTE**: Only available for Standard plan and higher.  # noqa: E501
@@ -1214,7 +1215,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_create_embedded_request,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Create Embedded Signature Request  # noqa: E501
 
         Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
@@ -1314,7 +1315,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_create_embedded_with_template_request,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Create Embedded Signature Request with Template  # noqa: E501
 
         Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
@@ -1414,7 +1415,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_id,
         **kwargs
-    ) -> "file_type":
+    ) -> file_type:
         """Download Files  # noqa: E501
 
         Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead.  # noqa: E501
@@ -1515,7 +1516,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_id,
         **kwargs
-    ) -> "FileResponseDataUri":
+    ) -> FileResponseDataUri:
         """Download Files as Data Uri  # noqa: E501
 
         Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.  # noqa: E501
@@ -1615,7 +1616,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_id,
         **kwargs
-    ) -> "FileResponse":
+    ) -> FileResponse:
         """Download Files as File Url  # noqa: E501
 
         Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.  # noqa: E501
@@ -1715,7 +1716,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_id,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Get Signature Request  # noqa: E501
 
         Returns the status of the SignatureRequest specified by the `signature_request_id` parameter.  # noqa: E501
@@ -1814,7 +1815,7 @@ class SignatureRequestApi(object):
     def signature_request_list(
         self,
         **kwargs
-    ) -> "SignatureRequestListResponse":
+    ) -> SignatureRequestListResponse:
         """List Signature Requests  # noqa: E501
 
         Returns a list of SignatureRequests that you can access. This includes SignatureRequests you have sent as well as received, but not ones that you have been CCed on.  Take a look at our [search guide](/api/reference/search/) to learn more about querying signature requests.  # noqa: E501
@@ -1914,7 +1915,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_id,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Release On-Hold Signature Request  # noqa: E501
 
         Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.  # noqa: E501
@@ -2015,7 +2016,7 @@ class SignatureRequestApi(object):
         signature_request_id,
         signature_request_remind_request,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Send Request Reminder  # noqa: E501
 
         Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.  **NOTE**: This action can **not** be used with embedded signature requests.  # noqa: E501
@@ -2196,7 +2197,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_send_request,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Send Signature Request  # noqa: E501
 
         Creates and sends a new SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  # noqa: E501
@@ -2296,7 +2297,7 @@ class SignatureRequestApi(object):
         self,
         signature_request_send_with_template_request,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Send with Template  # noqa: E501
 
         Creates and sends a new SignatureRequest based off of the Template(s) specified with the `template_ids` parameter.  # noqa: E501
@@ -2397,7 +2398,7 @@ class SignatureRequestApi(object):
         signature_request_id,
         signature_request_update_request,
         **kwargs
-    ) -> "SignatureRequestGetResponse":
+    ) -> SignatureRequestGetResponse:
         """Update Signature Request  # noqa: E501
 
         Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.  # noqa: E501

@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -134,11 +134,11 @@ class ReportCreateRequest(ModelNormal):
         setattr(self, "end_date", value)
 
     @property
-    def report_type(self) -> [str]:
+    def report_type(self) -> List[str]:
         return self.get("report_type")
 
     @report_type.setter
-    def report_type(self, value: [str]):
+    def report_type(self, value: List[str]):
         setattr(self, "report_type", value)
 
     @property

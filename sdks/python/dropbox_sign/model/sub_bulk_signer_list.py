@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -127,19 +127,19 @@ class SubBulkSignerList(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def custom_fields(self) -> [SubBulkSignerListCustomField]:
+    def custom_fields(self) -> List[SubBulkSignerListCustomField]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: [SubBulkSignerListCustomField]):
+    def custom_fields(self, value: List[SubBulkSignerListCustomField]):
         setattr(self, "custom_fields", value)
 
     @property
-    def signers(self) -> [SubSignatureRequestTemplateSigner]:
+    def signers(self) -> List[SubSignatureRequestTemplateSigner]:
         return self.get("signers")
 
     @signers.setter
-    def signers(self, value: [SubSignatureRequestTemplateSigner]):
+    def signers(self, value: List[SubSignatureRequestTemplateSigner]):
         setattr(self, "signers", value)
 
     @classmethod

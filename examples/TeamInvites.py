@@ -17,7 +17,7 @@ with ApiClient(configuration) as api_client:
     email_address = "user@dropboxsign.com"
 
     try:
-        response = team_api.team_invites(email_address)
+        response = team_api.team_invites(email_address=email_address)
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

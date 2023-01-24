@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -127,19 +127,19 @@ class TeamInvitesResponse(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def team_invites(self) -> [TeamInviteResponse]:
+    def team_invites(self) -> List[TeamInviteResponse]:
         return self.get("team_invites")
 
     @team_invites.setter
-    def team_invites(self, value: [TeamInviteResponse]):
+    def team_invites(self, value: List[TeamInviteResponse]):
         setattr(self, "team_invites", value)
 
     @property
-    def warnings(self) -> [WarningResponse]:
+    def warnings(self) -> List[WarningResponse]:
         return self.get("warnings")
 
     @warnings.setter
-    def warnings(self, value: [WarningResponse]):
+    def warnings(self, value: List[WarningResponse]):
         setattr(self, "warnings", value)
 
     @classmethod

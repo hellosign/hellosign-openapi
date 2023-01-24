@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -138,19 +138,19 @@ class TemplateUpdateFilesRequest(ModelNormal):
         setattr(self, "client_id", value)
 
     @property
-    def files(self) -> [file_type]:
+    def files(self) -> List[file_type]:
         return self.get("files")
 
     @files.setter
-    def files(self, value: [file_type]):
+    def files(self, value: List[file_type]):
         setattr(self, "files", value)
 
     @property
-    def file_urls(self) -> [str]:
+    def file_urls(self) -> List[str]:
         return self.get("file_urls")
 
     @file_urls.setter
-    def file_urls(self, value: [str]):
+    def file_urls(self, value: List[str]):
         setattr(self, "file_urls", value)
 
     @property

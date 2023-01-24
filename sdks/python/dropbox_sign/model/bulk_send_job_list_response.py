@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -132,11 +132,11 @@ class BulkSendJobListResponse(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def bulk_send_jobs(self) -> [BulkSendJobResponse]:
+    def bulk_send_jobs(self) -> List[BulkSendJobResponse]:
         return self.get("bulk_send_jobs")
 
     @bulk_send_jobs.setter
-    def bulk_send_jobs(self, value: [BulkSendJobResponse]):
+    def bulk_send_jobs(self, value: List[BulkSendJobResponse]):
         setattr(self, "bulk_send_jobs", value)
 
     @property
@@ -148,11 +148,11 @@ class BulkSendJobListResponse(ModelNormal):
         setattr(self, "list_info", value)
 
     @property
-    def warnings(self) -> [WarningResponse]:
+    def warnings(self) -> List[WarningResponse]:
         return self.get("warnings")
 
     @warnings.setter
-    def warnings(self, value: [WarningResponse]):
+    def warnings(self, value: List[WarningResponse]):
         setattr(self, "warnings", value)
 
     @classmethod

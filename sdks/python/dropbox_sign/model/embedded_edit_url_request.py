@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -151,11 +151,11 @@ class EmbeddedEditUrlRequest(ModelNormal):
         setattr(self, "allow_edit_ccs", value)
 
     @property
-    def cc_roles(self) -> [str]:
+    def cc_roles(self) -> List[str]:
         return self.get("cc_roles")
 
     @cc_roles.setter
-    def cc_roles(self, value: [str]):
+    def cc_roles(self, value: List[str]):
         setattr(self, "cc_roles", value)
 
     @property
@@ -183,11 +183,11 @@ class EmbeddedEditUrlRequest(ModelNormal):
         setattr(self, "force_subject_message", value)
 
     @property
-    def merge_fields(self) -> [SubMergeField]:
+    def merge_fields(self) -> List[SubMergeField]:
         return self.get("merge_fields")
 
     @merge_fields.setter
-    def merge_fields(self, value: [SubMergeField]):
+    def merge_fields(self, value: List[SubMergeField]):
         setattr(self, "merge_fields", value)
 
     @property

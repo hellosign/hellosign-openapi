@@ -172,8 +172,6 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
 from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
@@ -189,8 +187,7 @@ with ApiClient(configuration) as api_client:
     team_api = apis.TeamApi(api_client)
 
     try:
-        response = team_api.team_delete()
-        pprint(response)
+        team_api.team_delete()
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -388,7 +385,7 @@ with ApiClient(configuration) as api_client:
     email_address = "user@dropboxsign.com"
 
     try:
-        response = team_api.team_invites(email_address)
+        response = team_api.team_invites(email_address=email_address)
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -132,11 +132,11 @@ class ApiAppListResponse(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def api_apps(self) -> [ApiAppResponse]:
+    def api_apps(self) -> List[ApiAppResponse]:
         return self.get("api_apps")
 
     @api_apps.setter
-    def api_apps(self, value: [ApiAppResponse]):
+    def api_apps(self, value: List[ApiAppResponse]):
         setattr(self, "api_apps", value)
 
     @property
@@ -148,11 +148,11 @@ class ApiAppListResponse(ModelNormal):
         setattr(self, "list_info", value)
 
     @property
-    def warnings(self) -> [WarningResponse]:
+    def warnings(self) -> List[WarningResponse]:
         return self.get("warnings")
 
     @warnings.setter
-    def warnings(self, value: [WarningResponse]):
+    def warnings(self, value: List[WarningResponse]):
         setattr(self, "warnings", value)
 
     @classmethod

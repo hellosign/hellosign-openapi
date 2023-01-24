@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -134,11 +134,11 @@ class SubSignatureRequestGroupedSigners(ModelNormal):
         setattr(self, "group", value)
 
     @property
-    def signers(self) -> [SubSignatureRequestSigner]:
+    def signers(self) -> List[SubSignatureRequestSigner]:
         return self.get("signers")
 
     @signers.setter
-    def signers(self, value: [SubSignatureRequestSigner]):
+    def signers(self, value: List[SubSignatureRequestSigner]):
         setattr(self, "signers", value)
 
     @property

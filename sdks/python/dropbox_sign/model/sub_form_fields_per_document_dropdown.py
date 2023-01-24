@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -156,11 +156,11 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
         setattr(self, "type", value)
 
     @property
-    def options(self) -> [str]:
+    def options(self) -> List[str]:
         return self.get("options")
 
     @options.setter
-    def options(self, value: [str]):
+    def options(self, value: List[str]):
         setattr(self, "options", value)
 
     @property

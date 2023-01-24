@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -172,19 +172,19 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def template_ids(self) -> [str]:
+    def template_ids(self) -> List[str]:
         return self.get("template_ids")
 
     @template_ids.setter
-    def template_ids(self, value: [str]):
+    def template_ids(self, value: List[str]):
         setattr(self, "template_ids", value)
 
     @property
-    def signers(self) -> [SubSignatureRequestTemplateSigner]:
+    def signers(self) -> List[SubSignatureRequestTemplateSigner]:
         return self.get("signers")
 
     @signers.setter
-    def signers(self, value: [SubSignatureRequestTemplateSigner]):
+    def signers(self, value: List[SubSignatureRequestTemplateSigner]):
         setattr(self, "signers", value)
 
     @property
@@ -196,11 +196,11 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         setattr(self, "allow_decline", value)
 
     @property
-    def ccs(self) -> [SubCC]:
+    def ccs(self) -> List[SubCC]:
         return self.get("ccs")
 
     @ccs.setter
-    def ccs(self, value: [SubCC]):
+    def ccs(self, value: List[SubCC]):
         setattr(self, "ccs", value)
 
     @property
@@ -212,27 +212,27 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         setattr(self, "client_id", value)
 
     @property
-    def custom_fields(self) -> [SubCustomField]:
+    def custom_fields(self) -> List[SubCustomField]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: [SubCustomField]):
+    def custom_fields(self, value: List[SubCustomField]):
         setattr(self, "custom_fields", value)
 
     @property
-    def files(self) -> [file_type]:
+    def files(self) -> List[file_type]:
         return self.get("files")
 
     @files.setter
-    def files(self, value: [file_type]):
+    def files(self, value: List[file_type]):
         setattr(self, "files", value)
 
     @property
-    def file_urls(self) -> [str]:
+    def file_urls(self) -> List[str]:
         return self.get("file_urls")
 
     @file_urls.setter
-    def file_urls(self, value: [str]):
+    def file_urls(self, value: List[str]):
         setattr(self, "file_urls", value)
 
     @property
@@ -252,11 +252,11 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         setattr(self, "message", value)
 
     @property
-    def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
+    def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
         return self.get("metadata")
 
     @metadata.setter
-    def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+    def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
         setattr(self, "metadata", value)
 
     @property

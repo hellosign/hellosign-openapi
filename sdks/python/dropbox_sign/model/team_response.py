@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -134,19 +134,19 @@ class TeamResponse(ModelNormal):
         setattr(self, "name", value)
 
     @property
-    def accounts(self) -> [AccountResponse]:
+    def accounts(self) -> List[AccountResponse]:
         return self.get("accounts")
 
     @accounts.setter
-    def accounts(self, value: [AccountResponse]):
+    def accounts(self, value: List[AccountResponse]):
         setattr(self, "accounts", value)
 
     @property
-    def invited_accounts(self) -> [AccountResponse]:
+    def invited_accounts(self) -> List[AccountResponse]:
         return self.get("invited_accounts")
 
     @invited_accounts.setter
-    def invited_accounts(self, value: [AccountResponse]):
+    def invited_accounts(self, value: List[AccountResponse]):
         setattr(self, "invited_accounts", value)
 
     @classmethod

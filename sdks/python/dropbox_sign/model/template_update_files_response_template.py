@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -132,11 +132,11 @@ class TemplateUpdateFilesResponseTemplate(ModelNormal):
         setattr(self, "template_id", value)
 
     @property
-    def warnings(self) -> [WarningResponse]:
+    def warnings(self) -> List[WarningResponse]:
         return self.get("warnings")
 
     @warnings.setter
-    def warnings(self, value: [WarningResponse]):
+    def warnings(self, value: List[WarningResponse]):
         setattr(self, "warnings", value)
 
     @classmethod

@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -231,11 +231,11 @@ class SignatureRequestResponse(ModelNormal):
         setattr(self, "message", value)
 
     @property
-    def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
+    def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
         return self.get("metadata")
 
     @metadata.setter
-    def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+    def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
         setattr(self, "metadata", value)
 
     @property
@@ -303,11 +303,11 @@ class SignatureRequestResponse(ModelNormal):
         setattr(self, "details_url", value)
 
     @property
-    def cc_email_addresses(self) -> [str]:
+    def cc_email_addresses(self) -> List[str]:
         return self.get("cc_email_addresses")
 
     @cc_email_addresses.setter
-    def cc_email_addresses(self, value: [str]):
+    def cc_email_addresses(self, value: List[str]):
         setattr(self, "cc_email_addresses", value)
 
     @property
@@ -319,43 +319,43 @@ class SignatureRequestResponse(ModelNormal):
         setattr(self, "signing_redirect_url", value)
 
     @property
-    def template_ids(self) -> Optional[[str]]:
+    def template_ids(self) -> Optional[List[str]]:
         return self.get("template_ids")
 
     @template_ids.setter
-    def template_ids(self, value: Optional[[str]]):
+    def template_ids(self, value: Optional[List[str]]):
         setattr(self, "template_ids", value)
 
     @property
-    def custom_fields(self) -> Optional[[SignatureRequestResponseCustomFieldBase]]:
+    def custom_fields(self) -> Optional[List[SignatureRequestResponseCustomFieldBase]]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[[SignatureRequestResponseCustomFieldBase]]):
+    def custom_fields(self, value: Optional[List[SignatureRequestResponseCustomFieldBase]]):
         setattr(self, "custom_fields", value)
 
     @property
-    def attachments(self) -> Optional[[SignatureRequestResponseAttachment]]:
+    def attachments(self) -> Optional[List[SignatureRequestResponseAttachment]]:
         return self.get("attachments")
 
     @attachments.setter
-    def attachments(self, value: Optional[[SignatureRequestResponseAttachment]]):
+    def attachments(self, value: Optional[List[SignatureRequestResponseAttachment]]):
         setattr(self, "attachments", value)
 
     @property
-    def response_data(self) -> Optional[[SignatureRequestResponseDataBase]]:
+    def response_data(self) -> Optional[List[SignatureRequestResponseDataBase]]:
         return self.get("response_data")
 
     @response_data.setter
-    def response_data(self, value: Optional[[SignatureRequestResponseDataBase]]):
+    def response_data(self, value: Optional[List[SignatureRequestResponseDataBase]]):
         setattr(self, "response_data", value)
 
     @property
-    def signatures(self) -> [SignatureRequestResponseSignatures]:
+    def signatures(self) -> List[SignatureRequestResponseSignatures]:
         return self.get("signatures")
 
     @signatures.setter
-    def signatures(self, value: [SignatureRequestResponseSignatures]):
+    def signatures(self, value: List[SignatureRequestResponseSignatures]):
         setattr(self, "signatures", value)
 
     @classmethod

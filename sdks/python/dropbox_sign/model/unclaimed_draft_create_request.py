@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -209,19 +209,19 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         setattr(self, "type", value)
 
     @property
-    def files(self) -> [file_type]:
+    def files(self) -> List[file_type]:
         return self.get("files")
 
     @files.setter
-    def files(self, value: [file_type]):
+    def files(self, value: List[file_type]):
         setattr(self, "files", value)
 
     @property
-    def file_urls(self) -> [str]:
+    def file_urls(self) -> List[str]:
         return self.get("file_urls")
 
     @file_urls.setter
-    def file_urls(self, value: [str]):
+    def file_urls(self, value: List[str]):
         setattr(self, "file_urls", value)
 
     @property
@@ -233,19 +233,19 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         setattr(self, "allow_decline", value)
 
     @property
-    def attachments(self) -> [SubAttachment]:
+    def attachments(self) -> List[SubAttachment]:
         return self.get("attachments")
 
     @attachments.setter
-    def attachments(self, value: [SubAttachment]):
+    def attachments(self, value: List[SubAttachment]):
         setattr(self, "attachments", value)
 
     @property
-    def cc_email_addresses(self) -> [str]:
+    def cc_email_addresses(self) -> List[str]:
         return self.get("cc_email_addresses")
 
     @cc_email_addresses.setter
-    def cc_email_addresses(self, value: [str]):
+    def cc_email_addresses(self, value: List[str]):
         setattr(self, "cc_email_addresses", value)
 
     @property
@@ -257,11 +257,11 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         setattr(self, "client_id", value)
 
     @property
-    def custom_fields(self) -> [SubCustomField]:
+    def custom_fields(self) -> List[SubCustomField]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: [SubCustomField]):
+    def custom_fields(self, value: List[SubCustomField]):
         setattr(self, "custom_fields", value)
 
     @property
@@ -273,27 +273,27 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         setattr(self, "field_options", value)
 
     @property
-    def form_field_groups(self) -> [SubFormFieldGroup]:
+    def form_field_groups(self) -> List[SubFormFieldGroup]:
         return self.get("form_field_groups")
 
     @form_field_groups.setter
-    def form_field_groups(self, value: [SubFormFieldGroup]):
+    def form_field_groups(self, value: List[SubFormFieldGroup]):
         setattr(self, "form_field_groups", value)
 
     @property
-    def form_field_rules(self) -> [SubFormFieldRule]:
+    def form_field_rules(self) -> List[SubFormFieldRule]:
         return self.get("form_field_rules")
 
     @form_field_rules.setter
-    def form_field_rules(self, value: [SubFormFieldRule]):
+    def form_field_rules(self, value: List[SubFormFieldRule]):
         setattr(self, "form_field_rules", value)
 
     @property
-    def form_fields_per_document(self) -> [SubFormFieldsPerDocumentBase]:
+    def form_fields_per_document(self) -> List[SubFormFieldsPerDocumentBase]:
         return self.get("form_fields_per_document")
 
     @form_fields_per_document.setter
-    def form_fields_per_document(self, value: [SubFormFieldsPerDocumentBase]):
+    def form_fields_per_document(self, value: List[SubFormFieldsPerDocumentBase]):
         setattr(self, "form_fields_per_document", value)
 
     @property
@@ -313,11 +313,11 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         setattr(self, "message", value)
 
     @property
-    def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
+    def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
         return self.get("metadata")
 
     @metadata.setter
-    def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+    def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
         setattr(self, "metadata", value)
 
     @property
@@ -329,11 +329,11 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         setattr(self, "show_progress_stepper", value)
 
     @property
-    def signers(self) -> [SubUnclaimedDraftSigner]:
+    def signers(self) -> List[SubUnclaimedDraftSigner]:
         return self.get("signers")
 
     @signers.setter
-    def signers(self, value: [SubUnclaimedDraftSigner]):
+    def signers(self, value: List[SubUnclaimedDraftSigner]):
         setattr(self, "signers", value)
 
     @property

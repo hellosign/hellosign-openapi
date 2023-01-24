@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -153,19 +153,19 @@ class BulkSendJobGetResponse(ModelNormal):
         setattr(self, "list_info", value)
 
     @property
-    def signature_requests(self) -> [BulkSendJobGetResponseSignatureRequests]:
+    def signature_requests(self) -> List[BulkSendJobGetResponseSignatureRequests]:
         return self.get("signature_requests")
 
     @signature_requests.setter
-    def signature_requests(self, value: [BulkSendJobGetResponseSignatureRequests]):
+    def signature_requests(self, value: List[BulkSendJobGetResponseSignatureRequests]):
         setattr(self, "signature_requests", value)
 
     @property
-    def warnings(self) -> [WarningResponse]:
+    def warnings(self) -> List[WarningResponse]:
         return self.get("warnings")
 
     @warnings.setter
-    def warnings(self, value: [WarningResponse]):
+    def warnings(self, value: List[WarningResponse]):
         setattr(self, "warnings", value)
 
     @classmethod

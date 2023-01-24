@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -207,19 +207,19 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
         setattr(self, "client_id", value)
 
     @property
-    def files(self) -> [file_type]:
+    def files(self) -> List[file_type]:
         return self.get("files")
 
     @files.setter
-    def files(self, value: [file_type]):
+    def files(self, value: List[file_type]):
         setattr(self, "files", value)
 
     @property
-    def file_urls(self) -> [str]:
+    def file_urls(self) -> List[str]:
         return self.get("file_urls")
 
     @file_urls.setter
-    def file_urls(self, value: [str]):
+    def file_urls(self, value: List[str]):
         setattr(self, "file_urls", value)
 
     @property
@@ -239,19 +239,19 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
         setattr(self, "allow_reassign", value)
 
     @property
-    def attachments(self) -> [SubAttachment]:
+    def attachments(self) -> List[SubAttachment]:
         return self.get("attachments")
 
     @attachments.setter
-    def attachments(self, value: [SubAttachment]):
+    def attachments(self, value: List[SubAttachment]):
         setattr(self, "attachments", value)
 
     @property
-    def cc_roles(self) -> [str]:
+    def cc_roles(self) -> List[str]:
         return self.get("cc_roles")
 
     @cc_roles.setter
-    def cc_roles(self, value: [str]):
+    def cc_roles(self, value: List[str]):
         setattr(self, "cc_roles", value)
 
     @property
@@ -287,35 +287,35 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
         setattr(self, "force_subject_message", value)
 
     @property
-    def form_field_groups(self) -> [SubFormFieldGroup]:
+    def form_field_groups(self) -> List[SubFormFieldGroup]:
         return self.get("form_field_groups")
 
     @form_field_groups.setter
-    def form_field_groups(self, value: [SubFormFieldGroup]):
+    def form_field_groups(self, value: List[SubFormFieldGroup]):
         setattr(self, "form_field_groups", value)
 
     @property
-    def form_field_rules(self) -> [SubFormFieldRule]:
+    def form_field_rules(self) -> List[SubFormFieldRule]:
         return self.get("form_field_rules")
 
     @form_field_rules.setter
-    def form_field_rules(self, value: [SubFormFieldRule]):
+    def form_field_rules(self, value: List[SubFormFieldRule]):
         setattr(self, "form_field_rules", value)
 
     @property
-    def form_fields_per_document(self) -> [SubFormFieldsPerDocumentBase]:
+    def form_fields_per_document(self) -> List[SubFormFieldsPerDocumentBase]:
         return self.get("form_fields_per_document")
 
     @form_fields_per_document.setter
-    def form_fields_per_document(self, value: [SubFormFieldsPerDocumentBase]):
+    def form_fields_per_document(self, value: List[SubFormFieldsPerDocumentBase]):
         setattr(self, "form_fields_per_document", value)
 
     @property
-    def merge_fields(self) -> [SubMergeField]:
+    def merge_fields(self) -> List[SubMergeField]:
         return self.get("merge_fields")
 
     @merge_fields.setter
-    def merge_fields(self, value: [SubMergeField]):
+    def merge_fields(self, value: List[SubMergeField]):
         setattr(self, "merge_fields", value)
 
     @property
@@ -327,11 +327,11 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
         setattr(self, "message", value)
 
     @property
-    def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
+    def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
         return self.get("metadata")
 
     @metadata.setter
-    def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+    def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
         setattr(self, "metadata", value)
 
     @property
@@ -351,11 +351,11 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
         setattr(self, "show_progress_stepper", value)
 
     @property
-    def signer_roles(self) -> [SubTemplateRole]:
+    def signer_roles(self) -> List[SubTemplateRole]:
         return self.get("signer_roles")
 
     @signer_roles.setter
-    def signer_roles(self, value: [SubTemplateRole]):
+    def signer_roles(self, value: List[SubTemplateRole]):
         setattr(self, "signer_roles", value)
 
     @property

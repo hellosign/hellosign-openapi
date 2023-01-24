@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -163,11 +163,11 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def template_ids(self) -> [str]:
+    def template_ids(self) -> List[str]:
         return self.get("template_ids")
 
     @template_ids.setter
-    def template_ids(self, value: [str]):
+    def template_ids(self, value: List[str]):
         setattr(self, "template_ids", value)
 
     @property
@@ -187,11 +187,11 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(ModelNormal):
         setattr(self, "signer_file", value)
 
     @property
-    def signer_list(self) -> [SubBulkSignerList]:
+    def signer_list(self) -> List[SubBulkSignerList]:
         return self.get("signer_list")
 
     @signer_list.setter
-    def signer_list(self, value: [SubBulkSignerList]):
+    def signer_list(self, value: List[SubBulkSignerList]):
         setattr(self, "signer_list", value)
 
     @property
@@ -203,19 +203,19 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(ModelNormal):
         setattr(self, "allow_decline", value)
 
     @property
-    def ccs(self) -> [SubCC]:
+    def ccs(self) -> List[SubCC]:
         return self.get("ccs")
 
     @ccs.setter
-    def ccs(self, value: [SubCC]):
+    def ccs(self, value: List[SubCC]):
         setattr(self, "ccs", value)
 
     @property
-    def custom_fields(self) -> [SubCustomField]:
+    def custom_fields(self) -> List[SubCustomField]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: [SubCustomField]):
+    def custom_fields(self, value: List[SubCustomField]):
         setattr(self, "custom_fields", value)
 
     @property
@@ -227,11 +227,11 @@ class SignatureRequestBulkCreateEmbeddedWithTemplateRequest(ModelNormal):
         setattr(self, "message", value)
 
     @property
-    def metadata(self) -> {str: (bool, date, datetime, dict, float, int, list, str, none_type)}:
+    def metadata(self) -> Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]:
         return self.get("metadata")
 
     @metadata.setter
-    def metadata(self, value: {str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+    def metadata(self, value: Dict[str, Dict[bool, date, datetime, dict, float, int, list, str, none_type]]):
         setattr(self, "metadata", value)
 
     @property

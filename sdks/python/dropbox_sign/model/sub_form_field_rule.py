@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -154,19 +154,19 @@ class SubFormFieldRule(ModelNormal):
         setattr(self, "trigger_operator", value)
 
     @property
-    def triggers(self) -> [SubFormFieldRuleTrigger]:
+    def triggers(self) -> List[SubFormFieldRuleTrigger]:
         return self.get("triggers")
 
     @triggers.setter
-    def triggers(self, value: [SubFormFieldRuleTrigger]):
+    def triggers(self, value: List[SubFormFieldRuleTrigger]):
         setattr(self, "triggers", value)
 
     @property
-    def actions(self) -> [SubFormFieldRuleAction]:
+    def actions(self) -> List[SubFormFieldRuleAction]:
         return self.get("actions")
 
     @actions.setter
-    def actions(self, value: [SubFormFieldRuleAction]):
+    def actions(self, value: List[SubFormFieldRuleAction]):
         setattr(self, "actions", value)
 
     @classmethod

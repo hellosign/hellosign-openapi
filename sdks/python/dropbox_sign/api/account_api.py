@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -261,7 +262,7 @@ class AccountApi(object):
         self,
         account_create_request,
         **kwargs
-    ) -> "AccountCreateResponse":
+    ) -> AccountCreateResponse:
         """Create Account  # noqa: E501
 
         Creates a new Dropbox Sign Account that is associated with the specified `email_address`.  # noqa: E501
@@ -360,7 +361,7 @@ class AccountApi(object):
     def account_get(
         self,
         **kwargs
-    ) -> "AccountGetResponse":
+    ) -> AccountGetResponse:
         """Get Account  # noqa: E501
 
         Returns the properties and settings of your Account.  # noqa: E501
@@ -458,7 +459,7 @@ class AccountApi(object):
         self,
         account_update_request,
         **kwargs
-    ) -> "AccountGetResponse":
+    ) -> AccountGetResponse:
         """Update Account  # noqa: E501
 
         Updates the properties and settings of your Account. Currently only allows for updates to the [Callback URL](/api/reference/tag/Callbacks-and-Events) and locale.  # noqa: E501
@@ -558,7 +559,7 @@ class AccountApi(object):
         self,
         account_verify_request,
         **kwargs
-    ) -> "AccountVerifyResponse":
+    ) -> AccountVerifyResponse:
         """Verify Account  # noqa: E501
 
         Verifies whether an Dropbox Sign Account exists for the given email address.  # noqa: E501

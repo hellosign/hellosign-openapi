@@ -10,7 +10,7 @@
 
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List, Dict
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -157,35 +157,35 @@ class TemplateResponseDocument(ModelNormal):
         setattr(self, "index", value)
 
     @property
-    def field_groups(self) -> [TemplateResponseDocumentFieldGroup]:
+    def field_groups(self) -> List[TemplateResponseDocumentFieldGroup]:
         return self.get("field_groups")
 
     @field_groups.setter
-    def field_groups(self, value: [TemplateResponseDocumentFieldGroup]):
+    def field_groups(self, value: List[TemplateResponseDocumentFieldGroup]):
         setattr(self, "field_groups", value)
 
     @property
-    def form_fields(self) -> [TemplateResponseDocumentFormField]:
+    def form_fields(self) -> List[TemplateResponseDocumentFormField]:
         return self.get("form_fields")
 
     @form_fields.setter
-    def form_fields(self, value: [TemplateResponseDocumentFormField]):
+    def form_fields(self, value: List[TemplateResponseDocumentFormField]):
         setattr(self, "form_fields", value)
 
     @property
-    def custom_fields(self) -> [TemplateResponseDocumentCustomField]:
+    def custom_fields(self) -> List[TemplateResponseDocumentCustomField]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: [TemplateResponseDocumentCustomField]):
+    def custom_fields(self, value: List[TemplateResponseDocumentCustomField]):
         setattr(self, "custom_fields", value)
 
     @property
-    def static_fields(self) -> Optional[[TemplateResponseDocumentStaticField]]:
+    def static_fields(self) -> Optional[List[TemplateResponseDocumentStaticField]]:
         return self.get("static_fields")
 
     @static_fields.setter
-    def static_fields(self, value: Optional[[TemplateResponseDocumentStaticField]]):
+    def static_fields(self, value: Optional[List[TemplateResponseDocumentStaticField]]):
         setattr(self, "static_fields", value)
 
     @classmethod
