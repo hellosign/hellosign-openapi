@@ -1,49 +1,71 @@
 on: [push]
 jobs:
+  openapi-spec-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build OpenAPI Spec
+        uses: actions/checkout@v3
+      - run: ./build
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status oas
+
   php-sdk-build:
     runs-on: ubuntu-latest
     steps:
     - name: Build PHP SDK
       uses: actions/checkout@v3
-    - run: |
-        ./generate-sdks -t php
+    - run: ./generate-sdks -t php
+
+    - name: Ensure no changes in Generated Code
+      run: ./bin/check-clean-git-status php
 
   python-sdk-build:
     runs-on: ubuntu-latest
     steps:
       - name: Build Python SDK
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t python
+      - run: ./generate-sdks -t python
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status python
 
   ruby-sdk-build:
     runs-on: ubuntu-latest
     steps:
       - name: Build Ruby SDK
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t ruby
+      - run: ./generate-sdks -t ruby
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status ruby
 
   nodejs-sdk-build:
     runs-on: ubuntu-latest
     steps:
       - name: Build NodeJs SDK
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t node
+      - run: ./generate-sdks -t node
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status node
 
   java-sdk-build:
     runs-on: ubuntu-latest
     steps:
       - name: Build Java SDK
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t java
+      - run: ./generate-sdks -t java
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status java
 
   dotnet-sdk-build:
     runs-on: ubuntu-latest
     steps:
       - name: Build DotNet SDK
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t dotnet
+      - run: ./generate-sdks -t dotnet
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status dotnet
