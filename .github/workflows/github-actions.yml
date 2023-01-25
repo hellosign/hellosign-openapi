@@ -1,49 +1,103 @@
 on: [push]
 jobs:
+  openapi-spec-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status oas
+
   php-sdk-build:
     runs-on: ubuntu-latest
     steps:
-    - name: Build PHP SDK
-      uses: actions/checkout@v3
-    - run: |
-        ./generate-sdks -t php
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build PHP SDK
+        run: ./generate-sdks -t php
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status php
 
   python-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Python SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t python
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build Python SDK
+        run: ./generate-sdks -t python
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status python
 
   ruby-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Ruby SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t ruby
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build Ruby SDK
+        run: ./generate-sdks -t ruby
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status ruby
 
   nodejs-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build NodeJs SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t node
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build NodeJs SDK
+        run: ./generate-sdks -t node
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status node
 
   java-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Java SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t java
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build Java SDK
+        run: ./generate-sdks -t java
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status java
 
   dotnet-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build DotNet SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
-      - run: |
-          ./generate-sdks -t dotnet
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build DotNet SDK
+        run: ./generate-sdks -t dotnet
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status dotnet

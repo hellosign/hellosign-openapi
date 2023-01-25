@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+TARGET="${1:-all}"
+
+if [[ $(git status --porcelain) != '' ]]; then
+  printf "Working directory is dirty.\n";
+  printf "Please check that you committed any changes after running.\n"
+
+  if [[ "${TARGET}" == "oas" ]]; then
+    printf "You may need to rebuild the OAS by running:\n";
+    printf "\t./build\n";
+  else
+    printf "You may need to rebuild the SDKs by running:\n";
+    printf "\t./generate-sdks -t ${TARGET}\n";
+  fi
+  printf "\n";
+
+  git status
+
+  exit 1
+else
+  echo "Working directory is clean!"
+  exit 0
+fi
