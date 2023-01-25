@@ -8406,10 +8406,6 @@ components:
         created_at:
           description: '_t__BulkSendJobResponse::CREATED_AT'
           type: integer
-        this_should_trigger_a_failure:
-          description: 'Testing the ./bin/check-clean-git-status check'
-          type: integer
-          nullable: true
       type: object
       x-internal: true
     BulkSendJobGetResponse:
