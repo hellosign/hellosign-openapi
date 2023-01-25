@@ -6,7 +6,8 @@ jobs:
       - name: Build OpenAPI Spec
         uses: actions/checkout@v3
 
-      - run: ./build
+      - name: Generate OAS
+        run: ./build
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status oas
@@ -14,14 +15,17 @@ jobs:
   php-sdk-build:
     runs-on: ubuntu-latest
     steps:
-    - name: Build PHP SDK
-      uses: actions/checkout@v3
+      - name: Build PHP SDK
+        uses: actions/checkout@v3
 
-    - run: ./build
-    - run: ./generate-sdks -t php
+      - name: Generate OAS
+        run: ./build
 
-    - name: Ensure no changes in Generated Code
-      run: ./bin/check-clean-git-status php
+      - name: Build SDK
+        run: ./generate-sdks -t php
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status php
 
   python-sdk-build:
     runs-on: ubuntu-latest
@@ -29,8 +33,11 @@ jobs:
       - name: Build Python SDK
         uses: actions/checkout@v3
 
-      - run: ./build
-      - run: ./generate-sdks -t python
+      - name: Generate OAS
+        run: ./build
+
+      - name: Build SDK
+        run: ./generate-sdks -t python
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status python
@@ -41,8 +48,11 @@ jobs:
       - name: Build Ruby SDK
         uses: actions/checkout@v3
 
-      - run: ./build
-      - run: ./generate-sdks -t ruby
+      - name: Generate OAS
+        run: ./build
+
+      - name: Build SDK
+        run: ./generate-sdks -t ruby
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status ruby
@@ -53,8 +63,11 @@ jobs:
       - name: Build NodeJs SDK
         uses: actions/checkout@v3
 
-      - run: ./build
-      - run: ./generate-sdks -t node
+      - name: Generate OAS
+        run: ./build
+
+      - name: Build SDK
+        run: ./generate-sdks -t node
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status node
@@ -65,8 +78,11 @@ jobs:
       - name: Build Java SDK
         uses: actions/checkout@v3
 
-      - run: ./build
-      - run: ./generate-sdks -t java
+      - name: Generate OAS
+        run: ./build
+
+      - name: Build SDK
+        run: ./generate-sdks -t java
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status java
@@ -77,8 +93,11 @@ jobs:
       - name: Build DotNet SDK
         uses: actions/checkout@v3
 
-      - run: ./build
-      - run: ./generate-sdks -t dotnet
+      - name: Generate OAS
+        run: ./build
+
+      - name: Build SDK
+        run: ./generate-sdks -t dotnet
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status dotnet
