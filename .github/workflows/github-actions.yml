@@ -3,10 +3,10 @@ jobs:
   openapi-spec-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build OpenAPI Spec
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
       - name: Ensure no changes in Generated Code
@@ -15,13 +15,13 @@ jobs:
   php-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build PHP SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
-      - name: Build SDK
+      - name: Build PHP SDK
         run: ./generate-sdks -t php
 
       - name: Ensure no changes in Generated Code
@@ -30,13 +30,13 @@ jobs:
   python-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Python SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
-      - name: Build SDK
+      - name: Build Python SDK
         run: ./generate-sdks -t python
 
       - name: Ensure no changes in Generated Code
@@ -45,13 +45,13 @@ jobs:
   ruby-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Ruby SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
-      - name: Build SDK
+      - name: Build Ruby SDK
         run: ./generate-sdks -t ruby
 
       - name: Ensure no changes in Generated Code
@@ -60,13 +60,13 @@ jobs:
   nodejs-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build NodeJs SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
-      - name: Build SDK
+      - name: Build NodeJs SDK
         run: ./generate-sdks -t node
 
       - name: Ensure no changes in Generated Code
@@ -75,13 +75,13 @@ jobs:
   java-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Java SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
-      - name: Build SDK
+      - name: Build Java SDK
         run: ./generate-sdks -t java
 
       - name: Ensure no changes in Generated Code
@@ -90,13 +90,13 @@ jobs:
   dotnet-sdk-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build DotNet SDK
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Generate OAS
+      - name: Build OpenAPI Spec
         run: ./build
 
-      - name: Build SDK
+      - name: Build DotNet SDK
         run: ./generate-sdks -t dotnet
 
       - name: Ensure no changes in Generated Code
