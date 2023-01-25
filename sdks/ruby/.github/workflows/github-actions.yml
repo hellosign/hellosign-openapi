@@ -1,0 +1,13 @@
+on: [push]
+jobs:
+  sdk-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Build SDK
+        run: ./run-build
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status
