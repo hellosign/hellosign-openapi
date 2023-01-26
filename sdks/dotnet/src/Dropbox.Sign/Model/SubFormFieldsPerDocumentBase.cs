@@ -74,7 +74,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentBase(int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), string signer = default(string), string type = default(string), int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentBase(int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, string type = default(string), int width = default(int), int x = default(int), int y = default(int))
         {
             
             this.DocumentIndex = documentIndex;
@@ -91,7 +91,7 @@ namespace Dropbox.Sign.Model
             {
                 throw new ArgumentNullException("signer is a required property for SubFormFieldsPerDocumentBase and cannot be null");
             }
-            this.Signer = signer;
+            this.Signer = Convert.ToString(signer);
             // to ensure "type" is required (not null)
             if (type == null)
             {
@@ -154,7 +154,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.</value>
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
-        public string Signer { get; set; }
+        public object Signer {
+            get => this._signer;
+            set => this._signer = Convert.ToString(value);
+        }
+
+        private string _signer;
 
         /// <summary>
         /// Gets or Sets Type

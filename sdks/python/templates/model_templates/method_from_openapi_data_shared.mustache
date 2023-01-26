@@ -8,7 +8,7 @@
         Args:
 {{/-first}}
 {{^defaultValue}}
-            {{name}} ({{{dataType}}}):{{#description}} {{{.}}}{{/description}}
+            {{name}} ({{#vendorExtensions.x-int-or-string}}str|int{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}):{{#description}} {{{.}}}{{/description}}
 {{/defaultValue}}
 {{#-last}}
 

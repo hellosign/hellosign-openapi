@@ -128,6 +128,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
   }
+  {{#vendorExtensions.x-int-or-string}}
+  public {{classname}} {{name}}(Integer {{name}}) {
+    this.{{name}} = String.valueOf({{name}});
+    return this;
+  }
+  {{/vendorExtensions.x-int-or-string}}
   {{#isArray}}
 
   public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
@@ -264,6 +270,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
+  {{#vendorExtensions.x-int-or-string}}
+
+  public void {{setter}}(Integer {{name}}) {
+    this.{{name}} = String.valueOf({{name}});
+  }
+  {{/vendorExtensions.x-int-or-string}}
   {{/isReadOnly}}
 
   {{/vars}}

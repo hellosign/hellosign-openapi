@@ -7585,6 +7585,7 @@ components:
 
             **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
           type: string
+          x-int-or-string: true
         type:
           type: string
         width:

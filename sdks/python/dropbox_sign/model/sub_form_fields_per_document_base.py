@@ -126,7 +126,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             'api_id': (str,),  # noqa: E501
             'height': (int,),  # noqa: E501
             'required': (bool,),  # noqa: E501
-            'signer': (str,),  # noqa: E501
+            'signer': (int, str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'width': (int,),  # noqa: E501
             'x': (int,),  # noqa: E501
@@ -206,11 +206,11 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
         setattr(self, "required", value)
 
     @property
-    def signer(self) -> str:
+    def signer(self) -> Union[int, str]:
         return self.get("signer")
 
     @signer.setter
-    def signer(self, value: str):
+    def signer(self, value: Union[int, str]):
         setattr(self, "signer", value)
 
     @property
@@ -271,7 +271,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             type (str):
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
@@ -374,7 +374,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             type (str):
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.

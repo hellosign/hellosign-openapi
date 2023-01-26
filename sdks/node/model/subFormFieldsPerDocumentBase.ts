@@ -47,7 +47,7 @@ export abstract class SubFormFieldsPerDocumentBase {
   /**
    * Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
    */
-  "signer": string;
+  "signer": number | string;
   "type": string;
   /**
    * Size of the field in pixels.

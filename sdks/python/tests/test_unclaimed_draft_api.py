@@ -34,6 +34,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+        obj.files[0].close()
+
     def test_unclaimed_draft_create_embedded(self):
         request_class = 'UnclaimedDraftCreateEmbeddedRequest'
         request_data = get_fixture_data(request_class)['default']
@@ -55,6 +57,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+        obj.files[0].close()
+
     def test_unclaimed_draft_create_embedded_with_template(self):
         request_class = 'UnclaimedDraftCreateEmbeddedWithTemplateRequest'
         request_data = get_fixture_data(request_class)['default']
@@ -75,6 +79,8 @@ class TestUnclaimedDraftApi(unittest.TestCase):
 
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
+
+        obj.files[0].close()
 
     def test_unclaimed_draft_edit_and_resend(self):
         signature_request_id = '2f9781e1a83jdja934d808c153c2e1d3df6f8f2f'
