@@ -329,6 +329,8 @@ class ApiClient(object):
         # fetch data from response object
         try:
             received_data = json.loads(response.data)
+        except TypeError:
+            received_data = response.data
         except ValueError:
             received_data = response.data
 

@@ -26,6 +26,15 @@ bash "${DIR}/bin/php" ./bin/generate-examples.php
 printf "Install Python dependencies ...\n"
 bash "${DIR}/bin/python" pip install -r requirements.txt
 
+# avoid docker messing with permissions
+if [[ -z "$GITHUB_ACTIONS" ]]; then
+  chmod 644 "${DIR}/README.md"
+  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
+  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
+  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
+  find "${DIR}/dropbox_sign/" -type f -exec chmod 644 {} \;
+fi
+
 printf "Replacing strings ...\n"
 docker run --rm \
   -v "${DIR}:${WORKING_DIR}" \
@@ -37,15 +46,6 @@ docker run --rm \
   -v "${DIR}:${WORKING_DIR}" \
   -w "${WORKING_DIR}" \
   perl bash ./bin/scan_for
-
-# avoid docker messing with permissions
-if [[ -z "$GITHUB_ACTIONS" ]]; then
-  chmod 644 "${DIR}/README.md"
-  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
-  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
-  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
-  find "${DIR}/dropbox_sign/" -type f -exec chmod 644 {} \;
-fi
 
 printf "Running tests ...\n"
 bash "${DIR}/bin/python" python -m unittest discover tests
