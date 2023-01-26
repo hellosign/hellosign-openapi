@@ -264,6 +264,10 @@ public class SubFormFieldsPerDocumentBase {
     this.signer = signer;
   }
 
+  public void setSigner(Integer signer) {
+    this.signer = String.valueOf(signer);
+  }
+
 
   public SubFormFieldsPerDocumentBase type(String type) {
     this.type = type;

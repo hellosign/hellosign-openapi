@@ -270,6 +270,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
+  {{#vendorExtensions.x-int-or-string}}
+
+  public void {{setter}}(Integer {{name}}) {
+    this.{{name}} = String.valueOf({{name}});
+  }
+  {{/vendorExtensions.x-int-or-string}}
   {{/isReadOnly}}
 
   {{/vars}}
