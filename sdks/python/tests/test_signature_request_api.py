@@ -13,6 +13,64 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.api = apis.SignatureRequestApi(self.api_client)
 
+    def test_init_allows_binary_file(self):
+        data = {
+            "test_mode": True,
+            "title": "NDA with Acme Co.",
+            "subject": "The NDA we talked about",
+            "message": "Please sign this NDA and then we can discuss more.",
+            "signers": [
+                {
+                    "email_address": "jill@example.com",
+                    "name": "Jill",
+                    "order": 1
+                }
+            ],
+            "form_fields_per_document": [
+                {
+                    "type": "signature",
+                    "document_index": 0,
+                    "api_id": "4688957689",
+                    "name": "signature1",
+                    "x": 5,
+                    "y": 7,
+                    "width": 60,
+                    "height": 30,
+                    "required": True,
+                    "signer": "0",
+                    "page": 1,
+                    "placeholder": "My placeholder value",
+                }
+            ],
+            "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
+        }
+
+        obj = m.SignatureRequestSendRequest.init(data)
+
+        self.assertEqual(data["test_mode"], obj.test_mode)
+        self.assertEqual(data["title"], obj.title)
+        self.assertEqual(data["subject"], obj.subject)
+        self.assertEqual(data["message"], obj.message)
+
+        self.assertEqual(data["signers"][0]["email_address"], obj.signers[0].email_address)
+        self.assertEqual(data["signers"][0]["name"], obj.signers[0].name)
+        self.assertEqual(data["signers"][0]["order"], obj.signers[0].order)
+
+        self.assertEqual(data["form_fields_per_document"][0]["type"], obj.form_fields_per_document[0].type)
+        self.assertEqual(data["form_fields_per_document"][0]["document_index"], obj.form_fields_per_document[0].document_index)
+        self.assertEqual(data["form_fields_per_document"][0]["api_id"], obj.form_fields_per_document[0].api_id)
+        self.assertEqual(data["form_fields_per_document"][0]["name"], obj.form_fields_per_document[0].name)
+        self.assertEqual(data["form_fields_per_document"][0]["x"], obj.form_fields_per_document[0].x)
+        self.assertEqual(data["form_fields_per_document"][0]["y"], obj.form_fields_per_document[0].y)
+        self.assertEqual(data["form_fields_per_document"][0]["width"], obj.form_fields_per_document[0].width)
+        self.assertEqual(data["form_fields_per_document"][0]["height"], obj.form_fields_per_document[0].height)
+        self.assertEqual(data["form_fields_per_document"][0]["required"], obj.form_fields_per_document[0].required)
+        self.assertEqual(data["form_fields_per_document"][0]["signer"], obj.form_fields_per_document[0].signer)
+        self.assertEqual(data["form_fields_per_document"][0]["page"], obj.form_fields_per_document[0].page)
+        self.assertEqual(data["form_fields_per_document"][0]["placeholder"], obj.form_fields_per_document[0].placeholder)
+
+        self.assertEqual(data["files"][0], obj.files[0])
+
     def test_signature_request_bulk_create_embedded_with_template(self):
         request_class = 'SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
         request_data = get_fixture_data(request_class)['default']
