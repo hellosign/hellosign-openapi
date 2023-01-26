@@ -71,6 +71,8 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.assertEqual(data["files"][0], obj.files[0])
 
+        obj.files[0].close()
+
     def test_signature_request_bulk_create_embedded_with_template(self):
         request_class = 'SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
         request_data = get_fixture_data(request_class)['default']
@@ -91,6 +93,8 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
+
+        obj.signer_file.close()
 
     def test_signature_request_bulk_send_with_template(self):
         request_class = 'SignatureRequestBulkSendWithTemplateRequest'
@@ -113,6 +117,8 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+        obj.signer_file.close()
+
     def test_signature_request_create_embedded(self):
         request_class = 'SignatureRequestCreateEmbeddedRequest'
         request_data = get_fixture_data(request_class)['default']
@@ -134,6 +140,8 @@ class TestSignatureRequestApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+        obj.files[0].close()
+
     def test_signature_request_create_embedded_with_template(self):
         request_class = 'SignatureRequestCreateEmbeddedWithTemplateRequest'
         request_data = get_fixture_data(request_class)['default']
@@ -154,6 +162,8 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
+
+        obj.files[0].close()
 
     def test_signature_request_files(self):
         self.skipTest('skipping test_signature_request_files')
@@ -313,6 +323,8 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
+
+        obj.files[0].close()
 
     def test_no_file_forces_application_json(self):
         request_class = 'SignatureRequestSendRequest'

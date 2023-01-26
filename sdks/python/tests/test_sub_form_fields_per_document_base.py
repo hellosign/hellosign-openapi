@@ -34,7 +34,7 @@ class TestSubFormFieldsPerDocumentBase(unittest.TestCase):
                 'form_fields_per_document': [data]
             }
 
-            expected_signer = '1234'
+            expected_signer = 1234
 
             obj = SignatureRequestSendRequest.init(payload)
             form_fields_per_document = obj.form_fields_per_document[0]

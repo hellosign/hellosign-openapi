@@ -56,6 +56,8 @@ class TestTemplateApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+        obj.files[0].close()
+
     def test_template_delete(self):
         self.skipTest('skipping test_template_delete')
 
@@ -140,6 +142,8 @@ class TestTemplateApi(unittest.TestCase):
 
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
+
+        obj.files[0].close()
 
 
 if __name__ == '__main__':

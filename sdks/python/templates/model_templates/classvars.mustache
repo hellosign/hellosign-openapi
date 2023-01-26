@@ -107,19 +107,19 @@
 {{/imports}}
         return {
 {{#isAlias}}
-            'value': ({{{dataType}}},),
+            'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
 {{/isAlias}}
 {{#isEnum}}
-            'value': ({{{dataType}}},),
+            'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
 {{/isEnum}}
 {{#isArray}}
-            'value': ({{{dataType}}},),
+            'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
 {{/isArray}}
 {{#requiredVars}}
-            '{{name}}': ({{{dataType}}},),  # noqa: E501
+            '{{name}}': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),  # noqa: E501
 {{/requiredVars}}
 {{#optionalVars}}
-            '{{name}}': ({{{dataType}}},),  # noqa: E501
+            '{{name}}': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),  # noqa: E501
 {{/optionalVars}}
         }
 

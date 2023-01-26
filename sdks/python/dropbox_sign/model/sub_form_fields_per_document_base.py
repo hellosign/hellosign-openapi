@@ -126,7 +126,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             'api_id': (str,),  # noqa: E501
             'height': (int,),  # noqa: E501
             'required': (bool,),  # noqa: E501
-            'signer': (str,),  # noqa: E501
+            'signer': (int, str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'width': (int,),  # noqa: E501
             'x': (int,),  # noqa: E501
