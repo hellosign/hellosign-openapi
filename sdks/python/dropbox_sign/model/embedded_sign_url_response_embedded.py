@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -93,7 +95,7 @@ class EmbeddedSignUrlResponseEmbedded(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "EmbeddedSignUrlResponseEmbedded":
+    def init(data: any) -> EmbeddedSignUrlResponseEmbedded:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -102,7 +104,6 @@ class EmbeddedSignUrlResponseEmbedded(ModelNormal):
             response_type=[EmbeddedSignUrlResponseEmbedded],
             _check_type=True,
         )
-
 
     attribute_map = {
         'sign_url': 'sign_url',  # noqa: E501
@@ -113,6 +114,22 @@ class EmbeddedSignUrlResponseEmbedded(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def sign_url(self) -> str:
+        return self.get("sign_url")
+
+    @sign_url.setter
+    def sign_url(self, value: str):
+        setattr(self, "sign_url", value)
+
+    @property
+    def expires_at(self) -> int:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: int):
+        setattr(self, "expires_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

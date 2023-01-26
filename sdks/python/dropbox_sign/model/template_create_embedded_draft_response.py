@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.template_create_embedded_draft_response_template import TemplateCreateEmbeddedDraftResponseTemplate
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,7 +106,7 @@ class TemplateCreateEmbeddedDraftResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateCreateEmbeddedDraftResponse":
+    def init(data: any) -> TemplateCreateEmbeddedDraftResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -110,7 +115,6 @@ class TemplateCreateEmbeddedDraftResponse(ModelNormal):
             response_type=[TemplateCreateEmbeddedDraftResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template': 'template',  # noqa: E501
@@ -121,6 +125,22 @@ class TemplateCreateEmbeddedDraftResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template(self) -> TemplateCreateEmbeddedDraftResponseTemplate:
+        return self.get("template")
+
+    @template.setter
+    def template(self, value: TemplateCreateEmbeddedDraftResponseTemplate):
+        setattr(self, "template", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

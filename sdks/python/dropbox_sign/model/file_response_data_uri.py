@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -92,7 +94,7 @@ class FileResponseDataUri(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "FileResponseDataUri":
+    def init(data: any) -> FileResponseDataUri:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -102,7 +104,6 @@ class FileResponseDataUri(ModelNormal):
             _check_type=True,
         )
 
-
     attribute_map = {
         'data_uri': 'data_uri',  # noqa: E501
     }
@@ -111,6 +112,14 @@ class FileResponseDataUri(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def data_uri(self) -> str:
+        return self.get("data_uri")
+
+    @data_uri.setter
+    def data_uri(self, value: str):
+        setattr(self, "data_uri", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -1,5 +1,6 @@
 {{>partial_header}}
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -225,7 +226,7 @@ class {{classname}}(object):
 {{/defaultValue}}
 {{/requiredParams}}
         **kwargs
-    ) -> {{#returnType}}"{{.}}"{{/returnType}}{{^returnType}}None{{/returnType}}:
+    ) -> {{#returnType}}{{.}}{{/returnType}}{{^returnType}}None{{/returnType}}:
         """{{{summary}}}{{^summary}}{{operationId}}{{/summary}}  # noqa: E501
 
 {{#notes}}

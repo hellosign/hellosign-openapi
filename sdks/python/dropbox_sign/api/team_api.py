@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -593,7 +594,7 @@ class TeamApi(object):
         self,
         team_add_member_request,
         **kwargs
-    ) -> "TeamGetResponse":
+    ) -> TeamGetResponse:
         """Add User to Team  # noqa: E501
 
         Invites a user (specified using the `email_address` parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a `team_invite_failed` error will be returned.  # noqa: E501
@@ -694,7 +695,7 @@ class TeamApi(object):
         self,
         team_create_request,
         **kwargs
-    ) -> "TeamGetResponse":
+    ) -> TeamGetResponse:
         """Create Team  # noqa: E501
 
         Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.  # noqa: E501
@@ -866,7 +867,7 @@ class TeamApi(object):
     def team_get(
         self,
         **kwargs
-    ) -> "TeamGetResponse":
+    ) -> TeamGetResponse:
         """Get Team  # noqa: E501
 
         Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \"not_found\" will be returned.  # noqa: E501
@@ -961,7 +962,7 @@ class TeamApi(object):
     def team_info(
         self,
         **kwargs
-    ) -> "TeamGetInfoResponse":
+    ) -> TeamGetInfoResponse:
         """Get Team Info  # noqa: E501
 
         Provides information about a team.  # noqa: E501
@@ -1057,7 +1058,7 @@ class TeamApi(object):
     def team_invites(
         self,
         **kwargs
-    ) -> "TeamInvitesResponse":
+    ) -> TeamInvitesResponse:
         """List Team Invites  # noqa: E501
 
         Provides a list of team invites (and their roles).  # noqa: E501
@@ -1154,7 +1155,7 @@ class TeamApi(object):
         self,
         team_id,
         **kwargs
-    ) -> "TeamMembersResponse":
+    ) -> TeamMembersResponse:
         """List Team Members  # noqa: E501
 
         Provides a paginated list of members (and their roles) that belong to a given team.  # noqa: E501
@@ -1256,7 +1257,7 @@ class TeamApi(object):
         self,
         team_remove_member_request,
         **kwargs
-    ) -> "TeamGetResponse":
+    ) -> TeamGetResponse:
         """Remove User from Team  # noqa: E501
 
         Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the `new_owner_email_address` parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.  # noqa: E501
@@ -1356,7 +1357,7 @@ class TeamApi(object):
         self,
         team_id,
         **kwargs
-    ) -> "TeamSubTeamsResponse":
+    ) -> TeamSubTeamsResponse:
         """List Sub Teams  # noqa: E501
 
         Provides a paginated list of sub teams that belong to a given team.  # noqa: E501
@@ -1458,7 +1459,7 @@ class TeamApi(object):
         self,
         team_update_request,
         **kwargs
-    ) -> "TeamGetResponse":
+    ) -> TeamGetResponse:
         """Update Team  # noqa: E501
 
         Updates the name of your Team.  # noqa: E501

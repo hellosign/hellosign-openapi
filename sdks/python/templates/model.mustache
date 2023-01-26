@@ -1,5 +1,7 @@
 {{> partial_header }}
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -21,10 +23,26 @@ from {{packageName}}.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from {{packageName}}.exceptions import ApiAttributeError
+{{#imports}}
+{{#-first}}
+if TYPE_CHECKING:
+{{/-first}}
+    {{{import}}}
+{{/imports}}
 
 {{#models}}
 {{#model}}
 {{#discriminator}}
+{{#-first}}
+if TYPE_CHECKING:
+{{/-first}}
+{{#discriminator.mappedModels}}
+    from {{packageName}}.models import {{modelName}}
+{{#-last}}
+
+{{/-last}}
+{{/discriminator.mappedModels}}
+
 def lazy_import():
 {{#discriminator.mappedModels}}
     from {{packageName}}.models import {{modelName}}

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -93,7 +95,7 @@ class SignatureRequestRemindRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestRemindRequest":
+    def init(data: any) -> SignatureRequestRemindRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -102,7 +104,6 @@ class SignatureRequestRemindRequest(ModelNormal):
             response_type=[SignatureRequestRemindRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'email_address': 'email_address',  # noqa: E501
@@ -113,6 +114,22 @@ class SignatureRequestRemindRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -628,7 +629,7 @@ class TemplateApi(object):
         template_id,
         template_add_user_request,
         **kwargs
-    ) -> "TemplateGetResponse":
+    ) -> TemplateGetResponse:
         """Add User to Template  # noqa: E501
 
         Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.  # noqa: E501
@@ -731,7 +732,7 @@ class TemplateApi(object):
         self,
         template_create_embedded_draft_request,
         **kwargs
-    ) -> "TemplateCreateEmbeddedDraftResponse":
+    ) -> TemplateCreateEmbeddedDraftResponse:
         """Create Embedded Template Draft  # noqa: E501
 
         The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template 'edit' stage.  # noqa: E501
@@ -909,7 +910,7 @@ class TemplateApi(object):
         self,
         template_id,
         **kwargs
-    ) -> "file_type":
+    ) -> file_type:
         """Get Template Files  # noqa: E501
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.  # noqa: E501
@@ -1010,7 +1011,7 @@ class TemplateApi(object):
         self,
         template_id,
         **kwargs
-    ) -> "FileResponseDataUri":
+    ) -> FileResponseDataUri:
         """Get Template Files as Data Uri  # noqa: E501
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a `data_uri` representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.  # noqa: E501
@@ -1110,7 +1111,7 @@ class TemplateApi(object):
         self,
         template_id,
         **kwargs
-    ) -> "FileResponse":
+    ) -> FileResponse:
         """Get Template Files as File Url  # noqa: E501
 
         Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.  # noqa: E501
@@ -1210,7 +1211,7 @@ class TemplateApi(object):
         self,
         template_id,
         **kwargs
-    ) -> "TemplateGetResponse":
+    ) -> TemplateGetResponse:
         """Get Template  # noqa: E501
 
         Returns the Template specified by the `template_id` parameter.  # noqa: E501
@@ -1309,7 +1310,7 @@ class TemplateApi(object):
     def template_list(
         self,
         **kwargs
-    ) -> "TemplateListResponse":
+    ) -> TemplateListResponse:
         """List Templates  # noqa: E501
 
         Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.  # noqa: E501
@@ -1410,7 +1411,7 @@ class TemplateApi(object):
         template_id,
         template_remove_user_request,
         **kwargs
-    ) -> "TemplateGetResponse":
+    ) -> TemplateGetResponse:
         """Remove User from Template  # noqa: E501
 
         Removes the specified Account's access to the specified Template.  # noqa: E501
@@ -1514,7 +1515,7 @@ class TemplateApi(object):
         template_id,
         template_update_files_request,
         **kwargs
-    ) -> "TemplateUpdateFilesResponse":
+    ) -> TemplateUpdateFilesResponse:
         """Update Template Files  # noqa: E501
 
         Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A `template_created` event will be sent when the files are updated or a `template_error` event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a `template_error` [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).  # noqa: E501

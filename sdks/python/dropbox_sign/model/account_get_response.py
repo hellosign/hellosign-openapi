@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.account_response import AccountResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,7 +106,7 @@ class AccountGetResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "AccountGetResponse":
+    def init(data: any) -> AccountGetResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
@@ -110,7 +115,6 @@ class AccountGetResponse(ModelNormal):
             response_type=[AccountGetResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'account': 'account',  # noqa: E501
@@ -121,6 +125,22 @@ class AccountGetResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def account(self) -> AccountResponse:
+        return self.get("account")
+
+    @account.setter
+    def account(self, value: AccountResponse):
+        setattr(self, "account", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

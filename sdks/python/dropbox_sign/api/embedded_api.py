@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -156,7 +157,7 @@ class EmbeddedApi(object):
         template_id,
         embedded_edit_url_request,
         **kwargs
-    ) -> "EmbeddedEditUrlResponse":
+    ) -> EmbeddedEditUrlResponse:
         """Get Embedded Template Edit URL  # noqa: E501
 
         Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.  # noqa: E501
@@ -259,7 +260,7 @@ class EmbeddedApi(object):
         self,
         signature_id,
         **kwargs
-    ) -> "EmbeddedSignUrlResponse":
+    ) -> EmbeddedSignUrlResponse:
         """Get Embedded Sign URL  # noqa: E501
 
         Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.  # noqa: E501

@@ -21,11 +21,7 @@ callback_data = {
     },
 }
 
-callback_event: EventCallbackRequest = ApiClient().deserialize(
-    response=type("obj_dict", (object,), {"data": json.dumps(callback_data)}),
-    response_type=[EventCallbackRequest],
-    _check_type=True,
-)
+callback_event = EventCallbackRequest.init(callback_data)
 
 # verify that a callback came from HelloSign.com
 if EventCallbackHelper.is_valid(api_key, callback_event):

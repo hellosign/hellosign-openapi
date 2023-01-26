@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -267,7 +268,7 @@ class UnclaimedDraftApi(object):
         self,
         unclaimed_draft_create_request,
         **kwargs
-    ) -> "UnclaimedDraftCreateResponse":
+    ) -> UnclaimedDraftCreateResponse:
         """Create Unclaimed Draft  # noqa: E501
 
         Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \"Sign and send\" or the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a 404.  # noqa: E501
@@ -367,7 +368,7 @@ class UnclaimedDraftApi(object):
         self,
         unclaimed_draft_create_embedded_request,
         **kwargs
-    ) -> "UnclaimedDraftCreateResponse":
+    ) -> UnclaimedDraftCreateResponse:
         """Create Embedded Unclaimed Draft  # noqa: E501
 
         Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.  # noqa: E501
@@ -467,7 +468,7 @@ class UnclaimedDraftApi(object):
         self,
         unclaimed_draft_create_embedded_with_template_request,
         **kwargs
-    ) -> "UnclaimedDraftCreateResponse":
+    ) -> UnclaimedDraftCreateResponse:
         """Create Embedded Unclaimed Draft with Template  # noqa: E501
 
         Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \"Request signature\" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.  # noqa: E501
@@ -568,7 +569,7 @@ class UnclaimedDraftApi(object):
         signature_request_id,
         unclaimed_draft_edit_and_resend_request,
         **kwargs
-    ) -> "UnclaimedDraftCreateResponse":
+    ) -> UnclaimedDraftCreateResponse:
         """Edit and Resend Unclaimed Draft  # noqa: E501
 
         Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.  # noqa: E501
