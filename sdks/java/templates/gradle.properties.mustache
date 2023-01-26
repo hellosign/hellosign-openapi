@@ -5,8 +5,24 @@
 # For example, uncomment below to build for Android
 #target = android
 GROUP={{groupId}}
-ARCHIVES_BASE_NAME={{artifactId}}
+POM_ARTIFACT_ID={{artifactId}}
 VERSION_NAME={{artifactVersion}}
+
+POM_NAME={{artifactName}}
+POM_DESCRIPTION={{artifactDescription}}
+POM_URL={{artifactUrl}}
+
+POM_LICENSE_NAME={{licenseName}}
+POM_LICENSE_URL={{licenseUrl}}
+POM_LICENSE_DIST=repo
+
+POM_SCM_URL={{scmUrl}}
+POM_SCM_CONNECTION={{scmConnection}}
+POM_SCM_DEV_CONNECTION={{scmDeveloperConnection}}
+
+POM_DEVELOPER_ID={{developerId}}
+POM_DEVELOPER_NAME={{developerName}}
+POM_DEVELOPER_URL={{developerOrganizationUrl}}
 {{#gradleProperties}}
 {{{.}}}
 {{/gradleProperties}}
