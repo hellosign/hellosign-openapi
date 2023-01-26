@@ -126,9 +126,9 @@
     {{#hasOnlyReadOnly}}
         [JsonConstructorAttribute]
     {{/hasOnlyReadOnly}}
-        public {{classname}}({{#readWriteVars}}{{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}} {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} = {{#defaultValue}}{{^isDateTime}}{{{defaultValue}}}{{/isDateTime}}{{#isDateTime}}default({{{datatypeWithEnum}}}){{/isDateTime}}{{/defaultValue}}{{^defaultValue}}default({{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}}){{/defaultValue}}{{^-last}}, {{/-last}}{{/readWriteVars}})
+        public {{classname}}({{#readWriteVars}}{{#vendorExtensions.x-int-or-string}}Object{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-int-or-string}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}} {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} = {{#vendorExtensions.x-int-or-string}}null{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#defaultValue}}{{^isDateTime}}{{{defaultValue}}}{{/isDateTime}}{{#isDateTime}}default({{{datatypeWithEnum}}}){{/isDateTime}}{{/defaultValue}}{{^defaultValue}}default({{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}}){{/defaultValue}}{{/vendorExtensions.x-int-or-string}}{{^-last}}, {{/-last}}{{/readWriteVars}})
         {
-            {{#parent}}{{#parentVars}}this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+            {{#parent}}{{#parentVars}}this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
             {{/parentVars}}{{/parent}}
             {{#vars}}
             {{^isInherited}}
@@ -141,10 +141,10 @@
             {
                 throw new ArgumentNullException("{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} is a required property for {{classname}} and cannot be null");
             }
-            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+            this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
             {{/vendorExtensions.x-csharp-value-type}}
             {{#vendorExtensions.x-csharp-value-type}}
-            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+            this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
             {{/vendorExtensions.x-csharp-value-type}}
             {{/conditionalSerialization}}
             {{#conditionalSerialization}}
@@ -172,16 +172,16 @@
             {{^conditionalSerialization}}
             {{^vendorExtensions.x-csharp-value-type}}
             // use default value if no "{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}" provided
-            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} ?? {{{defaultValue}}};
+            this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} ?? {{{defaultValue}}}{{/vendorExtensions.x-int-or-string}};
             {{/vendorExtensions.x-csharp-value-type}}
             {{#vendorExtensions.x-csharp-value-type}}
-            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+            this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
             {{/vendorExtensions.x-csharp-value-type}}
             {{/conditionalSerialization}}
             {{/defaultValue}}
             {{^defaultValue}}
             {{^conditionalSerialization}}
-            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+            this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
             {{/conditionalSerialization}}
             {{#conditionalSerialization}}
             this._{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
@@ -233,7 +233,12 @@
         {{#deprecated}}
         [Obsolete]
         {{/deprecated}}
-        public {{{dataType}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }
+        {{^vendorExtensions.x-int-or-string}}public {{{dataType}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }{{/vendorExtensions.x-int-or-string}}{{#vendorExtensions.x-int-or-string}}public object {{name}} {
+            get => this._{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+            set => this._{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} = Convert.ToString(value);
+        }
+
+        private string _{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};{{/vendorExtensions.x-int-or-string}}
 
         {{#isReadOnly}}
         /// <summary>

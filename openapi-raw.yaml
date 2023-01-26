@@ -7224,6 +7224,7 @@ components:
         signer:
           description: '_t__Sub::FormFieldsPerDocument::SIGNER'
           type: string
+          x-int-or-string: true
         type:
           type: string
         width:

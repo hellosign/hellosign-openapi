@@ -206,11 +206,11 @@ class SubFormFieldsPerDocumentHyperlink(ModelComposed):
         setattr(self, "required", value)
 
     @property
-    def signer(self) -> str:
+    def signer(self) -> Union[int, str]:
         return self.get("signer")
 
     @signer.setter
-    def signer(self, value: str):
+    def signer(self, value: Union[int, str]):
         setattr(self, "signer", value)
 
     @property

@@ -435,7 +435,7 @@ abstract class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAcce
     /**
      * Gets signer
      *
-     * @return string
+     * @return int|string
      */
     public function getSigner()
     {
@@ -445,11 +445,11 @@ abstract class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAcce
     /**
      * Sets signer
      *
-     * @param string $signer Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+     * @param int|string $signer Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
      *
      * @return self
      */
-    public function setSigner(string $signer)
+    public function setSigner($signer)
     {
         $this->container['signer'] = $signer;
 
