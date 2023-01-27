@@ -41,6 +41,7 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
 use InvalidArgumentException;
+use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 use SplFileObject;
 
@@ -72,6 +73,11 @@ class SignatureRequestApi
      * @var int Host index
      */
     protected $hostIndex;
+
+    /**
+     * @var ResponseInterface|null
+     */
+    protected $response;
 
     /**
      * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
@@ -117,6 +123,14 @@ class SignatureRequestApi
     }
 
     /**
+     * @return ResponseInterface|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Operation signatureRequestBulkCreateEmbeddedWithTemplate
      *
      * Embedded Bulk Send with Template
@@ -153,6 +167,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -466,6 +481,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -781,6 +797,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1032,6 +1049,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1349,6 +1367,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1668,6 +1687,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1995,6 +2015,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2308,6 +2329,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2621,6 +2643,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2940,6 +2963,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3287,6 +3311,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3602,6 +3627,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3935,6 +3961,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -4182,6 +4209,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -4499,6 +4527,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -4818,6 +4847,7 @@ class SignatureRequestApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",

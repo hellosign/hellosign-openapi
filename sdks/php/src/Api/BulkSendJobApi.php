@@ -41,6 +41,7 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
 use InvalidArgumentException;
+use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
 /**
@@ -71,6 +72,11 @@ class BulkSendJobApi
      * @var int Host index
      */
     protected $hostIndex;
+
+    /**
+     * @var ResponseInterface|null
+     */
+    protected $response;
 
     /**
      * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
@@ -116,6 +122,14 @@ class BulkSendJobApi
     }
 
     /**
+     * @return ResponseInterface|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Operation bulkSendJobGet
      *
      * Get Bulk Send Job
@@ -152,6 +166,7 @@ class BulkSendJobApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -467,6 +482,7 @@ class BulkSendJobApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
