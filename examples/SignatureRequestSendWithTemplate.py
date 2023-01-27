@@ -14,7 +14,7 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     signature_request_api = apis.SignatureRequestApi(api_client)
 
-    signer_1 = models.SubSignatureRequestSigner(
+    signer_1 = models.SubSignatureRequestTemplateSigner(
         role="Client",
         email_address="george@example.com",
         name="George",

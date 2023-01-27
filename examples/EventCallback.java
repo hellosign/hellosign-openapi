@@ -1,7 +1,6 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.EventCallbackHelper;
-import com.dropbox.sign.JSON;
 import com.dropbox.sign.model.EventCallbackRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,10 +25,8 @@ public class Example {
             }});
         }};
 
-        ObjectMapper mapper = JSON.getDefault().getMapper();
-        EventCallbackRequest callbackEvent = mapper.convertValue(
-            callbackData,
-            EventCallbackRequest.class
+        EventCallbackRequest callbackEvent = EventCallbackRequest.init(
+            new ObjectMapper().writeValueAsString(callbackData)
         );
 
         // verify that a callback came from HelloSign.com

@@ -18,10 +18,7 @@ callback_data = {
   },
 }
 
-callback_event = Dropbox::Sign::ApiClient.new.convert_to_type(
-  callback_data,
-  "Dropbox::Sign::EventCallbackRequest"
-) || Dropbox::Sign::EventCallbackRequest.new
+callback_event = Dropbox::Sign::EventCallbackRequest.init(callback_data)
 
 # verify that a callback came from HelloSign.com
 if Dropbox::Sign::EventCallbackHelper.is_valid(api_key, callback_event)

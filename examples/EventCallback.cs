@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Dropbox.Sign.Model;
 using Dropbox.Sign;
@@ -29,16 +27,9 @@ public class Example
             }
         };
 
-        var json = JsonConvert.SerializeObject(callbackData);
-
-        var callbackEvent = JsonConvert.DeserializeObject<EventCallbackRequest>(json);
-        if (callbackEvent == null)
-        {
-            throw new Exception("Invalid data provided");
-        }
+        var callbackEvent = EventCallbackRequest.Init(JsonConvert.SerializeObject(callbackData));
 
         // verify that a callback came from HelloSign.com
-        var isValid = EventCallbackHelper.IsValid(apiKey, callbackEvent);
         if (EventCallbackHelper.IsValid(apiKey, callbackEvent))
         {
             // one of "account_callback" or "api_app_callback"
