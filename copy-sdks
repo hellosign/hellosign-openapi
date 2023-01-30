@@ -118,7 +118,7 @@ function repo_not_cloned()
 
   printf "This script expects to find SDK repo cloned at ${SDK_DIR}\n"
   printf "Make sure to clone the SDK repo by using the following:\n\n"
-  printf "git clone --branch openapi ${REPO} ${SDK_DIR}\n"
+  printf "git clone ${REPO} ${SDK_DIR}\n"
 
   exit 1
 }
