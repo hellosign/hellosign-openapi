@@ -6,3 +6,4 @@ sdks/**/test_fixtures
 sdks/**/vendor
 vendor
 .idea
+.gradle

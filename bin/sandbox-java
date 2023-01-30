@@ -19,7 +19,6 @@ docker run --rm -it \
   -v "dropbox-sign-sdk-maven-cache:/root/.m2" \
   -w "${WORKING_DIR}" \
   -e GEN_DIR=/app \
-  -e MAVEN_OPTS="-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=/root/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -Djacoco.skip=true" \
-  maven:3-jdk-8 mvn clean install
+  gradle:6.9.3-jdk8 ./gradlew clean fatJar
 
-cp "${SDK_DIR}/target/"dropbox-sign-*-jar-with-dependencies.jar "${ARTIFACTS_DIR}/dropbox-sign.jar"
+cp "${SDK_DIR}/build/libs/"dropbox-sign-*-all.jar "${ARTIFACTS_DIR}/dropbox-sign.jar"

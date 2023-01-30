@@ -1,15 +1,3 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'com.diffplug.spotless'
-apply plugin: 'signing'
-
-group = '{{groupId}}'
-archivesBaseName = '{{artifactId}}'
-version = '{{artifactVersion}}'
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-
 buildscript {
     repositories {
         mavenCentral()
@@ -20,6 +8,21 @@ buildscript {
         classpath 'com.diffplug.spotless:spotless-plugin-gradle:5.17.1'
     }
 }
+
+plugins {
+    id 'com.vanniktech.maven.publish' version '0.18.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'com.diffplug.spotless'
+apply plugin: 'signing'
+
+group = '{{groupId}}'
+archivesBaseName = '{{artifactId}}'
+version = '{{artifactVersion}}'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
@@ -47,17 +50,20 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
 }
 
+task fatJar(type: Jar) {
+    classifier = 'all'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
 processResources {
     expand(project.properties)
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
-}
-
-signing {
-    required { gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
+    archives javadocJar, sourcesJar, fatJar
 }
 
 uploadArchives {
@@ -104,11 +110,6 @@ uploadArchives {
             }
         }
     }
-}
-
-task fatJar(type: Jar) {
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
 ext {
