@@ -98,6 +98,13 @@ public class SubFieldOptions {
     return new ObjectMapper().readValue(jsonData, SubFieldOptions.class);
   }
 
+  static public SubFieldOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFieldOptions.class
+    );
+  }
+
   public SubFieldOptions dateFormat(DateFormatEnum dateFormat) {
     this.dateFormat = dateFormat;
     return this;

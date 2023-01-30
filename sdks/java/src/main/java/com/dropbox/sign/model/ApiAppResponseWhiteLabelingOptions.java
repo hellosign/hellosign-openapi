@@ -107,6 +107,13 @@ public class ApiAppResponseWhiteLabelingOptions {
     return new ObjectMapper().readValue(jsonData, ApiAppResponseWhiteLabelingOptions.class);
   }
 
+  static public ApiAppResponseWhiteLabelingOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppResponseWhiteLabelingOptions.class
+    );
+  }
+
   public ApiAppResponseWhiteLabelingOptions headerBackgroundColor(String headerBackgroundColor) {
     this.headerBackgroundColor = headerBackgroundColor;
     return this;

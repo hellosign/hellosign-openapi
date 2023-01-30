@@ -67,6 +67,13 @@ public class SignatureRequestListResponse {
     return new ObjectMapper().readValue(jsonData, SignatureRequestListResponse.class);
   }
 
+  static public SignatureRequestListResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestListResponse.class
+    );
+  }
+
   public SignatureRequestListResponse signatureRequests(List<SignatureRequestResponse> signatureRequests) {
     this.signatureRequests = signatureRequests;
     return this;

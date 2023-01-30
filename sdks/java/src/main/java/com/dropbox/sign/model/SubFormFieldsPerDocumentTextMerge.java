@@ -82,6 +82,13 @@ public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentTextMerge.class);
   }
 
+  static public SubFormFieldsPerDocumentTextMerge init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentTextMerge.class
+    );
+  }
+
   public SubFormFieldsPerDocumentTextMerge type(String type) {
     this.type = type;
     return this;

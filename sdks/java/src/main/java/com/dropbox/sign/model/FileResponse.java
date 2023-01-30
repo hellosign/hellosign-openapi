@@ -58,6 +58,13 @@ public class FileResponse {
     return new ObjectMapper().readValue(jsonData, FileResponse.class);
   }
 
+  static public FileResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      FileResponse.class
+    );
+  }
+
   public FileResponse fileUrl(String fileUrl) {
     this.fileUrl = fileUrl;
     return this;

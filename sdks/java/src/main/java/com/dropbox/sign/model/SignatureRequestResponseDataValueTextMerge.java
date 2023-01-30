@@ -83,6 +83,13 @@ public class SignatureRequestResponseDataValueTextMerge extends SignatureRequest
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataValueTextMerge.class);
   }
 
+  static public SignatureRequestResponseDataValueTextMerge init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseDataValueTextMerge.class
+    );
+  }
+
   public SignatureRequestResponseDataValueTextMerge type(String type) {
     this.type = type;
     return this;

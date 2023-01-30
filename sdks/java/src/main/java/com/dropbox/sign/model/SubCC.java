@@ -58,6 +58,13 @@ public class SubCC {
     return new ObjectMapper().readValue(jsonData, SubCC.class);
   }
 
+  static public SubCC init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubCC.class
+    );
+  }
+
   public SubCC role(String role) {
     this.role = role;
     return this;

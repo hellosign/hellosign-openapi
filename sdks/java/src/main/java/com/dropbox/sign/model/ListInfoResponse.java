@@ -67,6 +67,13 @@ public class ListInfoResponse {
     return new ObjectMapper().readValue(jsonData, ListInfoResponse.class);
   }
 
+  static public ListInfoResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ListInfoResponse.class
+    );
+  }
+
   public ListInfoResponse numPages(Integer numPages) {
     this.numPages = numPages;
     return this;

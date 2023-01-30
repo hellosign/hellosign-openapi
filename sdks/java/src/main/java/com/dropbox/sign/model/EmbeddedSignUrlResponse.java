@@ -62,6 +62,13 @@ public class EmbeddedSignUrlResponse {
     return new ObjectMapper().readValue(jsonData, EmbeddedSignUrlResponse.class);
   }
 
+  static public EmbeddedSignUrlResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      EmbeddedSignUrlResponse.class
+    );
+  }
+
   public EmbeddedSignUrlResponse embedded(EmbeddedSignUrlResponseEmbedded embedded) {
     this.embedded = embedded;
     return this;

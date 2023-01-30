@@ -54,6 +54,13 @@ public class AccountVerifyRequest {
     return new ObjectMapper().readValue(jsonData, AccountVerifyRequest.class);
   }
 
+  static public AccountVerifyRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountVerifyRequest.class
+    );
+  }
+
   public AccountVerifyRequest emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;

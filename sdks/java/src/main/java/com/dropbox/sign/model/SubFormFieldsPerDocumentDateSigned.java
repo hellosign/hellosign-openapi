@@ -82,6 +82,13 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentDateSigned.class);
   }
 
+  static public SubFormFieldsPerDocumentDateSigned init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentDateSigned.class
+    );
+  }
+
   public SubFormFieldsPerDocumentDateSigned type(String type) {
     this.type = type;
     return this;

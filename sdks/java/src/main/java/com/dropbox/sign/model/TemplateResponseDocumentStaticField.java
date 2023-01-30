@@ -90,6 +90,13 @@ public class TemplateResponseDocumentStaticField {
     return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentStaticField.class);
   }
 
+  static public TemplateResponseDocumentStaticField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseDocumentStaticField.class
+    );
+  }
+
   public TemplateResponseDocumentStaticField name(String name) {
     this.name = name;
     return this;

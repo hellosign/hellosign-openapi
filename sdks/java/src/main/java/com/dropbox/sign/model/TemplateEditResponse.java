@@ -54,6 +54,13 @@ public class TemplateEditResponse {
     return new ObjectMapper().readValue(jsonData, TemplateEditResponse.class);
   }
 
+  static public TemplateEditResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateEditResponse.class
+    );
+  }
+
   public TemplateEditResponse templateId(String templateId) {
     this.templateId = templateId;
     return this;

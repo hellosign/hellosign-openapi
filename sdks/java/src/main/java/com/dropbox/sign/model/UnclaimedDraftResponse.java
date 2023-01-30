@@ -75,6 +75,13 @@ public class UnclaimedDraftResponse {
     return new ObjectMapper().readValue(jsonData, UnclaimedDraftResponse.class);
   }
 
+  static public UnclaimedDraftResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftResponse.class
+    );
+  }
+
   public UnclaimedDraftResponse signatureRequestId(String signatureRequestId) {
     this.signatureRequestId = signatureRequestId;
     return this;

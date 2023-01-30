@@ -66,6 +66,13 @@ public class SignatureRequestUpdateRequest {
     return new ObjectMapper().readValue(jsonData, SignatureRequestUpdateRequest.class);
   }
 
+  static public SignatureRequestUpdateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestUpdateRequest.class
+    );
+  }
+
   public SignatureRequestUpdateRequest signatureId(String signatureId) {
     this.signatureId = signatureId;
     return this;

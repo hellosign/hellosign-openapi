@@ -150,6 +150,13 @@ public class TemplateResponseDocumentCustomField {
     return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentCustomField.class);
   }
 
+  static public TemplateResponseDocumentCustomField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseDocumentCustomField.class
+    );
+  }
+
   public TemplateResponseDocumentCustomField name(String name) {
     this.name = name;
     return this;

@@ -149,6 +149,13 @@ public class SignatureRequestResponse {
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponse.class);
   }
 
+  static public SignatureRequestResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponse.class
+    );
+  }
+
   public SignatureRequestResponse testMode(Boolean testMode) {
     this.testMode = testMode;
     return this;

@@ -62,6 +62,13 @@ public class ApiAppGetResponse {
     return new ObjectMapper().readValue(jsonData, ApiAppGetResponse.class);
   }
 
+  static public ApiAppGetResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppGetResponse.class
+    );
+  }
+
   public ApiAppGetResponse apiApp(ApiAppResponse apiApp) {
     this.apiApp = apiApp;
     return this;

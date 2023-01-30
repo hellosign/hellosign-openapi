@@ -82,6 +82,13 @@ public class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentB
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentSignature.class);
   }
 
+  static public SubFormFieldsPerDocumentSignature init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentSignature.class
+    );
+  }
+
   public SubFormFieldsPerDocumentSignature type(String type) {
     this.type = type;
     return this;

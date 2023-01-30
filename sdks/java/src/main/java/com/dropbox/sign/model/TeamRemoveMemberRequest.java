@@ -109,6 +109,13 @@ public class TeamRemoveMemberRequest {
     return new ObjectMapper().readValue(jsonData, TeamRemoveMemberRequest.class);
   }
 
+  static public TeamRemoveMemberRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TeamRemoveMemberRequest.class
+    );
+  }
+
   public TeamRemoveMemberRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;

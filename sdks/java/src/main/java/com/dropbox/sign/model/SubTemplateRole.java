@@ -58,6 +58,13 @@ public class SubTemplateRole {
     return new ObjectMapper().readValue(jsonData, SubTemplateRole.class);
   }
 
+  static public SubTemplateRole init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubTemplateRole.class
+    );
+  }
+
   public SubTemplateRole name(String name) {
     this.name = name;
     return this;

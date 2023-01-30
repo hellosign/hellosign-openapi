@@ -63,6 +63,13 @@ public class ErrorResponseError {
     return new ObjectMapper().readValue(jsonData, ErrorResponseError.class);
   }
 
+  static public ErrorResponseError init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ErrorResponseError.class
+    );
+  }
+
   public ErrorResponseError errorMsg(String errorMsg) {
     this.errorMsg = errorMsg;
     return this;

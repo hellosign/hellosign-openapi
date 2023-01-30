@@ -160,6 +160,13 @@ public class SignatureRequestCreateEmbeddedRequest {
     return new ObjectMapper().readValue(jsonData, SignatureRequestCreateEmbeddedRequest.class);
   }
 
+  static public SignatureRequestCreateEmbeddedRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestCreateEmbeddedRequest.class
+    );
+  }
+
   public SignatureRequestCreateEmbeddedRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

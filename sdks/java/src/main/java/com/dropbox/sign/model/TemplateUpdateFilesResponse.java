@@ -55,6 +55,13 @@ public class TemplateUpdateFilesResponse {
     return new ObjectMapper().readValue(jsonData, TemplateUpdateFilesResponse.class);
   }
 
+  static public TemplateUpdateFilesResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateUpdateFilesResponse.class
+    );
+  }
+
   public TemplateUpdateFilesResponse template(TemplateUpdateFilesResponseTemplate template) {
     this.template = template;
     return this;

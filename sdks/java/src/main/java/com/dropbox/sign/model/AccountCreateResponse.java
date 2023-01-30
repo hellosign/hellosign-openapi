@@ -67,6 +67,13 @@ public class AccountCreateResponse {
     return new ObjectMapper().readValue(jsonData, AccountCreateResponse.class);
   }
 
+  static public AccountCreateResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountCreateResponse.class
+    );
+  }
+
   public AccountCreateResponse account(AccountResponse account) {
     this.account = account;
     return this;

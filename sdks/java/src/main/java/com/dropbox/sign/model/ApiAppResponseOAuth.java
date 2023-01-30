@@ -69,6 +69,13 @@ public class ApiAppResponseOAuth {
     return new ObjectMapper().readValue(jsonData, ApiAppResponseOAuth.class);
   }
 
+  static public ApiAppResponseOAuth init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppResponseOAuth.class
+    );
+  }
+
   public ApiAppResponseOAuth callbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;

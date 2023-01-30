@@ -59,6 +59,13 @@ public class TemplateResponseFieldAvgTextLength {
     return new ObjectMapper().readValue(jsonData, TemplateResponseFieldAvgTextLength.class);
   }
 
+  static public TemplateResponseFieldAvgTextLength init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseFieldAvgTextLength.class
+    );
+  }
+
   public TemplateResponseFieldAvgTextLength numLines(Integer numLines) {
     this.numLines = numLines;
     return this;

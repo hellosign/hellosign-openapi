@@ -83,6 +83,13 @@ public class SignatureRequestResponseDataValueRadio extends SignatureRequestResp
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataValueRadio.class);
   }
 
+  static public SignatureRequestResponseDataValueRadio init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseDataValueRadio.class
+    );
+  }
+
   public SignatureRequestResponseDataValueRadio type(String type) {
     this.type = type;
     return this;

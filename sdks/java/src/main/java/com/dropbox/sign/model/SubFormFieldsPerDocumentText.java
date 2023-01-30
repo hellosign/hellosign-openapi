@@ -161,6 +161,13 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentText.class);
   }
 
+  static public SubFormFieldsPerDocumentText init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentText.class
+    );
+  }
+
   public SubFormFieldsPerDocumentText type(String type) {
     this.type = type;
     return this;

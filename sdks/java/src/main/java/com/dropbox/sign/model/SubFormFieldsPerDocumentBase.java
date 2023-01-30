@@ -131,6 +131,13 @@ public class SubFormFieldsPerDocumentBase {
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentBase.class);
   }
 
+  static public SubFormFieldsPerDocumentBase init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentBase.class
+    );
+  }
+
   public SubFormFieldsPerDocumentBase documentIndex(Integer documentIndex) {
     this.documentIndex = documentIndex;
     return this;

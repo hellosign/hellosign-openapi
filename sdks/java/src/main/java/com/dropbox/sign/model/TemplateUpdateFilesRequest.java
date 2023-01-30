@@ -77,6 +77,13 @@ public class TemplateUpdateFilesRequest {
     return new ObjectMapper().readValue(jsonData, TemplateUpdateFilesRequest.class);
   }
 
+  static public TemplateUpdateFilesRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateUpdateFilesRequest.class
+    );
+  }
+
   public TemplateUpdateFilesRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

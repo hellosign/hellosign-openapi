@@ -104,6 +104,13 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
   static public {{classname}} init(String jsonData) throws Exception {
     return new ObjectMapper().readValue(jsonData, {{classname}}.class);
   }
+
+  static public {{classname}} init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      {{classname}}.class
+    );
+  }
   {{#vars}}
 
   {{^isReadOnly}}

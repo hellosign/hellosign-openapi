@@ -158,6 +158,13 @@ public class TemplateResponseDocumentFormField {
     return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentFormField.class);
   }
 
+  static public TemplateResponseDocumentFormField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseDocumentFormField.class
+    );
+  }
+
   public TemplateResponseDocumentFormField apiId(String apiId) {
     this.apiId = apiId;
     return this;

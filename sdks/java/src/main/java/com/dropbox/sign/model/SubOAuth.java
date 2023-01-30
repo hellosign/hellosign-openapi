@@ -108,6 +108,13 @@ public class SubOAuth {
     return new ObjectMapper().readValue(jsonData, SubOAuth.class);
   }
 
+  static public SubOAuth init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubOAuth.class
+    );
+  }
+
   public SubOAuth callbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;

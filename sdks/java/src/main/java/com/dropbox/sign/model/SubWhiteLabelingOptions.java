@@ -146,6 +146,13 @@ public class SubWhiteLabelingOptions {
     return new ObjectMapper().readValue(jsonData, SubWhiteLabelingOptions.class);
   }
 
+  static public SubWhiteLabelingOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubWhiteLabelingOptions.class
+    );
+  }
+
   public SubWhiteLabelingOptions headerBackgroundColor(String headerBackgroundColor) {
     this.headerBackgroundColor = headerBackgroundColor;
     return this;

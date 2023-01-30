@@ -66,6 +66,13 @@ public class AccountCreateRequest {
     return new ObjectMapper().readValue(jsonData, AccountCreateRequest.class);
   }
 
+  static public AccountCreateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountCreateRequest.class
+    );
+  }
+
   public AccountCreateRequest emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;

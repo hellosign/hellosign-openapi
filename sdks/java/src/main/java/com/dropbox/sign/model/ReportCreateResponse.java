@@ -62,6 +62,13 @@ public class ReportCreateResponse {
     return new ObjectMapper().readValue(jsonData, ReportCreateResponse.class);
   }
 
+  static public ReportCreateResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ReportCreateResponse.class
+    );
+  }
+
   public ReportCreateResponse report(ReportResponse report) {
     this.report = report;
     return this;

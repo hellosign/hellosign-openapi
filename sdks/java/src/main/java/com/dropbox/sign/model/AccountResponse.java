@@ -91,6 +91,13 @@ public class AccountResponse {
     return new ObjectMapper().readValue(jsonData, AccountResponse.class);
   }
 
+  static public AccountResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountResponse.class
+    );
+  }
+
   public AccountResponse accountId(String accountId) {
     this.accountId = accountId;
     return this;

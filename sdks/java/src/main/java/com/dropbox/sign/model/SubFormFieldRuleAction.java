@@ -101,6 +101,13 @@ public class SubFormFieldRuleAction {
     return new ObjectMapper().readValue(jsonData, SubFormFieldRuleAction.class);
   }
 
+  static public SubFormFieldRuleAction init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldRuleAction.class
+    );
+  }
+
   public SubFormFieldRuleAction hidden(Boolean hidden) {
     this.hidden = hidden;
     return this;

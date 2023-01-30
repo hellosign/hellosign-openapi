@@ -109,6 +109,13 @@ public class SubSignatureRequestSigner {
     return new ObjectMapper().readValue(jsonData, SubSignatureRequestSigner.class);
   }
 
+  static public SubSignatureRequestSigner init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubSignatureRequestSigner.class
+    );
+  }
+
   public SubSignatureRequestSigner name(String name) {
     this.name = name;
     return this;

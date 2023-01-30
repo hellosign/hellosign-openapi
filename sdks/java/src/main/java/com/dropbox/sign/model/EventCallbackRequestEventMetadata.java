@@ -67,6 +67,13 @@ public class EventCallbackRequestEventMetadata {
     return new ObjectMapper().readValue(jsonData, EventCallbackRequestEventMetadata.class);
   }
 
+  static public EventCallbackRequestEventMetadata init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      EventCallbackRequestEventMetadata.class
+    );
+  }
+
   public EventCallbackRequestEventMetadata relatedSignatureId(String relatedSignatureId) {
     this.relatedSignatureId = relatedSignatureId;
     return this;

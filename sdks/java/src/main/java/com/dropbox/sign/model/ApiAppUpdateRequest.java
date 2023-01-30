@@ -84,6 +84,13 @@ public class ApiAppUpdateRequest {
     return new ObjectMapper().readValue(jsonData, ApiAppUpdateRequest.class);
   }
 
+  static public ApiAppUpdateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppUpdateRequest.class
+    );
+  }
+
   public ApiAppUpdateRequest callbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;

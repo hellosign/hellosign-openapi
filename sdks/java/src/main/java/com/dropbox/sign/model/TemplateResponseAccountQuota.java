@@ -67,6 +67,13 @@ public class TemplateResponseAccountQuota {
     return new ObjectMapper().readValue(jsonData, TemplateResponseAccountQuota.class);
   }
 
+  static public TemplateResponseAccountQuota init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseAccountQuota.class
+    );
+  }
+
   public TemplateResponseAccountQuota templatesLeft(Integer templatesLeft) {
     this.templatesLeft = templatesLeft;
     return this;

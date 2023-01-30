@@ -163,6 +163,13 @@ public class TemplateCreateEmbeddedDraftRequest {
     return new ObjectMapper().readValue(jsonData, TemplateCreateEmbeddedDraftRequest.class);
   }
 
+  static public TemplateCreateEmbeddedDraftRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateCreateEmbeddedDraftRequest.class
+    );
+  }
+
   public TemplateCreateEmbeddedDraftRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

@@ -84,6 +84,13 @@ public class ApiAppCreateRequest {
     return new ObjectMapper().readValue(jsonData, ApiAppCreateRequest.class);
   }
 
+  static public ApiAppCreateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppCreateRequest.class
+    );
+  }
+
   public ApiAppCreateRequest domains(List<String> domains) {
     this.domains = domains;
     return this;

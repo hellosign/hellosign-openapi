@@ -54,6 +54,13 @@ public class FileResponseDataUri {
     return new ObjectMapper().readValue(jsonData, FileResponseDataUri.class);
   }
 
+  static public FileResponseDataUri init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      FileResponseDataUri.class
+    );
+  }
+
   public FileResponseDataUri dataUri(String dataUri) {
     this.dataUri = dataUri;
     return this;

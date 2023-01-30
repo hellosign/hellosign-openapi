@@ -83,6 +83,13 @@ public class SignatureRequestResponseDataValueInitials extends SignatureRequestR
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataValueInitials.class);
   }
 
+  static public SignatureRequestResponseDataValueInitials init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseDataValueInitials.class
+    );
+  }
+
   public SignatureRequestResponseDataValueInitials type(String type) {
     this.type = type;
     return this;

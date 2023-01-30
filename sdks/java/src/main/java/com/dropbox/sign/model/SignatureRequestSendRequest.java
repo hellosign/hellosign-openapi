@@ -164,6 +164,13 @@ public class SignatureRequestSendRequest {
     return new ObjectMapper().readValue(jsonData, SignatureRequestSendRequest.class);
   }
 
+  static public SignatureRequestSendRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestSendRequest.class
+    );
+  }
+
   public SignatureRequestSendRequest files(List<File> files) {
     this.files = files;
     return this;

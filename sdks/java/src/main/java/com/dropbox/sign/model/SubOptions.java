@@ -55,6 +55,13 @@ public class SubOptions {
     return new ObjectMapper().readValue(jsonData, SubOptions.class);
   }
 
+  static public SubOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubOptions.class
+    );
+  }
+
   public SubOptions canInsertEverywhere(Boolean canInsertEverywhere) {
     this.canInsertEverywhere = canInsertEverywhere;
     return this;

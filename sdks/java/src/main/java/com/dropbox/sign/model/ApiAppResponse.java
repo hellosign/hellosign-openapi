@@ -97,6 +97,13 @@ public class ApiAppResponse {
     return new ObjectMapper().readValue(jsonData, ApiAppResponse.class);
   }
 
+  static public ApiAppResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppResponse.class
+    );
+  }
+
   public ApiAppResponse callbackUrl(String callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;

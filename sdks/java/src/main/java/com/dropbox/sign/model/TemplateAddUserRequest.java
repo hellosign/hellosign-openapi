@@ -62,6 +62,13 @@ public class TemplateAddUserRequest {
     return new ObjectMapper().readValue(jsonData, TemplateAddUserRequest.class);
   }
 
+  static public TemplateAddUserRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateAddUserRequest.class
+    );
+  }
+
   public TemplateAddUserRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;

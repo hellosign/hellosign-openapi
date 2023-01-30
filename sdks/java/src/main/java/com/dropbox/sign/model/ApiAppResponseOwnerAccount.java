@@ -59,6 +59,13 @@ public class ApiAppResponseOwnerAccount {
     return new ObjectMapper().readValue(jsonData, ApiAppResponseOwnerAccount.class);
   }
 
+  static public ApiAppResponseOwnerAccount init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppResponseOwnerAccount.class
+    );
+  }
+
   public ApiAppResponseOwnerAccount accountId(String accountId) {
     this.accountId = accountId;
     return this;

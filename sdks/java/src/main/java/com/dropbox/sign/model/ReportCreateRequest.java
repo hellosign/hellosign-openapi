@@ -99,6 +99,13 @@ public class ReportCreateRequest {
     return new ObjectMapper().readValue(jsonData, ReportCreateRequest.class);
   }
 
+  static public ReportCreateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ReportCreateRequest.class
+    );
+  }
+
   public ReportCreateRequest endDate(String endDate) {
     this.endDate = endDate;
     return this;

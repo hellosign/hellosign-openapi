@@ -67,6 +67,13 @@ public class TeamSubTeamsResponse {
     return new ObjectMapper().readValue(jsonData, TeamSubTeamsResponse.class);
   }
 
+  static public TeamSubTeamsResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TeamSubTeamsResponse.class
+    );
+  }
+
   public TeamSubTeamsResponse subTeams(List<SubTeamResponse> subTeams) {
     this.subTeams = subTeams;
     return this;

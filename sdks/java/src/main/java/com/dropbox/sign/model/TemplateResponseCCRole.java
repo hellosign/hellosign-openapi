@@ -54,6 +54,13 @@ public class TemplateResponseCCRole {
     return new ObjectMapper().readValue(jsonData, TemplateResponseCCRole.class);
   }
 
+  static public TemplateResponseCCRole init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseCCRole.class
+    );
+  }
+
   public TemplateResponseCCRole name(String name) {
     this.name = name;
     return this;

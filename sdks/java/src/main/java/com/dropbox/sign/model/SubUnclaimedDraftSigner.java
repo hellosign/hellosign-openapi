@@ -62,6 +62,13 @@ public class SubUnclaimedDraftSigner {
     return new ObjectMapper().readValue(jsonData, SubUnclaimedDraftSigner.class);
   }
 
+  static public SubUnclaimedDraftSigner init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubUnclaimedDraftSigner.class
+    );
+  }
+
   public SubUnclaimedDraftSigner emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;
