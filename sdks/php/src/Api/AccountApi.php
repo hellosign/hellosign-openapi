@@ -41,6 +41,7 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\RequestOptions;
 use GuzzleHttp\Utils;
 use InvalidArgumentException;
+use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
 /**
@@ -71,6 +72,11 @@ class AccountApi
      * @var int Host index
      */
     protected $hostIndex;
+
+    /**
+     * @var ResponseInterface|null
+     */
+    protected $response;
 
     /**
      * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
@@ -116,6 +122,14 @@ class AccountApi
     }
 
     /**
+     * @return ResponseInterface|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Operation accountCreate
      *
      * Create Account
@@ -152,6 +166,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -471,6 +486,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -792,6 +808,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1109,6 +1126,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
