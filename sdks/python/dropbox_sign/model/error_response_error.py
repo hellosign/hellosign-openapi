@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -94,16 +96,20 @@ class ErrorResponseError(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ErrorResponseError":
+    def init(data: any) -> ErrorResponseError:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ErrorResponseError],
             _check_type=True,
         )
-
 
     attribute_map = {
         'error_msg': 'error_msg',  # noqa: E501
@@ -115,6 +121,30 @@ class ErrorResponseError(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def error_msg(self) -> str:
+        return self.get("error_msg")
+
+    @error_msg.setter
+    def error_msg(self, value: str):
+        setattr(self, "error_msg", value)
+
+    @property
+    def error_name(self) -> str:
+        return self.get("error_name")
+
+    @error_name.setter
+    def error_name(self, value: str):
+        setattr(self, "error_name", value)
+
+    @property
+    def error_path(self) -> str:
+        return self.get("error_path")
+
+    @error_path.setter
+    def error_path(self, value: str):
+        setattr(self, "error_path", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,18 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+
+if TYPE_CHECKING:
+    from dropbox_sign.models import SignatureRequestResponseDataValueCheckbox
+    from dropbox_sign.models import SignatureRequestResponseDataValueCheckboxMerge
+    from dropbox_sign.models import SignatureRequestResponseDataValueDateSigned
+    from dropbox_sign.models import SignatureRequestResponseDataValueDropdown
+    from dropbox_sign.models import SignatureRequestResponseDataValueInitials
+    from dropbox_sign.models import SignatureRequestResponseDataValueRadio
+    from dropbox_sign.models import SignatureRequestResponseDataValueSignature
+    from dropbox_sign.models import SignatureRequestResponseDataValueText
+    from dropbox_sign.models import SignatureRequestResponseDataValueTextMerge
+
 
 def lazy_import():
     from dropbox_sign.models import SignatureRequestResponseDataValueCheckbox
@@ -130,7 +144,6 @@ class SignatureRequestResponseDataBase(ModelNormal):
             return None
         return {'type': val}
 
-
     attribute_map = {
         'api_id': 'api_id',  # noqa: E501
         'signature_id': 'signature_id',  # noqa: E501
@@ -143,6 +156,46 @@ class SignatureRequestResponseDataBase(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def signature_id(self) -> str:
+        return self.get("signature_id")
+
+    @signature_id.setter
+    def signature_id(self, value: str):
+        setattr(self, "signature_id", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
 
     @classmethod
     @convert_js_args_to_python_args

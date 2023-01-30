@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,11 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.signature_request_response_attachment import SignatureRequestResponseAttachment
+    from dropbox_sign.model.signature_request_response_custom_field_base import SignatureRequestResponseCustomFieldBase
+    from dropbox_sign.model.signature_request_response_data_base import SignatureRequestResponseDataBase
+    from dropbox_sign.model.signature_request_response_signatures import SignatureRequestResponseSignatures
 
 
 def lazy_import():
@@ -126,16 +133,20 @@ class SignatureRequestResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestResponse":
+    def init(data: any) -> SignatureRequestResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SignatureRequestResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'test_mode': 'test_mode',  # noqa: E501
@@ -167,6 +178,190 @@ class SignatureRequestResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def test_mode(self) -> Optional[bool]:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: Optional[bool]):
+        setattr(self, "test_mode", value)
+
+    @property
+    def signature_request_id(self) -> str:
+        return self.get("signature_request_id")
+
+    @signature_request_id.setter
+    def signature_request_id(self, value: str):
+        setattr(self, "signature_request_id", value)
+
+    @property
+    def requester_email_address(self) -> str:
+        return self.get("requester_email_address")
+
+    @requester_email_address.setter
+    def requester_email_address(self, value: str):
+        setattr(self, "requester_email_address", value)
+
+    @property
+    def title(self) -> str:
+        return self.get("title")
+
+    @title.setter
+    def title(self, value: str):
+        setattr(self, "title", value)
+
+    @property
+    def original_title(self) -> str:
+        return self.get("original_title")
+
+    @original_title.setter
+    def original_title(self, value: str):
+        setattr(self, "original_title", value)
+
+    @property
+    def subject(self) -> Optional[str]:
+        return self.get("subject")
+
+    @subject.setter
+    def subject(self, value: Optional[str]):
+        setattr(self, "subject", value)
+
+    @property
+    def message(self) -> Optional[str]:
+        return self.get("message")
+
+    @message.setter
+    def message(self, value: Optional[str]):
+        setattr(self, "message", value)
+
+    @property
+    def metadata(self) -> Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]:
+        return self.get("metadata")
+
+    @metadata.setter
+    def metadata(self, value: Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]):
+        setattr(self, "metadata", value)
+
+    @property
+    def created_at(self) -> int:
+        return self.get("created_at")
+
+    @created_at.setter
+    def created_at(self, value: int):
+        setattr(self, "created_at", value)
+
+    @property
+    def expires_at(self) -> int:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: int):
+        setattr(self, "expires_at", value)
+
+    @property
+    def is_complete(self) -> bool:
+        return self.get("is_complete")
+
+    @is_complete.setter
+    def is_complete(self, value: bool):
+        setattr(self, "is_complete", value)
+
+    @property
+    def is_declined(self) -> bool:
+        return self.get("is_declined")
+
+    @is_declined.setter
+    def is_declined(self, value: bool):
+        setattr(self, "is_declined", value)
+
+    @property
+    def has_error(self) -> bool:
+        return self.get("has_error")
+
+    @has_error.setter
+    def has_error(self, value: bool):
+        setattr(self, "has_error", value)
+
+    @property
+    def files_url(self) -> str:
+        return self.get("files_url")
+
+    @files_url.setter
+    def files_url(self, value: str):
+        setattr(self, "files_url", value)
+
+    @property
+    def signing_url(self) -> Optional[str]:
+        return self.get("signing_url")
+
+    @signing_url.setter
+    def signing_url(self, value: Optional[str]):
+        setattr(self, "signing_url", value)
+
+    @property
+    def details_url(self) -> str:
+        return self.get("details_url")
+
+    @details_url.setter
+    def details_url(self, value: str):
+        setattr(self, "details_url", value)
+
+    @property
+    def cc_email_addresses(self) -> List[str]:
+        return self.get("cc_email_addresses")
+
+    @cc_email_addresses.setter
+    def cc_email_addresses(self, value: List[str]):
+        setattr(self, "cc_email_addresses", value)
+
+    @property
+    def signing_redirect_url(self) -> Optional[str]:
+        return self.get("signing_redirect_url")
+
+    @signing_redirect_url.setter
+    def signing_redirect_url(self, value: Optional[str]):
+        setattr(self, "signing_redirect_url", value)
+
+    @property
+    def template_ids(self) -> Optional[List[str]]:
+        return self.get("template_ids")
+
+    @template_ids.setter
+    def template_ids(self, value: Optional[List[str]]):
+        setattr(self, "template_ids", value)
+
+    @property
+    def custom_fields(self) -> Optional[List[SignatureRequestResponseCustomFieldBase]]:
+        return self.get("custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: Optional[List[SignatureRequestResponseCustomFieldBase]]):
+        setattr(self, "custom_fields", value)
+
+    @property
+    def attachments(self) -> Optional[List[SignatureRequestResponseAttachment]]:
+        return self.get("attachments")
+
+    @attachments.setter
+    def attachments(self, value: Optional[List[SignatureRequestResponseAttachment]]):
+        setattr(self, "attachments", value)
+
+    @property
+    def response_data(self) -> Optional[List[SignatureRequestResponseDataBase]]:
+        return self.get("response_data")
+
+    @response_data.setter
+    def response_data(self, value: Optional[List[SignatureRequestResponseDataBase]]):
+        setattr(self, "response_data", value)
+
+    @property
+    def signatures(self) -> List[SignatureRequestResponseSignatures]:
+        return self.get("signatures")
+
+    @signatures.setter
+    def signatures(self, value: List[SignatureRequestResponseSignatures]):
+        setattr(self, "signatures", value)
 
     @classmethod
     @convert_js_args_to_python_args

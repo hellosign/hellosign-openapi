@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -93,16 +95,20 @@ class TemplateResponseFieldAvgTextLength(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateResponseFieldAvgTextLength":
+    def init(data: any) -> TemplateResponseFieldAvgTextLength:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateResponseFieldAvgTextLength],
             _check_type=True,
         )
-
 
     attribute_map = {
         'num_lines': 'num_lines',  # noqa: E501
@@ -113,6 +119,22 @@ class TemplateResponseFieldAvgTextLength(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def num_lines(self) -> int:
+        return self.get("num_lines")
+
+    @num_lines.setter
+    def num_lines(self, value: int):
+        setattr(self, "num_lines", value)
+
+    @property
+    def num_chars_per_line(self) -> int:
+        return self.get("num_chars_per_line")
+
+    @num_chars_per_line.setter
+    def num_chars_per_line(self, value: int):
+        setattr(self, "num_chars_per_line", value)
 
     @classmethod
     @convert_js_args_to_python_args

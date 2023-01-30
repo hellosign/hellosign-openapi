@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.account_response_quotas import AccountResponseQuotas
 
 
 def lazy_import():
@@ -107,16 +111,20 @@ class AccountResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "AccountResponse":
+    def init(data: any) -> AccountResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[AccountResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'account_id': 'account_id',  # noqa: E501
@@ -135,6 +143,86 @@ class AccountResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def account_id(self) -> str:
+        return self.get("account_id")
+
+    @account_id.setter
+    def account_id(self, value: str):
+        setattr(self, "account_id", value)
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def is_locked(self) -> bool:
+        return self.get("is_locked")
+
+    @is_locked.setter
+    def is_locked(self, value: bool):
+        setattr(self, "is_locked", value)
+
+    @property
+    def is_paid_hs(self) -> bool:
+        return self.get("is_paid_hs")
+
+    @is_paid_hs.setter
+    def is_paid_hs(self, value: bool):
+        setattr(self, "is_paid_hs", value)
+
+    @property
+    def is_paid_hf(self) -> bool:
+        return self.get("is_paid_hf")
+
+    @is_paid_hf.setter
+    def is_paid_hf(self, value: bool):
+        setattr(self, "is_paid_hf", value)
+
+    @property
+    def quotas(self) -> AccountResponseQuotas:
+        return self.get("quotas")
+
+    @quotas.setter
+    def quotas(self, value: AccountResponseQuotas):
+        setattr(self, "quotas", value)
+
+    @property
+    def callback_url(self) -> Optional[str]:
+        return self.get("callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: Optional[str]):
+        setattr(self, "callback_url", value)
+
+    @property
+    def role_code(self) -> Optional[str]:
+        return self.get("role_code")
+
+    @role_code.setter
+    def role_code(self, value: Optional[str]):
+        setattr(self, "role_code", value)
+
+    @property
+    def team_id(self) -> Optional[str]:
+        return self.get("team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[str]):
+        setattr(self, "team_id", value)
+
+    @property
+    def locale(self) -> Optional[str]:
+        return self.get("locale")
+
+    @locale.setter
+    def locale(self, value: Optional[str]):
+        setattr(self, "locale", value)
 
     @classmethod
     @convert_js_args_to_python_args

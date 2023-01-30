@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -99,16 +101,20 @@ class SubFormFieldRuleAction(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubFormFieldRuleAction":
+    def init(data: any) -> SubFormFieldRuleAction:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubFormFieldRuleAction],
             _check_type=True,
         )
-
 
     attribute_map = {
         'hidden': 'hidden',  # noqa: E501
@@ -121,6 +127,38 @@ class SubFormFieldRuleAction(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def hidden(self) -> bool:
+        return self.get("hidden")
+
+    @hidden.setter
+    def hidden(self, value: bool):
+        setattr(self, "hidden", value)
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def field_id(self) -> str:
+        return self.get("field_id")
+
+    @field_id.setter
+    def field_id(self, value: str):
+        setattr(self, "field_id", value)
+
+    @property
+    def group_id(self) -> str:
+        return self.get("group_id")
+
+    @group_id.setter
+    def group_id(self, value: str):
+        setattr(self, "group_id", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -96,16 +98,20 @@ class OAuthTokenGenerateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "OAuthTokenGenerateRequest":
+    def init(data: any) -> OAuthTokenGenerateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[OAuthTokenGenerateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
@@ -119,6 +125,46 @@ class OAuthTokenGenerateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def client_id(self) -> str:
+        return self.get("client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        setattr(self, "client_id", value)
+
+    @property
+    def client_secret(self) -> str:
+        return self.get("client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: str):
+        setattr(self, "client_secret", value)
+
+    @property
+    def code(self) -> str:
+        return self.get("code")
+
+    @code.setter
+    def code(self, value: str):
+        setattr(self, "code", value)
+
+    @property
+    def grant_type(self) -> str:
+        return self.get("grant_type")
+
+    @grant_type.setter
+    def grant_type(self, value: str):
+        setattr(self, "grant_type", value)
+
+    @property
+    def state(self) -> str:
+        return self.get("state")
+
+    @state.setter
+    def state(self, value: str):
+        setattr(self, "state", value)
 
     @classmethod
     @convert_js_args_to_python_args

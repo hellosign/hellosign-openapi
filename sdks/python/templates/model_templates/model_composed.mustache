@@ -36,6 +36,28 @@ class {{classname}}(ModelComposed):
 {{/isReadOnly}}
 {{/optionalVars}}
     }
+    {{#requiredVars}}
+
+    @property
+    def {{name}}(self) -> {{#vendorExtensions.x-int-or-string}}Union[int, str]{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}:
+        return self.get("{{name}}")
+    {{^isReadOnly}}
+
+    @{{name}}.setter
+    def {{name}}(self, value: {{#vendorExtensions.x-int-or-string}}Union[int, str]{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}):
+        setattr(self, "{{name}}", value)
+    {{/isReadOnly}}
+    {{/requiredVars}}
+    {{#optionalVars}}
+
+    @property
+    def {{name}}(self) -> {{{dataType}}}:
+        return self.get("{{name}}")
+
+    @{{name}}.setter
+    def {{name}}(self, value: {{{dataType}}}):
+        setattr(self, "{{name}}", value)
+    {{/optionalVars}}
 
 {{> model_templates/method_from_openapi_data_composed }}
 

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,15 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_attachment import SubAttachment
+    from dropbox_sign.model.sub_custom_field import SubCustomField
+    from dropbox_sign.model.sub_field_options import SubFieldOptions
+    from dropbox_sign.model.sub_form_field_group import SubFormFieldGroup
+    from dropbox_sign.model.sub_form_field_rule import SubFormFieldRule
+    from dropbox_sign.model.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
+    from dropbox_sign.model.sub_signing_options import SubSigningOptions
+    from dropbox_sign.model.sub_unclaimed_draft_signer import SubUnclaimedDraftSigner
 
 
 def lazy_import():
@@ -147,16 +158,20 @@ class UnclaimedDraftCreateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "UnclaimedDraftCreateRequest":
+    def init(data: any) -> UnclaimedDraftCreateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[UnclaimedDraftCreateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'type': 'type',  # noqa: E501
@@ -189,6 +204,198 @@ class UnclaimedDraftCreateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def files(self) -> List[file_type]:
+        return self.get("files")
+
+    @files.setter
+    def files(self, value: List[file_type]):
+        setattr(self, "files", value)
+
+    @property
+    def file_urls(self) -> List[str]:
+        return self.get("file_urls")
+
+    @file_urls.setter
+    def file_urls(self, value: List[str]):
+        setattr(self, "file_urls", value)
+
+    @property
+    def allow_decline(self) -> bool:
+        return self.get("allow_decline")
+
+    @allow_decline.setter
+    def allow_decline(self, value: bool):
+        setattr(self, "allow_decline", value)
+
+    @property
+    def attachments(self) -> List[SubAttachment]:
+        return self.get("attachments")
+
+    @attachments.setter
+    def attachments(self, value: List[SubAttachment]):
+        setattr(self, "attachments", value)
+
+    @property
+    def cc_email_addresses(self) -> List[str]:
+        return self.get("cc_email_addresses")
+
+    @cc_email_addresses.setter
+    def cc_email_addresses(self, value: List[str]):
+        setattr(self, "cc_email_addresses", value)
+
+    @property
+    def client_id(self) -> str:
+        return self.get("client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        setattr(self, "client_id", value)
+
+    @property
+    def custom_fields(self) -> List[SubCustomField]:
+        return self.get("custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: List[SubCustomField]):
+        setattr(self, "custom_fields", value)
+
+    @property
+    def field_options(self) -> SubFieldOptions:
+        return self.get("field_options")
+
+    @field_options.setter
+    def field_options(self, value: SubFieldOptions):
+        setattr(self, "field_options", value)
+
+    @property
+    def form_field_groups(self) -> List[SubFormFieldGroup]:
+        return self.get("form_field_groups")
+
+    @form_field_groups.setter
+    def form_field_groups(self, value: List[SubFormFieldGroup]):
+        setattr(self, "form_field_groups", value)
+
+    @property
+    def form_field_rules(self) -> List[SubFormFieldRule]:
+        return self.get("form_field_rules")
+
+    @form_field_rules.setter
+    def form_field_rules(self, value: List[SubFormFieldRule]):
+        setattr(self, "form_field_rules", value)
+
+    @property
+    def form_fields_per_document(self) -> List[SubFormFieldsPerDocumentBase]:
+        return self.get("form_fields_per_document")
+
+    @form_fields_per_document.setter
+    def form_fields_per_document(self, value: List[SubFormFieldsPerDocumentBase]):
+        setattr(self, "form_fields_per_document", value)
+
+    @property
+    def hide_text_tags(self) -> bool:
+        return self.get("hide_text_tags")
+
+    @hide_text_tags.setter
+    def hide_text_tags(self, value: bool):
+        setattr(self, "hide_text_tags", value)
+
+    @property
+    def message(self) -> str:
+        return self.get("message")
+
+    @message.setter
+    def message(self, value: str):
+        setattr(self, "message", value)
+
+    @property
+    def metadata(self) -> Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]:
+        return self.get("metadata")
+
+    @metadata.setter
+    def metadata(self, value: Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]):
+        setattr(self, "metadata", value)
+
+    @property
+    def show_progress_stepper(self) -> bool:
+        return self.get("show_progress_stepper")
+
+    @show_progress_stepper.setter
+    def show_progress_stepper(self, value: bool):
+        setattr(self, "show_progress_stepper", value)
+
+    @property
+    def signers(self) -> List[SubUnclaimedDraftSigner]:
+        return self.get("signers")
+
+    @signers.setter
+    def signers(self, value: List[SubUnclaimedDraftSigner]):
+        setattr(self, "signers", value)
+
+    @property
+    def signing_options(self) -> SubSigningOptions:
+        return self.get("signing_options")
+
+    @signing_options.setter
+    def signing_options(self, value: SubSigningOptions):
+        setattr(self, "signing_options", value)
+
+    @property
+    def signing_redirect_url(self) -> str:
+        return self.get("signing_redirect_url")
+
+    @signing_redirect_url.setter
+    def signing_redirect_url(self, value: str):
+        setattr(self, "signing_redirect_url", value)
+
+    @property
+    def subject(self) -> str:
+        return self.get("subject")
+
+    @subject.setter
+    def subject(self, value: str):
+        setattr(self, "subject", value)
+
+    @property
+    def test_mode(self) -> bool:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        setattr(self, "test_mode", value)
+
+    @property
+    def use_preexisting_fields(self) -> bool:
+        return self.get("use_preexisting_fields")
+
+    @use_preexisting_fields.setter
+    def use_preexisting_fields(self, value: bool):
+        setattr(self, "use_preexisting_fields", value)
+
+    @property
+    def use_text_tags(self) -> bool:
+        return self.get("use_text_tags")
+
+    @use_text_tags.setter
+    def use_text_tags(self, value: bool):
+        setattr(self, "use_text_tags", value)
+
+    @property
+    def expires_at(self) -> Optional[int]:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: Optional[int]):
+        setattr(self, "expires_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

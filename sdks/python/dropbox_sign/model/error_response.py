@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.error_response_error import ErrorResponseError
 
 
 def lazy_import():
@@ -98,16 +102,20 @@ class ErrorResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ErrorResponse":
+    def init(data: any) -> ErrorResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ErrorResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'error': 'error',  # noqa: E501
@@ -117,6 +125,14 @@ class ErrorResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def error(self) -> ErrorResponseError:
+        return self.get("error")
+
+    @error.setter
+    def error(self, value: ErrorResponseError):
+        setattr(self, "error", value)
 
     @classmethod
     @convert_js_args_to_python_args

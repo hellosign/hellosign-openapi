@@ -62,6 +62,38 @@ class SubFormFieldsPerDocumentTest extends SignTestCase
         );
     }
 
+    /**
+     * @dataProvider providerSubFormFieldsPerDocumentBase
+     */
+    public function testSignerAllowsInt(
+        string $type,
+        array $form_field
+    ) {
+        $form_field['signer'] = 1234;
+        $data = ['form_fields_per_document' => [$form_field, []]];
+        $expected_signer = '1234';
+
+        $obj = SignatureRequestSendRequest::init($data);
+        $result = $obj->getFormFieldsPerDocument()[0];
+        $this->assertEquals($expected_signer, $result->getSigner());
+    }
+
+    /**
+     * @dataProvider providerSubFormFieldsPerDocumentBase
+     */
+    public function testSignerAllowsString(
+        string $type,
+        array $form_field
+    ) {
+        $form_field['signer'] = 'sender';
+        $data = ['form_fields_per_document' => [$form_field, []]];
+        $expected_signer = 'sender';
+
+        $obj = SignatureRequestSendRequest::init($data);
+        $result = $obj->getFormFieldsPerDocument()[0];
+        $this->assertEquals($expected_signer, $result->getSigner());
+    }
+
     public function providerSubFormFieldsPerDocumentBase(): iterable
     {
         $fixtures = TestUtils::getFixtureData('SubFormFieldsPerDocument');

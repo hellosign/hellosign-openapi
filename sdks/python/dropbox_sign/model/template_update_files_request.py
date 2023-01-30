@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -103,16 +105,20 @@ class TemplateUpdateFilesRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateUpdateFilesRequest":
+    def init(data: any) -> TemplateUpdateFilesRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateUpdateFilesRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
@@ -127,6 +133,54 @@ class TemplateUpdateFilesRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def client_id(self) -> str:
+        return self.get("client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        setattr(self, "client_id", value)
+
+    @property
+    def files(self) -> List[file_type]:
+        return self.get("files")
+
+    @files.setter
+    def files(self, value: List[file_type]):
+        setattr(self, "files", value)
+
+    @property
+    def file_urls(self) -> List[str]:
+        return self.get("file_urls")
+
+    @file_urls.setter
+    def file_urls(self, value: List[str]):
+        setattr(self, "file_urls", value)
+
+    @property
+    def message(self) -> str:
+        return self.get("message")
+
+    @message.setter
+    def message(self, value: str):
+        setattr(self, "message", value)
+
+    @property
+    def subject(self) -> str:
+        return self.get("subject")
+
+    @subject.setter
+    def subject(self, value: str):
+        setattr(self, "subject", value)
+
+    @property
+    def test_mode(self) -> bool:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        setattr(self, "test_mode", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -93,16 +95,20 @@ class SubEditorOptions(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubEditorOptions":
+    def init(data: any) -> SubEditorOptions:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubEditorOptions],
             _check_type=True,
         )
-
 
     attribute_map = {
         'allow_edit_signers': 'allow_edit_signers',  # noqa: E501
@@ -113,6 +119,22 @@ class SubEditorOptions(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def allow_edit_signers(self) -> bool:
+        return self.get("allow_edit_signers")
+
+    @allow_edit_signers.setter
+    def allow_edit_signers(self, value: bool):
+        setattr(self, "allow_edit_signers", value)
+
+    @property
+    def allow_edit_documents(self) -> bool:
+        return self.get("allow_edit_documents")
+
+    @allow_edit_documents.setter
+    def allow_edit_documents(self, value: bool):
+        setattr(self, "allow_edit_documents", value)
 
     @classmethod
     @convert_js_args_to_python_args

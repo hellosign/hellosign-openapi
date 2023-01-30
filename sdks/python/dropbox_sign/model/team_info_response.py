@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.team_parent_response import TeamParentResponse
 
 
 def lazy_import():
@@ -102,16 +106,20 @@ class TeamInfoResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TeamInfoResponse":
+    def init(data: any) -> TeamInfoResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TeamInfoResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'team_id': 'team_id',  # noqa: E501
@@ -125,6 +133,46 @@ class TeamInfoResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def team_id(self) -> str:
+        return self.get("team_id")
+
+    @team_id.setter
+    def team_id(self, value: str):
+        setattr(self, "team_id", value)
+
+    @property
+    def team_parent(self) -> TeamParentResponse:
+        return self.get("team_parent")
+
+    @team_parent.setter
+    def team_parent(self, value: TeamParentResponse):
+        setattr(self, "team_parent", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def num_members(self) -> int:
+        return self.get("num_members")
+
+    @num_members.setter
+    def num_members(self, value: int):
+        setattr(self, "num_members", value)
+
+    @property
+    def num_sub_teams(self) -> int:
+        return self.get("num_sub_teams")
+
+    @num_sub_teams.setter
+    def num_sub_teams(self, value: int):
+        setattr(self, "num_sub_teams", value)
 
     @classmethod
     @convert_js_args_to_python_args

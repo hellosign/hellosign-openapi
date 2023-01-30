@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.signature_request_response_data_base import SignatureRequestResponseDataBase
 
 
 def lazy_import():
@@ -103,12 +107,17 @@ class SignatureRequestResponseDataValueSignature(ModelComposed):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestResponseDataValueSignature":
+    def init(data: any) -> SignatureRequestResponseDataValueSignature:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SignatureRequestResponseDataValueSignature],
             _check_type=True,
         )
@@ -125,6 +134,54 @@ class SignatureRequestResponseDataValueSignature(ModelComposed):
 
     read_only_vars = {
     }
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def value(self) -> str:
+        return self.get("value")
+
+    @value.setter
+    def value(self, value: str):
+        setattr(self, "value", value)
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def signature_id(self) -> str:
+        return self.get("signature_id")
+
+    @signature_id.setter
+    def signature_id(self, value: str):
+        setattr(self, "signature_id", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
 
     @classmethod
     @convert_js_args_to_python_args

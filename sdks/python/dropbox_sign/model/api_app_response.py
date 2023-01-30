@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,11 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.api_app_response_o_auth import ApiAppResponseOAuth
+    from dropbox_sign.model.api_app_response_options import ApiAppResponseOptions
+    from dropbox_sign.model.api_app_response_owner_account import ApiAppResponseOwnerAccount
+    from dropbox_sign.model.api_app_response_white_labeling_options import ApiAppResponseWhiteLabelingOptions
 
 
 def lazy_import():
@@ -113,16 +120,20 @@ class ApiAppResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ApiAppResponse":
+    def init(data: any) -> ApiAppResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ApiAppResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'callback_url': 'callback_url',  # noqa: E501
@@ -141,6 +152,86 @@ class ApiAppResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def callback_url(self) -> Optional[str]:
+        return self.get("callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: Optional[str]):
+        setattr(self, "callback_url", value)
+
+    @property
+    def client_id(self) -> str:
+        return self.get("client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        setattr(self, "client_id", value)
+
+    @property
+    def created_at(self) -> int:
+        return self.get("created_at")
+
+    @created_at.setter
+    def created_at(self, value: int):
+        setattr(self, "created_at", value)
+
+    @property
+    def domains(self) -> List[str]:
+        return self.get("domains")
+
+    @domains.setter
+    def domains(self, value: List[str]):
+        setattr(self, "domains", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def is_approved(self) -> bool:
+        return self.get("is_approved")
+
+    @is_approved.setter
+    def is_approved(self, value: bool):
+        setattr(self, "is_approved", value)
+
+    @property
+    def oauth(self) -> ApiAppResponseOAuth:
+        return self.get("oauth")
+
+    @oauth.setter
+    def oauth(self, value: ApiAppResponseOAuth):
+        setattr(self, "oauth", value)
+
+    @property
+    def options(self) -> ApiAppResponseOptions:
+        return self.get("options")
+
+    @options.setter
+    def options(self, value: ApiAppResponseOptions):
+        setattr(self, "options", value)
+
+    @property
+    def owner_account(self) -> ApiAppResponseOwnerAccount:
+        return self.get("owner_account")
+
+    @owner_account.setter
+    def owner_account(self, value: ApiAppResponseOwnerAccount):
+        setattr(self, "owner_account", value)
+
+    @property
+    def white_labeling_options(self) -> ApiAppResponseWhiteLabelingOptions:
+        return self.get("white_labeling_options")
+
+    @white_labeling_options.setter
+    def white_labeling_options(self, value: ApiAppResponseWhiteLabelingOptions):
+        setattr(self, "white_labeling_options", value)
 
     @classmethod
     @convert_js_args_to_python_args

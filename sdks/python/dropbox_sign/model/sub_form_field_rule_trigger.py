@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -102,16 +104,20 @@ class SubFormFieldRuleTrigger(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubFormFieldRuleTrigger":
+    def init(data: any) -> SubFormFieldRuleTrigger:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubFormFieldRuleTrigger],
             _check_type=True,
         )
-
 
     attribute_map = {
         'id': 'id',  # noqa: E501
@@ -124,6 +130,38 @@ class SubFormFieldRuleTrigger(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def id(self) -> str:
+        return self.get("id")
+
+    @id.setter
+    def id(self, value: str):
+        setattr(self, "id", value)
+
+    @property
+    def operator(self) -> str:
+        return self.get("operator")
+
+    @operator.setter
+    def operator(self, value: str):
+        setattr(self, "operator", value)
+
+    @property
+    def value(self) -> str:
+        return self.get("value")
+
+    @value.setter
+    def value(self, value: str):
+        setattr(self, "value", value)
+
+    @property
+    def values(self) -> List[str]:
+        return self.get("values")
+
+    @values.setter
+    def values(self, value: List[str]):
+        setattr(self, "values", value)
 
     @classmethod
     @convert_js_args_to_python_args

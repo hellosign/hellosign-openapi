@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_form_fields_per_document_base import SubFormFieldsPerDocumentBase
 
 
 def lazy_import():
@@ -99,7 +103,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
             'api_id': (str,),  # noqa: E501
             'height': (int,),  # noqa: E501
             'required': (bool,),  # noqa: E501
-            'signer': (str,),  # noqa: E501
+            'signer': (int, str,),  # noqa: E501
             'width': (int,),  # noqa: E501
             'x': (int,),  # noqa: E501
             'y': (int,),  # noqa: E501
@@ -113,12 +117,17 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubFormFieldsPerDocumentDropdown":
+    def init(data: any) -> SubFormFieldsPerDocumentDropdown:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubFormFieldsPerDocumentDropdown],
             _check_type=True,
         )
@@ -143,6 +152,110 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
     read_only_vars = {
     }
 
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def options(self) -> List[str]:
+        return self.get("options")
+
+    @options.setter
+    def options(self, value: List[str]):
+        setattr(self, "options", value)
+
+    @property
+    def document_index(self) -> int:
+        return self.get("document_index")
+
+    @document_index.setter
+    def document_index(self, value: int):
+        setattr(self, "document_index", value)
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def height(self) -> int:
+        return self.get("height")
+
+    @height.setter
+    def height(self, value: int):
+        setattr(self, "height", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def signer(self) -> Union[int, str]:
+        return self.get("signer")
+
+    @signer.setter
+    def signer(self, value: Union[int, str]):
+        setattr(self, "signer", value)
+
+    @property
+    def width(self) -> int:
+        return self.get("width")
+
+    @width.setter
+    def width(self, value: int):
+        setattr(self, "width", value)
+
+    @property
+    def x(self) -> int:
+        return self.get("x")
+
+    @x.setter
+    def x(self, value: int):
+        setattr(self, "x", value)
+
+    @property
+    def y(self) -> int:
+        return self.get("y")
+
+    @y.setter
+    def y(self, value: int):
+        setattr(self, "y", value)
+
+    @property
+    def content(self) -> str:
+        return self.get("content")
+
+    @content.setter
+    def content(self, value: str):
+        setattr(self, "content", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def page(self) -> Optional[int]:
+        return self.get("page")
+
+    @page.setter
+    def page(self, value: Optional[int]):
+        setattr(self, "page", value)
+
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -155,7 +268,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
             y (int): Location coordinates of the field in pixels.
@@ -268,7 +381,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
             y (int): Location coordinates of the field in pixels.

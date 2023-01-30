@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_editor_options import SubEditorOptions
 
 
 def lazy_import():
@@ -105,16 +109,20 @@ class UnclaimedDraftEditAndResendRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "UnclaimedDraftEditAndResendRequest":
+    def init(data: any) -> UnclaimedDraftEditAndResendRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[UnclaimedDraftEditAndResendRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
@@ -131,6 +139,70 @@ class UnclaimedDraftEditAndResendRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def client_id(self) -> str:
+        return self.get("client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        setattr(self, "client_id", value)
+
+    @property
+    def editor_options(self) -> SubEditorOptions:
+        return self.get("editor_options")
+
+    @editor_options.setter
+    def editor_options(self, value: SubEditorOptions):
+        setattr(self, "editor_options", value)
+
+    @property
+    def is_for_embedded_signing(self) -> bool:
+        return self.get("is_for_embedded_signing")
+
+    @is_for_embedded_signing.setter
+    def is_for_embedded_signing(self, value: bool):
+        setattr(self, "is_for_embedded_signing", value)
+
+    @property
+    def requester_email_address(self) -> str:
+        return self.get("requester_email_address")
+
+    @requester_email_address.setter
+    def requester_email_address(self, value: str):
+        setattr(self, "requester_email_address", value)
+
+    @property
+    def requesting_redirect_url(self) -> str:
+        return self.get("requesting_redirect_url")
+
+    @requesting_redirect_url.setter
+    def requesting_redirect_url(self, value: str):
+        setattr(self, "requesting_redirect_url", value)
+
+    @property
+    def show_progress_stepper(self) -> bool:
+        return self.get("show_progress_stepper")
+
+    @show_progress_stepper.setter
+    def show_progress_stepper(self, value: bool):
+        setattr(self, "show_progress_stepper", value)
+
+    @property
+    def signing_redirect_url(self) -> str:
+        return self.get("signing_redirect_url")
+
+    @signing_redirect_url.setter
+    def signing_redirect_url(self, value: str):
+        setattr(self, "signing_redirect_url", value)
+
+    @property
+    def test_mode(self) -> bool:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        setattr(self, "test_mode", value)
 
     @classmethod
     @convert_js_args_to_python_args

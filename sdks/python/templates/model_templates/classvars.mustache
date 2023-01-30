@@ -107,19 +107,19 @@
 {{/imports}}
         return {
 {{#isAlias}}
-            'value': ({{{dataType}}},),
+            'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
 {{/isAlias}}
 {{#isEnum}}
-            'value': ({{{dataType}}},),
+            'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
 {{/isEnum}}
 {{#isArray}}
-            'value': ({{{dataType}}},),
+            'value': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),
 {{/isArray}}
 {{#requiredVars}}
-            '{{name}}': ({{{dataType}}},),  # noqa: E501
+            '{{name}}': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),  # noqa: E501
 {{/requiredVars}}
 {{#optionalVars}}
-            '{{name}}': ({{{dataType}}},),  # noqa: E501
+            '{{name}}': ({{#vendorExtensions.x-int-or-string}}int, str{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}},),  # noqa: E501
 {{/optionalVars}}
         }
 
@@ -140,12 +140,17 @@
         return {'{{{discriminatorName}}}': val}{{/discriminator}}
 {{^discriminator}}
     @staticmethod
-    def init(data: any) -> "{{classname}}":
+    def init(data: any) -> {{classname}}:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[{{classname}}],
             _check_type=True,
         )

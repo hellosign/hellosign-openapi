@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -150,7 +151,7 @@ class BulkSendJobApi(object):
         self,
         bulk_send_job_id,
         **kwargs
-    ) -> "BulkSendJobGetResponse":
+    ) -> BulkSendJobGetResponse:
         """Get Bulk Send Job  # noqa: E501
 
         Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.  # noqa: E501
@@ -249,7 +250,7 @@ class BulkSendJobApi(object):
     def bulk_send_job_list(
         self,
         **kwargs
-    ) -> "BulkSendJobListResponse":
+    ) -> BulkSendJobListResponse:
         """List Bulk Send Jobs  # noqa: E501
 
         Returns a list of BulkSendJob that you can access.  # noqa: E501

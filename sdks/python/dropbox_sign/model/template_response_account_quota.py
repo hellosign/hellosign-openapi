@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,16 +97,20 @@ class TemplateResponseAccountQuota(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateResponseAccountQuota":
+    def init(data: any) -> TemplateResponseAccountQuota:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateResponseAccountQuota],
             _check_type=True,
         )
-
 
     attribute_map = {
         'templates_left': 'templates_left',  # noqa: E501
@@ -117,6 +123,38 @@ class TemplateResponseAccountQuota(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def templates_left(self) -> int:
+        return self.get("templates_left")
+
+    @templates_left.setter
+    def templates_left(self, value: int):
+        setattr(self, "templates_left", value)
+
+    @property
+    def api_signature_requests_left(self) -> int:
+        return self.get("api_signature_requests_left")
+
+    @api_signature_requests_left.setter
+    def api_signature_requests_left(self, value: int):
+        setattr(self, "api_signature_requests_left", value)
+
+    @property
+    def documents_left(self) -> int:
+        return self.get("documents_left")
+
+    @documents_left.setter
+    def documents_left(self, value: int):
+        setattr(self, "documents_left", value)
+
+    @property
+    def sms_verifications_left(self) -> int:
+        return self.get("sms_verifications_left")
+
+    @sms_verifications_left.setter
+    def sms_verifications_left(self, value: int):
+        setattr(self, "sms_verifications_left", value)
 
     @classmethod
     @convert_js_args_to_python_args

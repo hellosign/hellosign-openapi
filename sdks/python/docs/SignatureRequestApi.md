@@ -265,8 +265,6 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
 from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
@@ -284,8 +282,7 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = signature_request_api.signature_request_cancel(signature_request_id)
-        pprint(response)
+        signature_request_api.signature_request_cancel(signature_request_id)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -1019,8 +1016,6 @@ Removes your access to a completed signature request. This action is **not rever
 * Basic Authentication (api_key):
 
 ```python
-from pprint import pprint
-
 from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
@@ -1038,8 +1033,7 @@ with ApiClient(configuration) as api_client:
     signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
 
     try:
-        response = signature_request_api.signature_request_remove(signature_request_id)
-        pprint(response)
+        signature_request_api.signature_request_remove(signature_request_id)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -1214,7 +1208,7 @@ configuration = Configuration(
 with ApiClient(configuration) as api_client:
     signature_request_api = apis.SignatureRequestApi(api_client)
 
-    signer_1 = models.SubSignatureRequestSigner(
+    signer_1 = models.SubSignatureRequestTemplateSigner(
         role="Client",
         email_address="george@example.com",
         name="George",

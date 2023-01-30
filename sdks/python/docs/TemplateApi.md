@@ -207,8 +207,6 @@ Completely deletes the template specified from the account.
 * Bearer (JWT) Authentication (oauth2):
 
 ```python
-from pprint import pprint
-
 from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
@@ -226,8 +224,7 @@ with ApiClient(configuration) as api_client:
     template_id = "5de8179668f2033afac48da1868d0093bf133266"
 
     try:
-        response = template_api.template_delete(template_id)
-        pprint(response)
+        template_api.template_delete(template_id)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 

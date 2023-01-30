@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -93,16 +95,20 @@ class FileResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "FileResponse":
+    def init(data: any) -> FileResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[FileResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'file_url': 'file_url',  # noqa: E501
@@ -113,6 +119,22 @@ class FileResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def file_url(self) -> str:
+        return self.get("file_url")
+
+    @file_url.setter
+    def file_url(self, value: str):
+        setattr(self, "file_url", value)
+
+    @property
+    def expires_at(self) -> int:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: int):
+        setattr(self, "expires_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

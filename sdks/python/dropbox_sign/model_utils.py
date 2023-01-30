@@ -466,11 +466,7 @@ class ModelSimple(OpenApiModel):
         if name in self:
             return self.get(name)
 
-        raise ApiAttributeError(
-            "{0} has no attribute '{1}'".format(
-                type(self).__name__, name),
-            [e for e in [self._path_to_item, name] if e]
-        )
+        return None
 
     def __contains__(self, name):
         """used by `in` operator to check if an attribute value was set in an instance: `'attr' in instance`"""
@@ -521,11 +517,7 @@ class ModelNormal(OpenApiModel):
         if name in self:
             return self.get(name)
 
-        raise ApiAttributeError(
-            "{0} has no attribute '{1}'".format(
-                type(self).__name__, name),
-            [e for e in [self._path_to_item, name] if e]
-        )
+        return None
 
     def __contains__(self, name):
         """used by `in` operator to check if an attribute value was set in an instance: `'attr' in instance`"""

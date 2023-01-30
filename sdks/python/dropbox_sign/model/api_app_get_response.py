@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.api_app_response import ApiAppResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,16 +106,20 @@ class ApiAppGetResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ApiAppGetResponse":
+    def init(data: any) -> ApiAppGetResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ApiAppGetResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'api_app': 'api_app',  # noqa: E501
@@ -121,6 +130,22 @@ class ApiAppGetResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def api_app(self) -> ApiAppResponse:
+        return self.get("api_app")
+
+    @api_app.setter
+    def api_app(self, value: ApiAppResponse):
+        setattr(self, "api_app", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

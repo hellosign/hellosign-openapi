@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_bulk_signer_list_custom_field import SubBulkSignerListCustomField
+    from dropbox_sign.model.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
 
 
 def lazy_import():
@@ -101,16 +106,20 @@ class SubBulkSignerList(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubBulkSignerList":
+    def init(data: any) -> SubBulkSignerList:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubBulkSignerList],
             _check_type=True,
         )
-
 
     attribute_map = {
         'custom_fields': 'custom_fields',  # noqa: E501
@@ -121,6 +130,22 @@ class SubBulkSignerList(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def custom_fields(self) -> List[SubBulkSignerListCustomField]:
+        return self.get("custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: List[SubBulkSignerListCustomField]):
+        setattr(self, "custom_fields", value)
+
+    @property
+    def signers(self) -> List[SubSignatureRequestTemplateSigner]:
+        return self.get("signers")
+
+    @signers.setter
+    def signers(self, value: List[SubSignatureRequestTemplateSigner]):
+        setattr(self, "signers", value)
 
     @classmethod
     @convert_js_args_to_python_args

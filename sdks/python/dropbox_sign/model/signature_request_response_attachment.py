@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -97,16 +99,20 @@ class SignatureRequestResponseAttachment(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestResponseAttachment":
+    def init(data: any) -> SignatureRequestResponseAttachment:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SignatureRequestResponseAttachment],
             _check_type=True,
         )
-
 
     attribute_map = {
         'id': 'id',  # noqa: E501
@@ -121,6 +127,54 @@ class SignatureRequestResponseAttachment(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def id(self) -> str:
+        return self.get("id")
+
+    @id.setter
+    def id(self, value: str):
+        setattr(self, "id", value)
+
+    @property
+    def signer(self) -> str:
+        return self.get("signer")
+
+    @signer.setter
+    def signer(self, value: str):
+        setattr(self, "signer", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def instructions(self) -> Optional[str]:
+        return self.get("instructions")
+
+    @instructions.setter
+    def instructions(self, value: Optional[str]):
+        setattr(self, "instructions", value)
+
+    @property
+    def uploaded_at(self) -> Optional[int]:
+        return self.get("uploaded_at")
+
+    @uploaded_at.setter
+    def uploaded_at(self, value: Optional[int]):
+        setattr(self, "uploaded_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

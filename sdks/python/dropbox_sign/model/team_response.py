@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.account_response import AccountResponse
 
 
 def lazy_import():
@@ -100,16 +104,20 @@ class TeamResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TeamResponse":
+    def init(data: any) -> TeamResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TeamResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'name': 'name',  # noqa: E501
@@ -121,6 +129,30 @@ class TeamResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def accounts(self) -> List[AccountResponse]:
+        return self.get("accounts")
+
+    @accounts.setter
+    def accounts(self, value: List[AccountResponse]):
+        setattr(self, "accounts", value)
+
+    @property
+    def invited_accounts(self) -> List[AccountResponse]:
+        return self.get("invited_accounts")
+
+    @invited_accounts.setter
+    def invited_accounts(self, value: List[AccountResponse]):
+        setattr(self, "invited_accounts", value)
 
     @classmethod
     @convert_js_args_to_python_args

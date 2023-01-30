@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -102,16 +104,20 @@ class SubSigningOptions(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubSigningOptions":
+    def init(data: any) -> SubSigningOptions:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubSigningOptions],
             _check_type=True,
         )
-
 
     attribute_map = {
         'default_type': 'default_type',  # noqa: E501
@@ -125,6 +131,46 @@ class SubSigningOptions(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def default_type(self) -> str:
+        return self.get("default_type")
+
+    @default_type.setter
+    def default_type(self, value: str):
+        setattr(self, "default_type", value)
+
+    @property
+    def draw(self) -> bool:
+        return self.get("draw")
+
+    @draw.setter
+    def draw(self, value: bool):
+        setattr(self, "draw", value)
+
+    @property
+    def phone(self) -> bool:
+        return self.get("phone")
+
+    @phone.setter
+    def phone(self, value: bool):
+        setattr(self, "phone", value)
+
+    @property
+    def type(self) -> bool:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: bool):
+        setattr(self, "type", value)
+
+    @property
+    def upload(self) -> bool:
+        return self.get("upload")
+
+    @upload.setter
+    def upload(self, value: bool):
+        setattr(self, "upload", value)
 
     @classmethod
     @convert_js_args_to_python_args

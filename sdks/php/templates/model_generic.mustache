@@ -316,7 +316,7 @@
     /**
      * Gets {{name}}
      *
-     * @return {{{dataType}}}{{^required}}|null{{/required}}
+     * @return {{#vendorExtensions.x-int-or-string}}int|string{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{^required}}|null{{/required}}
     {{#deprecated}}
      * @deprecated
     {{/deprecated}}
@@ -329,7 +329,7 @@
     /**
      * Sets {{name}}
      *
-     * @param {{{dataType}}}{{^required}}|null{{/required}} ${{name}}{{#description}} {{{.}}}{{/description}}{{^description}} {{{name}}}{{/description}}
+     * @param {{#vendorExtensions.x-int-or-string}}int|string{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{^required}}|null{{/required}} ${{name}}{{#description}} {{{.}}}{{/description}}{{^description}} {{{name}}}{{/description}}
      *
      * @return self
     {{#deprecated}}

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -92,16 +94,20 @@ class TemplateEditResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateEditResponse":
+    def init(data: any) -> TemplateEditResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateEditResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template_id': 'template_id',  # noqa: E501
@@ -111,6 +117,14 @@ class TemplateEditResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template_id(self) -> str:
+        return self.get("template_id")
+
+    @template_id.setter
+    def template_id(self, value: str):
+        setattr(self, "template_id", value)
 
     @classmethod
     @convert_js_args_to_python_args

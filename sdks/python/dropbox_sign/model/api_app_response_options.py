@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -92,16 +94,20 @@ class ApiAppResponseOptions(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ApiAppResponseOptions":
+    def init(data: any) -> ApiAppResponseOptions:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ApiAppResponseOptions],
             _check_type=True,
         )
-
 
     attribute_map = {
         'can_insert_everywhere': 'can_insert_everywhere',  # noqa: E501
@@ -111,6 +117,14 @@ class ApiAppResponseOptions(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def can_insert_everywhere(self) -> bool:
+        return self.get("can_insert_everywhere")
+
+    @can_insert_everywhere.setter
+    def can_insert_everywhere(self, value: bool):
+        setattr(self, "can_insert_everywhere", value)
 
     @classmethod
     @convert_js_args_to_python_args

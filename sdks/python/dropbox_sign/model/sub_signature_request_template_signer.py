@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -105,16 +107,20 @@ class SubSignatureRequestTemplateSigner(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubSignatureRequestTemplateSigner":
+    def init(data: any) -> SubSignatureRequestTemplateSigner:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubSignatureRequestTemplateSigner],
             _check_type=True,
         )
-
 
     attribute_map = {
         'role': 'role',  # noqa: E501
@@ -129,6 +135,54 @@ class SubSignatureRequestTemplateSigner(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def role(self) -> str:
+        return self.get("role")
+
+    @role.setter
+    def role(self, value: str):
+        setattr(self, "role", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def pin(self) -> str:
+        return self.get("pin")
+
+    @pin.setter
+    def pin(self, value: str):
+        setattr(self, "pin", value)
+
+    @property
+    def sms_phone_number(self) -> str:
+        return self.get("sms_phone_number")
+
+    @sms_phone_number.setter
+    def sms_phone_number(self, value: str):
+        setattr(self, "sms_phone_number", value)
+
+    @property
+    def sms_phone_number_type(self) -> str:
+        return self.get("sms_phone_number_type")
+
+    @sms_phone_number_type.setter
+    def sms_phone_number_type(self, value: str):
+        setattr(self, "sms_phone_number_type", value)
 
     @classmethod
     @convert_js_args_to_python_args

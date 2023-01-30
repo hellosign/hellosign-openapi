@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,16 +97,20 @@ class SubAttachment(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubAttachment":
+    def init(data: any) -> SubAttachment:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubAttachment],
             _check_type=True,
         )
-
 
     attribute_map = {
         'name': 'name',  # noqa: E501
@@ -117,6 +123,38 @@ class SubAttachment(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def signer_index(self) -> int:
+        return self.get("signer_index")
+
+    @signer_index.setter
+    def signer_index(self, value: int):
+        setattr(self, "signer_index", value)
+
+    @property
+    def instructions(self) -> str:
+        return self.get("instructions")
+
+    @instructions.setter
+    def instructions(self, value: str):
+        setattr(self, "instructions", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
 
     @classmethod
     @convert_js_args_to_python_args

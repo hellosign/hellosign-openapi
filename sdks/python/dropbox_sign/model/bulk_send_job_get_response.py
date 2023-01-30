@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,11 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.bulk_send_job_get_response_signature_requests import BulkSendJobGetResponseSignatureRequests
+    from dropbox_sign.model.bulk_send_job_response import BulkSendJobResponse
+    from dropbox_sign.model.list_info_response import ListInfoResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -107,16 +114,20 @@ class BulkSendJobGetResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "BulkSendJobGetResponse":
+    def init(data: any) -> BulkSendJobGetResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[BulkSendJobGetResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'bulk_send_job': 'bulk_send_job',  # noqa: E501
@@ -129,6 +140,38 @@ class BulkSendJobGetResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def bulk_send_job(self) -> BulkSendJobResponse:
+        return self.get("bulk_send_job")
+
+    @bulk_send_job.setter
+    def bulk_send_job(self, value: BulkSendJobResponse):
+        setattr(self, "bulk_send_job", value)
+
+    @property
+    def list_info(self) -> ListInfoResponse:
+        return self.get("list_info")
+
+    @list_info.setter
+    def list_info(self, value: ListInfoResponse):
+        setattr(self, "list_info", value)
+
+    @property
+    def signature_requests(self) -> List[BulkSendJobGetResponseSignatureRequests]:
+        return self.get("signature_requests")
+
+    @signature_requests.setter
+    def signature_requests(self, value: List[BulkSendJobGetResponseSignatureRequests]):
+        setattr(self, "signature_requests", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

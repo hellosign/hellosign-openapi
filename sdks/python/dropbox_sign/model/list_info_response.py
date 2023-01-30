@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,16 +97,20 @@ class ListInfoResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ListInfoResponse":
+    def init(data: any) -> ListInfoResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ListInfoResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'num_pages': 'num_pages',  # noqa: E501
@@ -117,6 +123,38 @@ class ListInfoResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def num_pages(self) -> int:
+        return self.get("num_pages")
+
+    @num_pages.setter
+    def num_pages(self, value: int):
+        setattr(self, "num_pages", value)
+
+    @property
+    def num_results(self) -> Optional[int]:
+        return self.get("num_results")
+
+    @num_results.setter
+    def num_results(self, value: Optional[int]):
+        setattr(self, "num_results", value)
+
+    @property
+    def page(self) -> int:
+        return self.get("page")
+
+    @page.setter
+    def page(self, value: int):
+        setattr(self, "page", value)
+
+    @property
+    def page_size(self) -> int:
+        return self.get("page_size")
+
+    @page_size.setter
+    def page_size(self, value: int):
+        setattr(self, "page_size", value)
 
     @classmethod
     @convert_js_args_to_python_args

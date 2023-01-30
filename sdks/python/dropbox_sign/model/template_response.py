@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,13 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.template_response_account import TemplateResponseAccount
+    from dropbox_sign.model.template_response_cc_role import TemplateResponseCCRole
+    from dropbox_sign.model.template_response_custom_field import TemplateResponseCustomField
+    from dropbox_sign.model.template_response_document import TemplateResponseDocument
+    from dropbox_sign.model.template_response_named_form_field import TemplateResponseNamedFormField
+    from dropbox_sign.model.template_response_signer_role import TemplateResponseSignerRole
 
 
 def lazy_import():
@@ -122,16 +131,20 @@ class TemplateResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateResponse":
+    def init(data: any) -> TemplateResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template_id': 'template_id',  # noqa: E501
@@ -155,6 +168,126 @@ class TemplateResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template_id(self) -> str:
+        return self.get("template_id")
+
+    @template_id.setter
+    def template_id(self, value: str):
+        setattr(self, "template_id", value)
+
+    @property
+    def title(self) -> str:
+        return self.get("title")
+
+    @title.setter
+    def title(self, value: str):
+        setattr(self, "title", value)
+
+    @property
+    def message(self) -> str:
+        return self.get("message")
+
+    @message.setter
+    def message(self, value: str):
+        setattr(self, "message", value)
+
+    @property
+    def updated_at(self) -> int:
+        return self.get("updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: int):
+        setattr(self, "updated_at", value)
+
+    @property
+    def is_embedded(self) -> Optional[bool]:
+        return self.get("is_embedded")
+
+    @is_embedded.setter
+    def is_embedded(self, value: Optional[bool]):
+        setattr(self, "is_embedded", value)
+
+    @property
+    def is_creator(self) -> Optional[bool]:
+        return self.get("is_creator")
+
+    @is_creator.setter
+    def is_creator(self, value: Optional[bool]):
+        setattr(self, "is_creator", value)
+
+    @property
+    def can_edit(self) -> Optional[bool]:
+        return self.get("can_edit")
+
+    @can_edit.setter
+    def can_edit(self, value: Optional[bool]):
+        setattr(self, "can_edit", value)
+
+    @property
+    def is_locked(self) -> Optional[bool]:
+        return self.get("is_locked")
+
+    @is_locked.setter
+    def is_locked(self, value: Optional[bool]):
+        setattr(self, "is_locked", value)
+
+    @property
+    def metadata(self) -> Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]:
+        return self.get("metadata")
+
+    @metadata.setter
+    def metadata(self, value: Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]):
+        setattr(self, "metadata", value)
+
+    @property
+    def signer_roles(self) -> List[TemplateResponseSignerRole]:
+        return self.get("signer_roles")
+
+    @signer_roles.setter
+    def signer_roles(self, value: List[TemplateResponseSignerRole]):
+        setattr(self, "signer_roles", value)
+
+    @property
+    def cc_roles(self) -> List[TemplateResponseCCRole]:
+        return self.get("cc_roles")
+
+    @cc_roles.setter
+    def cc_roles(self, value: List[TemplateResponseCCRole]):
+        setattr(self, "cc_roles", value)
+
+    @property
+    def documents(self) -> List[TemplateResponseDocument]:
+        return self.get("documents")
+
+    @documents.setter
+    def documents(self, value: List[TemplateResponseDocument]):
+        setattr(self, "documents", value)
+
+    @property
+    def custom_fields(self) -> Optional[List[TemplateResponseCustomField]]:
+        return self.get("custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: Optional[List[TemplateResponseCustomField]]):
+        setattr(self, "custom_fields", value)
+
+    @property
+    def named_form_fields(self) -> Optional[List[TemplateResponseNamedFormField]]:
+        return self.get("named_form_fields")
+
+    @named_form_fields.setter
+    def named_form_fields(self, value: Optional[List[TemplateResponseNamedFormField]]):
+        setattr(self, "named_form_fields", value)
+
+    @property
+    def accounts(self) -> Optional[List[TemplateResponseAccount]]:
+        return self.get("accounts")
+
+    @accounts.setter
+    def accounts(self, value: Optional[List[TemplateResponseAccount]]):
+        setattr(self, "accounts", value)
 
     @classmethod
     @convert_js_args_to_python_args

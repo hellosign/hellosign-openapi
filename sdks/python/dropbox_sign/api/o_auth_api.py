@@ -9,6 +9,7 @@
 """
 
 
+from __future__ import annotations
 import re  # noqa: F401
 import sys  # noqa: F401
 
@@ -153,7 +154,7 @@ class OAuthApi(object):
         self,
         o_auth_token_generate_request,
         **kwargs
-    ) -> "OAuthTokenResponse":
+    ) -> OAuthTokenResponse:
         """OAuth Token Generate  # noqa: E501
 
         Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.  # noqa: E501
@@ -241,7 +242,7 @@ class OAuthApi(object):
         self,
         o_auth_token_refresh_request,
         **kwargs
-    ) -> "OAuthTokenResponse":
+    ) -> OAuthTokenResponse:
         """OAuth Token Refresh  # noqa: E501
 
         Access tokens are only valid for a given period of time (typically one hour) for security reasons. Whenever acquiring an new access token its TTL is also given (see `expires_in`), along with a refresh token that can be used to acquire a new access token after the current one has expired.  # noqa: E501

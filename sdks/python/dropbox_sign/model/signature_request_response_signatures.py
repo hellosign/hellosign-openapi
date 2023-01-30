@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -110,16 +112,20 @@ class SignatureRequestResponseSignatures(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestResponseSignatures":
+    def init(data: any) -> SignatureRequestResponseSignatures:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SignatureRequestResponseSignatures],
             _check_type=True,
         )
-
 
     attribute_map = {
         'signature_id': 'signature_id',  # noqa: E501
@@ -147,6 +153,158 @@ class SignatureRequestResponseSignatures(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def signature_id(self) -> str:
+        return self.get("signature_id")
+
+    @signature_id.setter
+    def signature_id(self, value: str):
+        setattr(self, "signature_id", value)
+
+    @property
+    def signer_group_guid(self) -> Optional[str]:
+        return self.get("signer_group_guid")
+
+    @signer_group_guid.setter
+    def signer_group_guid(self, value: Optional[str]):
+        setattr(self, "signer_group_guid", value)
+
+    @property
+    def signer_email_address(self) -> str:
+        return self.get("signer_email_address")
+
+    @signer_email_address.setter
+    def signer_email_address(self, value: str):
+        setattr(self, "signer_email_address", value)
+
+    @property
+    def signer_name(self) -> Optional[str]:
+        return self.get("signer_name")
+
+    @signer_name.setter
+    def signer_name(self, value: Optional[str]):
+        setattr(self, "signer_name", value)
+
+    @property
+    def signer_role(self) -> Optional[str]:
+        return self.get("signer_role")
+
+    @signer_role.setter
+    def signer_role(self, value: Optional[str]):
+        setattr(self, "signer_role", value)
+
+    @property
+    def order(self) -> Optional[int]:
+        return self.get("order")
+
+    @order.setter
+    def order(self, value: Optional[int]):
+        setattr(self, "order", value)
+
+    @property
+    def status_code(self) -> str:
+        return self.get("status_code")
+
+    @status_code.setter
+    def status_code(self, value: str):
+        setattr(self, "status_code", value)
+
+    @property
+    def decline_reason(self) -> Optional[str]:
+        return self.get("decline_reason")
+
+    @decline_reason.setter
+    def decline_reason(self, value: Optional[str]):
+        setattr(self, "decline_reason", value)
+
+    @property
+    def signed_at(self) -> Optional[int]:
+        return self.get("signed_at")
+
+    @signed_at.setter
+    def signed_at(self, value: Optional[int]):
+        setattr(self, "signed_at", value)
+
+    @property
+    def last_viewed_at(self) -> Optional[int]:
+        return self.get("last_viewed_at")
+
+    @last_viewed_at.setter
+    def last_viewed_at(self, value: Optional[int]):
+        setattr(self, "last_viewed_at", value)
+
+    @property
+    def last_reminded_at(self) -> Optional[int]:
+        return self.get("last_reminded_at")
+
+    @last_reminded_at.setter
+    def last_reminded_at(self, value: Optional[int]):
+        setattr(self, "last_reminded_at", value)
+
+    @property
+    def has_pin(self) -> bool:
+        return self.get("has_pin")
+
+    @has_pin.setter
+    def has_pin(self, value: bool):
+        setattr(self, "has_pin", value)
+
+    @property
+    def has_sms_auth(self) -> Optional[bool]:
+        return self.get("has_sms_auth")
+
+    @has_sms_auth.setter
+    def has_sms_auth(self, value: Optional[bool]):
+        setattr(self, "has_sms_auth", value)
+
+    @property
+    def has_sms_delivery(self) -> Optional[bool]:
+        return self.get("has_sms_delivery")
+
+    @has_sms_delivery.setter
+    def has_sms_delivery(self, value: Optional[bool]):
+        setattr(self, "has_sms_delivery", value)
+
+    @property
+    def sms_phone_number(self) -> Optional[str]:
+        return self.get("sms_phone_number")
+
+    @sms_phone_number.setter
+    def sms_phone_number(self, value: Optional[str]):
+        setattr(self, "sms_phone_number", value)
+
+    @property
+    def reassigned_by(self) -> Optional[str]:
+        return self.get("reassigned_by")
+
+    @reassigned_by.setter
+    def reassigned_by(self, value: Optional[str]):
+        setattr(self, "reassigned_by", value)
+
+    @property
+    def reassignment_reason(self) -> Optional[str]:
+        return self.get("reassignment_reason")
+
+    @reassignment_reason.setter
+    def reassignment_reason(self, value: Optional[str]):
+        setattr(self, "reassignment_reason", value)
+
+    @property
+    def reassigned_from(self) -> Optional[str]:
+        return self.get("reassigned_from")
+
+    @reassigned_from.setter
+    def reassigned_from(self, value: Optional[str]):
+        setattr(self, "reassigned_from", value)
+
+    @property
+    def error(self) -> Optional[str]:
+        return self.get("error")
+
+    @error.setter
+    def error(self, value: Optional[str]):
+        setattr(self, "error", value)
 
     @classmethod
     @convert_js_args_to_python_args

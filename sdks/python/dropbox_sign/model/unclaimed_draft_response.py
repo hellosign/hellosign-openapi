@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -97,16 +99,20 @@ class UnclaimedDraftResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "UnclaimedDraftResponse":
+    def init(data: any) -> UnclaimedDraftResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[UnclaimedDraftResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'signature_request_id': 'signature_request_id',  # noqa: E501
@@ -121,6 +127,54 @@ class UnclaimedDraftResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def signature_request_id(self) -> Optional[str]:
+        return self.get("signature_request_id")
+
+    @signature_request_id.setter
+    def signature_request_id(self, value: Optional[str]):
+        setattr(self, "signature_request_id", value)
+
+    @property
+    def claim_url(self) -> str:
+        return self.get("claim_url")
+
+    @claim_url.setter
+    def claim_url(self, value: str):
+        setattr(self, "claim_url", value)
+
+    @property
+    def signing_redirect_url(self) -> Optional[str]:
+        return self.get("signing_redirect_url")
+
+    @signing_redirect_url.setter
+    def signing_redirect_url(self, value: Optional[str]):
+        setattr(self, "signing_redirect_url", value)
+
+    @property
+    def requesting_redirect_url(self) -> Optional[str]:
+        return self.get("requesting_redirect_url")
+
+    @requesting_redirect_url.setter
+    def requesting_redirect_url(self, value: Optional[str]):
+        setattr(self, "requesting_redirect_url", value)
+
+    @property
+    def expires_at(self) -> Optional[int]:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: Optional[int]):
+        setattr(self, "expires_at", value)
+
+    @property
+    def test_mode(self) -> bool:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        setattr(self, "test_mode", value)
 
     @classmethod
     @convert_js_args_to_python_args

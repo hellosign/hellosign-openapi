@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,16 +97,20 @@ class SignatureRequestUpdateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestUpdateRequest":
+    def init(data: any) -> SignatureRequestUpdateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SignatureRequestUpdateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'signature_id': 'signature_id',  # noqa: E501
@@ -117,6 +123,38 @@ class SignatureRequestUpdateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def signature_id(self) -> str:
+        return self.get("signature_id")
+
+    @signature_id.setter
+    def signature_id(self, value: str):
+        setattr(self, "signature_id", value)
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def expires_at(self) -> Optional[int]:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: Optional[int]):
+        setattr(self, "expires_at", value)
 
     @classmethod
     @convert_js_args_to_python_args

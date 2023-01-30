@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,11 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_cc import SubCC
+    from dropbox_sign.model.sub_custom_field import SubCustomField
+    from dropbox_sign.model.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
+    from dropbox_sign.model.sub_signing_options import SubSigningOptions
 
 
 def lazy_import():
@@ -130,16 +137,20 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SignatureRequestSendWithTemplateRequest":
+    def init(data: any) -> SignatureRequestSendWithTemplateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SignatureRequestSendWithTemplateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template_ids': 'template_ids',  # noqa: E501
@@ -164,6 +175,134 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template_ids(self) -> List[str]:
+        return self.get("template_ids")
+
+    @template_ids.setter
+    def template_ids(self, value: List[str]):
+        setattr(self, "template_ids", value)
+
+    @property
+    def signers(self) -> List[SubSignatureRequestTemplateSigner]:
+        return self.get("signers")
+
+    @signers.setter
+    def signers(self, value: List[SubSignatureRequestTemplateSigner]):
+        setattr(self, "signers", value)
+
+    @property
+    def allow_decline(self) -> bool:
+        return self.get("allow_decline")
+
+    @allow_decline.setter
+    def allow_decline(self, value: bool):
+        setattr(self, "allow_decline", value)
+
+    @property
+    def ccs(self) -> List[SubCC]:
+        return self.get("ccs")
+
+    @ccs.setter
+    def ccs(self, value: List[SubCC]):
+        setattr(self, "ccs", value)
+
+    @property
+    def client_id(self) -> str:
+        return self.get("client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        setattr(self, "client_id", value)
+
+    @property
+    def custom_fields(self) -> List[SubCustomField]:
+        return self.get("custom_fields")
+
+    @custom_fields.setter
+    def custom_fields(self, value: List[SubCustomField]):
+        setattr(self, "custom_fields", value)
+
+    @property
+    def files(self) -> List[file_type]:
+        return self.get("files")
+
+    @files.setter
+    def files(self, value: List[file_type]):
+        setattr(self, "files", value)
+
+    @property
+    def file_urls(self) -> List[str]:
+        return self.get("file_urls")
+
+    @file_urls.setter
+    def file_urls(self, value: List[str]):
+        setattr(self, "file_urls", value)
+
+    @property
+    def is_qualified_signature(self) -> bool:
+        return self.get("is_qualified_signature")
+
+    @is_qualified_signature.setter
+    def is_qualified_signature(self, value: bool):
+        setattr(self, "is_qualified_signature", value)
+
+    @property
+    def message(self) -> str:
+        return self.get("message")
+
+    @message.setter
+    def message(self, value: str):
+        setattr(self, "message", value)
+
+    @property
+    def metadata(self) -> Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]:
+        return self.get("metadata")
+
+    @metadata.setter
+    def metadata(self, value: Dict[str, Union[bool, date, datetime, dict, float, int, list, str, none_type]]):
+        setattr(self, "metadata", value)
+
+    @property
+    def signing_options(self) -> SubSigningOptions:
+        return self.get("signing_options")
+
+    @signing_options.setter
+    def signing_options(self, value: SubSigningOptions):
+        setattr(self, "signing_options", value)
+
+    @property
+    def signing_redirect_url(self) -> str:
+        return self.get("signing_redirect_url")
+
+    @signing_redirect_url.setter
+    def signing_redirect_url(self, value: str):
+        setattr(self, "signing_redirect_url", value)
+
+    @property
+    def subject(self) -> str:
+        return self.get("subject")
+
+    @subject.setter
+    def subject(self, value: str):
+        setattr(self, "subject", value)
+
+    @property
+    def test_mode(self) -> bool:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        setattr(self, "test_mode", value)
+
+    @property
+    def title(self) -> str:
+        return self.get("title")
+
+    @title.setter
+    def title(self, value: str):
+        setattr(self, "title", value)
 
     @classmethod
     @convert_js_args_to_python_args

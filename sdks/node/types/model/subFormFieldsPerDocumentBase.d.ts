@@ -4,7 +4,7 @@ export declare abstract class SubFormFieldsPerDocumentBase {
     "apiId": string;
     "height": number;
     "required": boolean;
-    "signer": string;
+    "signer": number | string;
     "type": string;
     "width": number;
     "x": number;

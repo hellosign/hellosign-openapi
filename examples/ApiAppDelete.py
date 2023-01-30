@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from dropbox_sign import \
     ApiClient, ApiException, Configuration, apis
 
@@ -17,7 +15,6 @@ with ApiClient(configuration) as api_client:
     client_id = "0dd3b823a682527788c4e40cb7b6f7e9"
 
     try:
-        response = api_app_api.api_app_delete(client_id)
-        pprint(response)
+        api_app_api.api_app_delete(client_id)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

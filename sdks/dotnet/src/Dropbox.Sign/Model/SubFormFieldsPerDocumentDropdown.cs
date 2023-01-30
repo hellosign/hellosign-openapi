@@ -66,13 +66,13 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentDropdown(string type = "dropdown", List<string> options = default(List<string>), string content = default(string), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), string signer = default(string), int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentDropdown(string type = "dropdown", List<string> options = default(List<string>), string content = default(string), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
             this.Height = height;
             this.Required = required;
-            this.Signer = signer;
+            this.Signer = Convert.ToString(signer);
             this.Width = width;
             this.X = x;
             this.Y = y;

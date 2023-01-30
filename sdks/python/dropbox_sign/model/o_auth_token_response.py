@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -96,16 +98,20 @@ class OAuthTokenResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "OAuthTokenResponse":
+    def init(data: any) -> OAuthTokenResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[OAuthTokenResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'access_token': 'access_token',  # noqa: E501
@@ -119,6 +125,46 @@ class OAuthTokenResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def access_token(self) -> str:
+        return self.get("access_token")
+
+    @access_token.setter
+    def access_token(self, value: str):
+        setattr(self, "access_token", value)
+
+    @property
+    def token_type(self) -> str:
+        return self.get("token_type")
+
+    @token_type.setter
+    def token_type(self, value: str):
+        setattr(self, "token_type", value)
+
+    @property
+    def refresh_token(self) -> str:
+        return self.get("refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: str):
+        setattr(self, "refresh_token", value)
+
+    @property
+    def expires_in(self) -> int:
+        return self.get("expires_in")
+
+    @expires_in.setter
+    def expires_in(self, value: int):
+        setattr(self, "expires_in", value)
+
+    @property
+    def state(self) -> Optional[str]:
+        return self.get("state")
+
+    @state.setter
+    def state(self, value: Optional[str]):
+        setattr(self, "state", value)
 
     @classmethod
     @convert_js_args_to_python_args

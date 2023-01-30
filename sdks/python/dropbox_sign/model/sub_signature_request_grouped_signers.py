@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_signature_request_signer import SubSignatureRequestSigner
 
 
 def lazy_import():
@@ -100,16 +104,20 @@ class SubSignatureRequestGroupedSigners(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubSignatureRequestGroupedSigners":
+    def init(data: any) -> SubSignatureRequestGroupedSigners:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubSignatureRequestGroupedSigners],
             _check_type=True,
         )
-
 
     attribute_map = {
         'group': 'group',  # noqa: E501
@@ -121,6 +129,30 @@ class SubSignatureRequestGroupedSigners(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def group(self) -> str:
+        return self.get("group")
+
+    @group.setter
+    def group(self, value: str):
+        setattr(self, "group", value)
+
+    @property
+    def signers(self) -> List[SubSignatureRequestSigner]:
+        return self.get("signers")
+
+    @signers.setter
+    def signers(self, value: List[SubSignatureRequestSigner]):
+        setattr(self, "signers", value)
+
+    @property
+    def order(self) -> Optional[int]:
+        return self.get("order")
+
+    @order.setter
+    def order(self, value: Optional[int]):
+        setattr(self, "order", value)
 
     @classmethod
     @convert_js_args_to_python_args

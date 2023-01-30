@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_form_field_rule_action import SubFormFieldRuleAction
+    from dropbox_sign.model.sub_form_field_rule_trigger import SubFormFieldRuleTrigger
 
 
 def lazy_import():
@@ -110,16 +115,20 @@ class SubFormFieldRule(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubFormFieldRule":
+    def init(data: any) -> SubFormFieldRule:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubFormFieldRule],
             _check_type=True,
         )
-
 
     attribute_map = {
         'id': 'id',  # noqa: E501
@@ -132,6 +141,38 @@ class SubFormFieldRule(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def id(self) -> str:
+        return self.get("id")
+
+    @id.setter
+    def id(self, value: str):
+        setattr(self, "id", value)
+
+    @property
+    def trigger_operator(self) -> str:
+        return self.get("trigger_operator")
+
+    @trigger_operator.setter
+    def trigger_operator(self, value: str):
+        setattr(self, "trigger_operator", value)
+
+    @property
+    def triggers(self) -> List[SubFormFieldRuleTrigger]:
+        return self.get("triggers")
+
+    @triggers.setter
+    def triggers(self, value: List[SubFormFieldRuleTrigger]):
+        setattr(self, "triggers", value)
+
+    @property
+    def actions(self) -> List[SubFormFieldRuleAction]:
+        return self.get("actions")
+
+    @actions.setter
+    def actions(self, value: List[SubFormFieldRuleAction]):
+        setattr(self, "actions", value)
 
     @classmethod
     @convert_js_args_to_python_args

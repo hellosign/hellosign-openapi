@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -105,16 +107,20 @@ class ApiAppResponseWhiteLabelingOptions(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ApiAppResponseWhiteLabelingOptions":
+    def init(data: any) -> ApiAppResponseWhiteLabelingOptions:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ApiAppResponseWhiteLabelingOptions],
             _check_type=True,
         )
-
 
     attribute_map = {
         'header_background_color': 'header_background_color',  # noqa: E501
@@ -137,6 +143,118 @@ class ApiAppResponseWhiteLabelingOptions(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def header_background_color(self) -> str:
+        return self.get("header_background_color")
+
+    @header_background_color.setter
+    def header_background_color(self, value: str):
+        setattr(self, "header_background_color", value)
+
+    @property
+    def legal_version(self) -> str:
+        return self.get("legal_version")
+
+    @legal_version.setter
+    def legal_version(self, value: str):
+        setattr(self, "legal_version", value)
+
+    @property
+    def link_color(self) -> str:
+        return self.get("link_color")
+
+    @link_color.setter
+    def link_color(self, value: str):
+        setattr(self, "link_color", value)
+
+    @property
+    def page_background_color(self) -> str:
+        return self.get("page_background_color")
+
+    @page_background_color.setter
+    def page_background_color(self, value: str):
+        setattr(self, "page_background_color", value)
+
+    @property
+    def primary_button_color(self) -> str:
+        return self.get("primary_button_color")
+
+    @primary_button_color.setter
+    def primary_button_color(self, value: str):
+        setattr(self, "primary_button_color", value)
+
+    @property
+    def primary_button_color_hover(self) -> str:
+        return self.get("primary_button_color_hover")
+
+    @primary_button_color_hover.setter
+    def primary_button_color_hover(self, value: str):
+        setattr(self, "primary_button_color_hover", value)
+
+    @property
+    def primary_button_text_color(self) -> str:
+        return self.get("primary_button_text_color")
+
+    @primary_button_text_color.setter
+    def primary_button_text_color(self, value: str):
+        setattr(self, "primary_button_text_color", value)
+
+    @property
+    def primary_button_text_color_hover(self) -> str:
+        return self.get("primary_button_text_color_hover")
+
+    @primary_button_text_color_hover.setter
+    def primary_button_text_color_hover(self, value: str):
+        setattr(self, "primary_button_text_color_hover", value)
+
+    @property
+    def secondary_button_color(self) -> str:
+        return self.get("secondary_button_color")
+
+    @secondary_button_color.setter
+    def secondary_button_color(self, value: str):
+        setattr(self, "secondary_button_color", value)
+
+    @property
+    def secondary_button_color_hover(self) -> str:
+        return self.get("secondary_button_color_hover")
+
+    @secondary_button_color_hover.setter
+    def secondary_button_color_hover(self, value: str):
+        setattr(self, "secondary_button_color_hover", value)
+
+    @property
+    def secondary_button_text_color(self) -> str:
+        return self.get("secondary_button_text_color")
+
+    @secondary_button_text_color.setter
+    def secondary_button_text_color(self, value: str):
+        setattr(self, "secondary_button_text_color", value)
+
+    @property
+    def secondary_button_text_color_hover(self) -> str:
+        return self.get("secondary_button_text_color_hover")
+
+    @secondary_button_text_color_hover.setter
+    def secondary_button_text_color_hover(self, value: str):
+        setattr(self, "secondary_button_text_color_hover", value)
+
+    @property
+    def text_color1(self) -> str:
+        return self.get("text_color1")
+
+    @text_color1.setter
+    def text_color1(self, value: str):
+        setattr(self, "text_color1", value)
+
+    @property
+    def text_color2(self) -> str:
+        return self.get("text_color2")
+
+    @text_color2.setter
+    def text_color2(self, value: str):
+        setattr(self, "text_color2", value)
 
     @classmethod
     @convert_js_args_to_python_args

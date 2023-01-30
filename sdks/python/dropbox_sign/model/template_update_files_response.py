@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.template_update_files_response_template import TemplateUpdateFilesResponseTemplate
 
 
 def lazy_import():
@@ -98,16 +102,20 @@ class TemplateUpdateFilesResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateUpdateFilesResponse":
+    def init(data: any) -> TemplateUpdateFilesResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateUpdateFilesResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template': 'template',  # noqa: E501
@@ -117,6 +125,14 @@ class TemplateUpdateFilesResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template(self) -> TemplateUpdateFilesResponseTemplate:
+        return self.get("template")
+
+    @template.setter
+    def template(self, value: TemplateUpdateFilesResponseTemplate):
+        setattr(self, "template", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -20,5 +20,29 @@ describe Dropbox::Sign::SubFormFieldsPerDocumentBase do
         expect(serialized.to_json).to be_json_eql(JSON.dump(data))
       end
     end
+
+    fixture_data.each do |type, data|
+      it "SubFormFieldsPerDocument allows int for signer property" do
+        data[:signer] = 1234
+        payload = { form_fields_per_document: [data] }
+        expected_signer = '1234'
+
+        obj = Dropbox::Sign::SignatureRequestSendRequest.init(payload)
+        form_fields_per_document = obj.form_fields_per_document[0]
+        expect(form_fields_per_document.signer).to eq(expected_signer)
+      end
+    end
+
+    fixture_data.each do |type, data|
+      it "SubFormFieldsPerDocument allows string for signer property" do
+        data[:signer] = 'sender'
+        payload = { form_fields_per_document: [data] }
+        expected_signer = 'sender'
+
+        obj = Dropbox::Sign::SignatureRequestSendRequest.init(payload)
+        form_fields_per_document = obj.form_fields_per_document[0]
+        expect(form_fields_per_document.signer).to eq(expected_signer)
+      end
+    end
   end
 end

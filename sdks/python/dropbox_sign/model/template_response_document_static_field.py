@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -101,16 +103,20 @@ class TemplateResponseDocumentStaticField(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateResponseDocumentStaticField":
+    def init(data: any) -> TemplateResponseDocumentStaticField:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateResponseDocumentStaticField],
             _check_type=True,
         )
-
 
     attribute_map = {
         'name': 'name',  # noqa: E501
@@ -129,6 +135,86 @@ class TemplateResponseDocumentStaticField(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def type(self) -> str:
+        return self.get("type")
+
+    @type.setter
+    def type(self, value: str):
+        setattr(self, "type", value)
+
+    @property
+    def signer(self) -> str:
+        return self.get("signer")
+
+    @signer.setter
+    def signer(self, value: str):
+        setattr(self, "signer", value)
+
+    @property
+    def x(self) -> int:
+        return self.get("x")
+
+    @x.setter
+    def x(self, value: int):
+        setattr(self, "x", value)
+
+    @property
+    def y(self) -> int:
+        return self.get("y")
+
+    @y.setter
+    def y(self, value: int):
+        setattr(self, "y", value)
+
+    @property
+    def width(self) -> int:
+        return self.get("width")
+
+    @width.setter
+    def width(self, value: int):
+        setattr(self, "width", value)
+
+    @property
+    def height(self) -> int:
+        return self.get("height")
+
+    @height.setter
+    def height(self, value: int):
+        setattr(self, "height", value)
+
+    @property
+    def required(self) -> bool:
+        return self.get("required")
+
+    @required.setter
+    def required(self, value: bool):
+        setattr(self, "required", value)
+
+    @property
+    def api_id(self) -> str:
+        return self.get("api_id")
+
+    @api_id.setter
+    def api_id(self, value: str):
+        setattr(self, "api_id", value)
+
+    @property
+    def group(self) -> Optional[str]:
+        return self.get("group")
+
+    @group.setter
+    def group(self, value: Optional[str]):
+        setattr(self, "group", value)
 
     @classmethod
     @convert_js_args_to_python_args

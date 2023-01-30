@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,16 +105,20 @@ class TemplateCreateEmbeddedDraftResponseTemplate(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateCreateEmbeddedDraftResponseTemplate":
+    def init(data: any) -> TemplateCreateEmbeddedDraftResponseTemplate:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateCreateEmbeddedDraftResponseTemplate],
             _check_type=True,
         )
-
 
     attribute_map = {
         'template_id': 'template_id',  # noqa: E501
@@ -123,6 +131,38 @@ class TemplateCreateEmbeddedDraftResponseTemplate(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def template_id(self) -> str:
+        return self.get("template_id")
+
+    @template_id.setter
+    def template_id(self, value: str):
+        setattr(self, "template_id", value)
+
+    @property
+    def edit_url(self) -> str:
+        return self.get("edit_url")
+
+    @edit_url.setter
+    def edit_url(self, value: str):
+        setattr(self, "edit_url", value)
+
+    @property
+    def expires_at(self) -> int:
+        return self.get("expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: int):
+        setattr(self, "expires_at", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -95,16 +97,20 @@ class EventCallbackRequestEventMetadata(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "EventCallbackRequestEventMetadata":
+    def init(data: any) -> EventCallbackRequestEventMetadata:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[EventCallbackRequestEventMetadata],
             _check_type=True,
         )
-
 
     attribute_map = {
         'related_signature_id': 'related_signature_id',  # noqa: E501
@@ -117,6 +123,38 @@ class EventCallbackRequestEventMetadata(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def related_signature_id(self) -> Optional[str]:
+        return self.get("related_signature_id")
+
+    @related_signature_id.setter
+    def related_signature_id(self, value: Optional[str]):
+        setattr(self, "related_signature_id", value)
+
+    @property
+    def reported_for_account_id(self) -> Optional[str]:
+        return self.get("reported_for_account_id")
+
+    @reported_for_account_id.setter
+    def reported_for_account_id(self, value: Optional[str]):
+        setattr(self, "reported_for_account_id", value)
+
+    @property
+    def reported_for_app_id(self) -> Optional[str]:
+        return self.get("reported_for_app_id")
+
+    @reported_for_app_id.setter
+    def reported_for_app_id(self, value: Optional[str]):
+        setattr(self, "reported_for_app_id", value)
+
+    @property
+    def event_message(self) -> Optional[str]:
+        return self.get("event_message")
+
+    @event_message.setter
+    def event_message(self, value: Optional[str]):
+        setattr(self, "event_message", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,10 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_o_auth import SubOAuth
+    from dropbox_sign.model.sub_options import SubOptions
+    from dropbox_sign.model.sub_white_labeling_options import SubWhiteLabelingOptions
 
 
 def lazy_import():
@@ -111,16 +117,20 @@ class ApiAppUpdateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ApiAppUpdateRequest":
+    def init(data: any) -> ApiAppUpdateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ApiAppUpdateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'callback_url': 'callback_url',  # noqa: E501
@@ -136,6 +146,62 @@ class ApiAppUpdateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def callback_url(self) -> str:
+        return self.get("callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: str):
+        setattr(self, "callback_url", value)
+
+    @property
+    def custom_logo_file(self) -> file_type:
+        return self.get("custom_logo_file")
+
+    @custom_logo_file.setter
+    def custom_logo_file(self, value: file_type):
+        setattr(self, "custom_logo_file", value)
+
+    @property
+    def domains(self) -> List[str]:
+        return self.get("domains")
+
+    @domains.setter
+    def domains(self, value: List[str]):
+        setattr(self, "domains", value)
+
+    @property
+    def name(self) -> str:
+        return self.get("name")
+
+    @name.setter
+    def name(self, value: str):
+        setattr(self, "name", value)
+
+    @property
+    def oauth(self) -> SubOAuth:
+        return self.get("oauth")
+
+    @oauth.setter
+    def oauth(self, value: SubOAuth):
+        setattr(self, "oauth", value)
+
+    @property
+    def options(self) -> SubOptions:
+        return self.get("options")
+
+    @options.setter
+    def options(self, value: SubOptions):
+        setattr(self, "options", value)
+
+    @property
+    def white_labeling_options(self) -> SubWhiteLabelingOptions:
+        return self.get("white_labeling_options")
+
+    @white_labeling_options.setter
+    def white_labeling_options(self, value: SubWhiteLabelingOptions):
+        setattr(self, "white_labeling_options", value)
 
     @classmethod
     @convert_js_args_to_python_args

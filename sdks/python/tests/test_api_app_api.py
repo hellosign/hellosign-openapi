@@ -36,6 +36,8 @@ class TestApiAppApi(unittest.TestCase):
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
 
+        obj.custom_logo_file.close()
+
     def test_api_app_get(self):
         client_id = '0dd3b823a682527788c4e40cb7b6f7e9'
 
@@ -77,6 +79,8 @@ class TestApiAppApi(unittest.TestCase):
 
         self.assertEqual(result.__class__.__name__, response_class)
         self.assertEqual(result, expected)
+
+        obj.custom_logo_file.close()
 
     def test_api_app_delete(self):
         self.skipTest('skipping test_api_app_delete')

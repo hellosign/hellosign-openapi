@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -102,16 +104,20 @@ class ReportCreateRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "ReportCreateRequest":
+    def init(data: any) -> ReportCreateRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[ReportCreateRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'end_date': 'end_date',  # noqa: E501
@@ -123,6 +129,30 @@ class ReportCreateRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def end_date(self) -> str:
+        return self.get("end_date")
+
+    @end_date.setter
+    def end_date(self, value: str):
+        setattr(self, "end_date", value)
+
+    @property
+    def report_type(self) -> List[str]:
+        return self.get("report_type")
+
+    @report_type.setter
+    def report_type(self, value: List[str]):
+        setattr(self, "report_type", value)
+
+    @property
+    def start_date(self) -> str:
+        return self.get("start_date")
+
+    @start_date.setter
+    def start_date(self, value: str):
+        setattr(self, "start_date", value)
 
     @classmethod
     @convert_js_args_to_python_args

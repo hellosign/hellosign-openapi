@@ -6,7 +6,7 @@
     {{#description}}
     # {{{.}}}
     {{/description}}
-    # @return [{{{dataType}}}{{#isNullable}}, nil{{/isNullable}}]
+    # @return [{{#vendorExtensions.x-int-or-string}}Integer, String{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{#isNullable}}, nil{{/isNullable}}]
     attr_accessor :{{{name}}}
 
   {{/vars}}

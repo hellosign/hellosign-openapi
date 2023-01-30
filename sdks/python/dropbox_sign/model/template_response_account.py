@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,8 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.template_response_account_quota import TemplateResponseAccountQuota
 
 
 def lazy_import():
@@ -103,16 +107,20 @@ class TemplateResponseAccount(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateResponseAccount":
+    def init(data: any) -> TemplateResponseAccount:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateResponseAccount],
             _check_type=True,
         )
-
 
     attribute_map = {
         'account_id': 'account_id',  # noqa: E501
@@ -127,6 +135,54 @@ class TemplateResponseAccount(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def account_id(self) -> str:
+        return self.get("account_id")
+
+    @account_id.setter
+    def account_id(self, value: str):
+        setattr(self, "account_id", value)
+
+    @property
+    def email_address(self) -> str:
+        return self.get("email_address")
+
+    @email_address.setter
+    def email_address(self, value: str):
+        setattr(self, "email_address", value)
+
+    @property
+    def is_locked(self) -> bool:
+        return self.get("is_locked")
+
+    @is_locked.setter
+    def is_locked(self, value: bool):
+        setattr(self, "is_locked", value)
+
+    @property
+    def is_paid_hs(self) -> bool:
+        return self.get("is_paid_hs")
+
+    @is_paid_hs.setter
+    def is_paid_hs(self, value: bool):
+        setattr(self, "is_paid_hs", value)
+
+    @property
+    def is_paid_hf(self) -> bool:
+        return self.get("is_paid_hf")
+
+    @is_paid_hf.setter
+    def is_paid_hf(self, value: bool):
+        setattr(self, "is_paid_hf", value)
+
+    @property
+    def quotas(self) -> TemplateResponseAccountQuota:
+        return self.get("quotas")
+
+    @quotas.setter
+    def quotas(self, value: TemplateResponseAccountQuota):
+        setattr(self, "quotas", value)
 
     @classmethod
     @convert_js_args_to_python_args

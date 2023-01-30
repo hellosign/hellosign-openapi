@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -94,16 +96,20 @@ class SubFormFieldGroup(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "SubFormFieldGroup":
+    def init(data: any) -> SubFormFieldGroup:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[SubFormFieldGroup],
             _check_type=True,
         )
-
 
     attribute_map = {
         'group_id': 'group_id',  # noqa: E501
@@ -115,6 +121,30 @@ class SubFormFieldGroup(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def group_id(self) -> str:
+        return self.get("group_id")
+
+    @group_id.setter
+    def group_id(self, value: str):
+        setattr(self, "group_id", value)
+
+    @property
+    def group_label(self) -> str:
+        return self.get("group_label")
+
+    @group_label.setter
+    def group_label(self, value: str):
+        setattr(self, "group_label", value)
+
+    @property
+    def requirement(self) -> str:
+        return self.get("requirement")
+
+    @requirement.setter
+    def requirement(self, value: str):
+        setattr(self, "requirement", value)
 
     @classmethod
     @convert_js_args_to_python_args

@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.sub_editor_options import SubEditorOptions
+    from dropbox_sign.model.sub_merge_field import SubMergeField
 
 
 def lazy_import():
@@ -109,16 +114,20 @@ class EmbeddedEditUrlRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "EmbeddedEditUrlRequest":
+    def init(data: any) -> EmbeddedEditUrlRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[EmbeddedEditUrlRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'allow_edit_ccs': 'allow_edit_ccs',  # noqa: E501
@@ -137,6 +146,86 @@ class EmbeddedEditUrlRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def allow_edit_ccs(self) -> bool:
+        return self.get("allow_edit_ccs")
+
+    @allow_edit_ccs.setter
+    def allow_edit_ccs(self, value: bool):
+        setattr(self, "allow_edit_ccs", value)
+
+    @property
+    def cc_roles(self) -> List[str]:
+        return self.get("cc_roles")
+
+    @cc_roles.setter
+    def cc_roles(self, value: List[str]):
+        setattr(self, "cc_roles", value)
+
+    @property
+    def editor_options(self) -> SubEditorOptions:
+        return self.get("editor_options")
+
+    @editor_options.setter
+    def editor_options(self, value: SubEditorOptions):
+        setattr(self, "editor_options", value)
+
+    @property
+    def force_signer_roles(self) -> bool:
+        return self.get("force_signer_roles")
+
+    @force_signer_roles.setter
+    def force_signer_roles(self, value: bool):
+        setattr(self, "force_signer_roles", value)
+
+    @property
+    def force_subject_message(self) -> bool:
+        return self.get("force_subject_message")
+
+    @force_subject_message.setter
+    def force_subject_message(self, value: bool):
+        setattr(self, "force_subject_message", value)
+
+    @property
+    def merge_fields(self) -> List[SubMergeField]:
+        return self.get("merge_fields")
+
+    @merge_fields.setter
+    def merge_fields(self, value: List[SubMergeField]):
+        setattr(self, "merge_fields", value)
+
+    @property
+    def preview_only(self) -> bool:
+        return self.get("preview_only")
+
+    @preview_only.setter
+    def preview_only(self, value: bool):
+        setattr(self, "preview_only", value)
+
+    @property
+    def show_preview(self) -> bool:
+        return self.get("show_preview")
+
+    @show_preview.setter
+    def show_preview(self, value: bool):
+        setattr(self, "show_preview", value)
+
+    @property
+    def show_progress_stepper(self) -> bool:
+        return self.get("show_progress_stepper")
+
+    @show_progress_stepper.setter
+    def show_progress_stepper(self, value: bool):
+        setattr(self, "show_progress_stepper", value)
+
+    @property
+    def test_mode(self) -> bool:
+        return self.get("test_mode")
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        setattr(self, "test_mode", value)
 
     @classmethod
     @convert_js_args_to_python_args

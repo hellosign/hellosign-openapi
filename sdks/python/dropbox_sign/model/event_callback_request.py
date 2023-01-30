@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,11 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.account_response import AccountResponse
+    from dropbox_sign.model.event_callback_request_event import EventCallbackRequestEvent
+    from dropbox_sign.model.signature_request_response import SignatureRequestResponse
+    from dropbox_sign.model.template_response import TemplateResponse
 
 
 def lazy_import():
@@ -107,16 +114,20 @@ class EventCallbackRequest(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "EventCallbackRequest":
+    def init(data: any) -> EventCallbackRequest:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[EventCallbackRequest],
             _check_type=True,
         )
-
 
     attribute_map = {
         'event': 'event',  # noqa: E501
@@ -129,6 +140,38 @@ class EventCallbackRequest(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def event(self) -> EventCallbackRequestEvent:
+        return self.get("event")
+
+    @event.setter
+    def event(self, value: EventCallbackRequestEvent):
+        setattr(self, "event", value)
+
+    @property
+    def account(self) -> AccountResponse:
+        return self.get("account")
+
+    @account.setter
+    def account(self, value: AccountResponse):
+        setattr(self, "account", value)
+
+    @property
+    def signature_request(self) -> SignatureRequestResponse:
+        return self.get("signature_request")
+
+    @signature_request.setter
+    def signature_request(self, value: SignatureRequestResponse):
+        setattr(self, "signature_request", value)
+
+    @property
+    def template(self) -> TemplateResponse:
+        return self.get("template")
+
+    @template.setter
+    def template(self, value: TemplateResponse):
+        setattr(self, "template", value)
 
     @classmethod
     @convert_js_args_to_python_args

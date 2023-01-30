@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,9 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.bulk_send_job_response import BulkSendJobResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -101,16 +106,20 @@ class BulkSendJobSendResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "BulkSendJobSendResponse":
+    def init(data: any) -> BulkSendJobSendResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[BulkSendJobSendResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'bulk_send_job': 'bulk_send_job',  # noqa: E501
@@ -121,6 +130,22 @@ class BulkSendJobSendResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def bulk_send_job(self) -> BulkSendJobResponse:
+        return self.get("bulk_send_job")
+
+    @bulk_send_job.setter
+    def bulk_send_job(self, value: BulkSendJobResponse):
+        setattr(self, "bulk_send_job", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args

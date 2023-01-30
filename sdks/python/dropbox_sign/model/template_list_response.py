@@ -9,6 +9,8 @@
 """
 
 
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional, List, Dict, Union
 import json  # noqa: F401
 import re  # noqa: F401
 import sys  # noqa: F401
@@ -30,6 +32,10 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.list_info_response import ListInfoResponse
+    from dropbox_sign.model.template_response import TemplateResponse
+    from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
@@ -104,16 +110,20 @@ class TemplateListResponse(ModelNormal):
         return None
 
     @staticmethod
-    def init(data: any) -> "TemplateListResponse":
+    def init(data: any) -> TemplateListResponse:
         """
         Attempt to instantiate and hydrate a new instance of this class
         """
+        try:
+            obj_data = json.dumps(data)
+        except TypeError:
+            obj_data = data
+
         return ApiClient().deserialize(
-            response=type('obj_dict', (object,), {'data': json.dumps(data)}),
+            response=type('obj_dict', (object,), {'data': obj_data}),
             response_type=[TemplateListResponse],
             _check_type=True,
         )
-
 
     attribute_map = {
         'templates': 'templates',  # noqa: E501
@@ -125,6 +135,30 @@ class TemplateListResponse(ModelNormal):
     }
 
     _composed_schemas = {}
+
+    @property
+    def templates(self) -> List[TemplateResponse]:
+        return self.get("templates")
+
+    @templates.setter
+    def templates(self, value: List[TemplateResponse]):
+        setattr(self, "templates", value)
+
+    @property
+    def list_info(self) -> ListInfoResponse:
+        return self.get("list_info")
+
+    @list_info.setter
+    def list_info(self, value: ListInfoResponse):
+        setattr(self, "list_info", value)
+
+    @property
+    def warnings(self) -> List[WarningResponse]:
+        return self.get("warnings")
+
+    @warnings.setter
+    def warnings(self, value: List[WarningResponse]):
+        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args
