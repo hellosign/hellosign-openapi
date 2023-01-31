@@ -4,7 +4,7 @@ typeMappings:
 additionalProperties:
   packageName: dropbox/sign
   packageVersion: "^1.0.0"
-  artifactVersion: 1.0.0-beta2301
+  artifactVersion: 1.0.0
   invokerPackage: "Dropbox\\Sign"
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src
