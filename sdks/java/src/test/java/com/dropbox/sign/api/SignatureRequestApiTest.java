@@ -12,7 +12,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 
 import java.io.File;
-import java.util.List;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class SignatureRequestApiTest {
@@ -23,14 +23,15 @@ public class SignatureRequestApiTest {
                 put("title", "NDA with Acme Co.");
                 put("subject", "The NDA we talked about");
                 put("message", "Please sign this NDA and then we can discuss more.");
-                put("signers", List.of(
+                put("signers", Arrays.asList
+                    (
                     new HashMap<String, Object>()  {{
                         put("email_address", "jill@example.com");
                         put("name", "Jill");
                         put("order", 1);
                     }}
                 ));
-                put("form_fields_per_document", List.of(
+                put("form_fields_per_document", Arrays.asList(
                     new HashMap<String, Object>()  {{
                         put("type", "signature");
                         put("document_index", 0);
