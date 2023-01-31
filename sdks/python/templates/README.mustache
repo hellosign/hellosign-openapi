@@ -6,7 +6,7 @@
 
 ## Migrating from legacy SDK
 
-This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/development/openapi.yaml).
+This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).
 We've made important updates that introduce new functionality and create feature parity between the Dropbox Sign API and the SDK.
 However, some of these changes are considered "breaking" in the sense that they'll require you to update your existing code in order to continue using the SDK.
 Please refer to this [migration guide](https://developers.hellosign.com/docs/sdks/python/migration-guide/) for more information.
@@ -52,7 +52,7 @@ Python {{{generatorLanguageVersion}}}
 Install using `pip`:
 
 ```shell
-python3 pipenv install dropbox-sign=={{packageVersion}}
+python3 -m pip install dropbox-sign=={{packageVersion}}
 ```
 
 Alternatively:

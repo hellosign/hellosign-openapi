@@ -12,6 +12,8 @@ additionalProperties:
   gemVersion: 1.0.0-beta2301
   sortModelPropertiesByRequiredFlag: true
   legacyDiscriminatorBehavior: true
+  gitUserId: hellosign
+  gitRepoId: dropbox-sign-ruby
 files:
   event_callback_helper.mustache:
     templateType: SupportingFiles

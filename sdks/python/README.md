@@ -4,7 +4,7 @@ Dropbox Sign v3 API
 
 ## Migrating from legacy SDK
 
-This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/development/openapi.yaml).
+This SDK is generated from our officially maintained [OpenAPI spec](https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml).
 We've made important updates that introduce new functionality and create feature parity between the Dropbox Sign API and the SDK.
 However, some of these changes are considered "breaking" in the sense that they'll require you to update your existing code in order to continue using the SDK.
 Please refer to this [migration guide](https://developers.hellosign.com/docs/sdks/python/migration-guide/) for more information.
@@ -50,7 +50,7 @@ Python >=3.7
 Install using `pip`:
 
 ```shell
-python3 pipenv install dropbox-sign==1.0.0-beta2301.post2
+python3 -m pip install dropbox-sign==1.0.0-beta2301.post2
 ```
 
 Alternatively:
@@ -334,27 +334,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 apisupport@hellosign.com
 
-
-## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in dropbox_sign.apis and dropbox_sign.models may fail with a
-RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
-
-Solution 1:
-Use specific imports for apis and models like:
-
-- `from dropbox_sign.api.default_api import DefaultApi`
-- `from dropbox_sign.model.pet import Pet`
-
-Solution 2:
-Before importing the package, adjust the maximum recursion limit as shown below:
-
-```python
-import sys
-sys.setrecursionlimit(1500)
-import dropbox_sign
-from dropbox_sign.apis import *
-from dropbox_sign.models import *
-```
 
 ## About this package
 
