@@ -1,18 +1,8 @@
 # hellosign-openapi &middot; [![License for GitHub](https://img.shields.io/badge/license-Apache%202-blue)](LICENSE) [![OpenAPI badge](https://img.shields.io/badge/openapi-v3.0.3-orange)](https://spec.openapis.org/oas/v3.0.1) [![PRs and Issues](https://img.shields.io/badge/prs%20&%20issues-Welcome-brightgreen)](#contributing)
 
-This repository contains all source material used for Dropbox Sign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and official SDKs (work in progress, currently in beta). The docs and SDKs are both powered by the [OpenAPI spec](openapi.yaml), which also keeps them in sync with our API development.  
+This repository contains all source material used for Dropbox Sign's [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and official SDKs. The docs and SDKs are both powered by the [OpenAPI spec](openapi.yaml), which also keeps them in sync with our API development.
 
 This repo is actively maintained by Dropbox Sign's API Engineering team, but you can help us improve these resources for everyone by [contributing](#contributing).
-
-## ⚠ Important: work in progress ⚠
-
-The state of tooling based on this repo:
-- Dropbox Sign's [API reference documentation](https://developers.hellosign.com/api/reference/overview/) - launched in production.
-- Dropbox Sign [SDKs](#sdk-coverage) - available in beta only. See the "openapi" branch of your preferred SDK.
-
-Warnings:
-- Think twice before using the OpenAPI-powered SDKs for anything critical.
-- The interfaces may change without warning. Backwards compatibility is not yet guaranteed nor implied.
 
 ## Overview
 
@@ -163,18 +153,25 @@ Additional information about this repo, OpenAPI, and/or related tooling. May not
 
 The API Engineering team at Dropbox Sign adopted the [OpenAPI specification](https://oai.github.io/Documentation/introduction.html) in order to provide a better experience to Dropbox Sign developers in a way that was scalable and sustainable. We're using it as the source of our [API Reference Documentation](https://developers.hellosign.com/api/reference/overview/) and [SDKs](#sdk-coverage), which means both tools stay in total parity with the Dropbox Sign API. 
 
-## SDK Coverage  
+We have also created in-depth Migration Guides for all our new SDKs:
 
-The SDKs based on our OpenAPI spec are a work in progress and none have moved past beta quite yet. They're currently available as an "openapi" branch in each respective repo.
+* [Node Migration Guide](https://developers.hellosign.com/docs/sdks/node/migration-guide/)
+* [Python Migration Guide](https://developers.hellosign.com/docs/sdks/python/migration-guide/)
+* [PHP Migration Guide](https://developers.hellosign.com/docs/sdks/php/migration-guide/)
+* [C# Dotnet Migration Guide](https://developers.hellosign.com/docs/sdks/dotnet/migration-guide/)
+* [Ruby Migration Guide](https://developers.hellosign.com/docs/sdks/ruby/migration-guide/)
+* [Java Migration Guide](https://developers.hellosign.com/docs/sdks/java/migration-guide/)
 
-| Link to SDK                                                   | Status                                                                                                          |
-|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [NodeJS](https://github.com/hellosign/dropbox-sign-node)      | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-node)   |
-| [PHP](https://github.com/hellosign/dropbox-sign-php)          | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-php)    |
-| [C# dotnet](https://github.com/hellosign/dropbox-sign-dotnet) | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-dotnet) |
-| [Python](https://github.com/hellosign/dropbox-sign-python)    | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-python) |
-| [Ruby](https://github.com/hellosign/dropbox-sign-ruby)        | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-ruby)   |
-| [Java](https://github.com/hellosign/dropbox-sign-java)        | [![beta badge](https://img.shields.io/badge/status-beta-red)](https://github.com/hellosign/dropbox-sign-java)   |
+## SDK Coverage
+
+| Link to SDK                                                   | Status                                                                                                                      |
+|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| [NodeJS](https://github.com/hellosign/dropbox-sign-node)      | [![status badge](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/hellosign/dropbox-sign-node)   |
+| [PHP](https://github.com/hellosign/dropbox-sign-php)          | [![status badge](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/hellosign/dropbox-sign-php)    |
+| [C# dotnet](https://github.com/hellosign/dropbox-sign-dotnet) | [![status badge](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/hellosign/dropbox-sign-dotnet) |
+| [Python](https://github.com/hellosign/dropbox-sign-python)    | [![status badge](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/hellosign/dropbox-sign-python) |
+| [Ruby](https://github.com/hellosign/dropbox-sign-ruby)        | [![status badge](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/hellosign/dropbox-sign-ruby)   |
+| [Java](https://github.com/hellosign/dropbox-sign-java)        | [![status badge](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/hellosign/dropbox-sign-java)   |
 
 **Note:** You can help us accelerate the launch of an SDK by being an early adopter. Please jump right in and start using it, then open an Issue in that SDK's GitHub repo when you find something that needs to be fixed. 
 
