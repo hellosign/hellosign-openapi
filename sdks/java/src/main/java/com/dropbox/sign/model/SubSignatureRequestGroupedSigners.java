@@ -65,6 +65,13 @@ public class SubSignatureRequestGroupedSigners {
     return new ObjectMapper().readValue(jsonData, SubSignatureRequestGroupedSigners.class);
   }
 
+  static public SubSignatureRequestGroupedSigners init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubSignatureRequestGroupedSigners.class
+    );
+  }
+
   public SubSignatureRequestGroupedSigners group(String group) {
     this.group = group;
     return this;

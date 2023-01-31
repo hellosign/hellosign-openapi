@@ -138,6 +138,13 @@ public class TemplateResponseCustomField {
     return new ObjectMapper().readValue(jsonData, TemplateResponseCustomField.class);
   }
 
+  static public TemplateResponseCustomField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseCustomField.class
+    );
+  }
+
   public TemplateResponseCustomField name(String name) {
     this.name = name;
     return this;

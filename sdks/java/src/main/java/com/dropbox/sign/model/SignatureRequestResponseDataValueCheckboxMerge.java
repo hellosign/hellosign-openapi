@@ -83,6 +83,13 @@ public class SignatureRequestResponseDataValueCheckboxMerge extends SignatureReq
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataValueCheckboxMerge.class);
   }
 
+  static public SignatureRequestResponseDataValueCheckboxMerge init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseDataValueCheckboxMerge.class
+    );
+  }
+
   public SignatureRequestResponseDataValueCheckboxMerge type(String type) {
     this.type = type;
     return this;

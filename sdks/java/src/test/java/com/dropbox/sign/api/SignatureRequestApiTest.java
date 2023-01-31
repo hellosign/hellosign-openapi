@@ -12,8 +12,50 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class SignatureRequestApiTest {
+    @Test
+    public void initAcceptsHashMap() throws Exception {
+        SignatureRequestSendRequest data = SignatureRequestSendRequest.init(
+            new HashMap<String, Object>()  {{
+                put("title", "NDA with Acme Co.");
+                put("subject", "The NDA we talked about");
+                put("message", "Please sign this NDA and then we can discuss more.");
+                put("signers", Arrays.asList
+                    (
+                    new HashMap<String, Object>()  {{
+                        put("email_address", "jill@example.com");
+                        put("name", "Jill");
+                        put("order", 1);
+                    }}
+                ));
+                put("form_fields_per_document", Arrays.asList(
+                    new HashMap<String, Object>()  {{
+                        put("type", "signature");
+                        put("document_index", 0);
+                        put("api_id", "4688957689");
+                        put("name", "signature1");
+                        put("x", 5);
+                        put("y", 7);
+                        put("width", 60);
+                        put("height", 30);
+                        put("required", true);
+                        put("signer", 0);
+                        put("page", 1);
+                    }}
+                ));
+            }}
+        );
+
+        assert data.getFormFieldsPerDocument() != null;
+        Assert.assertEquals(
+            "signature",
+            data.getFormFieldsPerDocument().get(0).getType()
+        );
+    }
+
     @Test
     public void signatureRequestBulkCreateEmbeddedWithTemplateTest() throws Exception {
         JsonNode expectedResponseData = TestHelper.getJsonContents(BulkSendJobSendResponse.class.getSimpleName());

@@ -67,6 +67,13 @@ public class SubCustomField {
     return new ObjectMapper().readValue(jsonData, SubCustomField.class);
   }
 
+  static public SubCustomField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubCustomField.class
+    );
+  }
+
   public SubCustomField name(String name) {
     this.name = name;
     return this;

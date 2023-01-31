@@ -70,6 +70,13 @@ public class SignatureRequestResponseCustomFieldCheckbox extends SignatureReques
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseCustomFieldCheckbox.class);
   }
 
+  static public SignatureRequestResponseCustomFieldCheckbox init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseCustomFieldCheckbox.class
+    );
+  }
+
   public SignatureRequestResponseCustomFieldCheckbox type(String type) {
     this.type = type;
     return this;

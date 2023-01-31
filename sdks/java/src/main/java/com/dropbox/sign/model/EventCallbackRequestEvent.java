@@ -143,6 +143,13 @@ public class EventCallbackRequestEvent {
     return new ObjectMapper().readValue(jsonData, EventCallbackRequestEvent.class);
   }
 
+  static public EventCallbackRequestEvent init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      EventCallbackRequestEvent.class
+    );
+  }
+
   public EventCallbackRequestEvent eventTime(String eventTime) {
     this.eventTime = eventTime;
     return this;

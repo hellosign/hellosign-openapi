@@ -177,6 +177,13 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateEmbeddedWithTemplateRequest.class);
   }
 
+  static public UnclaimedDraftCreateEmbeddedWithTemplateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftCreateEmbeddedWithTemplateRequest.class
+    );
+  }
+
   public UnclaimedDraftCreateEmbeddedWithTemplateRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

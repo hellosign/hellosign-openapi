@@ -62,6 +62,13 @@ public class AccountUpdateRequest {
     return new ObjectMapper().readValue(jsonData, AccountUpdateRequest.class);
   }
 
+  static public AccountUpdateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountUpdateRequest.class
+    );
+  }
+
   public AccountUpdateRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;

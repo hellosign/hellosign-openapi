@@ -90,6 +90,13 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentHyperlink.class);
   }
 
+  static public SubFormFieldsPerDocumentHyperlink init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentHyperlink.class
+    );
+  }
+
   public SubFormFieldsPerDocumentHyperlink type(String type) {
     this.type = type;
     return this;

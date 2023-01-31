@@ -71,6 +71,13 @@ public class AccountResponseQuotas {
     return new ObjectMapper().readValue(jsonData, AccountResponseQuotas.class);
   }
 
+  static public AccountResponseQuotas init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      AccountResponseQuotas.class
+    );
+  }
+
   public AccountResponseQuotas apiSignatureRequestsLeft(Integer apiSignatureRequestsLeft) {
     this.apiSignatureRequestsLeft = apiSignatureRequestsLeft;
     return this;

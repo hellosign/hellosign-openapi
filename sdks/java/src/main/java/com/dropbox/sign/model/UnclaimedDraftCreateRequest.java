@@ -194,6 +194,13 @@ public class UnclaimedDraftCreateRequest {
     return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateRequest.class);
   }
 
+  static public UnclaimedDraftCreateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftCreateRequest.class
+    );
+  }
+
   public UnclaimedDraftCreateRequest type(TypeEnum type) {
     this.type = type;
     return this;

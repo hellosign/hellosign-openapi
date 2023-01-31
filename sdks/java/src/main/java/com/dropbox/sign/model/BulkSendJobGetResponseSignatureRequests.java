@@ -153,6 +153,13 @@ public class BulkSendJobGetResponseSignatureRequests {
     return new ObjectMapper().readValue(jsonData, BulkSendJobGetResponseSignatureRequests.class);
   }
 
+  static public BulkSendJobGetResponseSignatureRequests init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      BulkSendJobGetResponseSignatureRequests.class
+    );
+  }
+
   public BulkSendJobGetResponseSignatureRequests testMode(Boolean testMode) {
     this.testMode = testMode;
     return this;

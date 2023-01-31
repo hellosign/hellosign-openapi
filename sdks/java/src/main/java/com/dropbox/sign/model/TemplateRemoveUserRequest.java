@@ -58,6 +58,13 @@ public class TemplateRemoveUserRequest {
     return new ObjectMapper().readValue(jsonData, TemplateRemoveUserRequest.class);
   }
 
+  static public TemplateRemoveUserRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateRemoveUserRequest.class
+    );
+  }
+
   public TemplateRemoveUserRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;

@@ -75,6 +75,13 @@ public class SignatureRequestResponseAttachment {
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseAttachment.class);
   }
 
+  static public SignatureRequestResponseAttachment init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseAttachment.class
+    );
+  }
+
   public SignatureRequestResponseAttachment id(String id) {
     this.id = id;
     return this;

@@ -58,6 +58,13 @@ public class TemplateResponseSignerRole {
     return new ObjectMapper().readValue(jsonData, TemplateResponseSignerRole.class);
   }
 
+  static public TemplateResponseSignerRole init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseSignerRole.class
+    );
+  }
+
   public TemplateResponseSignerRole name(String name) {
     this.name = name;
     return this;

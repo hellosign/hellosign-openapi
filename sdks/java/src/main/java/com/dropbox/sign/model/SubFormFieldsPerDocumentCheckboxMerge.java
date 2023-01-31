@@ -82,6 +82,13 @@ public class SubFormFieldsPerDocumentCheckboxMerge extends SubFormFieldsPerDocum
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentCheckboxMerge.class);
   }
 
+  static public SubFormFieldsPerDocumentCheckboxMerge init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentCheckboxMerge.class
+    );
+  }
+
   public SubFormFieldsPerDocumentCheckboxMerge type(String type) {
     this.type = type;
     return this;

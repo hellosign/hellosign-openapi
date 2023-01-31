@@ -83,6 +83,13 @@ public class SignatureRequestResponseCustomFieldBase {
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseCustomFieldBase.class);
   }
 
+  static public SignatureRequestResponseCustomFieldBase init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseCustomFieldBase.class
+    );
+  }
+
   public SignatureRequestResponseCustomFieldBase type(String type) {
     this.type = type;
     return this;

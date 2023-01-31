@@ -70,6 +70,13 @@ public class OAuthTokenResponse {
     return new ObjectMapper().readValue(jsonData, OAuthTokenResponse.class);
   }
 
+  static public OAuthTokenResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      OAuthTokenResponse.class
+    );
+  }
+
   public OAuthTokenResponse accessToken(String accessToken) {
     this.accessToken = accessToken;
     return this;

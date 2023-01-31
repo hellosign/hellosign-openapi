@@ -243,6 +243,13 @@ public class UnclaimedDraftCreateEmbeddedRequest {
     return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateEmbeddedRequest.class);
   }
 
+  static public UnclaimedDraftCreateEmbeddedRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftCreateEmbeddedRequest.class
+    );
+  }
+
   public UnclaimedDraftCreateEmbeddedRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

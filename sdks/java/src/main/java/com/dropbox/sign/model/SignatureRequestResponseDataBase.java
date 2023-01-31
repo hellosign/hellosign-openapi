@@ -104,6 +104,13 @@ public class SignatureRequestResponseDataBase {
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataBase.class);
   }
 
+  static public SignatureRequestResponseDataBase init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseDataBase.class
+    );
+  }
+
   public SignatureRequestResponseDataBase apiId(String apiId) {
     this.apiId = apiId;
     return this;

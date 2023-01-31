@@ -70,6 +70,13 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseCustomFieldText.class);
   }
 
+  static public SignatureRequestResponseCustomFieldText init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseCustomFieldText.class
+    );
+  }
+
   public SignatureRequestResponseCustomFieldText type(String type) {
     this.type = type;
     return this;

@@ -62,6 +62,13 @@ public class SubFormFieldGroup {
     return new ObjectMapper().readValue(jsonData, SubFormFieldGroup.class);
   }
 
+  static public SubFormFieldGroup init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldGroup.class
+    );
+  }
+
   public SubFormFieldGroup groupId(String groupId) {
     this.groupId = groupId;
     return this;

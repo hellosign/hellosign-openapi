@@ -59,6 +59,13 @@ public class SubEditorOptions {
     return new ObjectMapper().readValue(jsonData, SubEditorOptions.class);
   }
 
+  static public SubEditorOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubEditorOptions.class
+    );
+  }
+
   public SubEditorOptions allowEditSigners(Boolean allowEditSigners) {
     this.allowEditSigners = allowEditSigners;
     return this;

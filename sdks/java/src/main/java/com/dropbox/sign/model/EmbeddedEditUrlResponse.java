@@ -62,6 +62,13 @@ public class EmbeddedEditUrlResponse {
     return new ObjectMapper().readValue(jsonData, EmbeddedEditUrlResponse.class);
   }
 
+  static public EmbeddedEditUrlResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      EmbeddedEditUrlResponse.class
+    );
+  }
+
   public EmbeddedEditUrlResponse embedded(EmbeddedEditUrlResponseEmbedded embedded) {
     this.embedded = embedded;
     return this;

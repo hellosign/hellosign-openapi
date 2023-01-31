@@ -67,6 +67,13 @@ public class TemplateListResponse {
     return new ObjectMapper().readValue(jsonData, TemplateListResponse.class);
   }
 
+  static public TemplateListResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateListResponse.class
+    );
+  }
+
   public TemplateListResponse templates(List<TemplateResponse> templates) {
     this.templates = templates;
     return this;

@@ -94,6 +94,13 @@ public class EmbeddedEditUrlRequest {
     return new ObjectMapper().readValue(jsonData, EmbeddedEditUrlRequest.class);
   }
 
+  static public EmbeddedEditUrlRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      EmbeddedEditUrlRequest.class
+    );
+  }
+
   public EmbeddedEditUrlRequest allowEditCcs(Boolean allowEditCcs) {
     this.allowEditCcs = allowEditCcs;
     return this;

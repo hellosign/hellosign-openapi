@@ -82,6 +82,13 @@ public class SubFormFieldsPerDocumentInitials extends SubFormFieldsPerDocumentBa
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentInitials.class);
   }
 
+  static public SubFormFieldsPerDocumentInitials init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentInitials.class
+    );
+  }
+
   public SubFormFieldsPerDocumentInitials type(String type) {
     this.type = type;
     return this;

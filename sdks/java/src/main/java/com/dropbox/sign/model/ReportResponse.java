@@ -104,6 +104,13 @@ public class ReportResponse {
     return new ObjectMapper().readValue(jsonData, ReportResponse.class);
   }
 
+  static public ReportResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ReportResponse.class
+    );
+  }
+
   public ReportResponse success(String success) {
     this.success = success;
     return this;

@@ -90,6 +90,13 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentCheckbox.class);
   }
 
+  static public SubFormFieldsPerDocumentCheckbox init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentCheckbox.class
+    );
+  }
+
   public SubFormFieldsPerDocumentCheckbox type(String type) {
     this.type = type;
     return this;

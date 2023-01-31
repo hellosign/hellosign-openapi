@@ -67,6 +67,13 @@ public class BulkSendJobResponse {
     return new ObjectMapper().readValue(jsonData, BulkSendJobResponse.class);
   }
 
+  static public BulkSendJobResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      BulkSendJobResponse.class
+    );
+  }
+
   public BulkSendJobResponse bulkSendJobId(String bulkSendJobId) {
     this.bulkSendJobId = bulkSendJobId;
     return this;

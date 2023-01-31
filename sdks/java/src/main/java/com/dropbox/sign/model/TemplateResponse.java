@@ -119,6 +119,13 @@ public class TemplateResponse {
     return new ObjectMapper().readValue(jsonData, TemplateResponse.class);
   }
 
+  static public TemplateResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponse.class
+    );
+  }
+
   public TemplateResponse templateId(String templateId) {
     this.templateId = templateId;
     return this;

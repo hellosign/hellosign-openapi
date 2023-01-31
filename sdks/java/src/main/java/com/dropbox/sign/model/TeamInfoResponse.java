@@ -71,6 +71,13 @@ public class TeamInfoResponse {
     return new ObjectMapper().readValue(jsonData, TeamInfoResponse.class);
   }
 
+  static public TeamInfoResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TeamInfoResponse.class
+    );
+  }
+
   public TeamInfoResponse teamId(String teamId) {
     this.teamId = teamId;
     return this;

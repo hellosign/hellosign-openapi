@@ -74,6 +74,13 @@ public class TeamInviteResponse {
     return new ObjectMapper().readValue(jsonData, TeamInviteResponse.class);
   }
 
+  static public TeamInviteResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TeamInviteResponse.class
+    );
+  }
+
   public TeamInviteResponse emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;

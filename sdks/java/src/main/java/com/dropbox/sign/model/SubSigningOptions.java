@@ -110,6 +110,13 @@ public class SubSigningOptions {
     return new ObjectMapper().readValue(jsonData, SubSigningOptions.class);
   }
 
+  static public SubSigningOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubSigningOptions.class
+    );
+  }
+
   public SubSigningOptions defaultType(DefaultTypeEnum defaultType) {
     this.defaultType = defaultType;
     return this;

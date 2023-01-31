@@ -70,6 +70,13 @@ public class EventCallbackRequest {
     return new ObjectMapper().readValue(jsonData, EventCallbackRequest.class);
   }
 
+  static public EventCallbackRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      EventCallbackRequest.class
+    );
+  }
+
   public EventCallbackRequest event(EventCallbackRequestEvent event) {
     this.event = event;
     return this;

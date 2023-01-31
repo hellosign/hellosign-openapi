@@ -62,6 +62,13 @@ public class SubUnclaimedDraftTemplateSigner {
     return new ObjectMapper().readValue(jsonData, SubUnclaimedDraftTemplateSigner.class);
   }
 
+  static public SubUnclaimedDraftTemplateSigner init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubUnclaimedDraftTemplateSigner.class
+    );
+  }
+
   public SubUnclaimedDraftTemplateSigner role(String role) {
     this.role = role;
     return this;

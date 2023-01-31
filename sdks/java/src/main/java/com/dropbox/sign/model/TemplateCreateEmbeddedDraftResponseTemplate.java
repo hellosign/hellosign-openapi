@@ -70,6 +70,13 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
     return new ObjectMapper().readValue(jsonData, TemplateCreateEmbeddedDraftResponseTemplate.class);
   }
 
+  static public TemplateCreateEmbeddedDraftResponseTemplate init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateCreateEmbeddedDraftResponseTemplate.class
+    );
+  }
+
   public TemplateCreateEmbeddedDraftResponseTemplate templateId(String templateId) {
     this.templateId = templateId;
     return this;

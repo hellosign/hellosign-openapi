@@ -109,6 +109,13 @@ public class SubFormFieldRuleTrigger {
     return new ObjectMapper().readValue(jsonData, SubFormFieldRuleTrigger.class);
   }
 
+  static public SubFormFieldRuleTrigger init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldRuleTrigger.class
+    );
+  }
+
   public SubFormFieldRuleTrigger id(String id) {
     this.id = id;
     return this;

@@ -93,6 +93,13 @@ public class SubMergeField {
     return new ObjectMapper().readValue(jsonData, SubMergeField.class);
   }
 
+  static public SubMergeField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubMergeField.class
+    );
+  }
+
   public SubMergeField name(String name) {
     this.name = name;
     return this;

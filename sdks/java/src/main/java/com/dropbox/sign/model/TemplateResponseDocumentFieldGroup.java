@@ -58,6 +58,13 @@ public class TemplateResponseDocumentFieldGroup {
     return new ObjectMapper().readValue(jsonData, TemplateResponseDocumentFieldGroup.class);
   }
 
+  static public TemplateResponseDocumentFieldGroup init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseDocumentFieldGroup.class
+    );
+  }
+
   public TemplateResponseDocumentFieldGroup name(String name) {
     this.name = name;
     return this;

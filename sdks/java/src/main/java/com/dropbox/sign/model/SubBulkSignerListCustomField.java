@@ -58,6 +58,13 @@ public class SubBulkSignerListCustomField {
     return new ObjectMapper().readValue(jsonData, SubBulkSignerListCustomField.class);
   }
 
+  static public SubBulkSignerListCustomField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubBulkSignerListCustomField.class
+    );
+  }
+
   public SubBulkSignerListCustomField name(String name) {
     this.name = name;
     return this;

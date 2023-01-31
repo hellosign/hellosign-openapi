@@ -83,6 +83,13 @@ public class UnclaimedDraftEditAndResendRequest {
     return new ObjectMapper().readValue(jsonData, UnclaimedDraftEditAndResendRequest.class);
   }
 
+  static public UnclaimedDraftEditAndResendRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftEditAndResendRequest.class
+    );
+  }
+
   public UnclaimedDraftEditAndResendRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

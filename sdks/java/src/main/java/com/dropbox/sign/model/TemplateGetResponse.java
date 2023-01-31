@@ -62,6 +62,13 @@ public class TemplateGetResponse {
     return new ObjectMapper().readValue(jsonData, TemplateGetResponse.class);
   }
 
+  static public TemplateGetResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateGetResponse.class
+    );
+  }
+
   public TemplateGetResponse template(TemplateResponse template) {
     this.template = template;
     return this;

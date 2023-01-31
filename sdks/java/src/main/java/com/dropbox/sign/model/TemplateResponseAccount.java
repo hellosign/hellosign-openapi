@@ -75,6 +75,13 @@ public class TemplateResponseAccount {
     return new ObjectMapper().readValue(jsonData, TemplateResponseAccount.class);
   }
 
+  static public TemplateResponseAccount init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseAccount.class
+    );
+  }
+
   public TemplateResponseAccount accountId(String accountId) {
     this.accountId = accountId;
     return this;

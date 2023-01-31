@@ -123,6 +123,13 @@ public class SignatureRequestSendWithTemplateRequest {
     return new ObjectMapper().readValue(jsonData, SignatureRequestSendWithTemplateRequest.class);
   }
 
+  static public SignatureRequestSendWithTemplateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestSendWithTemplateRequest.class
+    );
+  }
+
   public SignatureRequestSendWithTemplateRequest templateIds(List<String> templateIds) {
     this.templateIds = templateIds;
     return this;

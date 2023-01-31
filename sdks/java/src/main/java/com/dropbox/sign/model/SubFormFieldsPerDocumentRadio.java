@@ -90,6 +90,13 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentRadio.class);
   }
 
+  static public SubFormFieldsPerDocumentRadio init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentRadio.class
+    );
+  }
+
   public SubFormFieldsPerDocumentRadio type(String type) {
     this.type = type;
     return this;

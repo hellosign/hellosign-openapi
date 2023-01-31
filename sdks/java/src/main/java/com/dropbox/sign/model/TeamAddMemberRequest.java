@@ -101,6 +101,13 @@ public class TeamAddMemberRequest {
     return new ObjectMapper().readValue(jsonData, TeamAddMemberRequest.class);
   }
 
+  static public TeamAddMemberRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TeamAddMemberRequest.class
+    );
+  }
+
   public TeamAddMemberRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;

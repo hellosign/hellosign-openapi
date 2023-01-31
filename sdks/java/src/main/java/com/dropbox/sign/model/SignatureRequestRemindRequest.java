@@ -58,6 +58,13 @@ public class SignatureRequestRemindRequest {
     return new ObjectMapper().readValue(jsonData, SignatureRequestRemindRequest.class);
   }
 
+  static public SignatureRequestRemindRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestRemindRequest.class
+    );
+  }
+
   public SignatureRequestRemindRequest emailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
     return this;

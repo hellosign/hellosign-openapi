@@ -66,6 +66,13 @@ public class SubAttachment {
     return new ObjectMapper().readValue(jsonData, SubAttachment.class);
   }
 
+  static public SubAttachment init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubAttachment.class
+    );
+  }
+
   public SubAttachment name(String name) {
     this.name = name;
     return this;

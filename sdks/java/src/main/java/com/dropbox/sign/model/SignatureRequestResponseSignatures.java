@@ -127,6 +127,13 @@ public class SignatureRequestResponseSignatures {
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseSignatures.class);
   }
 
+  static public SignatureRequestResponseSignatures init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseSignatures.class
+    );
+  }
+
   public SignatureRequestResponseSignatures signatureId(String signatureId) {
     this.signatureId = signatureId;
     return this;

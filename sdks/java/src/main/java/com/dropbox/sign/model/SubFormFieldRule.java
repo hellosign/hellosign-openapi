@@ -70,6 +70,13 @@ public class SubFormFieldRule {
     return new ObjectMapper().readValue(jsonData, SubFormFieldRule.class);
   }
 
+  static public SubFormFieldRule init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldRule.class
+    );
+  }
+
   public SubFormFieldRule id(String id) {
     this.id = id;
     return this;

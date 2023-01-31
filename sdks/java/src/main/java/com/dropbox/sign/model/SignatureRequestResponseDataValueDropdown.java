@@ -83,6 +83,13 @@ public class SignatureRequestResponseDataValueDropdown extends SignatureRequestR
     return new ObjectMapper().readValue(jsonData, SignatureRequestResponseDataValueDropdown.class);
   }
 
+  static public SignatureRequestResponseDataValueDropdown init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestResponseDataValueDropdown.class
+    );
+  }
+
   public SignatureRequestResponseDataValueDropdown type(String type) {
     this.type = type;
     return this;

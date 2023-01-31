@@ -55,6 +55,13 @@ public class ErrorResponse {
     return new ObjectMapper().readValue(jsonData, ErrorResponse.class);
   }
 
+  static public ErrorResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ErrorResponse.class
+    );
+  }
+
   public ErrorResponse error(ErrorResponseError error) {
     this.error = error;
     return this;

@@ -59,6 +59,13 @@ public class WarningResponse {
     return new ObjectMapper().readValue(jsonData, WarningResponse.class);
   }
 
+  static public WarningResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      WarningResponse.class
+    );
+  }
+
   public WarningResponse warningMsg(String warningMsg) {
     this.warningMsg = warningMsg;
     return this;

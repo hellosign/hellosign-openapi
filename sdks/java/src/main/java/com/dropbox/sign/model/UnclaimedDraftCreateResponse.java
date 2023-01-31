@@ -62,6 +62,13 @@ public class UnclaimedDraftCreateResponse {
     return new ObjectMapper().readValue(jsonData, UnclaimedDraftCreateResponse.class);
   }
 
+  static public UnclaimedDraftCreateResponse init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      UnclaimedDraftCreateResponse.class
+    );
+  }
+
   public UnclaimedDraftCreateResponse unclaimedDraft(UnclaimedDraftResponse unclaimedDraft) {
     this.unclaimedDraft = unclaimedDraft;
     return this;

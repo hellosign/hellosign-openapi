@@ -107,6 +107,13 @@ public class TemplateResponseNamedFormField {
     return new ObjectMapper().readValue(jsonData, TemplateResponseNamedFormField.class);
   }
 
+  static public TemplateResponseNamedFormField init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseNamedFormField.class
+    );
+  }
+
   public TemplateResponseNamedFormField name(String name) {
     this.name = name;
     return this;

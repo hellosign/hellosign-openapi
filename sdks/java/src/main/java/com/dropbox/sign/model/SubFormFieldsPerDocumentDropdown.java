@@ -92,6 +92,13 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
     return new ObjectMapper().readValue(jsonData, SubFormFieldsPerDocumentDropdown.class);
   }
 
+  static public SubFormFieldsPerDocumentDropdown init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SubFormFieldsPerDocumentDropdown.class
+    );
+  }
+
   public SubFormFieldsPerDocumentDropdown type(String type) {
     this.type = type;
     return this;

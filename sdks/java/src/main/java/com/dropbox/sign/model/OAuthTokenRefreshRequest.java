@@ -58,6 +58,13 @@ public class OAuthTokenRefreshRequest {
     return new ObjectMapper().readValue(jsonData, OAuthTokenRefreshRequest.class);
   }
 
+  static public OAuthTokenRefreshRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      OAuthTokenRefreshRequest.class
+    );
+  }
+
   public OAuthTokenRefreshRequest grantType(String grantType) {
     this.grantType = grantType;
     return this;

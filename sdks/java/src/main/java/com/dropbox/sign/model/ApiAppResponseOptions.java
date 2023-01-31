@@ -55,6 +55,13 @@ public class ApiAppResponseOptions {
     return new ObjectMapper().readValue(jsonData, ApiAppResponseOptions.class);
   }
 
+  static public ApiAppResponseOptions init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      ApiAppResponseOptions.class
+    );
+  }
+
   public ApiAppResponseOptions canInsertEverywhere(Boolean canInsertEverywhere) {
     this.canInsertEverywhere = canInsertEverywhere;
     return this;

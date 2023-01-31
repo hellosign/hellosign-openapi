@@ -54,6 +54,13 @@ public class TeamUpdateRequest {
     return new ObjectMapper().readValue(jsonData, TeamUpdateRequest.class);
   }
 
+  static public TeamUpdateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TeamUpdateRequest.class
+    );
+  }
+
   public TeamUpdateRequest name(String name) {
     this.name = name;
     return this;

@@ -70,6 +70,13 @@ public class OAuthTokenGenerateRequest {
     return new ObjectMapper().readValue(jsonData, OAuthTokenGenerateRequest.class);
   }
 
+  static public OAuthTokenGenerateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      OAuthTokenGenerateRequest.class
+    );
+  }
+
   public OAuthTokenGenerateRequest clientId(String clientId) {
     this.clientId = clientId;
     return this;

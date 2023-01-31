@@ -80,6 +80,13 @@ public class TemplateResponseDocument {
     return new ObjectMapper().readValue(jsonData, TemplateResponseDocument.class);
   }
 
+  static public TemplateResponseDocument init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      TemplateResponseDocument.class
+    );
+  }
+
   public TemplateResponseDocument name(String name) {
     this.name = name;
     return this;

@@ -119,6 +119,13 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
     return new ObjectMapper().readValue(jsonData, SignatureRequestCreateEmbeddedWithTemplateRequest.class);
   }
 
+  static public SignatureRequestCreateEmbeddedWithTemplateRequest init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      SignatureRequestCreateEmbeddedWithTemplateRequest.class
+    );
+  }
+
   public SignatureRequestCreateEmbeddedWithTemplateRequest templateIds(List<String> templateIds) {
     this.templateIds = templateIds;
     return this;
