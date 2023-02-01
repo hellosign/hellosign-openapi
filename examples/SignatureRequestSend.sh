@@ -10,8 +10,8 @@ curl -X POST 'https://api.hellosign.com/v3/signature_request/send' \
   -F 'signers[1][email_address]=jill@example.com' \
   -F 'signers[1][name]=Jill' \
   -F 'signers[1][order]=1' \
-  -F 'cc_email_addresses[]=lawyer@dropboxsign.com' \
-  -F 'cc_email_addresses[]=lawyer@dropboxsign.com' \
+  -F 'cc_email_addresses[]=lawyer1@dropboxsign.com' \
+  -F 'cc_email_addresses[]=lawyer2@dropboxsign.com' \
   -F 'metadata[custom_id]=1234' \
   -F 'metadata[custom_text]=NDA #9' \
   -F 'signing_options[draw]=1' \

@@ -43,8 +43,8 @@ const data = {
     signer2,
   ],
   ccEmailAddresses: [
-    "lawyer@dropboxsign.com",
-    "lawyer@example.com",
+    "lawyer1@dropboxsign.com",
+    "lawyer2@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {

@@ -40,8 +40,8 @@ const data = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@dropboxsign.com",
-    "lawyer@example.com",
+    "lawyer1@dropboxsign.com",
+    "lawyer2@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {

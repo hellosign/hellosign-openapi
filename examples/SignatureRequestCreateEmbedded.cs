@@ -53,7 +53,7 @@ public class Example
             subject: "The NDA we talked about",
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
             signers: new List<SubSignatureRequestSigner>(){signer1, signer2},
-            ccEmailAddresses: new List<string>(){"lawyer@dropboxsign.com", "lawyer@dropboxsign.com"},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
             files: files,
             signingOptions: signingOptions,
             testMode: true
