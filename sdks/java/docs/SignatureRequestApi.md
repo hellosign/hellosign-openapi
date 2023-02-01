@@ -426,7 +426,7 @@ public class Example {
             .subject("The NDA we talked about")
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(Arrays.asList(signer1, signer2))
-            .ccEmailAddresses(Arrays.asList("lawyer@dropboxsign.com", "lawyer@dropboxsign.com"))
+            .ccEmailAddresses(Arrays.asList("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
             .addFilesItem(new File("example_signature_request.pdf"));
             .signingOptions(signingOptions)
             .testMode(true);
@@ -1309,7 +1309,7 @@ public class Example {
             .subject("The NDA we talked about")
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(List.of(signer1, signer2))
-            .ccEmailAddresses(List.of("lawyer@dropboxsign.com", "lawyer@dropboxsign.com"))
+            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
             .addFilesItem(new File("example_signature_request.pdf"));
             .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
             .signingOptions(signingOptions)

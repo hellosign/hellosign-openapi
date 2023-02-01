@@ -68,8 +68,8 @@ const data: DropboxSign.UnclaimedDraftCreateRequest = {
     signer2,
   ],
   ccEmailAddresses: [
-    "lawyer@dropboxsign.com",
-    "lawyer@dropboxsign.com",
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
@@ -139,8 +139,8 @@ const data = {
     signer2,
   ],
   ccEmailAddresses: [
-    "lawyer@dropboxsign.com",
-    "lawyer@example.com",
+    "lawyer1@dropboxsign.com",
+    "lawyer2@example.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {

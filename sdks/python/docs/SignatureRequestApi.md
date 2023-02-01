@@ -373,7 +373,7 @@ with ApiClient(configuration) as api_client:
         subject="The NDA we talked about",
         message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
         signers=[signer_1, signer_2],
-        cc_email_addresses=["lawyer@dropboxsign.com", "lawyer@dropboxsign.com"],
+        cc_email_addresses=["lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"],
         files=[open("example_signature_request.pdf", "rb")],
         signing_options=signing_options,
         test_mode=True,
@@ -1128,8 +1128,8 @@ with ApiClient(configuration) as api_client:
         message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
         signers=[signer_1, signer_2],
         cc_email_addresses=[
-            "lawyer@dropboxsign.com",
-            "lawyer@dropboxsign.com",
+            "lawyer1@dropboxsign.com",
+            "lawyer2@dropboxsign.com",
         ],
         files=[open("example_signature_request.pdf", "rb")],
         metadata={
