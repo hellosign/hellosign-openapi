@@ -6690,7 +6690,6 @@ components:
           description: '_t__SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
-          x-beta: closed
         expires_at:
           description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
           type: integer
@@ -6768,7 +6767,6 @@ components:
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
-          x-beta: closed
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -7991,7 +7989,6 @@ components:
           description: '_t__UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
-          x-beta: closed
         expires_at:
           description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
           type: integer
@@ -8119,7 +8116,6 @@ components:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
-          x-beta: closed
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
