@@ -6882,7 +6882,6 @@ components:
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-          x-beta: closed
         expires_at:
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
@@ -6975,7 +6974,6 @@ components:
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-          x-beta: closed
       type: object
     SignatureRequestRemindRequest:
       required:
@@ -8509,7 +8507,6 @@ components:
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-          x-beta: closed
         expires_at:
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
@@ -8665,7 +8662,6 @@ components:
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
-          x-beta: closed
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
