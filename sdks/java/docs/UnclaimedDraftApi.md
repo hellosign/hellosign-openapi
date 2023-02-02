@@ -22,11 +22,10 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
@@ -35,50 +34,49 @@ import java.util.Map;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        UnclaimedDraftApi unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
+        var unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
 
-        SubUnclaimedDraftSigner signer1 = new SubUnclaimedDraftSigner()
+        var signer1 = new SubUnclaimedDraftSigner()
             .emailAddress("jack@example.com")
             .name("Jack")
             .order(0);
 
-        SubUnclaimedDraftSigner signer2 = new SubUnclaimedDraftSigner()
+        var signer2 = new SubUnclaimedDraftSigner()
             .emailAddress("jill@example.com")
             .name("Jill")
             .order(1);
 
-        SubSigningOptions subSigningOptions = new SubSigningOptions()
+        var subSigningOptions = new SubSigningOptions()
             .draw(true)
             .type(true)
             .upload(true)
             .phone(false)
             .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
 
-        SubFieldOptions subFieldOptions = new SubFieldOptions()
+        var subFieldOptions = new SubFieldOptions()
             .dateFormat(SubFieldOptions.DateFormatEnum.DD_MM_YYYY);
 
-        UnclaimedDraftCreateRequest data = new UnclaimedDraftCreateRequest()
+        var data = new UnclaimedDraftCreateRequest()
             .subject("The NDA we talked about")
             .type(UnclaimedDraftCreateRequest.TypeEnum.REQUEST_SIGNATURE)
             .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
             .signers(List.of(signer1, signer2))
             .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
-            .addFilesItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"))
             .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
             .signingOptions(subSigningOptions)
             .fieldOptions(subFieldOptions)
@@ -139,38 +137,35 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
-import java.util.List;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        UnclaimedDraftApi unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
+        var unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
 
-        UnclaimedDraftCreateEmbeddedRequest data = new UnclaimedDraftCreateEmbeddedRequest()
+        var data = new UnclaimedDraftCreateEmbeddedRequest()
             .clientId("ec64a202072370a737edf4a0eb7f4437")
-            .addFilesItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"))
             .requesterEmailAddress("jack@dropboxsign.com")
             .testMode(true);
 
@@ -229,50 +224,47 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        UnclaimedDraftApi unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
+        var unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
 
-        SubUnclaimedDraftTemplateSigner signer = new SubUnclaimedDraftTemplateSigner()
+        var signer = new SubUnclaimedDraftTemplateSigner()
             .role("Client")
             .name("George")
             .emailAddress("george@example.com");
 
-        SubCC cc1 = new SubCC()
+        var cc1 = new SubCC()
             .role("Accounting")
             .emailAddress("accouting@email.com");
 
-        UnclaimedDraftCreateEmbeddedWithTemplateRequest data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest()
+        var data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest()
             .clientId("1a659d9ad95bccd307ecad78d72192f8")
-            .templateIds(Arrays.asList("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
+            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
             .requesterEmailAddress("jack@dropboxsign.com")
-            .signers(Arrays.asList(signer))
-            .ccs(Arrays.asList(cc1))
+            .signers(List.of(signer))
+            .ccs(List.of(cc1))
             .testMode(true);
 
         try {
@@ -330,37 +322,35 @@ Creates a new signature request from an embedded request that can be edited prio
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        UnclaimedDraftApi unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
+        var unclaimedDraftApi = new UnclaimedDraftApi(apiClient);
 
-        UnclaimedDraftEditAndResendRequest data = new UnclaimedDraftEditAndResendRequest()
+        var data = new UnclaimedDraftEditAndResendRequest()
             .clientId("1a659d9ad95bccd307ecad78d72192f8")
             .testMode(true);
 
-        String signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
+        var signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
 
         try {
             UnclaimedDraftCreateResponse result = unclaimedDraftApi.unclaimedDraftEditAndResend(signatureRequestId, data);

@@ -28,37 +28,37 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
-        TeamAddMemberRequest data = new TeamAddMemberRequest()
+        var data = new TeamAddMemberRequest()
             .emailAddress("george@example.com");
 
+        String teamId = null;
+
         try {
-            TeamGetResponse result = teamApi.teamAddMember(data);
+            TeamGetResponse result = teamApi.teamAddMember(data, teamId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -111,33 +111,31 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
-        TeamCreateRequest data = new TeamCreateRequest()
+        var data = new TeamCreateRequest()
             .name("New Team Name");
 
         try {
@@ -193,31 +191,28 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.model.*;
+import com.dropbox.sign.auth.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
         try {
             teamApi.teamDelete();
@@ -268,31 +263,29 @@ Returns information about your Team as well as a list of its members. If you do 
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
         try {
             TeamGetResponse result = teamApi.teamGet();
@@ -344,31 +337,29 @@ Provides information about a team.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
         try {
             TeamGetInfoResponse result = teamApi.teamInfo();
@@ -423,33 +414,31 @@ Provides a list of team invites (and their roles).
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
-        String emailAddress = "user@dropboxsign.com";
+        var emailAddress = "user@dropboxsign.com";
 
         try {
             TeamInvitesResponse result = teamApi.teamInvites(emailAddress);
@@ -504,36 +493,36 @@ Provides a paginated list of members (and their roles) that belong to a given te
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
-        String teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+        var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+        var page = 1;
+        var pageSize = 20;
 
         try {
-            TeamMembersResponse result = teamApi.teamMembers(teamId);
+            TeamMembersResponse result = teamApi.teamMembers(teamId, page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TeamApi#teamMembers");
@@ -587,33 +576,31 @@ Removes the provided user Account from your Team. If the Account had an outstand
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
-        TeamRemoveMemberRequest data = new TeamRemoveMemberRequest()
+        var data = new TeamRemoveMemberRequest()
             .emailAddress("teammate@dropboxsign.com")
             .newOwnerEmailAddress("new_teammate@dropboxsign.com");
 
@@ -670,36 +657,36 @@ Provides a paginated list of sub teams that belong to a given team.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
+        var teamApi = new TeamApi(apiClient);
 
-        String teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+        var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
+        var page = 1;
+        var pageSize = 20;
 
         try {
-            TeamSubTeamsResponse result = teamApi.teamSubTeams(teamId);
+            TeamSubTeamsResponse result = teamApi.teamSubTeams(teamId, page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling TeamApi#teamSubTeams");
@@ -753,32 +740,31 @@ Updates the name of your Team.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TeamApi teamApi = new TeamApi(apiClient);
-        TeamUpdateRequest data = new TeamUpdateRequest()
+        var teamApi = new TeamApi(apiClient);
+
+        var data = new TeamUpdateRequest()
             .name("New Team Name");
 
         try {

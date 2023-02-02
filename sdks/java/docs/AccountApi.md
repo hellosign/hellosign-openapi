@@ -22,34 +22,31 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        AccountApi accountApi = new AccountApi(apiClient);
+        var accountApi = new AccountApi(apiClient);
 
-        AccountCreateRequest data = new AccountCreateRequest()
+        var data = new AccountCreateRequest()
             .emailAddress("newuser@dropboxsign.com");
 
         try {
@@ -105,32 +102,29 @@ Returns the properties and settings of your Account.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        AccountApi accountApi = new AccountApi(apiClient);
+        var accountApi = new AccountApi(apiClient);
 
         try {
             AccountGetResponse result = accountApi.accountGet(null, "jack@example.com");
@@ -186,34 +180,31 @@ Updates the properties and settings of your Account. Currently only allows for u
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        AccountApi accountApi = new AccountApi(apiClient);
+        var accountApi = new AccountApi(apiClient);
 
-        AccountUpdateRequest data = new AccountUpdateRequest()
+        var data = new AccountUpdateRequest()
             .callbackUrl("https://www.example.com/callback");
 
         try {
@@ -269,34 +260,31 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        AccountApi accountApi = new AccountApi(apiClient);
+        var accountApi = new AccountApi(apiClient);
 
-        AccountVerifyRequest data = new AccountVerifyRequest()
+        var data = new AccountVerifyRequest()
             .emailAddress("some_user@dropboxsign.com");
 
         try {

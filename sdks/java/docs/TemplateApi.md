@@ -28,35 +28,34 @@ Gives the specified Account access to the specified Template. The specified Acco
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
-        TemplateAddUserRequest data = new TemplateAddUserRequest()
+        var templateApi = new TemplateApi(apiClient);
+
+        var data = new TemplateAddUserRequest()
             .emailAddress("george@dropboxsign.com");
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
             TemplateGetResponse result = templateApi.templateAddUser(templateId, data);
@@ -112,57 +111,55 @@ The first step in an embedded template workflow. Creates a draft template that c
 ### Example
 
 ```java
-import com.sun.tools.javac.util.List;
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
+import java.util.List;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        SubTemplateRole role1 = new SubTemplateRole()
+        var role1 = new SubTemplateRole()
             .name("Client")
             .order(0);
 
-        SubTemplateRole role2 = new SubTemplateRole()
+        var role2 = new SubTemplateRole()
             .name("Witness")
             .order(1);
 
-        SubMergeField mergeField1 = new SubMergeField()
+        var mergeField1 = new SubMergeField()
             .name("Full Name")
             .type(SubMergeField.TypeEnum.TEXT);
 
-        SubMergeField mergeField2 = new SubMergeField()
+        var mergeField2 = new SubMergeField()
             .name("Is Registered?")
             .type(SubMergeField.TypeEnum.CHECKBOX);
 
-        SubFieldOptions subFieldOptions = new SubFieldOptions()
+        var subFieldOptions = new SubFieldOptions()
             .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
 
-        TemplateCreateEmbeddedDraftRequest data = new TemplateCreateEmbeddedDraftRequest()
+        var data = new TemplateCreateEmbeddedDraftRequest()
             .clientId("37dee8d8440c66d54cfa05d92c160882")
-            .addFilesItem(new File("example_signature_request.pdf"));
+            .addFilesItem(new File("example_signature_request.pdf"))
             .title("Test Template")
             .subject("Please sign this document")
             .message("For your approval")
@@ -225,33 +222,30 @@ Completely deletes the template specified from the account.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.model.*;
+import com.dropbox.sign.auth.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
             templateApi.templateDelete(templateId);
@@ -307,35 +301,32 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.model.*;
+import com.dropbox.sign.auth.*;
 
 import java.io.File;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
             File result = templateApi.templateFiles(templateId, "pdf");
@@ -393,33 +384,31 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
             FileResponseDataUri result = templateApi.templateFilesAsDataUri(templateId);
@@ -476,36 +465,34 @@ If the files are currently being prepared, a status code of `409` will be return
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
-            FileResponse result = templateApi.templateFilesAsFileUrl(templateId, "pdf", false, false);
+            FileResponse result = templateApi.templateFilesAsFileUrl(templateId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -557,33 +544,31 @@ Returns the Template specified by the `template_id` parameter.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        String templateId = "f57db65d3f933b5316d398057a36176831451a35";
+        var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
         try {
             TemplateGetResponse result = templateApi.templateGet(templateId);
@@ -640,36 +625,37 @@ Take a look at our [search guide](/api/reference/search/) to learn more about qu
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        String accountId = "f57db65d3f933b5316d398057a36176831451a35";
+        var accountId = "f57db65d3f933b5316d398057a36176831451a35";
+        var page = 1;
+        var pageSize = 20;
+        String query = null;
 
         try {
-            TemplateListResponse result = templateApi.templateList(accountId, 1, 20, null);
+            TemplateListResponse result = templateApi.templateList(accountId, page, pageSize, query);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -724,36 +710,34 @@ Removes the specified Account's access to the specified Template.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        TemplateRemoveUserRequest data = new TemplateRemoveUserRequest()
+        var data = new TemplateRemoveUserRequest()
             .emailAddress("george@dropboxsign.com");
 
-        String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
+        var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
         try {
             TemplateGetResponse result = templateApi.templateRemoveUser(templateId, data);
@@ -820,39 +804,36 @@ If the page orientation or page count is different from the original template do
 ### Example
 
 ```java
-import com.sun.tools.javac.util.List;
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 import java.io.File;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        TemplateApi templateApi = new TemplateApi(apiClient);
+        var templateApi = new TemplateApi(apiClient);
 
-        TemplateUpdateFilesRequest data = new TemplateUpdateFilesRequest()
+        var data = new TemplateUpdateFilesRequest()
             .addFilesItem(new File("example_signature_request.pdf"));
 
-        String templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
+        var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 
         try {
             TemplateUpdateFilesResponse result = templateApi.templateUpdateFiles(templateId, data);
