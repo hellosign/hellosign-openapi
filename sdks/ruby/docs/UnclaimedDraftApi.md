@@ -59,8 +59,8 @@ data.type = "request_signature"
 data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
 data.signers = [signer_1, signer_2]
 data.cc_email_addresses = [
-  "lawyer@dropboxsign.com",
-  "lawyer@dropboxsign.com",
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
 ]
 data.files = [File.new("example_signature_request.pdf", "r")]
 data.metadata = {

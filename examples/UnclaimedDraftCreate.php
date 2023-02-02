@@ -38,8 +38,8 @@ $data->setSubject("The NDA we talked about")
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
     ->setSigners([$signer1, $signer2])
     ->setCcEmailAddresses([
-        "lawyer@dropboxsign.com",
-        "lawyer@dropboxsign.com",
+        "lawyer1@dropboxsign.com",
+        "lawyer2@dropboxsign.com",
     ])
     ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
     ->setMetadata([

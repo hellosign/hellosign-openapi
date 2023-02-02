@@ -40,8 +40,8 @@ const data: DropboxSign.SignatureRequestSendRequest = {
   message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
   signers: [ signer1, signer2 ],
   ccEmailAddresses: [
-    "lawyer@dropboxsign.com",
-    "lawyer@dropboxsign.com",
+    "lawyer1@dropboxsign.com",
+    "lawyer2@dropboxsign.com",
   ],
   files: [fs.createReadStream("example_signature_request.pdf")],
   metadata: {
