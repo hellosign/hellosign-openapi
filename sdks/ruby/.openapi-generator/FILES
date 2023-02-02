@@ -5,6 +5,7 @@
 Gemfile
 README.md
 Rakefile
+VERSION
 docs/AccountApi.md
 docs/AccountCreateRequest.md
 docs/AccountCreateResponse.md

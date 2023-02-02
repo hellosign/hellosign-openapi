@@ -18,6 +18,9 @@ files:
   event_callback_helper.mustache:
     templateType: SupportingFiles
     destinationFilename: lib/dropbox-sign/event_callback_helper.rb
+  VERSION-root.mustache:
+    templateType: SupportingFiles
+    destinationFilename: VERSION
 globalProperties:
   apiTests: false
   modelTests: false
