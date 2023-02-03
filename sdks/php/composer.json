@@ -1,6 +1,5 @@
 {
     "name": "dropbox/sign",
-    "version": "1.0.0",
     "description": "Official Dropbox Sign APIv3 PHP SDK",
     "keywords": [
         "openapitools",
