@@ -1,6 +1,17 @@
-on: [push]
+# This workflow will build the project, run integration tests, and release.
+# Because secrets are not available on external forks, this job is expected to fail
+# on external pull requests.
+
+name: Build, Check, Publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  sdk-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -11,3 +22,68 @@ jobs:
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
+
+  publish:
+    runs-on: ubuntu-latest
+    if: github.repository == 'hellosign/dropbox-sign-dotnet'
+    needs: [ build ]
+    env:
+      BUILD_CONFIG: 'Release'
+      SOLUTION: 'Dropbox.Sign'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore ${SOLUTION}.sln
+
+      - name: Build
+        run: dotnet build ${SOLUTION}.sln --configuration ${BUILD_CONFIG} --no-restore
+
+      - name: Run tests
+        run: dotnet test /p:Configuration=${BUILD_CONFIG} --no-restore --no-build --verbosity normal
+
+      - name: Run pack
+        run: dotnet pack --configuration ${BUILD_CONFIG} ${SOLUTION}.sln
+
+      # This runs on merging to "main" branch
+      # Builds and publishes package to nuget.org
+      - name: Publish to nuget
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: dotnet nuget push src/${SOLUTION}/bin/Release/*.nupkg -k ${NUGET_API_KEY} -s https://api.nuget.org/v3/index.json
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
+  # This job runs on merging to "main" branch
+  # Creates a new tag using the value in the VERSION file
+  cut-tag:
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-dotnet'
+      && github.ref == 'refs/heads/main'
+      && github.event_name != 'pull_request'
+    needs: [ publish ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Retrieve version
+        run: echo "PACKAGE_VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Create tag
+        uses: actions/github-script@v6
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/" + process.env.PACKAGE_VERSION,
+              sha: context.sha
+            })

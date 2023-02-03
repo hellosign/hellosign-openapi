@@ -15,6 +15,9 @@ files:
   EventCallbackHelper.cs:
     templateType: SupportingFiles
     destinationFilename: src/Dropbox.Sign/EventCallbackHelper.cs
+  VERSION.mustache:
+    templateType: SupportingFiles
+    destinationFilename: VERSION
 globalProperties:
   apiTests: false
   modelTests: false
