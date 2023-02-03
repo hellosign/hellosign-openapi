@@ -1,4 +1,4 @@
-# This workflow will build the project with bundle and rake, run integration tests, and release.
+# This workflow will build the project, run integration tests, and release.
 # Because secrets are not available on external forks, this job is expected to fail
 # on external pull requests.
 
@@ -23,9 +23,14 @@ jobs:
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
 
-  publish:
+  # This job runs on merging to "main" branch
+  # Builds and publishes gem
+  publish-prod:
     runs-on: ubuntu-latest
-    if: github.repository == 'hellosign/dropbox-sign-ruby' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-ruby'
+      && github.ref == 'refs/heads/main'
+      && github.event_name != 'pull_request'
     needs: [ build ]
     steps:
       - name: Checkout
@@ -36,10 +41,15 @@ jobs:
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
 
-  tag:
+  # This job runs on merging to "main" branch
+  # Creates a new tag using the value in the VERSION file
+  cut-tag:
     runs-on: ubuntu-latest
-    if: github.repository == 'hellosign/dropbox-sign-ruby' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: [ publish ]
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-python'
+      && github.ref == 'refs/heads/main'
+      && github.event_name != 'pull_request'
+    needs: [ publish-prod ]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
