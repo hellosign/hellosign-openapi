@@ -2,6 +2,7 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+VERSION
 docs/AccountApi.md
 docs/AccountCreateRequest.md
 docs/AccountCreateResponse.md

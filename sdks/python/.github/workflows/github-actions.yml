@@ -1,6 +1,20 @@
-on: [push]
+# This workflow will build the project, run integration tests, and release.
+# Because secrets are not available on external forks, this job is expected to fail
+# on external pull requests.
+
+# publishing instructions from
+# https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+
+name: Build, Check, Publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  sdk-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -11,3 +25,94 @@ jobs:
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
+
+  # This job runs on pull requests
+  # Publishes to test.pypi.org, useful as a dry run
+  # Step still passes even if package version was already uploaded
+  publish-test:
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-python'
+      && github.ref != 'refs/heads/main'
+      && github.event_name == 'pull_request'
+    needs: [ build ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: Install pypa/build
+        run: python -m pip install build --user
+
+      - name: Build a binary wheel and a source tarball
+        run: python -m build --sdist --wheel --outdir dist/ .
+
+      - name: Publish distribution to Test PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_TEST_API_KEY }}
+          repository_url: https://test.pypi.org/legacy/
+          skip_existing: true
+          verbose: true
+
+  # This job runs on merging to "main" branch
+  # Builds and publishes package to pypi.org
+  publish-prod:
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-python'
+      && github.ref == 'refs/heads/main'
+      && github.event_name != 'pull_request'
+    needs: [ build ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: Install pypa/build
+        run: python -m pip install build --user
+
+      - name: Build a binary wheel and a source tarball
+        run: python -m build --sdist --wheel --outdir dist/ .
+
+      - name: Publish distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_KEY }}
+
+  # This job runs on merging to "main" branch
+  # Creates a new tag using the value in the VERSION file
+  cut-tag:
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-python'
+      && github.ref == 'refs/heads/main'
+      && github.event_name != 'pull_request'
+    needs: [ publish-prod ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Retrieve version
+        run: echo "PACKAGE_VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Create tag
+        uses: actions/github-script@v6
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/" + process.env.PACKAGE_VERSION,
+              sha: context.sha
+            })
