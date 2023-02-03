@@ -23,6 +23,9 @@ files:
   eventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: model/eventCallbackHelper.ts
+  VERSION.mustache:
+    templateType: SupportingFiles
+    destinationFilename: VERSION
 globalProperties:
   apiTests: false
   modelTests: false
