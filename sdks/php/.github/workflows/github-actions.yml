@@ -1,6 +1,17 @@
-on: [push]
+# This workflow will build the project, run integration tests, and release.
+# Because secrets are not available on external forks, this job is expected to fail
+# on external pull requests.
+
+name: Build, Check, Publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  sdk-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -11,3 +22,33 @@ jobs:
 
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status
+
+  # This job runs on merging to "main" branch
+  # Creates a new tag using the value in the VERSION file
+  # This gets automatically published as a new release on packagist.org
+  cut-tag:
+    runs-on: ubuntu-latest
+    if: >-
+      github.repository == 'hellosign/dropbox-sign-php'
+      && github.ref == 'refs/heads/main'
+      && github.event_name != 'pull_request'
+    needs: [ build ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Retrieve version
+        run: echo "PACKAGE_VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Create tag
+        uses: actions/github-script@v6
+        env:
+          PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/" + process.env.PACKAGE_VERSION,
+              sha: context.sha
+            })

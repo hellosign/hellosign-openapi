@@ -29,6 +29,9 @@ files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: src/main/java/com/dropbox/sign/EventCallbackHelper.java
+  VERSION.mustache:
+    templateType: SupportingFiles
+    destinationFilename: VERSION
 globalProperties:
   apiTests: false
   modelTests: false

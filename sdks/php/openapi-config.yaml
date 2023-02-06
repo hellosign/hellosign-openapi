@@ -13,6 +13,9 @@ files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: src/EventCallbackHelper.php
+  VERSION.mustache:
+    templateType: SupportingFiles
+    destinationFilename: VERSION
 globalProperties:
   apiTests: false
   modelTests: false

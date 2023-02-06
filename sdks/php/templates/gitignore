@@ -17,3 +17,4 @@ composer.phar
 .composer
 .openapi-generator
 git_push.sh
+composer.lock

@@ -9,6 +9,7 @@ WORKING_DIR="/app/ruby"
 docker run --rm \
   -e GEM_HOME="/.gem-cache" \
   -e BUNDLE_PATH="/.bundle-cache" \
+  -e RUBYGEMS_API_KEY=${RUBYGEMS_API_KEY-:''} \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
   -v "dropbox-sign-sdk-gem-cache:/.gem-cache" \
   -v "dropbox-sign-sdk-bundle-cache:/.bundle-cache" \
