@@ -20,34 +20,31 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        BulkSendJobApi bulkSendJobApi = new BulkSendJobApi(apiClient);
+        var bulkSendJobApi = new BulkSendJobApi(apiClient);
 
-        String bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
+        var bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
 
         try {
             BulkSendJobGetResponse result = bulkSendJobApi.bulkSendJobGet(bulkSendJobId);
@@ -102,35 +99,32 @@ Returns a list of BulkSendJob that you can access.
 ### Example
 
 ```java
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient apiClient = Configuration.getDefaultApiClient();
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
         apiKey.setUsername("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        BulkSendJobApi bulkSendJobApi = new BulkSendJobApi(apiClient);
+        var bulkSendJobApi = new BulkSendJobApi(apiClient);
 
-        int page = 1;
-        int pageSize = 20;
+        var page = 1;
+        var pageSize = 20;
 
         try {
             BulkSendJobListResponse result = bulkSendJobApi.bulkSendJobList(page, pageSize);

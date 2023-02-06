@@ -1,37 +1,34 @@
-import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.ApiException;
 import com.dropbox.sign.Configuration;
 import com.dropbox.sign.api.*;
-import com.dropbox.sign.auth.HttpBasicAuth;
-import com.dropbox.sign.auth.HttpBearerAuth;
+import com.dropbox.sign.auth.*;
 import com.dropbox.sign.model.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
-public class Example {
+public class Main {
     public static void main(String[] args) {
+        var apiClient = Configuration.getDefaultApiClient();
 
         // Configure HTTP basic authorization: api_key
-        HttpBasicAuth apiKey = (HttpBasicAuth) apiClient
+        var apiKey = (HttpBasicAuth) apiClient
             .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        apiKey.setUsername("f413398b383310baaadcafa55ef43d9f056eb62461c5e20a4a62b221867ca77d");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        HttpBearerAuth oauth2 = (HttpBearerAuth) apiClient
+        var oauth2 = (HttpBearerAuth) apiClient
             .getAuthentication("oauth2");
-
         oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
-        EmbeddedApi embeddedApi = new EmbeddedApi(apiClient);
+        var embeddedApi = new EmbeddedApi(apiClient);
 
-        EmbeddedEditUrlRequest data = new EmbeddedEditUrlRequest()
-            .ccRoles(Arrays.asList(""))
-            .mergeFields(new ArrayList<>());
+        var data = new EmbeddedEditUrlRequest()
+            .ccRoles(List.of(""))
+            .mergeFields(List.of());
 
-        String templateId = "5de8179668f2033afac48da1868d0093bf133266";
+        var templateId = "5de8179668f2033afac48da1868d0093bf133266";
 
         try {
             EmbeddedEditUrlResponse result = embeddedApi.embeddedEditUrl(templateId, data);
