@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dropbox-sign (1.0.0)
+    dropbox-sign (1.0.1)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
