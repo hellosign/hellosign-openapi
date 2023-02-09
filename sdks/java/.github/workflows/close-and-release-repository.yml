@@ -1,0 +1,26 @@
+name: close-and-release-repository
+on:
+  # Allow manually triggering of the workflow.
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: 'Manually trigger gradle closeAndReleaseRepository task in case of timeout from previous publishing'
+
+jobs:
+  closeAndReleaseRepository:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Publish Release to Maven Central
+        run: ./gradlew closeAndReleaseRepository --no-daemon --no-parallel --repository {{ inputs.repository }}
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
