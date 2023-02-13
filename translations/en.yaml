@@ -1288,6 +1288,7 @@
 "TeamDoesNotExistResponseExample::SUMMARY": Team Does Not Exist
 "Team::NAME": The name of your Team
 "Team::INVITED_ACCOUNTS": A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+"Team::INVITED_EMAILS": A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
 "TeamGeneral::TEAM_ID": The id of a team
 "TeamGeneral::NAME": The name of a team
 "TeamGeneral::NUM_MEMBERS": Number of members within a team

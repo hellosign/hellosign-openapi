@@ -29,6 +29,7 @@
         "role_code": "m"
       }
     ],
-    "invited_accounts": []
+    "invited_accounts": [],
+    "invited_emails": []
   }
 }

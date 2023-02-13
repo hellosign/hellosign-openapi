@@ -9198,6 +9198,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
+        invited_emails:
+          description: '_t__Team::INVITED_EMAILS'
+          type: array
+          items:
+            type: string
       type: object
       x-internal: true
     TeamParentResponse:

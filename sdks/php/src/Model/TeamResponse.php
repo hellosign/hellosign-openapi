@@ -64,6 +64,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'string',
         'accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
         'invited_accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
+        'invited_emails' => 'string[]',
     ];
 
     /**
@@ -77,6 +78,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => null,
         'accounts' => null,
         'invited_accounts' => null,
+        'invited_emails' => null,
     ];
 
     /**
@@ -109,6 +111,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'name',
         'accounts' => 'accounts',
         'invited_accounts' => 'invited_accounts',
+        'invited_emails' => 'invited_emails',
     ];
 
     /**
@@ -120,6 +123,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'setName',
         'accounts' => 'setAccounts',
         'invited_accounts' => 'setInvitedAccounts',
+        'invited_emails' => 'setInvitedEmails',
     ];
 
     /**
@@ -131,6 +135,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'name' => 'getName',
         'accounts' => 'getAccounts',
         'invited_accounts' => 'getInvitedAccounts',
+        'invited_emails' => 'getInvitedEmails',
     ];
 
     /**
@@ -192,6 +197,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['name'] = $data['name'] ?? null;
         $this->container['accounts'] = $data['accounts'] ?? null;
         $this->container['invited_accounts'] = $data['invited_accounts'] ?? null;
+        $this->container['invited_emails'] = $data['invited_emails'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -303,6 +309,30 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setInvitedAccounts(?array $invited_accounts)
     {
         $this->container['invited_accounts'] = $invited_accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets invited_emails
+     *
+     * @return string[]|null
+     */
+    public function getInvitedEmails()
+    {
+        return $this->container['invited_emails'];
+    }
+
+    /**
+     * Sets invited_emails
+     *
+     * @param string[]|null $invited_emails a list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account
+     *
+     * @return self
+     */
+    public function setInvitedEmails(?array $invited_emails)
+    {
+        $this->container['invited_emails'] = $invited_emails;
 
         return $this;
     }
