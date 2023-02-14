@@ -25,6 +25,7 @@ rep () {
 }
 
 perl -pi -e 's/(.*)AllOf.md\)\n//g' "${ROOT_DIR}/README.md"
+perl -0pi -e 's/DUPLICATE_START(.*?)DUPLICATE_END\n//sg' "${ROOT_DIR}/src/main/java/com/dropbox/sign/api/"*.*
+
 
 rep 'import com.dropbox.sign.(.*)AllOf;\n' ''
-rep 'DUPLICATE_START(.*)DUPLICATE_END\n' ''

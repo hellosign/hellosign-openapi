@@ -607,45 +607,7 @@ public class TemplateApi {
     return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
   }
 
-  DUPLICATE_START
-  /**
-  * List Templates
-  * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
-      * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-      * @param query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-  * @return ApiResponse&lt;TemplateListResponse&gt;
-  * @throws ApiException if fails to make API call
-      * @http.response.details
-      <table summary="Response Details" border="1">
-          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-      </table>
-  */
-  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, String query) throws ApiException {
-      return templateListWithHttpInfo(accountId, 1, 20, query);
-  }
-  DUPLICATE_END
-  DUPLICATE_START
-  /**
-  * List Templates
-  * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
-      * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-      * @param query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-  * @return ApiResponse&lt;TemplateListResponse&gt;
-  * @throws ApiException if fails to make API call
-      * @http.response.details
-      <table summary="Response Details" border="1">
-          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-      </table>
-  */
-  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, String query) throws ApiException {
-      return templateListWithHttpInfo(accountId, 1, 20, query);
-  }
-  DUPLICATE_END
-  /**
+      /**
    * List Templates
    * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
    * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
