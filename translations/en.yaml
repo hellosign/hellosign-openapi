@@ -98,6 +98,8 @@
 "BulkSendJobGet::SUMMARY": Get Bulk Send Job
 "BulkSendJobGet::DESCRIPTION": Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
 "BulkSendJobGet::BULK_SEND_JOB_ID": The id of the BulkSendJob to retrieve.
+"BulkSendJobGet::PAGE": Which page number of the BulkSendJob list to return. Defaults to `1`.
+"BulkSendJobGet::PAGE_SIZE": Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.
 
 "BulkSendJobList::SUMMARY": List Bulk Send Jobs
 "BulkSendJobList::DESCRIPTION": Returns a list of BulkSendJob that you can access.

@@ -54,6 +54,8 @@ class BulkSendJobApi(object):
             params_map={
                 'all': [
                     'bulk_send_job_id',
+                    'page',
+                    'page_size',
                 ],
                 'required': [
                     'bulk_send_job_id',
@@ -73,12 +75,20 @@ class BulkSendJobApi(object):
                 'openapi_types': {
                     'bulk_send_job_id':
                         (str,),
+                    'page':
+                        (int,),
+                    'page_size':
+                        (int,),
                 },
                 'attribute_map': {
                     'bulk_send_job_id': 'bulk_send_job_id',
+                    'page': 'page',
+                    'page_size': 'page_size',
                 },
                 'location_map': {
                     'bulk_send_job_id': 'path',
+                    'page': 'query',
+                    'page_size': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -165,6 +175,8 @@ class BulkSendJobApi(object):
             bulk_send_job_id (str): The id of the BulkSendJob to retrieve.
 
         Keyword Args:
+            page (int): Which page number of the BulkSendJob list to return. Defaults to `1`.. [optional] if omitted the server will use the default value of 1
+            page_size (int): Number of objects to be returned per page. Must be between `1` and `100`. Default is 20.. [optional] if omitted the server will use the default value of 20
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

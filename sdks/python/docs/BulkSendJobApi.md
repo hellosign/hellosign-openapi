@@ -53,6 +53,8 @@ with ApiClient(configuration) as api_client:
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `bulk_send_job_id` | **str** | The id of the BulkSendJob to retrieve. |  |
+| `page` | **int** | Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **int** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional][default to 20] |
 
 ### Return type
 

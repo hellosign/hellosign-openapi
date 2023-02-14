@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## bulkSendJobGet
 
-> BulkSendJobGetResponse bulkSendJobGet(bulkSendJobId)
+> BulkSendJobGetResponse bulkSendJobGet(bulkSendJobId, page, pageSize)
 
 Get Bulk Send Job
 
@@ -67,6 +67,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bulkSendJobId** | **String**| The id of the BulkSendJob to retrieve. |
+ **page** | **Integer**| _t__BulkSendJobGet::PAGE | [optional] [default to 1]
+ **pageSize** | **Integer**| _t__BulkSendJobGet::PAGE_SIZE | [optional] [default to 20]
 
 ### Return type
 

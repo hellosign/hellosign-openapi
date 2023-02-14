@@ -26,6 +26,8 @@ module Dropbox::Sign
     # Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
     # @param bulk_send_job_id [String] The id of the BulkSendJob to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (default to 1)
+    # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (default to 20)
     # @return [BulkSendJobGetResponse]
     def bulk_send_job_get(bulk_send_job_id, opts = {})
       data, _status_code, _headers = bulk_send_job_get_with_http_info(bulk_send_job_id, opts)
@@ -36,6 +38,8 @@ module Dropbox::Sign
     # Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
     # @param bulk_send_job_id [String] The id of the BulkSendJob to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;.
+    # @option opts [Integer] :page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20.
     # @return [Array<(BulkSendJobGetResponse, Integer, Hash)>] BulkSendJobGetResponse data, response status code and response headers
     def bulk_send_job_get_with_http_info(bulk_send_job_id, opts = {})
       if @api_client.config.debugging
@@ -50,6 +54,8 @@ module Dropbox::Sign
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

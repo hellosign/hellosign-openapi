@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 ## `bulk_send_job_get`
 
-> `<BulkSendJobGetResponse> bulk_send_job_get(bulk_send_job_id)`
+> `<BulkSendJobGetResponse> bulk_send_job_get(bulk_send_job_id, opts)`
 
 Get Bulk Send Job
 
@@ -46,12 +46,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<BulkSendJobGetResponse>, Integer, Hash)> bulk_send_job_get_with_http_info(bulk_send_job_id)`
+> `<Array(<BulkSendJobGetResponse>, Integer, Hash)> bulk_send_job_get_with_http_info(bulk_send_job_id, opts)`
 
 ```ruby
 begin
   # Get Bulk Send Job
-  data, status_code, headers = api_instance.bulk_send_job_get_with_http_info(bulk_send_job_id)
+  data, status_code, headers = api_instance.bulk_send_job_get_with_http_info(bulk_send_job_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BulkSendJobGetResponse>
@@ -65,6 +65,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `bulk_send_job_id` | **String** | The id of the BulkSendJob to retrieve. |  |
+| `page` | **Integer** | Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional][default to 1] |
+| `page_size` | **Integer** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional][default to 20] |
 
 ### Return type
 

@@ -26645,8 +26645,8 @@ var BulkSendJobApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
-  bulkSendJobGet(_0) {
-    return __async(this, arguments, function* (bulkSendJobId, options = { headers: {} }) {
+  bulkSendJobGet(_0, _1, _2) {
+    return __async(this, arguments, function* (bulkSendJobId, page, pageSize, options = { headers: {} }) {
       const localVarPath = this.basePath + "/bulk_send_job/{bulk_send_job_id}".replace(
         "{bulk_send_job_id}",
         encodeURIComponent(String(bulkSendJobId))
@@ -26667,6 +26667,18 @@ var BulkSendJobApi = class {
       if (bulkSendJobId === null || bulkSendJobId === void 0) {
         throw new Error(
           "Required parameter bulkSendJobId was null or undefined when calling bulkSendJobGet."
+        );
+      }
+      if (page !== void 0) {
+        localVarQueryParameters["page"] = ObjectSerializer.serialize(
+          page,
+          "number"
+        );
+      }
+      if (pageSize !== void 0) {
+        localVarQueryParameters["page_size"] = ObjectSerializer.serialize(
+          pageSize,
+          "number"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);

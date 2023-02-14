@@ -127,10 +127,14 @@ export class BulkSendJobApi {
    * Returns the status of the BulkSendJob and its SignatureRequests specified by the `bulk_send_job_id` parameter.
    * @summary Get Bulk Send Job
    * @param bulkSendJobId The id of the BulkSendJob to retrieve.
+   * @param page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;.
+   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20.
    * @param options
    */
   public async bulkSendJobGet(
     bulkSendJobId: string,
+    page?: number,
+    pageSize?: number,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<BulkSendJobGetResponse>> {
     const localVarPath =
@@ -158,6 +162,20 @@ export class BulkSendJobApi {
     if (bulkSendJobId === null || bulkSendJobId === undefined) {
       throw new Error(
         "Required parameter bulkSendJobId was null or undefined when calling bulkSendJobGet."
+      );
+    }
+
+    if (page !== undefined) {
+      localVarQueryParameters["page"] = ObjectSerializer.serialize(
+        page,
+        "number"
+      );
+    }
+
+    if (pageSize !== undefined) {
+      localVarQueryParameters["page_size"] = ObjectSerializer.serialize(
+        pageSize,
+        "number"
       );
     }
 

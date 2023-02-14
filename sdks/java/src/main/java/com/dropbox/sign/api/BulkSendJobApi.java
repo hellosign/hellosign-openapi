@@ -51,6 +51,8 @@ public class BulkSendJobApi {
    * Get Bulk Send Job
    * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
    * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
+   * @param page _t__BulkSendJobGet::PAGE (optional, default to 1)
+   * @param pageSize _t__BulkSendJobGet::PAGE_SIZE (optional, default to 20)
    * @return BulkSendJobGetResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -60,8 +62,8 @@ public class BulkSendJobApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public BulkSendJobGetResponse bulkSendJobGet(String bulkSendJobId) throws ApiException {
-    return bulkSendJobGetWithHttpInfo(bulkSendJobId).getData();
+  public BulkSendJobGetResponse bulkSendJobGet(String bulkSendJobId, Integer page, Integer pageSize) throws ApiException {
+    return bulkSendJobGetWithHttpInfo(bulkSendJobId, page, pageSize).getData();
   }
 
 
@@ -69,6 +71,8 @@ public class BulkSendJobApi {
    * Get Bulk Send Job
    * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
    * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
+   * @param page _t__BulkSendJobGet::PAGE (optional, default to 1)
+   * @param pageSize _t__BulkSendJobGet::PAGE_SIZE (optional, default to 20)
    * @return ApiResponse&lt;BulkSendJobGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -78,8 +82,14 @@ public class BulkSendJobApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(String bulkSendJobId) throws ApiException {
+  public ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(String bulkSendJobId, Integer page, Integer pageSize) throws ApiException {
     
+    if (page == null) {
+        page = 1;
+    }
+    if (pageSize == null) {
+        pageSize = 20;
+    }
     Object localVarPostBody = null;
     
     // verify the required parameter 'bulkSendJobId' is set
@@ -97,6 +107,8 @@ public class BulkSendJobApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
 
     
     
