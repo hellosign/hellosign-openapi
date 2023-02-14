@@ -290,19 +290,19 @@ public class ApiAppApi {
 
     
   /**
-  * List API Apps
-  * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
-  * @return ApiResponse&lt;ApiAppListResponse&gt;
-  * @throws ApiException if fails to make API call
-      * @http.response.details
-      <table summary="Response Details" border="1">
-          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-      </table>
-  */
+   * List API Apps
+   * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
+   * @return ApiResponse&lt;ApiAppListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
   public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo() throws ApiException {
-      return apiAppListWithHttpInfo(1, 20);
+    return apiAppListWithHttpInfo(1, 20);
   }
   
   /**

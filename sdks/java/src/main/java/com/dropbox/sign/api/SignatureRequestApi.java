@@ -447,20 +447,20 @@ public class SignatureRequestApi {
 
   
   /**
-  * Download Files
-  * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
-      * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
-  * @return ApiResponse&lt;File&gt;
-  * @throws ApiException if fails to make API call
-      * @http.response.details
-      <table summary="Response Details" border="1">
-          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-      </table>
-  */
+   * Download Files
+   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
+   * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
   public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId) throws ApiException {
-      return signatureRequestFilesWithHttpInfo(signatureRequestId, "pdf");
+    return signatureRequestFilesWithHttpInfo(signatureRequestId, "pdf");
   }
   
   /**
