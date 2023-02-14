@@ -140,6 +140,40 @@ public class BulkSendJobApi {
     return bulkSendJobListWithHttpInfo(page, pageSize).getData();
   }
 
+  DUPLICATE_START
+  /**
+  * List Bulk Send Jobs
+  * Returns a list of BulkSendJob that you can access.
+  * @return ApiResponse&lt;BulkSendJobListResponse&gt;
+  * @throws ApiException if fails to make API call
+      * @http.response.details
+      <table summary="Response Details" border="1">
+          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+      </table>
+  */
+  public ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo() throws ApiException {
+      return bulkSendJobListWithHttpInfo(1, 20);
+  }
+  DUPLICATE_END
+  
+  /**
+  * List Bulk Send Jobs
+  * Returns a list of BulkSendJob that you can access.
+  * @return ApiResponse&lt;BulkSendJobListResponse&gt;
+  * @throws ApiException if fails to make API call
+      * @http.response.details
+      <table summary="Response Details" border="1">
+          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+      </table>
+  */
+  public ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo() throws ApiException {
+      return bulkSendJobListWithHttpInfo(1, 20);
+  }
+  
   /**
    * List Bulk Send Jobs
    * Returns a list of BulkSendJob that you can access.

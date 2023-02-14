@@ -19,7 +19,7 @@ rep () {
   set +e
   for i in "${SCAN_DIRS[@]}"
   do
-    perl -pi -e "s/${SEARCH_STRING}/${REPLACE_STRING}/g" \
+    perl -0pi -e "s/${SEARCH_STRING}/${REPLACE_STRING}/g" \
       "${ROOT_DIR}/${i}/"*.*
   done
 }
@@ -27,3 +27,4 @@ rep () {
 perl -pi -e 's/(.*)AllOf.md\)\n//g' "${ROOT_DIR}/README.md"
 
 rep 'import com.dropbox.sign.(.*)AllOf;\n' ''
+rep 'DUPLICATE_START(.*)DUPLICATE_END\n' ''

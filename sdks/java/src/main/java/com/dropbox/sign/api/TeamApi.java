@@ -495,6 +495,42 @@ public class TeamApi {
     return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
   }
 
+  DUPLICATE_START
+  /**
+  * List Team Members
+  * Provides a paginated list of members (and their roles) that belong to a given team.
+      * @param teamId The id of the team that a member list is being requested from. (required)
+  * @return ApiResponse&lt;TeamMembersResponse&gt;
+  * @throws ApiException if fails to make API call
+      * @http.response.details
+      <table summary="Response Details" border="1">
+          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+      </table>
+  */
+  public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId) throws ApiException {
+      return teamMembersWithHttpInfo(teamId, 1, 20);
+  }
+  DUPLICATE_END
+  
+  /**
+  * List Team Members
+  * Provides a paginated list of members (and their roles) that belong to a given team.
+      * @param teamId The id of the team that a member list is being requested from. (required)
+  * @return ApiResponse&lt;TeamMembersResponse&gt;
+  * @throws ApiException if fails to make API call
+      * @http.response.details
+      <table summary="Response Details" border="1">
+          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+      </table>
+  */
+  public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId) throws ApiException {
+      return teamMembersWithHttpInfo(teamId, 1, 20);
+  }
+  
   /**
    * List Team Members
    * Provides a paginated list of members (and their roles) that belong to a given team.
@@ -656,6 +692,42 @@ public class TeamApi {
     return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
   }
 
+  DUPLICATE_START
+  /**
+  * List Sub Teams
+  * Provides a paginated list of sub teams that belong to a given team.
+      * @param teamId The id of the parent Team. (required)
+  * @return ApiResponse&lt;TeamSubTeamsResponse&gt;
+  * @throws ApiException if fails to make API call
+      * @http.response.details
+      <table summary="Response Details" border="1">
+          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+      </table>
+  */
+  public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId) throws ApiException {
+      return teamSubTeamsWithHttpInfo(teamId, 1, 20);
+  }
+  DUPLICATE_END
+  
+  /**
+  * List Sub Teams
+  * Provides a paginated list of sub teams that belong to a given team.
+      * @param teamId The id of the parent Team. (required)
+  * @return ApiResponse&lt;TeamSubTeamsResponse&gt;
+  * @throws ApiException if fails to make API call
+      * @http.response.details
+      <table summary="Response Details" border="1">
+          <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+              <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+              <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+      </table>
+  */
+  public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId) throws ApiException {
+      return teamSubTeamsWithHttpInfo(teamId, 1, 20);
+  }
+  
   /**
    * List Sub Teams
    * Provides a paginated list of sub teams that belong to a given team.
