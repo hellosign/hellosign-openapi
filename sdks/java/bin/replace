@@ -19,7 +19,7 @@ rep () {
   set +e
   for i in "${SCAN_DIRS[@]}"
   do
-    perl -0pi -e "s/${SEARCH_STRING}/${REPLACE_STRING}/g" \
+    perl -pi -e "s/${SEARCH_STRING}/${REPLACE_STRING}/g" \
       "${ROOT_DIR}/${i}/"*.*
   done
 }
