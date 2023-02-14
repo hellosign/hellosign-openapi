@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using Dropbox.Sign.Api;
@@ -23,10 +22,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateAddUser(templateId, obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -48,10 +44,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateCreateEmbeddedDraft(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact(Skip="POST /template/delete/{template_id} skipped")]
@@ -74,10 +67,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateGet(templateId);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -90,10 +80,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateList(accountId);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -109,10 +96,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateRemoveUser(templateId, obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -136,10 +120,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
             var response = api.TemplateUpdateFiles(templateId, obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
     }
 }

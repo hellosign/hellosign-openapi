@@ -5,6 +5,7 @@
       "email_address": "newuser@dropboxsign.com",
       "is_paid_hs": false,
       "is_paid_hf": false,
+      "is_locked": false,
       "quotas": {
         "templates_left": 0,
         "api_signature_requests_left": 0,

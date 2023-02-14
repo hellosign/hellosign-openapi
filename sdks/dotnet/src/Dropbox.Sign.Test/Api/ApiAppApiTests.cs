@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using Dropbox.Sign.Api;
@@ -28,10 +27,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<ApiAppApi>(responseData);
             var response = api.ApiAppCreate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -44,10 +40,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<ApiAppApi>(responseData);
             var response = api.ApiAppGet(clientId);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact(Skip="DELETE /api_app/{client_id} skipped")]
@@ -66,10 +59,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<ApiAppApi>(responseData);
             var response = api.ApiAppList(page, pageSize);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -91,10 +81,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<ApiAppApi>(responseData);
             var response = api.ApiAppUpdate(clientId, obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -128,10 +115,7 @@ namespace Dropbox.Sign.Test.Api
             );
             var response = api.ApiAppCreate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
     }
 }

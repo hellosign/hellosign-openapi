@@ -13,6 +13,7 @@
             "basic_account_info",
             "request_signature"
           ],
+          "charges_users": false,
           "secret": "98891a1b59f312d04cd88e4e0c498d75"
         },
         "owner_account": {

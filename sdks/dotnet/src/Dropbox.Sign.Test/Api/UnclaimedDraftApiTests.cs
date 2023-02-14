@@ -21,10 +21,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<UnclaimedDraftApi>(responseData);
             var response = api.UnclaimedDraftCreate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -47,10 +44,7 @@ namespace Dropbox.Sign.Test.Api
 
             var response = api.UnclaimedDraftCreateEmbedded(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -75,10 +69,7 @@ namespace Dropbox.Sign.Test.Api
 
             var response = api.UnclaimedDraftCreateEmbeddedWithTemplate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -94,10 +85,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<UnclaimedDraftApi>(responseData);
             var response = api.UnclaimedDraftEditAndResend(signatureRequestId, obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
     }
 }

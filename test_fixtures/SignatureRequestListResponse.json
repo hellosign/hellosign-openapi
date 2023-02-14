@@ -15,6 +15,7 @@
         "message": "Let me know if you two have any questions.",
         "metadata": {},
         "created_at": 1570471067,
+        "expires_at": 0,
         "is_complete": false,
         "is_declined": false,
         "has_error": false,
@@ -55,6 +56,8 @@
         "subject": "Purchase Agreement",
         "message": "Please sign and return.",
         "metadata": {},
+        "created_at": 1570471067,
+        "expires_at": 0,
         "is_complete": true,
         "is_declined": false,
         "has_error": false,
@@ -65,21 +68,24 @@
             "name": "Needs Express Shipping",
             "signature_id": "5687fb7bd5aaacb1689728762b600c74",
             "value": true,
-            "type": "checkbox"
+            "type": "checkbox",
+            "required": false
           },
           {
             "api_id": "uniqueIdHere_2",
             "name": "Shipping Address",
             "signature_id": "5687fb7bd5aaacb1689728762b600c74",
             "value": "1212 Park Avenue",
-            "type": "text"
+            "type": "text",
+            "required": false
           },
           {
             "api_id": "uniqueIdHere_3",
             "name": "DateSigned",
             "signature_id": "5687fb7bd5aaacb1689728762b600c74",
             "value": "09/01/2012",
-            "type": "date_signed"
+            "type": "date_signed",
+            "required": false
           }
         ],
         "details_url": "https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333a",
@@ -91,7 +97,8 @@
             "signer_name": "John Doe",
             "status_code": "signed",
             "signed_at": 1346521550,
-            "last_viewed_at": 1346521483
+            "last_viewed_at": 1346521483,
+            "has_pin": false
           }
         ],
         "cc_email_addresses": [],
