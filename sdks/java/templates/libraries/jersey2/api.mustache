@@ -86,6 +86,14 @@ public class {{classname}} {
   }
   {{/vendorExtensions.x-group-parameters}}
 
+  {{#allParams}}
+      {{#defaultValue}}
+          public ApiResponse<{{{returnType}}}{{^returnType}}Void{{/returnType}}> {{operationId}}WithHttpInfo({{#allParams}}{{^defaultValue}}{{^-first}}, {{/-first}}{{{dataType}}} {{paramName}}{{/defaultValue}}{{/allParams}}) throws ApiException {
+              return {{operationId}}WithHttpInfo({{#allParams}}{{^defaultValue}}{{^-first}}, {{/-first}}{{paramName}}{{/defaultValue}}{{#defaultValue}}{{^-first}}, {{/-first}}{{#isString}}"{{/isString}}{{{defaultValue}}}{{#isString}}"{{/isString}}{{/defaultValue}}{{/allParams}});
+          }
+      {{/defaultValue}}
+  {{/allParams}}
+
   {{^vendorExtensions.x-group-parameters}}
   /**
    * {{summary}}
