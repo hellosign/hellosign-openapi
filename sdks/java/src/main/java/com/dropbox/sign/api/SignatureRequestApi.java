@@ -444,25 +444,26 @@ public class SignatureRequestApi {
   public File signatureRequestFiles(String signatureRequestId, String fileType) throws ApiException {
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType).getData();
   }
-
   
   /**
-   * Download Files
-   * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
-   * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
-   * @return ApiResponse&lt;File&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   * @see SignatureRequestApi#signatureRequestFiles(String, String)
+   */
+  public File signatureRequestFiles(String signatureRequestId) throws ApiException {
+    String fileType = "pdf";
+
+    return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFilesWithHttpInfo(String, String)
    */
   public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId) throws ApiException {
-    return signatureRequestFilesWithHttpInfo(signatureRequestId, "pdf");
+    String fileType = "pdf";
+
+    return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType);
   }
   
+
   /**
    * Download Files
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
@@ -770,8 +771,8 @@ public class SignatureRequestApi {
   public SignatureRequestListResponse signatureRequestList(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
     return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
   }
-
-      /**
+    
+  /**
    * List Signature Requests
    * Returns a list of SignatureRequests that you can access. This includes SignatureRequests you have sent as well as received, but not ones that you have been CCed on.  Take a look at our [search guide](/api/reference/search/) to learn more about querying signature requests.
    * @param accountId Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)

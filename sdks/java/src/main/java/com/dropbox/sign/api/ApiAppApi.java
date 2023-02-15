@@ -287,24 +287,28 @@ public class ApiAppApi {
   public ApiAppListResponse apiAppList(Integer page, Integer pageSize) throws ApiException {
     return apiAppListWithHttpInfo(page, pageSize).getData();
   }
-
     
   /**
-   * List API Apps
-   * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
-   * @return ApiResponse&lt;ApiAppListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   * @see ApiAppApi#apiAppList(Integer, Integer)
+   */
+  public ApiAppListResponse apiAppList() throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return apiAppListWithHttpInfo(page, pageSize).getData();
+  }
+
+  /**
+   * @see ApiAppApi#apiAppListWithHttpInfo(Integer, Integer)
    */
   public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo() throws ApiException {
-    return apiAppListWithHttpInfo(1, 20);
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return apiAppListWithHttpInfo(page, pageSize);
   }
   
+
   /**
    * List API Apps
    * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.

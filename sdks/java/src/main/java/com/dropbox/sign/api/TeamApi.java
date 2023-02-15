@@ -494,25 +494,28 @@ public class TeamApi {
   public TeamMembersResponse teamMembers(String teamId, Integer page, Integer pageSize) throws ApiException {
     return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
   }
-
     
   /**
-   * List Team Members
-   * Provides a paginated list of members (and their roles) that belong to a given team.
-   * @param teamId The id of the team that a member list is being requested from. (required)
-   * @return ApiResponse&lt;TeamMembersResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   * @see TeamApi#teamMembers(String, Integer, Integer)
+   */
+  public TeamMembersResponse teamMembers(String teamId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
+  }
+
+  /**
+   * @see TeamApi#teamMembersWithHttpInfo(String, Integer, Integer)
    */
   public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId) throws ApiException {
-    return teamMembersWithHttpInfo(teamId, 1, 20);
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamMembersWithHttpInfo(teamId, page, pageSize);
   }
   
+
   /**
    * List Team Members
    * Provides a paginated list of members (and their roles) that belong to a given team.
@@ -673,25 +676,28 @@ public class TeamApi {
   public TeamSubTeamsResponse teamSubTeams(String teamId, Integer page, Integer pageSize) throws ApiException {
     return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
   }
-
     
   /**
-   * List Sub Teams
-   * Provides a paginated list of sub teams that belong to a given team.
-   * @param teamId The id of the parent Team. (required)
-   * @return ApiResponse&lt;TeamSubTeamsResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   * @see TeamApi#teamSubTeams(String, Integer, Integer)
+   */
+  public TeamSubTeamsResponse teamSubTeams(String teamId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
+  }
+
+  /**
+   * @see TeamApi#teamSubTeamsWithHttpInfo(String, Integer, Integer)
    */
   public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId) throws ApiException {
-    return teamSubTeamsWithHttpInfo(teamId, 1, 20);
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamSubTeamsWithHttpInfo(teamId, page, pageSize);
   }
   
+
   /**
    * List Sub Teams
    * Provides a paginated list of sub teams that belong to a given team.

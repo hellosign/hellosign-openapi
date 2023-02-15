@@ -85,47 +85,44 @@ public class {{classname}} {
     {{#returnType}}return {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}}){{#returnType}}.getData(){{/returnType}};
   }
   {{/vendorExtensions.x-group-parameters}}
-
   {{#allParams}}
   {{#defaultValue}}
   {{^-last}}DUPLICATE_START{{/-last}}
-  {{^vendorExtensions.x-group-parameters}}
   /**
-   * {{summary}}
-   * {{notes}}
-   {{#allParams}}
-   {{^defaultValue}}
-   * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}
-   {{/defaultValue}}
-   {{/allParams}}
-   * @return ApiResponse&lt;{{returnType}}{{^returnType}}Void{{/returnType}}&gt;
-   * @throws ApiException if fails to make API call
-   {{#responses.0}}
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       {{#responses}}
-       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
-       {{/responses}}
-     </table>
-   {{/responses.0}}
-   {{#isDeprecated}}
-   * @deprecated
-   {{/isDeprecated}}
-   {{#externalDocs}}
-   * {{description}}
-   * @see <a href="{{url}}">{{summary}} Documentation</a>
-   {{/externalDocs}}
+   * @see {{classname}}#{{operationId}}({{#allParams}}{{{dataType}}}{{^-last}}, {{/-last}}{{/allParams}})
    */
   {{#isDeprecated}}
   @Deprecated
   {{/isDeprecated}}
-  public{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}private{{/vendorExtensions.x-group-parameters}} ApiResponse<{{returnType}}{{^returnType}}Void{{/returnType}}> {{operationId}}WithHttpInfo({{#allParams}}{{^defaultValue}}{{^-first}}, {{/-first}}{{{dataType}}} {{paramName}}{{/defaultValue}}{{/allParams}}) throws ApiException {
-    return {{operationId}}WithHttpInfo({{#allParams}}{{^defaultValue}}{{^-first}}, {{/-first}}{{paramName}}{{/defaultValue}}{{#defaultValue}}{{^-first}}, {{/-first}}{{#isString}}"{{/isString}}{{{defaultValue}}}{{#isString}}"{{/isString}}{{/defaultValue}}{{/allParams}});
+  public {{#returnType}}{{{.}}} {{/returnType}}{{^returnType}}void {{/returnType}}{{operationId}}({{#allParams}}{{^defaultValue}}{{^-first}}, {{/-first}}{{{dataType}}} {{paramName}}{{/defaultValue}}{{/allParams}}) throws ApiException {
+    {{#allParams}}
+    {{#defaultValue}}
+    {{{dataType}}} {{paramName}} = {{#isString}}"{{/isString}}{{{.}}}{{#isString}}"{{/isString}};
+    {{/defaultValue}}
+    {{/allParams}}
+
+    {{#returnType}}return {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}}){{#returnType}}.getData(){{/returnType}};
+  }
+
+  /**
+   * @see {{classname}}#{{operationId}}WithHttpInfo({{#allParams}}{{{dataType}}}{{^-last}}, {{/-last}}{{/allParams}})
+   */
+  {{#isDeprecated}}
+  @Deprecated
+  {{/isDeprecated}}
+  public ApiResponse<{{returnType}}{{^returnType}}Void{{/returnType}}> {{operationId}}WithHttpInfo({{#allParams}}{{^defaultValue}}{{^-first}}, {{/-first}}{{{dataType}}} {{paramName}}{{/defaultValue}}{{/allParams}}) throws ApiException {
+    {{#allParams}}
+    {{#defaultValue}}
+    {{{dataType}}} {{paramName}} = {{#isString}}"{{/isString}}{{{.}}}{{#isString}}"{{/isString}};
+    {{/defaultValue}}
+    {{/allParams}}
+
+    {{#returnType}}return {{/returnType}}{{operationId}}WithHttpInfo({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
   }
   {{^-last}}DUPLICATE_END{{/-last}}
   {{/defaultValue}}
   {{/allParams}}
+
   {{^vendorExtensions.x-group-parameters}}
   /**
    * {{summary}}
