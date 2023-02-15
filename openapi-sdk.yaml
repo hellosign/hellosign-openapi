@@ -7717,7 +7717,6 @@ components:
           enum:
             - authentication
             - delivery
-          x-beta: closed
       type: object
     SubSignatureRequestTemplateSigner:
       required:
@@ -7757,7 +7756,6 @@ components:
           enum:
             - authentication
             - delivery
-          x-beta: closed
       type: object
     SubUnclaimedDraftSigner:
       required:
