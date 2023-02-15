@@ -135,14 +135,16 @@ class BulkSendJobApi
      * Get Bulk Send Job
      *
      * @param string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return Model\BulkSendJobGetResponse
      */
-    public function bulkSendJobGet(string $bulk_send_job_id)
+    public function bulkSendJobGet(string $bulk_send_job_id, int $page = 1, int $page_size = 20)
     {
-        list($response) = $this->bulkSendJobGetWithHttpInfo($bulk_send_job_id);
+        list($response) = $this->bulkSendJobGetWithHttpInfo($bulk_send_job_id, $page, $page_size);
 
         return $response;
     }
@@ -153,14 +155,16 @@ class BulkSendJobApi
      * Get Bulk Send Job
      *
      * @param string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return array of Model\BulkSendJobGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function bulkSendJobGetWithHttpInfo(string $bulk_send_job_id)
+    public function bulkSendJobGetWithHttpInfo(string $bulk_send_job_id, int $page = 1, int $page_size = 20)
     {
-        $request = $this->bulkSendJobGetRequest($bulk_send_job_id);
+        $request = $this->bulkSendJobGetRequest($bulk_send_job_id, $page, $page_size);
 
         try {
             $options = $this->createHttpClientOption();
@@ -275,13 +279,15 @@ class BulkSendJobApi
      * Get Bulk Send Job
      *
      * @param string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function bulkSendJobGetAsync(string $bulk_send_job_id)
+    public function bulkSendJobGetAsync(string $bulk_send_job_id, int $page = 1, int $page_size = 20)
     {
-        return $this->bulkSendJobGetAsyncWithHttpInfo($bulk_send_job_id)
+        return $this->bulkSendJobGetAsyncWithHttpInfo($bulk_send_job_id, $page, $page_size)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -295,14 +301,16 @@ class BulkSendJobApi
      * Get Bulk Send Job
      *
      * @param string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function bulkSendJobGetAsyncWithHttpInfo(string $bulk_send_job_id)
+    public function bulkSendJobGetAsyncWithHttpInfo(string $bulk_send_job_id, int $page = 1, int $page_size = 20)
     {
         $returnType = '\Dropbox\Sign\Model\BulkSendJobGetResponse';
-        $request = $this->bulkSendJobGetRequest($bulk_send_job_id);
+        $request = $this->bulkSendJobGetRequest($bulk_send_job_id, $page, $page_size);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -341,11 +349,13 @@ class BulkSendJobApi
      * Create request for operation 'bulkSendJobGet'
      *
      * @param string $bulk_send_job_id The id of the BulkSendJob to retrieve. (required)
+     * @param int $page Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function bulkSendJobGetRequest(string $bulk_send_job_id)
+    public function bulkSendJobGetRequest(string $bulk_send_job_id, int $page = 1, int $page_size = 20)
     {
         // verify the required parameter 'bulk_send_job_id' is set
         if ($bulk_send_job_id === null || (is_array($bulk_send_job_id) && count($bulk_send_job_id) === 0)) {
@@ -361,6 +371,27 @@ class BulkSendJobApi
 
         $formParams = [];
         $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            if ('form' === 'form' && is_array($page)) {
+                foreach ($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($page_size !== null) {
+            if ('form' === 'form' && is_array($page_size)) {
+                foreach ($page_size as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['page_size'] = $page_size;
+            }
+        }
 
         // path params
         if ($bulk_send_job_id !== null) {

@@ -27,6 +27,6 @@ export declare class BulkSendJobApi {
     set password(password: string);
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
-    bulkSendJobGet(bulkSendJobId: string, options?: optionsI): Promise<returnTypeT<BulkSendJobGetResponse>>;
+    bulkSendJobGet(bulkSendJobId: string, page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<BulkSendJobGetResponse>>;
     bulkSendJobList(page?: number, pageSize?: number, options?: optionsI): Promise<returnTypeT<BulkSendJobListResponse>>;
 }

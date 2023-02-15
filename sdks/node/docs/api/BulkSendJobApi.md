@@ -11,7 +11,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `bulkSendJobGet()`
 
 ```typescript
-bulkSendJobGet(bulkSendJobId: string): BulkSendJobGetResponse
+bulkSendJobGet(bulkSendJobId: string, page: number, pageSize: number): BulkSendJobGetResponse
 ```
 
 Get Bulk Send Job
@@ -73,6 +73,8 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bulkSendJobId** | **string**| The id of the BulkSendJob to retrieve. | |
+| **page** | **number**| Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **number**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 

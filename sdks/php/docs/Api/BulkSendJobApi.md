@@ -11,7 +11,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 ## `bulkSendJobGet()`
 
 ```php
-bulkSendJobGet($bulk_send_job_id): \Dropbox\Sign\Model\BulkSendJobGetResponse
+bulkSendJobGet($bulk_send_job_id, $page, $page_size): \Dropbox\Sign\Model\BulkSendJobGetResponse
 ```
 
 Get Bulk Send Job
@@ -53,6 +53,8 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **bulk_send_job_id** | **string**| The id of the BulkSendJob to retrieve. | |
+| **page** | **int**| Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1] |
+| **page_size** | **int**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 

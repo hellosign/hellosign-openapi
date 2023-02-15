@@ -9,7 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 <a name="bulksendjobget"></a>
 # **BulkSendJobGet**
-> BulkSendJobGetResponse BulkSendJobGet (string bulkSendJobId)
+> BulkSendJobGetResponse BulkSendJobGet (string bulkSendJobId, int? page = null, int? pageSize = null)
 
 Get Bulk Send Job
 
@@ -62,7 +62,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Bulk Send Job
-    ApiResponse<BulkSendJobGetResponse> response = apiInstance.BulkSendJobGetWithHttpInfo(bulkSendJobId);
+    ApiResponse<BulkSendJobGetResponse> response = apiInstance.BulkSendJobGetWithHttpInfo(bulkSendJobId, page, pageSize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -80,6 +80,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **bulkSendJobId** | **string** | The id of the BulkSendJob to retrieve. |  |
+| **page** | **int?** | Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 

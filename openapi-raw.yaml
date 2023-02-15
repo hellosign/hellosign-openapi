@@ -976,6 +976,20 @@ paths:
           schema:
             type: string
           example: 6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174
+        -
+          name: page
+          in: query
+          description: '_t__BulkSendJobGet::PAGE'
+          schema:
+            type: integer
+            default: 1
+        -
+          name: page_size
+          in: query
+          description: '_t__BulkSendJobGet::PAGE_SIZE'
+          schema:
+            type: integer
+            default: 20
       responses:
         '200':
           description: 'successful operation'
