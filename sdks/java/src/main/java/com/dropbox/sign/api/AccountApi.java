@@ -68,6 +68,7 @@ public class AccountApi {
     return accountCreateWithHttpInfo(accountCreateRequest).getData();
   }
 
+
   /**
    * Create Account
    * Creates a new Dropbox Sign Account that is associated with the specified &#x60;email_address&#x60;.
@@ -143,6 +144,46 @@ public class AccountApi {
     return accountGetWithHttpInfo(accountId, emailAddress).getData();
   }
 
+
+  /**
+   * @see AccountApi#accountGet(String, String)
+   */
+  public AccountGetResponse accountGet() throws ApiException {
+    String accountId = null;
+    String emailAddress = null;
+
+    return accountGetWithHttpInfo(accountId, emailAddress).getData();
+  }
+
+  /**
+   * @see AccountApi#accountGetWithHttpInfo(String, String)
+   */
+  public ApiResponse<AccountGetResponse> accountGetWithHttpInfo() throws ApiException {
+    String accountId = null;
+    String emailAddress = null;
+
+    return accountGetWithHttpInfo(accountId, emailAddress);
+  }
+
+  /**
+   * @see AccountApi#accountGet(String, String)
+   */
+  public AccountGetResponse accountGet(String accountId) throws ApiException {
+    String emailAddress = null;
+
+    return accountGetWithHttpInfo(accountId, emailAddress).getData();
+  }
+
+  /**
+   * @see AccountApi#accountGetWithHttpInfo(String, String)
+   */
+  public ApiResponse<AccountGetResponse> accountGetWithHttpInfo(String accountId) throws ApiException {
+    String emailAddress = null;
+
+    return accountGetWithHttpInfo(accountId, emailAddress);
+  }
+
+
   /**
    * Get Account
    * Returns the properties and settings of your Account.
@@ -214,6 +255,7 @@ public class AccountApi {
   public AccountGetResponse accountUpdate(AccountUpdateRequest accountUpdateRequest) throws ApiException {
     return accountUpdateWithHttpInfo(accountUpdateRequest).getData();
   }
+
 
   /**
    * Update Account
@@ -288,6 +330,7 @@ public class AccountApi {
   public AccountVerifyResponse accountVerify(AccountVerifyRequest accountVerifyRequest) throws ApiException {
     return accountVerifyWithHttpInfo(accountVerifyRequest).getData();
   }
+
 
   /**
    * Verify Account

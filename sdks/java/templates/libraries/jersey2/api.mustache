@@ -86,6 +86,8 @@ public class {{classname}} {
   }
   {{/vendorExtensions.x-group-parameters}}
 
+  __OVERLOAD_DELIMITER { "class": "{{classname}}", "method": "{{operationId}}", "returnType": "{{#returnType}}{{.}}{{/returnType}}", "parameters": [ {{#allParams}}{ "type": "{{{dataType}}}", "name": "{{paramName}}", "required": {{#required}}true{{/required}}{{^required}}false{{/required}}, "value": {{^defaultValue}}null{{/defaultValue}}{{#defaultValue}}{{#isString}}"{{/isString}}{{{.}}}{{#isString}}"{{/isString}}{{/defaultValue}} }{{^-last}},{{/-last}}{{/allParams}} ]}
+
   {{^vendorExtensions.x-group-parameters}}
   /**
    * {{summary}}

@@ -29,6 +29,9 @@ docker run --rm \
   -w "${WORKING_DIR}" \
   perl bash ./bin/replace
 
+printf "Generating method overloads ...\n"
+bash "${DIR}/bin/php" ./bin/generate-overload-methods.php
+
 printf "Scanning for prohibited keywords ...\n"
 docker run --rm \
   -v "${DIR}:${WORKING_DIR}" \

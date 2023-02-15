@@ -63,6 +63,7 @@ public class OAuthApi {
     return oauthTokenGenerateWithHttpInfo(oauthTokenGenerateRequest).getData();
   }
 
+
   /**
    * OAuth Token Generate
    * Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
@@ -134,6 +135,7 @@ public class OAuthApi {
   public OAuthTokenResponse oauthTokenRefresh(OAuthTokenRefreshRequest oauthTokenRefreshRequest) throws ApiException {
     return oauthTokenRefreshWithHttpInfo(oauthTokenRefreshRequest).getData();
   }
+
 
   /**
    * OAuth Token Refresh

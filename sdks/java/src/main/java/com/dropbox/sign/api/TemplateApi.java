@@ -74,6 +74,7 @@ public class TemplateApi {
     return templateAddUserWithHttpInfo(templateId, templateAddUserRequest).getData();
   }
 
+
   /**
    * Add User to Template
    * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
@@ -155,6 +156,7 @@ public class TemplateApi {
     return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest).getData();
   }
 
+
   /**
    * Create Embedded Template Draft
    * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
@@ -227,6 +229,7 @@ public class TemplateApi {
   public void templateDelete(String templateId) throws ApiException {
     templateDeleteWithHttpInfo(templateId);
   }
+
 
   /**
    * Delete Template
@@ -301,6 +304,26 @@ public class TemplateApi {
   public File templateFiles(String templateId, String fileType) throws ApiException {
     return templateFilesWithHttpInfo(templateId, fileType).getData();
   }
+
+
+  /**
+   * @see TemplateApi#templateFiles(String, String)
+   */
+  public File templateFiles(String templateId) throws ApiException {
+    String fileType = null;
+
+    return templateFilesWithHttpInfo(templateId, fileType).getData();
+  }
+
+  /**
+   * @see TemplateApi#templateFilesWithHttpInfo(String, String)
+   */
+  public ApiResponse<File> templateFilesWithHttpInfo(String templateId) throws ApiException {
+    String fileType = null;
+
+    return templateFilesWithHttpInfo(templateId, fileType);
+  }
+
 
   /**
    * Get Template Files
@@ -379,6 +402,7 @@ public class TemplateApi {
     return templateFilesAsDataUriWithHttpInfo(templateId).getData();
   }
 
+
   /**
    * Get Template Files as Data Uri
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
@@ -454,6 +478,7 @@ public class TemplateApi {
     return templateFilesAsFileUrlWithHttpInfo(templateId).getData();
   }
 
+
   /**
    * Get Template Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
@@ -528,6 +553,7 @@ public class TemplateApi {
   public TemplateGetResponse templateGet(String templateId) throws ApiException {
     return templateGetWithHttpInfo(templateId).getData();
   }
+
 
   /**
    * Get Template
@@ -606,6 +632,92 @@ public class TemplateApi {
   public TemplateListResponse templateList(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
     return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
   }
+
+
+  /**
+   * @see TemplateApi#templateList(String, Integer, Integer, String)
+   */
+  public TemplateListResponse templateList() throws ApiException {
+    String accountId = null;
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see TemplateApi#templateListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<TemplateListResponse> templateListWithHttpInfo() throws ApiException {
+    String accountId = null;
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
+  /**
+   * @see TemplateApi#templateList(String, Integer, Integer, String)
+   */
+  public TemplateListResponse templateList(String accountId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see TemplateApi#templateListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
+  /**
+   * @see TemplateApi#templateList(String, Integer, Integer, String)
+   */
+  public TemplateListResponse templateList(String accountId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see TemplateApi#templateListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
+  /**
+   * @see TemplateApi#templateList(String, Integer, Integer, String)
+   */
+  public TemplateListResponse templateList(String accountId, Integer page, Integer pageSize) throws ApiException {
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see TemplateApi#templateListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, Integer page, Integer pageSize) throws ApiException {
+    String query = null;
+
+    return templateListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
 
   /**
    * List Templates
@@ -690,6 +802,7 @@ public class TemplateApi {
     return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest).getData();
   }
 
+
   /**
    * Remove User from Template
    * Removes the specified Account&#39;s access to the specified Template.
@@ -771,6 +884,7 @@ public class TemplateApi {
   public TemplateUpdateFilesResponse templateUpdateFiles(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
     return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest).getData();
   }
+
 
   /**
    * Update Template Files
