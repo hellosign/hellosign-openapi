@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using Dropbox.Sign.Api;
@@ -19,10 +18,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<OAuthApi>(responseData);
             var response = api.OauthTokenGenerate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -36,10 +32,7 @@ namespace Dropbox.Sign.Test.Api
 
             var response = api.OauthTokenRefresh(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
     }
 }

@@ -16,7 +16,8 @@
         "metadata": {},
         "signer_roles": [
           {
-            "name": "Client"
+            "name": "Client",
+            "order": 0
           }
         ],
         "cc_roles": [
@@ -33,7 +34,12 @@
             "custom_fields": [
               {
                 "name": "Cost",
-                "type": "text"
+                "type": "text",
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "required": false
               }
             ]
           }
@@ -41,7 +47,10 @@
         "accounts": [
           {
             "account_id": "5008b25c7f67153e57d5a357b1687968068fb465",
-            "email_address": "me@dropboxsign.com"
+            "email_address": "me@dropboxsign.com",
+            "is_locked": false,
+            "is_paid_hs": false,
+            "is_paid_hf": false
           }
         ]
       },
@@ -120,13 +129,19 @@
                 "x": 523,
                 "y": 28,
                 "width": 105,
-                "height": 16
+                "height": 16,
+                "required": true
               }
             ],
             "custom_fields": [
               {
                 "name": "Effective Date",
-                "type": "text"
+                "type": "text",
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "required": false
               }
             ]
           }
@@ -134,7 +149,10 @@
         "accounts": [
           {
             "account_id": "5008b25c7f67153e57d5a357b1687968068fb465",
-            "email_address": "me@dropboxsign.com"
+            "email_address": "me@dropboxsign.com",
+            "is_locked": false,
+            "is_paid_hs": false,
+            "is_paid_hf": false
           }
         ]
       }

@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using Dropbox.Sign.Api;
@@ -19,10 +18,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
             var response = api.TeamAddMember(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -36,10 +32,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
             var response = api.TeamCreate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact(Skip="DELETE /team/destroy skipped")]
@@ -55,10 +48,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
             var response = api.TeamGet();
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -72,10 +62,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
             var response = api.TeamUpdate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -89,10 +76,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<TeamApi>(responseData);
             var response = api.TeamRemoveMember(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
     }
 }

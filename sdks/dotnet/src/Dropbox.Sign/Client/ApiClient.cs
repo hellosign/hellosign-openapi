@@ -238,7 +238,7 @@ namespace Dropbox.Sign.Client
         {
             if (string.IsNullOrEmpty(basePath))
             throw new ArgumentException("basePath cannot be empty");
-        
+
             _baseUrl = basePath;
             _restClient = mockClient;
         }
@@ -479,8 +479,10 @@ namespace Dropbox.Sign.Client
             RestClient client = _restClient;
             if (client == null)
             {
-                client = new RestClient(clientOptions).UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
+                client = new RestClient(clientOptions);
             }
+
+            client.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
 
             InterceptRequest(req);
 

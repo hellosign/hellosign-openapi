@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dropbox.Sign" Version="1.0.0-beta*" />
+    <PackageReference Include="Dropbox.Sign" Version="1.0.*" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
 using System.Net;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 using Dropbox.Sign.Client;
@@ -14,7 +13,6 @@ namespace Dropbox.Sign.Test.Api
         public void HttpCodeRangeTest()
         {
             var requestData = TestHelper.GetJsonContents(nameof(AccountVerifyRequest));
-            var responseData = TestHelper.GetJsonContents(nameof(AccountVerifyResponse));
             var errorData = TestHelper.GetJsonContents(nameof(ErrorResponse));
 
             var obj = AccountVerifyRequest.Init(requestData.ToString());
@@ -25,10 +23,7 @@ namespace Dropbox.Sign.Test.Api
                 api.AccountVerify(obj)
             );
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                ex.ErrorContent.ToString()
-            );
+            TestHelper.AssertJsonSame(errorData.ToString(), ex.ErrorContent.ToJson());
         }
 
         [Fact]
@@ -42,10 +37,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
             var response = api.AccountCreate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -56,10 +48,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
             var response = api.AccountGet(null, "jack@example.com");
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -73,10 +62,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
             var response = api.AccountUpdate(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
         [Fact]
@@ -90,10 +76,7 @@ namespace Dropbox.Sign.Test.Api
             var api = MockRestClientHelper.CreateApi<AccountApi>(responseData);
             var response = api.AccountVerify(obj);
 
-            JToken.DeepEquals(
-                responseData.ToString(),
-                response.ToJson()
-            );
+            TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
     }
 }

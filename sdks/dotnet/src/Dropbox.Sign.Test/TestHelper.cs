@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Newtonsoft.Json;
 using Dropbox.Sign.Model;
+using JsonDiffPatchDotNet;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -62,6 +63,19 @@ namespace Dropbox.Sign.Test
 
                 return requestedData;
             }
+        }
+
+        public static void AssertJsonSame(string left, string right)
+        {
+            var jdp = new JsonDiffPatch();
+            JToken patch = jdp.Diff(left, right);
+
+            var result = patch.ToString();
+
+            Assert.True(
+                result == "",
+                result
+            );
         }
     }
 }

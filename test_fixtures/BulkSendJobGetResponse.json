@@ -22,27 +22,32 @@
         "is_declined": false,
         "has_error": false,
         "custom_fields": [],
+        "created_at": 0,
+        "expires_at": 0,
         "response_data": [
           {
             "api_id": "80c678_1",
             "name": "Needs Express Shipping",
             "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
             "value": true,
-            "type": "checkbox"
+            "type": "checkbox",
+            "required": false
           },
           {
             "api_id": "80c678_2",
             "name": "Shipping Address",
             "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
             "value": "1212 Park Avenue",
-            "type": "text"
+            "type": "text",
+            "required": false
           },
           {
             "api_id": "80c678_3",
             "name": "DateSigned",
             "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
             "value": "09/01/2012",
-            "type": "text"
+            "type": "text",
+            "required": false
           }
         ],
         "details_url": "https://app.hellosign.com/home/manage?guid=fa5c8a0b0f492d768749333ad6fcc214c111e967",
