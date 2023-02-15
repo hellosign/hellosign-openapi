@@ -41,7 +41,8 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
     TeamResponse.JSON_PROPERTY_NAME,
     TeamResponse.JSON_PROPERTY_ACCOUNTS,
-    TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS
+    TeamResponse.JSON_PROPERTY_INVITED_ACCOUNTS,
+    TeamResponse.JSON_PROPERTY_INVITED_EMAILS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -54,6 +55,9 @@ public class TeamResponse {
 
   public static final String JSON_PROPERTY_INVITED_ACCOUNTS = "invited_accounts";
   private List<AccountResponse> invitedAccounts = null;
+
+  public static final String JSON_PROPERTY_INVITED_EMAILS = "invited_emails";
+  private List<String> invitedEmails = null;
 
   public TeamResponse() { 
   }
@@ -167,6 +171,40 @@ public class TeamResponse {
   }
 
 
+  public TeamResponse invitedEmails(List<String> invitedEmails) {
+    this.invitedEmails = invitedEmails;
+    return this;
+  }
+
+  public TeamResponse addInvitedEmailsItem(String invitedEmailsItem) {
+    if (this.invitedEmails == null) {
+      this.invitedEmails = new ArrayList<>();
+    }
+    this.invitedEmails.add(invitedEmailsItem);
+    return this;
+  }
+
+   /**
+   * A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+   * @return invitedEmails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.")
+  @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getInvitedEmails() {
+    return invitedEmails;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInvitedEmails(List<String> invitedEmails) {
+    this.invitedEmails = invitedEmails;
+  }
+
+
   /**
    * Return true if this TeamResponse object is equal to o.
    */
@@ -181,12 +219,13 @@ public class TeamResponse {
     TeamResponse teamResponse = (TeamResponse) o;
     return Objects.equals(this.name, teamResponse.name) &&
         Objects.equals(this.accounts, teamResponse.accounts) &&
-        Objects.equals(this.invitedAccounts, teamResponse.invitedAccounts);
+        Objects.equals(this.invitedAccounts, teamResponse.invitedAccounts) &&
+        Objects.equals(this.invitedEmails, teamResponse.invitedEmails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, accounts, invitedAccounts);
+    return Objects.hash(name, accounts, invitedAccounts, invitedEmails);
   }
 
   @Override
@@ -196,6 +235,7 @@ public class TeamResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
     sb.append("    invitedAccounts: ").append(toIndentedString(invitedAccounts)).append("\n");
+    sb.append("    invitedEmails: ").append(toIndentedString(invitedEmails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -259,6 +299,25 @@ public class TeamResponse {
         }
         else {
             map.put("invited_accounts", JSON.getDefault().getMapper().writeValueAsString(invitedAccounts));
+        }
+    }
+    if (invitedEmails != null) {
+        if (isFileTypeOrListOfFiles(invitedEmails)) {
+            fileTypeFound = true;
+        }
+
+        if (invitedEmails.getClass().equals(java.io.File.class) ||
+            invitedEmails.getClass().equals(Integer.class) ||
+            invitedEmails.getClass().equals(String.class) ||
+            invitedEmails.getClass().isEnum()) {
+            map.put("invited_emails", invitedEmails);
+        } else if (isListOfFile(invitedEmails)) {
+            for(int i = 0; i< getListSize(invitedEmails); i++) {
+                map.put("invited_emails[" + i + "]", getFromList(invitedEmails, i));
+            }
+        }
+        else {
+            map.put("invited_emails", JSON.getDefault().getMapper().writeValueAsString(invitedEmails));
         }
     }
     } catch (Exception e) {

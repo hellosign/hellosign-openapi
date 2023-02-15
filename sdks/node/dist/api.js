@@ -23177,6 +23177,11 @@ TeamResponse.attributeTypeMap = [
     name: "invitedAccounts",
     baseName: "invited_accounts",
     type: "Array<AccountResponse>"
+  },
+  {
+    name: "invitedEmails",
+    baseName: "invited_emails",
+    type: "Array<string>"
   }
 ];
 

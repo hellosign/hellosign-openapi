@@ -9752,6 +9752,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
+        invited_emails:
+          description: 'A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.'
+          type: array
+          items:
+            type: string
       type: object
       x-internal: true
     TeamParentResponse:

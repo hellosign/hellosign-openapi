@@ -97,6 +97,7 @@ class TeamResponse(ModelNormal):
             'name': (str,),  # noqa: E501
             'accounts': ([AccountResponse],),  # noqa: E501
             'invited_accounts': ([AccountResponse],),  # noqa: E501
+            'invited_emails': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -123,6 +124,7 @@ class TeamResponse(ModelNormal):
         'name': 'name',  # noqa: E501
         'accounts': 'accounts',  # noqa: E501
         'invited_accounts': 'invited_accounts',  # noqa: E501
+        'invited_emails': 'invited_emails',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,6 +155,14 @@ class TeamResponse(ModelNormal):
     @invited_accounts.setter
     def invited_accounts(self, value: List[AccountResponse]):
         setattr(self, "invited_accounts", value)
+
+    @property
+    def invited_emails(self) -> List[str]:
+        return self.get("invited_emails")
+
+    @invited_emails.setter
+    def invited_emails(self, value: List[str]):
+        setattr(self, "invited_emails", value)
 
     @classmethod
     @convert_js_args_to_python_args
@@ -193,6 +203,7 @@ class TeamResponse(ModelNormal):
             name (str): The name of your Team. [optional]  # noqa: E501
             accounts ([AccountResponse]): [optional]  # noqa: E501
             invited_accounts ([AccountResponse]): A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.. [optional]  # noqa: E501
+            invited_emails ([str]): A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,6 +288,7 @@ class TeamResponse(ModelNormal):
             name (str): The name of your Team. [optional]  # noqa: E501
             accounts ([AccountResponse]): [optional]  # noqa: E501
             invited_accounts ([AccountResponse]): A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.. [optional]  # noqa: E501
+            invited_emails ([str]): A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

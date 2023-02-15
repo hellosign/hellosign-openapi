@@ -30,12 +30,17 @@ module Dropbox::Sign
     # @return [Array<AccountResponse>]
     attr_accessor :invited_accounts
 
+    # A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+    # @return [Array<String>]
+    attr_accessor :invited_emails
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
         :'accounts' => :'accounts',
-        :'invited_accounts' => :'invited_accounts'
+        :'invited_accounts' => :'invited_accounts',
+        :'invited_emails' => :'invited_emails'
       }
     end
 
@@ -54,7 +59,8 @@ module Dropbox::Sign
       {
         :'name' => :'String',
         :'accounts' => :'Array<AccountResponse>',
-        :'invited_accounts' => :'Array<AccountResponse>'
+        :'invited_accounts' => :'Array<AccountResponse>',
+        :'invited_emails' => :'Array<String>'
       }
     end
 
@@ -114,6 +120,12 @@ module Dropbox::Sign
           self.invited_accounts = value
         end
       end
+
+      if attributes.key?(:'invited_emails')
+        if (value = attributes[:'invited_emails']).is_a?(Array)
+          self.invited_emails = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -136,7 +148,8 @@ module Dropbox::Sign
       self.class == o.class &&
           name == o.name &&
           accounts == o.accounts &&
-          invited_accounts == o.invited_accounts
+          invited_accounts == o.invited_accounts &&
+          invited_emails == o.invited_emails
     end
 
     # @see the `==` method
@@ -148,7 +161,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, accounts, invited_accounts].hash
+      [name, accounts, invited_accounts, invited_emails].hash
     end
 
     # Builds the object from hash

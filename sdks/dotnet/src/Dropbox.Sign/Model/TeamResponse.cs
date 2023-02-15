@@ -44,12 +44,14 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of your Team.</param>
         /// <param name="accounts">accounts.</param>
         /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;..</param>
-        public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>))
+        /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account..</param>
+        public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>))
         {
             
             this.Name = name;
             this.Accounts = accounts;
             this.InvitedAccounts = invitedAccounts;
+            this.InvitedEmails = invitedEmails;
         }
 
         /// <summary>
@@ -89,6 +91,13 @@ namespace Dropbox.Sign.Model
         public List<AccountResponse> InvitedAccounts { get; set; }
 
         /// <summary>
+        /// A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
+        /// </summary>
+        /// <value>A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.</value>
+        [DataMember(Name = "invited_emails", EmitDefaultValue = true)]
+        public List<string> InvitedEmails { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +108,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  InvitedAccounts: ").Append(InvitedAccounts).Append("\n");
+            sb.Append("  InvitedEmails: ").Append(InvitedEmails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +160,12 @@ namespace Dropbox.Sign.Model
                     this.InvitedAccounts != null &&
                     input.InvitedAccounts != null &&
                     this.InvitedAccounts.SequenceEqual(input.InvitedAccounts)
+                ) && 
+                (
+                    this.InvitedEmails == input.InvitedEmails ||
+                    this.InvitedEmails != null &&
+                    input.InvitedEmails != null &&
+                    this.InvitedEmails.SequenceEqual(input.InvitedEmails)
                 );
         }
 
@@ -173,6 +189,10 @@ namespace Dropbox.Sign.Model
                 if (this.InvitedAccounts != null)
                 {
                     hashCode = (hashCode * 59) + this.InvitedAccounts.GetHashCode();
+                }
+                if (this.InvitedEmails != null)
+                {
+                    hashCode = (hashCode * 59) + this.InvitedEmails.GetHashCode();
                 }
                 return hashCode;
             }
@@ -198,6 +218,12 @@ namespace Dropbox.Sign.Model
                 Property = "InvitedAccounts",
                 Type = "List<AccountResponse>",
                 Value = InvitedAccounts,
+            });
+            types.Add(new OpenApiType(){
+                Name = "invited_emails",
+                Property = "InvitedEmails",
+                Type = "List<string>",
+                Value = InvitedEmails,
             });
 
             return types;
