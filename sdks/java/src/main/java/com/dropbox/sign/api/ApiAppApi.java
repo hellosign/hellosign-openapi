@@ -66,6 +66,7 @@ public class ApiAppApi {
     return apiAppCreateWithHttpInfo(apiAppCreateRequest).getData();
   }
 
+
   /**
    * Create API App
    * Creates a new API App.
@@ -139,6 +140,7 @@ public class ApiAppApi {
     apiAppDeleteWithHttpInfo(clientId);
   }
 
+
   /**
    * Delete API App
    * Deletes an API App. Can only be invoked for apps you own.
@@ -211,6 +213,7 @@ public class ApiAppApi {
   public ApiAppGetResponse apiAppGet(String clientId) throws ApiException {
     return apiAppGetWithHttpInfo(clientId).getData();
   }
+
 
   /**
    * Get API App
@@ -287,6 +290,46 @@ public class ApiAppApi {
   public ApiAppListResponse apiAppList(Integer page, Integer pageSize) throws ApiException {
     return apiAppListWithHttpInfo(page, pageSize).getData();
   }
+
+
+  /**
+   * @see ApiAppApi#apiAppList(Integer, Integer)
+   */
+  public ApiAppListResponse apiAppList() throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return apiAppListWithHttpInfo(page, pageSize).getData();
+  }
+
+  /**
+   * @see ApiAppApi#apiAppListWithHttpInfo(Integer, Integer)
+   */
+  public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo() throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return apiAppListWithHttpInfo(page, pageSize);
+  }
+
+  /**
+   * @see ApiAppApi#apiAppList(Integer, Integer)
+   */
+  public ApiAppListResponse apiAppList(Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return apiAppListWithHttpInfo(page, pageSize).getData();
+  }
+
+  /**
+   * @see ApiAppApi#apiAppListWithHttpInfo(Integer, Integer)
+   */
+  public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo(Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return apiAppListWithHttpInfo(page, pageSize);
+  }
+
 
   /**
    * List API Apps
@@ -366,6 +409,7 @@ public class ApiAppApi {
   public ApiAppGetResponse apiAppUpdate(String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
     return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest).getData();
   }
+
 
   /**
    * Update API App

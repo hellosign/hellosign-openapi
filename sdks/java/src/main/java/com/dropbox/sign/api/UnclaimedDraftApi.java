@@ -67,6 +67,7 @@ public class UnclaimedDraftApi {
     return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest).getData();
   }
 
+
   /**
    * Create Unclaimed Draft
    * Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \&quot;Sign and send\&quot; or the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
@@ -140,6 +141,7 @@ public class UnclaimedDraftApi {
   public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
     return unclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest).getData();
   }
+
 
   /**
    * Create Embedded Unclaimed Draft
@@ -215,6 +217,7 @@ public class UnclaimedDraftApi {
     return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest).getData();
   }
 
+
   /**
    * Create Embedded Unclaimed Draft with Template
    * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
@@ -289,6 +292,7 @@ public class UnclaimedDraftApi {
   public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
     return unclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest).getData();
   }
+
 
   /**
    * Edit and Resend Unclaimed Draft

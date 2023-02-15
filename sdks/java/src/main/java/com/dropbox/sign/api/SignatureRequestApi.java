@@ -76,6 +76,7 @@ public class SignatureRequestApi {
     return signatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestBulkCreateEmbeddedWithTemplateRequest).getData();
   }
 
+
   /**
    * Embedded Bulk Send with Template
    * Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the &#x60;template_ids&#x60; parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE**: Only available for Standard plan and higher.
@@ -150,6 +151,7 @@ public class SignatureRequestApi {
     return signatureRequestBulkSendWithTemplateWithHttpInfo(signatureRequestBulkSendWithTemplateRequest).getData();
   }
 
+
   /**
    * Bulk Send with Template
    * Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the &#x60;template_ids&#x60; parameter.  **NOTE**: Only available for Standard plan and higher.
@@ -223,6 +225,7 @@ public class SignatureRequestApi {
     signatureRequestCancelWithHttpInfo(signatureRequestId);
   }
 
+
   /**
    * Cancel Incomplete Signature Request
    * Cancels an incomplete signature request. This action is **not reversible**.  The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the &#x60;signature_request_canceled&#x60; event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the &#x60;signature_request_canceled&#x60; event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.  To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.  **NOTE**: To remove your access to a completed signature request, use the endpoint: &#x60;POST /signature_request/remove/[:signature_request_id]&#x60;.
@@ -295,6 +298,7 @@ public class SignatureRequestApi {
   public SignatureRequestGetResponse signatureRequestCreateEmbedded(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest) throws ApiException {
     return signatureRequestCreateEmbeddedWithHttpInfo(signatureRequestCreateEmbeddedRequest).getData();
   }
+
 
   /**
    * Create Embedded Signature Request
@@ -370,6 +374,7 @@ public class SignatureRequestApi {
     return signatureRequestCreateEmbeddedWithTemplateWithHttpInfo(signatureRequestCreateEmbeddedWithTemplateRequest).getData();
   }
 
+
   /**
    * Create Embedded Signature Request with Template
    * Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
@@ -444,6 +449,26 @@ public class SignatureRequestApi {
   public File signatureRequestFiles(String signatureRequestId, String fileType) throws ApiException {
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType).getData();
   }
+
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFiles(String, String)
+   */
+  public File signatureRequestFiles(String signatureRequestId) throws ApiException {
+    String fileType = "pdf";
+
+    return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFilesWithHttpInfo(String, String)
+   */
+  public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId) throws ApiException {
+    String fileType = "pdf";
+
+    return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType);
+  }
+
 
   /**
    * Download Files
@@ -525,6 +550,7 @@ public class SignatureRequestApi {
     return signatureRequestFilesAsDataUriWithHttpInfo(signatureRequestId).getData();
   }
 
+
   /**
    * Download Files as Data Uri
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
@@ -600,6 +626,7 @@ public class SignatureRequestApi {
     return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId).getData();
   }
 
+
   /**
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
@@ -674,6 +701,7 @@ public class SignatureRequestApi {
   public SignatureRequestGetResponse signatureRequestGet(String signatureRequestId) throws ApiException {
     return signatureRequestGetWithHttpInfo(signatureRequestId).getData();
   }
+
 
   /**
    * Get Signature Request
@@ -752,6 +780,92 @@ public class SignatureRequestApi {
   public SignatureRequestListResponse signatureRequestList(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
     return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
   }
+
+
+  /**
+   * @see SignatureRequestApi#signatureRequestList(String, Integer, Integer, String)
+   */
+  public SignatureRequestListResponse signatureRequestList() throws ApiException {
+    String accountId = null;
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<SignatureRequestListResponse> signatureRequestListWithHttpInfo() throws ApiException {
+    String accountId = null;
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestList(String, Integer, Integer, String)
+   */
+  public SignatureRequestListResponse signatureRequestList(String accountId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<SignatureRequestListResponse> signatureRequestListWithHttpInfo(String accountId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestList(String, Integer, Integer, String)
+   */
+  public SignatureRequestListResponse signatureRequestList(String accountId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<SignatureRequestListResponse> signatureRequestListWithHttpInfo(String accountId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestList(String, Integer, Integer, String)
+   */
+  public SignatureRequestListResponse signatureRequestList(String accountId, Integer page, Integer pageSize) throws ApiException {
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestListWithHttpInfo(String, Integer, Integer, String)
+   */
+  public ApiResponse<SignatureRequestListResponse> signatureRequestListWithHttpInfo(String accountId, Integer page, Integer pageSize) throws ApiException {
+    String query = null;
+
+    return signatureRequestListWithHttpInfo(accountId, page, pageSize, query);
+  }
+
 
   /**
    * List Signature Requests
@@ -835,6 +949,7 @@ public class SignatureRequestApi {
     return signatureRequestReleaseHoldWithHttpInfo(signatureRequestId).getData();
   }
 
+
   /**
    * Release On-Hold Signature Request
    * Releases a held SignatureRequest that was claimed and prepared from an [UnclaimedDraft](/api/reference/tag/Unclaimed-Draft). The owner of the Draft must indicate at Draft creation that the SignatureRequest created from the Draft should be held. Releasing the SignatureRequest will send requests to all signers.
@@ -910,6 +1025,7 @@ public class SignatureRequestApi {
   public SignatureRequestGetResponse signatureRequestRemind(String signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest) throws ApiException {
     return signatureRequestRemindWithHttpInfo(signatureRequestId, signatureRequestRemindRequest).getData();
   }
+
 
   /**
    * Send Request Reminder
@@ -991,6 +1107,7 @@ public class SignatureRequestApi {
     signatureRequestRemoveWithHttpInfo(signatureRequestId);
   }
 
+
   /**
    * Remove Signature Request Access
    * Removes your access to a completed signature request. This action is **not reversible**.  The signature request must be fully executed by all parties (signed or declined to sign). Other parties will continue to maintain access to the completed signature request document(s).  Unlike /signature_request/cancel, this endpoint is synchronous and your access will be immediately removed. Upon successful removal, this endpoint will return a 200 OK response.
@@ -1063,6 +1180,7 @@ public class SignatureRequestApi {
   public SignatureRequestGetResponse signatureRequestSend(SignatureRequestSendRequest signatureRequestSendRequest) throws ApiException {
     return signatureRequestSendWithHttpInfo(signatureRequestSendRequest).getData();
   }
+
 
   /**
    * Send Signature Request
@@ -1138,6 +1256,7 @@ public class SignatureRequestApi {
     return signatureRequestSendWithTemplateWithHttpInfo(signatureRequestSendWithTemplateRequest).getData();
   }
 
+
   /**
    * Send with Template
    * Creates and sends a new SignatureRequest based off of the Template(s) specified with the &#x60;template_ids&#x60; parameter.
@@ -1212,6 +1331,7 @@ public class SignatureRequestApi {
   public SignatureRequestGetResponse signatureRequestUpdate(String signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest) throws ApiException {
     return signatureRequestUpdateWithHttpInfo(signatureRequestId, signatureRequestUpdateRequest).getData();
   }
+
 
   /**
    * Update Signature Request

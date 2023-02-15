@@ -72,6 +72,26 @@ public class TeamApi {
     return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId).getData();
   }
 
+
+  /**
+   * @see TeamApi#teamAddMember(TeamAddMemberRequest, String)
+   */
+  public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest) throws ApiException {
+    String teamId = null;
+
+    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId).getData();
+  }
+
+  /**
+   * @see TeamApi#teamAddMemberWithHttpInfo(TeamAddMemberRequest, String)
+   */
+  public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest) throws ApiException {
+    String teamId = null;
+
+    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId);
+  }
+
+
   /**
    * Add User to Team
    * Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
@@ -148,6 +168,7 @@ public class TeamApi {
     return teamCreateWithHttpInfo(teamCreateRequest).getData();
   }
 
+
   /**
    * Create Team
    * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
@@ -220,6 +241,7 @@ public class TeamApi {
     teamDeleteWithHttpInfo();
   }
 
+
   /**
    * Delete Team
    * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
@@ -284,6 +306,7 @@ public class TeamApi {
   public TeamGetResponse teamGet() throws ApiException {
     return teamGetWithHttpInfo().getData();
   }
+
 
   /**
    * Get Team
@@ -352,6 +375,26 @@ public class TeamApi {
   public TeamGetInfoResponse teamInfo(String teamId) throws ApiException {
     return teamInfoWithHttpInfo(teamId).getData();
   }
+
+
+  /**
+   * @see TeamApi#teamInfo(String)
+   */
+  public TeamGetInfoResponse teamInfo() throws ApiException {
+    String teamId = null;
+
+    return teamInfoWithHttpInfo(teamId).getData();
+  }
+
+  /**
+   * @see TeamApi#teamInfoWithHttpInfo(String)
+   */
+  public ApiResponse<TeamGetInfoResponse> teamInfoWithHttpInfo() throws ApiException {
+    String teamId = null;
+
+    return teamInfoWithHttpInfo(teamId);
+  }
+
 
   /**
    * Get Team Info
@@ -422,6 +465,26 @@ public class TeamApi {
   public TeamInvitesResponse teamInvites(String emailAddress) throws ApiException {
     return teamInvitesWithHttpInfo(emailAddress).getData();
   }
+
+
+  /**
+   * @see TeamApi#teamInvites(String)
+   */
+  public TeamInvitesResponse teamInvites() throws ApiException {
+    String emailAddress = null;
+
+    return teamInvitesWithHttpInfo(emailAddress).getData();
+  }
+
+  /**
+   * @see TeamApi#teamInvitesWithHttpInfo(String)
+   */
+  public ApiResponse<TeamInvitesResponse> teamInvitesWithHttpInfo() throws ApiException {
+    String emailAddress = null;
+
+    return teamInvitesWithHttpInfo(emailAddress);
+  }
+
 
   /**
    * List Team Invites
@@ -494,6 +557,46 @@ public class TeamApi {
   public TeamMembersResponse teamMembers(String teamId, Integer page, Integer pageSize) throws ApiException {
     return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
   }
+
+
+  /**
+   * @see TeamApi#teamMembers(String, Integer, Integer)
+   */
+  public TeamMembersResponse teamMembers(String teamId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
+  }
+
+  /**
+   * @see TeamApi#teamMembersWithHttpInfo(String, Integer, Integer)
+   */
+  public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamMembersWithHttpInfo(teamId, page, pageSize);
+  }
+
+  /**
+   * @see TeamApi#teamMembers(String, Integer, Integer)
+   */
+  public TeamMembersResponse teamMembers(String teamId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
+  }
+
+  /**
+   * @see TeamApi#teamMembersWithHttpInfo(String, Integer, Integer)
+   */
+  public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return teamMembersWithHttpInfo(teamId, page, pageSize);
+  }
+
 
   /**
    * List Team Members
@@ -580,6 +683,7 @@ public class TeamApi {
     return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest).getData();
   }
 
+
   /**
    * Remove User from Team
    * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
@@ -655,6 +759,46 @@ public class TeamApi {
   public TeamSubTeamsResponse teamSubTeams(String teamId, Integer page, Integer pageSize) throws ApiException {
     return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
   }
+
+
+  /**
+   * @see TeamApi#teamSubTeams(String, Integer, Integer)
+   */
+  public TeamSubTeamsResponse teamSubTeams(String teamId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
+  }
+
+  /**
+   * @see TeamApi#teamSubTeamsWithHttpInfo(String, Integer, Integer)
+   */
+  public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId) throws ApiException {
+    Integer page = 1;
+    Integer pageSize = 20;
+
+    return teamSubTeamsWithHttpInfo(teamId, page, pageSize);
+  }
+
+  /**
+   * @see TeamApi#teamSubTeams(String, Integer, Integer)
+   */
+  public TeamSubTeamsResponse teamSubTeams(String teamId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
+  }
+
+  /**
+   * @see TeamApi#teamSubTeamsWithHttpInfo(String, Integer, Integer)
+   */
+  public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId, Integer page) throws ApiException {
+    Integer pageSize = 20;
+
+    return teamSubTeamsWithHttpInfo(teamId, page, pageSize);
+  }
+
 
   /**
    * List Sub Teams
@@ -740,6 +884,7 @@ public class TeamApi {
   public TeamGetResponse teamUpdate(TeamUpdateRequest teamUpdateRequest) throws ApiException {
     return teamUpdateWithHttpInfo(teamUpdateRequest).getData();
   }
+
 
   /**
    * Update Team

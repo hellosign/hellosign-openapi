@@ -66,6 +66,7 @@ public class EmbeddedApi {
     return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest).getData();
   }
 
+
   /**
    * Get Embedded Template Edit URL
    * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
@@ -146,6 +147,7 @@ public class EmbeddedApi {
   public EmbeddedSignUrlResponse embeddedSignUrl(String signatureId) throws ApiException {
     return embeddedSignUrlWithHttpInfo(signatureId).getData();
   }
+
 
   /**
    * Get Embedded Sign URL
