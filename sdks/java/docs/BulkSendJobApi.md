@@ -67,8 +67,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bulkSendJobId** | **String**| The id of the BulkSendJob to retrieve. |
- **page** | **Integer**| _t__BulkSendJobGet::PAGE | [optional] [default to 1]
- **pageSize** | **Integer**| _t__BulkSendJobGet::PAGE_SIZE | [optional] [default to 20]
+ **page** | **Integer**| Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1]
+ **pageSize** | **Integer**| Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20]
 
 ### Return type
 
