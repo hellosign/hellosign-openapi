@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## bulkSendJobGet
 
-> BulkSendJobGetResponse bulkSendJobGet(bulkSendJobId)
+> BulkSendJobGetResponse bulkSendJobGet(bulkSendJobId).execute();
 
 Get Bulk Send Job
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## bulkSendJobList
 
-> BulkSendJobListResponse bulkSendJobList(page, pageSize)
+> BulkSendJobListResponse bulkSendJobList().page(page).pageSize(pageSize).execute();
 
 List Bulk Send Jobs
 

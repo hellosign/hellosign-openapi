@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ## signatureRequestBulkCreateEmbeddedWithTemplate
 
-> BulkSendJobSendResponse signatureRequestBulkCreateEmbeddedWithTemplate(signatureRequestBulkCreateEmbeddedWithTemplateRequest)
+> BulkSendJobSendResponse signatureRequestBulkCreateEmbeddedWithTemplate().signatureRequestBulkCreateEmbeddedWithTemplateRequest(signatureRequestBulkCreateEmbeddedWithTemplateRequest).execute();
 
 Embedded Bulk Send with Template
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestBulkSendWithTemplate
 
-> BulkSendJobSendResponse signatureRequestBulkSendWithTemplate(signatureRequestBulkSendWithTemplateRequest)
+> BulkSendJobSendResponse signatureRequestBulkSendWithTemplate().signatureRequestBulkSendWithTemplateRequest(signatureRequestBulkSendWithTemplateRequest).execute();
 
 Bulk Send with Template
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestCancel
 
-> signatureRequestCancel(signatureRequestId)
+> signatureRequestCancel(signatureRequestId).execute();
 
 Cancel Incomplete Signature Request
 
@@ -352,7 +352,7 @@ null (empty response body)
 
 ## signatureRequestCreateEmbedded
 
-> SignatureRequestGetResponse signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest)
+> SignatureRequestGetResponse signatureRequestCreateEmbedded().signatureRequestCreateEmbeddedRequest(signatureRequestCreateEmbeddedRequest).execute();
 
 Create Embedded Signature Request
 
@@ -460,7 +460,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestCreateEmbeddedWithTemplate
 
-> SignatureRequestGetResponse signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest)
+> SignatureRequestGetResponse signatureRequestCreateEmbeddedWithTemplate().signatureRequestCreateEmbeddedWithTemplateRequest(signatureRequestCreateEmbeddedWithTemplateRequest).execute();
 
 Create Embedded Signature Request with Template
 
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFiles
 
-> File signatureRequestFiles(signatureRequestId, fileType)
+> File signatureRequestFiles(signatureRequestId).fileType(fileType).execute();
 
 Download Files
 
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFilesAsDataUri
 
-> FileResponseDataUri signatureRequestFilesAsDataUri(signatureRequestId)
+> FileResponseDataUri signatureRequestFilesAsDataUri(signatureRequestId).execute();
 
 Download Files as Data Uri
 
@@ -723,7 +723,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFilesAsFileUrl
 
-> FileResponse signatureRequestFilesAsFileUrl(signatureRequestId)
+> FileResponse signatureRequestFilesAsFileUrl(signatureRequestId).execute();
 
 Download Files as File Url
 
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestGet
 
-> SignatureRequestGetResponse signatureRequestGet(signatureRequestId)
+> SignatureRequestGetResponse signatureRequestGet(signatureRequestId).execute();
 
 Get Signature Request
 
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestList
 
-> SignatureRequestListResponse signatureRequestList(accountId, page, pageSize, query)
+> SignatureRequestListResponse signatureRequestList().accountId(accountId).page(page).pageSize(pageSize).query(query).execute();
 
 List Signature Requests
 
@@ -975,7 +975,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestReleaseHold
 
-> SignatureRequestGetResponse signatureRequestReleaseHold(signatureRequestId)
+> SignatureRequestGetResponse signatureRequestReleaseHold(signatureRequestId).execute();
 
 Release On-Hold Signature Request
 
@@ -1054,7 +1054,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestRemind
 
-> SignatureRequestGetResponse signatureRequestRemind(signatureRequestId, signatureRequestRemindRequest)
+> SignatureRequestGetResponse signatureRequestRemind(signatureRequestId).signatureRequestRemindRequest(signatureRequestRemindRequest).execute();
 
 Send Request Reminder
 
@@ -1139,7 +1139,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestRemove
 
-> signatureRequestRemove(signatureRequestId)
+> signatureRequestRemove(signatureRequestId).execute();
 
 Remove Signature Request Access
 
@@ -1220,7 +1220,7 @@ null (empty response body)
 
 ## signatureRequestSend
 
-> SignatureRequestGetResponse signatureRequestSend(signatureRequestSendRequest)
+> SignatureRequestGetResponse signatureRequestSend().signatureRequestSendRequest(signatureRequestSendRequest).execute();
 
 Send Signature Request
 
@@ -1333,7 +1333,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestSendWithTemplate
 
-> SignatureRequestGetResponse signatureRequestSendWithTemplate(signatureRequestSendWithTemplateRequest)
+> SignatureRequestGetResponse signatureRequestSendWithTemplate().signatureRequestSendWithTemplateRequest(signatureRequestSendWithTemplateRequest).execute();
 
 Send with Template
 
@@ -1444,7 +1444,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestUpdate
 
-> SignatureRequestGetResponse signatureRequestUpdate(signatureRequestId, signatureRequestUpdateRequest)
+> SignatureRequestGetResponse signatureRequestUpdate(signatureRequestId).signatureRequestUpdateRequest(signatureRequestUpdateRequest).execute();
 
 Update Signature Request
 

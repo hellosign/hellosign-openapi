@@ -56,39 +56,8 @@ public class TemplateApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Add User to Template
-   * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
-   * @param templateId The id of the Template to give the Account access to. (required)
-   * @param templateAddUserRequest  (required)
-   * @return TemplateGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateGetResponse templateAddUser(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
-    return templateAddUserWithHttpInfo(templateId, templateAddUserRequest).getData();
-  }
 
-  /**
-   * Add User to Template
-   * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
-   * @param templateId The id of the Template to give the Account access to. (required)
-   * @param templateAddUserRequest  (required)
-   * @return ApiResponse&lt;TemplateGetResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
+private ApiResponse<TemplateGetResponse> templateAddUserWithHttpInfo(String templateId, TemplateAddUserRequest templateAddUserRequest) throws ApiException {
     
     Object localVarPostBody = templateAddUserRequest;
     
@@ -138,37 +107,73 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Create Embedded Template Draft
-   * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
-   * @param templateCreateEmbeddedDraftRequest  (required)
-   * @return TemplateCreateEmbeddedDraftResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
-    return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest).getData();
+
+  public class APItemplateAddUserRequest {
+    private String templateId;
+    private TemplateAddUserRequest templateAddUserRequest;
+
+    private APItemplateAddUserRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Set templateAddUserRequest
+     * @param templateAddUserRequest  (required)
+     * @return APItemplateAddUserRequest
+     */
+    public APItemplateAddUserRequest templateAddUserRequest(TemplateAddUserRequest templateAddUserRequest) {
+      this.templateAddUserRequest = templateAddUserRequest;
+      return this;
+    }
+
+    /**
+     * Execute templateAddUser request
+     * @return TemplateGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TemplateGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateAddUser request with HTTP info returned
+     * @return ApiResponse&lt;TemplateGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TemplateGetResponse> executeWithHttpInfo() throws ApiException {
+      return templateAddUserWithHttpInfo(templateId, templateAddUserRequest);
+    }
   }
 
   /**
-   * Create Embedded Template Draft
-   * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
-   * @param templateCreateEmbeddedDraftRequest  (required)
-   * @return ApiResponse&lt;TemplateCreateEmbeddedDraftResponse&gt;
+   * Add User to Template
+   * Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
+   * @param templateId The id of the Template to give the Account access to. (required)
+   * @return templateAddUserRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
+  public APItemplateAddUserRequest templateAddUser(String templateId) throws ApiException {
+    return new APItemplateAddUserRequest(templateId);
+  }
+
+private ApiResponse<TemplateCreateEmbeddedDraftResponse> templateCreateEmbeddedDraftWithHttpInfo(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) throws ApiException {
     
     Object localVarPostBody = templateCreateEmbeddedDraftRequest;
     
@@ -212,36 +217,70 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Delete Template
-   * Completely deletes the template specified from the account.
-   * @param templateId The id of the Template to delete. (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public void templateDelete(String templateId) throws ApiException {
-    templateDeleteWithHttpInfo(templateId);
+
+  public class APItemplateCreateEmbeddedDraftRequest {
+    private TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest;
+
+    private APItemplateCreateEmbeddedDraftRequest() {
+    }
+
+    /**
+     * Set templateCreateEmbeddedDraftRequest
+     * @param templateCreateEmbeddedDraftRequest  (required)
+     * @return APItemplateCreateEmbeddedDraftRequest
+     */
+    public APItemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest(TemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraftRequest) {
+      this.templateCreateEmbeddedDraftRequest = templateCreateEmbeddedDraftRequest;
+      return this;
+    }
+
+    /**
+     * Execute templateCreateEmbeddedDraft request
+     * @return TemplateCreateEmbeddedDraftResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TemplateCreateEmbeddedDraftResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateCreateEmbeddedDraft request with HTTP info returned
+     * @return ApiResponse&lt;TemplateCreateEmbeddedDraftResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TemplateCreateEmbeddedDraftResponse> executeWithHttpInfo() throws ApiException {
+      return templateCreateEmbeddedDraftWithHttpInfo(templateCreateEmbeddedDraftRequest);
+    }
   }
 
   /**
-   * Delete Template
-   * Completely deletes the template specified from the account.
-   * @param templateId The id of the Template to delete. (required)
-   * @return ApiResponse&lt;Void&gt;
+   * Create Embedded Template Draft
+   * The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template &#39;edit&#39; stage.
+   * @return templateCreateEmbeddedDraftRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
+  public APItemplateCreateEmbeddedDraftRequest templateCreateEmbeddedDraft() throws ApiException {
+    return new APItemplateCreateEmbeddedDraftRequest();
+  }
+
+private ApiResponse<Void> templateDeleteWithHttpInfo(String templateId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -284,39 +323,62 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
-  /**
-   * Get Template Files
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
-   * @param templateId The id of the template files to retrieve. (required)
-   * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-   * @return File
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public File templateFiles(String templateId, String fileType) throws ApiException {
-    return templateFilesWithHttpInfo(templateId, fileType).getData();
+
+  public class APItemplateDeleteRequest {
+    private String templateId;
+
+    private APItemplateDeleteRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Execute templateDelete request
+     
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateDelete request with HTTP info returned
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return templateDeleteWithHttpInfo(templateId);
+    }
   }
 
   /**
-   * Get Template Files
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
-   * @param templateId The id of the template files to retrieve. (required)
-   * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-   * @return ApiResponse&lt;File&gt;
+   * Delete Template
+   * Completely deletes the template specified from the account.
+   * @param templateId The id of the Template to delete. (required)
+   * @return templateDeleteRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType) throws ApiException {
+  public APItemplateDeleteRequest templateDelete(String templateId) throws ApiException {
+    return new APItemplateDeleteRequest(templateId);
+  }
+
+private ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -362,37 +424,73 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Get Template Files as Data Uri
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
-   * @param templateId The id of the template files to retrieve. (required)
-   * @return FileResponseDataUri
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public FileResponseDataUri templateFilesAsDataUri(String templateId) throws ApiException {
-    return templateFilesAsDataUriWithHttpInfo(templateId).getData();
+
+  public class APItemplateFilesRequest {
+    private String templateId;
+    private String fileType;
+
+    private APItemplateFilesRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Set fileType
+     * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
+     * @return APItemplateFilesRequest
+     */
+    public APItemplateFilesRequest fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
+    }
+
+    /**
+     * Execute templateFiles request
+     * @return File
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public File execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateFiles request with HTTP info returned
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<File> executeWithHttpInfo() throws ApiException {
+      return templateFilesWithHttpInfo(templateId, fileType);
+    }
   }
 
   /**
-   * Get Template Files as Data Uri
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Get Template Files
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
-   * @return ApiResponse&lt;FileResponseDataUri&gt;
+   * @return templateFilesRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(String templateId) throws ApiException {
+  public APItemplateFilesRequest templateFiles(String templateId) throws ApiException {
+    return new APItemplateFilesRequest(templateId);
+  }
+
+private ApiResponse<FileResponseDataUri> templateFilesAsDataUriWithHttpInfo(String templateId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -437,37 +535,62 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Get Template Files as File Url
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
-   * @param templateId The id of the template files to retrieve. (required)
-   * @return FileResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public FileResponse templateFilesAsFileUrl(String templateId) throws ApiException {
-    return templateFilesAsFileUrlWithHttpInfo(templateId).getData();
+
+  public class APItemplateFilesAsDataUriRequest {
+    private String templateId;
+
+    private APItemplateFilesAsDataUriRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Execute templateFilesAsDataUri request
+     * @return FileResponseDataUri
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public FileResponseDataUri execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateFilesAsDataUri request with HTTP info returned
+     * @return ApiResponse&lt;FileResponseDataUri&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<FileResponseDataUri> executeWithHttpInfo() throws ApiException {
+      return templateFilesAsDataUriWithHttpInfo(templateId);
+    }
   }
 
   /**
-   * Get Template Files as File Url
-   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * Get Template Files as Data Uri
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a &#x60;data_uri&#x60; representing the base64 encoded file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
-   * @return ApiResponse&lt;FileResponse&gt;
+   * @return templateFilesAsDataUriRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(String templateId) throws ApiException {
+  public APItemplateFilesAsDataUriRequest templateFilesAsDataUri(String templateId) throws ApiException {
+    return new APItemplateFilesAsDataUriRequest(templateId);
+  }
+
+private ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(String templateId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -512,37 +635,62 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Get Template
-   * Returns the Template specified by the &#x60;template_id&#x60; parameter.
-   * @param templateId The id of the Template to retrieve. (required)
-   * @return TemplateGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateGetResponse templateGet(String templateId) throws ApiException {
-    return templateGetWithHttpInfo(templateId).getData();
+
+  public class APItemplateFilesAsFileUrlRequest {
+    private String templateId;
+
+    private APItemplateFilesAsFileUrlRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Execute templateFilesAsFileUrl request
+     * @return FileResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public FileResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateFilesAsFileUrl request with HTTP info returned
+     * @return ApiResponse&lt;FileResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<FileResponse> executeWithHttpInfo() throws ApiException {
+      return templateFilesAsFileUrlWithHttpInfo(templateId);
+    }
   }
 
   /**
-   * Get Template
-   * Returns the Template specified by the &#x60;template_id&#x60; parameter.
-   * @param templateId The id of the Template to retrieve. (required)
-   * @return ApiResponse&lt;TemplateGetResponse&gt;
+   * Get Template Files as File Url
+   * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
+   * @param templateId The id of the template files to retrieve. (required)
+   * @return templateFilesAsFileUrlRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId) throws ApiException {
+  public APItemplateFilesAsFileUrlRequest templateFilesAsFileUrl(String templateId) throws ApiException {
+    return new APItemplateFilesAsFileUrlRequest(templateId);
+  }
+
+private ApiResponse<TemplateGetResponse> templateGetWithHttpInfo(String templateId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -587,43 +735,62 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * List Templates
-   * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
-   * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-   * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @param query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-   * @return TemplateListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateListResponse templateList(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
-    return templateListWithHttpInfo(accountId, page, pageSize, query).getData();
+
+  public class APItemplateGetRequest {
+    private String templateId;
+
+    private APItemplateGetRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Execute templateGet request
+     * @return TemplateGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TemplateGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateGet request with HTTP info returned
+     * @return ApiResponse&lt;TemplateGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TemplateGetResponse> executeWithHttpInfo() throws ApiException {
+      return templateGetWithHttpInfo(templateId);
+    }
   }
 
   /**
-   * List Templates
-   * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
-   * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
-   * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @param query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
-   * @return ApiResponse&lt;TemplateListResponse&gt;
+   * Get Template
+   * Returns the Template specified by the &#x60;template_id&#x60; parameter.
+   * @param templateId The id of the Template to retrieve. (required)
+   * @return templateGetRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
+  public APItemplateGetRequest templateGet(String templateId) throws ApiException {
+    return new APItemplateGetRequest(templateId);
+  }
+
+private ApiResponse<TemplateListResponse> templateListWithHttpInfo(String accountId, Integer page, Integer pageSize, String query) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -672,39 +839,103 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Remove User from Template
-   * Removes the specified Account&#39;s access to the specified Template.
-   * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
-   * @param templateRemoveUserRequest  (required)
-   * @return TemplateGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateGetResponse templateRemoveUser(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
-    return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest).getData();
+
+  public class APItemplateListRequest {
+    private String accountId;
+    private Integer page;
+    private Integer pageSize;
+    private String query;
+
+    private APItemplateListRequest() {
+    }
+
+    /**
+     * Set accountId
+     * @param accountId Which account to return Templates for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. (optional)
+     * @return APItemplateListRequest
+     */
+    public APItemplateListRequest accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
+    }
+
+    /**
+     * Set page
+     * @param page Which page number of the Template List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @return APItemplateListRequest
+     */
+    public APItemplateListRequest page(Integer page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @return APItemplateListRequest
+     */
+    public APItemplateListRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set query
+     * @param query String that includes search terms and/or fields to be used to filter the Template objects. (optional)
+     * @return APItemplateListRequest
+     */
+    public APItemplateListRequest query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Execute templateList request
+     * @return TemplateListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TemplateListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateList request with HTTP info returned
+     * @return ApiResponse&lt;TemplateListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TemplateListResponse> executeWithHttpInfo() throws ApiException {
+      return templateListWithHttpInfo(accountId, page, pageSize, query);
+    }
   }
 
   /**
-   * Remove User from Template
-   * Removes the specified Account&#39;s access to the specified Template.
-   * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
-   * @param templateRemoveUserRequest  (required)
-   * @return ApiResponse&lt;TemplateGetResponse&gt;
+   * List Templates
+   * Returns a list of the Templates that are accessible by you.  Take a look at our [search guide](/api/reference/search/) to learn more about querying templates.
+   * @return templateListRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
+  public APItemplateListRequest templateList() throws ApiException {
+    return new APItemplateListRequest();
+  }
+
+private ApiResponse<TemplateGetResponse> templateRemoveUserWithHttpInfo(String templateId, TemplateRemoveUserRequest templateRemoveUserRequest) throws ApiException {
     
     Object localVarPostBody = templateRemoveUserRequest;
     
@@ -754,39 +985,73 @@ public class TemplateApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Update Template Files
-   * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
-   * @param templateId The ID of the template whose files to update. (required)
-   * @param templateUpdateFilesRequest  (required)
-   * @return TemplateUpdateFilesResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateUpdateFilesResponse templateUpdateFiles(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
-    return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest).getData();
+
+  public class APItemplateRemoveUserRequest {
+    private String templateId;
+    private TemplateRemoveUserRequest templateRemoveUserRequest;
+
+    private APItemplateRemoveUserRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Set templateRemoveUserRequest
+     * @param templateRemoveUserRequest  (required)
+     * @return APItemplateRemoveUserRequest
+     */
+    public APItemplateRemoveUserRequest templateRemoveUserRequest(TemplateRemoveUserRequest templateRemoveUserRequest) {
+      this.templateRemoveUserRequest = templateRemoveUserRequest;
+      return this;
+    }
+
+    /**
+     * Execute templateRemoveUser request
+     * @return TemplateGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TemplateGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateRemoveUser request with HTTP info returned
+     * @return ApiResponse&lt;TemplateGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TemplateGetResponse> executeWithHttpInfo() throws ApiException {
+      return templateRemoveUserWithHttpInfo(templateId, templateRemoveUserRequest);
+    }
   }
 
   /**
-   * Update Template Files
-   * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
-   * @param templateId The ID of the template whose files to update. (required)
-   * @param templateUpdateFilesRequest  (required)
-   * @return ApiResponse&lt;TemplateUpdateFilesResponse&gt;
+   * Remove User from Template
+   * Removes the specified Account&#39;s access to the specified Template.
+   * @param templateId The id of the Template to remove the Account&#39;s access to. (required)
+   * @return templateRemoveUserRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
+  public APItemplateRemoveUserRequest templateRemoveUser(String templateId) throws ApiException {
+    return new APItemplateRemoveUserRequest(templateId);
+  }
+
+private ApiResponse<TemplateUpdateFilesResponse> templateUpdateFilesWithHttpInfo(String templateId, TemplateUpdateFilesRequest templateUpdateFilesRequest) throws ApiException {
     
     Object localVarPostBody = templateUpdateFilesRequest;
     
@@ -835,5 +1100,70 @@ public class TemplateApi {
     return apiClient.invokeAPI("TemplateApi.templateUpdateFiles", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APItemplateUpdateFilesRequest {
+    private String templateId;
+    private TemplateUpdateFilesRequest templateUpdateFilesRequest;
+
+    private APItemplateUpdateFilesRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Set templateUpdateFilesRequest
+     * @param templateUpdateFilesRequest  (required)
+     * @return APItemplateUpdateFilesRequest
+     */
+    public APItemplateUpdateFilesRequest templateUpdateFilesRequest(TemplateUpdateFilesRequest templateUpdateFilesRequest) {
+      this.templateUpdateFilesRequest = templateUpdateFilesRequest;
+      return this;
+    }
+
+    /**
+     * Execute templateUpdateFiles request
+     * @return TemplateUpdateFilesResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TemplateUpdateFilesResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute templateUpdateFiles request with HTTP info returned
+     * @return ApiResponse&lt;TemplateUpdateFilesResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TemplateUpdateFilesResponse> executeWithHttpInfo() throws ApiException {
+      return templateUpdateFilesWithHttpInfo(templateId, templateUpdateFilesRequest);
+    }
+  }
+
+  /**
+   * Update Template Files
+   * Overlays a new file with the overlay of an existing template. The new file(s) must:  1. have the same or higher page count 2. the same orientation as the file(s) being replaced.  This will not overwrite or in any way affect the existing template. Both the existing template and new template will be available for use after executing this endpoint. Also note that this will decrement your template quota.  Overlaying new files is asynchronous and a successful call to this endpoint will return 200 OK response if the request passes initial validation checks.  It is recommended that a callback be implemented to listen for the callback event. A &#x60;template_created&#x60; event will be sent when the files are updated or a &#x60;template_error&#x60; event will be sent if there was a problem while updating the files. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the API dashboard and retry the request if necessary.  If the page orientation or page count is different from the original template document, we will notify you with a &#x60;template_error&#x60; [callback event](https://app.hellosign.com/api/eventsAndCallbacksWalkthrough).
+   * @param templateId The ID of the template whose files to update. (required)
+   * @return templateUpdateFilesRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APItemplateUpdateFilesRequest templateUpdateFiles(String templateId) throws ApiException {
+    return new APItemplateUpdateFilesRequest(templateId);
   }
 }

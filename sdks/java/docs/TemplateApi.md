@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## templateAddUser
 
-> TemplateGetResponse templateAddUser(templateId, templateAddUserRequest)
+> TemplateGetResponse templateAddUser(templateId).templateAddUserRequest(templateAddUserRequest).execute();
 
 Add User to Template
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ## templateCreateEmbeddedDraft
 
-> TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest)
+> TemplateCreateEmbeddedDraftResponse templateCreateEmbeddedDraft().templateCreateEmbeddedDraftRequest(templateCreateEmbeddedDraftRequest).execute();
 
 Create Embedded Template Draft
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ## templateDelete
 
-> templateDelete(templateId)
+> templateDelete(templateId).execute();
 
 Delete Template
 
@@ -290,7 +290,7 @@ null (empty response body)
 
 ## templateFiles
 
-> File templateFiles(templateId, fileType)
+> File templateFiles(templateId).fileType(fileType).execute();
 
 Get Template Files
 
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 ## templateFilesAsDataUri
 
-> FileResponseDataUri templateFilesAsDataUri(templateId)
+> FileResponseDataUri templateFilesAsDataUri(templateId).execute();
 
 Get Template Files as Data Uri
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 
 ## templateFilesAsFileUrl
 
-> FileResponse templateFilesAsFileUrl(templateId)
+> FileResponse templateFilesAsFileUrl(templateId).execute();
 
 Get Template Files as File Url
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ## templateGet
 
-> TemplateGetResponse templateGet(templateId)
+> TemplateGetResponse templateGet(templateId).execute();
 
 Get Template
 
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 
 ## templateList
 
-> TemplateListResponse templateList(accountId, page, pageSize, query)
+> TemplateListResponse templateList().accountId(accountId).page(page).pageSize(pageSize).query(query).execute();
 
 List Templates
 
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
 
 ## templateRemoveUser
 
-> TemplateGetResponse templateRemoveUser(templateId, templateRemoveUserRequest)
+> TemplateGetResponse templateRemoveUser(templateId).templateRemoveUserRequest(templateRemoveUserRequest).execute();
 
 Remove User from Template
 
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 
 ## templateUpdateFiles
 
-> TemplateUpdateFilesResponse templateUpdateFiles(templateId, templateUpdateFilesRequest)
+> TemplateUpdateFilesResponse templateUpdateFiles(templateId).templateUpdateFilesRequest(templateUpdateFilesRequest).execute();
 
 Update Template Files
 

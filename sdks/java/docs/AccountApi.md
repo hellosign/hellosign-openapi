@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## accountCreate
 
-> AccountCreateResponse accountCreate(accountCreateRequest)
+> AccountCreateResponse accountCreate().accountCreateRequest(accountCreateRequest).execute();
 
 Create Account
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## accountGet
 
-> AccountGetResponse accountGet(accountId, emailAddress)
+> AccountGetResponse accountGet().accountId(accountId).emailAddress(emailAddress).execute();
 
 Get Account
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ## accountUpdate
 
-> AccountGetResponse accountUpdate(accountUpdateRequest)
+> AccountGetResponse accountUpdate().accountUpdateRequest(accountUpdateRequest).execute();
 
 Update Account
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ## accountVerify
 
-> AccountVerifyResponse accountVerify(accountVerifyRequest)
+> AccountVerifyResponse accountVerify().accountVerifyRequest(accountVerifyRequest).execute();
 
 Verify Account
 

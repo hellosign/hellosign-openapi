@@ -50,37 +50,8 @@ public class UnclaimedDraftApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Create Unclaimed Draft
-   * Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \&quot;Sign and send\&quot; or the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
-   * @param unclaimedDraftCreateRequest  (required)
-   * @return UnclaimedDraftCreateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public UnclaimedDraftCreateResponse unclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
-    return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest).getData();
-  }
 
-  /**
-   * Create Unclaimed Draft
-   * Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \&quot;Sign and send\&quot; or the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
-   * @param unclaimedDraftCreateRequest  (required)
-   * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
+private ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) throws ApiException {
     
     Object localVarPostBody = unclaimedDraftCreateRequest;
     
@@ -124,37 +95,70 @@ public class UnclaimedDraftApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Create Embedded Unclaimed Draft
-   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
-   * @param unclaimedDraftCreateEmbeddedRequest  (required)
-   * @return UnclaimedDraftCreateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
-    return unclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest).getData();
+
+  public class APIunclaimedDraftCreateRequest {
+    private UnclaimedDraftCreateRequest unclaimedDraftCreateRequest;
+
+    private APIunclaimedDraftCreateRequest() {
+    }
+
+    /**
+     * Set unclaimedDraftCreateRequest
+     * @param unclaimedDraftCreateRequest  (required)
+     * @return APIunclaimedDraftCreateRequest
+     */
+    public APIunclaimedDraftCreateRequest unclaimedDraftCreateRequest(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest) {
+      this.unclaimedDraftCreateRequest = unclaimedDraftCreateRequest;
+      return this;
+    }
+
+    /**
+     * Execute unclaimedDraftCreate request
+     * @return UnclaimedDraftCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UnclaimedDraftCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute unclaimedDraftCreate request with HTTP info returned
+     * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UnclaimedDraftCreateResponse> executeWithHttpInfo() throws ApiException {
+      return unclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest);
+    }
   }
 
   /**
-   * Create Embedded Unclaimed Draft
-   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
-   * @param unclaimedDraftCreateEmbeddedRequest  (required)
-   * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+   * Create Unclaimed Draft
+   * Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the \&quot;Sign and send\&quot; or the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a 404.
+   * @return unclaimedDraftCreateRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
+  public APIunclaimedDraftCreateRequest unclaimedDraftCreate() throws ApiException {
+    return new APIunclaimedDraftCreateRequest();
+  }
+
+private ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) throws ApiException {
     
     Object localVarPostBody = unclaimedDraftCreateEmbeddedRequest;
     
@@ -198,37 +202,70 @@ public class UnclaimedDraftApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Create Embedded Unclaimed Draft with Template
-   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
-   * @param unclaimedDraftCreateEmbeddedWithTemplateRequest  (required)
-   * @return UnclaimedDraftCreateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
-    return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest).getData();
+
+  public class APIunclaimedDraftCreateEmbeddedRequest {
+    private UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest;
+
+    private APIunclaimedDraftCreateEmbeddedRequest() {
+    }
+
+    /**
+     * Set unclaimedDraftCreateEmbeddedRequest
+     * @param unclaimedDraftCreateEmbeddedRequest  (required)
+     * @return APIunclaimedDraftCreateEmbeddedRequest
+     */
+    public APIunclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest) {
+      this.unclaimedDraftCreateEmbeddedRequest = unclaimedDraftCreateEmbeddedRequest;
+      return this;
+    }
+
+    /**
+     * Execute unclaimedDraftCreateEmbedded request
+     * @return UnclaimedDraftCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UnclaimedDraftCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute unclaimedDraftCreateEmbedded request with HTTP info returned
+     * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UnclaimedDraftCreateResponse> executeWithHttpInfo() throws ApiException {
+      return unclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest);
+    }
   }
 
   /**
-   * Create Embedded Unclaimed Draft with Template
-   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
-   * @param unclaimedDraftCreateEmbeddedWithTemplateRequest  (required)
-   * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+   * Create Embedded Unclaimed Draft
+   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * @return unclaimedDraftCreateEmbeddedRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
+  public APIunclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbedded() throws ApiException {
+    return new APIunclaimedDraftCreateEmbeddedRequest();
+  }
+
+private ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) throws ApiException {
     
     Object localVarPostBody = unclaimedDraftCreateEmbeddedWithTemplateRequest;
     
@@ -272,39 +309,70 @@ public class UnclaimedDraftApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Edit and Resend Unclaimed Draft
-   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
-   * @param signatureRequestId The ID of the signature request to edit and resend. (required)
-   * @param unclaimedDraftEditAndResendRequest  (required)
-   * @return UnclaimedDraftCreateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
-    return unclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest).getData();
+
+  public class APIunclaimedDraftCreateEmbeddedWithTemplateRequest {
+    private UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest;
+
+    private APIunclaimedDraftCreateEmbeddedWithTemplateRequest() {
+    }
+
+    /**
+     * Set unclaimedDraftCreateEmbeddedWithTemplateRequest
+     * @param unclaimedDraftCreateEmbeddedWithTemplateRequest  (required)
+     * @return APIunclaimedDraftCreateEmbeddedWithTemplateRequest
+     */
+    public APIunclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest) {
+      this.unclaimedDraftCreateEmbeddedWithTemplateRequest = unclaimedDraftCreateEmbeddedWithTemplateRequest;
+      return this;
+    }
+
+    /**
+     * Execute unclaimedDraftCreateEmbeddedWithTemplate request
+     * @return UnclaimedDraftCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UnclaimedDraftCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute unclaimedDraftCreateEmbeddedWithTemplate request with HTTP info returned
+     * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UnclaimedDraftCreateResponse> executeWithHttpInfo() throws ApiException {
+      return unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest);
+    }
   }
 
   /**
-   * Edit and Resend Unclaimed Draft
-   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
-   * @param signatureRequestId The ID of the signature request to edit and resend. (required)
-   * @param unclaimedDraftEditAndResendRequest  (required)
-   * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+   * Create Embedded Unclaimed Draft with Template
+   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * @return unclaimedDraftCreateEmbeddedWithTemplateRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
+  public APIunclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplate() throws ApiException {
+    return new APIunclaimedDraftCreateEmbeddedWithTemplateRequest();
+  }
+
+private ApiResponse<UnclaimedDraftCreateResponse> unclaimedDraftEditAndResendWithHttpInfo(String signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) throws ApiException {
     
     Object localVarPostBody = unclaimedDraftEditAndResendRequest;
     
@@ -353,5 +421,70 @@ public class UnclaimedDraftApi {
     return apiClient.invokeAPI("UnclaimedDraftApi.unclaimedDraftEditAndResend", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIunclaimedDraftEditAndResendRequest {
+    private String signatureRequestId;
+    private UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest;
+
+    private APIunclaimedDraftEditAndResendRequest(String signatureRequestId) {
+      this.signatureRequestId = signatureRequestId;
+    }
+
+    /**
+     * Set unclaimedDraftEditAndResendRequest
+     * @param unclaimedDraftEditAndResendRequest  (required)
+     * @return APIunclaimedDraftEditAndResendRequest
+     */
+    public APIunclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest(UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest) {
+      this.unclaimedDraftEditAndResendRequest = unclaimedDraftEditAndResendRequest;
+      return this;
+    }
+
+    /**
+     * Execute unclaimedDraftEditAndResend request
+     * @return UnclaimedDraftCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public UnclaimedDraftCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute unclaimedDraftEditAndResend request with HTTP info returned
+     * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<UnclaimedDraftCreateResponse> executeWithHttpInfo() throws ApiException {
+      return unclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest);
+    }
+  }
+
+  /**
+   * Edit and Resend Unclaimed Draft
+   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * @param signatureRequestId The ID of the signature request to edit and resend. (required)
+   * @return unclaimedDraftEditAndResendRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIunclaimedDraftEditAndResendRequest unclaimedDraftEditAndResend(String signatureRequestId) throws ApiException {
+    return new APIunclaimedDraftEditAndResendRequest(signatureRequestId);
   }
 }

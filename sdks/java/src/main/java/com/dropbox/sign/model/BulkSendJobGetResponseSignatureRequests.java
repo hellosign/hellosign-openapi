@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.SignatureRequestResponse;
 import com.dropbox.sign.model.SignatureRequestResponseAttachment;
 import com.dropbox.sign.model.SignatureRequestResponseCustomFieldBase;
 import com.dropbox.sign.model.SignatureRequestResponseDataBase;
@@ -27,8 +26,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -643,7 +640,7 @@ public class BulkSendJobGetResponseSignatureRequests {
 
   public BulkSendJobGetResponseSignatureRequests addTemplateIdsItem(String templateIdsItem) {
     if (this.templateIds == null) {
-      this.templateIds = new ArrayList<>();
+      this.templateIds = null;
     }
     this.templateIds.add(templateIdsItem);
     return this;
@@ -677,7 +674,7 @@ public class BulkSendJobGetResponseSignatureRequests {
 
   public BulkSendJobGetResponseSignatureRequests addCustomFieldsItem(SignatureRequestResponseCustomFieldBase customFieldsItem) {
     if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
+      this.customFields = null;
     }
     this.customFields.add(customFieldsItem);
     return this;
@@ -711,7 +708,7 @@ public class BulkSendJobGetResponseSignatureRequests {
 
   public BulkSendJobGetResponseSignatureRequests addAttachmentsItem(SignatureRequestResponseAttachment attachmentsItem) {
     if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
+      this.attachments = null;
     }
     this.attachments.add(attachmentsItem);
     return this;
@@ -745,7 +742,7 @@ public class BulkSendJobGetResponseSignatureRequests {
 
   public BulkSendJobGetResponseSignatureRequests addResponseDataItem(SignatureRequestResponseDataBase responseDataItem) {
     if (this.responseData == null) {
-      this.responseData = new ArrayList<>();
+      this.responseData = null;
     }
     this.responseData.add(responseDataItem);
     return this;

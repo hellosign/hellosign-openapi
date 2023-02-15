@@ -26,8 +26,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -248,7 +246,7 @@ public class TemplateResponseDocument {
 
   public TemplateResponseDocument addStaticFieldsItem(TemplateResponseDocumentStaticField staticFieldsItem) {
     if (this.staticFields == null) {
-      this.staticFields = new ArrayList<>();
+      this.staticFields = null;
     }
     this.staticFields.add(staticFieldsItem);
     return this;

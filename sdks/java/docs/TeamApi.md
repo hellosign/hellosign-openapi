@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## teamAddMember
 
-> TeamGetResponse teamAddMember(teamAddMemberRequest, teamId)
+> TeamGetResponse teamAddMember().teamAddMemberRequest(teamAddMemberRequest).teamId(teamId).execute();
 
 Add User to Team
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ## teamCreate
 
-> TeamGetResponse teamCreate(teamCreateRequest)
+> TeamGetResponse teamCreate().teamCreateRequest(teamCreateRequest).execute();
 
 Create Team
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ## teamDelete
 
-> teamDelete()
+> teamDelete().execute();
 
 Delete Team
 
@@ -254,7 +254,7 @@ null (empty response body)
 
 ## teamGet
 
-> TeamGetResponse teamGet()
+> TeamGetResponse teamGet().execute();
 
 Get Team
 
@@ -328,7 +328,7 @@ This endpoint does not need any parameter.
 
 ## teamInfo
 
-> TeamGetInfoResponse teamInfo(teamId)
+> TeamGetInfoResponse teamInfo().teamId(teamId).execute();
 
 Get Team Info
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ## teamInvites
 
-> TeamInvitesResponse teamInvites(emailAddress)
+> TeamInvitesResponse teamInvites().emailAddress(emailAddress).execute();
 
 List Team Invites
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ## teamMembers
 
-> TeamMembersResponse teamMembers(teamId, page, pageSize)
+> TeamMembersResponse teamMembers(teamId).page(page).pageSize(pageSize).execute();
 
 List Team Members
 
@@ -567,7 +567,7 @@ Name | Type | Description  | Notes
 
 ## teamRemoveMember
 
-> TeamGetResponse teamRemoveMember(teamRemoveMemberRequest)
+> TeamGetResponse teamRemoveMember().teamRemoveMemberRequest(teamRemoveMemberRequest).execute();
 
 Remove User from Team
 
@@ -648,7 +648,7 @@ Name | Type | Description  | Notes
 
 ## teamSubTeams
 
-> TeamSubTeamsResponse teamSubTeams(teamId, page, pageSize)
+> TeamSubTeamsResponse teamSubTeams(teamId).page(page).pageSize(pageSize).execute();
 
 List Sub Teams
 
@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 
 ## teamUpdate
 
-> TeamGetResponse teamUpdate(teamUpdateRequest)
+> TeamGetResponse teamUpdate().teamUpdateRequest(teamUpdateRequest).execute();
 
 Update Team
 

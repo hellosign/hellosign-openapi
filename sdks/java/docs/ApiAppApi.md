@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## apiAppCreate
 
-> ApiAppGetResponse apiAppCreate(apiAppCreateRequest)
+> ApiAppGetResponse apiAppCreate().apiAppCreateRequest(apiAppCreateRequest).execute();
 
 Create API App
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ## apiAppDelete
 
-> apiAppDelete(clientId)
+> apiAppDelete(clientId).execute();
 
 Delete API App
 
@@ -188,7 +188,7 @@ null (empty response body)
 
 ## apiAppGet
 
-> ApiAppGetResponse apiAppGet(clientId)
+> ApiAppGetResponse apiAppGet(clientId).execute();
 
 Get API App
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## apiAppList
 
-> ApiAppListResponse apiAppList(page, pageSize)
+> ApiAppListResponse apiAppList().page(page).pageSize(pageSize).execute();
 
 List API Apps
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ## apiAppUpdate
 
-> ApiAppGetResponse apiAppUpdate(clientId, apiAppUpdateRequest)
+> ApiAppGetResponse apiAppUpdate(clientId).apiAppUpdateRequest(apiAppUpdateRequest).execute();
 
 Update API App
 

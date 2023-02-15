@@ -31,8 +31,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,8 +44,9 @@ import com.dropbox.sign.JSON;
 
 import com.dropbox.sign.ApiException;
 /**
- * UnclaimedDraftCreateEmbeddedRequest
+ * 
  */
+@ApiModel(description = "")
 @JsonPropertyOrder({
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_CLIENT_ID,
     UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,

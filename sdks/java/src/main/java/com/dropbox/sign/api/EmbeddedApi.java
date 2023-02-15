@@ -48,39 +48,8 @@ public class EmbeddedApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Get Embedded Template Edit URL
-   * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
-   * @param templateId The id of the template to edit. (required)
-   * @param embeddedEditUrlRequest  (required)
-   * @return EmbeddedEditUrlResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public EmbeddedEditUrlResponse embeddedEditUrl(String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
-    return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest).getData();
-  }
 
-  /**
-   * Get Embedded Template Edit URL
-   * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
-   * @param templateId The id of the template to edit. (required)
-   * @param embeddedEditUrlRequest  (required)
-   * @return ApiResponse&lt;EmbeddedEditUrlResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<EmbeddedEditUrlResponse> embeddedEditUrlWithHttpInfo(String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
+private ApiResponse<EmbeddedEditUrlResponse> embeddedEditUrlWithHttpInfo(String templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest) throws ApiException {
     
     Object localVarPostBody = embeddedEditUrlRequest;
     
@@ -130,37 +99,73 @@ public class EmbeddedApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Get Embedded Sign URL
-   * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
-   * @param signatureId The id of the signature to get a signature url for. (required)
-   * @return EmbeddedSignUrlResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public EmbeddedSignUrlResponse embeddedSignUrl(String signatureId) throws ApiException {
-    return embeddedSignUrlWithHttpInfo(signatureId).getData();
+
+  public class APIembeddedEditUrlRequest {
+    private String templateId;
+    private EmbeddedEditUrlRequest embeddedEditUrlRequest;
+
+    private APIembeddedEditUrlRequest(String templateId) {
+      this.templateId = templateId;
+    }
+
+    /**
+     * Set embeddedEditUrlRequest
+     * @param embeddedEditUrlRequest  (required)
+     * @return APIembeddedEditUrlRequest
+     */
+    public APIembeddedEditUrlRequest embeddedEditUrlRequest(EmbeddedEditUrlRequest embeddedEditUrlRequest) {
+      this.embeddedEditUrlRequest = embeddedEditUrlRequest;
+      return this;
+    }
+
+    /**
+     * Execute embeddedEditUrl request
+     * @return EmbeddedEditUrlResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public EmbeddedEditUrlResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute embeddedEditUrl request with HTTP info returned
+     * @return ApiResponse&lt;EmbeddedEditUrlResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<EmbeddedEditUrlResponse> executeWithHttpInfo() throws ApiException {
+      return embeddedEditUrlWithHttpInfo(templateId, embeddedEditUrlRequest);
+    }
   }
 
   /**
-   * Get Embedded Sign URL
-   * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
-   * @param signatureId The id of the signature to get a signature url for. (required)
-   * @return ApiResponse&lt;EmbeddedSignUrlResponse&gt;
+   * Get Embedded Template Edit URL
+   * Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+   * @param templateId The id of the template to edit. (required)
+   * @return embeddedEditUrlRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<EmbeddedSignUrlResponse> embeddedSignUrlWithHttpInfo(String signatureId) throws ApiException {
+  public APIembeddedEditUrlRequest embeddedEditUrl(String templateId) throws ApiException {
+    return new APIembeddedEditUrlRequest(templateId);
+  }
+
+private ApiResponse<EmbeddedSignUrlResponse> embeddedSignUrlWithHttpInfo(String signatureId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -204,5 +209,59 @@ public class EmbeddedApi {
     return apiClient.invokeAPI("EmbeddedApi.embeddedSignUrl", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIembeddedSignUrlRequest {
+    private String signatureId;
+
+    private APIembeddedSignUrlRequest(String signatureId) {
+      this.signatureId = signatureId;
+    }
+
+    /**
+     * Execute embeddedSignUrl request
+     * @return EmbeddedSignUrlResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public EmbeddedSignUrlResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute embeddedSignUrl request with HTTP info returned
+     * @return ApiResponse&lt;EmbeddedSignUrlResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<EmbeddedSignUrlResponse> executeWithHttpInfo() throws ApiException {
+      return embeddedSignUrlWithHttpInfo(signatureId);
+    }
+  }
+
+  /**
+   * Get Embedded Sign URL
+   * Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+   * @param signatureId The id of the signature to get a signature url for. (required)
+   * @return embeddedSignUrlRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIembeddedSignUrlRequest embeddedSignUrl(String signatureId) throws ApiException {
+    return new APIembeddedSignUrlRequest(signatureId);
   }
 }

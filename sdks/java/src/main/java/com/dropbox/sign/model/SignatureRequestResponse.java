@@ -26,8 +26,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -639,7 +637,7 @@ public class SignatureRequestResponse {
 
   public SignatureRequestResponse addTemplateIdsItem(String templateIdsItem) {
     if (this.templateIds == null) {
-      this.templateIds = new ArrayList<>();
+      this.templateIds = null;
     }
     this.templateIds.add(templateIdsItem);
     return this;
@@ -673,7 +671,7 @@ public class SignatureRequestResponse {
 
   public SignatureRequestResponse addCustomFieldsItem(SignatureRequestResponseCustomFieldBase customFieldsItem) {
     if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
+      this.customFields = null;
     }
     this.customFields.add(customFieldsItem);
     return this;
@@ -707,7 +705,7 @@ public class SignatureRequestResponse {
 
   public SignatureRequestResponse addAttachmentsItem(SignatureRequestResponseAttachment attachmentsItem) {
     if (this.attachments == null) {
-      this.attachments = new ArrayList<>();
+      this.attachments = null;
     }
     this.attachments.add(attachmentsItem);
     return this;
@@ -741,7 +739,7 @@ public class SignatureRequestResponse {
 
   public SignatureRequestResponse addResponseDataItem(SignatureRequestResponseDataBase responseDataItem) {
     if (this.responseData == null) {
-      this.responseData = new ArrayList<>();
+      this.responseData = null;
     }
     this.responseData.add(responseDataItem);
     return this;

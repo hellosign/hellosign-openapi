@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## embeddedEditUrl
 
-> EmbeddedEditUrlResponse embeddedEditUrl(templateId, embeddedEditUrlRequest)
+> EmbeddedEditUrlResponse embeddedEditUrl(templateId).embeddedEditUrlRequest(embeddedEditUrlRequest).execute();
 
 Get Embedded Template Edit URL
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ## embeddedSignUrl
 
-> EmbeddedSignUrlResponse embeddedSignUrl(signatureId)
+> EmbeddedSignUrlResponse embeddedSignUrl(signatureId).execute();
 
 Get Embedded Sign URL
 

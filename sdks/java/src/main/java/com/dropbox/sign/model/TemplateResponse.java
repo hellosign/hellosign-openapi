@@ -28,8 +28,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -469,7 +467,7 @@ public class TemplateResponse {
 
   public TemplateResponse addCustomFieldsItem(TemplateResponseCustomField customFieldsItem) {
     if (this.customFields == null) {
-      this.customFields = new ArrayList<>();
+      this.customFields = null;
     }
     this.customFields.add(customFieldsItem);
     return this;
@@ -503,7 +501,7 @@ public class TemplateResponse {
 
   public TemplateResponse addNamedFormFieldsItem(TemplateResponseNamedFormField namedFormFieldsItem) {
     if (this.namedFormFields == null) {
-      this.namedFormFields = new ArrayList<>();
+      this.namedFormFields = null;
     }
     this.namedFormFields.add(namedFormFieldsItem);
     return this;
@@ -539,7 +537,7 @@ public class TemplateResponse {
 
   public TemplateResponse addAccountsItem(TemplateResponseAccount accountsItem) {
     if (this.accounts == null) {
-      this.accounts = new ArrayList<>();
+      this.accounts = null;
     }
     this.accounts.add(accountsItem);
     return this;

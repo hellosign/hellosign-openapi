@@ -24,6 +24,7 @@ additionalProperties:
   scmUrl: https://github.com/hellosign/dropbox-sign-java
   licenseName: MIT License
   licenseUrl: https://www.opensource.org/licenses/mit-license.php
+  useSingleRequestParameter: true
 
 files:
   EventCallbackHelper.mustache:

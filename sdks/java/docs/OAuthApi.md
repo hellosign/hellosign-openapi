@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## oauthTokenGenerate
 
-> OAuthTokenResponse oauthTokenGenerate(oauthTokenGenerateRequest)
+> OAuthTokenResponse oauthTokenGenerate().oauthTokenGenerateRequest(oauthTokenGenerateRequest).execute();
 
 OAuth Token Generate
 
@@ -93,7 +93,7 @@ No authorization required
 
 ## oauthTokenRefresh
 
-> OAuthTokenResponse oauthTokenRefresh(oauthTokenRefreshRequest)
+> OAuthTokenResponse oauthTokenRefresh().oauthTokenRefreshRequest(oauthTokenRefreshRequest).execute();
 
 OAuth Token Refresh
 

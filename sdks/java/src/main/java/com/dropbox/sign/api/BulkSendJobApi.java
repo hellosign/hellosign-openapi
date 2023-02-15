@@ -47,37 +47,8 @@ public class BulkSendJobApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Get Bulk Send Job
-   * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
-   * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
-   * @return BulkSendJobGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public BulkSendJobGetResponse bulkSendJobGet(String bulkSendJobId) throws ApiException {
-    return bulkSendJobGetWithHttpInfo(bulkSendJobId).getData();
-  }
 
-  /**
-   * Get Bulk Send Job
-   * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
-   * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
-   * @return ApiResponse&lt;BulkSendJobGetResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(String bulkSendJobId) throws ApiException {
+private ApiResponse<BulkSendJobGetResponse> bulkSendJobGetWithHttpInfo(String bulkSendJobId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -122,39 +93,62 @@ public class BulkSendJobApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * List Bulk Send Jobs
-   * Returns a list of BulkSendJob that you can access.
-   * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-   * @return BulkSendJobListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public BulkSendJobListResponse bulkSendJobList(Integer page, Integer pageSize) throws ApiException {
-    return bulkSendJobListWithHttpInfo(page, pageSize).getData();
+
+  public class APIbulkSendJobGetRequest {
+    private String bulkSendJobId;
+
+    private APIbulkSendJobGetRequest(String bulkSendJobId) {
+      this.bulkSendJobId = bulkSendJobId;
+    }
+
+    /**
+     * Execute bulkSendJobGet request
+     * @return BulkSendJobGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public BulkSendJobGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute bulkSendJobGet request with HTTP info returned
+     * @return ApiResponse&lt;BulkSendJobGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<BulkSendJobGetResponse> executeWithHttpInfo() throws ApiException {
+      return bulkSendJobGetWithHttpInfo(bulkSendJobId);
+    }
   }
 
   /**
-   * List Bulk Send Jobs
-   * Returns a list of BulkSendJob that you can access.
-   * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
-   * @return ApiResponse&lt;BulkSendJobListResponse&gt;
+   * Get Bulk Send Job
+   * Returns the status of the BulkSendJob and its SignatureRequests specified by the &#x60;bulk_send_job_id&#x60; parameter.
+   * @param bulkSendJobId The id of the BulkSendJob to retrieve. (required)
+   * @return bulkSendJobGetRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
+  public APIbulkSendJobGetRequest bulkSendJobGet(String bulkSendJobId) throws ApiException {
+    return new APIbulkSendJobGetRequest(bulkSendJobId);
+  }
+
+private ApiResponse<BulkSendJobListResponse> bulkSendJobListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -200,5 +194,78 @@ public class BulkSendJobApi {
     return apiClient.invokeAPI("BulkSendJobApi.bulkSendJobList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIbulkSendJobListRequest {
+    private Integer page;
+    private Integer pageSize;
+
+    private APIbulkSendJobListRequest() {
+    }
+
+    /**
+     * Set page
+     * @param page Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @return APIbulkSendJobListRequest
+     */
+    public APIbulkSendJobListRequest page(Integer page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
+     * @return APIbulkSendJobListRequest
+     */
+    public APIbulkSendJobListRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Execute bulkSendJobList request
+     * @return BulkSendJobListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public BulkSendJobListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute bulkSendJobList request with HTTP info returned
+     * @return ApiResponse&lt;BulkSendJobListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<BulkSendJobListResponse> executeWithHttpInfo() throws ApiException {
+      return bulkSendJobListWithHttpInfo(page, pageSize);
+    }
+  }
+
+  /**
+   * List Bulk Send Jobs
+   * Returns a list of BulkSendJob that you can access.
+   * @return bulkSendJobListRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIbulkSendJobListRequest bulkSendJobList() throws ApiException {
+    return new APIbulkSendJobListRequest();
   }
 }

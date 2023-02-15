@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## reportCreate
 
-> ReportCreateResponse reportCreate(reportCreateRequest)
+> ReportCreateResponse reportCreate().reportCreateRequest(reportCreateRequest).execute();
 
 Create Report
 

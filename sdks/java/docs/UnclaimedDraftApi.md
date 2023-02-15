@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## unclaimedDraftCreate
 
-> UnclaimedDraftCreateResponse unclaimedDraftCreate(unclaimedDraftCreateRequest)
+> UnclaimedDraftCreateResponse unclaimedDraftCreate().unclaimedDraftCreateRequest(unclaimedDraftCreateRequest).execute();
 
 Create Unclaimed Draft
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ## unclaimedDraftCreateEmbedded
 
-> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded(unclaimedDraftCreateEmbeddedRequest)
+> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbedded().unclaimedDraftCreateEmbeddedRequest(unclaimedDraftCreateEmbeddedRequest).execute();
 
 Create Embedded Unclaimed Draft
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ## unclaimedDraftCreateEmbeddedWithTemplate
 
-> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate(unclaimedDraftCreateEmbeddedWithTemplateRequest)
+> UnclaimedDraftCreateResponse unclaimedDraftCreateEmbeddedWithTemplate().unclaimedDraftCreateEmbeddedWithTemplateRequest(unclaimedDraftCreateEmbeddedWithTemplateRequest).execute();
 
 Create Embedded Unclaimed Draft with Template
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## unclaimedDraftEditAndResend
 
-> UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(signatureRequestId, unclaimedDraftEditAndResendRequest)
+> UnclaimedDraftCreateResponse unclaimedDraftEditAndResend(signatureRequestId).unclaimedDraftEditAndResendRequest(unclaimedDraftEditAndResendRequest).execute();
 
 Edit and Resend Unclaimed Draft
 

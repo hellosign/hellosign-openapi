@@ -54,39 +54,8 @@ public class TeamApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Add User to Team
-   * Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
-   * @param teamAddMemberRequest  (required)
-   * @param teamId The id of the team. (optional)
-   * @return TeamGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamGetResponse teamAddMember(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
-    return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId).getData();
-  }
 
-  /**
-   * Add User to Team
-   * Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
-   * @param teamAddMemberRequest  (required)
-   * @param teamId The id of the team. (optional)
-   * @return ApiResponse&lt;TeamGetResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
+private ApiResponse<TeamGetResponse> teamAddMemberWithHttpInfo(TeamAddMemberRequest teamAddMemberRequest, String teamId) throws ApiException {
     
     Object localVarPostBody = teamAddMemberRequest;
     
@@ -131,37 +100,81 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Create Team
-   * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
-   * @param teamCreateRequest  (required)
-   * @return TeamGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamGetResponse teamCreate(TeamCreateRequest teamCreateRequest) throws ApiException {
-    return teamCreateWithHttpInfo(teamCreateRequest).getData();
+
+  public class APIteamAddMemberRequest {
+    private TeamAddMemberRequest teamAddMemberRequest;
+    private String teamId;
+
+    private APIteamAddMemberRequest() {
+    }
+
+    /**
+     * Set teamAddMemberRequest
+     * @param teamAddMemberRequest  (required)
+     * @return APIteamAddMemberRequest
+     */
+    public APIteamAddMemberRequest teamAddMemberRequest(TeamAddMemberRequest teamAddMemberRequest) {
+      this.teamAddMemberRequest = teamAddMemberRequest;
+      return this;
+    }
+
+    /**
+     * Set teamId
+     * @param teamId The id of the team. (optional)
+     * @return APIteamAddMemberRequest
+     */
+    public APIteamAddMemberRequest teamId(String teamId) {
+      this.teamId = teamId;
+      return this;
+    }
+
+    /**
+     * Execute teamAddMember request
+     * @return TeamGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamAddMember request with HTTP info returned
+     * @return ApiResponse&lt;TeamGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamGetResponse> executeWithHttpInfo() throws ApiException {
+      return teamAddMemberWithHttpInfo(teamAddMemberRequest, teamId);
+    }
   }
 
   /**
-   * Create Team
-   * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
-   * @param teamCreateRequest  (required)
-   * @return ApiResponse&lt;TeamGetResponse&gt;
+   * Add User to Team
+   * Invites a user (specified using the &#x60;email_address&#x60; parameter) to your Team. If the user does not currently have a Dropbox Sign Account, a new one will be created for them. If a user is already a part of another Team, a &#x60;team_invite_failed&#x60; error will be returned.
+   * @return teamAddMemberRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest) throws ApiException {
+  public APIteamAddMemberRequest teamAddMember() throws ApiException {
+    return new APIteamAddMemberRequest();
+  }
+
+private ApiResponse<TeamGetResponse> teamCreateWithHttpInfo(TeamCreateRequest teamCreateRequest) throws ApiException {
     
     Object localVarPostBody = teamCreateRequest;
     
@@ -205,34 +218,70 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Delete Team
-   * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public void teamDelete() throws ApiException {
-    teamDeleteWithHttpInfo();
+
+  public class APIteamCreateRequest {
+    private TeamCreateRequest teamCreateRequest;
+
+    private APIteamCreateRequest() {
+    }
+
+    /**
+     * Set teamCreateRequest
+     * @param teamCreateRequest  (required)
+     * @return APIteamCreateRequest
+     */
+    public APIteamCreateRequest teamCreateRequest(TeamCreateRequest teamCreateRequest) {
+      this.teamCreateRequest = teamCreateRequest;
+      return this;
+    }
+
+    /**
+     * Execute teamCreate request
+     * @return TeamGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamCreate request with HTTP info returned
+     * @return ApiResponse&lt;TeamGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamGetResponse> executeWithHttpInfo() throws ApiException {
+      return teamCreateWithHttpInfo(teamCreateRequest);
+    }
   }
 
   /**
-   * Delete Team
-   * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
-   * @return ApiResponse&lt;Void&gt;
+   * Create Team
+   * Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
+   * @return teamCreateRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<Void> teamDeleteWithHttpInfo() throws ApiException {
+  public APIteamCreateRequest teamCreate() throws ApiException {
+    return new APIteamCreateRequest();
+  }
+
+private ApiResponse<Void> teamDeleteWithHttpInfo() throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -269,35 +318,59 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
-  /**
-   * Get Team
-   * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
-   * @return TeamGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamGetResponse teamGet() throws ApiException {
-    return teamGetWithHttpInfo().getData();
+
+  public class APIteamDeleteRequest {
+
+    private APIteamDeleteRequest() {
+    }
+
+    /**
+     * Execute teamDelete request
+     
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamDelete request with HTTP info returned
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return teamDeleteWithHttpInfo();
+    }
   }
 
   /**
-   * Get Team
-   * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
-   * @return ApiResponse&lt;TeamGetResponse&gt;
+   * Delete Team
+   * Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).
+   * @return teamDeleteRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamGetResponse> teamGetWithHttpInfo() throws ApiException {
+  public APIteamDeleteRequest teamDelete() throws ApiException {
+    return new APIteamDeleteRequest();
+  }
+
+private ApiResponse<TeamGetResponse> teamGetWithHttpInfo() throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -336,37 +409,59 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Get Team Info
-   * Provides information about a team.
-   * @param teamId The id of the team. (optional)
-   * @return TeamGetInfoResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamGetInfoResponse teamInfo(String teamId) throws ApiException {
-    return teamInfoWithHttpInfo(teamId).getData();
+
+  public class APIteamGetRequest {
+
+    private APIteamGetRequest() {
+    }
+
+    /**
+     * Execute teamGet request
+     * @return TeamGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamGet request with HTTP info returned
+     * @return ApiResponse&lt;TeamGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamGetResponse> executeWithHttpInfo() throws ApiException {
+      return teamGetWithHttpInfo();
+    }
   }
 
   /**
-   * Get Team Info
-   * Provides information about a team.
-   * @param teamId The id of the team. (optional)
-   * @return ApiResponse&lt;TeamGetInfoResponse&gt;
+   * Get Team
+   * Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of \&quot;not_found\&quot; will be returned.
+   * @return teamGetRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamGetInfoResponse> teamInfoWithHttpInfo(String teamId) throws ApiException {
+  public APIteamGetRequest teamGet() throws ApiException {
+    return new APIteamGetRequest();
+  }
+
+private ApiResponse<TeamGetInfoResponse> teamInfoWithHttpInfo(String teamId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -406,37 +501,70 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * List Team Invites
-   * Provides a list of team invites (and their roles).
-   * @param emailAddress The email address for which to display the team invites. (optional)
-   * @return TeamInvitesResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamInvitesResponse teamInvites(String emailAddress) throws ApiException {
-    return teamInvitesWithHttpInfo(emailAddress).getData();
+
+  public class APIteamInfoRequest {
+    private String teamId;
+
+    private APIteamInfoRequest() {
+    }
+
+    /**
+     * Set teamId
+     * @param teamId The id of the team. (optional)
+     * @return APIteamInfoRequest
+     */
+    public APIteamInfoRequest teamId(String teamId) {
+      this.teamId = teamId;
+      return this;
+    }
+
+    /**
+     * Execute teamInfo request
+     * @return TeamGetInfoResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamGetInfoResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamInfo request with HTTP info returned
+     * @return ApiResponse&lt;TeamGetInfoResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamGetInfoResponse> executeWithHttpInfo() throws ApiException {
+      return teamInfoWithHttpInfo(teamId);
+    }
   }
 
   /**
-   * List Team Invites
-   * Provides a list of team invites (and their roles).
-   * @param emailAddress The email address for which to display the team invites. (optional)
-   * @return ApiResponse&lt;TeamInvitesResponse&gt;
+   * Get Team Info
+   * Provides information about a team.
+   * @return teamInfoRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamInvitesResponse> teamInvitesWithHttpInfo(String emailAddress) throws ApiException {
+  public APIteamInfoRequest teamInfo() throws ApiException {
+    return new APIteamInfoRequest();
+  }
+
+private ApiResponse<TeamInvitesResponse> teamInvitesWithHttpInfo(String emailAddress) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -476,41 +604,70 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * List Team Members
-   * Provides a paginated list of members (and their roles) that belong to a given team.
-   * @param teamId The id of the team that a member list is being requested from. (required)
-   * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @return TeamMembersResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamMembersResponse teamMembers(String teamId, Integer page, Integer pageSize) throws ApiException {
-    return teamMembersWithHttpInfo(teamId, page, pageSize).getData();
+
+  public class APIteamInvitesRequest {
+    private String emailAddress;
+
+    private APIteamInvitesRequest() {
+    }
+
+    /**
+     * Set emailAddress
+     * @param emailAddress The email address for which to display the team invites. (optional)
+     * @return APIteamInvitesRequest
+     */
+    public APIteamInvitesRequest emailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
+      return this;
+    }
+
+    /**
+     * Execute teamInvites request
+     * @return TeamInvitesResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamInvitesResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamInvites request with HTTP info returned
+     * @return ApiResponse&lt;TeamInvitesResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamInvitesResponse> executeWithHttpInfo() throws ApiException {
+      return teamInvitesWithHttpInfo(emailAddress);
+    }
   }
 
   /**
-   * List Team Members
-   * Provides a paginated list of members (and their roles) that belong to a given team.
-   * @param teamId The id of the team that a member list is being requested from. (required)
-   * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @return ApiResponse&lt;TeamMembersResponse&gt;
+   * List Team Invites
+   * Provides a list of team invites (and their roles).
+   * @return teamInvitesRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId, Integer page, Integer pageSize) throws ApiException {
+  public APIteamInvitesRequest teamInvites() throws ApiException {
+    return new APIteamInvitesRequest();
+  }
+
+private ApiResponse<TeamMembersResponse> teamMembersWithHttpInfo(String teamId, Integer page, Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -563,37 +720,84 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Remove User from Team
-   * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
-   * @param teamRemoveMemberRequest  (required)
-   * @return TeamGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamGetResponse teamRemoveMember(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
-    return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest).getData();
+
+  public class APIteamMembersRequest {
+    private String teamId;
+    private Integer page;
+    private Integer pageSize;
+
+    private APIteamMembersRequest(String teamId) {
+      this.teamId = teamId;
+    }
+
+    /**
+     * Set page
+     * @param page Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @return APIteamMembersRequest
+     */
+    public APIteamMembersRequest page(Integer page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @return APIteamMembersRequest
+     */
+    public APIteamMembersRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Execute teamMembers request
+     * @return TeamMembersResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamMembersResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamMembers request with HTTP info returned
+     * @return ApiResponse&lt;TeamMembersResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamMembersResponse> executeWithHttpInfo() throws ApiException {
+      return teamMembersWithHttpInfo(teamId, page, pageSize);
+    }
   }
 
   /**
-   * Remove User from Team
-   * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
-   * @param teamRemoveMemberRequest  (required)
-   * @return ApiResponse&lt;TeamGetResponse&gt;
+   * List Team Members
+   * Provides a paginated list of members (and their roles) that belong to a given team.
+   * @param teamId The id of the team that a member list is being requested from. (required)
+   * @return teamMembersRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
+  public APIteamMembersRequest teamMembers(String teamId) throws ApiException {
+    return new APIteamMembersRequest(teamId);
+  }
+
+private ApiResponse<TeamGetResponse> teamRemoveMemberWithHttpInfo(TeamRemoveMemberRequest teamRemoveMemberRequest) throws ApiException {
     
     Object localVarPostBody = teamRemoveMemberRequest;
     
@@ -637,41 +841,70 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * List Sub Teams
-   * Provides a paginated list of sub teams that belong to a given team.
-   * @param teamId The id of the parent Team. (required)
-   * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @return TeamSubTeamsResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamSubTeamsResponse teamSubTeams(String teamId, Integer page, Integer pageSize) throws ApiException {
-    return teamSubTeamsWithHttpInfo(teamId, page, pageSize).getData();
+
+  public class APIteamRemoveMemberRequest {
+    private TeamRemoveMemberRequest teamRemoveMemberRequest;
+
+    private APIteamRemoveMemberRequest() {
+    }
+
+    /**
+     * Set teamRemoveMemberRequest
+     * @param teamRemoveMemberRequest  (required)
+     * @return APIteamRemoveMemberRequest
+     */
+    public APIteamRemoveMemberRequest teamRemoveMemberRequest(TeamRemoveMemberRequest teamRemoveMemberRequest) {
+      this.teamRemoveMemberRequest = teamRemoveMemberRequest;
+      return this;
+    }
+
+    /**
+     * Execute teamRemoveMember request
+     * @return TeamGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamRemoveMember request with HTTP info returned
+     * @return ApiResponse&lt;TeamGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamGetResponse> executeWithHttpInfo() throws ApiException {
+      return teamRemoveMemberWithHttpInfo(teamRemoveMemberRequest);
+    }
   }
 
   /**
-   * List Sub Teams
-   * Provides a paginated list of sub teams that belong to a given team.
-   * @param teamId The id of the parent Team. (required)
-   * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @return ApiResponse&lt;TeamSubTeamsResponse&gt;
+   * Remove User from Team
+   * Removes the provided user Account from your Team. If the Account had an outstanding invitation to your Team, the invitation will be expired. If you choose to transfer documents from the removed Account to an Account provided in the &#x60;new_owner_email_address&#x60; parameter (available only for Enterprise plans), the response status code will be 201, which indicates that your request has been queued but not fully executed.
+   * @return teamRemoveMemberRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId, Integer page, Integer pageSize) throws ApiException {
+  public APIteamRemoveMemberRequest teamRemoveMember() throws ApiException {
+    return new APIteamRemoveMemberRequest();
+  }
+
+private ApiResponse<TeamSubTeamsResponse> teamSubTeamsWithHttpInfo(String teamId, Integer page, Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -724,37 +957,84 @@ public class TeamApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Update Team
-   * Updates the name of your Team.
-   * @param teamUpdateRequest  (required)
-   * @return TeamGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TeamGetResponse teamUpdate(TeamUpdateRequest teamUpdateRequest) throws ApiException {
-    return teamUpdateWithHttpInfo(teamUpdateRequest).getData();
+
+  public class APIteamSubTeamsRequest {
+    private String teamId;
+    private Integer page;
+    private Integer pageSize;
+
+    private APIteamSubTeamsRequest(String teamId) {
+      this.teamId = teamId;
+    }
+
+    /**
+     * Set page
+     * @param page Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @return APIteamSubTeamsRequest
+     */
+    public APIteamSubTeamsRequest page(Integer page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @return APIteamSubTeamsRequest
+     */
+    public APIteamSubTeamsRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Execute teamSubTeams request
+     * @return TeamSubTeamsResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamSubTeamsResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamSubTeams request with HTTP info returned
+     * @return ApiResponse&lt;TeamSubTeamsResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamSubTeamsResponse> executeWithHttpInfo() throws ApiException {
+      return teamSubTeamsWithHttpInfo(teamId, page, pageSize);
+    }
   }
 
   /**
-   * Update Team
-   * Updates the name of your Team.
-   * @param teamUpdateRequest  (required)
-   * @return ApiResponse&lt;TeamGetResponse&gt;
+   * List Sub Teams
+   * Provides a paginated list of sub teams that belong to a given team.
+   * @param teamId The id of the parent Team. (required)
+   * @return teamSubTeamsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest) throws ApiException {
+  public APIteamSubTeamsRequest teamSubTeams(String teamId) throws ApiException {
+    return new APIteamSubTeamsRequest(teamId);
+  }
+
+private ApiResponse<TeamGetResponse> teamUpdateWithHttpInfo(TeamUpdateRequest teamUpdateRequest) throws ApiException {
     
     Object localVarPostBody = teamUpdateRequest;
     
@@ -797,5 +1077,67 @@ public class TeamApi {
     return apiClient.invokeAPI("TeamApi.teamUpdate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIteamUpdateRequest {
+    private TeamUpdateRequest teamUpdateRequest;
+
+    private APIteamUpdateRequest() {
+    }
+
+    /**
+     * Set teamUpdateRequest
+     * @param teamUpdateRequest  (required)
+     * @return APIteamUpdateRequest
+     */
+    public APIteamUpdateRequest teamUpdateRequest(TeamUpdateRequest teamUpdateRequest) {
+      this.teamUpdateRequest = teamUpdateRequest;
+      return this;
+    }
+
+    /**
+     * Execute teamUpdate request
+     * @return TeamGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public TeamGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute teamUpdate request with HTTP info returned
+     * @return ApiResponse&lt;TeamGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<TeamGetResponse> executeWithHttpInfo() throws ApiException {
+      return teamUpdateWithHttpInfo(teamUpdateRequest);
+    }
+  }
+
+  /**
+   * Update Team
+   * Updates the name of your Team.
+   * @return teamUpdateRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIteamUpdateRequest teamUpdate() throws ApiException {
+    return new APIteamUpdateRequest();
   }
 }

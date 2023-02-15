@@ -49,37 +49,8 @@ public class ApiAppApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Create API App
-   * Creates a new API App.
-   * @param apiAppCreateRequest  (required)
-   * @return ApiAppGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiAppGetResponse apiAppCreate(ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
-    return apiAppCreateWithHttpInfo(apiAppCreateRequest).getData();
-  }
 
-  /**
-   * Create API App
-   * Creates a new API App.
-   * @param apiAppCreateRequest  (required)
-   * @return ApiResponse&lt;ApiAppGetResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<ApiAppGetResponse> apiAppCreateWithHttpInfo(ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
+private ApiResponse<ApiAppGetResponse> apiAppCreateWithHttpInfo(ApiAppCreateRequest apiAppCreateRequest) throws ApiException {
     
     Object localVarPostBody = apiAppCreateRequest;
     
@@ -123,36 +94,70 @@ public class ApiAppApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Delete API App
-   * Deletes an API App. Can only be invoked for apps you own.
-   * @param clientId The client id of the API App to delete. (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public void apiAppDelete(String clientId) throws ApiException {
-    apiAppDeleteWithHttpInfo(clientId);
+
+  public class APIapiAppCreateRequest {
+    private ApiAppCreateRequest apiAppCreateRequest;
+
+    private APIapiAppCreateRequest() {
+    }
+
+    /**
+     * Set apiAppCreateRequest
+     * @param apiAppCreateRequest  (required)
+     * @return APIapiAppCreateRequest
+     */
+    public APIapiAppCreateRequest apiAppCreateRequest(ApiAppCreateRequest apiAppCreateRequest) {
+      this.apiAppCreateRequest = apiAppCreateRequest;
+      return this;
+    }
+
+    /**
+     * Execute apiAppCreate request
+     * @return ApiAppGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiAppGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute apiAppCreate request with HTTP info returned
+     * @return ApiResponse&lt;ApiAppGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<ApiAppGetResponse> executeWithHttpInfo() throws ApiException {
+      return apiAppCreateWithHttpInfo(apiAppCreateRequest);
+    }
   }
 
   /**
-   * Delete API App
-   * Deletes an API App. Can only be invoked for apps you own.
-   * @param clientId The client id of the API App to delete. (required)
-   * @return ApiResponse&lt;Void&gt;
+   * Create API App
+   * Creates a new API App.
+   * @return apiAppCreateRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<Void> apiAppDeleteWithHttpInfo(String clientId) throws ApiException {
+  public APIapiAppCreateRequest apiAppCreate() throws ApiException {
+    return new APIapiAppCreateRequest();
+  }
+
+private ApiResponse<Void> apiAppDeleteWithHttpInfo(String clientId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -195,37 +200,62 @@ public class ApiAppApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
-  /**
-   * Get API App
-   * Returns an object with information about an API App.
-   * @param clientId The client id of the API App to retrieve. (required)
-   * @return ApiAppGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiAppGetResponse apiAppGet(String clientId) throws ApiException {
-    return apiAppGetWithHttpInfo(clientId).getData();
+
+  public class APIapiAppDeleteRequest {
+    private String clientId;
+
+    private APIapiAppDeleteRequest(String clientId) {
+      this.clientId = clientId;
+    }
+
+    /**
+     * Execute apiAppDelete request
+     
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute apiAppDelete request with HTTP info returned
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 204 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return apiAppDeleteWithHttpInfo(clientId);
+    }
   }
 
   /**
-   * Get API App
-   * Returns an object with information about an API App.
-   * @param clientId The client id of the API App to retrieve. (required)
-   * @return ApiResponse&lt;ApiAppGetResponse&gt;
+   * Delete API App
+   * Deletes an API App. Can only be invoked for apps you own.
+   * @param clientId The client id of the API App to delete. (required)
+   * @return apiAppDeleteRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<ApiAppGetResponse> apiAppGetWithHttpInfo(String clientId) throws ApiException {
+  public APIapiAppDeleteRequest apiAppDelete(String clientId) throws ApiException {
+    return new APIapiAppDeleteRequest(clientId);
+  }
+
+private ApiResponse<ApiAppGetResponse> apiAppGetWithHttpInfo(String clientId) throws ApiException {
     
     Object localVarPostBody = null;
     
@@ -270,39 +300,62 @@ public class ApiAppApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * List API Apps
-   * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
-   * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @return ApiAppListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiAppListResponse apiAppList(Integer page, Integer pageSize) throws ApiException {
-    return apiAppListWithHttpInfo(page, pageSize).getData();
+
+  public class APIapiAppGetRequest {
+    private String clientId;
+
+    private APIapiAppGetRequest(String clientId) {
+      this.clientId = clientId;
+    }
+
+    /**
+     * Execute apiAppGet request
+     * @return ApiAppGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiAppGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute apiAppGet request with HTTP info returned
+     * @return ApiResponse&lt;ApiAppGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<ApiAppGetResponse> executeWithHttpInfo() throws ApiException {
+      return apiAppGetWithHttpInfo(clientId);
+    }
   }
 
   /**
-   * List API Apps
-   * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
-   * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-   * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-   * @return ApiResponse&lt;ApiAppListResponse&gt;
+   * Get API App
+   * Returns an object with information about an API App.
+   * @param clientId The client id of the API App to retrieve. (required)
+   * @return apiAppGetRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
+  public APIapiAppGetRequest apiAppGet(String clientId) throws ApiException {
+    return new APIapiAppGetRequest(clientId);
+  }
+
+private ApiResponse<ApiAppListResponse> apiAppListWithHttpInfo(Integer page, Integer pageSize) throws ApiException {
     
     if (page == null) {
         page = 1;
@@ -349,39 +402,81 @@ public class ApiAppApi {
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
-  /**
-   * Update API App
-   * Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
-   * @param clientId The client id of the API App to update. (required)
-   * @param apiAppUpdateRequest  (required)
-   * @return ApiAppGetResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiAppGetResponse apiAppUpdate(String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
-    return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest).getData();
+
+  public class APIapiAppListRequest {
+    private Integer page;
+    private Integer pageSize;
+
+    private APIapiAppListRequest() {
+    }
+
+    /**
+     * Set page
+     * @param page Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @return APIapiAppListRequest
+     */
+    public APIapiAppListRequest page(Integer page) {
+      this.page = page;
+      return this;
+    }
+
+    /**
+     * Set pageSize
+     * @param pageSize Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
+     * @return APIapiAppListRequest
+     */
+    public APIapiAppListRequest pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Execute apiAppList request
+     * @return ApiAppListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiAppListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute apiAppList request with HTTP info returned
+     * @return ApiResponse&lt;ApiAppListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<ApiAppListResponse> executeWithHttpInfo() throws ApiException {
+      return apiAppListWithHttpInfo(page, pageSize);
+    }
   }
 
   /**
-   * Update API App
-   * Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
-   * @param clientId The client id of the API App to update. (required)
-   * @param apiAppUpdateRequest  (required)
-   * @return ApiResponse&lt;ApiAppGetResponse&gt;
+   * List API Apps
+   * Returns a list of API Apps that are accessible by you. If you are on a team with an Admin or Developer role, this list will include apps owned by teammates.
+   * @return apiAppListRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
+   
+   
    */
-  public ApiResponse<ApiAppGetResponse> apiAppUpdateWithHttpInfo(String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
+  public APIapiAppListRequest apiAppList() throws ApiException {
+    return new APIapiAppListRequest();
+  }
+
+private ApiResponse<ApiAppGetResponse> apiAppUpdateWithHttpInfo(String clientId, ApiAppUpdateRequest apiAppUpdateRequest) throws ApiException {
     
     Object localVarPostBody = apiAppUpdateRequest;
     
@@ -430,5 +525,70 @@ public class ApiAppApi {
     return apiClient.invokeAPI("ApiAppApi.apiAppUpdate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
+  }
+
+  public class APIapiAppUpdateRequest {
+    private String clientId;
+    private ApiAppUpdateRequest apiAppUpdateRequest;
+
+    private APIapiAppUpdateRequest(String clientId) {
+      this.clientId = clientId;
+    }
+
+    /**
+     * Set apiAppUpdateRequest
+     * @param apiAppUpdateRequest  (required)
+     * @return APIapiAppUpdateRequest
+     */
+    public APIapiAppUpdateRequest apiAppUpdateRequest(ApiAppUpdateRequest apiAppUpdateRequest) {
+      this.apiAppUpdateRequest = apiAppUpdateRequest;
+      return this;
+    }
+
+    /**
+     * Execute apiAppUpdate request
+     * @return ApiAppGetResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+     
+     */
+    
+    public ApiAppGetResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute apiAppUpdate request with HTTP info returned
+     * @return ApiResponse&lt;ApiAppGetResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+       <table summary="Response Details" border="1">
+         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+         <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+       </table>
+
+     */
+    public ApiResponse<ApiAppGetResponse> executeWithHttpInfo() throws ApiException {
+      return apiAppUpdateWithHttpInfo(clientId, apiAppUpdateRequest);
+    }
+  }
+
+  /**
+   * Update API App
+   * Updates an existing API App. Can only be invoked for apps you own. Only the fields you provide will be updated. If you wish to clear an existing optional field, provide an empty string.
+   * @param clientId The client id of the API App to update. (required)
+   * @return apiAppUpdateRequest
+   * @throws ApiException if fails to make API call
+   
+   
+   */
+  public APIapiAppUpdateRequest apiAppUpdate(String clientId) throws ApiException {
+    return new APIapiAppUpdateRequest(clientId);
   }
 }
