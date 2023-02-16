@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.0.1"
+__version__ = "1.1.0"
 
 # import ApiClient
 from dropbox_sign.api_client import ApiClient

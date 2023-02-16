@@ -1,6 +1,6 @@
 {
     "name": "@dropbox/sign",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Official Node client for Dropbox Sign",
     "repository": {
         "type": "git",
