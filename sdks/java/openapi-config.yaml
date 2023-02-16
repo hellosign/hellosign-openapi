@@ -16,7 +16,7 @@ additionalProperties:
   groupId: com.dropbox.sign
   artifactId: dropbox-sign
   artifactName: Dropbox Sign Java SDK
-  artifactVersion: 1.0.1
+  artifactVersion: 1.1.0
   artifactUrl: https://github.com/hellosign/dropbox-sign-java
   artifactDescription: Use the Dropbox Sign Java SDK to connect your Java app to the service of Dropbox Sign in microseconds!
   scmConnection: scm:git:git://github.com/hellosign/dropbox-sign-java.git
