@@ -23,10 +23,10 @@
  */
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
-import { TemplateResponseDocumentCustomField } from "./templateResponseDocumentCustomField";
+import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
 import { TemplateResponseDocumentFieldGroup } from "./templateResponseDocumentFieldGroup";
-import { TemplateResponseDocumentFormField } from "./templateResponseDocumentFormField";
-import { TemplateResponseDocumentStaticField } from "./templateResponseDocumentStaticField";
+import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
+import { TemplateResponseDocumentStaticFieldBase } from "./templateResponseDocumentStaticFieldBase";
 
 export class TemplateResponseDocument {
   /**
@@ -42,17 +42,17 @@ export class TemplateResponseDocument {
    */
   "fieldGroups"?: Array<TemplateResponseDocumentFieldGroup>;
   /**
-   * An array of Form Field objects containing the name and type of each named textbox and checkmark field.
+   * An array of Form Field objects containing the name and type of each named field.
    */
-  "formFields"?: Array<TemplateResponseDocumentFormField>;
+  "formFields"?: Array<TemplateResponseDocumentFormFieldBase>;
   /**
-   * An array of Document Custom Field objects.
+   * An array of Form Field objects containing the name and type of each named field.
    */
-  "customFields"?: Array<TemplateResponseDocumentCustomField>;
+  "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
   /**
-   * An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.
+   * An array describing static overlay fields. **Note** only available for certain subscriptions.
    */
-  "staticFields"?: Array<TemplateResponseDocumentStaticField> | null;
+  "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase> | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -75,17 +75,17 @@ export class TemplateResponseDocument {
     {
       name: "formFields",
       baseName: "form_fields",
-      type: "Array<TemplateResponseDocumentFormField>",
+      type: "Array<TemplateResponseDocumentFormFieldBase>",
     },
     {
       name: "customFields",
       baseName: "custom_fields",
-      type: "Array<TemplateResponseDocumentCustomField>",
+      type: "Array<TemplateResponseDocumentCustomFieldBase>",
     },
     {
       name: "staticFields",
       baseName: "static_fields",
-      type: "Array<TemplateResponseDocumentStaticField>",
+      type: "Array<TemplateResponseDocumentStaticFieldBase>",
     },
   ];
 

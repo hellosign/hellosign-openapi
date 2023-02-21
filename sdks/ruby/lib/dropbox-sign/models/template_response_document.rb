@@ -30,16 +30,16 @@ module Dropbox::Sign
     # @return [Array<TemplateResponseDocumentFieldGroup>]
     attr_accessor :field_groups
 
-    # An array of Form Field objects containing the name and type of each named textbox and checkmark field.
-    # @return [Array<TemplateResponseDocumentFormField>]
+    # An array of Form Field objects containing the name and type of each named field.
+    # @return [Array<TemplateResponseDocumentFormFieldBase>]
     attr_accessor :form_fields
 
-    # An array of Document Custom Field objects.
-    # @return [Array<TemplateResponseDocumentCustomField>]
+    # An array of Form Field objects containing the name and type of each named field.
+    # @return [Array<TemplateResponseDocumentCustomFieldBase>]
     attr_accessor :custom_fields
 
-    # An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.
-    # @return [Array<TemplateResponseDocumentStaticField>, nil]
+    # An array describing static overlay fields. **Note** only available for certain subscriptions.
+    # @return [Array<TemplateResponseDocumentStaticFieldBase>, nil]
     attr_accessor :static_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -70,9 +70,9 @@ module Dropbox::Sign
         :'name' => :'String',
         :'index' => :'Integer',
         :'field_groups' => :'Array<TemplateResponseDocumentFieldGroup>',
-        :'form_fields' => :'Array<TemplateResponseDocumentFormField>',
-        :'custom_fields' => :'Array<TemplateResponseDocumentCustomField>',
-        :'static_fields' => :'Array<TemplateResponseDocumentStaticField>'
+        :'form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>',
+        :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
+        :'static_fields' => :'Array<TemplateResponseDocumentStaticFieldBase>'
       }
     end
 

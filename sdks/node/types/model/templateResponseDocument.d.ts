@@ -1,15 +1,15 @@
 import { AttributeTypeMap } from "./models";
-import { TemplateResponseDocumentCustomField } from "./templateResponseDocumentCustomField";
+import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
 import { TemplateResponseDocumentFieldGroup } from "./templateResponseDocumentFieldGroup";
-import { TemplateResponseDocumentFormField } from "./templateResponseDocumentFormField";
-import { TemplateResponseDocumentStaticField } from "./templateResponseDocumentStaticField";
+import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
+import { TemplateResponseDocumentStaticFieldBase } from "./templateResponseDocumentStaticFieldBase";
 export declare class TemplateResponseDocument {
     "name"?: string;
     "index"?: number;
     "fieldGroups"?: Array<TemplateResponseDocumentFieldGroup>;
-    "formFields"?: Array<TemplateResponseDocumentFormField>;
-    "customFields"?: Array<TemplateResponseDocumentCustomField>;
-    "staticFields"?: Array<TemplateResponseDocumentStaticField> | null;
+    "formFields"?: Array<TemplateResponseDocumentFormFieldBase>;
+    "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
+    "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase> | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

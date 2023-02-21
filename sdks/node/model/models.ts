@@ -131,14 +131,31 @@ export * from "./templateResponse";
 export * from "./templateResponseAccount";
 export * from "./templateResponseAccountQuota";
 export * from "./templateResponseCCRole";
-export * from "./templateResponseCustomField";
 export * from "./templateResponseDocument";
-export * from "./templateResponseDocumentCustomField";
+export * from "./templateResponseDocumentCustomFieldBase";
+export * from "./templateResponseDocumentCustomFieldCheckbox";
+export * from "./templateResponseDocumentCustomFieldText";
 export * from "./templateResponseDocumentFieldGroup";
-export * from "./templateResponseDocumentFormField";
-export * from "./templateResponseDocumentStaticField";
+export * from "./templateResponseDocumentFieldGroupRule";
+export * from "./templateResponseDocumentFormFieldBase";
+export * from "./templateResponseDocumentFormFieldCheckbox";
+export * from "./templateResponseDocumentFormFieldDateSigned";
+export * from "./templateResponseDocumentFormFieldDropdown";
+export * from "./templateResponseDocumentFormFieldHyperlink";
+export * from "./templateResponseDocumentFormFieldInitials";
+export * from "./templateResponseDocumentFormFieldRadio";
+export * from "./templateResponseDocumentFormFieldSignature";
+export * from "./templateResponseDocumentFormFieldText";
+export * from "./templateResponseDocumentStaticFieldBase";
+export * from "./templateResponseDocumentStaticFieldCheckbox";
+export * from "./templateResponseDocumentStaticFieldDateSigned";
+export * from "./templateResponseDocumentStaticFieldDropdown";
+export * from "./templateResponseDocumentStaticFieldHyperlink";
+export * from "./templateResponseDocumentStaticFieldInitials";
+export * from "./templateResponseDocumentStaticFieldRadio";
+export * from "./templateResponseDocumentStaticFieldSignature";
+export * from "./templateResponseDocumentStaticFieldText";
 export * from "./templateResponseFieldAvgTextLength";
-export * from "./templateResponseNamedFormField";
 export * from "./templateResponseSignerRole";
 export * from "./templateUpdateFilesRequest";
 export * from "./templateUpdateFilesResponse";
@@ -303,14 +320,31 @@ import { TemplateResponse } from "./templateResponse";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseAccountQuota } from "./templateResponseAccountQuota";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
-import { TemplateResponseCustomField } from "./templateResponseCustomField";
 import { TemplateResponseDocument } from "./templateResponseDocument";
-import { TemplateResponseDocumentCustomField } from "./templateResponseDocumentCustomField";
+import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
+import { TemplateResponseDocumentCustomFieldCheckbox } from "./templateResponseDocumentCustomFieldCheckbox";
+import { TemplateResponseDocumentCustomFieldText } from "./templateResponseDocumentCustomFieldText";
 import { TemplateResponseDocumentFieldGroup } from "./templateResponseDocumentFieldGroup";
-import { TemplateResponseDocumentFormField } from "./templateResponseDocumentFormField";
-import { TemplateResponseDocumentStaticField } from "./templateResponseDocumentStaticField";
+import { TemplateResponseDocumentFieldGroupRule } from "./templateResponseDocumentFieldGroupRule";
+import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
+import { TemplateResponseDocumentFormFieldCheckbox } from "./templateResponseDocumentFormFieldCheckbox";
+import { TemplateResponseDocumentFormFieldDateSigned } from "./templateResponseDocumentFormFieldDateSigned";
+import { TemplateResponseDocumentFormFieldDropdown } from "./templateResponseDocumentFormFieldDropdown";
+import { TemplateResponseDocumentFormFieldHyperlink } from "./templateResponseDocumentFormFieldHyperlink";
+import { TemplateResponseDocumentFormFieldInitials } from "./templateResponseDocumentFormFieldInitials";
+import { TemplateResponseDocumentFormFieldRadio } from "./templateResponseDocumentFormFieldRadio";
+import { TemplateResponseDocumentFormFieldSignature } from "./templateResponseDocumentFormFieldSignature";
+import { TemplateResponseDocumentFormFieldText } from "./templateResponseDocumentFormFieldText";
+import { TemplateResponseDocumentStaticFieldBase } from "./templateResponseDocumentStaticFieldBase";
+import { TemplateResponseDocumentStaticFieldCheckbox } from "./templateResponseDocumentStaticFieldCheckbox";
+import { TemplateResponseDocumentStaticFieldDateSigned } from "./templateResponseDocumentStaticFieldDateSigned";
+import { TemplateResponseDocumentStaticFieldDropdown } from "./templateResponseDocumentStaticFieldDropdown";
+import { TemplateResponseDocumentStaticFieldHyperlink } from "./templateResponseDocumentStaticFieldHyperlink";
+import { TemplateResponseDocumentStaticFieldInitials } from "./templateResponseDocumentStaticFieldInitials";
+import { TemplateResponseDocumentStaticFieldRadio } from "./templateResponseDocumentStaticFieldRadio";
+import { TemplateResponseDocumentStaticFieldSignature } from "./templateResponseDocumentStaticFieldSignature";
+import { TemplateResponseDocumentStaticFieldText } from "./templateResponseDocumentStaticFieldText";
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
-import { TemplateResponseNamedFormField } from "./templateResponseNamedFormField";
 import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 import { TemplateUpdateFilesRequest } from "./templateUpdateFilesRequest";
 import { TemplateUpdateFilesResponse } from "./templateUpdateFilesResponse";
@@ -360,11 +394,8 @@ let enumsMap: { [index: string]: any } = {
     SubWhiteLabelingOptions.LegalVersionEnum,
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
   "TeamRemoveMemberRequest.NewRoleEnum": TeamRemoveMemberRequest.NewRoleEnum,
-  "TemplateResponseCustomField.TypeEnum": TemplateResponseCustomField.TypeEnum,
-  "TemplateResponseDocumentCustomField.TypeEnum":
-    TemplateResponseDocumentCustomField.TypeEnum,
-  "TemplateResponseDocumentFormField.TypeEnum":
-    TemplateResponseDocumentFormField.TypeEnum,
+  "TemplateResponseDocumentFormFieldText.ValidationTypeEnum":
+    TemplateResponseDocumentFormFieldText.ValidationTypeEnum,
   "UnclaimedDraftCreateEmbeddedRequest.TypeEnum":
     UnclaimedDraftCreateEmbeddedRequest.TypeEnum,
   "UnclaimedDraftCreateRequest.TypeEnum": UnclaimedDraftCreateRequest.TypeEnum,
@@ -516,14 +547,51 @@ let typeMap: { [index: string]: any } = {
   TemplateResponseAccount: TemplateResponseAccount,
   TemplateResponseAccountQuota: TemplateResponseAccountQuota,
   TemplateResponseCCRole: TemplateResponseCCRole,
-  TemplateResponseCustomField: TemplateResponseCustomField,
   TemplateResponseDocument: TemplateResponseDocument,
-  TemplateResponseDocumentCustomField: TemplateResponseDocumentCustomField,
+  TemplateResponseDocumentCustomFieldBase:
+    TemplateResponseDocumentCustomFieldBase,
+  TemplateResponseDocumentCustomFieldCheckbox:
+    TemplateResponseDocumentCustomFieldCheckbox,
+  TemplateResponseDocumentCustomFieldText:
+    TemplateResponseDocumentCustomFieldText,
   TemplateResponseDocumentFieldGroup: TemplateResponseDocumentFieldGroup,
-  TemplateResponseDocumentFormField: TemplateResponseDocumentFormField,
-  TemplateResponseDocumentStaticField: TemplateResponseDocumentStaticField,
+  TemplateResponseDocumentFieldGroupRule:
+    TemplateResponseDocumentFieldGroupRule,
+  TemplateResponseDocumentFormFieldBase: TemplateResponseDocumentFormFieldBase,
+  TemplateResponseDocumentFormFieldCheckbox:
+    TemplateResponseDocumentFormFieldCheckbox,
+  TemplateResponseDocumentFormFieldDateSigned:
+    TemplateResponseDocumentFormFieldDateSigned,
+  TemplateResponseDocumentFormFieldDropdown:
+    TemplateResponseDocumentFormFieldDropdown,
+  TemplateResponseDocumentFormFieldHyperlink:
+    TemplateResponseDocumentFormFieldHyperlink,
+  TemplateResponseDocumentFormFieldInitials:
+    TemplateResponseDocumentFormFieldInitials,
+  TemplateResponseDocumentFormFieldRadio:
+    TemplateResponseDocumentFormFieldRadio,
+  TemplateResponseDocumentFormFieldSignature:
+    TemplateResponseDocumentFormFieldSignature,
+  TemplateResponseDocumentFormFieldText: TemplateResponseDocumentFormFieldText,
+  TemplateResponseDocumentStaticFieldBase:
+    TemplateResponseDocumentStaticFieldBase,
+  TemplateResponseDocumentStaticFieldCheckbox:
+    TemplateResponseDocumentStaticFieldCheckbox,
+  TemplateResponseDocumentStaticFieldDateSigned:
+    TemplateResponseDocumentStaticFieldDateSigned,
+  TemplateResponseDocumentStaticFieldDropdown:
+    TemplateResponseDocumentStaticFieldDropdown,
+  TemplateResponseDocumentStaticFieldHyperlink:
+    TemplateResponseDocumentStaticFieldHyperlink,
+  TemplateResponseDocumentStaticFieldInitials:
+    TemplateResponseDocumentStaticFieldInitials,
+  TemplateResponseDocumentStaticFieldRadio:
+    TemplateResponseDocumentStaticFieldRadio,
+  TemplateResponseDocumentStaticFieldSignature:
+    TemplateResponseDocumentStaticFieldSignature,
+  TemplateResponseDocumentStaticFieldText:
+    TemplateResponseDocumentStaticFieldText,
   TemplateResponseFieldAvgTextLength: TemplateResponseFieldAvgTextLength,
-  TemplateResponseNamedFormField: TemplateResponseNamedFormField,
   TemplateResponseSignerRole: TemplateResponseSignerRole,
   TemplateUpdateFilesRequest: TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: TemplateUpdateFilesResponse,

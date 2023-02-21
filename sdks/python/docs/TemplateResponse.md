@@ -18,8 +18,8 @@ Contains information about the templates you and your team have created.
 | `signer_roles` | [```[TemplateResponseSignerRole]```](TemplateResponseSignerRole.md) |  An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.  |  |
 | `cc_roles` | [```[TemplateResponseCCRole]```](TemplateResponseCCRole.md) |  An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.  |  |
 | `documents` | [```[TemplateResponseDocument]```](TemplateResponseDocument.md) |  An array describing each document associated with this Template. Includes form field data for each document.  |  |
-| `custom_fields` | [```[TemplateResponseCustomField], none_type```](TemplateResponseCustomField.md) |  An array of Custom Field objects.  |  |
-| `named_form_fields` | [```[TemplateResponseNamedFormField], none_type```](TemplateResponseNamedFormField.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
+| `custom_fields` | [```[TemplateResponseDocumentCustomFieldBase], none_type```](TemplateResponseDocumentCustomFieldBase.md) |  Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
+| `named_form_fields` | [```[TemplateResponseDocumentFormFieldBase], none_type```](TemplateResponseDocumentFormFieldBase.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  |  |
 | `accounts` | [```[TemplateResponseAccount], none_type```](TemplateResponseAccount.md) |  An array of the Accounts that can use this Template.  |  |
 
 

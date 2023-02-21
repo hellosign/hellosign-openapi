@@ -23,7 +23,7 @@ module Dropbox::Sign
     # @return [Integer]
     attr_accessor :num_lines
 
-    # Number of character per line.
+    # Number of characters per line.
     # @return [Integer]
     attr_accessor :num_chars_per_line
 

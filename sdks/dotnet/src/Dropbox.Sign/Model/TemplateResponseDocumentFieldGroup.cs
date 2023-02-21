@@ -42,8 +42,8 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroup" /> class.
         /// </summary>
         /// <param name="name">The name of the form field group..</param>
-        /// <param name="rule">The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping)..</param>
-        public TemplateResponseDocumentFieldGroup(string name = default(string), string rule = default(string))
+        /// <param name="rule">rule.</param>
+        public TemplateResponseDocumentFieldGroup(string name = default(string), TemplateResponseDocumentFieldGroupRule rule = default(TemplateResponseDocumentFieldGroupRule))
         {
             
             this.Name = name;
@@ -74,11 +74,10 @@ namespace Dropbox.Sign.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+        /// Gets or Sets Rule
         /// </summary>
-        /// <value>The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).</value>
         [DataMember(Name = "rule", EmitDefaultValue = true)]
-        public string Rule { get; set; }
+        public TemplateResponseDocumentFieldGroupRule Rule { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -170,7 +169,7 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "rule",
                 Property = "Rule",
-                Type = "string",
+                Type = "TemplateResponseDocumentFieldGroupRule",
                 Value = Rule,
             });
 

@@ -23,16 +23,14 @@
  */
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
+import { TemplateResponseDocumentFieldGroupRule } from "./templateResponseDocumentFieldGroupRule";
 
 export class TemplateResponseDocumentFieldGroup {
   /**
    * The name of the form field group.
    */
   "name"?: string;
-  /**
-   * The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
-   */
-  "rule"?: string;
+  "rule"?: TemplateResponseDocumentFieldGroupRule;
 
   static discriminator: string | undefined = undefined;
 
@@ -45,7 +43,7 @@ export class TemplateResponseDocumentFieldGroup {
     {
       name: "rule",
       baseName: "rule",
-      type: "string",
+      type: "TemplateResponseDocumentFieldGroupRule",
     },
   ];
 

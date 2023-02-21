@@ -1317,8 +1317,6 @@
 "TemplateResponse::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponse::CC_ROLES": An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponse::DOCUMENTS": An array describing each document associated with this Template. Includes form field data for each document.
-"TemplateResponse::CUSTOM_FIELDS": An array of Custom Field objects.
-"TemplateResponse::NAMED_FORM_FIELDS": Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
 "TemplateResponse::ACCOUNTS": An array of the Accounts that can use this Template.
 "TemplateResponse::TITLE": The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
 "TemplateResponse::UPDATED_AT": Time the template was last updated.
@@ -1352,79 +1350,94 @@
 "TemplateResponseDocument::STATIC_FIELDS": |-
   An array describing static overlay fields.
   <b>Note</b> only available for certain subscriptions.
-"TemplateResponseDocument::CUSTOM_FIELDS": An array of Document Custom Field objects.
-"TemplateResponseDocument::FORM_FIELDS": An array of Form Field objects containing the name and type of each named textbox and checkmark field.
 
+"TemplateResponseCustomField::DESCRIPTION": Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+
+"TemplateResponseDocumentCustomField::DESCRIPTION": An array of Form Field objects containing the name and type of each named field.
+"TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS": This class extends `TemplateResponseDocumentCustomFieldBase`
 "TemplateResponseDocumentCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
 "TemplateResponseDocumentCustomField::HEIGHT": The height in pixels of this form field.
 "TemplateResponseDocumentCustomField::NAME": The name of the Custom Field.
 "TemplateResponseDocumentCustomField::REQUIRED": Boolean showing whether or not this field is required.
-"TemplateResponseDocumentCustomField::TYPE": The type of this Custom Field. Only `text` and `checkbox` are currently supported.
+"TemplateResponseDocumentCustomField::TYPE": |-
+  The type of this Custom Field. Only `text` and `checkbox` are currently supported.
+  
+  * Text uses `TemplateResponseDocumentCustomFieldText`
+  * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentCustomField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentCustomField::Y": The vertical offset in pixels for this form field.
-"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field.
+"TemplateResponseDocumentCustomField::FONT_SIZE": Final font size used by this form field.
+"TemplateResponseDocumentCustomField::SIGNER": The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).
 "TemplateResponseDocumentCustomField::API_ID": The unique ID for this field.
-"TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
+# text-only / hyperlink
 "TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
+"TemplateResponseDocumentCustomField::AVG_TEXT_LENGTH": Average text length in this field.
+"TemplateResponseDocumentCustomField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseDocumentCustomField::FONT_FAMILY": Font family used in this form field's text.
-"TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS": Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
 
-"TemplateResponseCustomField::NAME": The name of the Custom Field.
-"TemplateResponseCustomField::TYPE": The type of this Custom Field. Only `text` and `checkbox` are currently supported.
-"TemplateResponseCustomField::X": The horizontal offset in pixels for this form field.
-"TemplateResponseCustomField::Y": The vertical offset in pixels for this form field.
-"TemplateResponseCustomField::WIDTH": The width in pixels of this form field.
-"TemplateResponseCustomField::HEIGHT": The height in pixels of this form field.
-"TemplateResponseCustomField::REQUIRED": Boolean showing whether or not this field is required.
-"TemplateResponseCustomField::API_ID": The unique ID for this field.
-"TemplateResponseCustomField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
-"TemplateResponseCustomField::IS_MULTILINE": Whether this form field is multiline text.
-"TemplateResponseCustomField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
-"TemplateResponseCustomField::FONT_FAMILY": Font family used in this form field's text.
+"TemplateResponseDocumentFieldGroupRule::GROUP_LABEL": Name of the group
+"TemplateResponseDocumentFieldGroupRule::REQUIREMENT": |-
+  Examples: `require_0-1` `require_1` `require_1-ormore`
 
-"TemplateResponseNamedFormField::NAME": The name of the Named Form Field.
-"TemplateResponseNamedFormField::TYPE": The type of this Named Form Field. Only `text` and `checkbox` are currently supported.
-"TemplateResponseNamedFormField::SIGNER": The signer of the Named Form Field.
-"TemplateResponseNamedFormField::X": The horizontal offset in pixels for this form field.
-"TemplateResponseNamedFormField::Y": The vertical offset in pixels for this form field.
-"TemplateResponseNamedFormField::WIDTH": The width in pixels of this form field.
-"TemplateResponseNamedFormField::HEIGHT": The height in pixels of this form field.
-"TemplateResponseNamedFormField::REQUIRED": Boolean showing whether or not this field is required.
-"TemplateResponseNamedFormField::API_ID": The unique ID for this field.
-"TemplateResponseNamedFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
-"TemplateResponseNamedFormField::IS_MULTILINE": Whether this form field is multiline text.
-"TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
-"TemplateResponseNamedFormField::FONT_FAMILY": Font family used in this form field's text.
+  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping).
+  - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping).
+  - Radio groups require **at least** two fields per group.
+
+"TemplateResponseNamedFormField::DESCRIPTION": Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
 
 "TemplateResponseFieldAvgTextLength::DESCRIPTION": Average text length in this field.
-"TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of character per line.
+"TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE": Number of characters per line.
 "TemplateResponseFieldAvgTextLength::NUM_LINES": Number of lines.
 
 "TemplateResponseDocumentFieldGroup::NAME": The name of the form field group.
 "TemplateResponseDocumentFieldGroup::RULE": The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
 
+"TemplateResponseDocumentFormField::DESCRIPTION": An array of Form Field objects containing the name and type of each named field.
+"TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS": This class extends `TemplateResponseDocumentFormFieldBase`
 "TemplateResponseDocumentFormField::API_ID": A unique id for the form field.
-"TemplateResponseDocumentFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseDocumentFormField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.
 "TemplateResponseDocumentFormField::HEIGHT": The height in pixels of this form field.
 "TemplateResponseDocumentFormField::NAME": The name of the form field.
 "TemplateResponseDocumentFormField::REQUIRED": Boolean showing whether or not this field is required.
-"TemplateResponseDocumentFormField::TYPE": The type of this form field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentFormField::TYPE": |-
+  The type of this form field. See [field types](/api/reference/constants/#field-types).
+  
+  * Text Field uses `TemplateResponseDocumentFormFieldText`
+  * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
+  * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
+  * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
+  * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
+  * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
+  * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
+  * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
 "TemplateResponseDocumentFormField::SIGNER": The signer of the Form Field.
 "TemplateResponseDocumentFormField::WIDTH": The width in pixels of this form field.
 "TemplateResponseDocumentFormField::X": The horizontal offset in pixels for this form field.
 "TemplateResponseDocumentFormField::Y": The vertical offset in pixels for this form field.
+"TemplateResponseDocumentFormField::FONT_SIZE": Final font size used by this form field.
+# text-only / hyperlink
 "TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE": Original font size used in this form field's text.
 "TemplateResponseDocumentFormField::AVG_TEXT_LENGTH": Average text length in this field.
 "TemplateResponseDocumentFormField::IS_MULTILINE": Whether this form field is multiline text.
 "TemplateResponseDocumentFormField::FONT_FAMILY": Font family used in this form field's text.
+# text-only
+"TemplateResponseDocumentFormField::VALIDATION_TYPE": Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
 
-"TemplateResponseDocumentFormField::DESCRIPTION": Average text length in this field.
-"TemplateResponseDocumentFormField::NUM_LINES": Number of lines.
-"TemplateResponseDocumentFormField::NUM_CHARS_PER_LINE": Number of character per line.
-
+"TemplateResponseDocumentStaticField::DESCRIPTION": An array describing static overlay fields. **Note** only available for certain subscriptions.
+"TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS": This class extends `TemplateResponseDocumentStaticFieldBase`
 "TemplateResponseDocumentStaticField::NAME": The name of the static field.
-"TemplateResponseDocumentStaticField::TYPE": The type of this static field. See [field types](/api/reference/constants/#field-types).
+"TemplateResponseDocumentStaticField::TYPE": |-
+  The type of this static field. See [field types](/api/reference/constants/#field-types).
+
+  * Text Field uses `TemplateResponseDocumentStaticFieldText`
+  * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
+  * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
+  * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
+  * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
+  * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
+  * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
+  * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
 "TemplateResponseDocumentStaticField::SIGNER": The signer of the Static Field.
 "TemplateResponseDocumentStaticField::X": The horizontal offset in pixels for this static field.
 "TemplateResponseDocumentStaticField::Y": The vertical offset in pixels for this static field.
@@ -1433,6 +1446,7 @@
 "TemplateResponseDocumentStaticField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentStaticField::API_ID": A unique id for the static field.
 "TemplateResponseDocumentStaticField::GROUP": The name of the group this field is in. If this field is not a group, this defaults to `null`.
+"TemplateResponseDocumentStaticField::FONT_SIZE": Final font size used by this form field.
 
 "TemplateResponseSignerRole::DESCRIPTION": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 "TemplateResponseSignerRole::NAME": The name of the Role.

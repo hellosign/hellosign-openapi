@@ -19,9 +19,9 @@ import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseAccount;
 import com.dropbox.sign.model.TemplateResponseCCRole;
-import com.dropbox.sign.model.TemplateResponseCustomField;
 import com.dropbox.sign.model.TemplateResponseDocument;
-import com.dropbox.sign.model.TemplateResponseNamedFormField;
+import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldBase;
+import com.dropbox.sign.model.TemplateResponseDocumentFormFieldBase;
 import com.dropbox.sign.model.TemplateResponseSignerRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -100,10 +100,10 @@ public class TemplateResponse {
   private List<TemplateResponseDocument> documents = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseCustomField> customFields = null;
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_NAMED_FORM_FIELDS = "named_form_fields";
-  private List<TemplateResponseNamedFormField> namedFormFields = null;
+  private List<TemplateResponseDocumentFormFieldBase> namedFormFields = null;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
   private List<TemplateResponseAccount> accounts = null;
@@ -462,12 +462,12 @@ public class TemplateResponse {
   }
 
 
-  public TemplateResponse customFields(List<TemplateResponseCustomField> customFields) {
+  public TemplateResponse customFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
     return this;
   }
 
-  public TemplateResponse addCustomFieldsItem(TemplateResponseCustomField customFieldsItem) {
+  public TemplateResponse addCustomFieldsItem(TemplateResponseDocumentCustomFieldBase customFieldsItem) {
     if (this.customFields == null) {
       this.customFields = new ArrayList<>();
     }
@@ -476,32 +476,34 @@ public class TemplateResponse {
   }
 
    /**
-   * An array of Custom Field objects.
+   * Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
    * @return customFields
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Custom Field objects.")
+  @ApiModelProperty(value = "Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TemplateResponseCustomField> getCustomFields() {
+  public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
     return customFields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<TemplateResponseCustomField> customFields) {
+  public void setCustomFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
   }
 
 
-  public TemplateResponse namedFormFields(List<TemplateResponseNamedFormField> namedFormFields) {
+  public TemplateResponse namedFormFields(List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
     this.namedFormFields = namedFormFields;
     return this;
   }
 
-  public TemplateResponse addNamedFormFieldsItem(TemplateResponseNamedFormField namedFormFieldsItem) {
+  public TemplateResponse addNamedFormFieldsItem(TemplateResponseDocumentFormFieldBase namedFormFieldsItem) {
     if (this.namedFormFields == null) {
       this.namedFormFields = new ArrayList<>();
     }
@@ -520,14 +522,14 @@ public class TemplateResponse {
   @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TemplateResponseNamedFormField> getNamedFormFields() {
+  public List<TemplateResponseDocumentFormFieldBase> getNamedFormFields() {
     return namedFormFields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNamedFormFields(List<TemplateResponseNamedFormField> namedFormFields) {
+  public void setNamedFormFields(List<TemplateResponseDocumentFormFieldBase> namedFormFields) {
     this.namedFormFields = namedFormFields;
   }
 

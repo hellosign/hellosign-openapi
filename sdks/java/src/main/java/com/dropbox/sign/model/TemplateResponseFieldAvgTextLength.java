@@ -98,11 +98,11 @@ public class TemplateResponseFieldAvgTextLength {
   }
 
    /**
-   * Number of character per line.
+   * Number of characters per line.
    * @return numCharsPerLine
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of character per line.")
+  @ApiModelProperty(value = "Number of characters per line.")
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

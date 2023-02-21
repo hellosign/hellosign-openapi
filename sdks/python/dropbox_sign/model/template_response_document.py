@@ -33,21 +33,21 @@ from dropbox_sign.model_utils import (  # noqa: F401
 )
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
-    from dropbox_sign.model.template_response_document_custom_field import TemplateResponseDocumentCustomField
+    from dropbox_sign.model.template_response_document_custom_field_base import TemplateResponseDocumentCustomFieldBase
     from dropbox_sign.model.template_response_document_field_group import TemplateResponseDocumentFieldGroup
-    from dropbox_sign.model.template_response_document_form_field import TemplateResponseDocumentFormField
-    from dropbox_sign.model.template_response_document_static_field import TemplateResponseDocumentStaticField
+    from dropbox_sign.model.template_response_document_form_field_base import TemplateResponseDocumentFormFieldBase
+    from dropbox_sign.model.template_response_document_static_field_base import TemplateResponseDocumentStaticFieldBase
 
 
 def lazy_import():
-    from dropbox_sign.model.template_response_document_custom_field import TemplateResponseDocumentCustomField
+    from dropbox_sign.model.template_response_document_custom_field_base import TemplateResponseDocumentCustomFieldBase
     from dropbox_sign.model.template_response_document_field_group import TemplateResponseDocumentFieldGroup
-    from dropbox_sign.model.template_response_document_form_field import TemplateResponseDocumentFormField
-    from dropbox_sign.model.template_response_document_static_field import TemplateResponseDocumentStaticField
-    globals()['TemplateResponseDocumentCustomField'] = TemplateResponseDocumentCustomField
+    from dropbox_sign.model.template_response_document_form_field_base import TemplateResponseDocumentFormFieldBase
+    from dropbox_sign.model.template_response_document_static_field_base import TemplateResponseDocumentStaticFieldBase
+    globals()['TemplateResponseDocumentCustomFieldBase'] = TemplateResponseDocumentCustomFieldBase
     globals()['TemplateResponseDocumentFieldGroup'] = TemplateResponseDocumentFieldGroup
-    globals()['TemplateResponseDocumentFormField'] = TemplateResponseDocumentFormField
-    globals()['TemplateResponseDocumentStaticField'] = TemplateResponseDocumentStaticField
+    globals()['TemplateResponseDocumentFormFieldBase'] = TemplateResponseDocumentFormFieldBase
+    globals()['TemplateResponseDocumentStaticFieldBase'] = TemplateResponseDocumentStaticFieldBase
 
 
 class TemplateResponseDocument(ModelNormal):
@@ -106,9 +106,9 @@ class TemplateResponseDocument(ModelNormal):
             'name': (str,),  # noqa: E501
             'index': (int,),  # noqa: E501
             'field_groups': ([TemplateResponseDocumentFieldGroup],),  # noqa: E501
-            'form_fields': ([TemplateResponseDocumentFormField],),  # noqa: E501
-            'custom_fields': ([TemplateResponseDocumentCustomField],),  # noqa: E501
-            'static_fields': ([TemplateResponseDocumentStaticField], none_type,),  # noqa: E501
+            'form_fields': ([TemplateResponseDocumentFormFieldBase],),  # noqa: E501
+            'custom_fields': ([TemplateResponseDocumentCustomFieldBase],),  # noqa: E501
+            'static_fields': ([TemplateResponseDocumentStaticFieldBase], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -170,27 +170,27 @@ class TemplateResponseDocument(ModelNormal):
         setattr(self, "field_groups", value)
 
     @property
-    def form_fields(self) -> List[TemplateResponseDocumentFormField]:
+    def form_fields(self) -> List[TemplateResponseDocumentFormFieldBase]:
         return self.get("form_fields")
 
     @form_fields.setter
-    def form_fields(self, value: List[TemplateResponseDocumentFormField]):
+    def form_fields(self, value: List[TemplateResponseDocumentFormFieldBase]):
         setattr(self, "form_fields", value)
 
     @property
-    def custom_fields(self) -> List[TemplateResponseDocumentCustomField]:
+    def custom_fields(self) -> List[TemplateResponseDocumentCustomFieldBase]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: List[TemplateResponseDocumentCustomField]):
+    def custom_fields(self, value: List[TemplateResponseDocumentCustomFieldBase]):
         setattr(self, "custom_fields", value)
 
     @property
-    def static_fields(self) -> Optional[List[TemplateResponseDocumentStaticField]]:
+    def static_fields(self) -> Optional[List[TemplateResponseDocumentStaticFieldBase]]:
         return self.get("static_fields")
 
     @static_fields.setter
-    def static_fields(self, value: Optional[List[TemplateResponseDocumentStaticField]]):
+    def static_fields(self, value: Optional[List[TemplateResponseDocumentStaticFieldBase]]):
         setattr(self, "static_fields", value)
 
     @classmethod
@@ -232,9 +232,9 @@ class TemplateResponseDocument(ModelNormal):
             name (str): Name of the associated file.. [optional]  # noqa: E501
             index (int): Document ordering, the lowest index is displayed first and the highest last (0-based indexing).. [optional]  # noqa: E501
             field_groups ([TemplateResponseDocumentFieldGroup]): An array of Form Field Group objects.. [optional]  # noqa: E501
-            form_fields ([TemplateResponseDocumentFormField]): An array of Form Field objects containing the name and type of each named textbox and checkmark field.. [optional]  # noqa: E501
-            custom_fields ([TemplateResponseDocumentCustomField]): An array of Document Custom Field objects.. [optional]  # noqa: E501
-            static_fields ([TemplateResponseDocumentStaticField], none_type): An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.. [optional]  # noqa: E501
+            form_fields ([TemplateResponseDocumentFormFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
+            custom_fields ([TemplateResponseDocumentCustomFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
+            static_fields ([TemplateResponseDocumentStaticFieldBase], none_type): An array describing static overlay fields. **Note** only available for certain subscriptions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -319,9 +319,9 @@ class TemplateResponseDocument(ModelNormal):
             name (str): Name of the associated file.. [optional]  # noqa: E501
             index (int): Document ordering, the lowest index is displayed first and the highest last (0-based indexing).. [optional]  # noqa: E501
             field_groups ([TemplateResponseDocumentFieldGroup]): An array of Form Field Group objects.. [optional]  # noqa: E501
-            form_fields ([TemplateResponseDocumentFormField]): An array of Form Field objects containing the name and type of each named textbox and checkmark field.. [optional]  # noqa: E501
-            custom_fields ([TemplateResponseDocumentCustomField]): An array of Document Custom Field objects.. [optional]  # noqa: E501
-            static_fields ([TemplateResponseDocumentStaticField], none_type): An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.. [optional]  # noqa: E501
+            form_fields ([TemplateResponseDocumentFormFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
+            custom_fields ([TemplateResponseDocumentCustomFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
+            static_fields ([TemplateResponseDocumentStaticFieldBase], none_type): An array describing static overlay fields. **Note** only available for certain subscriptions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

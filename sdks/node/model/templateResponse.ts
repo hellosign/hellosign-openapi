@@ -25,9 +25,9 @@
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
-import { TemplateResponseCustomField } from "./templateResponseCustomField";
 import { TemplateResponseDocument } from "./templateResponseDocument";
-import { TemplateResponseNamedFormField } from "./templateResponseNamedFormField";
+import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
+import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
 import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 
 /**
@@ -83,13 +83,13 @@ export class TemplateResponse {
    */
   "documents"?: Array<TemplateResponseDocument>;
   /**
-   * An array of Custom Field objects.
+   * Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
    */
-  "customFields"?: Array<TemplateResponseCustomField> | null;
+  "customFields"?: Array<TemplateResponseDocumentCustomFieldBase> | null;
   /**
    * Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
    */
-  "namedFormFields"?: Array<TemplateResponseNamedFormField> | null;
+  "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
   /**
    * An array of the Accounts that can use this Template.
    */
@@ -161,12 +161,12 @@ export class TemplateResponse {
     {
       name: "customFields",
       baseName: "custom_fields",
-      type: "Array<TemplateResponseCustomField>",
+      type: "Array<TemplateResponseDocumentCustomFieldBase>",
     },
     {
       name: "namedFormFields",
       baseName: "named_form_fields",
-      type: "Array<TemplateResponseNamedFormField>",
+      type: "Array<TemplateResponseDocumentFormFieldBase>",
     },
     {
       name: "accounts",

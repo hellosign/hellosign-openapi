@@ -1,9 +1,9 @@
 import { AttributeTypeMap } from "./models";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
-import { TemplateResponseCustomField } from "./templateResponseCustomField";
 import { TemplateResponseDocument } from "./templateResponseDocument";
-import { TemplateResponseNamedFormField } from "./templateResponseNamedFormField";
+import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
+import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
 import { TemplateResponseSignerRole } from "./templateResponseSignerRole";
 export declare class TemplateResponse {
     "templateId"?: string;
@@ -18,8 +18,8 @@ export declare class TemplateResponse {
     "signerRoles"?: Array<TemplateResponseSignerRole>;
     "ccRoles"?: Array<TemplateResponseCCRole>;
     "documents"?: Array<TemplateResponseDocument>;
-    "customFields"?: Array<TemplateResponseCustomField> | null;
-    "namedFormFields"?: Array<TemplateResponseNamedFormField> | null;
+    "customFields"?: Array<TemplateResponseDocumentCustomFieldBase> | null;
+    "namedFormFields"?: Array<TemplateResponseDocumentFormFieldBase> | null;
     "accounts"?: Array<TemplateResponseAccount> | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

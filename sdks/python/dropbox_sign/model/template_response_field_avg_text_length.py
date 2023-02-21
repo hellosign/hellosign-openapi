@@ -173,7 +173,7 @@ class TemplateResponseFieldAvgTextLength(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             num_lines (int): Number of lines.. [optional]  # noqa: E501
-            num_chars_per_line (int): Number of character per line.. [optional]  # noqa: E501
+            num_chars_per_line (int): Number of characters per line.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,7 +256,7 @@ class TemplateResponseFieldAvgTextLength(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             num_lines (int): Number of lines.. [optional]  # noqa: E501
-            num_chars_per_line (int): Number of character per line.. [optional]  # noqa: E501
+            num_chars_per_line (int): Number of characters per line.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

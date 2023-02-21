@@ -61,7 +61,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
      */
     protected static $openAPITypes = [
         'name' => 'string',
-        'rule' => 'string',
+        'rule' => '\Dropbox\Sign\Model\TemplateResponseDocumentFieldGroupRule',
     ];
 
     /**
@@ -255,7 +255,7 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Gets rule
      *
-     * @return string|null
+     * @return TemplateResponseDocumentFieldGroupRule|null
      */
     public function getRule()
     {
@@ -265,11 +265,11 @@ class TemplateResponseDocumentFieldGroup implements ModelInterface, ArrayAccess,
     /**
      * Sets rule
      *
-     * @param string|null $rule The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+     * @param TemplateResponseDocumentFieldGroupRule|null $rule rule
      *
      * @return self
      */
-    public function setRule(?string $rule)
+    public function setRule(?TemplateResponseDocumentFieldGroupRule $rule)
     {
         $this->container['rule'] = $rule;
 
