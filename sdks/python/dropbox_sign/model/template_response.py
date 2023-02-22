@@ -35,24 +35,24 @@ from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
     from dropbox_sign.model.template_response_account import TemplateResponseAccount
     from dropbox_sign.model.template_response_cc_role import TemplateResponseCCRole
-    from dropbox_sign.model.template_response_custom_field import TemplateResponseCustomField
     from dropbox_sign.model.template_response_document import TemplateResponseDocument
-    from dropbox_sign.model.template_response_named_form_field import TemplateResponseNamedFormField
+    from dropbox_sign.model.template_response_document_custom_field_base import TemplateResponseDocumentCustomFieldBase
+    from dropbox_sign.model.template_response_document_form_field_base import TemplateResponseDocumentFormFieldBase
     from dropbox_sign.model.template_response_signer_role import TemplateResponseSignerRole
 
 
 def lazy_import():
     from dropbox_sign.model.template_response_account import TemplateResponseAccount
     from dropbox_sign.model.template_response_cc_role import TemplateResponseCCRole
-    from dropbox_sign.model.template_response_custom_field import TemplateResponseCustomField
     from dropbox_sign.model.template_response_document import TemplateResponseDocument
-    from dropbox_sign.model.template_response_named_form_field import TemplateResponseNamedFormField
+    from dropbox_sign.model.template_response_document_custom_field_base import TemplateResponseDocumentCustomFieldBase
+    from dropbox_sign.model.template_response_document_form_field_base import TemplateResponseDocumentFormFieldBase
     from dropbox_sign.model.template_response_signer_role import TemplateResponseSignerRole
     globals()['TemplateResponseAccount'] = TemplateResponseAccount
     globals()['TemplateResponseCCRole'] = TemplateResponseCCRole
-    globals()['TemplateResponseCustomField'] = TemplateResponseCustomField
     globals()['TemplateResponseDocument'] = TemplateResponseDocument
-    globals()['TemplateResponseNamedFormField'] = TemplateResponseNamedFormField
+    globals()['TemplateResponseDocumentCustomFieldBase'] = TemplateResponseDocumentCustomFieldBase
+    globals()['TemplateResponseDocumentFormFieldBase'] = TemplateResponseDocumentFormFieldBase
     globals()['TemplateResponseSignerRole'] = TemplateResponseSignerRole
 
 
@@ -121,8 +121,8 @@ class TemplateResponse(ModelNormal):
             'signer_roles': ([TemplateResponseSignerRole],),  # noqa: E501
             'cc_roles': ([TemplateResponseCCRole],),  # noqa: E501
             'documents': ([TemplateResponseDocument],),  # noqa: E501
-            'custom_fields': ([TemplateResponseCustomField], none_type,),  # noqa: E501
-            'named_form_fields': ([TemplateResponseNamedFormField], none_type,),  # noqa: E501
+            'custom_fields': ([TemplateResponseDocumentCustomFieldBase], none_type,),  # noqa: E501
+            'named_form_fields': ([TemplateResponseDocumentFormFieldBase], none_type,),  # noqa: E501
             'accounts': ([TemplateResponseAccount], none_type,),  # noqa: E501
         }
 
@@ -266,19 +266,19 @@ class TemplateResponse(ModelNormal):
         setattr(self, "documents", value)
 
     @property
-    def custom_fields(self) -> Optional[List[TemplateResponseCustomField]]:
+    def custom_fields(self) -> Optional[List[TemplateResponseDocumentCustomFieldBase]]:
         return self.get("custom_fields")
 
     @custom_fields.setter
-    def custom_fields(self, value: Optional[List[TemplateResponseCustomField]]):
+    def custom_fields(self, value: Optional[List[TemplateResponseDocumentCustomFieldBase]]):
         setattr(self, "custom_fields", value)
 
     @property
-    def named_form_fields(self) -> Optional[List[TemplateResponseNamedFormField]]:
+    def named_form_fields(self) -> Optional[List[TemplateResponseDocumentFormFieldBase]]:
         return self.get("named_form_fields")
 
     @named_form_fields.setter
-    def named_form_fields(self, value: Optional[List[TemplateResponseNamedFormField]]):
+    def named_form_fields(self, value: Optional[List[TemplateResponseDocumentFormFieldBase]]):
         setattr(self, "named_form_fields", value)
 
     @property
@@ -337,8 +337,8 @@ class TemplateResponse(ModelNormal):
             signer_roles ([TemplateResponseSignerRole]): An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.. [optional]  # noqa: E501
             cc_roles ([TemplateResponseCCRole]): An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.. [optional]  # noqa: E501
             documents ([TemplateResponseDocument]): An array describing each document associated with this Template. Includes form field data for each document.. [optional]  # noqa: E501
-            custom_fields ([TemplateResponseCustomField], none_type): An array of Custom Field objects.. [optional]  # noqa: E501
-            named_form_fields ([TemplateResponseNamedFormField], none_type): Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.. [optional]  # noqa: E501
+            custom_fields ([TemplateResponseDocumentCustomFieldBase], none_type): Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.. [optional]  # noqa: E501
+            named_form_fields ([TemplateResponseDocumentFormFieldBase], none_type): Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.. [optional]  # noqa: E501
             accounts ([TemplateResponseAccount], none_type): An array of the Accounts that can use this Template.. [optional]  # noqa: E501
         """
 
@@ -433,8 +433,8 @@ class TemplateResponse(ModelNormal):
             signer_roles ([TemplateResponseSignerRole]): An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.. [optional]  # noqa: E501
             cc_roles ([TemplateResponseCCRole]): An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.. [optional]  # noqa: E501
             documents ([TemplateResponseDocument]): An array describing each document associated with this Template. Includes form field data for each document.. [optional]  # noqa: E501
-            custom_fields ([TemplateResponseCustomField], none_type): An array of Custom Field objects.. [optional]  # noqa: E501
-            named_form_fields ([TemplateResponseNamedFormField], none_type): Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.. [optional]  # noqa: E501
+            custom_fields ([TemplateResponseDocumentCustomFieldBase], none_type): Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.. [optional]  # noqa: E501
+            named_form_fields ([TemplateResponseDocumentFormFieldBase], none_type): Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.. [optional]  # noqa: E501
             accounts ([TemplateResponseAccount], none_type): An array of the Accounts that can use this Template.. [optional]  # noqa: E501
         """
 

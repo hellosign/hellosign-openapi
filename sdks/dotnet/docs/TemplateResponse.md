@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **SignerRoles** | [**List&lt;TemplateResponseSignerRole&gt;**](TemplateResponseSignerRole.md) |  An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.  | [optional] 
 **CcRoles** | [**List&lt;TemplateResponseCCRole&gt;**](TemplateResponseCCRole.md) |  An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.  | [optional] 
 **Documents** | [**List&lt;TemplateResponseDocument&gt;**](TemplateResponseDocument.md) |  An array describing each document associated with this Template. Includes form field data for each document.  | [optional] 
-**CustomFields** | [**List&lt;TemplateResponseCustomField&gt;**](TemplateResponseCustomField.md) |  An array of Custom Field objects.  | [optional] 
-**NamedFormFields** | [**List&lt;TemplateResponseNamedFormField&gt;**](TemplateResponseNamedFormField.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  | [optional] 
+**CustomFields** | [**List&lt;TemplateResponseDocumentCustomFieldBase&gt;**](TemplateResponseDocumentCustomFieldBase.md) |  Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  | [optional] 
+**NamedFormFields** | [**List&lt;TemplateResponseDocumentFormFieldBase&gt;**](TemplateResponseDocumentFormFieldBase.md) |  Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.  | [optional] 
 **Accounts** | [**List&lt;TemplateResponseAccount&gt;**](TemplateResponseAccount.md) |  An array of the Accounts that can use this Template.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

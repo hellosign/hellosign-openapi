@@ -67,12 +67,12 @@ module Dropbox::Sign
     # @return [Array<TemplateResponseDocument>]
     attr_accessor :documents
 
-    # An array of Custom Field objects.
-    # @return [Array<TemplateResponseCustomField>, nil]
+    # Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+    # @return [Array<TemplateResponseDocumentCustomFieldBase>, nil]
     attr_accessor :custom_fields
 
     # Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
-    # @return [Array<TemplateResponseNamedFormField>, nil]
+    # @return [Array<TemplateResponseDocumentFormFieldBase>, nil]
     attr_accessor :named_form_fields
 
     # An array of the Accounts that can use this Template.
@@ -125,8 +125,8 @@ module Dropbox::Sign
         :'signer_roles' => :'Array<TemplateResponseSignerRole>',
         :'cc_roles' => :'Array<TemplateResponseCCRole>',
         :'documents' => :'Array<TemplateResponseDocument>',
-        :'custom_fields' => :'Array<TemplateResponseCustomField>',
-        :'named_form_fields' => :'Array<TemplateResponseNamedFormField>',
+        :'custom_fields' => :'Array<TemplateResponseDocumentCustomFieldBase>',
+        :'named_form_fields' => :'Array<TemplateResponseDocumentFormFieldBase>',
         :'accounts' => :'Array<TemplateResponseAccount>'
       }
     end

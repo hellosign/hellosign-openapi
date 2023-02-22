@@ -17,10 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomField;
+import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldBase;
 import com.dropbox.sign.model.TemplateResponseDocumentFieldGroup;
-import com.dropbox.sign.model.TemplateResponseDocumentFormField;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticField;
+import com.dropbox.sign.model.TemplateResponseDocumentFormFieldBase;
+import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldBase;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -61,13 +61,13 @@ public class TemplateResponseDocument {
   private List<TemplateResponseDocumentFieldGroup> fieldGroups = null;
 
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
-  private List<TemplateResponseDocumentFormField> formFields = null;
+  private List<TemplateResponseDocumentFormFieldBase> formFields = null;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseDocumentCustomField> customFields = null;
+  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
 
   public static final String JSON_PROPERTY_STATIC_FIELDS = "static_fields";
-  private List<TemplateResponseDocumentStaticField> staticFields = null;
+  private List<TemplateResponseDocumentStaticFieldBase> staticFields = null;
 
   public TemplateResponseDocument() { 
   }
@@ -173,12 +173,12 @@ public class TemplateResponseDocument {
   }
 
 
-  public TemplateResponseDocument formFields(List<TemplateResponseDocumentFormField> formFields) {
+  public TemplateResponseDocument formFields(List<TemplateResponseDocumentFormFieldBase> formFields) {
     this.formFields = formFields;
     return this;
   }
 
-  public TemplateResponseDocument addFormFieldsItem(TemplateResponseDocumentFormField formFieldsItem) {
+  public TemplateResponseDocument addFormFieldsItem(TemplateResponseDocumentFormFieldBase formFieldsItem) {
     if (this.formFields == null) {
       this.formFields = new ArrayList<>();
     }
@@ -187,32 +187,32 @@ public class TemplateResponseDocument {
   }
 
    /**
-   * An array of Form Field objects containing the name and type of each named textbox and checkmark field.
+   * An array of Form Field objects containing the name and type of each named field.
    * @return formFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named textbox and checkmark field.")
+  @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TemplateResponseDocumentFormField> getFormFields() {
+  public List<TemplateResponseDocumentFormFieldBase> getFormFields() {
     return formFields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFormFields(List<TemplateResponseDocumentFormField> formFields) {
+  public void setFormFields(List<TemplateResponseDocumentFormFieldBase> formFields) {
     this.formFields = formFields;
   }
 
 
-  public TemplateResponseDocument customFields(List<TemplateResponseDocumentCustomField> customFields) {
+  public TemplateResponseDocument customFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
     return this;
   }
 
-  public TemplateResponseDocument addCustomFieldsItem(TemplateResponseDocumentCustomField customFieldsItem) {
+  public TemplateResponseDocument addCustomFieldsItem(TemplateResponseDocumentCustomFieldBase customFieldsItem) {
     if (this.customFields == null) {
       this.customFields = new ArrayList<>();
     }
@@ -221,32 +221,32 @@ public class TemplateResponseDocument {
   }
 
    /**
-   * An array of Document Custom Field objects.
+   * An array of Form Field objects containing the name and type of each named field.
    * @return customFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of Document Custom Field objects.")
+  @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TemplateResponseDocumentCustomField> getCustomFields() {
+  public List<TemplateResponseDocumentCustomFieldBase> getCustomFields() {
     return customFields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomFields(List<TemplateResponseDocumentCustomField> customFields) {
+  public void setCustomFields(List<TemplateResponseDocumentCustomFieldBase> customFields) {
     this.customFields = customFields;
   }
 
 
-  public TemplateResponseDocument staticFields(List<TemplateResponseDocumentStaticField> staticFields) {
+  public TemplateResponseDocument staticFields(List<TemplateResponseDocumentStaticFieldBase> staticFields) {
     this.staticFields = staticFields;
     return this;
   }
 
-  public TemplateResponseDocument addStaticFieldsItem(TemplateResponseDocumentStaticField staticFieldsItem) {
+  public TemplateResponseDocument addStaticFieldsItem(TemplateResponseDocumentStaticFieldBase staticFieldsItem) {
     if (this.staticFields == null) {
       this.staticFields = new ArrayList<>();
     }
@@ -255,22 +255,22 @@ public class TemplateResponseDocument {
   }
 
    /**
-   * An array describing static overlay fields. &lt;b&gt;Note&lt;/b&gt; only available for certain subscriptions.
+   * An array describing static overlay fields. **Note** only available for certain subscriptions.
    * @return staticFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.")
+  @ApiModelProperty(value = "An array describing static overlay fields. **Note** only available for certain subscriptions.")
   @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<TemplateResponseDocumentStaticField> getStaticFields() {
+  public List<TemplateResponseDocumentStaticFieldBase> getStaticFields() {
     return staticFields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStaticFields(List<TemplateResponseDocumentStaticField> staticFields) {
+  public void setStaticFields(List<TemplateResponseDocumentStaticFieldBase> staticFields) {
     this.staticFields = staticFields;
   }
 

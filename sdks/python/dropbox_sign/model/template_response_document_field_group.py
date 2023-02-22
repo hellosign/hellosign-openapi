@@ -32,7 +32,13 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
+if TYPE_CHECKING:
+    from dropbox_sign.model.template_response_document_field_group_rule import TemplateResponseDocumentFieldGroupRule
 
+
+def lazy_import():
+    from dropbox_sign.model.template_response_document_field_group_rule import TemplateResponseDocumentFieldGroupRule
+    globals()['TemplateResponseDocumentFieldGroupRule'] = TemplateResponseDocumentFieldGroupRule
 
 
 class TemplateResponseDocumentFieldGroup(ModelNormal):
@@ -71,6 +77,7 @@ class TemplateResponseDocumentFieldGroup(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -85,9 +92,10 @@ class TemplateResponseDocumentFieldGroup(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'rule': (str,),  # noqa: E501
+            'rule': (TemplateResponseDocumentFieldGroupRule,),  # noqa: E501
         }
 
     @cached_property
@@ -129,11 +137,11 @@ class TemplateResponseDocumentFieldGroup(ModelNormal):
         setattr(self, "name", value)
 
     @property
-    def rule(self) -> str:
+    def rule(self) -> TemplateResponseDocumentFieldGroupRule:
         return self.get("rule")
 
     @rule.setter
-    def rule(self, value: str):
+    def rule(self, value: TemplateResponseDocumentFieldGroupRule):
         setattr(self, "rule", value)
 
     @classmethod
@@ -173,7 +181,7 @@ class TemplateResponseDocumentFieldGroup(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the form field group.. [optional]  # noqa: E501
-            rule (str): The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).. [optional]  # noqa: E501
+            rule (TemplateResponseDocumentFieldGroupRule): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,7 +264,7 @@ class TemplateResponseDocumentFieldGroup(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): The name of the form field group.. [optional]  # noqa: E501
-            rule (str): The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).. [optional]  # noqa: E501
+            rule (TemplateResponseDocumentFieldGroupRule): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

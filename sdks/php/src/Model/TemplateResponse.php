@@ -73,8 +73,8 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'signer_roles' => '\Dropbox\Sign\Model\TemplateResponseSignerRole[]',
         'cc_roles' => '\Dropbox\Sign\Model\TemplateResponseCCRole[]',
         'documents' => '\Dropbox\Sign\Model\TemplateResponseDocument[]',
-        'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseCustomField[]',
-        'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseNamedFormField[]',
+        'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]',
+        'named_form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
         'accounts' => '\Dropbox\Sign\Model\TemplateResponseAccount[]',
     ];
 
@@ -598,7 +598,8 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets custom_fields
      *
-     * @return TemplateResponseCustomField[]|null
+     * @return TemplateResponseDocumentCustomFieldBase[]|null
+     * @deprecated
      */
     public function getCustomFields()
     {
@@ -608,9 +609,10 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets custom_fields
      *
-     * @param TemplateResponseCustomField[]|null $custom_fields an array of Custom Field objects
+     * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
      *
      * @return self
+     * @deprecated
      */
     public function setCustomFields(?array $custom_fields)
     {
@@ -622,7 +624,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets named_form_fields
      *
-     * @return TemplateResponseNamedFormField[]|null
+     * @return TemplateResponseDocumentFormFieldBase[]|null
      * @deprecated
      */
     public function getNamedFormFields()
@@ -633,7 +635,7 @@ class TemplateResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets named_form_fields
      *
-     * @param TemplateResponseNamedFormField[]|null $named_form_fields Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
+     * @param TemplateResponseDocumentFormFieldBase[]|null $named_form_fields Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
      *
      * @return self
      * @deprecated

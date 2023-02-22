@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.TemplateResponseDocumentFieldGroupRule;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -45,7 +46,7 @@ public class TemplateResponseDocumentFieldGroup {
   private String name;
 
   public static final String JSON_PROPERTY_RULE = "rule";
-  private String rule;
+  private TemplateResponseDocumentFieldGroupRule rule;
 
   public TemplateResponseDocumentFieldGroup() { 
   }
@@ -91,28 +92,28 @@ public class TemplateResponseDocumentFieldGroup {
   }
 
 
-  public TemplateResponseDocumentFieldGroup rule(String rule) {
+  public TemplateResponseDocumentFieldGroup rule(TemplateResponseDocumentFieldGroupRule rule) {
     this.rule = rule;
     return this;
   }
 
    /**
-   * The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
+   * Get rule
    * @return rule
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getRule() {
+  public TemplateResponseDocumentFieldGroupRule getRule() {
     return rule;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRule(String rule) {
+  public void setRule(TemplateResponseDocumentFieldGroupRule rule) {
     this.rule = rule;
   }
 

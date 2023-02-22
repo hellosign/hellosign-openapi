@@ -9,7 +9,7 @@ Average text length in this field.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `numLines` | ```Integer``` |  Number of lines.  |  |
-| `numCharsPerLine` | ```Integer``` |  Number of character per line.  |  |
+| `numCharsPerLine` | ```Integer``` |  Number of characters per line.  |  |
 
 
 
