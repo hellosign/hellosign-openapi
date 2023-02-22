@@ -266,7 +266,7 @@ class TemplateResponseFieldAvgTextLength implements ModelInterface, ArrayAccess,
     /**
      * Sets num_chars_per_line
      *
-     * @param int|null $num_chars_per_line number of character per line
+     * @param int|null $num_chars_per_line number of characters per line
      *
      * @return self
      */

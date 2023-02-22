@@ -44,10 +44,10 @@ namespace Dropbox.Sign.Model
         /// <param name="name">Name of the associated file..</param>
         /// <param name="index">Document ordering, the lowest index is displayed first and the highest last (0-based indexing)..</param>
         /// <param name="fieldGroups">An array of Form Field Group objects..</param>
-        /// <param name="formFields">An array of Form Field objects containing the name and type of each named textbox and checkmark field..</param>
-        /// <param name="customFields">An array of Document Custom Field objects..</param>
-        /// <param name="staticFields">An array describing static overlay fields. &lt;b&gt;Note&lt;/b&gt; only available for certain subscriptions..</param>
-        public TemplateResponseDocument(string name = default(string), int index = default(int), List<TemplateResponseDocumentFieldGroup> fieldGroups = default(List<TemplateResponseDocumentFieldGroup>), List<TemplateResponseDocumentFormField> formFields = default(List<TemplateResponseDocumentFormField>), List<TemplateResponseDocumentCustomField> customFields = default(List<TemplateResponseDocumentCustomField>), List<TemplateResponseDocumentStaticField> staticFields = default(List<TemplateResponseDocumentStaticField>))
+        /// <param name="formFields">An array of Form Field objects containing the name and type of each named field..</param>
+        /// <param name="customFields">An array of Form Field objects containing the name and type of each named field..</param>
+        /// <param name="staticFields">An array describing static overlay fields. **Note** only available for certain subscriptions..</param>
+        public TemplateResponseDocument(string name = default(string), int index = default(int), List<TemplateResponseDocumentFieldGroup> fieldGroups = default(List<TemplateResponseDocumentFieldGroup>), List<TemplateResponseDocumentFormFieldBase> formFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentStaticFieldBase> staticFields = default(List<TemplateResponseDocumentStaticFieldBase>))
         {
             
             this.Name = name;
@@ -96,25 +96,25 @@ namespace Dropbox.Sign.Model
         public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
 
         /// <summary>
-        /// An array of Form Field objects containing the name and type of each named textbox and checkmark field.
+        /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
-        /// <value>An array of Form Field objects containing the name and type of each named textbox and checkmark field.</value>
+        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
         [DataMember(Name = "form_fields", EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentFormField> FormFields { get; set; }
+        public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
 
         /// <summary>
-        /// An array of Document Custom Field objects.
+        /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
-        /// <value>An array of Document Custom Field objects.</value>
+        /// <value>An array of Form Field objects containing the name and type of each named field.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentCustomField> CustomFields { get; set; }
+        public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
 
         /// <summary>
-        /// An array describing static overlay fields. &lt;b&gt;Note&lt;/b&gt; only available for certain subscriptions.
+        /// An array describing static overlay fields. **Note** only available for certain subscriptions.
         /// </summary>
-        /// <value>An array describing static overlay fields. &lt;b&gt;Note&lt;/b&gt; only available for certain subscriptions.</value>
+        /// <value>An array describing static overlay fields. **Note** only available for certain subscriptions.</value>
         [DataMember(Name = "static_fields", EmitDefaultValue = true)]
-        public List<TemplateResponseDocumentStaticField> StaticFields { get; set; }
+        public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -258,19 +258,19 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "form_fields",
                 Property = "FormFields",
-                Type = "List<TemplateResponseDocumentFormField>",
+                Type = "List<TemplateResponseDocumentFormFieldBase>",
                 Value = FormFields,
             });
             types.Add(new OpenApiType(){
                 Name = "custom_fields",
                 Property = "CustomFields",
-                Type = "List<TemplateResponseDocumentCustomField>",
+                Type = "List<TemplateResponseDocumentCustomFieldBase>",
                 Value = CustomFields,
             });
             types.Add(new OpenApiType(){
                 Name = "static_fields",
                 Property = "StaticFields",
-                Type = "List<TemplateResponseDocumentStaticField>",
+                Type = "List<TemplateResponseDocumentStaticFieldBase>",
                 Value = StaticFields,
             });
 

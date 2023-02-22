@@ -18385,14 +18385,31 @@ __export(api_exports, {
   TemplateResponseAccount: () => TemplateResponseAccount,
   TemplateResponseAccountQuota: () => TemplateResponseAccountQuota,
   TemplateResponseCCRole: () => TemplateResponseCCRole,
-  TemplateResponseCustomField: () => TemplateResponseCustomField,
   TemplateResponseDocument: () => TemplateResponseDocument,
-  TemplateResponseDocumentCustomField: () => TemplateResponseDocumentCustomField,
+  TemplateResponseDocumentCustomFieldBase: () => TemplateResponseDocumentCustomFieldBase,
+  TemplateResponseDocumentCustomFieldCheckbox: () => TemplateResponseDocumentCustomFieldCheckbox,
+  TemplateResponseDocumentCustomFieldText: () => TemplateResponseDocumentCustomFieldText,
   TemplateResponseDocumentFieldGroup: () => TemplateResponseDocumentFieldGroup,
-  TemplateResponseDocumentFormField: () => TemplateResponseDocumentFormField,
-  TemplateResponseDocumentStaticField: () => TemplateResponseDocumentStaticField,
+  TemplateResponseDocumentFieldGroupRule: () => TemplateResponseDocumentFieldGroupRule,
+  TemplateResponseDocumentFormFieldBase: () => TemplateResponseDocumentFormFieldBase,
+  TemplateResponseDocumentFormFieldCheckbox: () => TemplateResponseDocumentFormFieldCheckbox,
+  TemplateResponseDocumentFormFieldDateSigned: () => TemplateResponseDocumentFormFieldDateSigned,
+  TemplateResponseDocumentFormFieldDropdown: () => TemplateResponseDocumentFormFieldDropdown,
+  TemplateResponseDocumentFormFieldHyperlink: () => TemplateResponseDocumentFormFieldHyperlink,
+  TemplateResponseDocumentFormFieldInitials: () => TemplateResponseDocumentFormFieldInitials,
+  TemplateResponseDocumentFormFieldRadio: () => TemplateResponseDocumentFormFieldRadio,
+  TemplateResponseDocumentFormFieldSignature: () => TemplateResponseDocumentFormFieldSignature,
+  TemplateResponseDocumentFormFieldText: () => TemplateResponseDocumentFormFieldText,
+  TemplateResponseDocumentStaticFieldBase: () => TemplateResponseDocumentStaticFieldBase,
+  TemplateResponseDocumentStaticFieldCheckbox: () => TemplateResponseDocumentStaticFieldCheckbox,
+  TemplateResponseDocumentStaticFieldDateSigned: () => TemplateResponseDocumentStaticFieldDateSigned,
+  TemplateResponseDocumentStaticFieldDropdown: () => TemplateResponseDocumentStaticFieldDropdown,
+  TemplateResponseDocumentStaticFieldHyperlink: () => TemplateResponseDocumentStaticFieldHyperlink,
+  TemplateResponseDocumentStaticFieldInitials: () => TemplateResponseDocumentStaticFieldInitials,
+  TemplateResponseDocumentStaticFieldRadio: () => TemplateResponseDocumentStaticFieldRadio,
+  TemplateResponseDocumentStaticFieldSignature: () => TemplateResponseDocumentStaticFieldSignature,
+  TemplateResponseDocumentStaticFieldText: () => TemplateResponseDocumentStaticFieldText,
   TemplateResponseFieldAvgTextLength: () => TemplateResponseFieldAvgTextLength,
-  TemplateResponseNamedFormField: () => TemplateResponseNamedFormField,
   TemplateResponseSignerRole: () => TemplateResponseSignerRole,
   TemplateUpdateFilesRequest: () => TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: () => TemplateUpdateFilesResponse,
@@ -23653,12 +23670,12 @@ TemplateResponse.attributeTypeMap = [
   {
     name: "customFields",
     baseName: "custom_fields",
-    type: "Array<TemplateResponseCustomField>"
+    type: "Array<TemplateResponseDocumentCustomFieldBase>"
   },
   {
     name: "namedFormFields",
     baseName: "named_form_fields",
-    type: "Array<TemplateResponseNamedFormField>"
+    type: "Array<TemplateResponseDocumentFormFieldBase>"
   },
   {
     name: "accounts",
@@ -23764,92 +23781,6 @@ TemplateResponseCCRole.attributeTypeMap = [
   }
 ];
 
-// model/templateResponseCustomField.ts
-var _TemplateResponseCustomField = class {
-  static getAttributeTypeMap() {
-    return _TemplateResponseCustomField.attributeTypeMap;
-  }
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateResponseCustomField");
-  }
-};
-var TemplateResponseCustomField = _TemplateResponseCustomField;
-TemplateResponseCustomField.discriminator = void 0;
-TemplateResponseCustomField.attributeTypeMap = [
-  {
-    name: "name",
-    baseName: "name",
-    type: "string"
-  },
-  {
-    name: "type",
-    baseName: "type",
-    type: "TemplateResponseCustomField.TypeEnum"
-  },
-  {
-    name: "x",
-    baseName: "x",
-    type: "number"
-  },
-  {
-    name: "y",
-    baseName: "y",
-    type: "number"
-  },
-  {
-    name: "width",
-    baseName: "width",
-    type: "number"
-  },
-  {
-    name: "height",
-    baseName: "height",
-    type: "number"
-  },
-  {
-    name: "required",
-    baseName: "required",
-    type: "boolean"
-  },
-  {
-    name: "apiId",
-    baseName: "api_id",
-    type: "string"
-  },
-  {
-    name: "group",
-    baseName: "group",
-    type: "string"
-  },
-  {
-    name: "avgTextLength",
-    baseName: "avg_text_length",
-    type: "TemplateResponseFieldAvgTextLength"
-  },
-  {
-    name: "isMultiline",
-    baseName: "isMultiline",
-    type: "boolean"
-  },
-  {
-    name: "originalFontSize",
-    baseName: "originalFontSize",
-    type: "number"
-  },
-  {
-    name: "fontFamily",
-    baseName: "fontFamily",
-    type: "string"
-  }
-];
-((TemplateResponseCustomField2) => {
-  let TypeEnum;
-  ((TypeEnum2) => {
-    TypeEnum2["Text"] = "text";
-    TypeEnum2["Checkbox"] = "checkbox";
-  })(TypeEnum = TemplateResponseCustomField2.TypeEnum || (TemplateResponseCustomField2.TypeEnum = {}));
-})(TemplateResponseCustomField || (TemplateResponseCustomField = {}));
-
 // model/templateResponseDocument.ts
 var _TemplateResponseDocument = class {
   static getAttributeTypeMap() {
@@ -23880,44 +23811,55 @@ TemplateResponseDocument.attributeTypeMap = [
   {
     name: "formFields",
     baseName: "form_fields",
-    type: "Array<TemplateResponseDocumentFormField>"
+    type: "Array<TemplateResponseDocumentFormFieldBase>"
   },
   {
     name: "customFields",
     baseName: "custom_fields",
-    type: "Array<TemplateResponseDocumentCustomField>"
+    type: "Array<TemplateResponseDocumentCustomFieldBase>"
   },
   {
     name: "staticFields",
     baseName: "static_fields",
-    type: "Array<TemplateResponseDocumentStaticField>"
+    type: "Array<TemplateResponseDocumentStaticFieldBase>"
   }
 ];
 
-// model/templateResponseDocumentCustomField.ts
-var _TemplateResponseDocumentCustomField = class {
+// model/templateResponseDocumentCustomFieldBase.ts
+var _TemplateResponseDocumentCustomFieldBase = class {
   static getAttributeTypeMap() {
-    return _TemplateResponseDocumentCustomField.attributeTypeMap;
+    return _TemplateResponseDocumentCustomFieldBase.attributeTypeMap;
   }
-  static init(data) {
-    return ObjectSerializer.deserialize(
-      data,
-      "TemplateResponseDocumentCustomField"
-    );
+  static discriminatorClassName(value) {
+    if (value === void 0 || value === null) {
+      return null;
+    }
+    if (value === "checkbox") {
+      return "TemplateResponseDocumentCustomFieldCheckbox";
+    }
+    if (value === "text") {
+      return "TemplateResponseDocumentCustomFieldText";
+    }
+    return null;
   }
 };
-var TemplateResponseDocumentCustomField = _TemplateResponseDocumentCustomField;
-TemplateResponseDocumentCustomField.discriminator = void 0;
-TemplateResponseDocumentCustomField.attributeTypeMap = [
+var TemplateResponseDocumentCustomFieldBase = _TemplateResponseDocumentCustomFieldBase;
+TemplateResponseDocumentCustomFieldBase.discriminator = "type";
+TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
+  {
+    name: "apiId",
+    baseName: "api_id",
+    type: "string"
+  },
   {
     name: "name",
     baseName: "name",
     type: "string"
-  },
-  {
-    name: "type",
-    baseName: "type",
-    type: "TemplateResponseDocumentCustomField.TypeEnum"
   },
   {
     name: "signer",
@@ -23950,13 +23892,65 @@ TemplateResponseDocumentCustomField.attributeTypeMap = [
     type: "boolean"
   },
   {
-    name: "apiId",
-    baseName: "api_id",
+    name: "group",
+    baseName: "group",
     type: "string"
   },
   {
-    name: "group",
-    baseName: "group",
+    name: "fontSize",
+    baseName: "fontSize",
+    type: "number"
+  }
+];
+
+// model/templateResponseDocumentCustomFieldCheckbox.ts
+var _TemplateResponseDocumentCustomFieldCheckbox = class extends TemplateResponseDocumentCustomFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "checkbox";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentCustomFieldCheckbox.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentCustomFieldCheckbox"
+    );
+  }
+};
+var TemplateResponseDocumentCustomFieldCheckbox = _TemplateResponseDocumentCustomFieldCheckbox;
+TemplateResponseDocumentCustomFieldCheckbox.discriminator = void 0;
+TemplateResponseDocumentCustomFieldCheckbox.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentCustomFieldText.ts
+var _TemplateResponseDocumentCustomFieldText = class extends TemplateResponseDocumentCustomFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "text";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentCustomFieldText.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentCustomFieldText"
+    );
+  }
+};
+var TemplateResponseDocumentCustomFieldText = _TemplateResponseDocumentCustomFieldText;
+TemplateResponseDocumentCustomFieldText.discriminator = void 0;
+TemplateResponseDocumentCustomFieldText.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -23978,25 +23972,8 @@ TemplateResponseDocumentCustomField.attributeTypeMap = [
     name: "fontFamily",
     baseName: "fontFamily",
     type: "string"
-  },
-  {
-    name: "namedFormFields",
-    baseName: "named_form_fields",
-    type: "object"
-  },
-  {
-    name: "reusableFormId",
-    baseName: "reusable_form_id",
-    type: "string"
   }
 ];
-((TemplateResponseDocumentCustomField2) => {
-  let TypeEnum;
-  ((TypeEnum2) => {
-    TypeEnum2["Text"] = "text";
-    TypeEnum2["Checkbox"] = "checkbox";
-  })(TypeEnum = TemplateResponseDocumentCustomField2.TypeEnum || (TemplateResponseDocumentCustomField2.TypeEnum = {}));
-})(TemplateResponseDocumentCustomField || (TemplateResponseDocumentCustomField = {}));
 
 // model/templateResponseDocumentFieldGroup.ts
 var _TemplateResponseDocumentFieldGroup = class {
@@ -24021,25 +23998,81 @@ TemplateResponseDocumentFieldGroup.attributeTypeMap = [
   {
     name: "rule",
     baseName: "rule",
-    type: "string"
+    type: "TemplateResponseDocumentFieldGroupRule"
   }
 ];
 
-// model/templateResponseDocumentFormField.ts
-var _TemplateResponseDocumentFormField = class {
+// model/templateResponseDocumentFieldGroupRule.ts
+var _TemplateResponseDocumentFieldGroupRule = class {
   static getAttributeTypeMap() {
-    return _TemplateResponseDocumentFormField.attributeTypeMap;
+    return _TemplateResponseDocumentFieldGroupRule.attributeTypeMap;
   }
   static init(data) {
     return ObjectSerializer.deserialize(
       data,
-      "TemplateResponseDocumentFormField"
+      "TemplateResponseDocumentFieldGroupRule"
     );
   }
 };
-var TemplateResponseDocumentFormField = _TemplateResponseDocumentFormField;
-TemplateResponseDocumentFormField.discriminator = void 0;
-TemplateResponseDocumentFormField.attributeTypeMap = [
+var TemplateResponseDocumentFieldGroupRule = _TemplateResponseDocumentFieldGroupRule;
+TemplateResponseDocumentFieldGroupRule.discriminator = void 0;
+TemplateResponseDocumentFieldGroupRule.attributeTypeMap = [
+  {
+    name: "requirement",
+    baseName: "requirement",
+    type: "string"
+  },
+  {
+    name: "groupLabel",
+    baseName: "groupLabel",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldBase.ts
+var _TemplateResponseDocumentFormFieldBase = class {
+  static getAttributeTypeMap() {
+    return _TemplateResponseDocumentFormFieldBase.attributeTypeMap;
+  }
+  static discriminatorClassName(value) {
+    if (value === void 0 || value === null) {
+      return null;
+    }
+    if (value === "checkbox") {
+      return "TemplateResponseDocumentFormFieldCheckbox";
+    }
+    if (value === "date_signed") {
+      return "TemplateResponseDocumentFormFieldDateSigned";
+    }
+    if (value === "dropdown") {
+      return "TemplateResponseDocumentFormFieldDropdown";
+    }
+    if (value === "hyperlink") {
+      return "TemplateResponseDocumentFormFieldHyperlink";
+    }
+    if (value === "initials") {
+      return "TemplateResponseDocumentFormFieldInitials";
+    }
+    if (value === "radio") {
+      return "TemplateResponseDocumentFormFieldRadio";
+    }
+    if (value === "signature") {
+      return "TemplateResponseDocumentFormFieldSignature";
+    }
+    if (value === "text") {
+      return "TemplateResponseDocumentFormFieldText";
+    }
+    return null;
+  }
+};
+var TemplateResponseDocumentFormFieldBase = _TemplateResponseDocumentFormFieldBase;
+TemplateResponseDocumentFormFieldBase.discriminator = "type";
+TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
   {
     name: "apiId",
     baseName: "api_id",
@@ -24049,11 +24082,6 @@ TemplateResponseDocumentFormField.attributeTypeMap = [
     name: "name",
     baseName: "name",
     type: "string"
-  },
-  {
-    name: "type",
-    baseName: "type",
-    type: "TemplateResponseDocumentFormField.TypeEnum"
   },
   {
     name: "signer",
@@ -24088,6 +24116,115 @@ TemplateResponseDocumentFormField.attributeTypeMap = [
   {
     name: "group",
     baseName: "group",
+    type: "string"
+  },
+  {
+    name: "fontSize",
+    baseName: "fontSize",
+    type: "number"
+  }
+];
+
+// model/templateResponseDocumentFormFieldCheckbox.ts
+var _TemplateResponseDocumentFormFieldCheckbox = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "checkbox";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldCheckbox.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldCheckbox"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldCheckbox = _TemplateResponseDocumentFormFieldCheckbox;
+TemplateResponseDocumentFormFieldCheckbox.discriminator = void 0;
+TemplateResponseDocumentFormFieldCheckbox.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldDateSigned.ts
+var _TemplateResponseDocumentFormFieldDateSigned = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "date_signed";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldDateSigned.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldDateSigned"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldDateSigned = _TemplateResponseDocumentFormFieldDateSigned;
+TemplateResponseDocumentFormFieldDateSigned.discriminator = void 0;
+TemplateResponseDocumentFormFieldDateSigned.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldDropdown.ts
+var _TemplateResponseDocumentFormFieldDropdown = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "dropdown";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldDropdown.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldDropdown"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldDropdown = _TemplateResponseDocumentFormFieldDropdown;
+TemplateResponseDocumentFormFieldDropdown.discriminator = void 0;
+TemplateResponseDocumentFormFieldDropdown.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldHyperlink.ts
+var _TemplateResponseDocumentFormFieldHyperlink = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "hyperlink";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldHyperlink.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldHyperlink"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldHyperlink = _TemplateResponseDocumentFormFieldHyperlink;
+TemplateResponseDocumentFormFieldHyperlink.discriminator = void 0;
+TemplateResponseDocumentFormFieldHyperlink.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   },
   {
@@ -24111,45 +24248,206 @@ TemplateResponseDocumentFormField.attributeTypeMap = [
     type: "string"
   }
 ];
-((TemplateResponseDocumentFormField2) => {
-  let TypeEnum;
-  ((TypeEnum2) => {
-    TypeEnum2["Checkbox"] = "checkbox";
-    TypeEnum2["CheckboxMerge"] = "checkbox-merge";
-    TypeEnum2["DateSigned"] = "date_signed";
-    TypeEnum2["Dropdown"] = "dropdown";
-    TypeEnum2["Hyperlink"] = "hyperlink";
-    TypeEnum2["Initials"] = "initials";
-    TypeEnum2["Signature"] = "signature";
-    TypeEnum2["Radio"] = "radio";
-    TypeEnum2["Text"] = "text";
-    TypeEnum2["TextMerge"] = "text-merge";
-  })(TypeEnum = TemplateResponseDocumentFormField2.TypeEnum || (TemplateResponseDocumentFormField2.TypeEnum = {}));
-})(TemplateResponseDocumentFormField || (TemplateResponseDocumentFormField = {}));
 
-// model/templateResponseDocumentStaticField.ts
-var _TemplateResponseDocumentStaticField = class {
+// model/templateResponseDocumentFormFieldInitials.ts
+var _TemplateResponseDocumentFormFieldInitials = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "initials";
+  }
   static getAttributeTypeMap() {
-    return _TemplateResponseDocumentStaticField.attributeTypeMap;
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldInitials.attributeTypeMap);
   }
   static init(data) {
     return ObjectSerializer.deserialize(
       data,
-      "TemplateResponseDocumentStaticField"
+      "TemplateResponseDocumentFormFieldInitials"
     );
   }
 };
-var TemplateResponseDocumentStaticField = _TemplateResponseDocumentStaticField;
-TemplateResponseDocumentStaticField.discriminator = void 0;
-TemplateResponseDocumentStaticField.attributeTypeMap = [
-  {
-    name: "name",
-    baseName: "name",
-    type: "string"
-  },
+var TemplateResponseDocumentFormFieldInitials = _TemplateResponseDocumentFormFieldInitials;
+TemplateResponseDocumentFormFieldInitials.discriminator = void 0;
+TemplateResponseDocumentFormFieldInitials.attributeTypeMap = [
   {
     name: "type",
     baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldRadio.ts
+var _TemplateResponseDocumentFormFieldRadio = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "radio";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldRadio.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldRadio"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldRadio = _TemplateResponseDocumentFormFieldRadio;
+TemplateResponseDocumentFormFieldRadio.discriminator = void 0;
+TemplateResponseDocumentFormFieldRadio.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldSignature.ts
+var _TemplateResponseDocumentFormFieldSignature = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "signature";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldSignature.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldSignature"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldSignature = _TemplateResponseDocumentFormFieldSignature;
+TemplateResponseDocumentFormFieldSignature.discriminator = void 0;
+TemplateResponseDocumentFormFieldSignature.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentFormFieldText.ts
+var _TemplateResponseDocumentFormFieldText = class extends TemplateResponseDocumentFormFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "text";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentFormFieldText.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentFormFieldText"
+    );
+  }
+};
+var TemplateResponseDocumentFormFieldText = _TemplateResponseDocumentFormFieldText;
+TemplateResponseDocumentFormFieldText.discriminator = void 0;
+TemplateResponseDocumentFormFieldText.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
+  {
+    name: "avgTextLength",
+    baseName: "avg_text_length",
+    type: "TemplateResponseFieldAvgTextLength"
+  },
+  {
+    name: "isMultiline",
+    baseName: "isMultiline",
+    type: "boolean"
+  },
+  {
+    name: "originalFontSize",
+    baseName: "originalFontSize",
+    type: "number"
+  },
+  {
+    name: "fontFamily",
+    baseName: "fontFamily",
+    type: "string"
+  },
+  {
+    name: "validationType",
+    baseName: "validation_type",
+    type: "TemplateResponseDocumentFormFieldText.ValidationTypeEnum"
+  }
+];
+((TemplateResponseDocumentFormFieldText2) => {
+  let ValidationTypeEnum;
+  ((ValidationTypeEnum2) => {
+    ValidationTypeEnum2["NumbersOnly"] = "numbers_only";
+    ValidationTypeEnum2["LettersOnly"] = "letters_only";
+    ValidationTypeEnum2["PhoneNumber"] = "phone_number";
+    ValidationTypeEnum2["BankRoutingNumber"] = "bank_routing_number";
+    ValidationTypeEnum2["BankAccountNumber"] = "bank_account_number";
+    ValidationTypeEnum2["EmailAddress"] = "email_address";
+    ValidationTypeEnum2["ZipCode"] = "zip_code";
+    ValidationTypeEnum2["SocialSecurityNumber"] = "social_security_number";
+    ValidationTypeEnum2["EmployerIdentificationNumber"] = "employer_identification_number";
+    ValidationTypeEnum2["CustomRegex"] = "custom_regex";
+  })(ValidationTypeEnum = TemplateResponseDocumentFormFieldText2.ValidationTypeEnum || (TemplateResponseDocumentFormFieldText2.ValidationTypeEnum = {}));
+})(TemplateResponseDocumentFormFieldText || (TemplateResponseDocumentFormFieldText = {}));
+
+// model/templateResponseDocumentStaticFieldBase.ts
+var _TemplateResponseDocumentStaticFieldBase = class {
+  constructor() {
+    this["signer"] = "me_now";
+  }
+  static getAttributeTypeMap() {
+    return _TemplateResponseDocumentStaticFieldBase.attributeTypeMap;
+  }
+  static discriminatorClassName(value) {
+    if (value === void 0 || value === null) {
+      return null;
+    }
+    if (value === "checkbox") {
+      return "TemplateResponseDocumentStaticFieldCheckbox";
+    }
+    if (value === "date_signed") {
+      return "TemplateResponseDocumentStaticFieldDateSigned";
+    }
+    if (value === "dropdown") {
+      return "TemplateResponseDocumentStaticFieldDropdown";
+    }
+    if (value === "hyperlink") {
+      return "TemplateResponseDocumentStaticFieldHyperlink";
+    }
+    if (value === "initials") {
+      return "TemplateResponseDocumentStaticFieldInitials";
+    }
+    if (value === "radio") {
+      return "TemplateResponseDocumentStaticFieldRadio";
+    }
+    if (value === "signature") {
+      return "TemplateResponseDocumentStaticFieldSignature";
+    }
+    if (value === "text") {
+      return "TemplateResponseDocumentStaticFieldText";
+    }
+    return null;
+  }
+};
+var TemplateResponseDocumentStaticFieldBase = _TemplateResponseDocumentStaticFieldBase;
+TemplateResponseDocumentStaticFieldBase.discriminator = "type";
+TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  },
+  {
+    name: "apiId",
+    baseName: "api_id",
+    type: "string"
+  },
+  {
+    name: "name",
+    baseName: "name",
     type: "string"
   },
   {
@@ -24183,13 +24481,221 @@ TemplateResponseDocumentStaticField.attributeTypeMap = [
     type: "boolean"
   },
   {
-    name: "apiId",
-    baseName: "api_id",
+    name: "group",
+    baseName: "group",
     type: "string"
   },
   {
-    name: "group",
-    baseName: "group",
+    name: "fontSize",
+    baseName: "fontSize",
+    type: "number"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldCheckbox.ts
+var _TemplateResponseDocumentStaticFieldCheckbox = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "checkbox";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldCheckbox.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldCheckbox"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldCheckbox = _TemplateResponseDocumentStaticFieldCheckbox;
+TemplateResponseDocumentStaticFieldCheckbox.discriminator = void 0;
+TemplateResponseDocumentStaticFieldCheckbox.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldDateSigned.ts
+var _TemplateResponseDocumentStaticFieldDateSigned = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "date_signed";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldDateSigned.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldDateSigned"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldDateSigned = _TemplateResponseDocumentStaticFieldDateSigned;
+TemplateResponseDocumentStaticFieldDateSigned.discriminator = void 0;
+TemplateResponseDocumentStaticFieldDateSigned.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldDropdown.ts
+var _TemplateResponseDocumentStaticFieldDropdown = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "dropdown";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldDropdown.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldDropdown"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldDropdown = _TemplateResponseDocumentStaticFieldDropdown;
+TemplateResponseDocumentStaticFieldDropdown.discriminator = void 0;
+TemplateResponseDocumentStaticFieldDropdown.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldHyperlink.ts
+var _TemplateResponseDocumentStaticFieldHyperlink = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "hyperlink";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldHyperlink.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldHyperlink"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldHyperlink = _TemplateResponseDocumentStaticFieldHyperlink;
+TemplateResponseDocumentStaticFieldHyperlink.discriminator = void 0;
+TemplateResponseDocumentStaticFieldHyperlink.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldInitials.ts
+var _TemplateResponseDocumentStaticFieldInitials = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "initials";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldInitials.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldInitials"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldInitials = _TemplateResponseDocumentStaticFieldInitials;
+TemplateResponseDocumentStaticFieldInitials.discriminator = void 0;
+TemplateResponseDocumentStaticFieldInitials.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldRadio.ts
+var _TemplateResponseDocumentStaticFieldRadio = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "radio";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldRadio.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldRadio"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldRadio = _TemplateResponseDocumentStaticFieldRadio;
+TemplateResponseDocumentStaticFieldRadio.discriminator = void 0;
+TemplateResponseDocumentStaticFieldRadio.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldSignature.ts
+var _TemplateResponseDocumentStaticFieldSignature = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "signature";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldSignature.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldSignature"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldSignature = _TemplateResponseDocumentStaticFieldSignature;
+TemplateResponseDocumentStaticFieldSignature.discriminator = void 0;
+TemplateResponseDocumentStaticFieldSignature.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
+    type: "string"
+  }
+];
+
+// model/templateResponseDocumentStaticFieldText.ts
+var _TemplateResponseDocumentStaticFieldText = class extends TemplateResponseDocumentStaticFieldBase {
+  constructor() {
+    super(...arguments);
+    this["type"] = "text";
+  }
+  static getAttributeTypeMap() {
+    return super.getAttributeTypeMap().concat(_TemplateResponseDocumentStaticFieldText.attributeTypeMap);
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateResponseDocumentStaticFieldText"
+    );
+  }
+};
+var TemplateResponseDocumentStaticFieldText = _TemplateResponseDocumentStaticFieldText;
+TemplateResponseDocumentStaticFieldText.discriminator = void 0;
+TemplateResponseDocumentStaticFieldText.attributeTypeMap = [
+  {
+    name: "type",
+    baseName: "type",
     type: "string"
   }
 ];
@@ -24218,90 +24724,6 @@ TemplateResponseFieldAvgTextLength.attributeTypeMap = [
     name: "numCharsPerLine",
     baseName: "num_chars_per_line",
     type: "number"
-  }
-];
-
-// model/templateResponseNamedFormField.ts
-var _TemplateResponseNamedFormField = class {
-  static getAttributeTypeMap() {
-    return _TemplateResponseNamedFormField.attributeTypeMap;
-  }
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateResponseNamedFormField");
-  }
-};
-var TemplateResponseNamedFormField = _TemplateResponseNamedFormField;
-TemplateResponseNamedFormField.discriminator = void 0;
-TemplateResponseNamedFormField.attributeTypeMap = [
-  {
-    name: "name",
-    baseName: "name",
-    type: "string"
-  },
-  {
-    name: "type",
-    baseName: "type",
-    type: "string"
-  },
-  {
-    name: "signer",
-    baseName: "signer",
-    type: "string"
-  },
-  {
-    name: "x",
-    baseName: "x",
-    type: "number"
-  },
-  {
-    name: "y",
-    baseName: "y",
-    type: "number"
-  },
-  {
-    name: "width",
-    baseName: "width",
-    type: "number"
-  },
-  {
-    name: "height",
-    baseName: "height",
-    type: "number"
-  },
-  {
-    name: "required",
-    baseName: "required",
-    type: "boolean"
-  },
-  {
-    name: "apiId",
-    baseName: "api_id",
-    type: "string"
-  },
-  {
-    name: "group",
-    baseName: "group",
-    type: "string"
-  },
-  {
-    name: "avgTextLength",
-    baseName: "avg_text_length",
-    type: "TemplateResponseFieldAvgTextLength"
-  },
-  {
-    name: "isMultiline",
-    baseName: "isMultiline",
-    type: "boolean"
-  },
-  {
-    name: "originalFontSize",
-    baseName: "originalFontSize",
-    type: "number"
-  },
-  {
-    name: "fontFamily",
-    baseName: "fontFamily",
-    type: "string"
   }
 ];
 
@@ -25172,9 +25594,7 @@ var enumsMap = {
   "SubWhiteLabelingOptions.LegalVersionEnum": SubWhiteLabelingOptions.LegalVersionEnum,
   "TeamAddMemberRequest.RoleEnum": TeamAddMemberRequest.RoleEnum,
   "TeamRemoveMemberRequest.NewRoleEnum": TeamRemoveMemberRequest.NewRoleEnum,
-  "TemplateResponseCustomField.TypeEnum": TemplateResponseCustomField.TypeEnum,
-  "TemplateResponseDocumentCustomField.TypeEnum": TemplateResponseDocumentCustomField.TypeEnum,
-  "TemplateResponseDocumentFormField.TypeEnum": TemplateResponseDocumentFormField.TypeEnum,
+  "TemplateResponseDocumentFormFieldText.ValidationTypeEnum": TemplateResponseDocumentFormFieldText.ValidationTypeEnum,
   "UnclaimedDraftCreateEmbeddedRequest.TypeEnum": UnclaimedDraftCreateEmbeddedRequest.TypeEnum,
   "UnclaimedDraftCreateRequest.TypeEnum": UnclaimedDraftCreateRequest.TypeEnum
 };
@@ -25307,14 +25727,31 @@ var typeMap = {
   TemplateResponseAccount,
   TemplateResponseAccountQuota,
   TemplateResponseCCRole,
-  TemplateResponseCustomField,
   TemplateResponseDocument,
-  TemplateResponseDocumentCustomField,
+  TemplateResponseDocumentCustomFieldBase,
+  TemplateResponseDocumentCustomFieldCheckbox,
+  TemplateResponseDocumentCustomFieldText,
   TemplateResponseDocumentFieldGroup,
-  TemplateResponseDocumentFormField,
-  TemplateResponseDocumentStaticField,
+  TemplateResponseDocumentFieldGroupRule,
+  TemplateResponseDocumentFormFieldBase,
+  TemplateResponseDocumentFormFieldCheckbox,
+  TemplateResponseDocumentFormFieldDateSigned,
+  TemplateResponseDocumentFormFieldDropdown,
+  TemplateResponseDocumentFormFieldHyperlink,
+  TemplateResponseDocumentFormFieldInitials,
+  TemplateResponseDocumentFormFieldRadio,
+  TemplateResponseDocumentFormFieldSignature,
+  TemplateResponseDocumentFormFieldText,
+  TemplateResponseDocumentStaticFieldBase,
+  TemplateResponseDocumentStaticFieldCheckbox,
+  TemplateResponseDocumentStaticFieldDateSigned,
+  TemplateResponseDocumentStaticFieldDropdown,
+  TemplateResponseDocumentStaticFieldHyperlink,
+  TemplateResponseDocumentStaticFieldInitials,
+  TemplateResponseDocumentStaticFieldRadio,
+  TemplateResponseDocumentStaticFieldSignature,
+  TemplateResponseDocumentStaticFieldText,
   TemplateResponseFieldAvgTextLength,
-  TemplateResponseNamedFormField,
   TemplateResponseSignerRole,
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
@@ -32309,14 +32746,31 @@ var shouldJsonify = (val) => val === Object(val);
   TemplateResponseAccount,
   TemplateResponseAccountQuota,
   TemplateResponseCCRole,
-  TemplateResponseCustomField,
   TemplateResponseDocument,
-  TemplateResponseDocumentCustomField,
+  TemplateResponseDocumentCustomFieldBase,
+  TemplateResponseDocumentCustomFieldCheckbox,
+  TemplateResponseDocumentCustomFieldText,
   TemplateResponseDocumentFieldGroup,
-  TemplateResponseDocumentFormField,
-  TemplateResponseDocumentStaticField,
+  TemplateResponseDocumentFieldGroupRule,
+  TemplateResponseDocumentFormFieldBase,
+  TemplateResponseDocumentFormFieldCheckbox,
+  TemplateResponseDocumentFormFieldDateSigned,
+  TemplateResponseDocumentFormFieldDropdown,
+  TemplateResponseDocumentFormFieldHyperlink,
+  TemplateResponseDocumentFormFieldInitials,
+  TemplateResponseDocumentFormFieldRadio,
+  TemplateResponseDocumentFormFieldSignature,
+  TemplateResponseDocumentFormFieldText,
+  TemplateResponseDocumentStaticFieldBase,
+  TemplateResponseDocumentStaticFieldCheckbox,
+  TemplateResponseDocumentStaticFieldDateSigned,
+  TemplateResponseDocumentStaticFieldDropdown,
+  TemplateResponseDocumentStaticFieldHyperlink,
+  TemplateResponseDocumentStaticFieldInitials,
+  TemplateResponseDocumentStaticFieldRadio,
+  TemplateResponseDocumentStaticFieldSignature,
+  TemplateResponseDocumentStaticFieldText,
   TemplateResponseFieldAvgTextLength,
-  TemplateResponseNamedFormField,
   TemplateResponseSignerRole,
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,

@@ -33,7 +33,7 @@ export class TemplateResponseFieldAvgTextLength {
    */
   "numLines"?: number;
   /**
-   * Number of character per line.
+   * Number of characters per line.
    */
   "numCharsPerLine"?: number;
 

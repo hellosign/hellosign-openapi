@@ -63,9 +63,9 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
         'name' => 'string',
         'index' => 'int',
         'field_groups' => '\Dropbox\Sign\Model\TemplateResponseDocumentFieldGroup[]',
-        'form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormField[]',
-        'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomField[]',
-        'static_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentStaticField[]',
+        'form_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentFormFieldBase[]',
+        'custom_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentCustomFieldBase[]',
+        'static_fields' => '\Dropbox\Sign\Model\TemplateResponseDocumentStaticFieldBase[]',
     ];
 
     /**
@@ -327,7 +327,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets form_fields
      *
-     * @return TemplateResponseDocumentFormField[]|null
+     * @return TemplateResponseDocumentFormFieldBase[]|null
      */
     public function getFormFields()
     {
@@ -337,7 +337,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets form_fields
      *
-     * @param TemplateResponseDocumentFormField[]|null $form_fields an array of Form Field objects containing the name and type of each named textbox and checkmark field
+     * @param TemplateResponseDocumentFormFieldBase[]|null $form_fields an array of Form Field objects containing the name and type of each named field
      *
      * @return self
      */
@@ -351,7 +351,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets custom_fields
      *
-     * @return TemplateResponseDocumentCustomField[]|null
+     * @return TemplateResponseDocumentCustomFieldBase[]|null
      */
     public function getCustomFields()
     {
@@ -361,7 +361,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets custom_fields
      *
-     * @param TemplateResponseDocumentCustomField[]|null $custom_fields an array of Document Custom Field objects
+     * @param TemplateResponseDocumentCustomFieldBase[]|null $custom_fields an array of Form Field objects containing the name and type of each named field
      *
      * @return self
      */
@@ -375,7 +375,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Gets static_fields
      *
-     * @return TemplateResponseDocumentStaticField[]|null
+     * @return TemplateResponseDocumentStaticFieldBase[]|null
      */
     public function getStaticFields()
     {
@@ -385,7 +385,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets static_fields
      *
-     * @param TemplateResponseDocumentStaticField[]|null $static_fields An array describing static overlay fields. <b>Note</b> only available for certain subscriptions.
+     * @param TemplateResponseDocumentStaticFieldBase[]|null $static_fields An array describing static overlay fields. **Note** only available for certain subscriptions.
      *
      * @return self
      */
