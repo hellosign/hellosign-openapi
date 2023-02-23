@@ -9395,16 +9395,17 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
-          description: '_t__TemplateResponse::CUSTOM_FIELDS'
+          description: '_t__TemplateResponseCustomField::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseCustomField'
+            $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
           nullable: true
+          deprecated: true
         named_form_fields:
-          description: '_t__TemplateResponse::NAMED_FORM_FIELDS'
+          description: '_t__TemplateResponseNamedFormField::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseNamedFormField'
+            $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
           nullable: true
           deprecated: true
         accounts:
@@ -9542,55 +9543,6 @@ components:
           type: string
       type: object
       x-internal: true
-    TemplateResponseCustomField:
-      properties:
-        name:
-          description: '_t__TemplateResponseCustomField::NAME'
-          type: string
-        type:
-          description: '_t__TemplateResponseCustomField::TYPE'
-          type: string
-          enum:
-            - text
-            - checkbox
-        x:
-          description: '_t__TemplateResponseCustomField::X'
-          type: integer
-        'y':
-          description: '_t__TemplateResponseCustomField::Y'
-          type: integer
-        width:
-          description: '_t__TemplateResponseCustomField::WIDTH'
-          type: integer
-        height:
-          description: '_t__TemplateResponseCustomField::HEIGHT'
-          type: integer
-        required:
-          description: '_t__TemplateResponseCustomField::REQUIRED'
-          type: boolean
-        api_id:
-          description: '_t__TemplateResponseCustomField::API_ID'
-          type: string
-        group:
-          description: '_t__TemplateResponseCustomField::GROUP'
-          type: string
-          nullable: true
-        avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-        isMultiline:
-          description: '_t__TemplateResponseCustomField::IS_MULTILINE'
-          type: boolean
-          nullable: true
-        originalFontSize:
-          description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
-          type: integer
-          nullable: true
-        fontFamily:
-          description: '_t__TemplateResponseCustomField::FONT_FAMILY'
-          type: string
-          nullable: true
-      type: object
-      x-internal: true
     TemplateResponseDocument:
       properties:
         name:
@@ -9605,37 +9557,40 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFieldGroup'
         form_fields:
-          description: '_t__TemplateResponseDocument::FORM_FIELDS'
+          description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentFormField'
+            $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         custom_fields:
-          description: '_t__TemplateResponseDocument::CUSTOM_FIELDS'
+          description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
+            $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
         static_fields:
-          description: '_t__TemplateResponseDocument::STATIC_FIELDS'
+          description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
+            $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
           nullable: true
       type: object
       x-internal: true
-    TemplateResponseDocumentCustomField:
+    TemplateResponseDocumentCustomFieldBase:
+      description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION'
+      required:
+        - type
       properties:
+        api_id:
+          description: '_t__TemplateResponseDocumentCustomField::API_ID'
+          type: string
         name:
           description: '_t__TemplateResponseDocumentCustomField::NAME'
           type: string
         type:
-          description: '_t__TemplateResponseDocumentCustomField::TYPE'
           type: string
-          enum:
-            - text
-            - checkbox
         signer:
           description: '_t__TemplateResponseDocumentCustomField::SIGNER'
           type: string
+          nullable: true
         x:
           description: '_t__TemplateResponseDocumentCustomField::X'
           type: integer
@@ -9651,49 +9606,86 @@ components:
         required:
           description: '_t__TemplateResponseDocumentCustomField::REQUIRED'
           type: boolean
-        api_id:
-          description: '_t__TemplateResponseDocumentCustomField::API_ID'
-          type: string
         group:
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
           type: string
           nullable: true
-        avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-        isMultiline:
-          description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
-          type: boolean
-          nullable: true
-        originalFontSize:
-          description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
+        fontSize:
+          description: '_t__TemplateResponseDocumentCustomField::FONT_SIZE'
           type: integer
-          nullable: true
-        fontFamily:
-          description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
-          type: string
-          nullable: true
-        named_form_fields:
-          description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
-          type: object
-          nullable: true
-          deprecated: true
-        reusable_form_id:
-          type: string
-          nullable: true
-          deprecated: true
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/TemplateResponseDocumentCustomFieldText'
+          checkbox: '#/components/schemas/TemplateResponseDocumentCustomFieldCheckbox'
       x-internal: true
+      x-base-class: true
+    TemplateResponseDocumentCustomFieldText:
+      description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentCustomField::TYPE'
+              type: string
+              default: text
+            avg_text_length:
+              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+            isMultiline:
+              description: '_t__TemplateResponseDocumentCustomField::IS_MULTILINE'
+              type: boolean
+            originalFontSize:
+              description: '_t__TemplateResponseDocumentCustomField::ORIGINAL_FONT_SIZE'
+              type: integer
+            fontFamily:
+              description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
+              type: string
+          type: object
+    TemplateResponseDocumentCustomFieldCheckbox:
+      description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentCustomField::TYPE'
+              type: string
+              default: checkbox
+          type: object
     TemplateResponseDocumentFieldGroup:
       properties:
         name:
           description: '_t__TemplateResponseDocumentFieldGroup::NAME'
           type: string
         rule:
-          description: '_t__TemplateResponseDocumentFieldGroup::RULE'
+          $ref: '#/components/schemas/TemplateResponseDocumentFieldGroupRule'
+      type: object
+      x-internal: true
+    TemplateResponseDocumentFieldGroupRule:
+      description: '_t__TemplateResponseDocumentFieldGroup::RULE'
+      properties:
+        requirement:
+          description: '_t__TemplateResponseDocumentFieldGroupRule::REQUIREMENT'
+          type: string
+        groupLabel:
+          description: '_t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL'
           type: string
       type: object
       x-internal: true
-    TemplateResponseDocumentFormField:
+    TemplateResponseDocumentFormFieldBase:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
+      required:
+        - type
       properties:
         api_id:
           description: '_t__TemplateResponseDocumentFormField::API_ID'
@@ -9702,19 +9694,7 @@ components:
           description: '_t__TemplateResponseDocumentFormField::NAME'
           type: string
         type:
-          description: '_t__TemplateResponseDocumentFormField::TYPE'
           type: string
-          enum:
-            - checkbox
-            - checkbox-merge
-            - date_signed
-            - dropdown
-            - hyperlink
-            - initials
-            - signature
-            - radio
-            - text
-            - text-merge
         signer:
           description: '_t__TemplateResponseDocumentFormField::SIGNER'
           type: string
@@ -9737,33 +9717,198 @@ components:
           description: '_t__TemplateResponseDocumentFormField::GROUP'
           type: string
           nullable: true
-        avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-        isMultiline:
-          description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
-          type: boolean
-          nullable: true
-        originalFontSize:
-          description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+        fontSize:
+          description: '_t__TemplateResponseDocumentFormField::FONT_SIZE'
           type: integer
-          nullable: true
-        fontFamily:
-          description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
-          type: string
-          nullable: true
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/TemplateResponseDocumentFormFieldText'
+          dropdown: '#/components/schemas/TemplateResponseDocumentFormFieldDropdown'
+          hyperlink: '#/components/schemas/TemplateResponseDocumentFormFieldHyperlink'
+          checkbox: '#/components/schemas/TemplateResponseDocumentFormFieldCheckbox'
+          radio: '#/components/schemas/TemplateResponseDocumentFormFieldRadio'
+          signature: '#/components/schemas/TemplateResponseDocumentFormFieldSignature'
+          date_signed: '#/components/schemas/TemplateResponseDocumentFormFieldDateSigned'
+          initials: '#/components/schemas/TemplateResponseDocumentFormFieldInitials'
       x-internal: true
-    TemplateResponseDocumentStaticField:
+      x-base-class: true
+    TemplateResponseDocumentFormFieldText:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: text
+            avg_text_length:
+              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+            isMultiline:
+              description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
+              type: boolean
+            originalFontSize:
+              description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+              type: integer
+            fontFamily:
+              description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
+              type: string
+            validation_type:
+              description: '_t__TemplateResponseDocumentFormField::VALIDATION_TYPE'
+              type: string
+              enum:
+                - numbers_only
+                - letters_only
+                - phone_number
+                - bank_routing_number
+                - bank_account_number
+                - email_address
+                - zip_code
+                - social_security_number
+                - employer_identification_number
+                - custom_regex
+              nullable: true
+          type: object
+    TemplateResponseDocumentFormFieldDropdown:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: dropdown
+          type: object
+    TemplateResponseDocumentFormFieldHyperlink:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: hyperlink
+            avg_text_length:
+              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+            isMultiline:
+              description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
+              type: boolean
+            originalFontSize:
+              description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+              type: integer
+            fontFamily:
+              description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
+              type: string
+          type: object
+    TemplateResponseDocumentFormFieldCheckbox:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: checkbox
+          type: object
+    TemplateResponseDocumentFormFieldRadio:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+            - group
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: radio
+          type: object
+    TemplateResponseDocumentFormFieldSignature:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: signature
+          type: object
+    TemplateResponseDocumentFormFieldDateSigned:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: date_signed
+          type: object
+    TemplateResponseDocumentFormFieldInitials:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: initials
+          type: object
+    TemplateResponseDocumentStaticFieldBase:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
+      required:
+        - type
       properties:
+        api_id:
+          description: '_t__TemplateResponseDocumentStaticField::API_ID'
+          type: string
         name:
           description: '_t__TemplateResponseDocumentStaticField::NAME'
           type: string
         type:
-          description: '_t__TemplateResponseDocumentStaticField::TYPE'
           type: string
         signer:
           description: '_t__TemplateResponseDocumentStaticField::SIGNER'
           type: string
+          default: me_now
         x:
           description: '_t__TemplateResponseDocumentStaticField::X'
           type: integer
@@ -9779,15 +9924,147 @@ components:
         required:
           description: '_t__TemplateResponseDocumentStaticField::REQUIRED'
           type: boolean
-        api_id:
-          description: '_t__TemplateResponseDocumentStaticField::API_ID'
-          type: string
         group:
           description: '_t__TemplateResponseDocumentStaticField::GROUP'
           type: string
           nullable: true
+        fontSize:
+          description: '_t__TemplateResponseDocumentStaticField::FONT_SIZE'
+          type: integer
       type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/TemplateResponseDocumentStaticFieldText'
+          dropdown: '#/components/schemas/TemplateResponseDocumentStaticFieldDropdown'
+          hyperlink: '#/components/schemas/TemplateResponseDocumentStaticFieldHyperlink'
+          checkbox: '#/components/schemas/TemplateResponseDocumentStaticFieldCheckbox'
+          radio: '#/components/schemas/TemplateResponseDocumentStaticFieldRadio'
+          signature: '#/components/schemas/TemplateResponseDocumentStaticFieldSignature'
+          date_signed: '#/components/schemas/TemplateResponseDocumentStaticFieldDateSigned'
+          initials: '#/components/schemas/TemplateResponseDocumentStaticFieldInitials'
       x-internal: true
+      x-base-class: true
+    TemplateResponseDocumentStaticFieldText:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: text
+          type: object
+    TemplateResponseDocumentStaticFieldDropdown:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: dropdown
+          type: object
+    TemplateResponseDocumentStaticFieldHyperlink:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: hyperlink
+          type: object
+    TemplateResponseDocumentStaticFieldCheckbox:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: checkbox
+          type: object
+    TemplateResponseDocumentStaticFieldRadio:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: radio
+          type: object
+    TemplateResponseDocumentStaticFieldSignature:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: signature
+          type: object
+    TemplateResponseDocumentStaticFieldDateSigned:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: date_signed
+          type: object
+    TemplateResponseDocumentStaticFieldInitials:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: initials
+          type: object
     TemplateResponseFieldAvgTextLength:
       description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
       properties:
@@ -9797,55 +10074,6 @@ components:
         num_chars_per_line:
           description: '_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE'
           type: integer
-      type: object
-      x-internal: true
-    TemplateResponseNamedFormField:
-      properties:
-        name:
-          description: '_t__TemplateResponseNamedFormField::NAME'
-          type: string
-        type:
-          description: '_t__TemplateResponseNamedFormField::TYPE'
-          type: string
-        signer:
-          description: '_t__TemplateResponseNamedFormField::SIGNER'
-          type: string
-        x:
-          description: '_t__TemplateResponseNamedFormField::X'
-          type: integer
-        'y':
-          description: '_t__TemplateResponseNamedFormField::Y'
-          type: integer
-        width:
-          description: '_t__TemplateResponseNamedFormField::WIDTH'
-          type: integer
-        height:
-          description: '_t__TemplateResponseNamedFormField::HEIGHT'
-          type: integer
-        required:
-          description: '_t__TemplateResponseNamedFormField::REQUIRED'
-          type: boolean
-        api_id:
-          description: '_t__TemplateResponseNamedFormField::API_ID'
-          type: string
-        group:
-          description: '_t__TemplateResponseNamedFormField::GROUP'
-          type: string
-          nullable: true
-        avg_text_length:
-          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-        isMultiline:
-          description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
-          type: boolean
-          nullable: true
-        originalFontSize:
-          description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
-          type: integer
-          nullable: true
-        fontFamily:
-          description: '_t__TemplateResponseNamedFormField::FONT_FAMILY'
-          type: string
-          nullable: true
       type: object
       x-internal: true
     TemplateResponseSignerRole:
