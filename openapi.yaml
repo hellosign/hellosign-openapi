@@ -6897,10 +6897,7 @@ components:
           type: boolean
           default: false
         expires_at:
-          description: |-
-            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-
-            **Note**: This does not correspond to the **expires_at** returned in the response.
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
           x-beta: closed
@@ -9952,17 +9949,16 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocument'
         custom_fields:
-          description: 'Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
+          description: '_t__TemplateResponse::CUSTOM_FIELDS'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
+            $ref: '#/components/schemas/TemplateResponseCustomField'
           nullable: true
-          deprecated: true
         named_form_fields:
-          description: 'Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.'
+          description: '_t__TemplateResponse::NAMED_FORM_FIELDS'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+            $ref: '#/components/schemas/TemplateResponseNamedFormField'
           nullable: true
           deprecated: true
         accounts:
@@ -10100,6 +10096,55 @@ components:
           type: string
       type: object
       x-internal: true
+    TemplateResponseCustomField:
+      properties:
+        name:
+          description: '_t__TemplateResponseCustomField::NAME'
+          type: string
+        type:
+          description: '_t__TemplateResponseCustomField::TYPE'
+          type: string
+          enum:
+            - text
+            - checkbox
+        x:
+          description: '_t__TemplateResponseCustomField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseCustomField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseCustomField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseCustomField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseCustomField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseCustomField::API_ID'
+          type: string
+        group:
+          description: '_t__TemplateResponseCustomField::GROUP'
+          type: string
+          nullable: true
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          description: '_t__TemplateResponseCustomField::IS_MULTILINE'
+          type: boolean
+          nullable: true
+        originalFontSize:
+          description: '_t__TemplateResponseCustomField::ORIGINAL_FONT_SIZE'
+          type: integer
+          nullable: true
+        fontFamily:
+          description: '_t__TemplateResponseCustomField::FONT_FAMILY'
+          type: string
+          nullable: true
+      type: object
+      x-internal: true
     TemplateResponseDocument:
       properties:
         name:
@@ -10114,40 +10159,43 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentFieldGroup'
         form_fields:
-          description: 'An array of Form Field objects containing the name and type of each named field.'
+          description: '_t__TemplateResponseDocument::FORM_FIELDS'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+            $ref: '#/components/schemas/TemplateResponseDocumentFormField'
         custom_fields:
-          description: 'An array of Form Field objects containing the name and type of each named field.'
+          description: '_t__TemplateResponseDocument::CUSTOM_FIELDS'
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
+            $ref: '#/components/schemas/TemplateResponseDocumentCustomField'
         static_fields:
-          description: 'An array describing static overlay fields. **Note** only available for certain subscriptions.'
+          description: |-
+            An array describing static overlay fields.
+            <b>Note</b> only available for certain subscriptions.
           type: array
           items:
-            $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+            $ref: '#/components/schemas/TemplateResponseDocumentStaticField'
           nullable: true
       type: object
       x-internal: true
-    TemplateResponseDocumentCustomFieldBase:
-      description: 'An array of Form Field objects containing the name and type of each named field.'
-      required:
-        - type
+    TemplateResponseDocumentCustomField:
       properties:
-        api_id:
-          description: 'The unique ID for this field.'
-          type: string
         name:
           description: 'The name of the Custom Field.'
           type: string
         type:
+          description: |-
+            The type of this Custom Field. Only `text` and `checkbox` are currently supported.
+
+            * Text uses `TemplateResponseDocumentCustomFieldText`
+            * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
           type: string
+          enum:
+            - text
+            - checkbox
         signer:
           description: 'The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).'
           type: string
-          nullable: true
         x:
           description: 'The horizontal offset in pixels for this form field.'
           type: integer
@@ -10163,99 +10211,49 @@ components:
         required:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
+        api_id:
+          description: 'The unique ID for this field.'
+          type: string
         group:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
           nullable: true
-        fontSize:
-          description: 'Final font size used by this form field.'
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          description: 'Whether this form field is multiline text.'
+          type: boolean
+          nullable: true
+        originalFontSize:
+          description: 'Original font size used in this form field''s text.'
           type: integer
+          nullable: true
+        fontFamily:
+          description: 'Font family used in this form field''s text.'
+          type: string
+          nullable: true
+        named_form_fields:
+          description: '_t__TemplateResponseDocumentCustomField::NAMED_FORM_FIELDS'
+          type: object
+          nullable: true
+          deprecated: true
+        reusable_form_id:
+          type: string
+          nullable: true
+          deprecated: true
       type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          text: '#/components/schemas/TemplateResponseDocumentCustomFieldText'
-          checkbox: '#/components/schemas/TemplateResponseDocumentCustomFieldCheckbox'
       x-internal: true
-      x-base-class: true
-    TemplateResponseDocumentCustomFieldText:
-      description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this Custom Field. Only `text` and `checkbox` are currently supported.
-
-                * Text uses `TemplateResponseDocumentCustomFieldText`
-                * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
-              type: string
-              default: text
-            avg_text_length:
-              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-            isMultiline:
-              description: 'Whether this form field is multiline text.'
-              type: boolean
-            originalFontSize:
-              description: 'Original font size used in this form field''s text.'
-              type: integer
-            fontFamily:
-              description: 'Font family used in this form field''s text.'
-              type: string
-          type: object
-    TemplateResponseDocumentCustomFieldCheckbox:
-      description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this Custom Field. Only `text` and `checkbox` are currently supported.
-
-                * Text uses `TemplateResponseDocumentCustomFieldText`
-                * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
-              type: string
-              default: checkbox
-          type: object
     TemplateResponseDocumentFieldGroup:
       properties:
         name:
           description: 'The name of the form field group.'
           type: string
         rule:
-          $ref: '#/components/schemas/TemplateResponseDocumentFieldGroupRule'
-      type: object
-      x-internal: true
-    TemplateResponseDocumentFieldGroupRule:
-      description: 'The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).'
-      properties:
-        requirement:
-          description: |-
-            Examples: `require_0-1` `require_1` `require_1-ormore`
-
-            - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping).
-            - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping).
-            - Radio groups require **at least** two fields per group.
-          type: string
-        groupLabel:
-          description: 'Name of the group'
+          description: 'The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).'
           type: string
       type: object
       x-internal: true
-    TemplateResponseDocumentFormFieldBase:
-      description: 'An array of Form Field objects containing the name and type of each named field.'
-      required:
-        - type
+    TemplateResponseDocumentFormField:
       properties:
         api_id:
           description: 'A unique id for the form field.'
@@ -10264,7 +10262,29 @@ components:
           description: 'The name of the form field.'
           type: string
         type:
+          description: |-
+            The type of this form field. See [field types](/api/reference/constants/#field-types).
+
+            * Text Field uses `TemplateResponseDocumentFormFieldText`
+            * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
+            * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
+            * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
+            * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
+            * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
+            * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
+            * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
           type: string
+          enum:
+            - checkbox
+            - checkbox-merge
+            - date_signed
+            - dropdown
+            - hyperlink
+            - initials
+            - signature
+            - radio
+            - text
+            - text-merge
         signer:
           description: 'The signer of the Form Field.'
           type: string
@@ -10287,278 +10307,43 @@ components:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null` except for Radio fields.'
           type: string
           nullable: true
-        fontSize:
-          description: 'Final font size used by this form field.'
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          description: 'Whether this form field is multiline text.'
+          type: boolean
+          nullable: true
+        originalFontSize:
+          description: 'Original font size used in this form field''s text.'
           type: integer
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          text: '#/components/schemas/TemplateResponseDocumentFormFieldText'
-          dropdown: '#/components/schemas/TemplateResponseDocumentFormFieldDropdown'
-          hyperlink: '#/components/schemas/TemplateResponseDocumentFormFieldHyperlink'
-          checkbox: '#/components/schemas/TemplateResponseDocumentFormFieldCheckbox'
-          radio: '#/components/schemas/TemplateResponseDocumentFormFieldRadio'
-          signature: '#/components/schemas/TemplateResponseDocumentFormFieldSignature'
-          date_signed: '#/components/schemas/TemplateResponseDocumentFormFieldDateSigned'
-          initials: '#/components/schemas/TemplateResponseDocumentFormFieldInitials'
-      x-internal: true
-      x-base-class: true
-    TemplateResponseDocumentFormFieldText:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: text
-            avg_text_length:
-              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-            isMultiline:
-              description: 'Whether this form field is multiline text.'
-              type: boolean
-            originalFontSize:
-              description: 'Original font size used in this form field''s text.'
-              type: integer
-            fontFamily:
-              description: 'Font family used in this form field''s text.'
-              type: string
-            validation_type:
-              description: 'Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.'
-              type: string
-              enum:
-                - numbers_only
-                - letters_only
-                - phone_number
-                - bank_routing_number
-                - bank_account_number
-                - email_address
-                - zip_code
-                - social_security_number
-                - employer_identification_number
-                - custom_regex
-              nullable: true
-          type: object
-    TemplateResponseDocumentFormFieldDropdown:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: dropdown
-          type: object
-    TemplateResponseDocumentFormFieldHyperlink:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: hyperlink
-            avg_text_length:
-              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-            isMultiline:
-              description: 'Whether this form field is multiline text.'
-              type: boolean
-            originalFontSize:
-              description: 'Original font size used in this form field''s text.'
-              type: integer
-            fontFamily:
-              description: 'Font family used in this form field''s text.'
-              type: string
-          type: object
-    TemplateResponseDocumentFormFieldCheckbox:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: checkbox
-          type: object
-    TemplateResponseDocumentFormFieldRadio:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-            - group
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: radio
-          type: object
-    TemplateResponseDocumentFormFieldSignature:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: signature
-          type: object
-    TemplateResponseDocumentFormFieldDateSigned:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: date_signed
-          type: object
-    TemplateResponseDocumentFormFieldInitials:
-      description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this form field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentFormFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentFormFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentFormFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
-              type: string
-              default: initials
-          type: object
-    TemplateResponseDocumentStaticFieldBase:
-      description: 'An array describing static overlay fields. **Note** only available for certain subscriptions.'
-      required:
-        - type
-      properties:
-        api_id:
-          description: 'A unique id for the static field.'
+          nullable: true
+        fontFamily:
+          description: 'Font family used in this form field''s text.'
           type: string
+          nullable: true
+      type: object
+      x-internal: true
+    TemplateResponseDocumentStaticField:
+      properties:
         name:
           description: 'The name of the static field.'
           type: string
         type:
+          description: |-
+            The type of this static field. See [field types](/api/reference/constants/#field-types).
+
+            * Text Field uses `TemplateResponseDocumentStaticFieldText`
+            * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
+            * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
+            * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
+            * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
+            * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
+            * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
+            * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
           type: string
         signer:
           description: 'The signer of the Static Field.'
           type: string
-          default: me_now
         x:
           description: 'The horizontal offset in pixels for this static field.'
           type: integer
@@ -10574,227 +10359,15 @@ components:
         required:
           description: 'Boolean showing whether or not this field is required.'
           type: boolean
+        api_id:
+          description: 'A unique id for the static field.'
+          type: string
         group:
           description: 'The name of the group this field is in. If this field is not a group, this defaults to `null`.'
           type: string
           nullable: true
-        fontSize:
-          description: 'Final font size used by this form field.'
-          type: integer
       type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          text: '#/components/schemas/TemplateResponseDocumentStaticFieldText'
-          dropdown: '#/components/schemas/TemplateResponseDocumentStaticFieldDropdown'
-          hyperlink: '#/components/schemas/TemplateResponseDocumentStaticFieldHyperlink'
-          checkbox: '#/components/schemas/TemplateResponseDocumentStaticFieldCheckbox'
-          radio: '#/components/schemas/TemplateResponseDocumentStaticFieldRadio'
-          signature: '#/components/schemas/TemplateResponseDocumentStaticFieldSignature'
-          date_signed: '#/components/schemas/TemplateResponseDocumentStaticFieldDateSigned'
-          initials: '#/components/schemas/TemplateResponseDocumentStaticFieldInitials'
       x-internal: true
-      x-base-class: true
-    TemplateResponseDocumentStaticFieldText:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: text
-          type: object
-    TemplateResponseDocumentStaticFieldDropdown:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: dropdown
-          type: object
-    TemplateResponseDocumentStaticFieldHyperlink:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: hyperlink
-          type: object
-    TemplateResponseDocumentStaticFieldCheckbox:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: checkbox
-          type: object
-    TemplateResponseDocumentStaticFieldRadio:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: radio
-          type: object
-    TemplateResponseDocumentStaticFieldSignature:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: signature
-          type: object
-    TemplateResponseDocumentStaticFieldDateSigned:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: date_signed
-          type: object
-    TemplateResponseDocumentStaticFieldInitials:
-      description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: |-
-                The type of this static field. See [field types](/api/reference/constants/#field-types).
-
-                * Text Field uses `TemplateResponseDocumentStaticFieldText`
-                * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown`
-                * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink`
-                * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox`
-                * Radio Field uses `TemplateResponseDocumentStaticFieldRadio`
-                * Signature Field uses `TemplateResponseDocumentStaticFieldSignature`
-                * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned`
-                * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
-              type: string
-              default: initials
-          type: object
     TemplateResponseFieldAvgTextLength:
       description: 'Average text length in this field.'
       properties:
@@ -10804,6 +10377,55 @@ components:
         num_chars_per_line:
           description: 'Number of characters per line.'
           type: integer
+      type: object
+      x-internal: true
+    TemplateResponseNamedFormField:
+      properties:
+        name:
+          description: '_t__TemplateResponseNamedFormField::NAME'
+          type: string
+        type:
+          description: '_t__TemplateResponseNamedFormField::TYPE'
+          type: string
+        signer:
+          description: '_t__TemplateResponseNamedFormField::SIGNER'
+          type: string
+        x:
+          description: '_t__TemplateResponseNamedFormField::X'
+          type: integer
+        'y':
+          description: '_t__TemplateResponseNamedFormField::Y'
+          type: integer
+        width:
+          description: '_t__TemplateResponseNamedFormField::WIDTH'
+          type: integer
+        height:
+          description: '_t__TemplateResponseNamedFormField::HEIGHT'
+          type: integer
+        required:
+          description: '_t__TemplateResponseNamedFormField::REQUIRED'
+          type: boolean
+        api_id:
+          description: '_t__TemplateResponseNamedFormField::API_ID'
+          type: string
+        group:
+          description: '_t__TemplateResponseNamedFormField::GROUP'
+          type: string
+          nullable: true
+        avg_text_length:
+          $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+        isMultiline:
+          description: '_t__TemplateResponseNamedFormField::IS_MULTILINE'
+          type: boolean
+          nullable: true
+        originalFontSize:
+          description: '_t__TemplateResponseNamedFormField::ORIGINAL_FONT_SIZE'
+          type: integer
+          nullable: true
+        fontFamily:
+          description: '_t__TemplateResponseNamedFormField::FONT_FAMILY'
+          type: string
+          nullable: true
       type: object
       x-internal: true
     TemplateResponseSignerRole:
