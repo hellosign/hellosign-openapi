@@ -6705,7 +6705,7 @@ components:
           type: boolean
           default: false
         expires_at:
-          description: '_t__UnclaimedDraftCreateEmbedded::EXPIRES_AT'
+          description: '_t__SignatureRequestCreateEmbedded::EXPIRES_AT'
           type: integer
           nullable: true
           x-beta: closed

@@ -6897,10 +6897,7 @@ components:
           type: boolean
           default: false
         expires_at:
-          description: |-
-            When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
-
-            **Note**: This does not correspond to the **expires_at** returned in the response.
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
           x-beta: closed
