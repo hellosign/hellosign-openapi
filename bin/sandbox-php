@@ -11,11 +11,15 @@ ARTIFACTS_DIR="${DIR}/../sandbox/php/artifacts"
 
 mkdir -p "${ARTIFACTS_DIR}"
 
-rm -f "${ARTIFACTS_DIR}/"*
+rm -rf "${ARTIFACTS_DIR}/"*
 rm -f "${TARGET_DIR}/composer.lock"
 rm -rf "${TARGET_DIR}/vendor/hellosign"
 
-cd "${SDK_DIR}"
+cp -r "${SDK_DIR}" "${ARTIFACTS_DIR}/package"
+cd "${ARTIFACTS_DIR}/package"
+sh "${DIR}/php" php ./bin/sandbox-php.php
+
+cd "${ARTIFACTS_DIR}/package"
 
 zip -9 -r "${ARTIFACTS_DIR}/dropbox-sign.zip" \
   ./ \
@@ -43,5 +47,8 @@ docker run -it --rm \
   -w "${WORKING_DIR}" \
   -u root:root \
   jtreminio/php-cli:7.4 composer install
+
+cd "${ARTIFACTS_DIR}"
+rm -rf "${ARTIFACTS_DIR}/package"
 
 printf "\nDONE!\n"
