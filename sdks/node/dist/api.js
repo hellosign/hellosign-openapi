@@ -18414,6 +18414,7 @@ __export(api_exports, {
   TemplateUpdateFilesRequest: () => TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse: () => TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate: () => TemplateUpdateFilesResponseTemplate,
+  USER_AGENT: () => USER_AGENT,
   UnclaimedDraftApi: () => UnclaimedDraftApi,
   UnclaimedDraftApiApiKeys: () => UnclaimedDraftApiApiKeys,
   UnclaimedDraftCreateEmbeddedRequest: () => UnclaimedDraftCreateEmbeddedRequest,
@@ -25982,7 +25983,9 @@ var AccountApiApiKeys = /* @__PURE__ */ ((AccountApiApiKeys2) => {
 var AccountApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -26481,7 +26484,9 @@ var ApiAppApiApiKeys = /* @__PURE__ */ ((ApiAppApiApiKeys2) => {
 var ApiAppApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath2;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -27042,7 +27047,9 @@ var BulkSendJobApiApiKeys = /* @__PURE__ */ ((BulkSendJobApiApiKeys2) => {
 var BulkSendJobApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath3;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -27317,7 +27324,9 @@ var EmbeddedApiApiKeys = /* @__PURE__ */ ((EmbeddedApiApiKeys2) => {
 var EmbeddedApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath4;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -27598,7 +27607,9 @@ var OAuthApiApiKeys = /* @__PURE__ */ ((OAuthApiApiKeys2) => {
 var OAuthApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath5;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -27835,7 +27846,9 @@ var ReportApiApiKeys = /* @__PURE__ */ ((ReportApiApiKeys2) => {
 var ReportApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath6;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -28001,7 +28014,9 @@ var SignatureRequestApiApiKeys = /* @__PURE__ */ ((SignatureRequestApiApiKeys2) 
 var SignatureRequestApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath7;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -29767,7 +29782,9 @@ var TeamApiApiKeys = /* @__PURE__ */ ((TeamApiApiKeys2) => {
 var TeamApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath8;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -30853,7 +30870,9 @@ var TemplateApiApiKeys = /* @__PURE__ */ ((TemplateApiApiKeys2) => {
 var TemplateApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath9;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -31993,7 +32012,9 @@ var UnclaimedDraftApiApiKeys = /* @__PURE__ */ ((UnclaimedDraftApiApiKeys2) => {
 var UnclaimedDraftApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath10;
-    this._defaultHeaders = {};
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
     this._useQuerystring = false;
     this.authentications = {
       default: new VoidAuth(),
@@ -32539,6 +32560,7 @@ var APIS = [
   TemplateApi,
   UnclaimedDraftApi
 ];
+var USER_AGENT = "OpenAPI-Generator/1.1.1/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;
@@ -32775,6 +32797,7 @@ var shouldJsonify = (val) => val === Object(val);
   TemplateUpdateFilesRequest,
   TemplateUpdateFilesResponse,
   TemplateUpdateFilesResponseTemplate,
+  USER_AGENT,
   UnclaimedDraftApi,
   UnclaimedDraftApiApiKeys,
   UnclaimedDraftCreateEmbeddedRequest,

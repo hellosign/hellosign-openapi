@@ -44,6 +44,8 @@ export { RequestFile } from '../model/models';
 export const APIS = [{{#apis}}{{#operations}}{{ classname }}{{/operations}}{{^-last}}, {{/-last}}{{/apis}}];
 {{/apiInfo}}
 
+export const USER_AGENT = "OpenAPI-Generator/{{{npmVersion}}}/node";
+
 /**
  * Generates an object containing form data.
  *

@@ -12,7 +12,7 @@ import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../mode
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
 {{/hasAuthMethods}}
 
-import { HttpError, optionsI, returnTypeT, returnTypeI, generateFormData, toFormData, queryParamsSerializer } from './apis';
+import { HttpError, optionsI, returnTypeT, returnTypeI, generateFormData, toFormData, queryParamsSerializer, USER_AGENT } from './apis';
 
 let defaultBasePath = '{{{basePath}}}';
 
@@ -36,7 +36,9 @@ export enum {{classname}}ApiKeys {
 
 export class {{classname}} {
     protected _basePath = defaultBasePath;
-    protected _defaultHeaders : any = {};
+    protected _defaultHeaders: any = {
+        'User-Agent': USER_AGENT,
+    };
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
