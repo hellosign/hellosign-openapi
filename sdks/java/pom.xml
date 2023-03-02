@@ -5,7 +5,7 @@
     <artifactId>dropbox-sign</artifactId>
     <packaging>jar</packaging>
     <name>dropbox-sign</name>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <url>https://github.com/hellosign/dropbox-sign-java</url>
     <description>Use the Dropbox Sign Java SDK to connect your Java app to the service of Dropbox Sign in microseconds!</description>
     <scm>
