@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateUpdateFilesResponseTemplate } from "./templateUpdateFilesResponseTemplate";
 export declare class TemplateUpdateFilesResponse {
     "template"?: TemplateUpdateFilesResponseTemplate;

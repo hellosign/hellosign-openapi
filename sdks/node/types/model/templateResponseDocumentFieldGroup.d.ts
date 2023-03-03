@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateResponseDocumentFieldGroupRule } from "./templateResponseDocumentFieldGroupRule";
 export declare class TemplateResponseDocumentFieldGroup {
     "name"?: string;

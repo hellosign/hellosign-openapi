@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
  * Contains information about an error that occurred.

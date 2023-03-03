@@ -1,15 +1,5 @@
-import { TeamAddMemberRequest } from "../model/teamAddMemberRequest";
-import { TeamCreateRequest } from "../model/teamCreateRequest";
-import { TeamGetInfoResponse } from "../model/teamGetInfoResponse";
-import { TeamGetResponse } from "../model/teamGetResponse";
-import { TeamInvitesResponse } from "../model/teamInvitesResponse";
-import { TeamMembersResponse } from "../model/teamMembersResponse";
-import { TeamRemoveMemberRequest } from "../model/teamRemoveMemberRequest";
-import { TeamSubTeamsResponse } from "../model/teamSubTeamsResponse";
-import { TeamUpdateRequest } from "../model/teamUpdateRequest";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT, returnTypeI } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, TeamAddMemberRequest, TeamCreateRequest, TeamGetInfoResponse, TeamGetResponse, TeamInvitesResponse, TeamMembersResponse, TeamRemoveMemberRequest, TeamSubTeamsResponse, TeamUpdateRequest } from "../model";
+import { optionsI, returnTypeT, returnTypeI } from "./";
 export declare enum TeamApiApiKeys {
 }
 export declare class TeamApi {

@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmbeddedDraftResponseTemplate";
 import { WarningResponse } from "./warningResponse";
 export declare class TemplateCreateEmbeddedDraftResponse {

@@ -1,7 +1,7 @@
 import 'jest';
 
-import { SignatureRequestApi } from '../../api/apis';
-import * as m from '../../model/models';
+import { SignatureRequestApi } from '../../api/';
+import * as m from '../../model/';
 import {
   getFixtureData,
   setExpectedResponse,
@@ -21,6 +21,143 @@ describe('SignatureRequestApiTest', () => {
 
   const api = new SignatureRequestApi();
   const rootFilePath = __dirname + '/../../test_fixtures';
+
+  it('testCamelCaseGeneratesCorrectRequestPayload', () => {
+    const userRequestData = {
+      allowDecline: true,
+      ccs: [
+        {
+          role: "Accounting",
+          emailAddress: "accounting@example.com"
+        }
+      ],
+      clientId: "1a659d9ad95bccd307ecad78d72192f8",
+      customFields: [
+        {
+          name: "Cost",
+          value: "$20,000",
+          editor: "Client",
+          required: true
+        }
+      ],
+      message: "Glad we could come to an agreement.",
+      metadata: {
+        field1: "value1"
+      },
+      signerList: [
+        {
+          signers: [
+            {
+              role: "Client",
+              name: "George",
+              emailAddress: "george@example.com",
+              pin: "d79a3td",
+              smsPhoneNumber: "123-123-1234"
+            }
+          ],
+          customFields: [
+            {
+              name: "company",
+              value: "ABC Corp"
+            }
+          ]
+        },
+        {
+          signers: [
+            {
+              role: "Client",
+              name: "Mary",
+              emailAddress: "mary@example.com",
+              pin: "gd9as5b",
+              smsPhoneNumber: "432-432-4321"
+            }
+          ],
+          customFields: [
+            {
+              name: "company",
+              value: "123 LLC"
+            }
+          ]
+        }
+      ],
+      signingRedirectUrl: "https://example.com/redirect",
+      subject: "Purchase Order",
+      templateIds: [
+        "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+      ],
+      testMode: true,
+      title: "My amazing title"
+    };
+
+    const actualRequestData = m.SignatureRequestBulkCreateEmbeddedWithTemplateRequest.init({
+      allow_decline: true,
+      ccs: [
+        {
+          role: "Accounting",
+          email_address: "accounting@example.com"
+        }
+      ],
+      client_id: "1a659d9ad95bccd307ecad78d72192f8",
+      custom_fields: [
+        {
+          name: "Cost",
+          value: "$20,000",
+          editor: "Client",
+          required: true
+        }
+      ],
+      message: "Glad we could come to an agreement.",
+      metadata: {
+        field1: "value1"
+      },
+      signer_list: [
+        {
+          signers: [
+            {
+              role: "Client",
+              name: "George",
+              email_address: "george@example.com",
+              pin: "d79a3td",
+              sms_phone_number: "123-123-1234"
+            }
+          ],
+          custom_fields: [
+            {
+              name: "company",
+              value: "ABC Corp"
+            }
+          ]
+        },
+        {
+          signers: [
+            {
+              role: "Client",
+              name: "Mary",
+              email_address: "mary@example.com",
+              pin: "gd9as5b",
+              sms_phone_number: "432-432-4321"
+            }
+          ],
+          custom_fields: [
+            {
+              name: "company",
+              value: "123 LLC"
+            }
+          ]
+        }
+      ],
+      signing_redirect_url: "https://example.com/redirect",
+      subject: "Purchase Order",
+      template_ids: [
+        "c26b8a16784a872da37ea946b9ddec7c1e11dff6"
+      ],
+      test_mode: true,
+      title: "My amazing title"
+    });
+
+    setExpectedResponse(mock, {}, 200, undefined, actualRequestData);
+    api.signatureRequestBulkCreateEmbeddedWithTemplate(userRequestData);
+  });
 
   it('testSignatureRequestBulkCreateEmbeddedWithTemplate', () => {
     const requestClass = 'SignatureRequestBulkCreateEmbeddedWithTemplateRequest';

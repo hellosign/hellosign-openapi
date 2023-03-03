@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class FileResponseDataUri {
     "dataUri"?: string;
     static discriminator: string | undefined;

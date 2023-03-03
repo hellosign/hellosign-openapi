@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { ListInfoResponse } from "./listInfoResponse";
 import { SubTeamResponse } from "./subTeamResponse";
 import { WarningResponse } from "./warningResponse";

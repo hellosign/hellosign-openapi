@@ -1,7 +1,7 @@
 import 'jest';
 
-import { BulkSendJobApi } from '../../api/apis';
-import * as m from '../../model/models';
+import { BulkSendJobApi } from '../../api/';
+import * as m from '../../model/';
 import {
   getFixtureData,
   setExpectedResponse,

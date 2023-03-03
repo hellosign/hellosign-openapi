@@ -1,0 +1,66 @@
+{{#models}}
+{{#model}}
+import { {{classname}} } from '{{{ classFilename }}}';
+{{/model}}
+{{/models}}
+import { EventCallbackHelper } from "./eventCallbackHelper";
+import {
+    RequestDetailedFile,
+    RequestFile,
+    AttributeTypeMap,
+    ObjectSerializer,
+    Authentication,
+    HttpBasicAuth,
+    HttpBearerAuth,
+    ApiKeyAuth,
+    OAuth,
+    VoidAuth,
+    Interceptor,
+} from "./models";
+
+export let enumsMap: {[index: string]: any} = {
+    {{#models}}
+        {{#model}}
+            {{#hasEnums}}
+                {{#vars}}
+                    {{#isEnum}}
+        {{#isContainer}}"{{classname}}.{{enumName}}": {{classname}}.{{enumName}}{{/isContainer}}{{^isContainer}}"{{datatypeWithEnum}}": {{datatypeWithEnum}}{{/isContainer}},
+                    {{/isEnum}}
+                {{/vars}}
+            {{/hasEnums}}
+            {{#isEnum}}
+        "{{classname}}": {{classname}},
+            {{/isEnum}}
+        {{/model}}
+    {{/models}}
+}
+
+export let typeMap: {[index: string]: any} = {
+    {{#models}}
+        {{#model}}
+            {{^isEnum}}
+    "{{classname}}": {{classname}},
+            {{/isEnum}}
+        {{/model}}
+    {{/models}}
+}
+
+export {
+{{#models}}
+{{#model}}
+    {{classname}},
+{{/model}}
+{{/models}}
+    EventCallbackHelper,
+    RequestDetailedFile,
+    RequestFile,
+    AttributeTypeMap,
+    ObjectSerializer,
+    Authentication,
+    HttpBasicAuth,
+    HttpBearerAuth,
+    ApiKeyAuth,
+    OAuth,
+    VoidAuth,
+    Interceptor,
+};

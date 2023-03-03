@@ -26,6 +26,12 @@ files:
   VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION
+  api-index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: api/index.ts
+  model-index.mustache:
+    templateType: SupportingFiles
+    destinationFilename: model/index.ts
 globalProperties:
   apiTests: false
   modelTests: false

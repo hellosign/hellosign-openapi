@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class TemplateEditResponse {
     "templateId"?: string;
     static discriminator: string | undefined;

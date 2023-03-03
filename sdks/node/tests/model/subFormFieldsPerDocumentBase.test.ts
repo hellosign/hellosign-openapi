@@ -2,7 +2,7 @@ import 'jest';
 import {
   ObjectSerializer,
   SignatureRequestSendRequest,
-} from '../../model/models';
+} from '../../model';
 import {
   getFixtureData,
   diffJson,

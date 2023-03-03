@@ -3,16 +3,17 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
 /* tslint:disable:no-unused-locals */
-{{#imports}}
-import { {{classname}} } from '{{filename}}';
-{{/imports}}
-
-import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
+import {
+    ObjectSerializer, Authentication, VoidAuth, Interceptor,
 {{#hasAuthMethods}}
-import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
+    HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth,
 {{/hasAuthMethods}}
+{{#imports}}
+    {{classname}},
+{{/imports}}
+} from '../model';
 
-import { HttpError, optionsI, returnTypeT, returnTypeI, generateFormData, toFormData, queryParamsSerializer, USER_AGENT } from './apis';
+import { HttpError, optionsI, returnTypeT, returnTypeI, generateFormData, toFormData, queryParamsSerializer, USER_AGENT } from './';
 
 let defaultBasePath = '{{{basePath}}}';
 
@@ -139,6 +140,12 @@ export class {{classname}} {
      * @param options
      */
     public async {{nickname}} ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}options: optionsI = {headers: {}}) : Promise<{{#returnType}}returnTypeT<{{{.}}}>{{/returnType}}{{^returnType}}returnTypeI{{/returnType}}> {
+        {{#bodyParam}}
+        if (({{paramName}} !== null && {{paramName}} !== undefined) && {{{paramName}}}.constructor.name !== "{{{dataType}}}") {
+            {{{paramName}}} = ObjectSerializer.deserialize({{{paramName}}}, "{{{dataType}}}");
+        }
+        {{/bodyParam}}
+
         const localVarPath = this.basePath + '{{{path}}}'{{#pathParams}}
             .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){{/pathParams}};
         let localVarQueryParameters: any = {};

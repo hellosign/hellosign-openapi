@@ -25,22 +25,19 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { OAuthTokenGenerateRequest } from "../model/oAuthTokenGenerateRequest";
-import { OAuthTokenRefreshRequest } from "../model/oAuthTokenRefreshRequest";
-import { OAuthTokenResponse } from "../model/oAuthTokenResponse";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  OAuthTokenGenerateRequest,
+  OAuthTokenRefreshRequest,
+  OAuthTokenResponse,
+} from "../model";
 
 import {
   HttpError,
@@ -51,7 +48,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -136,6 +133,17 @@ export class OAuthApi {
     oAuthTokenGenerateRequest: OAuthTokenGenerateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<OAuthTokenResponse>> {
+    if (
+      oAuthTokenGenerateRequest !== null &&
+      oAuthTokenGenerateRequest !== undefined &&
+      oAuthTokenGenerateRequest.constructor.name !== "OAuthTokenGenerateRequest"
+    ) {
+      oAuthTokenGenerateRequest = ObjectSerializer.deserialize(
+        oAuthTokenGenerateRequest,
+        "OAuthTokenGenerateRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/oauth/token";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -262,6 +270,17 @@ export class OAuthApi {
     oAuthTokenRefreshRequest: OAuthTokenRefreshRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<OAuthTokenResponse>> {
+    if (
+      oAuthTokenRefreshRequest !== null &&
+      oAuthTokenRefreshRequest !== undefined &&
+      oAuthTokenRefreshRequest.constructor.name !== "OAuthTokenRefreshRequest"
+    ) {
+      oAuthTokenRefreshRequest = ObjectSerializer.deserialize(
+        oAuthTokenRefreshRequest,
+        "OAuthTokenRefreshRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/oauth/token?refresh";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(

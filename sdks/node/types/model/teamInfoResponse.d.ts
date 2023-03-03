@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TeamParentResponse } from "./teamParentResponse";
 export declare class TeamInfoResponse {
     "teamId"?: string;

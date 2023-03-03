@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { WarningResponse } from "./warningResponse";
 export declare class BulkSendJobSendResponse {

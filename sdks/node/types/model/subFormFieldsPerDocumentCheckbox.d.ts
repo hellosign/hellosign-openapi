@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 export declare class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBase {
     "type": string;

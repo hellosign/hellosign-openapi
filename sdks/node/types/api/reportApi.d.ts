@@ -1,8 +1,5 @@
-import { ReportCreateRequest } from "../model/reportCreateRequest";
-import { ReportCreateResponse } from "../model/reportCreateResponse";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, ReportCreateRequest, ReportCreateResponse } from "../model";
+import { optionsI, returnTypeT } from "./";
 export declare enum ReportApiApiKeys {
 }
 export declare class ReportApi {

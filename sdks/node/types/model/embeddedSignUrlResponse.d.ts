@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { EmbeddedSignUrlResponseEmbedded } from "./embeddedSignUrlResponseEmbedded";
 import { WarningResponse } from "./warningResponse";
 export declare class EmbeddedSignUrlResponse {

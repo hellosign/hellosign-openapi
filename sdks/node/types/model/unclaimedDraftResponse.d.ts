@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class UnclaimedDraftResponse {
     "signatureRequestId"?: string | null;
     "claimUrl"?: string;

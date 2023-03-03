@@ -1,10 +1,5 @@
-import { ApiAppCreateRequest } from "../model/apiAppCreateRequest";
-import { ApiAppGetResponse } from "../model/apiAppGetResponse";
-import { ApiAppListResponse } from "../model/apiAppListResponse";
-import { ApiAppUpdateRequest } from "../model/apiAppUpdateRequest";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT, returnTypeI } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, ApiAppCreateRequest, ApiAppGetResponse, ApiAppListResponse, ApiAppUpdateRequest } from "../model";
+import { optionsI, returnTypeT, returnTypeI } from "./";
 export declare enum ApiAppApiApiKeys {
 }
 export declare class ApiAppApi {

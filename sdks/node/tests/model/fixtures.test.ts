@@ -1,5 +1,5 @@
 import 'jest';
-import { ObjectSerializer } from '../../model/models';
+import { ObjectSerializer } from '../../model';
 import { getFixtureData, diffJson } from '../test_utils';
 
 const fixtures = [

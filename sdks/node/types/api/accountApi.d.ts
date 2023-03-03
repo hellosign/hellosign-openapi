@@ -1,12 +1,5 @@
-import { AccountCreateRequest } from "../model/accountCreateRequest";
-import { AccountCreateResponse } from "../model/accountCreateResponse";
-import { AccountGetResponse } from "../model/accountGetResponse";
-import { AccountUpdateRequest } from "../model/accountUpdateRequest";
-import { AccountVerifyRequest } from "../model/accountVerifyRequest";
-import { AccountVerifyResponse } from "../model/accountVerifyResponse";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, AccountCreateRequest, AccountCreateResponse, AccountGetResponse, AccountUpdateRequest, AccountVerifyRequest, AccountVerifyResponse } from "../model";
+import { optionsI, returnTypeT } from "./";
 export declare enum AccountApiApiKeys {
 }
 export declare class AccountApi {

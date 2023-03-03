@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 export declare class SignatureRequestResponseDataValueSignature extends SignatureRequestResponseDataBase {
     "type"?: string;

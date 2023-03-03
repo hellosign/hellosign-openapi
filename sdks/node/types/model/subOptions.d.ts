@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class SubOptions {
     "canInsertEverywhere"?: boolean;
     static discriminator: string | undefined;

@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 export declare class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCustomFieldBase {

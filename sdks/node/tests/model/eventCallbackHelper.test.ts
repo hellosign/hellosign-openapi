@@ -1,5 +1,5 @@
 import 'jest';
-import { EventCallbackRequest, EventCallbackHelper } from '../../model/models';
+import { EventCallbackRequest, EventCallbackHelper } from '../../model';
 
 import { getFixtureData } from '../test_utils';
 

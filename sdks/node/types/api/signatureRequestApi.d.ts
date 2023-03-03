@@ -1,20 +1,6 @@
 /// <reference types="node" />
-import { BulkSendJobSendResponse } from "../model/bulkSendJobSendResponse";
-import { FileResponse } from "../model/fileResponse";
-import { FileResponseDataUri } from "../model/fileResponseDataUri";
-import { SignatureRequestBulkCreateEmbeddedWithTemplateRequest } from "../model/signatureRequestBulkCreateEmbeddedWithTemplateRequest";
-import { SignatureRequestBulkSendWithTemplateRequest } from "../model/signatureRequestBulkSendWithTemplateRequest";
-import { SignatureRequestCreateEmbeddedRequest } from "../model/signatureRequestCreateEmbeddedRequest";
-import { SignatureRequestCreateEmbeddedWithTemplateRequest } from "../model/signatureRequestCreateEmbeddedWithTemplateRequest";
-import { SignatureRequestGetResponse } from "../model/signatureRequestGetResponse";
-import { SignatureRequestListResponse } from "../model/signatureRequestListResponse";
-import { SignatureRequestRemindRequest } from "../model/signatureRequestRemindRequest";
-import { SignatureRequestSendRequest } from "../model/signatureRequestSendRequest";
-import { SignatureRequestSendWithTemplateRequest } from "../model/signatureRequestSendWithTemplateRequest";
-import { SignatureRequestUpdateRequest } from "../model/signatureRequestUpdateRequest";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT, returnTypeI } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, BulkSendJobSendResponse, FileResponse, FileResponseDataUri, SignatureRequestBulkCreateEmbeddedWithTemplateRequest, SignatureRequestBulkSendWithTemplateRequest, SignatureRequestCreateEmbeddedRequest, SignatureRequestCreateEmbeddedWithTemplateRequest, SignatureRequestGetResponse, SignatureRequestListResponse, SignatureRequestRemindRequest, SignatureRequestSendRequest, SignatureRequestSendWithTemplateRequest, SignatureRequestUpdateRequest } from "../model";
+import { optionsI, returnTypeT, returnTypeI } from "./";
 export declare enum SignatureRequestApiApiKeys {
 }
 export declare class SignatureRequestApi {

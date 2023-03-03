@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateResponseDocumentStaticFieldBase } from "./templateResponseDocumentStaticFieldBase";
 export declare class TemplateResponseDocumentStaticFieldSignature extends TemplateResponseDocumentStaticFieldBase {
     "type": string;

@@ -25,23 +25,20 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { EmbeddedEditUrlRequest } from "../model/embeddedEditUrlRequest";
-import { EmbeddedEditUrlResponse } from "../model/embeddedEditUrlResponse";
-import { EmbeddedSignUrlResponse } from "../model/embeddedSignUrlResponse";
-import { ErrorResponse } from "../model/errorResponse";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  EmbeddedEditUrlRequest,
+  EmbeddedEditUrlResponse,
+  EmbeddedSignUrlResponse,
+  ErrorResponse,
+} from "../model";
 
 import {
   HttpError,
@@ -52,7 +49,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -139,6 +136,17 @@ export class EmbeddedApi {
     embeddedEditUrlRequest: EmbeddedEditUrlRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<EmbeddedEditUrlResponse>> {
+    if (
+      embeddedEditUrlRequest !== null &&
+      embeddedEditUrlRequest !== undefined &&
+      embeddedEditUrlRequest.constructor.name !== "EmbeddedEditUrlRequest"
+    ) {
+      embeddedEditUrlRequest = ObjectSerializer.deserialize(
+        embeddedEditUrlRequest,
+        "EmbeddedEditUrlRequest"
+      );
+    }
+
     const localVarPath =
       this.basePath +
       "/embedded/edit_url/{template_id}".replace(

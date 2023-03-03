@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { BulkSendJobGetResponseSignatureRequests } from "./bulkSendJobGetResponseSignatureRequests";
 import { BulkSendJobResponse } from "./bulkSendJobResponse";
 import { ListInfoResponse } from "./listInfoResponse";

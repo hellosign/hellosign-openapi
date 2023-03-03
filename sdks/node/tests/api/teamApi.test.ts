@@ -1,7 +1,7 @@
 import 'jest';
 
-import { TeamApi } from '../../api/apis';
-import * as m from '../../model/models';
+import { TeamApi } from '../../api/';
+import * as m from '../../model/';
 import {
   getFixtureData,
   setExpectedResponse,
@@ -19,6 +19,21 @@ describe('TeamApiTest', () => {
   });
 
   const api = new TeamApi();
+
+  it('testCamelCaseGeneratesCorrectRequestPayload', () => {
+    const userRequestData = {
+      accountId: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+      emailAddress: "george@example.com"
+    };
+
+    const actualRequestData = m.TeamAddMemberRequest.init({
+      account_id: "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+      email_address: "george@example.com"
+    });
+
+    setExpectedResponse(mock, {}, 200, undefined, actualRequestData);
+    api.teamAddMember(userRequestData);
+  });
 
   it('testTeamAddMember', () => {
     const requestClass = 'TeamAddMemberRequest';

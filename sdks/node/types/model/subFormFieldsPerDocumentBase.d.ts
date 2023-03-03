@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare abstract class SubFormFieldsPerDocumentBase {
     "documentIndex": number;
     "apiId": string;

@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class SubFieldOptions {
     "dateFormat": SubFieldOptions.DateFormatEnum;
     static discriminator: string | undefined;

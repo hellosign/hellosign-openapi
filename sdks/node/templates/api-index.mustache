@@ -1,0 +1,31 @@
+{{#apiInfo}}
+{{#apis}}
+{{#operations}}
+import { {{ classname }} } from './{{ classFilename }}';
+{{/operations}}
+{{/apis}}
+
+export {
+{{#apis}}
+{{#operations}}
+    {{ classname }},
+{{/operations}}
+{{#withInterfaces}}
+    {{ classname }}Interface,
+{{/withInterfaces}}
+{{/apis}}
+};
+
+export {
+    HttpError,
+    optionsI,
+    returnTypeT,
+    returnTypeI,
+    generateFormData,
+    toFormData,
+    queryParamsSerializer,
+    USER_AGENT,
+} from "./apis";
+
+export const APIS = [{{#apis}}{{#operations}}{{ classname }}{{/operations}}{{^-last}}, {{/-last}}{{/apis}}];
+{{/apiInfo}}

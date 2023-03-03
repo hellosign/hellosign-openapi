@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class TeamAddMemberRequest {
     "accountId"?: string;
     "emailAddress"?: string;

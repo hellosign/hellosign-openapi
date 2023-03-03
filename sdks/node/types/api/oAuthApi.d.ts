@@ -1,9 +1,5 @@
-import { OAuthTokenGenerateRequest } from "../model/oAuthTokenGenerateRequest";
-import { OAuthTokenRefreshRequest } from "../model/oAuthTokenRefreshRequest";
-import { OAuthTokenResponse } from "../model/oAuthTokenResponse";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, OAuthTokenGenerateRequest, OAuthTokenRefreshRequest, OAuthTokenResponse } from "../model";
+import { optionsI, returnTypeT } from "./";
 export declare enum OAuthApiApiKeys {
 }
 export declare class OAuthApi {

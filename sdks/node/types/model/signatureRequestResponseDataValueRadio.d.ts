@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SignatureRequestResponseDataBase } from "./signatureRequestResponseDataBase";
 export declare class SignatureRequestResponseDataValueRadio extends SignatureRequestResponseDataBase {
     "type"?: string;
