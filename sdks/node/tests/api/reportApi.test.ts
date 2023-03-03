@@ -1,7 +1,7 @@
 import 'jest';
 
-import { ReportApi } from '../../api/apis';
-import * as m from '../../model/models';
+import { ReportApi } from '../../api/';
+import * as m from '../../model/';
 import {
   getFixtureData,
   setExpectedResponse,
@@ -19,6 +19,29 @@ describe('ReportApiTest', () => {
   });
 
   const api = new ReportApi();
+
+  it('testCamelCaseGeneratesCorrectRequestPayload', () => {
+    const userRequestData = {
+      startDate: "09/01/2020",
+      endDate: "09/01/2020",
+      reportType: [
+        m.ReportCreateRequest.ReportTypeEnum.UserActivity,
+        m.ReportCreateRequest.ReportTypeEnum.DocumentStatus
+      ]
+    };
+
+    const actualRequestData = m.ReportCreateRequest.init({
+      start_date: "09/01/2020",
+      end_date: "09/01/2020",
+      report_type: [
+        "user_activity",
+        "document_status"
+      ]
+    });
+
+    setExpectedResponse(mock, {}, 200, undefined, actualRequestData);
+    api.reportCreate(userRequestData);
+  });
 
   it('testReportCreate', () => {
     const requestClass = 'ReportCreateRequest';

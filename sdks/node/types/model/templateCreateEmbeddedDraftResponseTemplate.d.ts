@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { WarningResponse } from "./warningResponse";
 export declare class TemplateCreateEmbeddedDraftResponseTemplate {
     "templateId"?: string;

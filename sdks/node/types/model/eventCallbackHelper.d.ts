@@ -1,4 +1,4 @@
-import { EventCallbackRequest } from "./models";
+import { EventCallbackRequest } from "./";
 export declare class EventCallbackHelper {
     static readonly EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
     static readonly EVENT_TYPE_APP_CALLBACK = "app_callback";

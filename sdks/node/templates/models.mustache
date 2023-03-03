@@ -1,15 +1,9 @@
 {{#generateApis}}
 import { AxiosRequestConfig } from 'axios';
 {{/generateApis}}
-
-{{#models}}
-{{#model}}
-export * from '{{{ classFilename }}}';
-{{/model}}
-{{/models}}
-export * from "./eventCallbackHelper";
-
 import * as fs from 'fs';
+
+import { enumsMap, typeMap } from "./";
 
 export interface RequestDetailedFile {
     value: Buffer;
@@ -32,12 +26,6 @@ export interface AttributeTypeMap extends Array<AttributeType>{}
 {{! Object serialization only relevant if generating APIs, too }}
 {{#generateApis}}
 
-{{#models}}
-{{#model}}
-import { {{classname}} } from '{{{ classFilename }}}';
-{{/model}}
-{{/models}}
-
 /* tslint:disable:no-unused-variable */
 let primitives = [
                     "string",
@@ -49,33 +37,6 @@ let primitives = [
                     "number",
                     "any"
                  ];
-
-let enumsMap: {[index: string]: any} = {
-    {{#models}}
-        {{#model}}
-            {{#hasEnums}}
-                {{#vars}}
-                    {{#isEnum}}
-        {{#isContainer}}"{{classname}}.{{enumName}}": {{classname}}.{{enumName}}{{/isContainer}}{{^isContainer}}"{{datatypeWithEnum}}": {{datatypeWithEnum}}{{/isContainer}},
-                    {{/isEnum}}
-                {{/vars}}
-            {{/hasEnums}}
-            {{#isEnum}}
-        "{{classname}}": {{classname}},
-            {{/isEnum}}
-        {{/model}}
-    {{/models}}
-}
-
-let typeMap: {[index: string]: any} = {
-    {{#models}}
-        {{#model}}
-            {{^isEnum}}
-    "{{classname}}": {{classname}},
-            {{/isEnum}}
-        {{/model}}
-    {{/models}}
-}
 
 export class ObjectSerializer {
     public static findCorrectType(data: any, expectedType: string) {
@@ -198,7 +159,12 @@ export class ObjectSerializer {
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
-                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
+
+                const propertyKey = data[attributeType.baseName] !== undefined
+                    ? attributeType.baseName
+                    : attributeType.name;
+
+                instance[attributeType.name] = ObjectSerializer.deserialize(data[propertyKey], attributeType.type);
             }
             return instance;
         }

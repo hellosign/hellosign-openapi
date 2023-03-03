@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { ErrorResponseError } from "./errorResponseError";
 export declare class ErrorResponse {
     "error": ErrorResponseError;

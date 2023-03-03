@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateResponseDocumentCustomFieldBase } from "./templateResponseDocumentCustomFieldBase";
 export declare class TemplateResponseDocumentCustomFieldCheckbox extends TemplateResponseDocumentCustomFieldBase {
     "type": string;

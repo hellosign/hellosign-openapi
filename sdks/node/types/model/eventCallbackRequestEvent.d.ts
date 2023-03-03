@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
 export declare class EventCallbackRequestEvent {
     "eventTime": string;

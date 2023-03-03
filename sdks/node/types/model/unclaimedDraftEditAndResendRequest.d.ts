@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SubEditorOptions } from "./subEditorOptions";
 export declare class UnclaimedDraftEditAndResendRequest {
     "clientId": string;

@@ -1,24 +1,4 @@
-export * from "./accountApi";
-import { AccountApi } from "./accountApi";
-export * from "./apiAppApi";
-import { ApiAppApi } from "./apiAppApi";
-export * from "./bulkSendJobApi";
-import { BulkSendJobApi } from "./bulkSendJobApi";
-export * from "./embeddedApi";
-import { EmbeddedApi } from "./embeddedApi";
-export * from "./oAuthApi";
-import { OAuthApi } from "./oAuthApi";
-export * from "./reportApi";
-import { ReportApi } from "./reportApi";
-export * from "./signatureRequestApi";
-import { SignatureRequestApi } from "./signatureRequestApi";
-export * from "./teamApi";
-import { TeamApi } from "./teamApi";
-export * from "./templateApi";
-import { TemplateApi } from "./templateApi";
-export * from "./unclaimedDraftApi";
-import { UnclaimedDraftApi } from "./unclaimedDraftApi";
-import { AttributeTypeMap } from "../model/models";
+import { AttributeTypeMap } from "../model";
 import { AxiosResponse } from "axios";
 import formData from "form-data";
 export declare class HttpError extends Error {
@@ -41,8 +21,7 @@ export interface returnTypeI {
     body?: any;
 }
 export declare const queryParamsSerializer: (params: any) => any;
-export { RequestFile } from "../model/models";
-export declare const APIS: (typeof AccountApi | typeof ApiAppApi | typeof BulkSendJobApi | typeof EmbeddedApi | typeof OAuthApi | typeof ReportApi | typeof SignatureRequestApi | typeof TeamApi | typeof TemplateApi | typeof UnclaimedDraftApi)[];
+export { RequestFile } from "../model";
 export declare const USER_AGENT = "OpenAPI-Generator/1.1.1/node";
 export declare const generateFormData: (obj: any, typemap: AttributeTypeMap) => {
     localVarUseFormData: boolean;

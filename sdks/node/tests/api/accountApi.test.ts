@@ -1,7 +1,7 @@
 import 'jest';
 
-import { AccountApi } from '../../api/apis';
-import * as m from '../../model/models';
+import { AccountApi } from '../../api/';
+import * as m from '../../model/';
 import {
   getFixtureData,
   setExpectedResponse,
@@ -37,6 +37,23 @@ describe('AccountApiTest', () => {
     }).catch(error => {
       expect(error.body.constructor.name).toBe(responseClass);
     });
+  });
+
+  it('testCamelCaseGeneratesCorrectRequestPayload', () => {
+    const userRequestData = {
+      emailAddress: "newuser@dropboxsign.com",
+      clientId: "cc91c61d00f8bb2ece1428035716b",
+      clientSecret: "1d14434088507ffa390e6f5528465"
+    };
+
+    const actualRequestData = m.AccountCreateRequest.init({
+      email_address: "newuser@dropboxsign.com",
+      client_id: "cc91c61d00f8bb2ece1428035716b",
+      client_secret: "1d14434088507ffa390e6f5528465"
+    });
+
+    setExpectedResponse(mock, {}, 200, undefined, actualRequestData);
+    api.accountCreate(userRequestData);
   });
 
   it('testAccountCreate', () => {

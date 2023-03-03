@@ -25,22 +25,19 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { BulkSendJobGetResponse } from "../model/bulkSendJobGetResponse";
-import { BulkSendJobListResponse } from "../model/bulkSendJobListResponse";
-import { ErrorResponse } from "../model/errorResponse";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  BulkSendJobGetResponse,
+  BulkSendJobListResponse,
+  ErrorResponse,
+} from "../model";
 
 import {
   HttpError,
@@ -51,7 +48,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 

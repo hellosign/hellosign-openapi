@@ -18230,7 +18230,6 @@ var api_exports = {};
 __export(api_exports, {
   APIS: () => APIS,
   AccountApi: () => AccountApi,
-  AccountApiApiKeys: () => AccountApiApiKeys,
   AccountCreateRequest: () => AccountCreateRequest,
   AccountCreateResponse: () => AccountCreateResponse,
   AccountGetResponse: () => AccountGetResponse,
@@ -18241,7 +18240,6 @@ __export(api_exports, {
   AccountVerifyResponse: () => AccountVerifyResponse,
   AccountVerifyResponseAccount: () => AccountVerifyResponseAccount,
   ApiAppApi: () => ApiAppApi,
-  ApiAppApiApiKeys: () => ApiAppApiApiKeys,
   ApiAppCreateRequest: () => ApiAppCreateRequest,
   ApiAppGetResponse: () => ApiAppGetResponse,
   ApiAppListResponse: () => ApiAppListResponse,
@@ -18253,14 +18251,12 @@ __export(api_exports, {
   ApiAppUpdateRequest: () => ApiAppUpdateRequest,
   ApiKeyAuth: () => ApiKeyAuth,
   BulkSendJobApi: () => BulkSendJobApi,
-  BulkSendJobApiApiKeys: () => BulkSendJobApiApiKeys,
   BulkSendJobGetResponse: () => BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests: () => BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse: () => BulkSendJobListResponse,
   BulkSendJobResponse: () => BulkSendJobResponse,
   BulkSendJobSendResponse: () => BulkSendJobSendResponse,
   EmbeddedApi: () => EmbeddedApi,
-  EmbeddedApiApiKeys: () => EmbeddedApiApiKeys,
   EmbeddedEditUrlRequest: () => EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse: () => EmbeddedEditUrlResponse,
   EmbeddedEditUrlResponseEmbedded: () => EmbeddedEditUrlResponseEmbedded,
@@ -18280,18 +18276,15 @@ __export(api_exports, {
   ListInfoResponse: () => ListInfoResponse,
   OAuth: () => OAuth,
   OAuthApi: () => OAuthApi,
-  OAuthApiApiKeys: () => OAuthApiApiKeys,
   OAuthTokenGenerateRequest: () => OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest: () => OAuthTokenRefreshRequest,
   OAuthTokenResponse: () => OAuthTokenResponse,
   ObjectSerializer: () => ObjectSerializer,
   ReportApi: () => ReportApi,
-  ReportApiApiKeys: () => ReportApiApiKeys,
   ReportCreateRequest: () => ReportCreateRequest,
   ReportCreateResponse: () => ReportCreateResponse,
   ReportResponse: () => ReportResponse,
   SignatureRequestApi: () => SignatureRequestApi,
-  SignatureRequestApiApiKeys: () => SignatureRequestApiApiKeys,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest: () => SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest: () => SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest: () => SignatureRequestCreateEmbeddedRequest,
@@ -18357,7 +18350,6 @@ __export(api_exports, {
   SubWhiteLabelingOptions: () => SubWhiteLabelingOptions,
   TeamAddMemberRequest: () => TeamAddMemberRequest,
   TeamApi: () => TeamApi,
-  TeamApiApiKeys: () => TeamApiApiKeys,
   TeamCreateRequest: () => TeamCreateRequest,
   TeamGetInfoResponse: () => TeamGetInfoResponse,
   TeamGetResponse: () => TeamGetResponse,
@@ -18373,7 +18365,6 @@ __export(api_exports, {
   TeamUpdateRequest: () => TeamUpdateRequest,
   TemplateAddUserRequest: () => TemplateAddUserRequest,
   TemplateApi: () => TemplateApi,
-  TemplateApiApiKeys: () => TemplateApiApiKeys,
   TemplateCreateEmbeddedDraftRequest: () => TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse: () => TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate: () => TemplateCreateEmbeddedDraftResponseTemplate,
@@ -18416,7 +18407,6 @@ __export(api_exports, {
   TemplateUpdateFilesResponseTemplate: () => TemplateUpdateFilesResponseTemplate,
   USER_AGENT: () => USER_AGENT,
   UnclaimedDraftApi: () => UnclaimedDraftApi,
-  UnclaimedDraftApiApiKeys: () => UnclaimedDraftApiApiKeys,
   UnclaimedDraftCreateEmbeddedRequest: () => UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest: () => UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest: () => UnclaimedDraftCreateRequest,
@@ -18425,14 +18415,50 @@ __export(api_exports, {
   UnclaimedDraftResponse: () => UnclaimedDraftResponse,
   VoidAuth: () => VoidAuth,
   WarningResponse: () => WarningResponse,
+  enumsMap: () => enumsMap,
   generateFormData: () => generateFormData,
   queryParamsSerializer: () => queryParamsSerializer,
-  toFormData: () => toFormData
+  toFormData: () => toFormData,
+  typeMap: () => typeMap
 });
 module.exports = __toCommonJS(api_exports);
 
 // api/accountApi.ts
 var import_axios = __toESM(require_axios2());
+
+// model/accountCreateRequest.ts
+var _AccountCreateRequest = class {
+  static getAttributeTypeMap() {
+    return _AccountCreateRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountCreateRequest");
+  }
+};
+var AccountCreateRequest = _AccountCreateRequest;
+AccountCreateRequest.discriminator = void 0;
+AccountCreateRequest.attributeTypeMap = [
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  },
+  {
+    name: "clientId",
+    baseName: "client_id",
+    type: "string"
+  },
+  {
+    name: "clientSecret",
+    baseName: "client_secret",
+    type: "string"
+  },
+  {
+    name: "locale",
+    baseName: "locale",
+    type: "string"
+  }
+];
 
 // model/accountCreateResponse.ts
 var _AccountCreateResponse = class {
@@ -25576,6 +25602,185 @@ var primitives = [
   "number",
   "any"
 ];
+var ObjectSerializer = class {
+  static findCorrectType(data, expectedType) {
+    if (data == void 0) {
+      return expectedType;
+    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
+      return expectedType;
+    } else if (expectedType === "Date") {
+      return expectedType;
+    } else {
+      if (enumsMap[expectedType]) {
+        return expectedType;
+      }
+      if (!typeMap[expectedType]) {
+        return expectedType;
+      }
+      let discriminatorProperty = typeMap[expectedType].discriminator;
+      let discriminatorValue = data[discriminatorProperty];
+      if (typeMap[expectedType].hasOwnProperty("discriminatorClassName")) {
+        let discriminatorClass = typeMap[expectedType].discriminatorClassName(discriminatorValue);
+        if (discriminatorClass) {
+          return discriminatorClass;
+        }
+      }
+      if (discriminatorProperty == null) {
+        return expectedType;
+      } else {
+        if (data[discriminatorProperty]) {
+          var discriminatorType = data[discriminatorProperty];
+          if (typeMap[discriminatorType]) {
+            return discriminatorType;
+          } else {
+            return expectedType;
+          }
+        } else {
+          return expectedType;
+        }
+      }
+    }
+  }
+  static serialize(data, type) {
+    if (data == void 0) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) {
+      let subType = type.replace("Array<", "");
+      subType = subType.substring(0, subType.length - 1);
+      let transformedData = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.serialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return data.toISOString();
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) {
+        return data;
+      }
+      type = this.findCorrectType(data, type);
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      let instance = {};
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        let value = ObjectSerializer.serialize(
+          data[attributeType.name],
+          attributeType.type
+        );
+        if (value !== void 0) {
+          instance[attributeType.baseName] = value;
+        }
+      }
+      return instance;
+    }
+  }
+  static deserialize(data, type) {
+    type = ObjectSerializer.findCorrectType(data, type);
+    if (data == void 0) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) {
+      let subType = type.replace("Array<", "");
+      subType = subType.substring(0, subType.length - 1);
+      let transformedData = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.deserialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return new Date(data);
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) {
+        return data;
+      }
+      let instance = new typeMap[type]();
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        const propertyKey = data[attributeType.baseName] !== void 0 ? attributeType.baseName : attributeType.name;
+        instance[attributeType.name] = ObjectSerializer.deserialize(
+          data[propertyKey],
+          attributeType.type
+        );
+      }
+      return instance;
+    }
+  }
+};
+var HttpBasicAuth = class {
+  constructor() {
+    this.username = "";
+    this.password = "";
+  }
+  applyToRequest(requestOptions) {
+    requestOptions.auth = {
+      username: this.username,
+      password: this.password
+    };
+  }
+};
+var HttpBearerAuth = class {
+  constructor() {
+    this.accessToken = "";
+  }
+  applyToRequest(requestOptions) {
+    if (requestOptions && requestOptions.headers) {
+      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
+      requestOptions.headers["Authorization"] = "Bearer " + accessToken;
+    }
+  }
+};
+var ApiKeyAuth = class {
+  constructor(location, paramName) {
+    this.location = location;
+    this.paramName = paramName;
+    this.apiKey = "";
+  }
+  applyToRequest(requestOptions) {
+    if (this.location == "query") {
+      requestOptions.params[this.paramName] = this.apiKey;
+    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
+      requestOptions.headers[this.paramName] = this.apiKey;
+    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
+      if (requestOptions.headers["Cookie"]) {
+        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
+      } else {
+        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
+      }
+    }
+  }
+};
+var OAuth = class {
+  constructor() {
+    this.accessToken = "";
+  }
+  applyToRequest(requestOptions) {
+    if (requestOptions && requestOptions.headers) {
+      requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
+    }
+  }
+};
+var VoidAuth = class {
+  constructor() {
+    this.username = "";
+    this.password = "";
+  }
+  applyToRequest(_) {
+  }
+};
+
+// model/index.ts
 var enumsMap = {
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
@@ -25765,221 +25970,9 @@ var typeMap = {
   UnclaimedDraftResponse,
   WarningResponse
 };
-var ObjectSerializer = class {
-  static findCorrectType(data, expectedType) {
-    if (data == void 0) {
-      return expectedType;
-    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-      return expectedType;
-    } else if (expectedType === "Date") {
-      return expectedType;
-    } else {
-      if (enumsMap[expectedType]) {
-        return expectedType;
-      }
-      if (!typeMap[expectedType]) {
-        return expectedType;
-      }
-      let discriminatorProperty = typeMap[expectedType].discriminator;
-      let discriminatorValue = data[discriminatorProperty];
-      if (typeMap[expectedType].hasOwnProperty("discriminatorClassName")) {
-        let discriminatorClass = typeMap[expectedType].discriminatorClassName(discriminatorValue);
-        if (discriminatorClass) {
-          return discriminatorClass;
-        }
-      }
-      if (discriminatorProperty == null) {
-        return expectedType;
-      } else {
-        if (data[discriminatorProperty]) {
-          var discriminatorType = data[discriminatorProperty];
-          if (typeMap[discriminatorType]) {
-            return discriminatorType;
-          } else {
-            return expectedType;
-          }
-        } else {
-          return expectedType;
-        }
-      }
-    }
-  }
-  static serialize(data, type) {
-    if (data == void 0) {
-      return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-      return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
-      let transformedData = [];
-      for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
-        transformedData.push(ObjectSerializer.serialize(datum, subType));
-      }
-      return transformedData;
-    } else if (type === "Date") {
-      return data.toISOString();
-    } else {
-      if (enumsMap[type]) {
-        return data;
-      }
-      if (!typeMap[type]) {
-        return data;
-      }
-      type = this.findCorrectType(data, type);
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      let instance = {};
-      for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
-        let value = ObjectSerializer.serialize(
-          data[attributeType.name],
-          attributeType.type
-        );
-        if (value !== void 0) {
-          instance[attributeType.baseName] = value;
-        }
-      }
-      return instance;
-    }
-  }
-  static deserialize(data, type) {
-    type = ObjectSerializer.findCorrectType(data, type);
-    if (data == void 0) {
-      return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-      return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
-      let transformedData = [];
-      for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
-        transformedData.push(ObjectSerializer.deserialize(datum, subType));
-      }
-      return transformedData;
-    } else if (type === "Date") {
-      return new Date(data);
-    } else {
-      if (enumsMap[type]) {
-        return data;
-      }
-      if (!typeMap[type]) {
-        return data;
-      }
-      let instance = new typeMap[type]();
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
-        instance[attributeType.name] = ObjectSerializer.deserialize(
-          data[attributeType.baseName],
-          attributeType.type
-        );
-      }
-      return instance;
-    }
-  }
-};
-var HttpBasicAuth = class {
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
-  applyToRequest(requestOptions) {
-    requestOptions.auth = {
-      username: this.username,
-      password: this.password
-    };
-  }
-};
-var HttpBearerAuth = class {
-  constructor() {
-    this.accessToken = "";
-  }
-  applyToRequest(requestOptions) {
-    if (requestOptions && requestOptions.headers) {
-      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
-      requestOptions.headers["Authorization"] = "Bearer " + accessToken;
-    }
-  }
-};
-var ApiKeyAuth = class {
-  constructor(location, paramName) {
-    this.location = location;
-    this.paramName = paramName;
-    this.apiKey = "";
-  }
-  applyToRequest(requestOptions) {
-    if (this.location == "query") {
-      requestOptions.params[this.paramName] = this.apiKey;
-    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
-      requestOptions.headers[this.paramName] = this.apiKey;
-    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
-      if (requestOptions.headers["Cookie"]) {
-        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
-      } else {
-        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
-      }
-    }
-  }
-};
-var OAuth = class {
-  constructor() {
-    this.accessToken = "";
-  }
-  applyToRequest(requestOptions) {
-    if (requestOptions && requestOptions.headers) {
-      requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
-    }
-  }
-};
-var VoidAuth = class {
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
-  applyToRequest(_) {
-  }
-};
-
-// model/accountCreateRequest.ts
-var _AccountCreateRequest = class {
-  static getAttributeTypeMap() {
-    return _AccountCreateRequest.attributeTypeMap;
-  }
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "AccountCreateRequest");
-  }
-};
-var AccountCreateRequest = _AccountCreateRequest;
-AccountCreateRequest.discriminator = void 0;
-AccountCreateRequest.attributeTypeMap = [
-  {
-    name: "emailAddress",
-    baseName: "email_address",
-    type: "string"
-  },
-  {
-    name: "clientId",
-    baseName: "client_id",
-    type: "string"
-  },
-  {
-    name: "clientSecret",
-    baseName: "client_secret",
-    type: "string"
-  },
-  {
-    name: "locale",
-    baseName: "locale",
-    type: "string"
-  }
-];
 
 // api/accountApi.ts
 var defaultBasePath = "https://api.hellosign.com/v3";
-var AccountApiApiKeys = /* @__PURE__ */ ((AccountApiApiKeys2) => {
-})(AccountApiApiKeys || {});
 var AccountApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath;
@@ -26032,6 +26025,12 @@ var AccountApi = class {
   }
   accountCreate(_0) {
     return __async(this, arguments, function* (accountCreateRequest, options = { headers: {} }) {
+      if (accountCreateRequest !== null && accountCreateRequest !== void 0 && accountCreateRequest.constructor.name !== "AccountCreateRequest") {
+        accountCreateRequest = ObjectSerializer.deserialize(
+          accountCreateRequest,
+          "AccountCreateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/account/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -26249,6 +26248,12 @@ var AccountApi = class {
   }
   accountUpdate(_0) {
     return __async(this, arguments, function* (accountUpdateRequest, options = { headers: {} }) {
+      if (accountUpdateRequest !== null && accountUpdateRequest !== void 0 && accountUpdateRequest.constructor.name !== "AccountUpdateRequest") {
+        accountUpdateRequest = ObjectSerializer.deserialize(
+          accountUpdateRequest,
+          "AccountUpdateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/account";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -26360,6 +26365,12 @@ var AccountApi = class {
   }
   accountVerify(_0) {
     return __async(this, arguments, function* (accountVerifyRequest, options = { headers: {} }) {
+      if (accountVerifyRequest !== null && accountVerifyRequest !== void 0 && accountVerifyRequest.constructor.name !== "AccountVerifyRequest") {
+        accountVerifyRequest = ObjectSerializer.deserialize(
+          accountVerifyRequest,
+          "AccountVerifyRequest"
+        );
+      }
       const localVarPath = this.basePath + "/account/verify";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -26479,8 +26490,6 @@ var AccountApi = class {
 // api/apiAppApi.ts
 var import_axios2 = __toESM(require_axios2());
 var defaultBasePath2 = "https://api.hellosign.com/v3";
-var ApiAppApiApiKeys = /* @__PURE__ */ ((ApiAppApiApiKeys2) => {
-})(ApiAppApiApiKeys || {});
 var ApiAppApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath2;
@@ -26533,6 +26542,12 @@ var ApiAppApi = class {
   }
   apiAppCreate(_0) {
     return __async(this, arguments, function* (apiAppCreateRequest, options = { headers: {} }) {
+      if (apiAppCreateRequest !== null && apiAppCreateRequest !== void 0 && apiAppCreateRequest.constructor.name !== "ApiAppCreateRequest") {
+        apiAppCreateRequest = ObjectSerializer.deserialize(
+          apiAppCreateRequest,
+          "ApiAppCreateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/api_app";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -26920,6 +26935,12 @@ var ApiAppApi = class {
   }
   apiAppUpdate(_0, _1) {
     return __async(this, arguments, function* (clientId, apiAppUpdateRequest, options = { headers: {} }) {
+      if (apiAppUpdateRequest !== null && apiAppUpdateRequest !== void 0 && apiAppUpdateRequest.constructor.name !== "ApiAppUpdateRequest") {
+        apiAppUpdateRequest = ObjectSerializer.deserialize(
+          apiAppUpdateRequest,
+          "ApiAppUpdateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/api_app/{client_id}".replace(
         "{client_id}",
         encodeURIComponent(String(clientId))
@@ -27042,8 +27063,6 @@ var ApiAppApi = class {
 // api/bulkSendJobApi.ts
 var import_axios3 = __toESM(require_axios2());
 var defaultBasePath3 = "https://api.hellosign.com/v3";
-var BulkSendJobApiApiKeys = /* @__PURE__ */ ((BulkSendJobApiApiKeys2) => {
-})(BulkSendJobApiApiKeys || {});
 var BulkSendJobApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath3;
@@ -27319,8 +27338,6 @@ var BulkSendJobApi = class {
 // api/embeddedApi.ts
 var import_axios4 = __toESM(require_axios2());
 var defaultBasePath4 = "https://api.hellosign.com/v3";
-var EmbeddedApiApiKeys = /* @__PURE__ */ ((EmbeddedApiApiKeys2) => {
-})(EmbeddedApiApiKeys || {});
 var EmbeddedApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath4;
@@ -27373,6 +27390,12 @@ var EmbeddedApi = class {
   }
   embeddedEditUrl(_0, _1) {
     return __async(this, arguments, function* (templateId, embeddedEditUrlRequest, options = { headers: {} }) {
+      if (embeddedEditUrlRequest !== null && embeddedEditUrlRequest !== void 0 && embeddedEditUrlRequest.constructor.name !== "EmbeddedEditUrlRequest") {
+        embeddedEditUrlRequest = ObjectSerializer.deserialize(
+          embeddedEditUrlRequest,
+          "EmbeddedEditUrlRequest"
+        );
+      }
       const localVarPath = this.basePath + "/embedded/edit_url/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -27602,8 +27625,6 @@ var EmbeddedApi = class {
 // api/oAuthApi.ts
 var import_axios5 = __toESM(require_axios2());
 var defaultBasePath5 = "https://api.hellosign.com/v3";
-var OAuthApiApiKeys = /* @__PURE__ */ ((OAuthApiApiKeys2) => {
-})(OAuthApiApiKeys || {});
 var OAuthApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath5;
@@ -27656,6 +27677,12 @@ var OAuthApi = class {
   }
   oauthTokenGenerate(_0) {
     return __async(this, arguments, function* (oAuthTokenGenerateRequest, options = { headers: {} }) {
+      if (oAuthTokenGenerateRequest !== null && oAuthTokenGenerateRequest !== void 0 && oAuthTokenGenerateRequest.constructor.name !== "OAuthTokenGenerateRequest") {
+        oAuthTokenGenerateRequest = ObjectSerializer.deserialize(
+          oAuthTokenGenerateRequest,
+          "OAuthTokenGenerateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/oauth/token";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -27747,6 +27774,12 @@ var OAuthApi = class {
   }
   oauthTokenRefresh(_0) {
     return __async(this, arguments, function* (oAuthTokenRefreshRequest, options = { headers: {} }) {
+      if (oAuthTokenRefreshRequest !== null && oAuthTokenRefreshRequest !== void 0 && oAuthTokenRefreshRequest.constructor.name !== "OAuthTokenRefreshRequest") {
+        oAuthTokenRefreshRequest = ObjectSerializer.deserialize(
+          oAuthTokenRefreshRequest,
+          "OAuthTokenRefreshRequest"
+        );
+      }
       const localVarPath = this.basePath + "/oauth/token?refresh";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -27841,8 +27874,6 @@ var OAuthApi = class {
 // api/reportApi.ts
 var import_axios6 = __toESM(require_axios2());
 var defaultBasePath6 = "https://api.hellosign.com/v3";
-var ReportApiApiKeys = /* @__PURE__ */ ((ReportApiApiKeys2) => {
-})(ReportApiApiKeys || {});
 var ReportApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath6;
@@ -27895,6 +27926,12 @@ var ReportApi = class {
   }
   reportCreate(_0) {
     return __async(this, arguments, function* (reportCreateRequest, options = { headers: {} }) {
+      if (reportCreateRequest !== null && reportCreateRequest !== void 0 && reportCreateRequest.constructor.name !== "ReportCreateRequest") {
+        reportCreateRequest = ObjectSerializer.deserialize(
+          reportCreateRequest,
+          "ReportCreateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/report/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -28009,8 +28046,6 @@ var ReportApi = class {
 // api/signatureRequestApi.ts
 var import_axios7 = __toESM(require_axios2());
 var defaultBasePath7 = "https://api.hellosign.com/v3";
-var SignatureRequestApiApiKeys = /* @__PURE__ */ ((SignatureRequestApiApiKeys2) => {
-})(SignatureRequestApiApiKeys || {});
 var SignatureRequestApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath7;
@@ -28063,6 +28098,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestBulkCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
+      if (signatureRequestBulkCreateEmbeddedWithTemplateRequest !== null && signatureRequestBulkCreateEmbeddedWithTemplateRequest !== void 0 && signatureRequestBulkCreateEmbeddedWithTemplateRequest.constructor.name !== "SignatureRequestBulkCreateEmbeddedWithTemplateRequest") {
+        signatureRequestBulkCreateEmbeddedWithTemplateRequest = ObjectSerializer.deserialize(
+          signatureRequestBulkCreateEmbeddedWithTemplateRequest,
+          "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/bulk_create_embedded_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -28174,6 +28215,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestBulkSendWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkSendWithTemplateRequest, options = { headers: {} }) {
+      if (signatureRequestBulkSendWithTemplateRequest !== null && signatureRequestBulkSendWithTemplateRequest !== void 0 && signatureRequestBulkSendWithTemplateRequest.constructor.name !== "SignatureRequestBulkSendWithTemplateRequest") {
+        signatureRequestBulkSendWithTemplateRequest = ObjectSerializer.deserialize(
+          signatureRequestBulkSendWithTemplateRequest,
+          "SignatureRequestBulkSendWithTemplateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/bulk_send_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -28368,6 +28415,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestCreateEmbedded(_0) {
     return __async(this, arguments, function* (signatureRequestCreateEmbeddedRequest, options = { headers: {} }) {
+      if (signatureRequestCreateEmbeddedRequest !== null && signatureRequestCreateEmbeddedRequest !== void 0 && signatureRequestCreateEmbeddedRequest.constructor.name !== "SignatureRequestCreateEmbeddedRequest") {
+        signatureRequestCreateEmbeddedRequest = ObjectSerializer.deserialize(
+          signatureRequestCreateEmbeddedRequest,
+          "SignatureRequestCreateEmbeddedRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/create_embedded";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -28484,6 +28537,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
+      if (signatureRequestCreateEmbeddedWithTemplateRequest !== null && signatureRequestCreateEmbeddedWithTemplateRequest !== void 0 && signatureRequestCreateEmbeddedWithTemplateRequest.constructor.name !== "SignatureRequestCreateEmbeddedWithTemplateRequest") {
+        signatureRequestCreateEmbeddedWithTemplateRequest = ObjectSerializer.deserialize(
+          signatureRequestCreateEmbeddedWithTemplateRequest,
+          "SignatureRequestCreateEmbeddedWithTemplateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/create_embedded_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -29221,6 +29280,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestRemind(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, signatureRequestRemindRequest, options = { headers: {} }) {
+      if (signatureRequestRemindRequest !== null && signatureRequestRemindRequest !== void 0 && signatureRequestRemindRequest.constructor.name !== "SignatureRequestRemindRequest") {
+        signatureRequestRemindRequest = ObjectSerializer.deserialize(
+          signatureRequestRemindRequest,
+          "SignatureRequestRemindRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/remind/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -29418,6 +29483,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestSend(_0) {
     return __async(this, arguments, function* (signatureRequestSendRequest, options = { headers: {} }) {
+      if (signatureRequestSendRequest !== null && signatureRequestSendRequest !== void 0 && signatureRequestSendRequest.constructor.name !== "SignatureRequestSendRequest") {
+        signatureRequestSendRequest = ObjectSerializer.deserialize(
+          signatureRequestSendRequest,
+          "SignatureRequestSendRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/send";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -29534,6 +29605,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestSendWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestSendWithTemplateRequest, options = { headers: {} }) {
+      if (signatureRequestSendWithTemplateRequest !== null && signatureRequestSendWithTemplateRequest !== void 0 && signatureRequestSendWithTemplateRequest.constructor.name !== "SignatureRequestSendWithTemplateRequest") {
+        signatureRequestSendWithTemplateRequest = ObjectSerializer.deserialize(
+          signatureRequestSendWithTemplateRequest,
+          "SignatureRequestSendWithTemplateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/send_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -29650,6 +29727,12 @@ var SignatureRequestApi = class {
   }
   signatureRequestUpdate(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, signatureRequestUpdateRequest, options = { headers: {} }) {
+      if (signatureRequestUpdateRequest !== null && signatureRequestUpdateRequest !== void 0 && signatureRequestUpdateRequest.constructor.name !== "SignatureRequestUpdateRequest") {
+        signatureRequestUpdateRequest = ObjectSerializer.deserialize(
+          signatureRequestUpdateRequest,
+          "SignatureRequestUpdateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/signature_request/update/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -29777,8 +29860,6 @@ var SignatureRequestApi = class {
 // api/teamApi.ts
 var import_axios8 = __toESM(require_axios2());
 var defaultBasePath8 = "https://api.hellosign.com/v3";
-var TeamApiApiKeys = /* @__PURE__ */ ((TeamApiApiKeys2) => {
-})(TeamApiApiKeys || {});
 var TeamApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath8;
@@ -29831,6 +29912,12 @@ var TeamApi = class {
   }
   teamAddMember(_0, _1) {
     return __async(this, arguments, function* (teamAddMemberRequest, teamId, options = { headers: {} }) {
+      if (teamAddMemberRequest !== null && teamAddMemberRequest !== void 0 && teamAddMemberRequest.constructor.name !== "TeamAddMemberRequest") {
+        teamAddMemberRequest = ObjectSerializer.deserialize(
+          teamAddMemberRequest,
+          "TeamAddMemberRequest"
+        );
+      }
       const localVarPath = this.basePath + "/team/add_member";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -29948,6 +30035,12 @@ var TeamApi = class {
   }
   teamCreate(_0) {
     return __async(this, arguments, function* (teamCreateRequest, options = { headers: {} }) {
+      if (teamCreateRequest !== null && teamCreateRequest !== void 0 && teamCreateRequest.constructor.name !== "TeamCreateRequest") {
+        teamCreateRequest = ObjectSerializer.deserialize(
+          teamCreateRequest,
+          "TeamCreateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/team/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -30529,6 +30622,12 @@ var TeamApi = class {
   }
   teamRemoveMember(_0) {
     return __async(this, arguments, function* (teamRemoveMemberRequest, options = { headers: {} }) {
+      if (teamRemoveMemberRequest !== null && teamRemoveMemberRequest !== void 0 && teamRemoveMemberRequest.constructor.name !== "TeamRemoveMemberRequest") {
+        teamRemoveMemberRequest = ObjectSerializer.deserialize(
+          teamRemoveMemberRequest,
+          "TeamRemoveMemberRequest"
+        );
+      }
       const localVarPath = this.basePath + "/team/remove_member";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -30754,6 +30853,12 @@ var TeamApi = class {
   }
   teamUpdate(_0) {
     return __async(this, arguments, function* (teamUpdateRequest, options = { headers: {} }) {
+      if (teamUpdateRequest !== null && teamUpdateRequest !== void 0 && teamUpdateRequest.constructor.name !== "TeamUpdateRequest") {
+        teamUpdateRequest = ObjectSerializer.deserialize(
+          teamUpdateRequest,
+          "TeamUpdateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/team";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -30865,8 +30970,6 @@ var TeamApi = class {
 // api/templateApi.ts
 var import_axios9 = __toESM(require_axios2());
 var defaultBasePath9 = "https://api.hellosign.com/v3";
-var TemplateApiApiKeys = /* @__PURE__ */ ((TemplateApiApiKeys2) => {
-})(TemplateApiApiKeys || {});
 var TemplateApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath9;
@@ -30919,6 +31022,12 @@ var TemplateApi = class {
   }
   templateAddUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateAddUserRequest, options = { headers: {} }) {
+      if (templateAddUserRequest !== null && templateAddUserRequest !== void 0 && templateAddUserRequest.constructor.name !== "TemplateAddUserRequest") {
+        templateAddUserRequest = ObjectSerializer.deserialize(
+          templateAddUserRequest,
+          "TemplateAddUserRequest"
+        );
+      }
       const localVarPath = this.basePath + "/template/add_user/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -31043,6 +31152,12 @@ var TemplateApi = class {
   }
   templateCreateEmbeddedDraft(_0) {
     return __async(this, arguments, function* (templateCreateEmbeddedDraftRequest, options = { headers: {} }) {
+      if (templateCreateEmbeddedDraftRequest !== null && templateCreateEmbeddedDraftRequest !== void 0 && templateCreateEmbeddedDraftRequest.constructor.name !== "TemplateCreateEmbeddedDraftRequest") {
+        templateCreateEmbeddedDraftRequest = ObjectSerializer.deserialize(
+          templateCreateEmbeddedDraftRequest,
+          "TemplateCreateEmbeddedDraftRequest"
+        );
+      }
       const localVarPath = this.basePath + "/template/create_embedded_draft";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -31756,6 +31871,12 @@ var TemplateApi = class {
   }
   templateRemoveUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateRemoveUserRequest, options = { headers: {} }) {
+      if (templateRemoveUserRequest !== null && templateRemoveUserRequest !== void 0 && templateRemoveUserRequest.constructor.name !== "TemplateRemoveUserRequest") {
+        templateRemoveUserRequest = ObjectSerializer.deserialize(
+          templateRemoveUserRequest,
+          "TemplateRemoveUserRequest"
+        );
+      }
       const localVarPath = this.basePath + "/template/remove_user/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -31880,6 +32001,12 @@ var TemplateApi = class {
   }
   templateUpdateFiles(_0, _1) {
     return __async(this, arguments, function* (templateId, templateUpdateFilesRequest, options = { headers: {} }) {
+      if (templateUpdateFilesRequest !== null && templateUpdateFilesRequest !== void 0 && templateUpdateFilesRequest.constructor.name !== "TemplateUpdateFilesRequest") {
+        templateUpdateFilesRequest = ObjectSerializer.deserialize(
+          templateUpdateFilesRequest,
+          "TemplateUpdateFilesRequest"
+        );
+      }
       const localVarPath = this.basePath + "/template/update_files/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -32007,8 +32134,6 @@ var TemplateApi = class {
 // api/unclaimedDraftApi.ts
 var import_axios10 = __toESM(require_axios2());
 var defaultBasePath10 = "https://api.hellosign.com/v3";
-var UnclaimedDraftApiApiKeys = /* @__PURE__ */ ((UnclaimedDraftApiApiKeys2) => {
-})(UnclaimedDraftApiApiKeys || {});
 var UnclaimedDraftApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath10;
@@ -32061,6 +32186,12 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateRequest, options = { headers: {} }) {
+      if (unclaimedDraftCreateRequest !== null && unclaimedDraftCreateRequest !== void 0 && unclaimedDraftCreateRequest.constructor.name !== "UnclaimedDraftCreateRequest") {
+        unclaimedDraftCreateRequest = ObjectSerializer.deserialize(
+          unclaimedDraftCreateRequest,
+          "UnclaimedDraftCreateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/unclaimed_draft/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -32177,6 +32308,12 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreateEmbedded(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateEmbeddedRequest, options = { headers: {} }) {
+      if (unclaimedDraftCreateEmbeddedRequest !== null && unclaimedDraftCreateEmbeddedRequest !== void 0 && unclaimedDraftCreateEmbeddedRequest.constructor.name !== "UnclaimedDraftCreateEmbeddedRequest") {
+        unclaimedDraftCreateEmbeddedRequest = ObjectSerializer.deserialize(
+          unclaimedDraftCreateEmbeddedRequest,
+          "UnclaimedDraftCreateEmbeddedRequest"
+        );
+      }
       const localVarPath = this.basePath + "/unclaimed_draft/create_embedded";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -32293,6 +32430,12 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
+      if (unclaimedDraftCreateEmbeddedWithTemplateRequest !== null && unclaimedDraftCreateEmbeddedWithTemplateRequest !== void 0 && unclaimedDraftCreateEmbeddedWithTemplateRequest.constructor.name !== "UnclaimedDraftCreateEmbeddedWithTemplateRequest") {
+        unclaimedDraftCreateEmbeddedWithTemplateRequest = ObjectSerializer.deserialize(
+          unclaimedDraftCreateEmbeddedWithTemplateRequest,
+          "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
+        );
+      }
       const localVarPath = this.basePath + "/unclaimed_draft/create_embedded_with_template";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
@@ -32409,6 +32552,12 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftEditAndResend(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, unclaimedDraftEditAndResendRequest, options = { headers: {} }) {
+      if (unclaimedDraftEditAndResendRequest !== null && unclaimedDraftEditAndResendRequest !== void 0 && unclaimedDraftEditAndResendRequest.constructor.name !== "UnclaimedDraftEditAndResendRequest") {
+        unclaimedDraftEditAndResendRequest = ObjectSerializer.deserialize(
+          unclaimedDraftEditAndResendRequest,
+          "UnclaimedDraftEditAndResendRequest"
+        );
+      }
       const localVarPath = this.basePath + "/unclaimed_draft/edit_and_resend/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -32548,18 +32697,6 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var APIS = [
-  AccountApi,
-  ApiAppApi,
-  BulkSendJobApi,
-  EmbeddedApi,
-  OAuthApi,
-  ReportApi,
-  SignatureRequestApi,
-  TeamApi,
-  TemplateApi,
-  UnclaimedDraftApi
-];
 var USER_AGENT = "OpenAPI-Generator/1.1.1/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
@@ -32609,11 +32746,24 @@ var toFormData = (obj) => {
   return form;
 };
 var shouldJsonify = (val) => val === Object(val);
+
+// api/index.ts
+var APIS = [
+  AccountApi,
+  ApiAppApi,
+  BulkSendJobApi,
+  EmbeddedApi,
+  OAuthApi,
+  ReportApi,
+  SignatureRequestApi,
+  TeamApi,
+  TemplateApi,
+  UnclaimedDraftApi
+];
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   APIS,
   AccountApi,
-  AccountApiApiKeys,
   AccountCreateRequest,
   AccountCreateResponse,
   AccountGetResponse,
@@ -32624,7 +32774,6 @@ var shouldJsonify = (val) => val === Object(val);
   AccountVerifyResponse,
   AccountVerifyResponseAccount,
   ApiAppApi,
-  ApiAppApiApiKeys,
   ApiAppCreateRequest,
   ApiAppGetResponse,
   ApiAppListResponse,
@@ -32636,14 +32785,12 @@ var shouldJsonify = (val) => val === Object(val);
   ApiAppUpdateRequest,
   ApiKeyAuth,
   BulkSendJobApi,
-  BulkSendJobApiApiKeys,
   BulkSendJobGetResponse,
   BulkSendJobGetResponseSignatureRequests,
   BulkSendJobListResponse,
   BulkSendJobResponse,
   BulkSendJobSendResponse,
   EmbeddedApi,
-  EmbeddedApiApiKeys,
   EmbeddedEditUrlRequest,
   EmbeddedEditUrlResponse,
   EmbeddedEditUrlResponseEmbedded,
@@ -32663,18 +32810,15 @@ var shouldJsonify = (val) => val === Object(val);
   ListInfoResponse,
   OAuth,
   OAuthApi,
-  OAuthApiApiKeys,
   OAuthTokenGenerateRequest,
   OAuthTokenRefreshRequest,
   OAuthTokenResponse,
   ObjectSerializer,
   ReportApi,
-  ReportApiApiKeys,
   ReportCreateRequest,
   ReportCreateResponse,
   ReportResponse,
   SignatureRequestApi,
-  SignatureRequestApiApiKeys,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
@@ -32740,7 +32884,6 @@ var shouldJsonify = (val) => val === Object(val);
   SubWhiteLabelingOptions,
   TeamAddMemberRequest,
   TeamApi,
-  TeamApiApiKeys,
   TeamCreateRequest,
   TeamGetInfoResponse,
   TeamGetResponse,
@@ -32756,7 +32899,6 @@ var shouldJsonify = (val) => val === Object(val);
   TeamUpdateRequest,
   TemplateAddUserRequest,
   TemplateApi,
-  TemplateApiApiKeys,
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate,
@@ -32799,7 +32941,6 @@ var shouldJsonify = (val) => val === Object(val);
   TemplateUpdateFilesResponseTemplate,
   USER_AGENT,
   UnclaimedDraftApi,
-  UnclaimedDraftApiApiKeys,
   UnclaimedDraftCreateEmbeddedRequest,
   UnclaimedDraftCreateEmbeddedWithTemplateRequest,
   UnclaimedDraftCreateRequest,
@@ -32808,9 +32949,11 @@ var shouldJsonify = (val) => val === Object(val);
   UnclaimedDraftResponse,
   VoidAuth,
   WarningResponse,
+  enumsMap,
   generateFormData,
   queryParamsSerializer,
-  toFormData
+  toFormData,
+  typeMap
 });
 /*!
  * mime-db

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { SubOAuth } from "./subOAuth";
 import { SubOptions } from "./subOptions";
 import { SubWhiteLabelingOptions } from "./subWhiteLabelingOptions";

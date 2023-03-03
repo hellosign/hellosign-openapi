@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SignatureRequestResponseCustomFieldBase } from "./signatureRequestResponseCustomFieldBase";
 export declare class SignatureRequestResponseCustomFieldText extends SignatureRequestResponseCustomFieldBase {
     "type": string;

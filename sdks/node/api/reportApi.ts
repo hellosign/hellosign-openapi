@@ -25,22 +25,19 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { ErrorResponse } from "../model/errorResponse";
-import { ReportCreateRequest } from "../model/reportCreateRequest";
-import { ReportCreateResponse } from "../model/reportCreateResponse";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  ErrorResponse,
+  ReportCreateRequest,
+  ReportCreateResponse,
+} from "../model";
 
 import {
   HttpError,
@@ -51,7 +48,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -136,6 +133,17 @@ export class ReportApi {
     reportCreateRequest: ReportCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<ReportCreateResponse>> {
+    if (
+      reportCreateRequest !== null &&
+      reportCreateRequest !== undefined &&
+      reportCreateRequest.constructor.name !== "ReportCreateRequest"
+    ) {
+      reportCreateRequest = ObjectSerializer.deserialize(
+        reportCreateRequest,
+        "ReportCreateRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/report/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(

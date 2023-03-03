@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { EmbeddedEditUrlResponseEmbedded } from "./embeddedEditUrlResponseEmbedded";
 import { WarningResponse } from "./warningResponse";
 export declare class EmbeddedEditUrlResponse {

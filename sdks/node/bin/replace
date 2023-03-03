@@ -22,7 +22,7 @@ rep () {
 
 printf "\nRemoving AllOf references ...\n"
 perl -pi -e 's/(.*)AllOf.md\)\n//g' "${ROOT_DIR}/README.md"
-perl -pi -e 's/(.*)AllOf(.*)\n//g' "${ROOT_DIR}/model/models.ts"
+perl -pi -e 's/(.*)AllOf(.*)\n//g' "${ROOT_DIR}/model/index.ts"
 perl -pi -e 's/import (.*)from (.*)AllOf(.*);\n//g' "${ROOT_DIR}/model/"*.ts
 rm -rf "${ROOT_DIR}/docs/model/"*AllOf*
 printf "\n"

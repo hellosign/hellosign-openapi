@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TeamInviteResponse } from "./teamInviteResponse";
 import { WarningResponse } from "./warningResponse";
 export declare class TeamInvitesResponse {

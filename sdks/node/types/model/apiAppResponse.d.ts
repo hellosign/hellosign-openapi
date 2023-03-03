@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { ApiAppResponseOAuth } from "./apiAppResponseOAuth";
 import { ApiAppResponseOptions } from "./apiAppResponseOptions";
 import { ApiAppResponseOwnerAccount } from "./apiAppResponseOwnerAccount";

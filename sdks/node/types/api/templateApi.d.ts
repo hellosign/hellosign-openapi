@@ -1,17 +1,6 @@
 /// <reference types="node" />
-import { FileResponse } from "../model/fileResponse";
-import { FileResponseDataUri } from "../model/fileResponseDataUri";
-import { TemplateAddUserRequest } from "../model/templateAddUserRequest";
-import { TemplateCreateEmbeddedDraftRequest } from "../model/templateCreateEmbeddedDraftRequest";
-import { TemplateCreateEmbeddedDraftResponse } from "../model/templateCreateEmbeddedDraftResponse";
-import { TemplateGetResponse } from "../model/templateGetResponse";
-import { TemplateListResponse } from "../model/templateListResponse";
-import { TemplateRemoveUserRequest } from "../model/templateRemoveUserRequest";
-import { TemplateUpdateFilesRequest } from "../model/templateUpdateFilesRequest";
-import { TemplateUpdateFilesResponse } from "../model/templateUpdateFilesResponse";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT, returnTypeI } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FileResponse, FileResponseDataUri, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
+import { optionsI, returnTypeT, returnTypeI } from "./";
 export declare enum TemplateApiApiKeys {
 }
 export declare class TemplateApi {

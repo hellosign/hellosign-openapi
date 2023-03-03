@@ -25,25 +25,22 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { ErrorResponse } from "../model/errorResponse";
-import { UnclaimedDraftCreateEmbeddedRequest } from "../model/unclaimedDraftCreateEmbeddedRequest";
-import { UnclaimedDraftCreateEmbeddedWithTemplateRequest } from "../model/unclaimedDraftCreateEmbeddedWithTemplateRequest";
-import { UnclaimedDraftCreateRequest } from "../model/unclaimedDraftCreateRequest";
-import { UnclaimedDraftCreateResponse } from "../model/unclaimedDraftCreateResponse";
-import { UnclaimedDraftEditAndResendRequest } from "../model/unclaimedDraftEditAndResendRequest";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  ErrorResponse,
+  UnclaimedDraftCreateEmbeddedRequest,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest,
+  UnclaimedDraftCreateRequest,
+  UnclaimedDraftCreateResponse,
+  UnclaimedDraftEditAndResendRequest,
+} from "../model";
 
 import {
   HttpError,
@@ -54,7 +51,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -139,6 +136,18 @@ export class UnclaimedDraftApi {
     unclaimedDraftCreateRequest: UnclaimedDraftCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
+    if (
+      unclaimedDraftCreateRequest !== null &&
+      unclaimedDraftCreateRequest !== undefined &&
+      unclaimedDraftCreateRequest.constructor.name !==
+        "UnclaimedDraftCreateRequest"
+    ) {
+      unclaimedDraftCreateRequest = ObjectSerializer.deserialize(
+        unclaimedDraftCreateRequest,
+        "UnclaimedDraftCreateRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/unclaimed_draft/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -295,6 +304,18 @@ export class UnclaimedDraftApi {
     unclaimedDraftCreateEmbeddedRequest: UnclaimedDraftCreateEmbeddedRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
+    if (
+      unclaimedDraftCreateEmbeddedRequest !== null &&
+      unclaimedDraftCreateEmbeddedRequest !== undefined &&
+      unclaimedDraftCreateEmbeddedRequest.constructor.name !==
+        "UnclaimedDraftCreateEmbeddedRequest"
+    ) {
+      unclaimedDraftCreateEmbeddedRequest = ObjectSerializer.deserialize(
+        unclaimedDraftCreateEmbeddedRequest,
+        "UnclaimedDraftCreateEmbeddedRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/unclaimed_draft/create_embedded";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -451,6 +472,19 @@ export class UnclaimedDraftApi {
     unclaimedDraftCreateEmbeddedWithTemplateRequest: UnclaimedDraftCreateEmbeddedWithTemplateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
+    if (
+      unclaimedDraftCreateEmbeddedWithTemplateRequest !== null &&
+      unclaimedDraftCreateEmbeddedWithTemplateRequest !== undefined &&
+      unclaimedDraftCreateEmbeddedWithTemplateRequest.constructor.name !==
+        "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
+    ) {
+      unclaimedDraftCreateEmbeddedWithTemplateRequest =
+        ObjectSerializer.deserialize(
+          unclaimedDraftCreateEmbeddedWithTemplateRequest,
+          "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
+        );
+    }
+
     const localVarPath =
       this.basePath + "/unclaimed_draft/create_embedded_with_template";
     let localVarQueryParameters: any = {};
@@ -610,6 +644,18 @@ export class UnclaimedDraftApi {
     unclaimedDraftEditAndResendRequest: UnclaimedDraftEditAndResendRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<UnclaimedDraftCreateResponse>> {
+    if (
+      unclaimedDraftEditAndResendRequest !== null &&
+      unclaimedDraftEditAndResendRequest !== undefined &&
+      unclaimedDraftEditAndResendRequest.constructor.name !==
+        "UnclaimedDraftEditAndResendRequest"
+    ) {
+      unclaimedDraftEditAndResendRequest = ObjectSerializer.deserialize(
+        unclaimedDraftEditAndResendRequest,
+        "UnclaimedDraftEditAndResendRequest"
+      );
+    }
+
     const localVarPath =
       this.basePath +
       "/unclaimed_draft/edit_and_resend/{signature_request_id}".replace(

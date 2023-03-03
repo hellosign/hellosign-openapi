@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateResponseAccountQuota } from "./templateResponseAccountQuota";
 export declare class TemplateResponseAccount {
     "accountId"?: string;

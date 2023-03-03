@@ -25,29 +25,26 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { ErrorResponse } from "../model/errorResponse";
-import { TeamAddMemberRequest } from "../model/teamAddMemberRequest";
-import { TeamCreateRequest } from "../model/teamCreateRequest";
-import { TeamGetInfoResponse } from "../model/teamGetInfoResponse";
-import { TeamGetResponse } from "../model/teamGetResponse";
-import { TeamInvitesResponse } from "../model/teamInvitesResponse";
-import { TeamMembersResponse } from "../model/teamMembersResponse";
-import { TeamRemoveMemberRequest } from "../model/teamRemoveMemberRequest";
-import { TeamSubTeamsResponse } from "../model/teamSubTeamsResponse";
-import { TeamUpdateRequest } from "../model/teamUpdateRequest";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  ErrorResponse,
+  TeamAddMemberRequest,
+  TeamCreateRequest,
+  TeamGetInfoResponse,
+  TeamGetResponse,
+  TeamInvitesResponse,
+  TeamMembersResponse,
+  TeamRemoveMemberRequest,
+  TeamSubTeamsResponse,
+  TeamUpdateRequest,
+} from "../model";
 
 import {
   HttpError,
@@ -58,7 +55,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -145,6 +142,17 @@ export class TeamApi {
     teamId?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
+    if (
+      teamAddMemberRequest !== null &&
+      teamAddMemberRequest !== undefined &&
+      teamAddMemberRequest.constructor.name !== "TeamAddMemberRequest"
+    ) {
+      teamAddMemberRequest = ObjectSerializer.deserialize(
+        teamAddMemberRequest,
+        "TeamAddMemberRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/team/add_member";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -300,6 +308,17 @@ export class TeamApi {
     teamCreateRequest: TeamCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
+    if (
+      teamCreateRequest !== null &&
+      teamCreateRequest !== undefined &&
+      teamCreateRequest.constructor.name !== "TeamCreateRequest"
+    ) {
+      teamCreateRequest = ObjectSerializer.deserialize(
+        teamCreateRequest,
+        "TeamCreateRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/team/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -1069,6 +1088,17 @@ export class TeamApi {
     teamRemoveMemberRequest: TeamRemoveMemberRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
+    if (
+      teamRemoveMemberRequest !== null &&
+      teamRemoveMemberRequest !== undefined &&
+      teamRemoveMemberRequest.constructor.name !== "TeamRemoveMemberRequest"
+    ) {
+      teamRemoveMemberRequest = ObjectSerializer.deserialize(
+        teamRemoveMemberRequest,
+        "TeamRemoveMemberRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/team/remove_member";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -1374,6 +1404,17 @@ export class TeamApi {
     teamUpdateRequest: TeamUpdateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TeamGetResponse>> {
+    if (
+      teamUpdateRequest !== null &&
+      teamUpdateRequest !== undefined &&
+      teamUpdateRequest.constructor.name !== "TeamUpdateRequest"
+    ) {
+      teamUpdateRequest = ObjectSerializer.deserialize(
+        teamUpdateRequest,
+        "TeamUpdateRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/team";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(

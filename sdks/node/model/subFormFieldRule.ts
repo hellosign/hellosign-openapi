@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { SubFormFieldRuleAction } from "./subFormFieldRuleAction";
 import { SubFormFieldRuleTrigger } from "./subFormFieldRuleTrigger";
 

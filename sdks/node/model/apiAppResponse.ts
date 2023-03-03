@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./models";
+import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { ApiAppResponseOAuth } from "./apiAppResponseOAuth";
 import { ApiAppResponseOptions } from "./apiAppResponseOptions";
 import { ApiAppResponseOwnerAccount } from "./apiAppResponseOwnerAccount";

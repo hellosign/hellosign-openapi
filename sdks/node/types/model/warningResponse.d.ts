@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class WarningResponse {
     "warningMsg": string;
     "warningName": string;

@@ -25,24 +25,21 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { ApiAppCreateRequest } from "../model/apiAppCreateRequest";
-import { ApiAppGetResponse } from "../model/apiAppGetResponse";
-import { ApiAppListResponse } from "../model/apiAppListResponse";
-import { ApiAppUpdateRequest } from "../model/apiAppUpdateRequest";
-import { ErrorResponse } from "../model/errorResponse";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  ApiAppCreateRequest,
+  ApiAppGetResponse,
+  ApiAppListResponse,
+  ApiAppUpdateRequest,
+  ErrorResponse,
+} from "../model";
 
 import {
   HttpError,
@@ -53,7 +50,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -138,6 +135,17 @@ export class ApiAppApi {
     apiAppCreateRequest: ApiAppCreateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<ApiAppGetResponse>> {
+    if (
+      apiAppCreateRequest !== null &&
+      apiAppCreateRequest !== undefined &&
+      apiAppCreateRequest.constructor.name !== "ApiAppCreateRequest"
+    ) {
+      apiAppCreateRequest = ObjectSerializer.deserialize(
+        apiAppCreateRequest,
+        "ApiAppCreateRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/api_app";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -659,6 +667,17 @@ export class ApiAppApi {
     apiAppUpdateRequest: ApiAppUpdateRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<ApiAppGetResponse>> {
+    if (
+      apiAppUpdateRequest !== null &&
+      apiAppUpdateRequest !== undefined &&
+      apiAppUpdateRequest.constructor.name !== "ApiAppUpdateRequest"
+    ) {
+      apiAppUpdateRequest = ObjectSerializer.deserialize(
+        apiAppUpdateRequest,
+        "ApiAppUpdateRequest"
+      );
+    }
+
     const localVarPath =
       this.basePath +
       "/api_app/{client_id}".replace(

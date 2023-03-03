@@ -1,4 +1,4 @@
-import { EventCallbackRequest } from "./models";
+import { EventCallbackRequest } from "./";
 import { HmacSHA256 } from "crypto-js";
 
 export class EventCallbackHelper {

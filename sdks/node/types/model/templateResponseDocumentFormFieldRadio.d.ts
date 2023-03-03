@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
 export declare class TemplateResponseDocumentFormFieldRadio extends TemplateResponseDocumentFormFieldBase {
     "type": string;

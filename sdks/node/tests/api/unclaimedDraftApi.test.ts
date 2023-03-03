@@ -1,7 +1,7 @@
 import 'jest';
 
-import { UnclaimedDraftApi } from '../../api/apis';
-import * as m from '../../model/models';
+import { UnclaimedDraftApi } from '../../api/';
+import * as m from '../../model/';
 import {
   getFixtureData,
   setExpectedResponse,

@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SubFormFieldRuleAction } from "./subFormFieldRuleAction";
 import { SubFormFieldRuleTrigger } from "./subFormFieldRuleTrigger";
 export declare class SubFormFieldRule {

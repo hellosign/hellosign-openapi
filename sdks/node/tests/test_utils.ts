@@ -1,5 +1,6 @@
 import jsonDiff from 'json-diff';
 import MockAdapter from 'axios-mock-adapter';
+import { ObjectSerializer } from '../model';
 
 export const getFixtureData = (file: string): Object => {
   return require(`../test_fixtures/${file}.json`);
@@ -10,6 +11,7 @@ export const setExpectedResponse = (
   responseBody: Object,
   statusCode: number,
   contentType?: string,
+  expectedRequestData?: Object|string,
 ): MockAdapter => mock.onAny(/hellosign.com/)
   .reply((config) => {
     if (contentType) {
@@ -20,6 +22,26 @@ export const setExpectedResponse = (
         // @ts-ignore
         expect(config.headers['Content-Type'].includes(contentType)).toBeTruthy();
       }
+    }
+
+    if (expectedRequestData) {
+      let compare = expectedRequestData;
+
+      if (typeof expectedRequestData === 'object') {
+        compare = JSON.stringify(
+          ObjectSerializer.serialize(
+            expectedRequestData,
+            expectedRequestData.constructor.name,
+          )
+        );
+      }
+
+      const diff = diffJson(
+        config.data,
+        compare,
+      );
+
+      expect(diff).toBeFalsy();
     }
 
     return [statusCode, responseBody];

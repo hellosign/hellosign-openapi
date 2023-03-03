@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare abstract class TemplateResponseDocumentFormFieldBase {
     "type": string;
     "apiId"?: string;

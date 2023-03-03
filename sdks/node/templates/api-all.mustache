@@ -1,14 +1,5 @@
 {{#apiInfo}}
-{{#apis}}
-{{#operations}}
-export * from './{{ classFilename }}';
-import { {{ classname }} } from './{{ classFilename }}';
-{{/operations}}
-{{#withInterfaces}}
-export * from './{{ classFilename }}Interface'
-{{/withInterfaces}}
-{{/apis}}
-import { AttributeTypeMap, ObjectSerializer } from '../model/models';
+import { AttributeTypeMap, ObjectSerializer } from '../model';
 import * as http from 'http';
 import { AxiosResponse } from "axios";
 import formData from "form-data";
@@ -39,9 +30,7 @@ export const queryParamsSerializer = (params) => {
     return Qs.stringify(params, { arrayFormat: 'brackets' })
 }
 
-export { RequestFile } from '../model/models';
-
-export const APIS = [{{#apis}}{{#operations}}{{ classname }}{{/operations}}{{^-last}}, {{/-last}}{{/apis}}];
+export { RequestFile } from '../model';
 {{/apiInfo}}
 
 export const USER_AGENT = "OpenAPI-Generator/{{{npmVersion}}}/node";

@@ -25,30 +25,27 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
-import { ErrorResponse } from "../model/errorResponse";
-import { FileResponse } from "../model/fileResponse";
-import { FileResponseDataUri } from "../model/fileResponseDataUri";
-import { TemplateAddUserRequest } from "../model/templateAddUserRequest";
-import { TemplateCreateEmbeddedDraftRequest } from "../model/templateCreateEmbeddedDraftRequest";
-import { TemplateCreateEmbeddedDraftResponse } from "../model/templateCreateEmbeddedDraftResponse";
-import { TemplateGetResponse } from "../model/templateGetResponse";
-import { TemplateListResponse } from "../model/templateListResponse";
-import { TemplateRemoveUserRequest } from "../model/templateRemoveUserRequest";
-import { TemplateUpdateFilesRequest } from "../model/templateUpdateFilesRequest";
-import { TemplateUpdateFilesResponse } from "../model/templateUpdateFilesResponse";
-
 import {
   ObjectSerializer,
   Authentication,
   VoidAuth,
   Interceptor,
-} from "../model/models";
-import {
   HttpBasicAuth,
   HttpBearerAuth,
   ApiKeyAuth,
   OAuth,
-} from "../model/models";
+  ErrorResponse,
+  FileResponse,
+  FileResponseDataUri,
+  TemplateAddUserRequest,
+  TemplateCreateEmbeddedDraftRequest,
+  TemplateCreateEmbeddedDraftResponse,
+  TemplateGetResponse,
+  TemplateListResponse,
+  TemplateRemoveUserRequest,
+  TemplateUpdateFilesRequest,
+  TemplateUpdateFilesResponse,
+} from "../model";
 
 import {
   HttpError,
@@ -59,7 +56,7 @@ import {
   toFormData,
   queryParamsSerializer,
   USER_AGENT,
-} from "./apis";
+} from "./";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
 
@@ -146,6 +143,17 @@ export class TemplateApi {
     templateAddUserRequest: TemplateAddUserRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
+    if (
+      templateAddUserRequest !== null &&
+      templateAddUserRequest !== undefined &&
+      templateAddUserRequest.constructor.name !== "TemplateAddUserRequest"
+    ) {
+      templateAddUserRequest = ObjectSerializer.deserialize(
+        templateAddUserRequest,
+        "TemplateAddUserRequest"
+      );
+    }
+
     const localVarPath =
       this.basePath +
       "/template/add_user/{template_id}".replace(
@@ -314,6 +322,18 @@ export class TemplateApi {
     templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>> {
+    if (
+      templateCreateEmbeddedDraftRequest !== null &&
+      templateCreateEmbeddedDraftRequest !== undefined &&
+      templateCreateEmbeddedDraftRequest.constructor.name !==
+        "TemplateCreateEmbeddedDraftRequest"
+    ) {
+      templateCreateEmbeddedDraftRequest = ObjectSerializer.deserialize(
+        templateCreateEmbeddedDraftRequest,
+        "TemplateCreateEmbeddedDraftRequest"
+      );
+    }
+
     const localVarPath = this.basePath + "/template/create_embedded_draft";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
@@ -1275,6 +1295,17 @@ export class TemplateApi {
     templateRemoveUserRequest: TemplateRemoveUserRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateGetResponse>> {
+    if (
+      templateRemoveUserRequest !== null &&
+      templateRemoveUserRequest !== undefined &&
+      templateRemoveUserRequest.constructor.name !== "TemplateRemoveUserRequest"
+    ) {
+      templateRemoveUserRequest = ObjectSerializer.deserialize(
+        templateRemoveUserRequest,
+        "TemplateRemoveUserRequest"
+      );
+    }
+
     const localVarPath =
       this.basePath +
       "/template/remove_user/{template_id}".replace(
@@ -1445,6 +1476,18 @@ export class TemplateApi {
     templateUpdateFilesRequest: TemplateUpdateFilesRequest,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<TemplateUpdateFilesResponse>> {
+    if (
+      templateUpdateFilesRequest !== null &&
+      templateUpdateFilesRequest !== undefined &&
+      templateUpdateFilesRequest.constructor.name !==
+        "TemplateUpdateFilesRequest"
+    ) {
+      templateUpdateFilesRequest = ObjectSerializer.deserialize(
+        templateUpdateFilesRequest,
+        "TemplateUpdateFilesRequest"
+      );
+    }
+
     const localVarPath =
       this.basePath +
       "/template/update_files/{template_id}".replace(

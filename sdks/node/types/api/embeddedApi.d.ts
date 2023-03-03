@@ -1,9 +1,5 @@
-import { EmbeddedEditUrlRequest } from "../model/embeddedEditUrlRequest";
-import { EmbeddedEditUrlResponse } from "../model/embeddedEditUrlResponse";
-import { EmbeddedSignUrlResponse } from "../model/embeddedSignUrlResponse";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, EmbeddedEditUrlRequest, EmbeddedEditUrlResponse, EmbeddedSignUrlResponse } from "../model";
+import { optionsI, returnTypeT } from "./";
 export declare enum EmbeddedApiApiKeys {
 }
 export declare class EmbeddedApi {

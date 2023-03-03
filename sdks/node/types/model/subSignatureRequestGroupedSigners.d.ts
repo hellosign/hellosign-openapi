@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 import { SubSignatureRequestSigner } from "./subSignatureRequestSigner";
 export declare class SubSignatureRequestGroupedSigners {
     "group": string;

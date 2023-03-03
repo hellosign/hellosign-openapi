@@ -1,4 +1,4 @@
-import { AttributeTypeMap } from "./models";
+import { AttributeTypeMap } from "./";
 export declare class EventCallbackRequestEventMetadata {
     "relatedSignatureId"?: string | null;
     "reportedForAccountId"?: string | null;

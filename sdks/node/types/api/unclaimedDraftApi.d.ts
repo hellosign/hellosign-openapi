@@ -1,11 +1,5 @@
-import { UnclaimedDraftCreateEmbeddedRequest } from "../model/unclaimedDraftCreateEmbeddedRequest";
-import { UnclaimedDraftCreateEmbeddedWithTemplateRequest } from "../model/unclaimedDraftCreateEmbeddedWithTemplateRequest";
-import { UnclaimedDraftCreateRequest } from "../model/unclaimedDraftCreateRequest";
-import { UnclaimedDraftCreateResponse } from "../model/unclaimedDraftCreateResponse";
-import { UnclaimedDraftEditAndResendRequest } from "../model/unclaimedDraftEditAndResendRequest";
-import { Authentication, Interceptor } from "../model/models";
-import { HttpBasicAuth, HttpBearerAuth } from "../model/models";
-import { optionsI, returnTypeT } from "./apis";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, UnclaimedDraftCreateEmbeddedRequest, UnclaimedDraftCreateEmbeddedWithTemplateRequest, UnclaimedDraftCreateRequest, UnclaimedDraftCreateResponse, UnclaimedDraftEditAndResendRequest } from "../model";
+import { optionsI, returnTypeT } from "./";
 export declare enum UnclaimedDraftApiApiKeys {
 }
 export declare class UnclaimedDraftApi {
