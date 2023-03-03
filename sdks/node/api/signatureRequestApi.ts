@@ -61,6 +61,7 @@ import {
   generateFormData,
   toFormData,
   queryParamsSerializer,
+  USER_AGENT,
 } from "./apis";
 
 let defaultBasePath = "https://api.hellosign.com/v3";
@@ -73,7 +74,9 @@ export enum SignatureRequestApiApiKeys {}
 
 export class SignatureRequestApi {
   protected _basePath = defaultBasePath;
-  protected _defaultHeaders: any = {};
+  protected _defaultHeaders: any = {
+    "User-Agent": USER_AGENT,
+  };
   protected _useQuerystring: boolean = false;
 
   protected authentications = {

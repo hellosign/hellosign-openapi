@@ -68,6 +68,8 @@ export const APIS = [
   UnclaimedDraftApi,
 ];
 
+export const USER_AGENT = "OpenAPI-Generator/1.1.1/node";
+
 /**
  * Generates an object containing form data.
  *
