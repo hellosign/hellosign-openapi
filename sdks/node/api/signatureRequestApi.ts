@@ -217,6 +217,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -382,6 +384,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -519,6 +523,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -655,6 +661,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -825,6 +833,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -971,6 +981,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "arraybuffer",
     };
 
@@ -1099,6 +1111,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1235,6 +1249,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1366,6 +1382,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1524,6 +1542,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1660,6 +1680,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1841,6 +1863,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -1978,6 +2002,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -2109,6 +2135,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -2278,6 +2306,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -2460,6 +2490,8 @@ export class SignatureRequestApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };

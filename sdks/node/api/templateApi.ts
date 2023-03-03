@@ -225,6 +225,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -393,6 +395,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -530,6 +534,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -644,6 +650,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "arraybuffer",
     };
 
@@ -772,6 +780,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -908,6 +918,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1039,6 +1051,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1197,6 +1211,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -1377,6 +1393,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -1559,6 +1577,8 @@ export class TemplateApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };

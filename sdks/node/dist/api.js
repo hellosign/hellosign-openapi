@@ -26074,6 +26074,8 @@ var AccountApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -26181,6 +26183,8 @@ var AccountApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -26297,6 +26301,8 @@ var AccountApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -26414,6 +26420,8 @@ var AccountApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -26591,6 +26599,8 @@ var ApiAppApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -26689,6 +26699,8 @@ var ApiAppApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -26767,6 +26779,8 @@ var ApiAppApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -26868,6 +26882,8 @@ var ApiAppApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -26992,6 +27008,8 @@ var ApiAppApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -27157,6 +27175,8 @@ var BulkSendJobApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -27263,6 +27283,8 @@ var BulkSendJobApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -27447,6 +27469,8 @@ var EmbeddedApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -27550,6 +27574,8 @@ var EmbeddedApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -27726,6 +27752,8 @@ var OAuthApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -27823,6 +27851,8 @@ var OAuthApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -27975,6 +28005,8 @@ var ReportApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -28147,6 +28179,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -28264,6 +28298,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -28367,6 +28403,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -28464,6 +28502,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -28586,6 +28626,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -28695,6 +28737,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "arraybuffer"
       };
       let authenticationPromise = Promise.resolve();
@@ -28789,6 +28833,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -28891,6 +28937,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -28988,6 +29036,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -29106,6 +29156,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -29208,6 +29260,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -29337,6 +29391,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -29440,6 +29496,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -29532,6 +29590,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -29654,6 +29714,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -29784,6 +29846,8 @@ var SignatureRequestApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -29967,6 +30031,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -30081,6 +30147,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -30171,6 +30239,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -30241,6 +30311,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -30336,6 +30408,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -30436,6 +30510,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -30550,6 +30626,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -30671,6 +30749,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -30781,6 +30861,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -30899,6 +30981,8 @@ var TeamApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -31079,6 +31163,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -31201,6 +31287,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -31304,6 +31392,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -31388,6 +31478,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "arraybuffer"
       };
       let authenticationPromise = Promise.resolve();
@@ -31482,6 +31574,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -31584,6 +31678,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -31681,6 +31777,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -31799,6 +31897,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json"
       };
       let authenticationPromise = Promise.resolve();
@@ -31928,6 +32028,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -32058,6 +32160,8 @@ var TemplateApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -32235,6 +32339,8 @@ var UnclaimedDraftApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -32357,6 +32463,8 @@ var UnclaimedDraftApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -32479,6 +32587,8 @@ var UnclaimedDraftApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
@@ -32609,6 +32719,8 @@ var UnclaimedDraftApi = class {
         headers: localVarHeaderParams,
         url: localVarPath,
         paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
         responseType: "json",
         data
       };
