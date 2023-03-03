@@ -225,6 +225,8 @@ export class {{classname}} {
             headers: localVarHeaderParams,
             url: localVarPath,
             paramsSerializer: this._useQuerystring ? queryParamsSerializer : undefined,
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
 {{^isResponseFile}}
             responseType: "json",
 {{/isResponseFile}}

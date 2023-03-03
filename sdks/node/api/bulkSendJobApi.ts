@@ -191,6 +191,8 @@ export class BulkSendJobApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -331,6 +333,8 @@ export class BulkSendJobApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 

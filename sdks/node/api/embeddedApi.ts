@@ -218,6 +218,8 @@ export class EmbeddedApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -355,6 +357,8 @@ export class EmbeddedApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 

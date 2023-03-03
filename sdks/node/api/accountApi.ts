@@ -204,6 +204,8 @@ export class AccountApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -345,6 +347,8 @@ export class AccountApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
     };
 
@@ -503,6 +507,8 @@ export class AccountApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
@@ -662,6 +668,8 @@ export class AccountApi {
       paramsSerializer: this._useQuerystring
         ? queryParamsSerializer
         : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
       responseType: "json",
       data,
     };
