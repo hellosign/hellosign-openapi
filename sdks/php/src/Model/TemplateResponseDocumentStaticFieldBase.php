@@ -71,7 +71,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
         'height' => 'int',
         'required' => 'bool',
         'group' => 'string',
-        'font_size' => 'int',
     ];
 
     /**
@@ -92,7 +91,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
         'height' => null,
         'required' => null,
         'group' => null,
-        'font_size' => null,
     ];
 
     /**
@@ -132,7 +130,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
         'height' => 'height',
         'required' => 'required',
         'group' => 'group',
-        'font_size' => 'fontSize',
     ];
 
     /**
@@ -151,7 +148,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
         'height' => 'setHeight',
         'required' => 'setRequired',
         'group' => 'setGroup',
-        'font_size' => 'setFontSize',
     ];
 
     /**
@@ -170,7 +166,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
         'height' => 'getHeight',
         'required' => 'getRequired',
         'group' => 'getGroup',
-        'font_size' => 'getFontSize',
     ];
 
     /**
@@ -239,7 +234,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
         $this->container['height'] = $data['height'] ?? null;
         $this->container['required'] = $data['required'] ?? null;
         $this->container['group'] = $data['group'] ?? null;
-        $this->container['font_size'] = $data['font_size'] ?? null;
 
         // Initialize discriminator property with the model name.
         $this->container['type'] = static::$openAPIModelName;
@@ -542,30 +536,6 @@ abstract class TemplateResponseDocumentStaticFieldBase implements ModelInterface
     public function setGroup(?string $group)
     {
         $this->container['group'] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Gets font_size
-     *
-     * @return int|null
-     */
-    public function getFontSize()
-    {
-        return $this->container['font_size'];
-    }
-
-    /**
-     * Sets font_size
-     *
-     * @param int|null $font_size final font size used by this form field
-     *
-     * @return self
-     */
-    public function setFontSize(?int $font_size)
-    {
-        $this->container['font_size'] = $font_size;
 
         return $this;
     }

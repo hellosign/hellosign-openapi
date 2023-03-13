@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **Height** | **int** |  The height in pixels of this form field.  | [optional] 
 **Required** | **bool** |  Boolean showing whether or not this field is required.  | [optional] 
 **Group** | **string** |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  | [optional] 
-**FontSize** | **int** |  Final font size used by this form field.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

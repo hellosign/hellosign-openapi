@@ -65,10 +65,6 @@ export abstract class TemplateResponseDocumentStaticFieldBase {
    * The name of the group this field is in. If this field is not a group, this defaults to `null`.
    */
   "group"?: string | null;
-  /**
-   * Final font size used by this form field.
-   */
-  "fontSize"?: number;
 
   static discriminator: string | undefined = "type";
 
@@ -122,11 +118,6 @@ export abstract class TemplateResponseDocumentStaticFieldBase {
       name: "group",
       baseName: "group",
       type: "string",
-    },
-    {
-      name: "fontSize",
-      baseName: "fontSize",
-      type: "number",
     },
   ];
 

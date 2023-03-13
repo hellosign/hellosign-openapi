@@ -9610,9 +9610,6 @@ components:
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
           type: string
           nullable: true
-        fontSize:
-          description: '_t__TemplateResponseDocumentCustomField::FONT_SIZE'
-          type: integer
       type: object
       discriminator:
         propertyName: type
@@ -9717,9 +9714,6 @@ components:
           description: '_t__TemplateResponseDocumentFormField::GROUP'
           type: string
           nullable: true
-        fontSize:
-          description: '_t__TemplateResponseDocumentFormField::FONT_SIZE'
-          type: integer
       type: object
       discriminator:
         propertyName: type
@@ -9928,9 +9922,6 @@ components:
           description: '_t__TemplateResponseDocumentStaticField::GROUP'
           type: string
           nullable: true
-        fontSize:
-          description: '_t__TemplateResponseDocumentStaticField::FONT_SIZE'
-          type: integer
       type: object
       discriminator:
         propertyName: type

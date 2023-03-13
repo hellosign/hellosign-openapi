@@ -55,8 +55,7 @@ import com.dropbox.sign.ApiException;
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_WIDTH,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_HEIGHT,
     TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_REQUIRED,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_GROUP,
-    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_FONT_SIZE
+    TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_GROUP
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -110,9 +109,6 @@ public class TemplateResponseDocumentStaticFieldBase {
 
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
-
-  public static final String JSON_PROPERTY_FONT_SIZE = "fontSize";
-  private Integer fontSize;
 
   public TemplateResponseDocumentStaticFieldBase() { 
   }
@@ -392,32 +388,6 @@ public class TemplateResponseDocumentStaticFieldBase {
   }
 
 
-  public TemplateResponseDocumentStaticFieldBase fontSize(Integer fontSize) {
-    this.fontSize = fontSize;
-    return this;
-  }
-
-   /**
-   * Final font size used by this form field.
-   * @return fontSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Final font size used by this form field.")
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getFontSize() {
-    return fontSize;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFontSize(Integer fontSize) {
-    this.fontSize = fontSize;
-  }
-
-
   /**
    * Return true if this TemplateResponseDocumentStaticFieldBase object is equal to o.
    */
@@ -439,13 +409,12 @@ public class TemplateResponseDocumentStaticFieldBase {
         Objects.equals(this.width, templateResponseDocumentStaticFieldBase.width) &&
         Objects.equals(this.height, templateResponseDocumentStaticFieldBase.height) &&
         Objects.equals(this.required, templateResponseDocumentStaticFieldBase.required) &&
-        Objects.equals(this.group, templateResponseDocumentStaticFieldBase.group) &&
-        Objects.equals(this.fontSize, templateResponseDocumentStaticFieldBase.fontSize);
+        Objects.equals(this.group, templateResponseDocumentStaticFieldBase.group);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, apiId, name, signer, x, y, width, height, required, group, fontSize);
+    return Objects.hash(type, apiId, name, signer, x, y, width, height, required, group);
   }
 
   @Override
@@ -462,7 +431,6 @@ public class TemplateResponseDocumentStaticFieldBase {
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
-    sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -659,25 +627,6 @@ public class TemplateResponseDocumentStaticFieldBase {
         }
         else {
             map.put("group", JSON.getDefault().getMapper().writeValueAsString(group));
-        }
-    }
-    if (fontSize != null) {
-        if (isFileTypeOrListOfFiles(fontSize)) {
-            fileTypeFound = true;
-        }
-
-        if (fontSize.getClass().equals(java.io.File.class) ||
-            fontSize.getClass().equals(Integer.class) ||
-            fontSize.getClass().equals(String.class) ||
-            fontSize.getClass().isEnum()) {
-            map.put("fontSize", fontSize);
-        } else if (isListOfFile(fontSize)) {
-            for(int i = 0; i< getListSize(fontSize); i++) {
-                map.put("fontSize[" + i + "]", getFromList(fontSize, i));
-            }
-        }
-        else {
-            map.put("fontSize", JSON.getDefault().getMapper().writeValueAsString(fontSize));
         }
     }
     } catch (Exception e) {

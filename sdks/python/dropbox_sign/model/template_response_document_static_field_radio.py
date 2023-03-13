@@ -104,7 +104,6 @@ class TemplateResponseDocumentStaticFieldRadio(ModelComposed):
             'height': (int,),  # noqa: E501
             'required': (bool,),  # noqa: E501
             'group': (str, none_type,),  # noqa: E501
-            'font_size': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -139,7 +138,6 @@ class TemplateResponseDocumentStaticFieldRadio(ModelComposed):
         'height': 'height',  # noqa: E501
         'required': 'required',  # noqa: E501
         'group': 'group',  # noqa: E501
-        'font_size': 'fontSize',  # noqa: E501
     }
 
     read_only_vars = {
@@ -225,14 +223,6 @@ class TemplateResponseDocumentStaticFieldRadio(ModelComposed):
     def group(self, value: Optional[str]):
         setattr(self, "group", value)
 
-    @property
-    def font_size(self) -> int:
-        return self.get("font_size")
-
-    @font_size.setter
-    def font_size(self, value: int):
-        setattr(self, "font_size", value)
-
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -279,7 +269,6 @@ class TemplateResponseDocumentStaticFieldRadio(ModelComposed):
             height (int): The height in pixels of this static field.. [optional]  # noqa: E501
             required (bool): Boolean showing whether or not this field is required.. [optional]  # noqa: E501
             group (str, none_type): The name of the group this field is in. If this field is not a group, this defaults to `null`.. [optional]  # noqa: E501
-            font_size (int): Final font size used by this form field.. [optional]  # noqa: E501
         """
 
         type = kwargs.get('type', "radio")
@@ -390,7 +379,6 @@ class TemplateResponseDocumentStaticFieldRadio(ModelComposed):
             height (int): The height in pixels of this static field.. [optional]  # noqa: E501
             required (bool): Boolean showing whether or not this field is required.. [optional]  # noqa: E501
             group (str, none_type): The name of the group this field is in. If this field is not a group, this defaults to `null`.. [optional]  # noqa: E501
-            font_size (int): Final font size used by this form field.. [optional]  # noqa: E501
         """
 
         type = kwargs.get('type', "radio")

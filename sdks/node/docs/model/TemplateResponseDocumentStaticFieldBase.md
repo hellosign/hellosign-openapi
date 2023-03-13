@@ -16,6 +16,5 @@ Name | Type | Description | Notes
 | `height` | ```number``` |  The height in pixels of this static field.  |  |
 | `required` | ```boolean``` |  Boolean showing whether or not this field is required.  |  |
 | `group` | ```string``` |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  |  |
-| `fontSize` | ```number``` |  Final font size used by this form field.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

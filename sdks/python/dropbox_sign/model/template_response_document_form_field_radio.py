@@ -104,7 +104,6 @@ class TemplateResponseDocumentFormFieldRadio(ModelComposed):
             'width': (int,),  # noqa: E501
             'height': (int,),  # noqa: E501
             'required': (bool,),  # noqa: E501
-            'font_size': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -139,7 +138,6 @@ class TemplateResponseDocumentFormFieldRadio(ModelComposed):
         'width': 'width',  # noqa: E501
         'height': 'height',  # noqa: E501
         'required': 'required',  # noqa: E501
-        'font_size': 'fontSize',  # noqa: E501
     }
 
     read_only_vars = {
@@ -225,14 +223,6 @@ class TemplateResponseDocumentFormFieldRadio(ModelComposed):
     def required(self, value: bool):
         setattr(self, "required", value)
 
-    @property
-    def font_size(self) -> int:
-        return self.get("font_size")
-
-    @font_size.setter
-    def font_size(self, value: int):
-        setattr(self, "font_size", value)
-
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -279,7 +269,6 @@ class TemplateResponseDocumentFormFieldRadio(ModelComposed):
             width (int): The width in pixels of this form field.. [optional]  # noqa: E501
             height (int): The height in pixels of this form field.. [optional]  # noqa: E501
             required (bool): Boolean showing whether or not this field is required.. [optional]  # noqa: E501
-            font_size (int): Final font size used by this form field.. [optional]  # noqa: E501
         """
 
         type = kwargs.get('type', "radio")
@@ -390,7 +379,6 @@ class TemplateResponseDocumentFormFieldRadio(ModelComposed):
             width (int): The width in pixels of this form field.. [optional]  # noqa: E501
             height (int): The height in pixels of this form field.. [optional]  # noqa: E501
             required (bool): Boolean showing whether or not this field is required.. [optional]  # noqa: E501
-            font_size (int): Final font size used by this form field.. [optional]  # noqa: E501
         """
 
         type = kwargs.get('type', "radio")

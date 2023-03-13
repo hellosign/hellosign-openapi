@@ -65,8 +65,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        /// <param name="fontSize">Final font size used by this form field..</param>
-        public TemplateResponseDocumentFormFieldHyperlink(string type = "hyperlink", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), string apiId = default(string), string name = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string), int fontSize = default(int))
+        public TemplateResponseDocumentFormFieldHyperlink(string type = "hyperlink", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), string apiId = default(string), string name = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -77,7 +76,6 @@ namespace Dropbox.Sign.Model
             this.Height = height;
             this.Required = required;
             this.Group = group;
-            this.FontSize = fontSize;
             
             // to ensure "type" is required (not null)
             if (type == null)

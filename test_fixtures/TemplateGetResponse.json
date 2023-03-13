@@ -52,7 +52,6 @@
               "height": 15,
               "required": false,
               "api_id": "967c3e5f-2912-4f53-8ea3-c750652d29fc",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -69,8 +68,7 @@
               "width": 18,
               "height": 18,
               "required": false,
-              "api_id": "5e8fe02f-51cf-4f0b-b1d9-2b1e4f6ad07f",
-              "fontSize": 12
+              "api_id": "5e8fe02f-51cf-4f0b-b1d9-2b1e4f6ad07f"
             }
           ],
           "form_fields": [
@@ -83,8 +81,7 @@
               "width": 108,
               "height": 27,
               "required": true,
-              "api_id": "8b6d78a5-0870-4f46-af9c-b78b54a49348",
-              "fontSize": 12
+              "api_id": "8b6d78a5-0870-4f46-af9c-b78b54a49348"
             },
             {
               "name": "Textbox1",
@@ -96,7 +93,6 @@
               "height": 14,
               "required": true,
               "api_id": "7ec10d80-53c9-433b-b252-0b8daa90a8e0",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 38
@@ -115,7 +111,6 @@
               "height": 14,
               "required": true,
               "api_id": "6574e6ad-7dac-49a2-9d56-650d7c5ade6e",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 38
@@ -133,8 +128,7 @@
               "width": 72,
               "height": 27,
               "required": true,
-              "api_id": "30f41f54-c7f3-46c3-a29a-bb76ec40b552",
-              "fontSize": 12
+              "api_id": "30f41f54-c7f3-46c3-a29a-bb76ec40b552"
             },
             {
               "name": "Checkbox1",
@@ -146,8 +140,7 @@
               "height": 18,
               "required": false,
               "api_id": "d4d6ada9-e1dc-419e-bc0d-1478da694449",
-              "group": "75a6e4b5fea47",
-              "fontSize": 12
+              "group": "75a6e4b5fea47"
             },
             {
               "name": "Dropdown1",
@@ -158,8 +151,7 @@
               "width": 70,
               "height": 14,
               "required": true,
-              "api_id": "5863be5e-ce5a-4c9d-aabe-c221914d73c2",
-              "fontSize": 12
+              "api_id": "5863be5e-ce5a-4c9d-aabe-c221914d73c2"
             },
             {
               "name": "DateSigned1",
@@ -170,8 +162,7 @@
               "width": 105,
               "height": 18,
               "required": true,
-              "api_id": "9f6d3722-6db7-46da-8fac-3bc09f510262",
-              "fontSize": 12
+              "api_id": "9f6d3722-6db7-46da-8fac-3bc09f510262"
             },
             {
               "name": "Checkbox2",
@@ -183,8 +174,7 @@
               "height": 18,
               "required": false,
               "api_id": "edd732b8-b158-4714-a87b-503637d09ded",
-              "group": "75a6e4b5fea47",
-              "fontSize": 12
+              "group": "75a6e4b5fea47"
             },
             {
               "name": "FullName1",
@@ -196,7 +186,6 @@
               "height": 14,
               "required": true,
               "api_id": "62fd3f85-4808-4011-8eae-a14ebe9105ef",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -215,7 +204,6 @@
               "height": 14,
               "required": true,
               "api_id": "a1c9bc6b-d498-4787-86e0-30ea779f06a7",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 38
@@ -235,8 +223,7 @@
               "height": 18,
               "required": false,
               "api_id": "fc8a1277-f757-47a2-aeea-5113fa81f2d5",
-              "group": "0831822584086",
-              "fontSize": 12
+              "group": "0831822584086"
             },
             {
               "name": "Company1",
@@ -248,7 +235,6 @@
               "height": 14,
               "required": true,
               "api_id": "279b4e7f-e71f-426d-845c-6308cddde379",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 38
@@ -267,7 +253,6 @@
               "height": 14,
               "required": true,
               "api_id": "8809e39a-a46c-4dae-aaf9-06fc6355d80f",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 38
@@ -286,8 +271,7 @@
               "height": 18,
               "required": false,
               "api_id": "f7b6b70d-0522-4ab7-bfec-b86f147c8be3",
-              "group": "0831822584086",
-              "fontSize": 12
+              "group": "0831822584086"
             },
             {
               "name": "Textbox3",
@@ -299,7 +283,6 @@
               "height": 14,
               "required": true,
               "api_id": "bad7512a-e22b-46ed-ba03-123db0eda932",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 38
@@ -318,7 +301,6 @@
               "height": 14,
               "required": true,
               "api_id": "368ed029-bc93-4f92-8f7a-14c3bf8109b5",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -338,7 +320,6 @@
               "height": 14,
               "required": true,
               "api_id": "ecf2ae95-d2e6-41b2-819a-836a6fa8c7c5",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -358,7 +339,6 @@
               "height": 14,
               "required": true,
               "api_id": "3cb90a0a-a433-4f30-8af8-8fb4c747b704",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -378,7 +358,6 @@
               "height": 14,
               "required": true,
               "api_id": "5b9eb331-c97d-435b-a563-d936a9b930c0",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -398,7 +377,6 @@
               "height": 14,
               "required": true,
               "api_id": "2b98ce7e-e53a-4cf8-a9f3-d7fb18d88631",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -418,7 +396,6 @@
               "height": 14,
               "required": true,
               "api_id": "5f52c011-2c5f-4143-bf04-4694fb4a0d3f",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -438,7 +415,6 @@
               "height": 14,
               "required": true,
               "api_id": "47457b7d-b1e8-41a0-93ad-60ba30e64bb1",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -458,7 +434,6 @@
               "height": 14,
               "required": true,
               "api_id": "18e3f994-1675-4d58-9b4a-4f92a2614551",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -478,7 +453,6 @@
               "height": 14,
               "required": true,
               "api_id": "9ad4b8cc-bac9-432b-8836-9f80f86fc7e0",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -497,7 +471,6 @@
               "height": 14,
               "required": true,
               "api_id": "58c5f942-04fb-45f1-9703-5e8411f3a3bb",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -517,7 +490,6 @@
               "height": 14,
               "required": false,
               "api_id": "fd928b56-cf59-40a4-9a90-62f97ffd0ddc",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 30
@@ -536,7 +508,6 @@
               "height": 14,
               "required": true,
               "api_id": "e48c388d-8c26-4f20-848e-f8587a631746",
-              "fontSize": 12,
               "avg_text_length": {
                 "num_lines": 1,
                 "num_chars_per_line": 19
@@ -557,8 +528,7 @@
               "width": 108,
               "height": 27,
               "required": false,
-              "api_id": "988565fd-6f85-4081-9fa4-5ae51e16dfc9",
-              "fontSize": 12
+              "api_id": "988565fd-6f85-4081-9fa4-5ae51e16dfc9"
             },
             {
               "name": "me_now_radio_1",
@@ -569,8 +539,7 @@
               "width": 18,
               "height": 18,
               "required": false,
-              "api_id": "f008a911-26c2-4d7c-baef-d82c7e180f7a",
-              "fontSize": 12
+              "api_id": "f008a911-26c2-4d7c-baef-d82c7e180f7a"
             },
             {
               "name": "me_now_date_signed_1",
@@ -581,8 +550,7 @@
               "width": 86,
               "height": 14,
               "required": false,
-              "api_id": "1220d8b3-7b2c-4ea7-971a-333e03839922",
-              "fontSize": 12
+              "api_id": "1220d8b3-7b2c-4ea7-971a-333e03839922"
             },
             {
               "name": "me_now_text_1",
@@ -593,8 +561,7 @@
               "width": 101,
               "height": 14,
               "required": false,
-              "api_id": "0829b343-71d2-4719-b563-808b8997174f",
-              "fontSize": 12
+              "api_id": "0829b343-71d2-4719-b563-808b8997174f"
             }
           ]
         }
@@ -609,7 +576,6 @@
           "height": 15,
           "required": false,
           "api_id": "967c3e5f-2912-4f53-8ea3-c750652d29fc",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -626,8 +592,7 @@
           "width": 18,
           "height": 18,
           "required": false,
-          "api_id": "5e8fe02f-51cf-4f0b-b1d9-2b1e4f6ad07f",
-          "fontSize": 12
+          "api_id": "5e8fe02f-51cf-4f0b-b1d9-2b1e4f6ad07f"
         }
       ],
       "named_form_fields": [
@@ -640,8 +605,7 @@
           "width": 108,
           "height": 27,
           "required": true,
-          "api_id": "8b6d78a5-0870-4f46-af9c-b78b54a49348",
-          "fontSize": 12
+          "api_id": "8b6d78a5-0870-4f46-af9c-b78b54a49348"
         },
         {
           "name": "Textbox1",
@@ -653,7 +617,6 @@
           "height": 14,
           "required": true,
           "api_id": "7ec10d80-53c9-433b-b252-0b8daa90a8e0",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 38
@@ -672,7 +635,6 @@
           "height": 14,
           "required": true,
           "api_id": "6574e6ad-7dac-49a2-9d56-650d7c5ade6e",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 38
@@ -690,8 +652,7 @@
           "width": 72,
           "height": 27,
           "required": true,
-          "api_id": "30f41f54-c7f3-46c3-a29a-bb76ec40b552",
-          "fontSize": 12
+          "api_id": "30f41f54-c7f3-46c3-a29a-bb76ec40b552"
         },
         {
           "name": "Checkbox1",
@@ -703,8 +664,7 @@
           "height": 18,
           "required": false,
           "api_id": "d4d6ada9-e1dc-419e-bc0d-1478da694449",
-          "group": "75a6e4b5fea47",
-          "fontSize": 12
+          "group": "75a6e4b5fea47"
         },
         {
           "name": "Dropdown1",
@@ -715,8 +675,7 @@
           "width": 70,
           "height": 14,
           "required": true,
-          "api_id": "5863be5e-ce5a-4c9d-aabe-c221914d73c2",
-          "fontSize": 12
+          "api_id": "5863be5e-ce5a-4c9d-aabe-c221914d73c2"
         },
         {
           "name": "DateSigned1",
@@ -727,8 +686,7 @@
           "width": 105,
           "height": 18,
           "required": true,
-          "api_id": "9f6d3722-6db7-46da-8fac-3bc09f510262",
-          "fontSize": 12
+          "api_id": "9f6d3722-6db7-46da-8fac-3bc09f510262"
         },
         {
           "name": "Checkbox2",
@@ -740,8 +698,7 @@
           "height": 18,
           "required": false,
           "api_id": "edd732b8-b158-4714-a87b-503637d09ded",
-          "group": "75a6e4b5fea47",
-          "fontSize": 12
+          "group": "75a6e4b5fea47"
         },
         {
           "name": "FullName1",
@@ -753,7 +710,6 @@
           "height": 14,
           "required": true,
           "api_id": "62fd3f85-4808-4011-8eae-a14ebe9105ef",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -772,7 +728,6 @@
           "height": 14,
           "required": true,
           "api_id": "a1c9bc6b-d498-4787-86e0-30ea779f06a7",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 38
@@ -792,8 +747,7 @@
           "height": 18,
           "required": false,
           "api_id": "fc8a1277-f757-47a2-aeea-5113fa81f2d5",
-          "group": "0831822584086",
-          "fontSize": 12
+          "group": "0831822584086"
         },
         {
           "name": "Company1",
@@ -805,7 +759,6 @@
           "height": 14,
           "required": true,
           "api_id": "279b4e7f-e71f-426d-845c-6308cddde379",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 38
@@ -824,7 +777,6 @@
           "height": 14,
           "required": true,
           "api_id": "8809e39a-a46c-4dae-aaf9-06fc6355d80f",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 38
@@ -843,8 +795,7 @@
           "height": 18,
           "required": false,
           "api_id": "f7b6b70d-0522-4ab7-bfec-b86f147c8be3",
-          "group": "0831822584086",
-          "fontSize": 12
+          "group": "0831822584086"
         },
         {
           "name": "Textbox3",
@@ -856,7 +807,6 @@
           "height": 14,
           "required": true,
           "api_id": "bad7512a-e22b-46ed-ba03-123db0eda932",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 38
@@ -875,7 +825,6 @@
           "height": 14,
           "required": true,
           "api_id": "368ed029-bc93-4f92-8f7a-14c3bf8109b5",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -895,7 +844,6 @@
           "height": 14,
           "required": true,
           "api_id": "ecf2ae95-d2e6-41b2-819a-836a6fa8c7c5",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -915,7 +863,6 @@
           "height": 14,
           "required": true,
           "api_id": "3cb90a0a-a433-4f30-8af8-8fb4c747b704",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -935,7 +882,6 @@
           "height": 14,
           "required": true,
           "api_id": "5b9eb331-c97d-435b-a563-d936a9b930c0",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -955,7 +901,6 @@
           "height": 14,
           "required": true,
           "api_id": "2b98ce7e-e53a-4cf8-a9f3-d7fb18d88631",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -975,7 +920,6 @@
           "height": 14,
           "required": true,
           "api_id": "5f52c011-2c5f-4143-bf04-4694fb4a0d3f",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -995,7 +939,6 @@
           "height": 14,
           "required": true,
           "api_id": "47457b7d-b1e8-41a0-93ad-60ba30e64bb1",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -1015,7 +958,6 @@
           "height": 14,
           "required": true,
           "api_id": "18e3f994-1675-4d58-9b4a-4f92a2614551",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -1035,7 +977,6 @@
           "height": 14,
           "required": true,
           "api_id": "9ad4b8cc-bac9-432b-8836-9f80f86fc7e0",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -1054,7 +995,6 @@
           "height": 14,
           "required": true,
           "api_id": "58c5f942-04fb-45f1-9703-5e8411f3a3bb",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
@@ -1074,7 +1014,6 @@
           "height": 14,
           "required": false,
           "api_id": "fd928b56-cf59-40a4-9a90-62f97ffd0ddc",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 30
@@ -1093,7 +1032,6 @@
           "height": 14,
           "required": true,
           "api_id": "e48c388d-8c26-4f20-848e-f8587a631746",
-          "fontSize": 12,
           "avg_text_length": {
             "num_lines": 1,
             "num_chars_per_line": 19
