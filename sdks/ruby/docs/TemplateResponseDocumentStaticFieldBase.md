@@ -16,5 +16,4 @@ An array describing static overlay fields. **Note** only available for certain s
 | `height` | ```Integer``` |  The height in pixels of this static field.  |  |
 | `required` | ```Boolean``` |  Boolean showing whether or not this field is required.  |  |
 | `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  |  |
-| `font_size` | ```Integer``` |  Final font size used by this form field.  |  |
 

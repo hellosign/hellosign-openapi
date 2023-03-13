@@ -57,8 +57,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
-        /// <param name="fontSize">Final font size used by this form field..</param>
-        public TemplateResponseDocumentCustomFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string), int fontSize = default(int))
+        public TemplateResponseDocumentCustomFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             
             // to ensure "type" is required (not null)
@@ -76,7 +75,6 @@ namespace Dropbox.Sign.Model
             this.Height = height;
             this.Required = required;
             this.Group = group;
-            this.FontSize = fontSize;
         }
 
         /// <summary>
@@ -165,13 +163,6 @@ namespace Dropbox.Sign.Model
         public string Group { get; set; }
 
         /// <summary>
-        /// Final font size used by this form field.
-        /// </summary>
-        /// <value>Final font size used by this form field.</value>
-        [DataMember(Name = "fontSize", EmitDefaultValue = true)]
-        public int FontSize { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -189,7 +180,6 @@ namespace Dropbox.Sign.Model
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Required: ").Append(Required).Append("\n");
             sb.Append("  Group: ").Append(Group).Append("\n");
-            sb.Append("  FontSize: ").Append(FontSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -269,10 +259,6 @@ namespace Dropbox.Sign.Model
                     this.Group == input.Group ||
                     (this.Group != null &&
                     this.Group.Equals(input.Group))
-                ) && 
-                (
-                    this.FontSize == input.FontSize ||
-                    this.FontSize.Equals(input.FontSize)
                 );
         }
 
@@ -310,7 +296,6 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Group.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.FontSize.GetHashCode();
                 return hashCode;
             }
         }
@@ -377,12 +362,6 @@ namespace Dropbox.Sign.Model
                 Property = "Group",
                 Type = "string",
                 Value = Group,
-            });
-            types.Add(new OpenApiType(){
-                Name = "fontSize",
-                Property = "FontSize",
-                Type = "int",
-                Value = FontSize,
             });
 
             return types;

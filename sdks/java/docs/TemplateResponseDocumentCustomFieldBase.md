@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 | `height` | ```Integer``` |  The height in pixels of this form field.  |  |
 | `required` | ```Boolean``` |  Boolean showing whether or not this field is required.  |  |
 | `group` | ```String``` |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  |  |
-| `fontSize` | ```Integer``` |  Final font size used by this form field.  |  |
 
 
 

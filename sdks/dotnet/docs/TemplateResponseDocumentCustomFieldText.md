@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Height** | **int** |  The height in pixels of this form field.  | [optional] 
 **Required** | **bool** |  Boolean showing whether or not this field is required.  | [optional] 
 **Group** | **string** |  The name of the group this field is in. If this field is not a group, this defaults to `null`.  | [optional] 
-**FontSize** | **int** |  Final font size used by this form field.  | [optional] 
 **Type** | **string** |  The type of this Custom Field. Only `text` and `checkbox` are currently supported.<br><br>* Text uses `TemplateResponseDocumentCustomFieldText`<br>* Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`  | [default to "text"]
 **AvgTextLength** | [**TemplateResponseFieldAvgTextLength**](TemplateResponseFieldAvgTextLength.md) |    | [optional] 
 **IsMultiline** | **bool** |  Whether this form field is multiline text.  | [optional] 

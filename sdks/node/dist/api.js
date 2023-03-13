@@ -23922,11 +23922,6 @@ TemplateResponseDocumentCustomFieldBase.attributeTypeMap = [
     name: "group",
     baseName: "group",
     type: "string"
-  },
-  {
-    name: "fontSize",
-    baseName: "fontSize",
-    type: "number"
   }
 ];
 
@@ -24144,11 +24139,6 @@ TemplateResponseDocumentFormFieldBase.attributeTypeMap = [
     name: "group",
     baseName: "group",
     type: "string"
-  },
-  {
-    name: "fontSize",
-    baseName: "fontSize",
-    type: "number"
   }
 ];
 
@@ -24511,11 +24501,6 @@ TemplateResponseDocumentStaticFieldBase.attributeTypeMap = [
     name: "group",
     baseName: "group",
     type: "string"
-  },
-  {
-    name: "fontSize",
-    baseName: "fontSize",
-    type: "number"
   }
 ];
 
@@ -32809,7 +32794,7 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var USER_AGENT = "OpenAPI-Generator/1.1.1/node";
+var USER_AGENT = "OpenAPI-Generator/1.1.2/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;

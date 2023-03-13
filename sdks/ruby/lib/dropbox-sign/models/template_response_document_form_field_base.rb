@@ -58,10 +58,6 @@ module Dropbox::Sign
     # @return [String, nil]
     attr_accessor :group
 
-    # Final font size used by this form field.
-    # @return [Integer]
-    attr_accessor :font_size
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -74,8 +70,7 @@ module Dropbox::Sign
         :'width' => :'width',
         :'height' => :'height',
         :'required' => :'required',
-        :'group' => :'group',
-        :'font_size' => :'fontSize'
+        :'group' => :'group'
       }
     end
 
@@ -101,8 +96,7 @@ module Dropbox::Sign
         :'width' => :'Integer',
         :'height' => :'Integer',
         :'required' => :'Boolean',
-        :'group' => :'String',
-        :'font_size' => :'Integer'
+        :'group' => :'String'
       }
     end
 
@@ -114,7 +108,7 @@ module Dropbox::Sign
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'group',
+        :'group'
       ])
     end
 
@@ -213,10 +207,6 @@ module Dropbox::Sign
       if attributes.key?(:'group')
         self.group = attributes[:'group']
       end
-
-      if attributes.key?(:'font_size')
-        self.font_size = attributes[:'font_size']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -251,8 +241,7 @@ module Dropbox::Sign
           width == o.width &&
           height == o.height &&
           required == o.required &&
-          group == o.group &&
-          font_size == o.font_size
+          group == o.group
     end
 
     # @see the `==` method
@@ -264,7 +253,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, api_id, name, signer, x, y, width, height, required, group, font_size].hash
+      [type, api_id, name, signer, x, y, width, height, required, group].hash
     end
 
     # Builds the object from hash
