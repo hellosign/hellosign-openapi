@@ -13,4 +13,4 @@ docker run --rm \
   -v "dropbox-sign-sdk-maven-cache:/root/.m2" \
   -w "${WORKING_DIR}" \
   -e GEN_DIR=/app \
-  gradle:6.9.3-jdk8 "$@"
+  gradle:7.6.1-jdk11 "$@"

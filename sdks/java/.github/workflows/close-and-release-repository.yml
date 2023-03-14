@@ -20,7 +20,7 @@ jobs:
           java-version: 11
 
       - name: Publish Release to Maven Central
-        run: ./gradlew closeAndReleaseRepository --no-daemon --no-parallel --repository {{ inputs.repository }}
+        run: ./gradlew closeAndReleaseRepository --no-daemon --no-parallel --repository ${{ inputs.repository }}
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}

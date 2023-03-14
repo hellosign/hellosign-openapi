@@ -10,11 +10,11 @@ buildscript {
 }
 
 plugins {
-    id 'com.vanniktech.maven.publish' version '0.18.0'
+    id 'com.vanniktech.maven.publish' version '0.24.0'
 }
 
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'com.diffplug.spotless'
 apply plugin: 'signing'
 
@@ -52,6 +52,7 @@ task sourcesJar(type: Jar) {
 
 task fatJar(type: Jar) {
     classifier = 'all'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
@@ -66,47 +67,48 @@ artifacts {
     archives javadocJar, sourcesJar, fatJar
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName:  findProperty('ossrhUsername'), password:  findProperty('ossrhPassword'))
-            }
-
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName:  findProperty('ossrhUsername'), password:  findProperty('ossrhPassword'))
-            }
-
-            pom.project {
-                name 'Dropbox Sign'
-                packaging 'jar'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = 'Dropbox Sign'
+                packaging = 'jar'
                 // optionally artifactId can be defined here
-                artifactId '{{artifactId}}'
-                description 'Use the Dropbox SIgn Java SDK to connect your Java app to Dropbox Sign\'s service in microseconds!'
-                url 'https://www.hellosign.com/'
+                artifactId = '{{artifactId}}'
+                description = 'Use the Dropbox SIgn Java SDK to connect your Java app to Dropbox Sign\'s service in microseconds!'
+                url = 'https://www.hellosign.com/'
 
                 scm {
-                    connection '{{scmConnection}}'
-                    developerConnection '{{scmDeveloperConnection}}'
-                    url '{{scmUrl}}'
+                    connection = '{{scmConnection}}'
+                    developerConnection = '{{scmDeveloperConnection}}'
+                    url = '{{scmUrl}}'
                 }
 
                 licenses {
                     license {
-                        name '{{licenseName}}'
-                        url 'http://www.opensource.org/licenses/mit-license.php'
+                        name = '{{licenseName}}'
+                        url = 'http://www.opensource.org/licenses/mit-license.php'
                     }
                 }
 
                 developers {
                     developer {
-                        name '{{developerName}}'
-                        email '{{developerEmail}}'
-                        url 'https://www.hellosign.com'
+                        name = '{{developerName}}'
+                        email = '{{developerEmail}}'
+                        url = 'https://www.hellosign.com'
                     }
                 }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username findProperty('ossrhUsername')
+                password findProperty('ossrhPassword')
             }
         }
     }

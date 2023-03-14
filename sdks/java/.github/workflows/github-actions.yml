@@ -7,6 +7,8 @@ name: Build, Check, Publish
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/**'
   pull_request:
     branches: [ main ]
 
@@ -55,7 +57,7 @@ jobs:
 
       - name: Publish Release to Maven Central
         run: ./gradlew closeAndReleaseRepository --no-daemon --no-parallel
-        if: "!endsWith(env.VERSION_NAME, '-SNAPSHOT')"
+        if: "!endsWith(env.PACKAGE_VERSION, '-SNAPSHOT')"
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
@@ -78,6 +80,7 @@ jobs:
 
       - name: Create tag
         uses: actions/github-script@v6
+        if: "!endsWith(env.PACKAGE_VERSION, '-SNAPSHOT')"
         env:
           PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
         with:
