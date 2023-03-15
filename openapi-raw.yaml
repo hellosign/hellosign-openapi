@@ -8160,6 +8160,211 @@ components:
           type: boolean
           default: false
       type: object
+    AccountCreateResponse:
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountResponse'
+        oauth_data:
+          $ref: '#/components/schemas/OAuthTokenResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    AccountGetResponse:
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    AccountVerifyResponse:
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountVerifyResponseAccount'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    ApiAppGetResponse:
+      properties:
+        api_app:
+          $ref: '#/components/schemas/ApiAppResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    ApiAppListResponse:
+      properties:
+        api_apps:
+          description: '_t__ApiAppListResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiAppResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    BulkSendJobGetResponse:
+      properties:
+        bulk_send_job:
+          $ref: '#/components/schemas/BulkSendJobResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        signature_requests:
+          description: '_t__BulkSendJobGetResponse::SIGNATURE_REQUESTS'
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    BulkSendJobListResponse:
+      properties:
+        bulk_send_jobs:
+          description: '_t__BulkSendJobListResponse::BULK_SEND_JOBS'
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkSendJobResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    BulkSendJobSendResponse:
+      properties:
+        bulk_send_job:
+          $ref: '#/components/schemas/BulkSendJobResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    EmbeddedEditUrlResponse:
+      properties:
+        embedded:
+          $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    EmbeddedSignUrlResponse:
+      properties:
+        embedded:
+          $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    ErrorResponse:
+      required:
+        - error
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorResponseError'
+      type: object
+    EventCallbackRequest:
+      title: EventCallbackRequest
+      required:
+        - event
+      properties:
+        event:
+          $ref: '#/components/schemas/EventCallbackRequestEvent'
+        account:
+          $ref: '#/components/schemas/AccountResponse'
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+        template:
+          $ref: '#/components/schemas/TemplateResponse'
+      type: object
+    FileResponse:
+      properties:
+        file_url:
+          description: '_t__FileResponse::FILE_URL'
+          type: string
+        expires_at:
+          description: '_t__FileResponse::EXPIRES_AT'
+          type: integer
+      type: object
+      x-internal: true
+    FileResponseDataUri:
+      properties:
+        data_uri:
+          description: '_t__FileResponse::DATA_URI'
+          type: string
+      type: object
+      x-internal: true
+    ReportCreateResponse:
+      properties:
+        report:
+          $ref: '#/components/schemas/ReportResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    SignatureRequestGetResponse:
+      properties:
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    SignatureRequestListResponse:
+      properties:
+        signature_requests:
+          description: '_t__SignatureRequestListResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SignatureRequestResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     AccountResponse:
       properties:
         account_id:
@@ -8197,46 +8402,20 @@ components:
           nullable: true
       type: object
       x-internal: true
-    AccountCreateResponse:
+    OAuthTokenResponse:
       properties:
-        account:
-          $ref: '#/components/schemas/AccountResponse'
-        oauth_data:
-          $ref: '#/components/schemas/OAuthTokenResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    AccountGetResponse:
-      properties:
-        account:
-          $ref: '#/components/schemas/AccountResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    AccountVerifyResponse:
-      properties:
-        account:
-          $ref: '#/components/schemas/AccountVerifyResponseAccount'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    AccountVerifyResponseAccount:
-      properties:
-        email_address:
-          description: '_t__Account::EMAIL_ADDRESS'
+        access_token:
           type: string
+        token_type:
+          type: string
+        refresh_token:
+          type: string
+        expires_in:
+          description: '_t__OAuthTokenResponse::EXPIRES_IN'
+          type: integer
+        state:
+          type: string
+          nullable: true
       type: object
       x-internal: true
     AccountResponseQuotas:
@@ -8262,6 +8441,13 @@ components:
           description: '_t__AccountQuota::SMS_VERIFICATIONS_LEFT'
           type: integer
           nullable: true
+      type: object
+      x-internal: true
+    AccountVerifyResponseAccount:
+      properties:
+        email_address:
+          description: '_t__Account::EMAIL_ADDRESS'
+          type: string
       type: object
       x-internal: true
     ApiAppResponse:
@@ -8296,33 +8482,6 @@ components:
           $ref: '#/components/schemas/ApiAppResponseOwnerAccount'
         white_labeling_options:
           $ref: '#/components/schemas/ApiAppResponseWhiteLabelingOptions'
-      type: object
-      x-internal: true
-    ApiAppGetResponse:
-      properties:
-        api_app:
-          $ref: '#/components/schemas/ApiAppResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    ApiAppListResponse:
-      properties:
-        api_apps:
-          description: '_t__ApiAppListResponse::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiAppResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     ApiAppResponseOAuth:
@@ -8417,24 +8576,6 @@ components:
           type: integer
       type: object
       x-internal: true
-    BulkSendJobGetResponse:
-      properties:
-        bulk_send_job:
-          $ref: '#/components/schemas/BulkSendJobResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        signature_requests:
-          description: '_t__BulkSendJobGetResponse::SIGNATURE_REQUESTS'
-          type: array
-          items:
-            $ref: '#/components/schemas/BulkSendJobGetResponseSignatureRequests'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
     BulkSendJobGetResponseSignatureRequests:
       title: BulkSendJobGetResponseSignatureRequests
       type: object
@@ -8447,44 +8588,6 @@ components:
               description: '_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID'
               type: string
       x-internal: true
-    BulkSendJobListResponse:
-      properties:
-        bulk_send_jobs:
-          description: '_t__BulkSendJobListResponse::BULK_SEND_JOBS'
-          type: array
-          items:
-            $ref: '#/components/schemas/BulkSendJobResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    BulkSendJobSendResponse:
-      properties:
-        bulk_send_job:
-          $ref: '#/components/schemas/BulkSendJobResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    EmbeddedEditUrlResponse:
-      properties:
-        embedded:
-          $ref: '#/components/schemas/EmbeddedEditUrlResponseEmbedded'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
     EmbeddedEditUrlResponseEmbedded:
       description: '_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION'
       properties:
@@ -8494,17 +8597,6 @@ components:
         expires_at:
           description: '_t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT'
           type: integer
-      type: object
-      x-internal: true
-    EmbeddedSignUrlResponse:
-      properties:
-        embedded:
-          $ref: '#/components/schemas/EmbeddedSignUrlResponseEmbedded'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     EmbeddedSignUrlResponseEmbedded:
@@ -8518,13 +8610,6 @@ components:
           type: integer
       type: object
       x-internal: true
-    ErrorResponse:
-      required:
-        - error
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorResponseError'
-      type: object
     ErrorResponseError:
       description: '_t__ErrorResponseError::DESCRIPTION'
       required:
@@ -8540,20 +8625,6 @@ components:
         error_name:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
-      type: object
-    EventCallbackRequest:
-      title: EventCallbackRequest
-      required:
-        - event
-      properties:
-        event:
-          $ref: '#/components/schemas/EventCallbackRequestEvent'
-        account:
-          $ref: '#/components/schemas/AccountResponse'
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-        template:
-          $ref: '#/components/schemas/TemplateResponse'
       type: object
     EventCallbackRequestEvent:
       description: '_t__EventCallbackRequestEvent::DESCRIPTION'
@@ -8618,23 +8689,6 @@ components:
           type: string
           nullable: true
       type: object
-    FileResponse:
-      properties:
-        file_url:
-          description: '_t__FileResponse::FILE_URL'
-          type: string
-        expires_at:
-          description: '_t__FileResponse::EXPIRES_AT'
-          type: integer
-      type: object
-      x-internal: true
-    FileResponseDataUri:
-      properties:
-        data_uri:
-          description: '_t__FileResponse::DATA_URI'
-          type: string
-      type: object
-      x-internal: true
     ListInfoResponse:
       description: '_t__ListInfoResponse::DESCRIPTION'
       properties:
@@ -8651,169 +8705,6 @@ components:
         page_size:
           description: '_t__ListInfoResponse::PAGE_SIZE'
           type: integer
-      type: object
-      x-internal: true
-    SignatureRequestResponseDataTypeEnum:
-      type: string
-      enum:
-        - text
-        - checkbox
-        - date_signed
-        - dropdown
-        - initials
-        - radio
-        - signature
-        - text-merge
-        - checkbox-merge
-    SignatureRequestResponseDataValueText:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::TEXT_TYPE'
-              type: string
-              default: text
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueDropdown:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::DROPDOWN_TYPE'
-              type: string
-              default: dropdown
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueRadio:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::RADIO_TYPE'
-              type: string
-              default: radio
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: boolean
-          type: object
-    SignatureRequestResponseDataValueDateSigned:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::DATESIGNED_TYPE'
-              type: string
-              default: date_signed
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueInitials:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::INITIAL_TYPE'
-              type: string
-              default: initials
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueCheckbox:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::CHECKBOX_TYPE'
-              type: string
-              default: checkbox
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: boolean
-          type: object
-    SignatureRequestResponseDataValueSignature:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::SIGNATURE_TYPE'
-              type: string
-              default: signature
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueTextMerge:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE'
-              type: string
-              default: text-merge
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    SignatureRequestResponseDataValueCheckboxMerge:
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
-        -
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE'
-              type: string
-              default: checkbox-merge
-            value:
-              description: '_t__SignatureRequestResponseDataValue::VALUE'
-              type: string
-          type: object
-    OAuthTokenResponse:
-      properties:
-        access_token:
-          type: string
-        token_type:
-          type: string
-        refresh_token:
-          type: string
-        expires_in:
-          description: '_t__OAuthTokenResponse::EXPIRES_IN'
-          type: integer
-        state:
-          type: string
-          nullable: true
       type: object
       x-internal: true
     ReportResponse:
@@ -8835,17 +8726,6 @@ components:
             enum:
               - user_activity
               - document_status
-      type: object
-      x-internal: true
-    ReportCreateResponse:
-      properties:
-        report:
-          $ref: '#/components/schemas/ReportResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     SignatureRequestResponse:
@@ -8945,33 +8825,6 @@ components:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
       type: object
       x-internal: true
-    SignatureRequestGetResponse:
-      properties:
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    SignatureRequestListResponse:
-      properties:
-        signature_requests:
-          description: '_t__SignatureRequestListResponse::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/SignatureRequestResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
     SignatureRequestResponseAttachment:
       description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
       required:
@@ -9002,11 +8855,6 @@ components:
           nullable: true
       type: object
       x-internal: true
-    SignatureRequestResponseCustomFieldTypeEnum:
-      type: string
-      enum:
-        - text
-        - checkbox
     SignatureRequestResponseCustomFieldBase:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION'
       required:
@@ -9036,35 +8884,15 @@ components:
           checkbox: '#/components/schemas/SignatureRequestResponseCustomFieldCheckbox'
       x-internal: true
       x-base-class: true
-    SignatureRequestResponseCustomFieldText:
-      description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
-        -
-          required:
-            - type
-            - options
-          properties:
-            type:
-              description: '_t__SignatureRequestResponseCustomField::TYPE'
-              type: string
-              default: text
-            value:
-              description: '_t__SignatureRequestResponseCustomField::VALUE_TEXT'
-              type: string
-          type: object
     SignatureRequestResponseCustomFieldCheckbox:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
-          required:
-            - type
-            - options
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -9073,7 +8901,28 @@ components:
             value:
               description: '_t__SignatureRequestResponseCustomField::VALUE_CHECKBOX'
               type: boolean
-          type: object
+    SignatureRequestResponseCustomFieldText:
+      description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseCustomField::TYPE'
+              type: string
+              default: text
+            value:
+              description: '_t__SignatureRequestResponseCustomField::VALUE_TEXT'
+              type: string
+    SignatureRequestResponseCustomFieldTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
     SignatureRequestResponseDataBase:
       description: '_t__SignatureRequestResponseData::DESCRIPTION'
       properties:
@@ -9106,6 +8955,144 @@ components:
           checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
       x-internal: true
       x-base-class: true
+    SignatureRequestResponseDataTypeEnum:
+      type: string
+      enum:
+        - text
+        - checkbox
+        - date_signed
+        - dropdown
+        - initials
+        - radio
+        - signature
+        - text-merge
+        - checkbox-merge
+    SignatureRequestResponseDataValueCheckbox:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::CHECKBOX_TYPE'
+              type: string
+              default: checkbox
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: boolean
+    SignatureRequestResponseDataValueCheckboxMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::CHECKBOXMERGE_TYPE'
+              type: string
+              default: checkbox-merge
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
+    SignatureRequestResponseDataValueDateSigned:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::DATESIGNED_TYPE'
+              type: string
+              default: date_signed
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
+    SignatureRequestResponseDataValueDropdown:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::DROPDOWN_TYPE'
+              type: string
+              default: dropdown
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
+    SignatureRequestResponseDataValueInitials:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::INITIAL_TYPE'
+              type: string
+              default: initials
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
+    SignatureRequestResponseDataValueRadio:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::RADIO_TYPE'
+              type: string
+              default: radio
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: boolean
+    SignatureRequestResponseDataValueSignature:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::SIGNATURE_TYPE'
+              type: string
+              default: signature
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
+    SignatureRequestResponseDataValueText:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::TEXT_TYPE'
+              type: string
+              default: text
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
+    SignatureRequestResponseDataValueTextMerge:
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
+        -
+          properties:
+            type:
+              description: '_t__SignatureRequestResponseDataValue::TEXTMERGE_TYPE'
+              type: string
+              default: text-merge
+            value:
+              description: '_t__SignatureRequestResponseDataValue::VALUE'
+              type: string
     SignatureRequestResponseSignatures:
       description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
       properties:
@@ -9205,18 +9192,6 @@ components:
             type: string
       type: object
       x-internal: true
-    TeamParentResponse:
-      description: '_t__TeamInfo::TEAM_PARENT'
-      properties:
-        team_id:
-          description: '_t__TeamGeneral::TEAM_ID'
-          type: string
-        name:
-          description: '_t__TeamGeneral::NAME'
-          type: string
-      type: object
-      nullable: true
-      x-internal: true
     TeamInfoResponse:
       properties:
         team_id:
@@ -9233,30 +9208,6 @@ components:
         num_sub_teams:
           description: '_t__TeamGeneral::NUM_SUB_TEAMS'
           type: integer
-      type: object
-      x-internal: true
-    TeamGetInfoResponse:
-      properties:
-        team:
-          $ref: '#/components/schemas/TeamInfoResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TeamMemberResponse:
-      properties:
-        account_id:
-          description: '_t__TeamMemberResponse::ACCOUNT_ID'
-          type: string
-        email_address:
-          description: '_t__TeamMemberResponse::EMAIL_ADDRESS'
-          type: string
-        role:
-          description: '_t__TeamMemberResponse::MEMBER_ROLE'
-          type: string
       type: object
       x-internal: true
     TeamInviteResponse:
@@ -9281,18 +9232,30 @@ components:
           type: integer
       type: object
       x-internal: true
-    TeamInvitesResponse:
+    TeamMemberResponse:
       properties:
-        team_invites:
-          description: '_t__TeamInvitesResponse::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamInviteResponse'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
+        account_id:
+          description: '_t__TeamMemberResponse::ACCOUNT_ID'
+          type: string
+        email_address:
+          description: '_t__TeamMemberResponse::EMAIL_ADDRESS'
+          type: string
+        role:
+          description: '_t__TeamMemberResponse::MEMBER_ROLE'
+          type: string
       type: object
+      x-internal: true
+    TeamParentResponse:
+      description: '_t__TeamInfo::TEAM_PARENT'
+      properties:
+        team_id:
+          description: '_t__TeamGeneral::TEAM_ID'
+          type: string
+        name:
+          description: '_t__TeamGeneral::NAME'
+          type: string
+      type: object
+      nullable: true
       x-internal: true
     SubTeamResponse:
       properties:
@@ -9302,47 +9265,6 @@ components:
         name:
           description: '_t__TeamGeneral::NAME'
           type: string
-      type: object
-      x-internal: true
-    TeamGetResponse:
-      properties:
-        team:
-          $ref: '#/components/schemas/TeamResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TeamMembersResponse:
-      properties:
-        team_members:
-          description: '_t__TeamMembersResponse::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMemberResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TeamSubTeamsResponse:
-      properties:
-        sub_teams:
-          description: '_t__SubTeamResponse::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/SubTeamResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateResponse:
@@ -9416,88 +9338,6 @@ components:
           nullable: true
       type: object
       x-internal: true
-    TemplateCreateEmbeddedDraftResponse:
-      properties:
-        template:
-          $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TemplateCreateEmbeddedDraftResponseTemplate:
-      description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
-      properties:
-        template_id:
-          description: '_t__TemplateResponse::TEMPLATE_ID'
-          type: string
-        edit_url:
-          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL'
-          type: string
-        expires_at:
-          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT'
-          type: integer
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TemplateUpdateFilesResponse:
-      properties:
-        template:
-          $ref: '#/components/schemas/TemplateUpdateFilesResponseTemplate'
-      type: object
-      x-internal: true
-    TemplateUpdateFilesResponseTemplate:
-      description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
-      properties:
-        template_id:
-          description: '_t__TemplateResponse::TEMPLATE_ID'
-          type: string
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TemplateGetResponse:
-      properties:
-        template:
-          $ref: '#/components/schemas/TemplateResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TemplateListResponse:
-      properties:
-        templates:
-          description: '_t__TemplateListResponse::DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/TemplateResponse'
-        list_info:
-          $ref: '#/components/schemas/ListInfoResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
-    TemplateEditResponse:
-      properties:
-        template_id:
-          description: '_t__TemplateResponse::TEMPLATE_ID'
-          type: string
-      type: object
     TemplateResponseAccount:
       properties:
         account_id:
@@ -9541,6 +9381,25 @@ components:
         name:
           description: '_t__TemplateResponseCCRole::TEMPLATES_LEFT'
           type: string
+      type: object
+      x-internal: true
+    TemplateCreateEmbeddedDraftResponseTemplate:
+      description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
+      properties:
+        template_id:
+          description: '_t__TemplateResponse::TEMPLATE_ID'
+          type: string
+        edit_url:
+          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL'
+          type: string
+        expires_at:
+          description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT'
+          type: integer
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -9604,7 +9463,7 @@ components:
           description: '_t__TemplateResponseDocumentCustomField::HEIGHT'
           type: integer
         required:
-          description: '_t__TemplateResponseDocumentCustomField::REQUIRED'
+          description: '_t__TemplateResponseDocumentStaticField::REQUIRED'
           type: boolean
         group:
           description: '_t__TemplateResponseDocumentCustomField::GROUP'
@@ -9618,15 +9477,29 @@ components:
           checkbox: '#/components/schemas/TemplateResponseDocumentCustomFieldCheckbox'
       x-internal: true
       x-base-class: true
-    TemplateResponseDocumentCustomFieldText:
+    TemplateResponseDocumentCustomFieldCheckbox:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
         -
-          required:
-            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentCustomField::TYPE'
+              type: string
+              default: checkbox
+    TemplateResponseDocumentCustomFieldText:
+      description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
+        -
           properties:
             type:
               description: '_t__TemplateResponseDocumentCustomField::TYPE'
@@ -9643,22 +9516,6 @@ components:
             fontFamily:
               description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
               type: string
-          type: object
-    TemplateResponseDocumentCustomFieldCheckbox:
-      description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentCustomField::TYPE'
-              type: string
-              default: checkbox
-          type: object
     TemplateResponseDocumentFieldGroup:
       properties:
         name:
@@ -9728,15 +9585,125 @@ components:
           initials: '#/components/schemas/TemplateResponseDocumentFormFieldInitials'
       x-internal: true
       x-base-class: true
-    TemplateResponseDocumentFormFieldText:
+    TemplateResponseDocumentFormFieldCheckbox:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
-          required:
-            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: checkbox
+    TemplateResponseDocumentFormFieldDateSigned:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: date_signed
+    TemplateResponseDocumentFormFieldDropdown:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: dropdown
+    TemplateResponseDocumentFormFieldHyperlink:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: hyperlink
+            avg_text_length:
+              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
+            isMultiline:
+              description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
+              type: boolean
+            originalFontSize:
+              description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
+              type: integer
+            fontFamily:
+              description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
+              type: string
+    TemplateResponseDocumentFormFieldInitials:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: initials
+    TemplateResponseDocumentFormFieldRadio:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+        - group
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: radio
+    TemplateResponseDocumentFormFieldSignature:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentFormField::TYPE'
+              type: string
+              default: signature
+    TemplateResponseDocumentFormFieldText:
+      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
+        -
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
@@ -9768,124 +9735,6 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
-          type: object
-    TemplateResponseDocumentFormFieldDropdown:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: dropdown
-          type: object
-    TemplateResponseDocumentFormFieldHyperlink:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: hyperlink
-            avg_text_length:
-              $ref: '#/components/schemas/TemplateResponseFieldAvgTextLength'
-            isMultiline:
-              description: '_t__TemplateResponseDocumentFormField::IS_MULTILINE'
-              type: boolean
-            originalFontSize:
-              description: '_t__TemplateResponseDocumentFormField::ORIGINAL_FONT_SIZE'
-              type: integer
-            fontFamily:
-              description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
-              type: string
-          type: object
-    TemplateResponseDocumentFormFieldCheckbox:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: checkbox
-          type: object
-    TemplateResponseDocumentFormFieldRadio:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-            - group
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: radio
-          type: object
-    TemplateResponseDocumentFormFieldSignature:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: signature
-          type: object
-    TemplateResponseDocumentFormFieldDateSigned:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: date_signed
-          type: object
-    TemplateResponseDocumentFormFieldInitials:
-      description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentFormField::TYPE'
-              type: string
-              default: initials
-          type: object
     TemplateResponseDocumentStaticFieldBase:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
       required:
@@ -9936,126 +9785,118 @@ components:
           initials: '#/components/schemas/TemplateResponseDocumentStaticFieldInitials'
       x-internal: true
       x-base-class: true
-    TemplateResponseDocumentStaticFieldText:
-      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentStaticField::TYPE'
-              type: string
-              default: text
-          type: object
-    TemplateResponseDocumentStaticFieldDropdown:
-      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentStaticField::TYPE'
-              type: string
-              default: dropdown
-          type: object
-    TemplateResponseDocumentStaticFieldHyperlink:
-      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentStaticField::TYPE'
-              type: string
-              default: hyperlink
-          type: object
     TemplateResponseDocumentStaticFieldCheckbox:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: checkbox
-          type: object
-    TemplateResponseDocumentStaticFieldRadio:
-      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentStaticField::TYPE'
-              type: string
-              default: radio
-          type: object
-    TemplateResponseDocumentStaticFieldSignature:
-      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
-      type: object
-      allOf:
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__TemplateResponseDocumentStaticField::TYPE'
-              type: string
-              default: signature
-          type: object
     TemplateResponseDocumentStaticFieldDateSigned:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: date_signed
-          type: object
-    TemplateResponseDocumentStaticFieldInitials:
+    TemplateResponseDocumentStaticFieldDropdown:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
       type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
-          required:
-            - type
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: dropdown
+    TemplateResponseDocumentStaticFieldHyperlink:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: hyperlink
+    TemplateResponseDocumentStaticFieldInitials:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: initials
-          type: object
+    TemplateResponseDocumentStaticFieldRadio:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: radio
+    TemplateResponseDocumentStaticFieldSignature:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: signature
+    TemplateResponseDocumentStaticFieldText:
+      description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
+      required:
+        - type
+      type: object
+      allOf:
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
+        -
+          properties:
+            type:
+              description: '_t__TemplateResponseDocumentStaticField::TYPE'
+              type: string
+              default: text
     TemplateResponseFieldAvgTextLength:
       description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
       properties:
@@ -10075,6 +9916,19 @@ components:
         order:
           description: '_t__TemplateResponseSignerRole::ORDER'
           type: integer
+      type: object
+      x-internal: true
+    TemplateUpdateFilesResponseTemplate:
+      description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
+      properties:
+        template_id:
+          description: '_t__TemplateResponse::TEMPLATE_ID'
+          type: string
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     UnclaimedDraftResponse:
@@ -10104,17 +9958,6 @@ components:
           type: boolean
       type: object
       x-internal: true
-    UnclaimedDraftCreateResponse:
-      properties:
-        unclaimed_draft:
-          $ref: '#/components/schemas/UnclaimedDraftResponse'
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
     WarningResponse:
       description: '_t__WarningResponse::LIST_DESCRIPTION'
       required:
@@ -10128,6 +9971,132 @@ components:
           description: '_t__WarningResponse::WARNING_NAME'
           type: string
       type: object
+    TeamGetResponse:
+      properties:
+        team:
+          $ref: '#/components/schemas/TeamResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamGetInfoResponse:
+      properties:
+        team:
+          $ref: '#/components/schemas/TeamInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamInvitesResponse:
+      properties:
+        team_invites:
+          description: '_t__TeamInvitesResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamInviteResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamMembersResponse:
+      properties:
+        team_members:
+          description: '_t__TeamMembersResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TeamSubTeamsResponse:
+      properties:
+        sub_teams:
+          description: '_t__SubTeamResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTeamResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TemplateCreateEmbeddedDraftResponse:
+      properties:
+        template:
+          $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TemplateEditResponse:
+      properties:
+        template_id:
+          description: '_t__TemplateResponse::TEMPLATE_ID'
+          type: string
+      type: object
+    TemplateGetResponse:
+      properties:
+        template:
+          $ref: '#/components/schemas/TemplateResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TemplateListResponse:
+      properties:
+        templates:
+          description: '_t__TemplateListResponse::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/TemplateResponse'
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
+    TemplateUpdateFilesResponse:
+      properties:
+        template:
+          $ref: '#/components/schemas/TemplateUpdateFilesResponseTemplate'
+      type: object
+      x-internal: true
+    UnclaimedDraftCreateResponse:
+      properties:
+        unclaimed_draft:
+          $ref: '#/components/schemas/UnclaimedDraftResponse'
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
   responses:
     EventCallbackResponse:
       description: 'successful operation'
@@ -10309,10 +10278,6 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/UnclaimedDraftEditAndResendRequestDefaultExample.json
-    AccountGetResponseExample:
-      summary: '_t__AccountGetResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/AccountGetResponseExample.json
     AccountCreateResponseExample:
       summary: '_t__AccountCreateResponseExample::SUMMARY'
       value:
@@ -10321,10 +10286,10 @@ components:
       summary: '_t__AccountCreateOAuthResponseExample::SUMMARY'
       value:
         $ref: examples/json/AccountCreateOAuthResponseExample.json
-    AccountUpdateResponseExample:
-      summary: '_t__AccountUpdateResponseExample::SUMMARY'
+    AccountGetResponseExample:
+      summary: '_t__AccountGetResponseExample::SUMMARY'
       value:
-        $ref: examples/json/AccountUpdateResponseExample.json
+        $ref: examples/json/AccountGetResponseExample.json
     AccountVerifyFoundResponseExample:
       summary: '_t__AccountVerifyFoundResponseExample::SUMMARY'
       value:
@@ -10333,10 +10298,6 @@ components:
       summary: '_t__AccountVerifyNotFoundResponseExample::SUMMARY'
       value:
         $ref: examples/json/AccountVerifyNotFoundResponseExample.json
-    ApiAppCreateResponseExample:
-      summary: '_t__ApiAppCreateResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/ApiAppCreateResponseExample.json
     ApiAppGetResponseExample:
       summary: '_t__ApiAppGetResponseExample::SUMMARY'
       value:
@@ -10345,10 +10306,6 @@ components:
       summary: '_t__ApiAppListResponseExample::SUMMARY'
       value:
         $ref: examples/json/ApiAppListResponseExample.json
-    ApiAppUpdateResponseExample:
-      summary: '_t__ApiAppUpdateResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/ApiAppUpdateResponseExample.json
     BulkSendJobGetResponseExample:
       summary: '_t__BulkSendJobGetResponseExample::SUMMARY'
       value:
@@ -10425,6 +10382,22 @@ components:
       summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
       value:
         $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
+    ReportCreateResponseExample:
+      summary: '_t__ReportCreateResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/ReportCreateResponseExample.json
+    SignatureRequestGetResponseExample:
+      summary: '_t__SignatureRequestGetResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/SignatureRequestGetResponseExample.json
+    SignatureRequestListResponseExample:
+      summary: '_t__SignatureRequestListResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/SignatureRequestListResponseExample.json
+    AccountUpdateResponseExample:
+      summary: '_t__AccountUpdateResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/AccountUpdateResponseExample.json
     OAuthTokenGenerateResponseExample:
       summary: '_t__OAuthTokenGenerateResponseExample::SUMMARY'
       value:
@@ -10433,10 +10406,14 @@ components:
       summary: '_t__OAuthTokenRefreshResponseExample::SUMMARY'
       value:
         $ref: examples/json/OAuthTokenRefreshResponseExample.json
-    ReportCreateResponseExample:
-      summary: '_t__ReportCreateResponseExample::SUMMARY'
+    ApiAppCreateResponseExample:
+      summary: '_t__ApiAppCreateResponseExample::SUMMARY'
       value:
-        $ref: examples/json/ReportCreateResponseExample.json
+        $ref: examples/json/ApiAppCreateResponseExample.json
+    ApiAppUpdateResponseExample:
+      summary: '_t__ApiAppUpdateResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/ApiAppUpdateResponseExample.json
     SignatureRequestCreateEmbeddedResponseExample:
       summary: '_t__SignatureRequestCreateEmbeddedResponseExample::SUMMARY'
       value:
@@ -10445,18 +10422,10 @@ components:
       summary: '_t__SignatureRequestCreateEmbeddedWithTemplateResponseExample::SUMMARY'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateResponseExample.json
-    SignatureRequestGetResponseExample:
-      summary: '_t__SignatureRequestGetResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/SignatureRequestGetResponseExample.json
     SignatureRequestFilesResponseExample:
       summary: '_t__SignatureRequestFilesResponseExample::SUMMARY'
       value:
         $ref: examples/json/SignatureRequestFilesResponseExample.json
-    SignatureRequestListResponseExample:
-      summary: '_t__SignatureRequestListResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/SignatureRequestListResponseExample.json
     SignatureRequestReleaseHoldResponseExample:
       summary: '_t__SignatureRequestReleaseHoldResponseExample::SUMMARY'
       value:
@@ -10485,34 +10454,14 @@ components:
       summary: '_t__SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample::SUMMARY'
       value:
         $ref: examples/json/SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample.json
-    TeamAddMemberResponseExample:
-      summary: '_t__TeamAddMemberResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TeamAddMemberResponseExample.json
     TeamCreateResponseExample:
       summary: '_t__TeamCreateResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamCreateResponseExample.json
-    TeamGetResponseExample:
-      summary: '_t__TeamGetResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TeamGetResponseExample.json
-    TeamGetInfoResponseExample:
-      summary: '_t__TeamInfoResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TeamGetInfoResponseExample.json
-    TeamInvitesResponseExample:
-      summary: '_t__TeamInvitesResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TeamInvitesResponseExample.json
     TeamMembersResponseExample:
       summary: '_t__TeamMembersResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamMembersResponseExample.json
-    TeamSubTeamsResponseExample:
-      summary: '_t__TeamSubTeamsResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TeamSubTeamsResponseExample.json
     TeamRemoveMemberResponseExample:
       summary: '_t__TeamRemoveMemberResponseExample::SUMMARY'
       value:
@@ -10529,34 +10478,14 @@ components:
       summary: '_t__TemplateAddUserResponseExample::SUMMARY'
       value:
         $ref: examples/json/TemplateAddUserResponseExample.json
-    TemplateCreateEmbeddedDraftResponseExample:
-      summary: '_t__TemplateCreateEmbeddedDraftResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TemplateCreateEmbeddedDraftResponseExample.json
     TemplateFilesResponseExample:
       summary: '_t__TemplateFilesResponseExample::SUMMARY'
       value:
         $ref: examples/json/TemplateFilesResponseExample.json
-    TemplateGetResponseExample:
-      summary: '_t__TemplateGetResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TemplateGetResponseExample.json
-    TemplateListResponseExample:
-      summary: '_t__TemplateListResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TemplateListResponseExample.json
     TemplateRemoveUserResponseExample:
       summary: '_t__TemplateRemoveUserResponseExample::SUMMARY'
       value:
         $ref: examples/json/TemplateRemoveUserResponseExample.json
-    TemplateUpdateFilesResponseExample:
-      summary: '_t__TemplateUpdateFilesResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TemplateUpdateFilesResponseExample.json
-    UnclaimedDraftCreateResponseExample:
-      summary: '_t__UnclaimedDraftCreateResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/UnclaimedDraftCreateResponseExample.json
     UnclaimedDraftCreateEmbeddedResponseExample:
       summary: '_t__UnclaimedDraftCreateEmbeddedResponseExample::SUMMARY'
       value:
@@ -10569,6 +10498,46 @@ components:
       summary: '_t__UnclaimedDraftEditAndResendExample::SUMMARY'
       value:
         $ref: examples/json/UnclaimedDraftEditAndResendExample.json
+    TeamGetResponseExample:
+      summary: '_t__TeamGetResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamGetResponseExample.json
+    TeamGetInfoResponseExample:
+      summary: '_t__TeamInfoResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamGetInfoResponseExample.json
+    TeamInvitesResponseExample:
+      summary: '_t__TeamInvitesResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamInvitesResponseExample.json
+    TeamAddMemberResponseExample:
+      summary: '_t__TeamAddMemberResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamAddMemberResponseExample.json
+    TeamSubTeamsResponseExample:
+      summary: '_t__TeamSubTeamsResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TeamSubTeamsResponseExample.json
+    TemplateCreateEmbeddedDraftResponseExample:
+      summary: '_t__TemplateCreateEmbeddedDraftResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedDraftResponseExample.json
+    TemplateGetResponseExample:
+      summary: '_t__TemplateGetResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateGetResponseExample.json
+    TemplateListResponseExample:
+      summary: '_t__TemplateListResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateListResponseExample.json
+    TemplateUpdateFilesResponseExample:
+      summary: '_t__TemplateUpdateFilesResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateUpdateFilesResponseExample.json
+    UnclaimedDraftCreateResponseExample:
+      summary: '_t__UnclaimedDraftCreateResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/UnclaimedDraftCreateResponseExample.json
   requestBodies:
     EventCallbackAccountRequest:
       description: '_t__EventCallbackAccountRequest::DESCRIPTION'
