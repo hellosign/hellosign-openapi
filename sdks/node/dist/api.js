@@ -32838,10 +32838,18 @@ var generateFormData = (obj, typemap) => {
 var toFormData = (obj) => {
   const form = new import_form_data.default();
   Object.keys(obj).forEach((key) => {
+    if (isBufferDetailedFile(obj[key])) {
+      form.append(key, obj[key].value, obj[key].options);
+      return;
+    }
     form.append(key, obj[key]);
   });
   return form;
 };
+function isBufferDetailedFile(obj) {
+  var _a, _b;
+  return obj.value !== void 0 && Buffer.isBuffer(obj.value) && obj.options !== void 0 && ((_a = obj.options) == null ? void 0 : _a.filename) !== void 0 && ((_b = obj.options) == null ? void 0 : _b.contentType) !== void 0;
+}
 var shouldJsonify = (val) => val === Object(val);
 
 // api/index.ts
