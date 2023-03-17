@@ -34,6 +34,27 @@ const fieldOptions = {
   dateFormat: "DD - MM - YYYY",
 };
 
+// Upload a local file
+const file = fs.createReadStream("example_signature_request.pdf");
+
+// or, upload from buffer
+const fileBuffer = {
+  value: fs.readFileSync("example_signature_request.pdf"),
+  options: {
+    filename: "example_signature_request.pdf",
+    contentType: "application/pdf",
+  },
+};
+
+// or, upload from buffer alternative
+const fileBufferAlt = {
+  value: Buffer.from("abc-123"),
+  options: {
+    filename: "txt-sample.txt",
+    contentType: "text/plain",
+  },
+};
+
 const data = {
   title: "NDA with Acme Co.",
   subject: "The NDA we talked about",
@@ -43,7 +64,7 @@ const data = {
     "lawyer1@dropboxsign.com",
     "lawyer2@example.com",
   ],
-  files: [fs.createReadStream("example_signature_request.pdf")],
+  files: [ file, fileBuffer, fileBufferAlt ],
   metadata: {
     "custom_id": 1234,
     "custom_text": "NDA #9",
