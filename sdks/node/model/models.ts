@@ -2,16 +2,20 @@ import { AxiosRequestConfig } from "axios";
 import * as fs from "fs";
 
 import { enumsMap, typeMap } from "./";
+import { Headers } from "form-data";
 
 export interface RequestDetailedFile {
   value: Buffer;
-  options?: {
-    filename?: string;
-    contentType?: string;
+  options: {
+    filename: string;
+    contentType: string;
+    header?: string | Headers;
+    knownLength?: number;
+    filepath?: string;
   };
 }
 
-export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
+export type RequestFile = fs.ReadStream | RequestDetailedFile;
 
 interface AttributeType {
   name: string;
