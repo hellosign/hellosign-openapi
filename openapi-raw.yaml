@@ -3440,7 +3440,6 @@ paths:
           schema:
             type: string
           example: 4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c
-          x-beta: closed
       requestBody:
         required: true
         content:
@@ -4020,7 +4019,6 @@ paths:
           label: cURL
           source:
             $ref: examples/TeamInfo.sh
-      x-beta: closed
       x-meta:
         seo:
           title: '_t__TeamInfo::SEO::TITLE'
@@ -4243,7 +4241,6 @@ paths:
           label: cURL
           source:
             $ref: examples/TeamMembers.sh
-      x-beta: closed
       x-meta:
         seo:
           title: '_t__TeamMembers::SEO::TITLE'
@@ -4470,7 +4467,6 @@ paths:
           label: cURL
           source:
             $ref: examples/TeamSubTeams.sh
-      x-beta: closed
       x-meta:
         seo:
           title: '_t__TeamSubTeams::SEO::TITLE'
@@ -7471,6 +7467,7 @@ components:
         header_background_color:
           type: string
           default: '#1A1A1A'
+          nullable: true
         legal_version:
           type: string
           default: terms1
@@ -7480,39 +7477,51 @@ components:
         link_color:
           type: string
           default: '#00B3E6'
+          nullable: true
         page_background_color:
           type: string
           default: '#F7F8F9'
+          nullable: true
         primary_button_color:
           type: string
           default: '#00B3E6'
+          nullable: true
         primary_button_color_hover:
           type: string
           default: '#00B3E6'
+          nullable: true
         primary_button_text_color:
           type: string
           default: '#FFFFFF'
+          nullable: true
         primary_button_text_color_hover:
           type: string
           default: '#FFFFFF'
+          nullable: true
         secondary_button_color:
           type: string
           default: '#FFFFFF'
+          nullable: true
         secondary_button_color_hover:
           type: string
           default: '#FFFFFF'
+          nullable: true
         secondary_button_text_color:
           type: string
           default: '#00B3E6'
+          nullable: true
         secondary_button_text_color_hover:
           type: string
           default: '#00B3E6'
+          nullable: true
         text_color1:
           type: string
           default: '#808080'
+          nullable: true
         text_color2:
           type: string
           default: '#FFFFFF'
+          nullable: true
         reset_to_default:
           description: '_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT'
           type: boolean
@@ -7534,7 +7543,6 @@ components:
             - Developer
             - 'Team Manager'
             - Admin
-          x-beta: closed
       type: object
     TeamCreateRequest:
       properties:
@@ -7559,7 +7567,6 @@ components:
         new_team_id:
           description: '_t__TeamRemoveMember::NEW_TEAM_ID'
           type: string
-          x-beta: closed
         new_role:
           description: '_t__TeamRemoveMember::NEW_ROLE'
           type: string
@@ -7568,7 +7575,6 @@ components:
             - Developer
             - 'Team Manager'
             - Admin
-          x-beta: closed
       type: object
     TeamUpdateRequest:
       properties:

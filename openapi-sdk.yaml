@@ -7854,6 +7854,7 @@ components:
         header_background_color:
           type: string
           default: '#1A1A1A'
+          nullable: true
         legal_version:
           type: string
           default: terms1
@@ -7863,39 +7864,51 @@ components:
         link_color:
           type: string
           default: '#00B3E6'
+          nullable: true
         page_background_color:
           type: string
           default: '#F7F8F9'
+          nullable: true
         primary_button_color:
           type: string
           default: '#00B3E6'
+          nullable: true
         primary_button_color_hover:
           type: string
           default: '#00B3E6'
+          nullable: true
         primary_button_text_color:
           type: string
           default: '#FFFFFF'
+          nullable: true
         primary_button_text_color_hover:
           type: string
           default: '#FFFFFF'
+          nullable: true
         secondary_button_color:
           type: string
           default: '#FFFFFF'
+          nullable: true
         secondary_button_color_hover:
           type: string
           default: '#FFFFFF'
+          nullable: true
         secondary_button_text_color:
           type: string
           default: '#00B3E6'
+          nullable: true
         secondary_button_text_color_hover:
           type: string
           default: '#00B3E6'
+          nullable: true
         text_color1:
           type: string
           default: '#808080'
+          nullable: true
         text_color2:
           type: string
           default: '#FFFFFF'
+          nullable: true
         reset_to_default:
           description: 'Resets white labeling options to defaults. Only useful when updating an API App.'
           type: boolean
