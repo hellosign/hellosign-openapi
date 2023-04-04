@@ -1481,11 +1481,11 @@ paths:
           label: cURL
           source:
             $ref: examples/OauthTokenGenerate.sh
-      x-hideTryItPanel: true
       x-meta:
         seo:
           title: '_t__OAuthTokenGenerate::SEO::TITLE'
           description: '_t__OAuthTokenGenerate::SEO::DESCRIPTION'
+      x-hideTryItPanel: true
   '/oauth/token?refresh':
     post:
       tags:
@@ -1564,11 +1564,11 @@ paths:
           label: cURL
           source:
             $ref: examples/OauthTokenRefresh.sh
-      x-hideTryItPanel: true
       x-meta:
         seo:
           title: '_t__OAuthTokenRefresh::SEO::TITLE'
           description: '_t__OAuthTokenRefresh::SEO::DESCRIPTION'
+      x-hideTryItPanel: true
   /report/create:
     post:
       tags:
@@ -2277,8 +2277,8 @@ paths:
           api_key: []
         -
           oauth2:
-            - signature_request_access
             - request_signature
+            - signature_request_access
       x-codeSamples:
         -
           lang: PHP
@@ -2387,8 +2387,8 @@ paths:
           api_key: []
         -
           oauth2:
-            - signature_request_access
             - request_signature
+            - signature_request_access
       x-codeSamples:
         -
           lang: PHP
@@ -2497,8 +2497,8 @@ paths:
           api_key: []
         -
           oauth2:
-            - signature_request_access
             - request_signature
+            - signature_request_access
       x-codeSamples:
         -
           lang: PHP
@@ -6202,7 +6202,6 @@ components:
         - text-merge
     SubFormFieldsPerDocumentText:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6248,7 +6247,6 @@ components:
           type: object
     SubFormFieldsPerDocumentDropdown:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6273,7 +6271,6 @@ components:
           type: object
     SubFormFieldsPerDocumentHyperlink:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6296,7 +6293,6 @@ components:
           type: object
     SubFormFieldsPerDocumentCheckbox:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6318,7 +6314,6 @@ components:
           type: object
     SubFormFieldsPerDocumentRadio:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6341,7 +6336,6 @@ components:
           type: object
     SubFormFieldsPerDocumentSignature:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6356,7 +6350,6 @@ components:
           type: object
     SubFormFieldsPerDocumentDateSigned:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6371,7 +6364,6 @@ components:
           type: object
     SubFormFieldsPerDocumentInitials:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6386,7 +6378,6 @@ components:
           type: object
     SubFormFieldsPerDocumentTextMerge:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -6401,7 +6392,6 @@ components:
           type: object
     SubFormFieldsPerDocumentCheckboxMerge:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -7467,7 +7457,6 @@ components:
         header_background_color:
           type: string
           default: '#1A1A1A'
-          nullable: true
         legal_version:
           type: string
           default: terms1
@@ -7477,51 +7466,39 @@ components:
         link_color:
           type: string
           default: '#00B3E6'
-          nullable: true
         page_background_color:
           type: string
           default: '#F7F8F9'
-          nullable: true
         primary_button_color:
           type: string
           default: '#00B3E6'
-          nullable: true
         primary_button_color_hover:
           type: string
           default: '#00B3E6'
-          nullable: true
         primary_button_text_color:
           type: string
           default: '#FFFFFF'
-          nullable: true
         primary_button_text_color_hover:
           type: string
           default: '#FFFFFF'
-          nullable: true
         secondary_button_color:
           type: string
           default: '#FFFFFF'
-          nullable: true
         secondary_button_color_hover:
           type: string
           default: '#FFFFFF'
-          nullable: true
         secondary_button_text_color:
           type: string
           default: '#00B3E6'
-          nullable: true
         secondary_button_text_color_hover:
           type: string
           default: '#00B3E6'
-          nullable: true
         text_color1:
           type: string
           default: '#808080'
-          nullable: true
         text_color2:
           type: string
           default: '#FFFFFF'
-          nullable: true
         reset_to_default:
           description: '_t__Sub::WhiteLabelingOptions::RESET_TO_DEFAULT'
           type: boolean
@@ -10368,26 +10345,6 @@ components:
       summary: '_t__Error::4XX'
       value:
         $ref: examples/json/Error4XXResponseExample.json
-    EventCallbackAccountSignatureRequestSentExample:
-      summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
-    EventCallbackAccountTemplateCreatedExample:
-      summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
-    EventCallbackAppAccountConfirmedExample:
-      summary: '_t__EventCallbackAppAccountConfirmedExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
-    EventCallbackAppSignatureRequestSentExample:
-      summary: '_t__EventCallbackAppSignatureRequestSentExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
-    EventCallbackAppTemplateCreatedExample:
-      summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
     ReportCreateResponseExample:
       summary: '_t__ReportCreateResponseExample::SUMMARY'
       value:
@@ -10420,6 +10377,26 @@ components:
       summary: '_t__ApiAppUpdateResponseExample::SUMMARY'
       value:
         $ref: examples/json/ApiAppUpdateResponseExample.json
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackAppAccountConfirmedExample:
+      summary: '_t__EventCallbackAppAccountConfirmedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
+    EventCallbackAppSignatureRequestSentExample:
+      summary: '_t__EventCallbackAppSignatureRequestSentExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
+    EventCallbackAppTemplateCreatedExample:
+      summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
     SignatureRequestCreateEmbeddedResponseExample:
       summary: '_t__SignatureRequestCreateEmbeddedResponseExample::SUMMARY'
       value:
@@ -10575,19 +10552,19 @@ components:
       schema:
         type: integer
         format: int32
-      example: 100
+        example: 100
     X-RateLimit-Remaining:
       description: '_t__Common::RateLimiting::REMAINING'
       schema:
         type: integer
         format: int32
-      example: 99
+        example: 99
     X-Ratelimit-Reset:
       description: '_t__Common::RateLimiting::RESET'
       schema:
         type: integer
         format: int64
-      example: 1430170900
+        example: 1430170900
   securitySchemes:
     api_key:
       type: http
