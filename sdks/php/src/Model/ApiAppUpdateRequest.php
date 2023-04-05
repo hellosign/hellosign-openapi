@@ -32,6 +32,7 @@ use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
+use ReturnTypeWillChange;
 use SplFileObject;
 
 /**
@@ -441,7 +442,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -454,7 +455,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -468,7 +469,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -485,7 +486,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -498,7 +499,7 @@ class ApiAppUpdateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @return scalar|object|array|null returns data which can be serialized by json_encode(), which is a value
      *                                  of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);

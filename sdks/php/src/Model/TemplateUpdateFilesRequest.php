@@ -32,6 +32,7 @@ use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
 use InvalidArgumentException;
 use JsonSerializable;
+use ReturnTypeWillChange;
 use SplFileObject;
 
 /**
@@ -420,7 +421,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -433,7 +434,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -447,7 +448,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -464,7 +465,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -477,7 +478,7 @@ class TemplateUpdateFilesRequest implements ModelInterface, ArrayAccess, JsonSer
      * @return scalar|object|array|null returns data which can be serialized by json_encode(), which is a value
      *                                  of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);

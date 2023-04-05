@@ -31,6 +31,7 @@ namespace Dropbox\Sign\Model;
 use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * ApiAppResponse Class Doc Comment
@@ -524,7 +525,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -537,7 +538,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -551,7 +552,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -568,7 +569,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -581,7 +582,7 @@ class ApiAppResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @return scalar|object|array|null returns data which can be serialized by json_encode(), which is a value
      *                                  of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);

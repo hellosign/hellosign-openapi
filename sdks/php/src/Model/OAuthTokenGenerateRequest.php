@@ -31,6 +31,7 @@ namespace Dropbox\Sign\Model;
 use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
 use JsonSerializable;
+use ReturnTypeWillChange;
 
 /**
  * OAuthTokenGenerateRequest Class Doc Comment
@@ -388,7 +389,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -401,7 +402,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @return mixed|null
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
@@ -415,7 +416,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -432,7 +433,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -445,7 +446,7 @@ class OAuthTokenGenerateRequest implements ModelInterface, ArrayAccess, JsonSeri
      * @return scalar|object|array|null returns data which can be serialized by json_encode(), which is a value
      *                                  of any type other than a resource
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return ObjectSerializer::sanitizeForSerialization($this);
