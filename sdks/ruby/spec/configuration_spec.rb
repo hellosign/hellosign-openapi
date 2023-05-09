@@ -17,18 +17,16 @@ describe Dropbox::Sign::Configuration do
 
   before(:each) do
     # uncomment below to setup host and base_path
-    # require 'URI'
-    # uri = URI.parse("https://api.hellosign.com/v3")
-    # Dropbox::Sign.configure do |c|
-    #   c.host = uri.host
-    #   c.base_path = uri.path
-    # end
+    Dropbox::Sign.configure do |c|
+      c.host = "api.hellosign.com"
+      c.base_path = "/v3"
+    end
   end
 
   describe '#base_url' do
     it 'should have the default value' do
       # uncomment below to test default value of the base path
-      # expect(config.base_url).to eq("https://api.hellosign.com/v3")
+      expect(config.base_url).to eq("https://api.hellosign.com/v3")
     end
 
     it 'should remove trailing slashes' do
