@@ -242,7 +242,7 @@ module Dropbox::Sign
     def server_settings
       [
         {
-          url: "#{scheme}://#{host}/#{base_path}",
+          url: "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, ''),
           description: "No description provided",
         }
       ]

@@ -229,7 +229,7 @@ module {{moduleName}}
       [
       {{#servers}}
         {
-          url: "#{scheme}://#{host}/#{base_path}",
+          url: "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, ''),
           description: "{{{description}}}{{^description}}No description provided{{/description}}",
           {{#variables}}
           {{#-first}}
