@@ -386,7 +386,7 @@ namespace Dropbox.Sign.Api
         /// Update Signature Request
         /// </summary>
         /// <remarks>
-        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -399,7 +399,7 @@ namespace Dropbox.Sign.Api
         /// Update Signature Request
         /// </summary>
         /// <remarks>
-        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -805,7 +805,7 @@ namespace Dropbox.Sign.Api
         /// Update Signature Request
         /// </summary>
         /// <remarks>
-        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -819,7 +819,7 @@ namespace Dropbox.Sign.Api
         /// Update Signature Request
         /// </summary>
         /// <remarks>
-        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -3595,7 +3595,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -3609,7 +3609,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -3693,7 +3693,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>
@@ -3708,7 +3708,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        /// Update Signature Request Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to update.</param>

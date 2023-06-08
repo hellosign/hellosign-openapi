@@ -41,7 +41,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestUpdateRequest" /> class.
         /// </summary>
-        /// <param name="emailAddress">The new email address for the recipient.  **NOTE**: Optional if &#x60;name&#x60; is provided..</param>
+        /// <param name="emailAddress">The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE**: Optional if &#x60;name&#x60; is provided..</param>
         /// <param name="name">The new name for the recipient.  **NOTE**: Optional if &#x60;email_address&#x60; is provided..</param>
         /// <param name="signatureId">The signature ID for the recipient. (required).</param>
         /// <param name="expiresAt">The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
@@ -83,9 +83,9 @@ namespace Dropbox.Sign.Model
         public string SignatureId { get; set; }
 
         /// <summary>
-        /// The new email address for the recipient.  **NOTE**: Optional if &#x60;name&#x60; is provided.
+        /// The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE**: Optional if &#x60;name&#x60; is provided.
         /// </summary>
-        /// <value>The new email address for the recipient.  **NOTE**: Optional if &#x60;name&#x60; is provided.</value>
+        /// <value>The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE**: Optional if &#x60;name&#x60; is provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 

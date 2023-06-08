@@ -409,16 +409,19 @@
 "SignatureRequestUpdate::DESCRIPTION": |-
   Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.
 
+  Updating the email address of a signer will generate a new `signature_id` value.
+
   **NOTE**: This action cannot be performed on a signature request with an appended signature page.
 "SignatureRequestUpdate::EMAIL_ADDRESS": |-
   The new email address for the recipient.
+
+  This will generate a new `signature_id` value.
 
   **NOTE**: Optional if `name` is provided.
 "SignatureRequestUpdate::NAME": |-
   The new name for the recipient.
 
   **NOTE**: Optional if `email_address` is provided.
-"TeamAddMember::TEAM_ID": The id of the team.
 "SignatureRequestUpdate::SIGNATURE_ID": The signature ID for the recipient.
 "SignatureRequestUpdate::EXPIRES_AT": The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestUpdate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to update.
@@ -437,6 +440,7 @@
   A role member will take in a new Team.
 
   **Note**: This parameter is used only if `team_id` is provided.
+"TeamAddMember::TEAM_ID": The id of the team.
 
 "TeamCreate::SUMMARY": Create Team
 "TeamCreate::DESCRIPTION": Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.
@@ -956,7 +960,7 @@
 "Sub::SignatureRequestGroupedSigners::ORDER": The order the group is required to sign in. Use this instead of Signer-level `order`.
 "Sub::SignatureRequestGroupedSigners::SIGNERS": |-
   Signers belonging to this Group.
-  
+
   **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
 
 "Sub::MergeField::NAME": The name of the merge field. Must be unique.
@@ -1361,7 +1365,7 @@
 "TemplateResponseDocumentCustomField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentCustomField::TYPE": |-
   The type of this Custom Field. Only `text` and `checkbox` are currently supported.
-  
+
   * Text uses `TemplateResponseDocumentCustomFieldText`
   * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
 "TemplateResponseDocumentCustomField::WIDTH": The width in pixels of this form field.
@@ -1402,7 +1406,7 @@
 "TemplateResponseDocumentFormField::REQUIRED": Boolean showing whether or not this field is required.
 "TemplateResponseDocumentFormField::TYPE": |-
   The type of this form field. See [field types](/api/reference/constants/#field-types).
-  
+
   * Text Field uses `TemplateResponseDocumentFormFieldText`
   * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown`
   * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink`
