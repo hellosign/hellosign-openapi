@@ -2,12 +2,6 @@ import * as DropboxSign from "@dropbox/sign";
 
 const oAuthApi = new DropboxSign.OAuthApi();
 
-// Configure HTTP basic authorization: api_key
-oAuthApi.username = "YOUR_API_KEY";
-
-// or, configure Bearer (JWT) authorization: oauth2
-// oAuthApi.accessToken = "YOUR_ACCESS_TOKEN";
-
 const data = new DropboxSign.OAuthTokenGenerateRequest();
 data.state = "900e06e2";
 data.code = "1b0d28d90c86c141";

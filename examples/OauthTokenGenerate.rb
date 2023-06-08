@@ -1,13 +1,5 @@
 require "dropbox-sign"
 
-Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
-  config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
-end
-
 oauth_api = Dropbox::Sign::OAuthApi.new
 
 data = Dropbox::Sign::OAuthTokenGenerateRequest.new
