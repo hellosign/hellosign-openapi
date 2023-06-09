@@ -21,14 +21,6 @@ Once you have retrieved the code from the user callback, you will need to exchan
 ```ruby
 require "dropbox-sign"
 
-Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
-  config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
-end
-
 oauth_api = Dropbox::Sign::OAuthApi.new
 
 data = Dropbox::Sign::OAuthTokenGenerateRequest.new
@@ -96,14 +88,6 @@ Access tokens are only valid for a given period of time (typically one hour) for
 
 ```ruby
 require "dropbox-sign"
-
-Dropbox::Sign.configure do |config|
-  # Configure HTTP basic authorization: api_key
-  config.username = "YOUR_API_KEY"
-
-  # or, configure Bearer (JWT) authorization: oauth2
-  # config.access_token = "YOUR_ACCESS_TOKEN"
-end
 
 oauth_api = Dropbox::Sign::OAuthApi.new
 

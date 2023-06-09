@@ -30,18 +30,6 @@ public class Example {
     public static void main(String[] args) {
         var apiClient = Configuration.getDefaultApiClient();
 
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var oauth2 = (HttpBearerAuth) apiClient
-            .getAuthentication("oauth2");
-        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-        */
-
         var oAuthApi = new OAuthApi(apiClient);
 
         var data = new OAuthTokenGenerateRequest()
@@ -111,18 +99,6 @@ import com.dropbox.sign.model.*;
 public class Example {
     public static void main(String[] args) {
         var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        /*
-        var oauth2 = (HttpBearerAuth) apiClient
-            .getAuthentication("oauth2");
-        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
-        */
 
         var oAuthApi = new OAuthApi(apiClient);
 
