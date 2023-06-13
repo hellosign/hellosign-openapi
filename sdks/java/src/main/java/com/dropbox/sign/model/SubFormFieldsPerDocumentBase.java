@@ -252,11 +252,11 @@ public class SubFormFieldsPerDocumentBase {
   }
 
    /**
-   * Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.
+   * Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
    * @return signer
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.")
+  @ApiModelProperty(required = true, value = "Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

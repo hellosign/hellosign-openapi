@@ -446,7 +446,7 @@ abstract class SubFormFieldsPerDocumentBase implements ModelInterface, ArrayAcce
     /**
      * Sets signer
      *
-     * @param int|string $signer Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+     * @param int|string $signer signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field
      *
      * @return self
      */
