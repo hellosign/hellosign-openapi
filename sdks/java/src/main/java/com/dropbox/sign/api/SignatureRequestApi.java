@@ -1316,7 +1316,7 @@ public class SignatureRequestApi {
   }
   /**
    * Update Signature Request
-   * Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+   * Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
    * @param signatureRequestId The id of the SignatureRequest to update. (required)
    * @param signatureRequestUpdateRequest  (required)
    * @return SignatureRequestGetResponse
@@ -1335,7 +1335,7 @@ public class SignatureRequestApi {
 
   /**
    * Update Signature Request
-   * Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+   * Updates the email address and/or the name for a given signer on a signature request. You can listen for the &#x60;signature_request_email_bounce&#x60; event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new &#x60;signature_id&#x60; value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
    * @param signatureRequestId The id of the SignatureRequest to update. (required)
    * @param signatureRequestUpdateRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;

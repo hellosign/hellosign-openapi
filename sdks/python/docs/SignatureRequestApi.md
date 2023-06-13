@@ -1288,7 +1288,7 @@ with ApiClient(configuration) as api_client:
 
 Update Signature Request
 
-Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new `signature_id` value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
 
 ### Example
 
