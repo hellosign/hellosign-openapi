@@ -268,7 +268,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to `me_now` in order to use pre-filled data.  
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
             y (int): Location coordinates of the field in pixels.
@@ -381,7 +381,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to `me_now` in order to use pre-filled data.  
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
             y (int): Location coordinates of the field in pixels.
