@@ -7575,7 +7575,10 @@ components:
           description: 'Whether this field is required.'
           type: boolean
         signer:
-          description: 'Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.'
+          description: |-
+            Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
+
+            **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to `me_now` in order to use pre-filled data.  
           type: string
           x-int-or-string: true
         type:
