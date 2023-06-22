@@ -6888,7 +6888,6 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
-          x-beta: closed
       type: object
     SignatureRequestCreateEmbeddedWithTemplateRequest:
       required:
@@ -7140,7 +7139,6 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
-          x-beta: closed
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -7257,7 +7255,6 @@ components:
           description: 'The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
-          x-beta: closed
       type: object
     SubAttachment:
       required:
@@ -8312,7 +8309,6 @@ components:
             **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
           nullable: true
-          x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedRequest:
       description: ''
@@ -8510,7 +8506,6 @@ components:
             **Note**: This does not correspond to the **expires_at** returned in the response.
           type: integer
           nullable: true
-          x-beta: closed
       type: object
     UnclaimedDraftCreateEmbeddedWithTemplateRequest:
       required:
@@ -9295,7 +9290,6 @@ components:
         expires_at:
           description: 'The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
-          x-beta: closed
         is_complete:
           description: 'Whether or not the SignatureRequest has been fully executed by all signers.'
           type: boolean
