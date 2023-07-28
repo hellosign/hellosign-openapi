@@ -68,6 +68,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'string',
         'validation_custom_regex' => 'string',
         'validation_custom_regex_format_label' => 'string',
+        'font_family' => 'string',
+        'original_font_size' => 'int',
     ];
 
     /**
@@ -86,6 +88,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => null,
         'validation_custom_regex' => null,
         'validation_custom_regex_format_label' => null,
+        'font_family' => null,
+        'original_font_size' => null,
     ];
 
     /**
@@ -123,6 +127,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'validation_type',
         'validation_custom_regex' => 'validation_custom_regex',
         'validation_custom_regex_format_label' => 'validation_custom_regex_format_label',
+        'font_family' => 'font_family',
+        'original_font_size' => 'original_font_size',
     ];
 
     /**
@@ -139,6 +145,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'setValidationType',
         'validation_custom_regex' => 'setValidationCustomRegex',
         'validation_custom_regex_format_label' => 'setValidationCustomRegexFormatLabel',
+        'font_family' => 'setFontFamily',
+        'original_font_size' => 'setOriginalFontSize',
     ];
 
     /**
@@ -155,6 +163,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'getValidationType',
         'validation_custom_regex' => 'getValidationCustomRegex',
         'validation_custom_regex_format_label' => 'getValidationCustomRegexFormatLabel',
+        'font_family' => 'getFontFamily',
+        'original_font_size' => 'getOriginalFontSize',
     ];
 
     /**
@@ -208,6 +218,22 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     public const VALIDATION_TYPE_SOCIAL_SECURITY_NUMBER = 'social_security_number';
     public const VALIDATION_TYPE_EMPLOYER_IDENTIFICATION_NUMBER = 'employer_identification_number';
     public const VALIDATION_TYPE_CUSTOM_REGEX = 'custom_regex';
+    public const FONT_FAMILY_HELVETICA = 'helvetica';
+    public const FONT_FAMILY_ARIAL = 'arial';
+    public const FONT_FAMILY_COURIER = 'courier';
+    public const FONT_FAMILY_CALIBRI = 'calibri';
+    public const FONT_FAMILY_CAMBRIA = 'cambria';
+    public const FONT_FAMILY_GEORGIA = 'georgia';
+    public const FONT_FAMILY_TIMES = 'times';
+    public const FONT_FAMILY_TREBUCHET = 'trebuchet';
+    public const FONT_FAMILY_VERDANA = 'verdana';
+    public const FONT_FAMILY_ROBOTO = 'roboto';
+    public const FONT_FAMILY_ROBOTO_MONO = 'robotoMono';
+    public const FONT_FAMILY_NOTO_SANS = 'notoSans';
+    public const FONT_FAMILY_NOTO_SERIF = 'notoSerif';
+    public const FONT_FAMILY_NOTO_CJK_JP_REGULAR = 'notoCJK-JP-Regular';
+    public const FONT_FAMILY_NOTO_HEBREW_REGULAR = 'notoHebrew-Regular';
+    public const FONT_FAMILY_NOTO_SAN_THAI_MERGED = 'notoSanThaiMerged';
 
     /**
      * Gets allowable values of the enum
@@ -231,6 +257,33 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     }
 
     /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFontFamilyAllowableValues()
+    {
+        return [
+            self::FONT_FAMILY_HELVETICA,
+            self::FONT_FAMILY_ARIAL,
+            self::FONT_FAMILY_COURIER,
+            self::FONT_FAMILY_CALIBRI,
+            self::FONT_FAMILY_CAMBRIA,
+            self::FONT_FAMILY_GEORGIA,
+            self::FONT_FAMILY_TIMES,
+            self::FONT_FAMILY_TREBUCHET,
+            self::FONT_FAMILY_VERDANA,
+            self::FONT_FAMILY_ROBOTO,
+            self::FONT_FAMILY_ROBOTO_MONO,
+            self::FONT_FAMILY_NOTO_SANS,
+            self::FONT_FAMILY_NOTO_SERIF,
+            self::FONT_FAMILY_NOTO_CJK_JP_REGULAR,
+            self::FONT_FAMILY_NOTO_HEBREW_REGULAR,
+            self::FONT_FAMILY_NOTO_SAN_THAI_MERGED,
+        ];
+    }
+
+    /**
      * Constructor
      *
      * @param array|null $data Associated array of property values
@@ -248,6 +301,8 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         $this->container['validation_type'] = $data['validation_type'] ?? null;
         $this->container['validation_custom_regex'] = $data['validation_custom_regex'] ?? null;
         $this->container['validation_custom_regex_format_label'] = $data['validation_custom_regex_format_label'] ?? null;
+        $this->container['font_family'] = $data['font_family'] ?? null;
+        $this->container['original_font_size'] = $data['original_font_size'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -285,6 +340,15 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'validation_type', must be one of '%s'",
                 $this->container['validation_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getFontFamilyAllowableValues();
+        if (!is_null($this->container['font_family']) && !in_array($this->container['font_family'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'font_family', must be one of '%s'",
+                $this->container['font_family'],
                 implode("', '", $allowedValues)
             );
         }
@@ -501,6 +565,64 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     public function setValidationCustomRegexFormatLabel(?string $validation_custom_regex_format_label)
     {
         $this->container['validation_custom_regex_format_label'] = $validation_custom_regex_format_label;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_family
+     *
+     * @return string|null
+     */
+    public function getFontFamily()
+    {
+        return $this->container['font_family'];
+    }
+
+    /**
+     * Sets font_family
+     *
+     * @param string|null $font_family font family for the field
+     *
+     * @return self
+     */
+    public function setFontFamily(?string $font_family)
+    {
+        $allowedValues = $this->getFontFamilyAllowableValues();
+        if (!is_null($font_family) && !in_array($font_family, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'font_family', must be one of '%s'",
+                    $font_family,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['font_family'] = $font_family;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_font_size
+     *
+     * @return int|null
+     */
+    public function getOriginalFontSize()
+    {
+        return $this->container['original_font_size'];
+    }
+
+    /**
+     * Sets original_font_size
+     *
+     * @param int|null $original_font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+     *
+     * @return self
+     */
+    public function setOriginalFontSize(?int $original_font_size)
+    {
+        $this->container['original_font_size'] = $original_font_size;
 
         return $this;
     }

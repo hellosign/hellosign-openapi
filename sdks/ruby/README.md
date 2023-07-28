@@ -252,6 +252,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubFormFieldsPerDocumentCheckboxMerge](docs/SubFormFieldsPerDocumentCheckboxMerge.md)
  - [Dropbox::Sign::SubFormFieldsPerDocumentDateSigned](docs/SubFormFieldsPerDocumentDateSigned.md)
  - [Dropbox::Sign::SubFormFieldsPerDocumentDropdown](docs/SubFormFieldsPerDocumentDropdown.md)
+ - [Dropbox::Sign::SubFormFieldsPerDocumentFontEnum](docs/SubFormFieldsPerDocumentFontEnum.md)
  - [Dropbox::Sign::SubFormFieldsPerDocumentHyperlink](docs/SubFormFieldsPerDocumentHyperlink.md)
  - [Dropbox::Sign::SubFormFieldsPerDocumentInitials](docs/SubFormFieldsPerDocumentInitials.md)
  - [Dropbox::Sign::SubFormFieldsPerDocumentRadio](docs/SubFormFieldsPerDocumentRadio.md)

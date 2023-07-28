@@ -921,6 +921,11 @@
 "Sub::FormFieldsPerDocument::HEIGHT": Size of the field in pixels.
 "Sub::FormFieldsPerDocument::MASKED": Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.
 "Sub::FormFieldsPerDocument::NAME": Display name for the field.
+"Sub::FormFieldsPerDocument::FONT_FAMILY": Font family for the field.
+"Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE": |-
+  The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+
+  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
 "Sub::FormFieldsPerDocument::OPTIONS": Array of string values representing dropdown values.
 "Sub::FormFieldsPerDocument::PAGE": |-
   Page in the document where the field should be placed (requires documents be PDF files).

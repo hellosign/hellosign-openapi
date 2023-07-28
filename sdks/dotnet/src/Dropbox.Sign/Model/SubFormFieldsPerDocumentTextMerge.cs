@@ -46,6 +46,118 @@ namespace Dropbox.Sign.Model
     public partial class SubFormFieldsPerDocumentTextMerge : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentTextMerge>, IValidatableObject
     {
         /// <summary>
+        /// Font family for the field.
+        /// </summary>
+        /// <value>Font family for the field.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FontFamilyEnum
+        {
+            /// <summary>
+            /// Enum Helvetica for value: helvetica
+            /// </summary>
+            [EnumMember(Value = "helvetica")]
+            Helvetica = 1,
+
+            /// <summary>
+            /// Enum Arial for value: arial
+            /// </summary>
+            [EnumMember(Value = "arial")]
+            Arial = 2,
+
+            /// <summary>
+            /// Enum Courier for value: courier
+            /// </summary>
+            [EnumMember(Value = "courier")]
+            Courier = 3,
+
+            /// <summary>
+            /// Enum Calibri for value: calibri
+            /// </summary>
+            [EnumMember(Value = "calibri")]
+            Calibri = 4,
+
+            /// <summary>
+            /// Enum Cambria for value: cambria
+            /// </summary>
+            [EnumMember(Value = "cambria")]
+            Cambria = 5,
+
+            /// <summary>
+            /// Enum Georgia for value: georgia
+            /// </summary>
+            [EnumMember(Value = "georgia")]
+            Georgia = 6,
+
+            /// <summary>
+            /// Enum Times for value: times
+            /// </summary>
+            [EnumMember(Value = "times")]
+            Times = 7,
+
+            /// <summary>
+            /// Enum Trebuchet for value: trebuchet
+            /// </summary>
+            [EnumMember(Value = "trebuchet")]
+            Trebuchet = 8,
+
+            /// <summary>
+            /// Enum Verdana for value: verdana
+            /// </summary>
+            [EnumMember(Value = "verdana")]
+            Verdana = 9,
+
+            /// <summary>
+            /// Enum Roboto for value: roboto
+            /// </summary>
+            [EnumMember(Value = "roboto")]
+            Roboto = 10,
+
+            /// <summary>
+            /// Enum RobotoMono for value: robotoMono
+            /// </summary>
+            [EnumMember(Value = "robotoMono")]
+            RobotoMono = 11,
+
+            /// <summary>
+            /// Enum NotoSans for value: notoSans
+            /// </summary>
+            [EnumMember(Value = "notoSans")]
+            NotoSans = 12,
+
+            /// <summary>
+            /// Enum NotoSerif for value: notoSerif
+            /// </summary>
+            [EnumMember(Value = "notoSerif")]
+            NotoSerif = 13,
+
+            /// <summary>
+            /// Enum NotoCJKJPRegular for value: notoCJK-JP-Regular
+            /// </summary>
+            [EnumMember(Value = "notoCJK-JP-Regular")]
+            NotoCJKJPRegular = 14,
+
+            /// <summary>
+            /// Enum NotoHebrewRegular for value: notoHebrew-Regular
+            /// </summary>
+            [EnumMember(Value = "notoHebrew-Regular")]
+            NotoHebrewRegular = 15,
+
+            /// <summary>
+            /// Enum NotoSanThaiMerged for value: notoSanThaiMerged
+            /// </summary>
+            [EnumMember(Value = "notoSanThaiMerged")]
+            NotoSanThaiMerged = 16
+
+        }
+
+
+        /// <summary>
+        /// Font family for the field.
+        /// </summary>
+        /// <value>Font family for the field.</value>
+        [DataMember(Name = "font_family", EmitDefaultValue = true)]
+        public FontFamilyEnum? FontFamily { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentTextMerge" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -54,6 +166,8 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentTextMerge" /> class.
         /// </summary>
         /// <param name="type">A text field that has default text set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentTextMerge&#x60; class. (required) (default to &quot;text-merge&quot;).</param>
+        /// <param name="fontFamily">Font family for the field..</param>
+        /// <param name="originalFontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field..</param>
         /// <param name="documentIndex">Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to. (required).</param>
         /// <param name="apiId">An identifier for the field that is unique across all documents in the request. (required).</param>
         /// <param name="height">Size of the field in pixels. (required).</param>
@@ -64,7 +178,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentTextMerge(string type = "text-merge", int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentTextMerge(string type = "text-merge", FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int originalFontSize = default(int), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -83,6 +197,8 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("type is a required property for SubFormFieldsPerDocumentTextMerge and cannot be null");
             }
             this.Type = type;
+            this.FontFamily = fontFamily;
+            this.OriginalFontSize = originalFontSize;
         }
 
         /// <summary>
@@ -109,6 +225,13 @@ namespace Dropbox.Sign.Model
         public string Type { get; set; }
 
         /// <summary>
+        /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+        /// </summary>
+        /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
+        [DataMember(Name = "original_font_size", EmitDefaultValue = true)]
+        public int OriginalFontSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +241,8 @@ namespace Dropbox.Sign.Model
             sb.Append("class SubFormFieldsPerDocumentTextMerge {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  FontFamily: ").Append(FontFamily).Append("\n");
+            sb.Append("  OriginalFontSize: ").Append(OriginalFontSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,6 +282,14 @@ namespace Dropbox.Sign.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
+                ) && base.Equals(input) && 
+                (
+                    this.FontFamily == input.FontFamily ||
+                    this.FontFamily.Equals(input.FontFamily)
+                ) && base.Equals(input) && 
+                (
+                    this.OriginalFontSize == input.OriginalFontSize ||
+                    this.OriginalFontSize.Equals(input.OriginalFontSize)
                 );
         }
 
@@ -173,6 +306,8 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.FontFamily.GetHashCode();
+                hashCode = (hashCode * 59) + this.OriginalFontSize.GetHashCode();
                 return hashCode;
             }
         }
@@ -185,6 +320,18 @@ namespace Dropbox.Sign.Model
                 Property = "Type",
                 Type = "string",
                 Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_family",
+                Property = "FontFamily",
+                Type = "string",
+                Value = FontFamily,
+            });
+            types.Add(new OpenApiType(){
+                Name = "original_font_size",
+                Property = "OriginalFontSize",
+                Type = "int",
+                Value = OriginalFontSize,
             });
 
             return types;

@@ -31,12 +31,44 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :content
 
+    # Font family for the field.
+    # @return [String]
+    attr_accessor :font_family
+
+    # The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+    # @return [Integer]
+    attr_accessor :original_font_size
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'type' => :'type',
         :'options' => :'options',
-        :'content' => :'content'
+        :'content' => :'content',
+        :'font_family' => :'font_family',
+        :'original_font_size' => :'original_font_size'
       }
     end
 
@@ -55,7 +87,9 @@ module Dropbox::Sign
       {
         :'type' => :'String',
         :'options' => :'Array<String>',
-        :'content' => :'String'
+        :'content' => :'String',
+        :'font_family' => :'String',
+        :'original_font_size' => :'Integer'
       }
     end
 
@@ -118,6 +152,14 @@ module Dropbox::Sign
       if attributes.key?(:'content')
         self.content = attributes[:'content']
       end
+
+      if attributes.key?(:'font_family')
+        self.font_family = attributes[:'font_family']
+      end
+
+      if attributes.key?(:'original_font_size')
+        self.original_font_size = attributes[:'original_font_size']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -145,6 +187,8 @@ module Dropbox::Sign
       return false if @type.nil?
       return false if @options.nil?
       return false if @options.length < 1
+      font_family_validator = EnumAttributeValidator.new('String', ["helvetica", "arial", "courier", "calibri", "cambria", "georgia", "times", "trebuchet", "verdana", "roboto", "robotoMono", "notoSans", "notoSerif", "notoCJK-JP-Regular", "notoHebrew-Regular", "notoSanThaiMerged"])
+      return false unless font_family_validator.valid?(@font_family)
       true && super
     end
 
@@ -162,6 +206,16 @@ module Dropbox::Sign
       @options = options
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] font_family Object to be assigned
+    def font_family=(font_family)
+      validator = EnumAttributeValidator.new('String', ["helvetica", "arial", "courier", "calibri", "cambria", "georgia", "times", "trebuchet", "verdana", "roboto", "robotoMono", "notoSans", "notoSerif", "notoCJK-JP-Regular", "notoHebrew-Regular", "notoSanThaiMerged"])
+      unless validator.valid?(font_family)
+        fail ArgumentError, "invalid value for \"font_family\", must be one of #{validator.allowable_values}."
+      end
+      @font_family = font_family
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -169,7 +223,9 @@ module Dropbox::Sign
       self.class == o.class &&
           type == o.type &&
           options == o.options &&
-          content == o.content && super(o)
+          content == o.content &&
+          font_family == o.font_family &&
+          original_font_size == o.original_font_size && super(o)
     end
 
     # @see the `==` method
@@ -181,7 +237,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, options, content].hash
+      [type, options, content, font_family, original_font_size].hash
     end
 
     # Builds the object from hash

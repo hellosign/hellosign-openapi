@@ -41,6 +41,14 @@ export class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
    * Selected value in `options` array. Value must exist in array.
    */
   "content"?: string;
+  /**
+   * Font family for the field.
+   */
+  "fontFamily"?: SubFormFieldsPerDocumentDropdown.FontFamilyEnum;
+  /**
+   * The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   */
+  "originalFontSize"?: number;
 
   static discriminator: string | undefined = undefined;
 
@@ -60,6 +68,16 @@ export class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
       baseName: "content",
       type: "string",
     },
+    {
+      name: "fontFamily",
+      baseName: "font_family",
+      type: "SubFormFieldsPerDocumentDropdown.FontFamilyEnum",
+    },
+    {
+      name: "originalFontSize",
+      baseName: "original_font_size",
+      type: "number",
+    },
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
@@ -74,5 +92,26 @@ export class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
       data,
       "SubFormFieldsPerDocumentDropdown"
     );
+  }
+}
+
+export namespace SubFormFieldsPerDocumentDropdown {
+  export enum FontFamilyEnum {
+    Helvetica = "helvetica",
+    Arial = "arial",
+    Courier = "courier",
+    Calibri = "calibri",
+    Cambria = "cambria",
+    Georgia = "georgia",
+    Times = "times",
+    Trebuchet = "trebuchet",
+    Verdana = "verdana",
+    Roboto = "roboto",
+    RobotoMono = "robotoMono",
+    NotoSans = "notoSans",
+    NotoSerif = "notoSerif",
+    NotoCjkJpRegular = "notoCJK-JP-Regular",
+    NotoHebrewRegular = "notoHebrew-Regular",
+    NotoSanThaiMerged = "notoSanThaiMerged",
   }
 }

@@ -18329,6 +18329,7 @@ __export(api_exports, {
   SubFormFieldsPerDocumentCheckboxMerge: () => SubFormFieldsPerDocumentCheckboxMerge,
   SubFormFieldsPerDocumentDateSigned: () => SubFormFieldsPerDocumentDateSigned,
   SubFormFieldsPerDocumentDropdown: () => SubFormFieldsPerDocumentDropdown,
+  SubFormFieldsPerDocumentFontEnum: () => SubFormFieldsPerDocumentFontEnum,
   SubFormFieldsPerDocumentHyperlink: () => SubFormFieldsPerDocumentHyperlink,
   SubFormFieldsPerDocumentInitials: () => SubFormFieldsPerDocumentInitials,
   SubFormFieldsPerDocumentRadio: () => SubFormFieldsPerDocumentRadio,
@@ -22074,8 +22075,39 @@ SubFormFieldsPerDocumentDateSigned.attributeTypeMap = [
     name: "type",
     baseName: "type",
     type: "string"
+  },
+  {
+    name: "fontFamily",
+    baseName: "font_family",
+    type: "SubFormFieldsPerDocumentDateSigned.FontFamilyEnum"
+  },
+  {
+    name: "originalFontSize",
+    baseName: "original_font_size",
+    type: "number"
   }
 ];
+((SubFormFieldsPerDocumentDateSigned2) => {
+  let FontFamilyEnum;
+  ((FontFamilyEnum2) => {
+    FontFamilyEnum2["Helvetica"] = "helvetica";
+    FontFamilyEnum2["Arial"] = "arial";
+    FontFamilyEnum2["Courier"] = "courier";
+    FontFamilyEnum2["Calibri"] = "calibri";
+    FontFamilyEnum2["Cambria"] = "cambria";
+    FontFamilyEnum2["Georgia"] = "georgia";
+    FontFamilyEnum2["Times"] = "times";
+    FontFamilyEnum2["Trebuchet"] = "trebuchet";
+    FontFamilyEnum2["Verdana"] = "verdana";
+    FontFamilyEnum2["Roboto"] = "roboto";
+    FontFamilyEnum2["RobotoMono"] = "robotoMono";
+    FontFamilyEnum2["NotoSans"] = "notoSans";
+    FontFamilyEnum2["NotoSerif"] = "notoSerif";
+    FontFamilyEnum2["NotoCjkJpRegular"] = "notoCJK-JP-Regular";
+    FontFamilyEnum2["NotoHebrewRegular"] = "notoHebrew-Regular";
+    FontFamilyEnum2["NotoSanThaiMerged"] = "notoSanThaiMerged";
+  })(FontFamilyEnum = SubFormFieldsPerDocumentDateSigned2.FontFamilyEnum || (SubFormFieldsPerDocumentDateSigned2.FontFamilyEnum = {}));
+})(SubFormFieldsPerDocumentDateSigned || (SubFormFieldsPerDocumentDateSigned = {}));
 
 // model/subFormFieldsPerDocumentDropdown.ts
 var _SubFormFieldsPerDocumentDropdown = class extends SubFormFieldsPerDocumentBase {
@@ -22110,8 +22142,60 @@ SubFormFieldsPerDocumentDropdown.attributeTypeMap = [
     name: "content",
     baseName: "content",
     type: "string"
+  },
+  {
+    name: "fontFamily",
+    baseName: "font_family",
+    type: "SubFormFieldsPerDocumentDropdown.FontFamilyEnum"
+  },
+  {
+    name: "originalFontSize",
+    baseName: "original_font_size",
+    type: "number"
   }
 ];
+((SubFormFieldsPerDocumentDropdown2) => {
+  let FontFamilyEnum;
+  ((FontFamilyEnum2) => {
+    FontFamilyEnum2["Helvetica"] = "helvetica";
+    FontFamilyEnum2["Arial"] = "arial";
+    FontFamilyEnum2["Courier"] = "courier";
+    FontFamilyEnum2["Calibri"] = "calibri";
+    FontFamilyEnum2["Cambria"] = "cambria";
+    FontFamilyEnum2["Georgia"] = "georgia";
+    FontFamilyEnum2["Times"] = "times";
+    FontFamilyEnum2["Trebuchet"] = "trebuchet";
+    FontFamilyEnum2["Verdana"] = "verdana";
+    FontFamilyEnum2["Roboto"] = "roboto";
+    FontFamilyEnum2["RobotoMono"] = "robotoMono";
+    FontFamilyEnum2["NotoSans"] = "notoSans";
+    FontFamilyEnum2["NotoSerif"] = "notoSerif";
+    FontFamilyEnum2["NotoCjkJpRegular"] = "notoCJK-JP-Regular";
+    FontFamilyEnum2["NotoHebrewRegular"] = "notoHebrew-Regular";
+    FontFamilyEnum2["NotoSanThaiMerged"] = "notoSanThaiMerged";
+  })(FontFamilyEnum = SubFormFieldsPerDocumentDropdown2.FontFamilyEnum || (SubFormFieldsPerDocumentDropdown2.FontFamilyEnum = {}));
+})(SubFormFieldsPerDocumentDropdown || (SubFormFieldsPerDocumentDropdown = {}));
+
+// model/subFormFieldsPerDocumentFontEnum.ts
+var SubFormFieldsPerDocumentFontEnum = /* @__PURE__ */ ((SubFormFieldsPerDocumentFontEnum2) => {
+  SubFormFieldsPerDocumentFontEnum2["Helvetica"] = "helvetica";
+  SubFormFieldsPerDocumentFontEnum2["Arial"] = "arial";
+  SubFormFieldsPerDocumentFontEnum2["Courier"] = "courier";
+  SubFormFieldsPerDocumentFontEnum2["Calibri"] = "calibri";
+  SubFormFieldsPerDocumentFontEnum2["Cambria"] = "cambria";
+  SubFormFieldsPerDocumentFontEnum2["Georgia"] = "georgia";
+  SubFormFieldsPerDocumentFontEnum2["Times"] = "times";
+  SubFormFieldsPerDocumentFontEnum2["Trebuchet"] = "trebuchet";
+  SubFormFieldsPerDocumentFontEnum2["Verdana"] = "verdana";
+  SubFormFieldsPerDocumentFontEnum2["Roboto"] = "roboto";
+  SubFormFieldsPerDocumentFontEnum2["RobotoMono"] = "robotoMono";
+  SubFormFieldsPerDocumentFontEnum2["NotoSans"] = "notoSans";
+  SubFormFieldsPerDocumentFontEnum2["NotoSerif"] = "notoSerif";
+  SubFormFieldsPerDocumentFontEnum2["NotoCjkJpRegular"] = "notoCJK-JP-Regular";
+  SubFormFieldsPerDocumentFontEnum2["NotoHebrewRegular"] = "notoHebrew-Regular";
+  SubFormFieldsPerDocumentFontEnum2["NotoSanThaiMerged"] = "notoSanThaiMerged";
+  return SubFormFieldsPerDocumentFontEnum2;
+})(SubFormFieldsPerDocumentFontEnum || {});
 
 // model/subFormFieldsPerDocumentHyperlink.ts
 var _SubFormFieldsPerDocumentHyperlink = class extends SubFormFieldsPerDocumentBase {
@@ -22146,8 +22230,39 @@ SubFormFieldsPerDocumentHyperlink.attributeTypeMap = [
     name: "contentUrl",
     baseName: "content_url",
     type: "string"
+  },
+  {
+    name: "fontFamily",
+    baseName: "font_family",
+    type: "SubFormFieldsPerDocumentHyperlink.FontFamilyEnum"
+  },
+  {
+    name: "originalFontSize",
+    baseName: "original_font_size",
+    type: "number"
   }
 ];
+((SubFormFieldsPerDocumentHyperlink2) => {
+  let FontFamilyEnum;
+  ((FontFamilyEnum2) => {
+    FontFamilyEnum2["Helvetica"] = "helvetica";
+    FontFamilyEnum2["Arial"] = "arial";
+    FontFamilyEnum2["Courier"] = "courier";
+    FontFamilyEnum2["Calibri"] = "calibri";
+    FontFamilyEnum2["Cambria"] = "cambria";
+    FontFamilyEnum2["Georgia"] = "georgia";
+    FontFamilyEnum2["Times"] = "times";
+    FontFamilyEnum2["Trebuchet"] = "trebuchet";
+    FontFamilyEnum2["Verdana"] = "verdana";
+    FontFamilyEnum2["Roboto"] = "roboto";
+    FontFamilyEnum2["RobotoMono"] = "robotoMono";
+    FontFamilyEnum2["NotoSans"] = "notoSans";
+    FontFamilyEnum2["NotoSerif"] = "notoSerif";
+    FontFamilyEnum2["NotoCjkJpRegular"] = "notoCJK-JP-Regular";
+    FontFamilyEnum2["NotoHebrewRegular"] = "notoHebrew-Regular";
+    FontFamilyEnum2["NotoSanThaiMerged"] = "notoSanThaiMerged";
+  })(FontFamilyEnum = SubFormFieldsPerDocumentHyperlink2.FontFamilyEnum || (SubFormFieldsPerDocumentHyperlink2.FontFamilyEnum = {}));
+})(SubFormFieldsPerDocumentHyperlink || (SubFormFieldsPerDocumentHyperlink = {}));
 
 // model/subFormFieldsPerDocumentInitials.ts
 var _SubFormFieldsPerDocumentInitials = class extends SubFormFieldsPerDocumentBase {
@@ -22289,6 +22404,16 @@ SubFormFieldsPerDocumentText.attributeTypeMap = [
     name: "validationCustomRegexFormatLabel",
     baseName: "validation_custom_regex_format_label",
     type: "string"
+  },
+  {
+    name: "fontFamily",
+    baseName: "font_family",
+    type: "SubFormFieldsPerDocumentText.FontFamilyEnum"
+  },
+  {
+    name: "originalFontSize",
+    baseName: "original_font_size",
+    type: "number"
   }
 ];
 ((SubFormFieldsPerDocumentText2) => {
@@ -22305,6 +22430,25 @@ SubFormFieldsPerDocumentText.attributeTypeMap = [
     ValidationTypeEnum2["EmployerIdentificationNumber"] = "employer_identification_number";
     ValidationTypeEnum2["CustomRegex"] = "custom_regex";
   })(ValidationTypeEnum = SubFormFieldsPerDocumentText2.ValidationTypeEnum || (SubFormFieldsPerDocumentText2.ValidationTypeEnum = {}));
+  let FontFamilyEnum;
+  ((FontFamilyEnum2) => {
+    FontFamilyEnum2["Helvetica"] = "helvetica";
+    FontFamilyEnum2["Arial"] = "arial";
+    FontFamilyEnum2["Courier"] = "courier";
+    FontFamilyEnum2["Calibri"] = "calibri";
+    FontFamilyEnum2["Cambria"] = "cambria";
+    FontFamilyEnum2["Georgia"] = "georgia";
+    FontFamilyEnum2["Times"] = "times";
+    FontFamilyEnum2["Trebuchet"] = "trebuchet";
+    FontFamilyEnum2["Verdana"] = "verdana";
+    FontFamilyEnum2["Roboto"] = "roboto";
+    FontFamilyEnum2["RobotoMono"] = "robotoMono";
+    FontFamilyEnum2["NotoSans"] = "notoSans";
+    FontFamilyEnum2["NotoSerif"] = "notoSerif";
+    FontFamilyEnum2["NotoCjkJpRegular"] = "notoCJK-JP-Regular";
+    FontFamilyEnum2["NotoHebrewRegular"] = "notoHebrew-Regular";
+    FontFamilyEnum2["NotoSanThaiMerged"] = "notoSanThaiMerged";
+  })(FontFamilyEnum = SubFormFieldsPerDocumentText2.FontFamilyEnum || (SubFormFieldsPerDocumentText2.FontFamilyEnum = {}));
 })(SubFormFieldsPerDocumentText || (SubFormFieldsPerDocumentText = {}));
 
 // model/subFormFieldsPerDocumentTextMerge.ts
@@ -22330,8 +22474,39 @@ SubFormFieldsPerDocumentTextMerge.attributeTypeMap = [
     name: "type",
     baseName: "type",
     type: "string"
+  },
+  {
+    name: "fontFamily",
+    baseName: "font_family",
+    type: "SubFormFieldsPerDocumentTextMerge.FontFamilyEnum"
+  },
+  {
+    name: "originalFontSize",
+    baseName: "original_font_size",
+    type: "number"
   }
 ];
+((SubFormFieldsPerDocumentTextMerge2) => {
+  let FontFamilyEnum;
+  ((FontFamilyEnum2) => {
+    FontFamilyEnum2["Helvetica"] = "helvetica";
+    FontFamilyEnum2["Arial"] = "arial";
+    FontFamilyEnum2["Courier"] = "courier";
+    FontFamilyEnum2["Calibri"] = "calibri";
+    FontFamilyEnum2["Cambria"] = "cambria";
+    FontFamilyEnum2["Georgia"] = "georgia";
+    FontFamilyEnum2["Times"] = "times";
+    FontFamilyEnum2["Trebuchet"] = "trebuchet";
+    FontFamilyEnum2["Verdana"] = "verdana";
+    FontFamilyEnum2["Roboto"] = "roboto";
+    FontFamilyEnum2["RobotoMono"] = "robotoMono";
+    FontFamilyEnum2["NotoSans"] = "notoSans";
+    FontFamilyEnum2["NotoSerif"] = "notoSerif";
+    FontFamilyEnum2["NotoCjkJpRegular"] = "notoCJK-JP-Regular";
+    FontFamilyEnum2["NotoHebrewRegular"] = "notoHebrew-Regular";
+    FontFamilyEnum2["NotoSanThaiMerged"] = "notoSanThaiMerged";
+  })(FontFamilyEnum = SubFormFieldsPerDocumentTextMerge2.FontFamilyEnum || (SubFormFieldsPerDocumentTextMerge2.FontFamilyEnum = {}));
+})(SubFormFieldsPerDocumentTextMerge || (SubFormFieldsPerDocumentTextMerge = {}));
 
 // model/subFormFieldsPerDocumentTypeEnum.ts
 var SubFormFieldsPerDocumentTypeEnum = /* @__PURE__ */ ((SubFormFieldsPerDocumentTypeEnum2) => {
@@ -25775,7 +25950,13 @@ var enumsMap = {
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
   "SubFormFieldRuleAction.TypeEnum": SubFormFieldRuleAction.TypeEnum,
   "SubFormFieldRuleTrigger.OperatorEnum": SubFormFieldRuleTrigger.OperatorEnum,
+  "SubFormFieldsPerDocumentDateSigned.FontFamilyEnum": SubFormFieldsPerDocumentDateSigned.FontFamilyEnum,
+  "SubFormFieldsPerDocumentDropdown.FontFamilyEnum": SubFormFieldsPerDocumentDropdown.FontFamilyEnum,
+  SubFormFieldsPerDocumentFontEnum,
+  "SubFormFieldsPerDocumentHyperlink.FontFamilyEnum": SubFormFieldsPerDocumentHyperlink.FontFamilyEnum,
   "SubFormFieldsPerDocumentText.ValidationTypeEnum": SubFormFieldsPerDocumentText.ValidationTypeEnum,
+  "SubFormFieldsPerDocumentText.FontFamilyEnum": SubFormFieldsPerDocumentText.FontFamilyEnum,
+  "SubFormFieldsPerDocumentTextMerge.FontFamilyEnum": SubFormFieldsPerDocumentTextMerge.FontFamilyEnum,
   SubFormFieldsPerDocumentTypeEnum,
   "SubMergeField.TypeEnum": SubMergeField.TypeEnum,
   "SubOAuth.ScopesEnum": SubOAuth.ScopesEnum,
@@ -32968,6 +33149,7 @@ var APIS = [
   SubFormFieldsPerDocumentCheckboxMerge,
   SubFormFieldsPerDocumentDateSigned,
   SubFormFieldsPerDocumentDropdown,
+  SubFormFieldsPerDocumentFontEnum,
   SubFormFieldsPerDocumentHyperlink,
   SubFormFieldsPerDocumentInitials,
   SubFormFieldsPerDocumentRadio,

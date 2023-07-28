@@ -251,6 +251,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [SubFormFieldsPerDocumentCheckboxMerge](docs/SubFormFieldsPerDocumentCheckboxMerge.md)
  - [SubFormFieldsPerDocumentDateSigned](docs/SubFormFieldsPerDocumentDateSigned.md)
  - [SubFormFieldsPerDocumentDropdown](docs/SubFormFieldsPerDocumentDropdown.md)
+ - [SubFormFieldsPerDocumentFontEnum](docs/SubFormFieldsPerDocumentFontEnum.md)
  - [SubFormFieldsPerDocumentHyperlink](docs/SubFormFieldsPerDocumentHyperlink.md)
  - [SubFormFieldsPerDocumentInitials](docs/SubFormFieldsPerDocumentInitials.md)
  - [SubFormFieldsPerDocumentRadio](docs/SubFormFieldsPerDocumentRadio.md)

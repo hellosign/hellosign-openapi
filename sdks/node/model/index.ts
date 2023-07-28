@@ -84,6 +84,7 @@ import { SubFormFieldsPerDocumentCheckbox } from "./subFormFieldsPerDocumentChec
 import { SubFormFieldsPerDocumentCheckboxMerge } from "./subFormFieldsPerDocumentCheckboxMerge";
 import { SubFormFieldsPerDocumentDateSigned } from "./subFormFieldsPerDocumentDateSigned";
 import { SubFormFieldsPerDocumentDropdown } from "./subFormFieldsPerDocumentDropdown";
+import { SubFormFieldsPerDocumentFontEnum } from "./subFormFieldsPerDocumentFontEnum";
 import { SubFormFieldsPerDocumentHyperlink } from "./subFormFieldsPerDocumentHyperlink";
 import { SubFormFieldsPerDocumentInitials } from "./subFormFieldsPerDocumentInitials";
 import { SubFormFieldsPerDocumentRadio } from "./subFormFieldsPerDocumentRadio";
@@ -191,8 +192,19 @@ export let enumsMap: { [index: string]: any } = {
   "SubFieldOptions.DateFormatEnum": SubFieldOptions.DateFormatEnum,
   "SubFormFieldRuleAction.TypeEnum": SubFormFieldRuleAction.TypeEnum,
   "SubFormFieldRuleTrigger.OperatorEnum": SubFormFieldRuleTrigger.OperatorEnum,
+  "SubFormFieldsPerDocumentDateSigned.FontFamilyEnum":
+    SubFormFieldsPerDocumentDateSigned.FontFamilyEnum,
+  "SubFormFieldsPerDocumentDropdown.FontFamilyEnum":
+    SubFormFieldsPerDocumentDropdown.FontFamilyEnum,
+  SubFormFieldsPerDocumentFontEnum: SubFormFieldsPerDocumentFontEnum,
+  "SubFormFieldsPerDocumentHyperlink.FontFamilyEnum":
+    SubFormFieldsPerDocumentHyperlink.FontFamilyEnum,
   "SubFormFieldsPerDocumentText.ValidationTypeEnum":
     SubFormFieldsPerDocumentText.ValidationTypeEnum,
+  "SubFormFieldsPerDocumentText.FontFamilyEnum":
+    SubFormFieldsPerDocumentText.FontFamilyEnum,
+  "SubFormFieldsPerDocumentTextMerge.FontFamilyEnum":
+    SubFormFieldsPerDocumentTextMerge.FontFamilyEnum,
   SubFormFieldsPerDocumentTypeEnum: SubFormFieldsPerDocumentTypeEnum,
   "SubMergeField.TypeEnum": SubMergeField.TypeEnum,
   "SubOAuth.ScopesEnum": SubOAuth.ScopesEnum,
@@ -504,6 +516,7 @@ export {
   SubFormFieldsPerDocumentCheckboxMerge,
   SubFormFieldsPerDocumentDateSigned,
   SubFormFieldsPerDocumentDropdown,
+  SubFormFieldsPerDocumentFontEnum,
   SubFormFieldsPerDocumentHyperlink,
   SubFormFieldsPerDocumentInitials,
   SubFormFieldsPerDocumentRadio,

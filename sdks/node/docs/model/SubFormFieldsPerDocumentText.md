@@ -14,5 +14,7 @@ Name | Type | Description | Notes
 | `validationType` | ```string``` |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.<br><br>**NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.  |  |
 | `validationCustomRegex` | ```string``` |    |  |
 | `validationCustomRegexFormatLabel` | ```string``` |    |  |
+| `fontFamily` | ```string``` |  Font family for the field.  |  |
+| `originalFontSize` | ```number``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`. <br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -96,6 +96,7 @@ docs/SubFormFieldsPerDocumentCheckbox.md
 docs/SubFormFieldsPerDocumentCheckboxMerge.md
 docs/SubFormFieldsPerDocumentDateSigned.md
 docs/SubFormFieldsPerDocumentDropdown.md
+docs/SubFormFieldsPerDocumentFontEnum.md
 docs/SubFormFieldsPerDocumentHyperlink.md
 docs/SubFormFieldsPerDocumentInitials.md
 docs/SubFormFieldsPerDocumentRadio.md
@@ -284,6 +285,7 @@ dropbox_sign/model/sub_form_fields_per_document_checkbox.py
 dropbox_sign/model/sub_form_fields_per_document_checkbox_merge.py
 dropbox_sign/model/sub_form_fields_per_document_date_signed.py
 dropbox_sign/model/sub_form_fields_per_document_dropdown.py
+dropbox_sign/model/sub_form_fields_per_document_font_enum.py
 dropbox_sign/model/sub_form_fields_per_document_hyperlink.py
 dropbox_sign/model/sub_form_fields_per_document_initials.py
 dropbox_sign/model/sub_form_fields_per_document_radio.py

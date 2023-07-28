@@ -6200,6 +6200,25 @@ components:
         - radio
         - text
         - text-merge
+    SubFormFieldsPerDocumentFontEnum:
+      type: string
+      enum:
+        - helvetica
+        - arial
+        - courier
+        - calibri
+        - cambria
+        - georgia
+        - times
+        - trebuchet
+        - verdana
+        - roboto
+        - robotoMono
+        - notoSans
+        - notoSerif
+        - notoCJK-JP-Regular
+        - notoHebrew-Regular
+        - notoSanThaiMerged
     SubFormFieldsPerDocumentText:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
       allOf:
@@ -6244,6 +6263,29 @@ components:
               type: string
             validation_custom_regex_format_label:
               type: string
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            original_font_size:
+              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+              type: integer
           type: object
     SubFormFieldsPerDocumentDropdown:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
@@ -6268,6 +6310,29 @@ components:
             content:
               description: '_t__Sub::FormFieldsPerDocument::CONTENT_DROPDOWN'
               type: string
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            original_font_size:
+              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+              type: integer
           type: object
     SubFormFieldsPerDocumentHyperlink:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
@@ -6290,6 +6355,29 @@ components:
             content_url:
               description: '_t__Sub::FormFieldsPerDocument::CONTENT_URL'
               type: string
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            original_font_size:
+              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+              type: integer
           type: object
     SubFormFieldsPerDocumentCheckbox:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
@@ -6361,6 +6449,29 @@ components:
               description: '_t__Sub::FormFieldsPerDocument::TYPE_DATE_SIGNED'
               type: string
               default: date_signed
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            original_font_size:
+              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+              type: integer
           type: object
     SubFormFieldsPerDocumentInitials:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
@@ -6389,6 +6500,29 @@ components:
               description: '_t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE'
               type: string
               default: text-merge
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            original_font_size:
+              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+              type: integer
           type: object
     SubFormFieldsPerDocumentCheckboxMerge:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'

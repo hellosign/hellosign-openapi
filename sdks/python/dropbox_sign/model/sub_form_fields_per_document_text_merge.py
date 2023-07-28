@@ -66,6 +66,24 @@ class SubFormFieldsPerDocumentTextMerge(ModelComposed):
     """
 
     allowed_values = {
+        ('font_family',): {
+            'HELVETICA': "helvetica",
+            'ARIAL': "arial",
+            'COURIER': "courier",
+            'CALIBRI': "calibri",
+            'CAMBRIA': "cambria",
+            'GEORGIA': "georgia",
+            'TIMES': "times",
+            'TREBUCHET': "trebuchet",
+            'VERDANA': "verdana",
+            'ROBOTO': "roboto",
+            'ROBOTOMONO': "robotoMono",
+            'NOTOSANS': "notoSans",
+            'NOTOSERIF': "notoSerif",
+            'NOTOCJK-JP-REGULAR': "notoCJK-JP-Regular",
+            'NOTOHEBREW-REGULAR': "notoHebrew-Regular",
+            'NOTOSANTHAIMERGED': "notoSanThaiMerged",
+        },
     }
 
     validations = {
@@ -103,6 +121,8 @@ class SubFormFieldsPerDocumentTextMerge(ModelComposed):
             'width': (int,),  # noqa: E501
             'x': (int,),  # noqa: E501
             'y': (int,),  # noqa: E501
+            'font_family': (str,),  # noqa: E501
+            'original_font_size': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
         }
@@ -138,6 +158,8 @@ class SubFormFieldsPerDocumentTextMerge(ModelComposed):
         'width': 'width',  # noqa: E501
         'x': 'x',  # noqa: E501
         'y': 'y',  # noqa: E501
+        'font_family': 'font_family',  # noqa: E501
+        'original_font_size': 'original_font_size',  # noqa: E501
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
     }
@@ -218,6 +240,22 @@ class SubFormFieldsPerDocumentTextMerge(ModelComposed):
         setattr(self, "y", value)
 
     @property
+    def font_family(self) -> str:
+        return self.get("font_family")
+
+    @font_family.setter
+    def font_family(self, value: str):
+        setattr(self, "font_family", value)
+
+    @property
+    def original_font_size(self) -> int:
+        return self.get("original_font_size")
+
+    @original_font_size.setter
+    def original_font_size(self, value: int):
+        setattr(self, "original_font_size", value)
+
+    @property
     def name(self) -> str:
         return self.get("name")
 
@@ -278,6 +316,8 @@ class SubFormFieldsPerDocumentTextMerge(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            font_family (str): Font family for the field.. [optional]  # noqa: E501
+            original_font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """
@@ -389,6 +429,8 @@ class SubFormFieldsPerDocumentTextMerge(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            font_family (str): Font family for the field.. [optional]  # noqa: E501
+            original_font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """

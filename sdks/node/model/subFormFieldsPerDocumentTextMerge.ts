@@ -33,6 +33,14 @@ export class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
    * A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
    */
   "type": string = "text-merge";
+  /**
+   * Font family for the field.
+   */
+  "fontFamily"?: SubFormFieldsPerDocumentTextMerge.FontFamilyEnum;
+  /**
+   * The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   */
+  "originalFontSize"?: number;
 
   static discriminator: string | undefined = undefined;
 
@@ -41,6 +49,16 @@ export class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
       name: "type",
       baseName: "type",
       type: "string",
+    },
+    {
+      name: "fontFamily",
+      baseName: "font_family",
+      type: "SubFormFieldsPerDocumentTextMerge.FontFamilyEnum",
+    },
+    {
+      name: "originalFontSize",
+      baseName: "original_font_size",
+      type: "number",
     },
   ];
 
@@ -56,5 +74,26 @@ export class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
       data,
       "SubFormFieldsPerDocumentTextMerge"
     );
+  }
+}
+
+export namespace SubFormFieldsPerDocumentTextMerge {
+  export enum FontFamilyEnum {
+    Helvetica = "helvetica",
+    Arial = "arial",
+    Courier = "courier",
+    Calibri = "calibri",
+    Cambria = "cambria",
+    Georgia = "georgia",
+    Times = "times",
+    Trebuchet = "trebuchet",
+    Verdana = "verdana",
+    Roboto = "roboto",
+    RobotoMono = "robotoMono",
+    NotoSans = "notoSans",
+    NotoSerif = "notoSerif",
+    NotoCjkJpRegular = "notoCJK-JP-Regular",
+    NotoHebrewRegular = "notoHebrew-Regular",
+    NotoSanThaiMerged = "notoSanThaiMerged",
   }
 }

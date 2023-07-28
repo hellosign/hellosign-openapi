@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
  - [Model.SubFormFieldsPerDocumentCheckboxMerge](docs/SubFormFieldsPerDocumentCheckboxMerge.md)
  - [Model.SubFormFieldsPerDocumentDateSigned](docs/SubFormFieldsPerDocumentDateSigned.md)
  - [Model.SubFormFieldsPerDocumentDropdown](docs/SubFormFieldsPerDocumentDropdown.md)
+ - [Model.SubFormFieldsPerDocumentFontEnum](docs/SubFormFieldsPerDocumentFontEnum.md)
  - [Model.SubFormFieldsPerDocumentHyperlink](docs/SubFormFieldsPerDocumentHyperlink.md)
  - [Model.SubFormFieldsPerDocumentInitials](docs/SubFormFieldsPerDocumentInitials.md)
  - [Model.SubFormFieldsPerDocumentRadio](docs/SubFormFieldsPerDocumentRadio.md)

@@ -49,7 +49,9 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
-    SubFormFieldsPerDocumentTextMerge.JSON_PROPERTY_TYPE
+    SubFormFieldsPerDocumentTextMerge.JSON_PROPERTY_TYPE,
+    SubFormFieldsPerDocumentTextMerge.JSON_PROPERTY_FONT_FAMILY,
+    SubFormFieldsPerDocumentTextMerge.JSON_PROPERTY_ORIGINAL_FONT_SIZE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -70,6 +72,75 @@ import com.dropbox.sign.ApiException;
 public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "text-merge";
+
+  /**
+   * Font family for the field.
+   */
+  public enum FontFamilyEnum {
+    HELVETICA("helvetica"),
+    
+    ARIAL("arial"),
+    
+    COURIER("courier"),
+    
+    CALIBRI("calibri"),
+    
+    CAMBRIA("cambria"),
+    
+    GEORGIA("georgia"),
+    
+    TIMES("times"),
+    
+    TREBUCHET("trebuchet"),
+    
+    VERDANA("verdana"),
+    
+    ROBOTO("roboto"),
+    
+    ROBOTOMONO("robotoMono"),
+    
+    NOTOSANS("notoSans"),
+    
+    NOTOSERIF("notoSerif"),
+    
+    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    
+    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    
+    NOTOSANTHAIMERGED("notoSanThaiMerged");
+
+    private String value;
+
+    FontFamilyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FontFamilyEnum fromValue(String value) {
+      for (FontFamilyEnum b : FontFamilyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
+  private FontFamilyEnum fontFamily;
+
+  public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "original_font_size";
+  private Integer originalFontSize;
 
   public SubFormFieldsPerDocumentTextMerge() { 
   }
@@ -115,6 +186,58 @@ public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
   }
 
 
+  public SubFormFieldsPerDocumentTextMerge fontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+    return this;
+  }
+
+   /**
+   * Font family for the field.
+   * @return fontFamily
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Font family for the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FontFamilyEnum getFontFamily() {
+    return fontFamily;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+  }
+
+
+  public SubFormFieldsPerDocumentTextMerge originalFontSize(Integer originalFontSize) {
+    this.originalFontSize = originalFontSize;
+    return this;
+  }
+
+   /**
+   * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   * @return originalFontSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getOriginalFontSize() {
+    return originalFontSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOriginalFontSize(Integer originalFontSize) {
+    this.originalFontSize = originalFontSize;
+  }
+
+
   /**
    * Return true if this SubFormFieldsPerDocumentTextMerge object is equal to o.
    */
@@ -128,12 +251,14 @@ public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
     }
     SubFormFieldsPerDocumentTextMerge subFormFieldsPerDocumentTextMerge = (SubFormFieldsPerDocumentTextMerge) o;
     return Objects.equals(this.type, subFormFieldsPerDocumentTextMerge.type) &&
+        Objects.equals(this.fontFamily, subFormFieldsPerDocumentTextMerge.fontFamily) &&
+        Objects.equals(this.originalFontSize, subFormFieldsPerDocumentTextMerge.originalFontSize) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, super.hashCode());
+    return Objects.hash(type, fontFamily, originalFontSize, super.hashCode());
   }
 
   @Override
@@ -142,6 +267,8 @@ public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
     sb.append("class SubFormFieldsPerDocumentTextMerge {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
+    sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -168,6 +295,44 @@ public class SubFormFieldsPerDocumentTextMerge extends SubFormFieldsPerDocumentB
         }
         else {
             map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
+        }
+    }
+    if (fontFamily != null) {
+        if (isFileTypeOrListOfFiles(fontFamily)) {
+            fileTypeFound = true;
+        }
+
+        if (fontFamily.getClass().equals(java.io.File.class) ||
+            fontFamily.getClass().equals(Integer.class) ||
+            fontFamily.getClass().equals(String.class) ||
+            fontFamily.getClass().isEnum()) {
+            map.put("font_family", fontFamily);
+        } else if (isListOfFile(fontFamily)) {
+            for(int i = 0; i< getListSize(fontFamily); i++) {
+                map.put("font_family[" + i + "]", getFromList(fontFamily, i));
+            }
+        }
+        else {
+            map.put("font_family", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
+        }
+    }
+    if (originalFontSize != null) {
+        if (isFileTypeOrListOfFiles(originalFontSize)) {
+            fileTypeFound = true;
+        }
+
+        if (originalFontSize.getClass().equals(java.io.File.class) ||
+            originalFontSize.getClass().equals(Integer.class) ||
+            originalFontSize.getClass().equals(String.class) ||
+            originalFontSize.getClass().isEnum()) {
+            map.put("original_font_size", originalFontSize);
+        } else if (isListOfFile(originalFontSize)) {
+            for(int i = 0; i< getListSize(originalFontSize); i++) {
+                map.put("original_font_size[" + i + "]", getFromList(originalFontSize, i));
+            }
+        }
+        else {
+            map.put("original_font_size", JSON.getDefault().getMapper().writeValueAsString(originalFontSize));
         }
     }
     } catch (Exception e) {
