@@ -53,7 +53,7 @@ import com.dropbox.sign.ApiException;
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT,
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT_URL,
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_FAMILY,
-    SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_ORIGINAL_FONT_SIZE
+    SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_SIZE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -147,8 +147,8 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
   private FontFamilyEnum fontFamily;
 
-  public static final String JSON_PROPERTY_ORIGINAL_FONT_SIZE = "original_font_size";
-  private Integer originalFontSize;
+  public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
+  private Integer fontSize;
 
   public SubFormFieldsPerDocumentHyperlink() { 
   }
@@ -272,29 +272,29 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
-  public SubFormFieldsPerDocumentHyperlink originalFontSize(Integer originalFontSize) {
-    this.originalFontSize = originalFontSize;
+  public SubFormFieldsPerDocumentHyperlink fontSize(Integer fontSize) {
+    this.fontSize = fontSize;
     return this;
   }
 
    /**
    * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-   * @return originalFontSize
+   * @return fontSize
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getOriginalFontSize() {
-    return originalFontSize;
+  public Integer getFontSize() {
+    return fontSize;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOriginalFontSize(Integer originalFontSize) {
-    this.originalFontSize = originalFontSize;
+  public void setFontSize(Integer fontSize) {
+    this.fontSize = fontSize;
   }
 
 
@@ -314,13 +314,13 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
         Objects.equals(this.content, subFormFieldsPerDocumentHyperlink.content) &&
         Objects.equals(this.contentUrl, subFormFieldsPerDocumentHyperlink.contentUrl) &&
         Objects.equals(this.fontFamily, subFormFieldsPerDocumentHyperlink.fontFamily) &&
-        Objects.equals(this.originalFontSize, subFormFieldsPerDocumentHyperlink.originalFontSize) &&
+        Objects.equals(this.fontSize, subFormFieldsPerDocumentHyperlink.fontSize) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, content, contentUrl, fontFamily, originalFontSize, super.hashCode());
+    return Objects.hash(type, content, contentUrl, fontFamily, fontSize, super.hashCode());
   }
 
   @Override
@@ -332,7 +332,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    contentUrl: ").append(toIndentedString(contentUrl)).append("\n");
     sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
-    sb.append("    originalFontSize: ").append(toIndentedString(originalFontSize)).append("\n");
+    sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -418,23 +418,23 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
             map.put("font_family", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
         }
     }
-    if (originalFontSize != null) {
-        if (isFileTypeOrListOfFiles(originalFontSize)) {
+    if (fontSize != null) {
+        if (isFileTypeOrListOfFiles(fontSize)) {
             fileTypeFound = true;
         }
 
-        if (originalFontSize.getClass().equals(java.io.File.class) ||
-            originalFontSize.getClass().equals(Integer.class) ||
-            originalFontSize.getClass().equals(String.class) ||
-            originalFontSize.getClass().isEnum()) {
-            map.put("original_font_size", originalFontSize);
-        } else if (isListOfFile(originalFontSize)) {
-            for(int i = 0; i< getListSize(originalFontSize); i++) {
-                map.put("original_font_size[" + i + "]", getFromList(originalFontSize, i));
+        if (fontSize.getClass().equals(java.io.File.class) ||
+            fontSize.getClass().equals(Integer.class) ||
+            fontSize.getClass().equals(String.class) ||
+            fontSize.getClass().isEnum()) {
+            map.put("font_size", fontSize);
+        } else if (isListOfFile(fontSize)) {
+            for(int i = 0; i< getListSize(fontSize); i++) {
+                map.put("font_size[" + i + "]", getFromList(fontSize, i));
             }
         }
         else {
-            map.put("original_font_size", JSON.getDefault().getMapper().writeValueAsString(originalFontSize));
+            map.put("font_size", JSON.getDefault().getMapper().writeValueAsString(fontSize));
         }
     }
     } catch (Exception e) {

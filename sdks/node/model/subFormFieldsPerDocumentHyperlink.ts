@@ -48,7 +48,7 @@ export class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   /**
    * The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
    */
-  "originalFontSize"?: number;
+  "fontSize"?: number;
 
   static discriminator: string | undefined = undefined;
 
@@ -74,8 +74,8 @@ export class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
       type: "SubFormFieldsPerDocumentHyperlink.FontFamilyEnum",
     },
     {
-      name: "originalFontSize",
-      baseName: "original_font_size",
+      name: "fontSize",
+      baseName: "font_size",
       type: "number",
     },
   ];

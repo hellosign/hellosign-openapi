@@ -6380,7 +6380,7 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
+            font_size:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
 
@@ -6430,7 +6430,7 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
+            font_size:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
 
@@ -6478,7 +6478,7 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
+            font_size:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
 
@@ -6575,7 +6575,7 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
+            font_size:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
 
@@ -6629,7 +6629,7 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
+            font_size:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
 

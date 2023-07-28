@@ -127,7 +127,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
             'y': (int,),  # noqa: E501
             'content': (str,),  # noqa: E501
             'font_family': (str,),  # noqa: E501
-            'original_font_size': (int,),  # noqa: E501
+            'font_size': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
         }
@@ -166,7 +166,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
         'y': 'y',  # noqa: E501
         'content': 'content',  # noqa: E501
         'font_family': 'font_family',  # noqa: E501
-        'original_font_size': 'original_font_size',  # noqa: E501
+        'font_size': 'font_size',  # noqa: E501
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
     }
@@ -271,12 +271,12 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
         setattr(self, "font_family", value)
 
     @property
-    def original_font_size(self) -> int:
-        return self.get("original_font_size")
+    def font_size(self) -> int:
+        return self.get("font_size")
 
-    @original_font_size.setter
-    def original_font_size(self, value: int):
-        setattr(self, "original_font_size", value)
+    @font_size.setter
+    def font_size(self, value: int):
+        setattr(self, "font_size", value)
 
     @property
     def name(self) -> str:
@@ -342,7 +342,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             content (str): Selected value in `options` array. Value must exist in array.. [optional]  # noqa: E501
             font_family (str): Font family for the field.. [optional]  # noqa: E501
-            original_font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
+            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """
@@ -457,7 +457,7 @@ class SubFormFieldsPerDocumentDropdown(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             content (str): Selected value in `options` array. Value must exist in array.. [optional]  # noqa: E501
             font_family (str): Font family for the field.. [optional]  # noqa: E501
-            original_font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
+            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """

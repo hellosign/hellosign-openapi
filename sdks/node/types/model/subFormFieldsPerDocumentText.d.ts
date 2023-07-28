@@ -10,7 +10,7 @@ export declare class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocume
     "validationCustomRegex"?: string;
     "validationCustomRegexFormatLabel"?: string;
     "fontFamily"?: SubFormFieldsPerDocumentText.FontFamilyEnum;
-    "originalFontSize"?: number;
+    "fontSize"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

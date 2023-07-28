@@ -5,7 +5,7 @@ export declare class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDo
     "options": Array<string>;
     "content"?: string;
     "fontFamily"?: SubFormFieldsPerDocumentDropdown.FontFamilyEnum;
-    "originalFontSize"?: number;
+    "fontSize"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

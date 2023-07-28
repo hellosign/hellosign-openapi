@@ -62,7 +62,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
     protected static $openAPITypes = [
         'type' => 'string',
         'font_family' => 'string',
-        'original_font_size' => 'int',
+        'font_size' => 'int',
     ];
 
     /**
@@ -75,7 +75,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
     protected static $openAPIFormats = [
         'type' => null,
         'font_family' => null,
-        'original_font_size' => null,
+        'font_size' => null,
     ];
 
     /**
@@ -107,7 +107,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
     protected static $attributeMap = [
         'type' => 'type',
         'font_family' => 'font_family',
-        'original_font_size' => 'original_font_size',
+        'font_size' => 'font_size',
     ];
 
     /**
@@ -118,7 +118,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
     protected static $setters = [
         'type' => 'setType',
         'font_family' => 'setFontFamily',
-        'original_font_size' => 'setOriginalFontSize',
+        'font_size' => 'setFontSize',
     ];
 
     /**
@@ -129,7 +129,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
     protected static $getters = [
         'type' => 'getType',
         'font_family' => 'getFontFamily',
-        'original_font_size' => 'getOriginalFontSize',
+        'font_size' => 'getFontSize',
     ];
 
     /**
@@ -229,7 +229,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
 
         $this->container['type'] = $data['type'] ?? 'date_signed';
         $this->container['font_family'] = $data['font_family'] ?? null;
-        $this->container['original_font_size'] = $data['original_font_size'] ?? null;
+        $this->container['font_size'] = $data['font_size'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -344,25 +344,25 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
     }
 
     /**
-     * Gets original_font_size
+     * Gets font_size
      *
      * @return int|null
      */
-    public function getOriginalFontSize()
+    public function getFontSize()
     {
-        return $this->container['original_font_size'];
+        return $this->container['font_size'];
     }
 
     /**
-     * Sets original_font_size
+     * Sets font_size
      *
-     * @param int|null $original_font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+     * @param int|null $font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
      *
      * @return self
      */
-    public function setOriginalFontSize(?int $original_font_size)
+    public function setFontSize(?int $font_size)
     {
-        $this->container['original_font_size'] = $original_font_size;
+        $this->container['font_size'] = $font_size;
 
         return $this;
     }

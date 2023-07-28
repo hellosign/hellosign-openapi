@@ -71,7 +71,7 @@
         "page": 1,
         "validation_type": "numbers_only",
         "font_family": "roboto",
-        "original_font_size": 11
+        "font_size": 11
       },
       {
         "document_index": 0,
@@ -189,7 +189,7 @@
         "page": 1,
         "validation_type": "numbers_only",
         "font_family": "roboto",
-        "original_font_size": 11
+        "font_size": 11
       },
       {
         "document_index": 0,

@@ -64,7 +64,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         'options' => 'string[]',
         'content' => 'string',
         'font_family' => 'string',
-        'original_font_size' => 'int',
+        'font_size' => 'int',
     ];
 
     /**
@@ -79,7 +79,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         'options' => null,
         'content' => null,
         'font_family' => null,
-        'original_font_size' => null,
+        'font_size' => null,
     ];
 
     /**
@@ -113,7 +113,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         'options' => 'options',
         'content' => 'content',
         'font_family' => 'font_family',
-        'original_font_size' => 'original_font_size',
+        'font_size' => 'font_size',
     ];
 
     /**
@@ -126,7 +126,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         'options' => 'setOptions',
         'content' => 'setContent',
         'font_family' => 'setFontFamily',
-        'original_font_size' => 'setOriginalFontSize',
+        'font_size' => 'setFontSize',
     ];
 
     /**
@@ -139,7 +139,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         'options' => 'getOptions',
         'content' => 'getContent',
         'font_family' => 'getFontFamily',
-        'original_font_size' => 'getOriginalFontSize',
+        'font_size' => 'getFontSize',
     ];
 
     /**
@@ -241,7 +241,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         $this->container['options'] = $data['options'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['font_family'] = $data['font_family'] ?? null;
-        $this->container['original_font_size'] = $data['original_font_size'] ?? null;
+        $this->container['font_size'] = $data['font_size'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -414,25 +414,25 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
     }
 
     /**
-     * Gets original_font_size
+     * Gets font_size
      *
      * @return int|null
      */
-    public function getOriginalFontSize()
+    public function getFontSize()
     {
-        return $this->container['original_font_size'];
+        return $this->container['font_size'];
     }
 
     /**
-     * Sets original_font_size
+     * Sets font_size
      *
-     * @param int|null $original_font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+     * @param int|null $font_size The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
      *
      * @return self
      */
-    public function setOriginalFontSize(?int $original_font_size)
+    public function setFontSize(?int $font_size)
     {
-        $this->container['original_font_size'] = $original_font_size;
+        $this->container['font_size'] = $font_size;
 
         return $this;
     }

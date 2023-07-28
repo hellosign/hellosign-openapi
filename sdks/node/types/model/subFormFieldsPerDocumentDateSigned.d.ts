@@ -3,7 +3,7 @@ import { SubFormFieldsPerDocumentBase } from "./subFormFieldsPerDocumentBase";
 export declare class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase {
     "type": string;
     "fontFamily"?: SubFormFieldsPerDocumentDateSigned.FontFamilyEnum;
-    "originalFontSize"?: number;
+    "fontSize"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

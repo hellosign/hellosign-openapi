@@ -22082,8 +22082,8 @@ SubFormFieldsPerDocumentDateSigned.attributeTypeMap = [
     type: "SubFormFieldsPerDocumentDateSigned.FontFamilyEnum"
   },
   {
-    name: "originalFontSize",
-    baseName: "original_font_size",
+    name: "fontSize",
+    baseName: "font_size",
     type: "number"
   }
 ];
@@ -22149,8 +22149,8 @@ SubFormFieldsPerDocumentDropdown.attributeTypeMap = [
     type: "SubFormFieldsPerDocumentDropdown.FontFamilyEnum"
   },
   {
-    name: "originalFontSize",
-    baseName: "original_font_size",
+    name: "fontSize",
+    baseName: "font_size",
     type: "number"
   }
 ];
@@ -22237,8 +22237,8 @@ SubFormFieldsPerDocumentHyperlink.attributeTypeMap = [
     type: "SubFormFieldsPerDocumentHyperlink.FontFamilyEnum"
   },
   {
-    name: "originalFontSize",
-    baseName: "original_font_size",
+    name: "fontSize",
+    baseName: "font_size",
     type: "number"
   }
 ];
@@ -22411,8 +22411,8 @@ SubFormFieldsPerDocumentText.attributeTypeMap = [
     type: "SubFormFieldsPerDocumentText.FontFamilyEnum"
   },
   {
-    name: "originalFontSize",
-    baseName: "original_font_size",
+    name: "fontSize",
+    baseName: "font_size",
     type: "number"
   }
 ];
@@ -22481,8 +22481,8 @@ SubFormFieldsPerDocumentTextMerge.attributeTypeMap = [
     type: "SubFormFieldsPerDocumentTextMerge.FontFamilyEnum"
   },
   {
-    name: "originalFontSize",
-    baseName: "original_font_size",
+    name: "fontSize",
+    baseName: "font_size",
     type: "number"
   }
 ];

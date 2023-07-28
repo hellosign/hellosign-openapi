@@ -6283,8 +6283,8 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
-              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
           type: object
     SubFormFieldsPerDocumentDropdown:
@@ -6330,8 +6330,8 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
-              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
           type: object
     SubFormFieldsPerDocumentHyperlink:
@@ -6375,8 +6375,8 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
-              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
           type: object
     SubFormFieldsPerDocumentCheckbox:
@@ -6469,8 +6469,8 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
-              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
           type: object
     SubFormFieldsPerDocumentInitials:
@@ -6520,8 +6520,8 @@ components:
                 - notoCJK-JP-Regular
                 - notoHebrew-Regular
                 - notoSanThaiMerged
-            original_font_size:
-              description: '_t__Sub::FormFieldsPerDocument::ORIGINAL_FONT_SIZE'
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
           type: object
     SubFormFieldsPerDocumentCheckboxMerge:

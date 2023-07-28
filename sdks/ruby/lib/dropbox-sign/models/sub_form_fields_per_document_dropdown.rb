@@ -37,7 +37,7 @@ module Dropbox::Sign
 
     # The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
     # @return [Integer]
-    attr_accessor :original_font_size
+    attr_accessor :font_size
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -68,7 +68,7 @@ module Dropbox::Sign
         :'options' => :'options',
         :'content' => :'content',
         :'font_family' => :'font_family',
-        :'original_font_size' => :'original_font_size'
+        :'font_size' => :'font_size'
       }
     end
 
@@ -89,7 +89,7 @@ module Dropbox::Sign
         :'options' => :'Array<String>',
         :'content' => :'String',
         :'font_family' => :'String',
-        :'original_font_size' => :'Integer'
+        :'font_size' => :'Integer'
       }
     end
 
@@ -157,8 +157,8 @@ module Dropbox::Sign
         self.font_family = attributes[:'font_family']
       end
 
-      if attributes.key?(:'original_font_size')
-        self.original_font_size = attributes[:'original_font_size']
+      if attributes.key?(:'font_size')
+        self.font_size = attributes[:'font_size']
       end
     end
 
@@ -225,7 +225,7 @@ module Dropbox::Sign
           options == o.options &&
           content == o.content &&
           font_family == o.font_family &&
-          original_font_size == o.original_font_size && super(o)
+          font_size == o.font_size && super(o)
     end
 
     # @see the `==` method
@@ -237,7 +237,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, options, content, font_family, original_font_size].hash
+      [type, options, content, font_family, font_size].hash
     end
 
     # Builds the object from hash

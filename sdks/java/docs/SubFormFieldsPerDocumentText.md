@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 | `validationCustomRegex` | ```String``` |    |  |
 | `validationCustomRegexFormatLabel` | ```String``` |    |  |
 | `fontFamily` | [```FontFamilyEnum```](#FontFamilyEnum) |  Font family for the field.  |  |
-| `originalFontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`. <br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
+| `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`. <br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
 
 
 

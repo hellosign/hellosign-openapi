@@ -5,7 +5,7 @@ export declare class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerD
     "content": string;
     "contentUrl": string;
     "fontFamily"?: SubFormFieldsPerDocumentHyperlink.FontFamilyEnum;
-    "originalFontSize"?: number;
+    "fontSize"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
