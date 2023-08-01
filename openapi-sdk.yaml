@@ -6294,6 +6294,25 @@ components:
         - radio
         - text
         - text-merge
+    SubFormFieldsPerDocumentFontEnum:
+      type: string
+      enum:
+        - helvetica
+        - arial
+        - courier
+        - calibri
+        - cambria
+        - georgia
+        - times
+        - trebuchet
+        - verdana
+        - roboto
+        - robotoMono
+        - notoSans
+        - notoSerif
+        - notoCJK-JP-Regular
+        - notoHebrew-Regular
+        - notoSanThaiMerged
     SubFormFieldsPerDocumentText:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -6341,6 +6360,32 @@ components:
               type: string
             validation_custom_regex_format_label:
               type: string
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
           type: object
     SubFormFieldsPerDocumentDropdown:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
@@ -6365,6 +6410,32 @@ components:
             content:
               description: 'Selected value in `options` array. Value must exist in array.'
               type: string
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
           type: object
     SubFormFieldsPerDocumentHyperlink:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
@@ -6387,6 +6458,32 @@ components:
             content_url:
               description: 'Link URL.'
               type: string
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
           type: object
     SubFormFieldsPerDocumentCheckbox:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
@@ -6458,6 +6555,32 @@ components:
               description: 'A date. Use the `SubFormFieldsPerDocumentDateSigned` class.'
               type: string
               default: date_signed
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
           type: object
     SubFormFieldsPerDocumentInitials:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
@@ -6486,6 +6609,32 @@ components:
               description: 'A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.'
               type: string
               default: text-merge
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
           type: object
     SubFormFieldsPerDocumentCheckboxMerge:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'

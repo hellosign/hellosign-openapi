@@ -78,6 +78,24 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             'EMPLOYER_IDENTIFICATION_NUMBER': "employer_identification_number",
             'CUSTOM_REGEX': "custom_regex",
         },
+        ('font_family',): {
+            'HELVETICA': "helvetica",
+            'ARIAL': "arial",
+            'COURIER': "courier",
+            'CALIBRI': "calibri",
+            'CAMBRIA': "cambria",
+            'GEORGIA': "georgia",
+            'TIMES': "times",
+            'TREBUCHET': "trebuchet",
+            'VERDANA': "verdana",
+            'ROBOTO': "roboto",
+            'ROBOTOMONO': "robotoMono",
+            'NOTOSANS': "notoSans",
+            'NOTOSERIF': "notoSerif",
+            'NOTOCJK-JP-REGULAR': "notoCJK-JP-Regular",
+            'NOTOHEBREW-REGULAR': "notoHebrew-Regular",
+            'NOTOSANTHAIMERGED': "notoSanThaiMerged",
+        },
     }
 
     validations = {
@@ -122,6 +140,8 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             'validation_type': (str,),  # noqa: E501
             'validation_custom_regex': (str,),  # noqa: E501
             'validation_custom_regex_format_label': (str,),  # noqa: E501
+            'font_family': (str,),  # noqa: E501
+            'font_size': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
         }
@@ -164,6 +184,8 @@ class SubFormFieldsPerDocumentText(ModelComposed):
         'validation_type': 'validation_type',  # noqa: E501
         'validation_custom_regex': 'validation_custom_regex',  # noqa: E501
         'validation_custom_regex_format_label': 'validation_custom_regex_format_label',  # noqa: E501
+        'font_family': 'font_family',  # noqa: E501
+        'font_size': 'font_size',  # noqa: E501
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
     }
@@ -300,6 +322,22 @@ class SubFormFieldsPerDocumentText(ModelComposed):
         setattr(self, "validation_custom_regex_format_label", value)
 
     @property
+    def font_family(self) -> str:
+        return self.get("font_family")
+
+    @font_family.setter
+    def font_family(self, value: str):
+        setattr(self, "font_family", value)
+
+    @property
+    def font_size(self) -> int:
+        return self.get("font_size")
+
+    @font_size.setter
+    def font_size(self, value: int):
+        setattr(self, "font_size", value)
+
+    @property
     def name(self) -> str:
         return self.get("name")
 
@@ -367,6 +405,8 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             validation_type (str): Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.. [optional]  # noqa: E501
             validation_custom_regex (str): [optional]  # noqa: E501
             validation_custom_regex_format_label (str): [optional]  # noqa: E501
+            font_family (str): Font family for the field.. [optional]  # noqa: E501
+            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """
@@ -485,6 +525,8 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             validation_type (str): Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.. [optional]  # noqa: E501
             validation_custom_regex (str): [optional]  # noqa: E501
             validation_custom_regex_format_label (str): [optional]  # noqa: E501
+            font_family (str): Font family for the field.. [optional]  # noqa: E501
+            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional]  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """

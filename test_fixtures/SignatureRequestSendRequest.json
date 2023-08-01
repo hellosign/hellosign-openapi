@@ -107,7 +107,9 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_family": "roboto",
+        "font_size": 11
       },
       {
         "document_index": 0,
@@ -334,7 +336,9 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_family": "roboto",
+        "font_size": 11
       },
       {
         "document_index": 0,

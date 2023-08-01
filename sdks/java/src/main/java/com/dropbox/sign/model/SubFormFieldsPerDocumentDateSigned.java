@@ -49,7 +49,9 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
-    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_TYPE
+    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_TYPE,
+    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
+    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_SIZE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -70,6 +72,75 @@ import com.dropbox.sign.ApiException;
 public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "date_signed";
+
+  /**
+   * Font family for the field.
+   */
+  public enum FontFamilyEnum {
+    HELVETICA("helvetica"),
+    
+    ARIAL("arial"),
+    
+    COURIER("courier"),
+    
+    CALIBRI("calibri"),
+    
+    CAMBRIA("cambria"),
+    
+    GEORGIA("georgia"),
+    
+    TIMES("times"),
+    
+    TREBUCHET("trebuchet"),
+    
+    VERDANA("verdana"),
+    
+    ROBOTO("roboto"),
+    
+    ROBOTOMONO("robotoMono"),
+    
+    NOTOSANS("notoSans"),
+    
+    NOTOSERIF("notoSerif"),
+    
+    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    
+    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    
+    NOTOSANTHAIMERGED("notoSanThaiMerged");
+
+    private String value;
+
+    FontFamilyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FontFamilyEnum fromValue(String value) {
+      for (FontFamilyEnum b : FontFamilyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
+  private FontFamilyEnum fontFamily;
+
+  public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
+  private Integer fontSize;
 
   public SubFormFieldsPerDocumentDateSigned() { 
   }
@@ -115,6 +186,58 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
   }
 
 
+  public SubFormFieldsPerDocumentDateSigned fontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+    return this;
+  }
+
+   /**
+   * Font family for the field.
+   * @return fontFamily
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Font family for the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FontFamilyEnum getFontFamily() {
+    return fontFamily;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+  }
+
+
+  public SubFormFieldsPerDocumentDateSigned fontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+    return this;
+  }
+
+   /**
+   * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   * @return fontSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getFontSize() {
+    return fontSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+  }
+
+
   /**
    * Return true if this SubFormFieldsPerDocumentDateSigned object is equal to o.
    */
@@ -128,12 +251,14 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     }
     SubFormFieldsPerDocumentDateSigned subFormFieldsPerDocumentDateSigned = (SubFormFieldsPerDocumentDateSigned) o;
     return Objects.equals(this.type, subFormFieldsPerDocumentDateSigned.type) &&
+        Objects.equals(this.fontFamily, subFormFieldsPerDocumentDateSigned.fontFamily) &&
+        Objects.equals(this.fontSize, subFormFieldsPerDocumentDateSigned.fontSize) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, super.hashCode());
+    return Objects.hash(type, fontFamily, fontSize, super.hashCode());
   }
 
   @Override
@@ -142,6 +267,8 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     sb.append("class SubFormFieldsPerDocumentDateSigned {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
+    sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -168,6 +295,44 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
         }
         else {
             map.put("type", JSON.getDefault().getMapper().writeValueAsString(type));
+        }
+    }
+    if (fontFamily != null) {
+        if (isFileTypeOrListOfFiles(fontFamily)) {
+            fileTypeFound = true;
+        }
+
+        if (fontFamily.getClass().equals(java.io.File.class) ||
+            fontFamily.getClass().equals(Integer.class) ||
+            fontFamily.getClass().equals(String.class) ||
+            fontFamily.getClass().isEnum()) {
+            map.put("font_family", fontFamily);
+        } else if (isListOfFile(fontFamily)) {
+            for(int i = 0; i< getListSize(fontFamily); i++) {
+                map.put("font_family[" + i + "]", getFromList(fontFamily, i));
+            }
+        }
+        else {
+            map.put("font_family", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
+        }
+    }
+    if (fontSize != null) {
+        if (isFileTypeOrListOfFiles(fontSize)) {
+            fileTypeFound = true;
+        }
+
+        if (fontSize.getClass().equals(java.io.File.class) ||
+            fontSize.getClass().equals(Integer.class) ||
+            fontSize.getClass().equals(String.class) ||
+            fontSize.getClass().isEnum()) {
+            map.put("font_size", fontSize);
+        } else if (isListOfFile(fontSize)) {
+            for(int i = 0; i< getListSize(fontSize); i++) {
+                map.put("font_size[" + i + "]", getFromList(fontSize, i));
+            }
+        }
+        else {
+            map.put("font_size", JSON.getDefault().getMapper().writeValueAsString(fontSize));
         }
     }
     } catch (Exception e) {
