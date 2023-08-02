@@ -49,6 +49,14 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :validation_custom_regex_format_label
 
+    # Font family for the field.
+    # @return [String]
+    attr_accessor :font_family
+
+    # The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+    # @return [Integer]
+    attr_accessor :font_size
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -81,7 +89,9 @@ module Dropbox::Sign
         :'masked' => :'masked',
         :'validation_type' => :'validation_type',
         :'validation_custom_regex' => :'validation_custom_regex',
-        :'validation_custom_regex_format_label' => :'validation_custom_regex_format_label'
+        :'validation_custom_regex_format_label' => :'validation_custom_regex_format_label',
+        :'font_family' => :'font_family',
+        :'font_size' => :'font_size'
       }
     end
 
@@ -105,7 +115,9 @@ module Dropbox::Sign
         :'masked' => :'Boolean',
         :'validation_type' => :'String',
         :'validation_custom_regex' => :'String',
-        :'validation_custom_regex_format_label' => :'String'
+        :'validation_custom_regex_format_label' => :'String',
+        :'font_family' => :'String',
+        :'font_size' => :'Integer'
       }
     end
 
@@ -186,6 +198,14 @@ module Dropbox::Sign
       if attributes.key?(:'validation_custom_regex_format_label')
         self.validation_custom_regex_format_label = attributes[:'validation_custom_regex_format_label']
       end
+
+      if attributes.key?(:'font_family')
+        self.font_family = attributes[:'font_family']
+      end
+
+      if attributes.key?(:'font_size')
+        self.font_size = attributes[:'font_size']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -205,6 +225,8 @@ module Dropbox::Sign
       return false if @type.nil?
       validation_type_validator = EnumAttributeValidator.new('String', ["numbers_only", "letters_only", "phone_number", "bank_routing_number", "bank_account_number", "email_address", "zip_code", "social_security_number", "employer_identification_number", "custom_regex"])
       return false unless validation_type_validator.valid?(@validation_type)
+      font_family_validator = EnumAttributeValidator.new('String', ["helvetica", "arial", "courier", "calibri", "cambria", "georgia", "times", "trebuchet", "verdana", "roboto", "robotoMono", "notoSans", "notoSerif", "notoCJK-JP-Regular", "notoHebrew-Regular", "notoSanThaiMerged"])
+      return false unless font_family_validator.valid?(@font_family)
       true && super
     end
 
@@ -216,6 +238,16 @@ module Dropbox::Sign
         fail ArgumentError, "invalid value for \"validation_type\", must be one of #{validator.allowable_values}."
       end
       @validation_type = validation_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] font_family Object to be assigned
+    def font_family=(font_family)
+      validator = EnumAttributeValidator.new('String', ["helvetica", "arial", "courier", "calibri", "cambria", "georgia", "times", "trebuchet", "verdana", "roboto", "robotoMono", "notoSans", "notoSerif", "notoCJK-JP-Regular", "notoHebrew-Regular", "notoSanThaiMerged"])
+      unless validator.valid?(font_family)
+        fail ArgumentError, "invalid value for \"font_family\", must be one of #{validator.allowable_values}."
+      end
+      @font_family = font_family
     end
 
     # Checks equality by comparing each attribute.
@@ -230,7 +262,9 @@ module Dropbox::Sign
           masked == o.masked &&
           validation_type == o.validation_type &&
           validation_custom_regex == o.validation_custom_regex &&
-          validation_custom_regex_format_label == o.validation_custom_regex_format_label && super(o)
+          validation_custom_regex_format_label == o.validation_custom_regex_format_label &&
+          font_family == o.font_family &&
+          font_size == o.font_size && super(o)
     end
 
     # @see the `==` method
@@ -242,7 +276,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, placeholder, auto_fill_type, link_id, masked, validation_type, validation_custom_regex, validation_custom_regex_format_label].hash
+      [type, placeholder, auto_fill_type, link_id, masked, validation_type, validation_custom_regex, validation_custom_regex_format_label, font_family, font_size].hash
     end
 
     # Builds the object from hash

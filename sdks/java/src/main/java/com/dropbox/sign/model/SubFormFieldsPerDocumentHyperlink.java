@@ -51,7 +51,9 @@ import com.dropbox.sign.ApiException;
 @JsonPropertyOrder({
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_TYPE,
     SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT,
-    SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT_URL
+    SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT_URL,
+    SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_FAMILY,
+    SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_FONT_SIZE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -78,6 +80,75 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
 
   public static final String JSON_PROPERTY_CONTENT_URL = "content_url";
   private String contentUrl;
+
+  /**
+   * Font family for the field.
+   */
+  public enum FontFamilyEnum {
+    HELVETICA("helvetica"),
+    
+    ARIAL("arial"),
+    
+    COURIER("courier"),
+    
+    CALIBRI("calibri"),
+    
+    CAMBRIA("cambria"),
+    
+    GEORGIA("georgia"),
+    
+    TIMES("times"),
+    
+    TREBUCHET("trebuchet"),
+    
+    VERDANA("verdana"),
+    
+    ROBOTO("roboto"),
+    
+    ROBOTOMONO("robotoMono"),
+    
+    NOTOSANS("notoSans"),
+    
+    NOTOSERIF("notoSerif"),
+    
+    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    
+    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    
+    NOTOSANTHAIMERGED("notoSanThaiMerged");
+
+    private String value;
+
+    FontFamilyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FontFamilyEnum fromValue(String value) {
+      for (FontFamilyEnum b : FontFamilyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
+  private FontFamilyEnum fontFamily;
+
+  public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
+  private Integer fontSize;
 
   public SubFormFieldsPerDocumentHyperlink() { 
   }
@@ -175,6 +246,58 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   }
 
 
+  public SubFormFieldsPerDocumentHyperlink fontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+    return this;
+  }
+
+   /**
+   * Font family for the field.
+   * @return fontFamily
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Font family for the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FontFamilyEnum getFontFamily() {
+    return fontFamily;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+  }
+
+
+  public SubFormFieldsPerDocumentHyperlink fontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+    return this;
+  }
+
+   /**
+   * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   * @return fontSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getFontSize() {
+    return fontSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+  }
+
+
   /**
    * Return true if this SubFormFieldsPerDocumentHyperlink object is equal to o.
    */
@@ -190,12 +313,14 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
     return Objects.equals(this.type, subFormFieldsPerDocumentHyperlink.type) &&
         Objects.equals(this.content, subFormFieldsPerDocumentHyperlink.content) &&
         Objects.equals(this.contentUrl, subFormFieldsPerDocumentHyperlink.contentUrl) &&
+        Objects.equals(this.fontFamily, subFormFieldsPerDocumentHyperlink.fontFamily) &&
+        Objects.equals(this.fontSize, subFormFieldsPerDocumentHyperlink.fontSize) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, content, contentUrl, super.hashCode());
+    return Objects.hash(type, content, contentUrl, fontFamily, fontSize, super.hashCode());
   }
 
   @Override
@@ -206,6 +331,8 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    contentUrl: ").append(toIndentedString(contentUrl)).append("\n");
+    sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
+    sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -270,6 +397,44 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
         }
         else {
             map.put("content_url", JSON.getDefault().getMapper().writeValueAsString(contentUrl));
+        }
+    }
+    if (fontFamily != null) {
+        if (isFileTypeOrListOfFiles(fontFamily)) {
+            fileTypeFound = true;
+        }
+
+        if (fontFamily.getClass().equals(java.io.File.class) ||
+            fontFamily.getClass().equals(Integer.class) ||
+            fontFamily.getClass().equals(String.class) ||
+            fontFamily.getClass().isEnum()) {
+            map.put("font_family", fontFamily);
+        } else if (isListOfFile(fontFamily)) {
+            for(int i = 0; i< getListSize(fontFamily); i++) {
+                map.put("font_family[" + i + "]", getFromList(fontFamily, i));
+            }
+        }
+        else {
+            map.put("font_family", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
+        }
+    }
+    if (fontSize != null) {
+        if (isFileTypeOrListOfFiles(fontSize)) {
+            fileTypeFound = true;
+        }
+
+        if (fontSize.getClass().equals(java.io.File.class) ||
+            fontSize.getClass().equals(Integer.class) ||
+            fontSize.getClass().equals(String.class) ||
+            fontSize.getClass().isEnum()) {
+            map.put("font_size", fontSize);
+        } else if (isListOfFile(fontSize)) {
+            for(int i = 0; i< getListSize(fontSize); i++) {
+                map.put("font_size[" + i + "]", getFromList(fontSize, i));
+            }
+        }
+        else {
+            map.put("font_size", JSON.getDefault().getMapper().writeValueAsString(fontSize));
         }
     }
     } catch (Exception e) {

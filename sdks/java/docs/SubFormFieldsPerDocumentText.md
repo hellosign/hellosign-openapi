@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 | `validationType` | [```ValidationTypeEnum```](#ValidationTypeEnum) |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.<br><br>**NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.  |  |
 | `validationCustomRegex` | ```String``` |    |  |
 | `validationCustomRegexFormatLabel` | ```String``` |    |  |
+| `fontFamily` | [```FontFamilyEnum```](#FontFamilyEnum) |  Font family for the field.  |  |
+| `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`. <br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
 
 
 
@@ -33,6 +35,29 @@ Name | Value
 | SOCIAL_SECURITY_NUMBER | &quot;social_security_number&quot; |
 | EMPLOYER_IDENTIFICATION_NUMBER | &quot;employer_identification_number&quot; |
 | CUSTOM_REGEX | &quot;custom_regex&quot; |
+
+
+
+## Enum: FontFamilyEnum
+
+Name | Value
+---- | -----
+| HELVETICA | &quot;helvetica&quot; |
+| ARIAL | &quot;arial&quot; |
+| COURIER | &quot;courier&quot; |
+| CALIBRI | &quot;calibri&quot; |
+| CAMBRIA | &quot;cambria&quot; |
+| GEORGIA | &quot;georgia&quot; |
+| TIMES | &quot;times&quot; |
+| TREBUCHET | &quot;trebuchet&quot; |
+| VERDANA | &quot;verdana&quot; |
+| ROBOTO | &quot;roboto&quot; |
+| ROBOTOMONO | &quot;robotoMono&quot; |
+| NOTOSANS | &quot;notoSans&quot; |
+| NOTOSERIF | &quot;notoSerif&quot; |
+| NOTOCJK_JP_REGULAR | &quot;notoCJK-JP-Regular&quot; |
+| NOTOHEBREW_REGULAR | &quot;notoHebrew-Regular&quot; |
+| NOTOSANTHAIMERGED | &quot;notoSanThaiMerged&quot; |
 
 
 

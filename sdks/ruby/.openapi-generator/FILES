@@ -99,6 +99,7 @@ docs/SubFormFieldsPerDocumentCheckbox.md
 docs/SubFormFieldsPerDocumentCheckboxMerge.md
 docs/SubFormFieldsPerDocumentDateSigned.md
 docs/SubFormFieldsPerDocumentDropdown.md
+docs/SubFormFieldsPerDocumentFontEnum.md
 docs/SubFormFieldsPerDocumentHyperlink.md
 docs/SubFormFieldsPerDocumentInitials.md
 docs/SubFormFieldsPerDocumentRadio.md
@@ -285,6 +286,7 @@ lib/dropbox-sign/models/sub_form_fields_per_document_checkbox.rb
 lib/dropbox-sign/models/sub_form_fields_per_document_checkbox_merge.rb
 lib/dropbox-sign/models/sub_form_fields_per_document_date_signed.rb
 lib/dropbox-sign/models/sub_form_fields_per_document_dropdown.rb
+lib/dropbox-sign/models/sub_form_fields_per_document_font_enum.rb
 lib/dropbox-sign/models/sub_form_fields_per_document_hyperlink.rb
 lib/dropbox-sign/models/sub_form_fields_per_document_initials.rb
 lib/dropbox-sign/models/sub_form_fields_per_document_radio.rb

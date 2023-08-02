@@ -12,7 +12,7 @@
     "has_error": false,
     "custom_fields": [],
     "response_data": [],
-    "signing_url": "https://app.hellosign.com/sign/a9f4825edef25f47e7b4c14ce8100d81d1693160",
+    "signing_url": null,
     "signing_redirect_url": null,
     "details_url": "https://app.hellosign.com/home/manage?guid=a9f4825edef25f47e7b4c14ce8100d81d1693160",
     "requester_email_address": "me@dropboxsign.com",

@@ -56,7 +56,9 @@ import com.dropbox.sign.ApiException;
     SubFormFieldsPerDocumentText.JSON_PROPERTY_MASKED,
     SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_TYPE,
     SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
-    SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL
+    SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
+    SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_FAMILY,
+    SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_SIZE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -149,6 +151,75 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
   public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL = "validation_custom_regex_format_label";
   private String validationCustomRegexFormatLabel;
+
+  /**
+   * Font family for the field.
+   */
+  public enum FontFamilyEnum {
+    HELVETICA("helvetica"),
+    
+    ARIAL("arial"),
+    
+    COURIER("courier"),
+    
+    CALIBRI("calibri"),
+    
+    CAMBRIA("cambria"),
+    
+    GEORGIA("georgia"),
+    
+    TIMES("times"),
+    
+    TREBUCHET("trebuchet"),
+    
+    VERDANA("verdana"),
+    
+    ROBOTO("roboto"),
+    
+    ROBOTOMONO("robotoMono"),
+    
+    NOTOSANS("notoSans"),
+    
+    NOTOSERIF("notoSerif"),
+    
+    NOTOCJK_JP_REGULAR("notoCJK-JP-Regular"),
+    
+    NOTOHEBREW_REGULAR("notoHebrew-Regular"),
+    
+    NOTOSANTHAIMERGED("notoSanThaiMerged");
+
+    private String value;
+
+    FontFamilyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static FontFamilyEnum fromValue(String value) {
+      for (FontFamilyEnum b : FontFamilyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_FONT_FAMILY = "font_family";
+  private FontFamilyEnum fontFamily;
+
+  public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
+  private Integer fontSize;
 
   public SubFormFieldsPerDocumentText() { 
   }
@@ -376,6 +447,58 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
   }
 
 
+  public SubFormFieldsPerDocumentText fontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+    return this;
+  }
+
+   /**
+   * Font family for the field.
+   * @return fontFamily
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Font family for the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FontFamilyEnum getFontFamily() {
+    return fontFamily;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontFamily(FontFamilyEnum fontFamily) {
+    this.fontFamily = fontFamily;
+  }
+
+
+  public SubFormFieldsPerDocumentText fontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+    return this;
+  }
+
+   /**
+   * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   * @return fontSize
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getFontSize() {
+    return fontSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FONT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+  }
+
+
   /**
    * Return true if this SubFormFieldsPerDocumentText object is equal to o.
    */
@@ -396,12 +519,14 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
         Objects.equals(this.validationType, subFormFieldsPerDocumentText.validationType) &&
         Objects.equals(this.validationCustomRegex, subFormFieldsPerDocumentText.validationCustomRegex) &&
         Objects.equals(this.validationCustomRegexFormatLabel, subFormFieldsPerDocumentText.validationCustomRegexFormatLabel) &&
+        Objects.equals(this.fontFamily, subFormFieldsPerDocumentText.fontFamily) &&
+        Objects.equals(this.fontSize, subFormFieldsPerDocumentText.fontSize) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, placeholder, autoFillType, linkId, masked, validationType, validationCustomRegex, validationCustomRegexFormatLabel, super.hashCode());
+    return Objects.hash(type, placeholder, autoFillType, linkId, masked, validationType, validationCustomRegex, validationCustomRegexFormatLabel, fontFamily, fontSize, super.hashCode());
   }
 
   @Override
@@ -417,6 +542,8 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
     sb.append("    validationCustomRegex: ").append(toIndentedString(validationCustomRegex)).append("\n");
     sb.append("    validationCustomRegexFormatLabel: ").append(toIndentedString(validationCustomRegexFormatLabel)).append("\n");
+    sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
+    sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -576,6 +703,44 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
         }
         else {
             map.put("validation_custom_regex_format_label", JSON.getDefault().getMapper().writeValueAsString(validationCustomRegexFormatLabel));
+        }
+    }
+    if (fontFamily != null) {
+        if (isFileTypeOrListOfFiles(fontFamily)) {
+            fileTypeFound = true;
+        }
+
+        if (fontFamily.getClass().equals(java.io.File.class) ||
+            fontFamily.getClass().equals(Integer.class) ||
+            fontFamily.getClass().equals(String.class) ||
+            fontFamily.getClass().isEnum()) {
+            map.put("font_family", fontFamily);
+        } else if (isListOfFile(fontFamily)) {
+            for(int i = 0; i< getListSize(fontFamily); i++) {
+                map.put("font_family[" + i + "]", getFromList(fontFamily, i));
+            }
+        }
+        else {
+            map.put("font_family", JSON.getDefault().getMapper().writeValueAsString(fontFamily));
+        }
+    }
+    if (fontSize != null) {
+        if (isFileTypeOrListOfFiles(fontSize)) {
+            fileTypeFound = true;
+        }
+
+        if (fontSize.getClass().equals(java.io.File.class) ||
+            fontSize.getClass().equals(Integer.class) ||
+            fontSize.getClass().equals(String.class) ||
+            fontSize.getClass().isEnum()) {
+            map.put("font_size", fontSize);
+        } else if (isListOfFile(fontSize)) {
+            for(int i = 0; i< getListSize(fontSize); i++) {
+                map.put("font_size[" + i + "]", getFromList(fontSize, i));
+            }
+        }
+        else {
+            map.put("font_size", JSON.getDefault().getMapper().writeValueAsString(fontSize));
         }
     }
     } catch (Exception e) {

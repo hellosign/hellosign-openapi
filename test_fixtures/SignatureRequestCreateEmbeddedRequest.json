@@ -69,7 +69,9 @@
         "required": true,
         "signer": "0",
         "page": 1,
-        "validation_type": "numbers_only"
+        "validation_type": "numbers_only",
+        "font_family": "roboto",
+        "font_size": 11
       },
       {
         "document_index": 0,
@@ -185,7 +187,9 @@
         "required": true,
         "signer": "0",
         "page": 1,
-        "validation_type": "numbers_only"
+        "validation_type": "numbers_only",
+        "font_family": "roboto",
+        "font_size": 11
       },
       {
         "document_index": 0,

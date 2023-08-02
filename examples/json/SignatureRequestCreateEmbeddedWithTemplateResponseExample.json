@@ -19,7 +19,7 @@
       }
     ],
     "response_data": [],
-    "signing_url": "https://app.hellosign.com/sign/17d163069282df5eb63857d31ff4a3bffa9e46c0",
+    "signing_url": null,
     "signing_redirect_url": null,
     "details_url": "https://app.hellosign.com/home/manage?guid=17d163069282df5eb63857d31ff4a3bffa9e46c0",
     "requester_email_address": "me@dropboxsign.com",

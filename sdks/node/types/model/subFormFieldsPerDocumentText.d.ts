@@ -9,6 +9,8 @@ export declare class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocume
     "validationType"?: SubFormFieldsPerDocumentText.ValidationTypeEnum;
     "validationCustomRegex"?: string;
     "validationCustomRegexFormatLabel"?: string;
+    "fontFamily"?: SubFormFieldsPerDocumentText.FontFamilyEnum;
+    "fontSize"?: number;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
@@ -26,5 +28,23 @@ export declare namespace SubFormFieldsPerDocumentText {
         SocialSecurityNumber = "social_security_number",
         EmployerIdentificationNumber = "employer_identification_number",
         CustomRegex = "custom_regex"
+    }
+    enum FontFamilyEnum {
+        Helvetica = "helvetica",
+        Arial = "arial",
+        Courier = "courier",
+        Calibri = "calibri",
+        Cambria = "cambria",
+        Georgia = "georgia",
+        Times = "times",
+        Trebuchet = "trebuchet",
+        Verdana = "verdana",
+        Roboto = "roboto",
+        RobotoMono = "robotoMono",
+        NotoSans = "notoSans",
+        NotoSerif = "notoSerif",
+        NotoCjkJpRegular = "notoCJK-JP-Regular",
+        NotoHebrewRegular = "notoHebrew-Regular",
+        NotoSanThaiMerged = "notoSanThaiMerged"
     }
 }

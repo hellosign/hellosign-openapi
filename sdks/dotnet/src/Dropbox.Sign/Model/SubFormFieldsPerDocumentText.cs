@@ -122,6 +122,118 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "validation_type", EmitDefaultValue = true)]
         public ValidationTypeEnum? ValidationType { get; set; }
         /// <summary>
+        /// Font family for the field.
+        /// </summary>
+        /// <value>Font family for the field.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FontFamilyEnum
+        {
+            /// <summary>
+            /// Enum Helvetica for value: helvetica
+            /// </summary>
+            [EnumMember(Value = "helvetica")]
+            Helvetica = 1,
+
+            /// <summary>
+            /// Enum Arial for value: arial
+            /// </summary>
+            [EnumMember(Value = "arial")]
+            Arial = 2,
+
+            /// <summary>
+            /// Enum Courier for value: courier
+            /// </summary>
+            [EnumMember(Value = "courier")]
+            Courier = 3,
+
+            /// <summary>
+            /// Enum Calibri for value: calibri
+            /// </summary>
+            [EnumMember(Value = "calibri")]
+            Calibri = 4,
+
+            /// <summary>
+            /// Enum Cambria for value: cambria
+            /// </summary>
+            [EnumMember(Value = "cambria")]
+            Cambria = 5,
+
+            /// <summary>
+            /// Enum Georgia for value: georgia
+            /// </summary>
+            [EnumMember(Value = "georgia")]
+            Georgia = 6,
+
+            /// <summary>
+            /// Enum Times for value: times
+            /// </summary>
+            [EnumMember(Value = "times")]
+            Times = 7,
+
+            /// <summary>
+            /// Enum Trebuchet for value: trebuchet
+            /// </summary>
+            [EnumMember(Value = "trebuchet")]
+            Trebuchet = 8,
+
+            /// <summary>
+            /// Enum Verdana for value: verdana
+            /// </summary>
+            [EnumMember(Value = "verdana")]
+            Verdana = 9,
+
+            /// <summary>
+            /// Enum Roboto for value: roboto
+            /// </summary>
+            [EnumMember(Value = "roboto")]
+            Roboto = 10,
+
+            /// <summary>
+            /// Enum RobotoMono for value: robotoMono
+            /// </summary>
+            [EnumMember(Value = "robotoMono")]
+            RobotoMono = 11,
+
+            /// <summary>
+            /// Enum NotoSans for value: notoSans
+            /// </summary>
+            [EnumMember(Value = "notoSans")]
+            NotoSans = 12,
+
+            /// <summary>
+            /// Enum NotoSerif for value: notoSerif
+            /// </summary>
+            [EnumMember(Value = "notoSerif")]
+            NotoSerif = 13,
+
+            /// <summary>
+            /// Enum NotoCJKJPRegular for value: notoCJK-JP-Regular
+            /// </summary>
+            [EnumMember(Value = "notoCJK-JP-Regular")]
+            NotoCJKJPRegular = 14,
+
+            /// <summary>
+            /// Enum NotoHebrewRegular for value: notoHebrew-Regular
+            /// </summary>
+            [EnumMember(Value = "notoHebrew-Regular")]
+            NotoHebrewRegular = 15,
+
+            /// <summary>
+            /// Enum NotoSanThaiMerged for value: notoSanThaiMerged
+            /// </summary>
+            [EnumMember(Value = "notoSanThaiMerged")]
+            NotoSanThaiMerged = 16
+
+        }
+
+
+        /// <summary>
+        /// Font family for the field.
+        /// </summary>
+        /// <value>Font family for the field.</value>
+        [DataMember(Name = "font_family", EmitDefaultValue = true)]
+        public FontFamilyEnum? FontFamily { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentText" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -137,6 +249,8 @@ namespace Dropbox.Sign.Model
         /// <param name="validationType">Each text field may contain a &#x60;validation_type&#x60; parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE**: When using &#x60;custom_regex&#x60; you are required to pass a second parameter &#x60;validation_custom_regex&#x60; and you can optionally provide &#x60;validation_custom_regex_format_label&#x60; for the error message the user will see in case of an invalid value..</param>
         /// <param name="validationCustomRegex">validationCustomRegex.</param>
         /// <param name="validationCustomRegexFormatLabel">validationCustomRegexFormatLabel.</param>
+        /// <param name="fontFamily">Font family for the field..</param>
+        /// <param name="fontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field..</param>
         /// <param name="documentIndex">Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to. (required).</param>
         /// <param name="apiId">An identifier for the field that is unique across all documents in the request. (required).</param>
         /// <param name="height">Size of the field in pixels. (required).</param>
@@ -147,7 +261,7 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentText(string type = "text", string placeholder = default(string), string autoFillType = default(string), string linkId = default(string), bool masked = default(bool), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string validationCustomRegex = default(string), string validationCustomRegexFormatLabel = default(string), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentText(string type = "text", string placeholder = default(string), string autoFillType = default(string), string linkId = default(string), bool masked = default(bool), ValidationTypeEnum? validationType = default(ValidationTypeEnum?), string validationCustomRegex = default(string), string validationCustomRegexFormatLabel = default(string), FontFamilyEnum? fontFamily = default(FontFamilyEnum?), int fontSize = default(int), int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -173,6 +287,8 @@ namespace Dropbox.Sign.Model
             this.ValidationType = validationType;
             this.ValidationCustomRegex = validationCustomRegex;
             this.ValidationCustomRegexFormatLabel = validationCustomRegexFormatLabel;
+            this.FontFamily = fontFamily;
+            this.FontSize = fontSize;
         }
 
         /// <summary>
@@ -239,6 +355,13 @@ namespace Dropbox.Sign.Model
         public string ValidationCustomRegexFormatLabel { get; set; }
 
         /// <summary>
+        /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+        /// </summary>
+        /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
+        [DataMember(Name = "font_size", EmitDefaultValue = true)]
+        public int FontSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -255,6 +378,8 @@ namespace Dropbox.Sign.Model
             sb.Append("  ValidationType: ").Append(ValidationType).Append("\n");
             sb.Append("  ValidationCustomRegex: ").Append(ValidationCustomRegex).Append("\n");
             sb.Append("  ValidationCustomRegexFormatLabel: ").Append(ValidationCustomRegexFormatLabel).Append("\n");
+            sb.Append("  FontFamily: ").Append(FontFamily).Append("\n");
+            sb.Append("  FontSize: ").Append(FontSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -327,6 +452,14 @@ namespace Dropbox.Sign.Model
                     this.ValidationCustomRegexFormatLabel == input.ValidationCustomRegexFormatLabel ||
                     (this.ValidationCustomRegexFormatLabel != null &&
                     this.ValidationCustomRegexFormatLabel.Equals(input.ValidationCustomRegexFormatLabel))
+                ) && base.Equals(input) && 
+                (
+                    this.FontFamily == input.FontFamily ||
+                    this.FontFamily.Equals(input.FontFamily)
+                ) && base.Equals(input) && 
+                (
+                    this.FontSize == input.FontSize ||
+                    this.FontSize.Equals(input.FontSize)
                 );
         }
 
@@ -365,6 +498,8 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.ValidationCustomRegexFormatLabel.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.FontFamily.GetHashCode();
+                hashCode = (hashCode * 59) + this.FontSize.GetHashCode();
                 return hashCode;
             }
         }
@@ -419,6 +554,18 @@ namespace Dropbox.Sign.Model
                 Property = "ValidationCustomRegexFormatLabel",
                 Type = "string",
                 Value = ValidationCustomRegexFormatLabel,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_family",
+                Property = "FontFamily",
+                Type = "string",
+                Value = FontFamily,
+            });
+            types.Add(new OpenApiType(){
+                Name = "font_size",
+                Property = "FontSize",
+                Type = "int",
+                Value = FontSize,
             });
 
             return types;

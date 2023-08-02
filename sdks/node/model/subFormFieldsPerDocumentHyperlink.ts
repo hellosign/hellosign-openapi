@@ -41,6 +41,14 @@ export class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * Link URL.
    */
   "contentUrl": string;
+  /**
+   * Font family for the field.
+   */
+  "fontFamily"?: SubFormFieldsPerDocumentHyperlink.FontFamilyEnum;
+  /**
+   * The initial px font size for the field contents. Can be any integer value between `7` and `49`.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+   */
+  "fontSize"?: number;
 
   static discriminator: string | undefined = undefined;
 
@@ -60,6 +68,16 @@ export class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
       baseName: "content_url",
       type: "string",
     },
+    {
+      name: "fontFamily",
+      baseName: "font_family",
+      type: "SubFormFieldsPerDocumentHyperlink.FontFamilyEnum",
+    },
+    {
+      name: "fontSize",
+      baseName: "font_size",
+      type: "number",
+    },
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
@@ -74,5 +92,26 @@ export class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
       data,
       "SubFormFieldsPerDocumentHyperlink"
     );
+  }
+}
+
+export namespace SubFormFieldsPerDocumentHyperlink {
+  export enum FontFamilyEnum {
+    Helvetica = "helvetica",
+    Arial = "arial",
+    Courier = "courier",
+    Calibri = "calibri",
+    Cambria = "cambria",
+    Georgia = "georgia",
+    Times = "times",
+    Trebuchet = "trebuchet",
+    Verdana = "verdana",
+    Roboto = "roboto",
+    RobotoMono = "robotoMono",
+    NotoSans = "notoSans",
+    NotoSerif = "notoSerif",
+    NotoCjkJpRegular = "notoCJK-JP-Regular",
+    NotoHebrewRegular = "notoHebrew-Regular",
+    NotoSanThaiMerged = "notoSanThaiMerged",
   }
 }
