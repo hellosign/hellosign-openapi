@@ -526,6 +526,10 @@
 
 "TemplateCreateEmbeddedDraft::SUMMARY": Create Embedded Template Draft
 "TemplateCreateEmbeddedDraft::DESCRIPTION": The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template 'edit' stage.
+
+"TemplateCreateTemplate::SUMMARY": Create Embedded Template
+"TemplateCreateTemplate::DESCRIPTION": Creates a template that can then be used.
+
 "TemplateCreateEmbeddedDraft::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
 "TemplateCreateEmbeddedDraft::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -923,7 +927,7 @@
 "Sub::FormFieldsPerDocument::NAME": Display name for the field.
 "Sub::FormFieldsPerDocument::FONT_FAMILY": Font family for the field.
 "Sub::FormFieldsPerDocument::FONT_SIZE": |-
-  The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
+  The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
 "Sub::FormFieldsPerDocument::CONTENT_TEXT": Content of a `me_now` text field  
@@ -1311,6 +1315,7 @@
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template
+"TemplateCreateTemplateResponseExample::SUMMARY": Create Embedded Template
 "TemplateFilesResponseExample::SUMMARY": Template Files
 "TemplateGetResponseExample::SUMMARY": Get Template
 "TemplateListResponseExample::SUMMARY": List Templates
