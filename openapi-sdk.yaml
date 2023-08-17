@@ -4632,13 +4632,13 @@ paths:
         seo:
           title: 'Add User to Template | REST API | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here.'
-  /template/create_embedded_draft:
+  /template/create_embedded:
     post:
       tags:
         - Template
-      summary: 'Create Embedded Template Draft'
-      description: 'The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template ''edit'' stage.'
-      operationId: templateCreateEmbeddedDraft
+      summary: 'Create Embedded Template'
+      description: 'Creates a template that can then be used.'
+      operationId: TemplateCreateEmbeddedDraft
       requestBody:
         required: true
         content:
@@ -4746,13 +4746,13 @@ paths:
         seo:
           title: 'Create Embedded Template Draft | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
-  /template/create_template:
+  /template/create_embedded_draft:
     post:
       tags:
         - Template
-      summary: 'Create Embedded Template'
-      description: 'Creates a template that can then be used.'
-      operationId: TemplateCreateEmbeddedDraft
+      summary: 'Create Embedded Template Draft'
+      description: 'The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template ''edit'' stage.'
+      operationId: templateCreateEmbeddedDraft
       requestBody:
         required: true
         content:
@@ -11012,10 +11012,10 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateEmbeddedDraftResponse:
+    TemplateCreateEmbeddedResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
+          $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
         warnings:
           description: 'A list of warnings.'
           type: array
@@ -11023,10 +11023,10 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateTemplateResponse:
+    TemplateCreateEmbeddedDraftResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateTemplateResponse'
+          $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
         warnings:
           description: 'A list of warnings.'
           type: array
@@ -11505,14 +11505,14 @@ components:
       summary: 'Team Sub Teams List'
       value:
         $ref: examples/json/TeamSubTeamsResponseExample.json
+    TemplateCreateEmbeddedResponseExample:
+      summary: 'Create Embedded Template'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedResponseExample.json
     TemplateCreateEmbeddedDraftResponseExample:
       summary: 'Create Embedded Draft Template'
       value:
         $ref: examples/json/TemplateCreateEmbeddedDraftResponseExample.json
-    TemplateCreateTemplateResponseExample:
-      summary: 'Create Embedded Template'
-      value:
-        $ref: examples/json/TemplateCreateTemplateResponseExample.json
     TemplateGetResponseExample:
       summary: 'Get Template'
       value:

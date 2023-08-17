@@ -527,8 +527,8 @@
 "TemplateCreateEmbeddedDraft::SUMMARY": Create Embedded Template Draft
 "TemplateCreateEmbeddedDraft::DESCRIPTION": The first step in an embedded template workflow. Creates a draft template that can then be further set up in the template 'edit' stage.
 
-"TemplateCreateTemplate::SUMMARY": Create Embedded Template
-"TemplateCreateTemplate::DESCRIPTION": Creates a template that can then be used.
+"TemplateCreateEmbedded::SUMMARY": Create Embedded Template
+"TemplateCreateEmbedded::DESCRIPTION": Creates a template that can then be used.
 
 "TemplateCreateEmbeddedDraft::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
 "TemplateCreateEmbeddedDraft::ALLOW_REASSIGN": |-
@@ -1315,7 +1315,7 @@
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template
-"TemplateCreateTemplateResponseExample::SUMMARY": Create Embedded Template
+"TemplateCreateEmbeddedResponseExample::SUMMARY": Create Embedded Template
 "TemplateFilesResponseExample::SUMMARY": Template Files
 "TemplateGetResponseExample::SUMMARY": Get Template
 "TemplateListResponseExample::SUMMARY": List Templates

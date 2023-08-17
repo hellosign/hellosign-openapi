@@ -4583,13 +4583,13 @@ paths:
         seo:
           title: '_t__TemplateAddUser::SEO::TITLE'
           description: '_t__TemplateAddUser::SEO::DESCRIPTION'
-  /template/create_embedded_draft:
+  /template/create_embedded:
     post:
       tags:
         - Template
-      summary: '_t__TemplateCreateEmbeddedDraft::SUMMARY'
-      description: '_t__TemplateCreateEmbeddedDraft::DESCRIPTION'
-      operationId: templateCreateEmbeddedDraft
+      summary: '_t__TemplateCreateEmbedded::SUMMARY'
+      description: '_t__TemplateCreateEmbedded::DESCRIPTION'
+      operationId: TemplateCreateEmbeddedDraft
       requestBody:
         required: true
         content:
@@ -4697,13 +4697,13 @@ paths:
         seo:
           title: '_t__TemplateCreateEmbeddedDraft::SEO::TITLE'
           description: '_t__TemplateCreateEmbeddedDraft::SEO::DESCRIPTION'
-  /template/create_template:
+  /template/create_embedded_draft:
     post:
       tags:
         - Template
-      summary: '_t__TemplateCreateTemplate::SUMMARY'
-      description: '_t__TemplateCreateTemplate::DESCRIPTION'
-      operationId: TemplateCreateEmbeddedDraft
+      summary: '_t__TemplateCreateEmbeddedDraft::SUMMARY'
+      description: '_t__TemplateCreateEmbeddedDraft::DESCRIPTION'
+      operationId: templateCreateEmbeddedDraft
       requestBody:
         required: true
         content:
@@ -10264,10 +10264,10 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateEmbeddedDraftResponse:
+    TemplateCreateEmbeddedResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
+          $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
@@ -10275,10 +10275,10 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateTemplateResponse:
+    TemplateCreateEmbeddedDraftResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateTemplateResponse'
+          $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponseTemplate'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
@@ -10757,14 +10757,14 @@ components:
       summary: '_t__TeamSubTeamsResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamSubTeamsResponseExample.json
+    TemplateCreateEmbeddedResponseExample:
+      summary: '_t__TemplateCreateEmbeddedResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedResponseExample.json
     TemplateCreateEmbeddedDraftResponseExample:
       summary: '_t__TemplateCreateEmbeddedDraftResponseExample::SUMMARY'
       value:
         $ref: examples/json/TemplateCreateEmbeddedDraftResponseExample.json
-    TemplateCreateTemplateResponseExample:
-      summary: '_t__TemplateCreateTemplateResponseExample::SUMMARY'
-      value:
-        $ref: examples/json/TemplateCreateTemplateResponseExample.json
     TemplateGetResponseExample:
       summary: '_t__TemplateGetResponseExample::SUMMARY'
       value:
