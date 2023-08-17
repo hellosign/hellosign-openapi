@@ -68,6 +68,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'string',
         'validation_custom_regex' => 'string',
         'validation_custom_regex_format_label' => 'string',
+        'content' => 'string',
         'font_family' => 'string',
         'font_size' => 'int',
     ];
@@ -88,6 +89,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => null,
         'validation_custom_regex' => null,
         'validation_custom_regex_format_label' => null,
+        'content' => null,
         'font_family' => null,
         'font_size' => null,
     ];
@@ -127,6 +129,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'validation_type',
         'validation_custom_regex' => 'validation_custom_regex',
         'validation_custom_regex_format_label' => 'validation_custom_regex_format_label',
+        'content' => 'content',
         'font_family' => 'font_family',
         'font_size' => 'font_size',
     ];
@@ -145,6 +148,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'setValidationType',
         'validation_custom_regex' => 'setValidationCustomRegex',
         'validation_custom_regex_format_label' => 'setValidationCustomRegexFormatLabel',
+        'content' => 'setContent',
         'font_family' => 'setFontFamily',
         'font_size' => 'setFontSize',
     ];
@@ -163,6 +167,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         'validation_type' => 'getValidationType',
         'validation_custom_regex' => 'getValidationCustomRegex',
         'validation_custom_regex_format_label' => 'getValidationCustomRegexFormatLabel',
+        'content' => 'getContent',
         'font_family' => 'getFontFamily',
         'font_size' => 'getFontSize',
     ];
@@ -301,6 +306,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         $this->container['validation_type'] = $data['validation_type'] ?? null;
         $this->container['validation_custom_regex'] = $data['validation_custom_regex'] ?? null;
         $this->container['validation_custom_regex_format_label'] = $data['validation_custom_regex_format_label'] ?? null;
+        $this->container['content'] = $data['content'] ?? null;
         $this->container['font_family'] = $data['font_family'] ?? null;
         $this->container['font_size'] = $data['font_size'] ?? null;
     }
@@ -565,6 +571,30 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
     public function setValidationCustomRegexFormatLabel(?string $validation_custom_regex_format_label)
     {
         $this->container['validation_custom_regex_format_label'] = $validation_custom_regex_format_label;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     *
+     * @return string|null
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string|null $content Content of a `me_now` text field
+     *
+     * @return self
+     */
+    public function setContent(?string $content)
+    {
+        $this->container['content'] = $content;
 
         return $this;
     }

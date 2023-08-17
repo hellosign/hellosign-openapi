@@ -9,6 +9,7 @@ export declare class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocume
     "validationType"?: SubFormFieldsPerDocumentText.ValidationTypeEnum;
     "validationCustomRegex"?: string;
     "validationCustomRegexFormatLabel"?: string;
+    "content"?: string;
     "fontFamily"?: SubFormFieldsPerDocumentText.FontFamilyEnum;
     "fontSize"?: number;
     static discriminator: string | undefined;

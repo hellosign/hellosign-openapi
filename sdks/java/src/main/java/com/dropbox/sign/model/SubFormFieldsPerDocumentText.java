@@ -57,6 +57,7 @@ import com.dropbox.sign.ApiException;
     SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_TYPE,
     SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX,
     SubFormFieldsPerDocumentText.JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL,
+    SubFormFieldsPerDocumentText.JSON_PROPERTY_CONTENT,
     SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_FAMILY,
     SubFormFieldsPerDocumentText.JSON_PROPERTY_FONT_SIZE
 })
@@ -151,6 +152,9 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
   public static final String JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL = "validation_custom_regex_format_label";
   private String validationCustomRegexFormatLabel;
+
+  public static final String JSON_PROPERTY_CONTENT = "content";
+  private String content;
 
   /**
    * Font family for the field.
@@ -447,6 +451,32 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
   }
 
 
+  public SubFormFieldsPerDocumentText content(String content) {
+    this.content = content;
+    return this;
+  }
+
+   /**
+   * Content of a &#x60;me_now&#x60; text field
+   * @return content
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Content of a `me_now` text field")
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getContent() {
+    return content;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+
   public SubFormFieldsPerDocumentText fontFamily(FontFamilyEnum fontFamily) {
     this.fontFamily = fontFamily;
     return this;
@@ -519,6 +549,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
         Objects.equals(this.validationType, subFormFieldsPerDocumentText.validationType) &&
         Objects.equals(this.validationCustomRegex, subFormFieldsPerDocumentText.validationCustomRegex) &&
         Objects.equals(this.validationCustomRegexFormatLabel, subFormFieldsPerDocumentText.validationCustomRegexFormatLabel) &&
+        Objects.equals(this.content, subFormFieldsPerDocumentText.content) &&
         Objects.equals(this.fontFamily, subFormFieldsPerDocumentText.fontFamily) &&
         Objects.equals(this.fontSize, subFormFieldsPerDocumentText.fontSize) &&
         super.equals(o);
@@ -526,7 +557,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, placeholder, autoFillType, linkId, masked, validationType, validationCustomRegex, validationCustomRegexFormatLabel, fontFamily, fontSize, super.hashCode());
+    return Objects.hash(type, placeholder, autoFillType, linkId, masked, validationType, validationCustomRegex, validationCustomRegexFormatLabel, content, fontFamily, fontSize, super.hashCode());
   }
 
   @Override
@@ -542,6 +573,7 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     sb.append("    validationType: ").append(toIndentedString(validationType)).append("\n");
     sb.append("    validationCustomRegex: ").append(toIndentedString(validationCustomRegex)).append("\n");
     sb.append("    validationCustomRegexFormatLabel: ").append(toIndentedString(validationCustomRegexFormatLabel)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    fontFamily: ").append(toIndentedString(fontFamily)).append("\n");
     sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("}");
@@ -703,6 +735,25 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
         }
         else {
             map.put("validation_custom_regex_format_label", JSON.getDefault().getMapper().writeValueAsString(validationCustomRegexFormatLabel));
+        }
+    }
+    if (content != null) {
+        if (isFileTypeOrListOfFiles(content)) {
+            fileTypeFound = true;
+        }
+
+        if (content.getClass().equals(java.io.File.class) ||
+            content.getClass().equals(Integer.class) ||
+            content.getClass().equals(String.class) ||
+            content.getClass().isEnum()) {
+            map.put("content", content);
+        } else if (isListOfFile(content)) {
+            for(int i = 0; i< getListSize(content); i++) {
+                map.put("content[" + i + "]", getFromList(content, i));
+            }
+        }
+        else {
+            map.put("content", JSON.getDefault().getMapper().writeValueAsString(content));
         }
     }
     if (fontFamily != null) {

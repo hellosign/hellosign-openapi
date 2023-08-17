@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ApiId** | **string** |  An identifier for the field that is unique across all documents in the request.  | 
 **Height** | **int** |  Size of the field in pixels.  | 
 **Required** | **bool** |  Whether this field is required.  | 
-**Signer** | **string** |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  | 
+**Signer** | **string** |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE**: To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  | 
 **Width** | **int** |  Size of the field in pixels.  | 
 **X** | **int** |  Location coordinates of the field in pixels.  | 
 **Y** | **int** |  Location coordinates of the field in pixels.  | 

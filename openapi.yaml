@@ -6360,6 +6360,9 @@ components:
               type: string
             validation_custom_regex_format_label:
               type: string
+            content:
+              description: 'Content of a `me_now` text field'
+              type: string
             font_family:
               description: 'Font family for the field.'
               type: string
@@ -7727,6 +7730,8 @@ components:
         signer:
           description: |-
             Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
+
+            **NOTE**: To set the value of the field as the preparer you must set this to `me_now`
 
             **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
           type: string

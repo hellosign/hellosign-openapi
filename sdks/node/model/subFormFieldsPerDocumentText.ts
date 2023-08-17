@@ -56,6 +56,10 @@ export class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
   "validationCustomRegex"?: string;
   "validationCustomRegexFormatLabel"?: string;
   /**
+   * Content of a `me_now` text field
+   */
+  "content"?: string;
+  /**
    * Font family for the field.
    */
   "fontFamily"?: SubFormFieldsPerDocumentText.FontFamilyEnum;
@@ -105,6 +109,11 @@ export class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
     {
       name: "validationCustomRegexFormatLabel",
       baseName: "validation_custom_regex_format_label",
+      type: "string",
+    },
+    {
+      name: "content",
+      baseName: "content",
       type: "string",
     },
     {

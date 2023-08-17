@@ -926,6 +926,7 @@
   The initial px font size for the field contents. Can be any integer value between `7` and `49`. 
 
   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+"Sub::FormFieldsPerDocument::CONTENT_TEXT": Content of a `me_now` text field  
 "Sub::FormFieldsPerDocument::OPTIONS": Array of string values representing dropdown values.
 "Sub::FormFieldsPerDocument::PAGE": |-
   Page in the document where the field should be placed (requires documents be PDF files).
@@ -937,6 +938,8 @@
 "Sub::FormFieldsPerDocument::SIGNER": |-
   Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
 
+  **NOTE**: To set the value of the field as the preparer you must set this to `me_now`
+  
   **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
@@ -949,6 +952,8 @@
 "Sub::FormFieldsPerDocument::TYPE_SIGNATURE": A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.
 "Sub::FormFieldsPerDocument::TYPE_TEXT": A text input field. Use the `SubFormFieldsPerDocumentText` class.
 "Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE": A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
+"Sub::FormFieldsPerDocument::CONTENT_SIGNATURE": The signature GUID value, used to provide an existing signature to a `me_now` signature field
+"Sub::FormFieldsPerDocument::CONTENT_INITIALS": The initials GUID value, used to provide existing initials to a `me_now` initials field
 "Sub::FormFieldsPerDocument::VALIDATION_TYPE": |-
   Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
 
