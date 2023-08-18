@@ -4589,7 +4589,7 @@ paths:
         - Template
       summary: '_t__TemplateCreateEmbedded::SUMMARY'
       description: '_t__TemplateCreateEmbedded::DESCRIPTION'
-      operationId: TemplateCreateEmbeddedDraft
+      operationId: TemplateCreateEmbedded
       requestBody:
         required: true
         content:
@@ -4621,10 +4621,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponse'
+                $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponseExample'
+                  $ref: '#/components/examples/TemplateCreateEmbeddedResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -4657,42 +4657,42 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.php
+            $ref: examples/TemplateCreateEmbedded.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.cs
+            $ref: examples/TemplateCreateEmbedded.cs
         -
           lang: JavaScript
           label: JavaScript
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.js
+            $ref: examples/TemplateCreateEmbedded.js
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.ts
+            $ref: examples/TemplateCreateEmbedded.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.java
+            $ref: examples/TemplateCreateEmbedded.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.rb
+            $ref: examples/TemplateCreateEmbedded.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.py
+            $ref: examples/TemplateCreateEmbedded.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.sh
+            $ref: examples/TemplateCreateEmbedded.sh
       x-meta:
         seo:
           title: '_t__TemplateCreateEmbeddedDraft::SEO::TITLE'
