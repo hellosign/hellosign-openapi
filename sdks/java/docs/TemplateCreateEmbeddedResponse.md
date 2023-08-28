@@ -8,7 +8,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `template` | [```TemplateCreateEmbeddedResponse```](TemplateCreateEmbeddedResponse.md) |    |  |
+| `template` | [```TemplateResponse```](TemplateResponse.md) |    |  |
 | `warnings` | [```List<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 
 

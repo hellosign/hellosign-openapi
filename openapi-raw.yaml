@@ -9740,19 +9740,6 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateEmbeddedResponseTemplate:
-      description: '_t__TemplateCreateEmbeddedResponseTemplate::DESCRIPTION'
-      properties:
-        template_id:
-          description: '_t__TemplateResponse::TEMPLATE_ID'
-          type: string
-        warnings:
-          description: '_t__WarningResponse::LIST_DESCRIPTION'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
-      type: object
-      x-internal: true
     TemplateResponseDocument:
       properties:
         name:
@@ -10390,7 +10377,7 @@ components:
     TemplateCreateEmbeddedResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
+          $ref: '#/components/schemas/TemplateResponse'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array

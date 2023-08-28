@@ -350,7 +350,6 @@ Class | Method | HTTP request | Description
  - [TemplateCreateEmbeddedDraftResponseTemplate](docs/TemplateCreateEmbeddedDraftResponseTemplate.md)
  - [TemplateCreateEmbeddedRequest](docs/TemplateCreateEmbeddedRequest.md)
  - [TemplateCreateEmbeddedResponse](docs/TemplateCreateEmbeddedResponse.md)
- - [TemplateCreateEmbeddedResponseTemplate](docs/TemplateCreateEmbeddedResponseTemplate.md)
  - [TemplateEditResponse](docs/TemplateEditResponse.md)
  - [TemplateGetResponse](docs/TemplateGetResponse.md)
  - [TemplateListResponse](docs/TemplateListResponse.md)
