@@ -4638,25 +4638,25 @@ paths:
         - Template
       summary: 'Create Embedded Template'
       description: 'Creates a template that can then be used.'
-      operationId: TemplateCreateEmbeddedDraft
+      operationId: TemplateCreateEmbedded
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
+              $ref: '#/components/schemas/TemplateCreateEmbeddedRequest'
             examples:
               default_example:
-                $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestDefaultExample'
+                $ref: '#/components/examples/TemplateCreateEmbeddedRequestDefaultExample'
               form_fields_per_document:
-                $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldsPerDocumentExample'
+                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample'
               form_field_groups:
-                $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldGroupsExample'
+                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldGroupsExample'
               form_field_rules:
-                $ref: '#/components/examples/TemplateCreateEmbeddedDraftRequestFormFieldRulesExample'
+                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldRulesExample'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedDraftRequest'
+              $ref: '#/components/schemas/TemplateCreateEmbeddedRequest'
       responses:
         200:
           description: 'successful operation'
@@ -4670,10 +4670,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TemplateCreateEmbeddedDraftResponse'
+                $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/TemplateCreateEmbeddedDraftResponseExample'
+                  $ref: '#/components/examples/TemplateCreateEmbeddedResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -4706,46 +4706,46 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.php
+            $ref: examples/TemplateCreateEmbedded.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.cs
+            $ref: examples/TemplateCreateEmbedded.cs
         -
           lang: JavaScript
           label: JavaScript
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.js
+            $ref: examples/TemplateCreateEmbedded.js
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.ts
+            $ref: examples/TemplateCreateEmbedded.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.java
+            $ref: examples/TemplateCreateEmbedded.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.rb
+            $ref: examples/TemplateCreateEmbedded.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.py
+            $ref: examples/TemplateCreateEmbedded.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateCreateEmbeddedDraft.sh
+            $ref: examples/TemplateCreateEmbedded.sh
       x-meta:
         seo:
-          title: 'Create Embedded Template Draft | Dropbox Sign for Developers'
-          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here.'
+          title: 'Create Embedded Template | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded template, click here.'
   /template/create_embedded_draft:
     post:
       tags:
@@ -8250,6 +8250,148 @@ components:
           type: boolean
           default: false
       type: object
+    TemplateCreateEmbeddedRequest:
+      required:
+        - client_id
+      properties:
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        allow_ccs:
+          description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.'
+          type: boolean
+          default: true
+        allow_reassign:
+          description: |-
+            Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
+
+            **Note**: Only available for Premium plan and higher.
+          type: boolean
+          default: false
+        attachments:
+          description: 'A list describing the attachments'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubAttachment'
+        cc_roles:
+          description: 'The CC roles that must be assigned when using the template to send a signature request'
+          type: array
+          items:
+            type: string
+        client_id:
+          description: 'Client id of the app you''re using to create this draft. Used to apply the branding and callback url defined for the app.'
+          type: string
+        editor_options:
+          $ref: '#/components/schemas/SubEditorOptions'
+        field_options:
+          $ref: '#/components/schemas/SubFieldOptions'
+        force_signer_roles:
+          description: 'Provide users the ability to review/edit the template signer roles.'
+          type: boolean
+          default: false
+        force_subject_message:
+          description: 'Provide users the ability to review/edit the template subject and message.'
+          type: boolean
+          default: false
+        form_field_groups:
+          description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldGroup'
+        form_field_rules:
+          description: 'Conditional Logic rules for fields defined in `form_fields_per_document`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldRule'
+        form_fields_per_document:
+          description: |-
+            The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
+
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+
+            * Text Field use `SubFormFieldsPerDocumentText`
+            * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
+            * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`
+            * Checkbox Field use `SubFormFieldsPerDocumentCheckbox`
+            * Radio Field use `SubFormFieldsPerDocumentRadio`
+            * Signature Field use `SubFormFieldsPerDocumentSignature`
+            * Date Signed Field use `SubFormFieldsPerDocumentDateSigned`
+            * Initials Field use `SubFormFieldsPerDocumentInitials`
+            * Text Merge Field use `SubFormFieldsPerDocumentTextMerge`
+            * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        merge_fields:
+          description: |-
+            Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.
+            If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubMergeField'
+        message:
+          description: 'The default template email message.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        show_preview:
+          description: |-
+            This allows the requester to enable the editor/preview experience.
+
+            - `show_preview=true`: Allows requesters to enable the editor/preview experience.
+            - `show_preview=false`: Allows requesters to disable the editor/preview experience.
+          type: boolean
+          default: false
+        show_progress_stepper:
+          description: 'When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.'
+          type: boolean
+          default: true
+        signer_roles:
+          description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTemplateRole'
+        skip_me_now:
+          description: 'Disables the "Me (Now)" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.'
+          type: boolean
+          default: false
+        subject:
+          description: 'The template title (alias).'
+          type: string
+          maxLength: 200
+        test_mode:
+          description: 'Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+        use_preexisting_fields:
+          description: 'Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).'
+          type: boolean
+          default: false
+      type: object
     TemplateCreateEmbeddedDraftRequest:
       required:
         - client_id
@@ -10205,6 +10347,19 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
+    TemplateCreateEmbeddedResponseTemplate:
+      description: 'Template object with parameters: `template_id`, `edit_url`, `expires_at`.'
+      properties:
+        template_id:
+          description: 'The id of the Template.'
+          type: string
+        warnings:
+          description: 'A list of warnings.'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     TemplateResponseDocument:
       properties:
         name:
@@ -11201,6 +11356,22 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateAddUserRequestDefaultExample.json
+    TemplateCreateEmbeddedRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedRequestDefaultExample.json
+    TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample:
+      summary: 'Form Fields Per Document Example'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample.json
+    TemplateCreateEmbeddedRequestFormFieldGroupsExample:
+      summary: 'Form Fields Per Document and Groups Example'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldGroupsExample.json
+    TemplateCreateEmbeddedRequestFormFieldRulesExample:
+      summary: 'Form Fields Per Document and Rules Example'
+      value:
+        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldRulesExample.json
     TemplateCreateEmbeddedDraftRequestDefaultExample:
       summary: 'Default Example'
       value:

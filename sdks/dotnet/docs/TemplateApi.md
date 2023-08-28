@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**TemplateAddUser**](TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
+| [**TemplateCreateEmbedded**](TemplateApi.md#templatecreateembedded) | **POST** /template/create_embedded | Create Embedded Template |
 | [**TemplateCreateEmbeddedDraft**](TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**TemplateDelete**](TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
 | [**TemplateFiles**](TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -104,6 +105,146 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="templatecreateembedded"></a>
+# **TemplateCreateEmbedded**
+> TemplateCreateEmbeddedResponse TemplateCreateEmbedded (TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest)
+
+Create Embedded Template
+
+Creates a template that can then be used.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var templateApi = new TemplateApi(config);
+
+        var role1 = new SubTemplateRole(
+            name: "Client",
+            order: 0
+        );
+
+        var role2 = new SubTemplateRole(
+            name: "Witness",
+            order: 1
+        );
+
+        var mergeField1 = new SubMergeField(
+            name: "Full Name",
+            type: SubMergeField.TypeEnum.Text
+        );
+
+        var mergeField2 = new SubMergeField(
+            name: "Is Registered?",
+            type: SubMergeField.TypeEnum.Checkbox
+        );
+
+        var subFieldOptions = new SubFieldOptions(
+            dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
+        );
+
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_signature_request.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new TemplateCreateEmbeddedRequest(
+            clientId: "37dee8d8440c66d54cfa05d92c160882",
+            files: files,
+            title: "Test Template",
+            subject: "Please sign this document",
+            message: "For your approval",
+            signerRoles: new List<SubTemplateRole>(){role1, role2},
+            ccRoles: new List<string>(){"Manager"},
+            mergeFields: new List<SubMergeField>(){mergeField1, mergeField2},
+            fieldOptions: subFieldOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var result = templateApi.TemplateCreateEmbedded(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the TemplateCreateEmbeddedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create Embedded Template
+    ApiResponse<TemplateCreateEmbeddedResponse> response = apiInstance.TemplateCreateEmbeddedWithHttpInfo(templateCreateEmbeddedRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TemplateApi.TemplateCreateEmbeddedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **templateCreateEmbeddedRequest** | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md) |  |  |
+
+### Return type
+
+[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

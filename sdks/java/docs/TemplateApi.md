@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**templateAddUser**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template
+[**templateCreateEmbedded**](TemplateApi.md#templateCreateEmbedded) | **POST** /template/create_embedded | Create Embedded Template
 [**templateCreateEmbeddedDraft**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 [**templateDelete**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template
 [**templateFiles**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files
@@ -91,6 +92,47 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## templateCreateEmbedded
+
+> TemplateCreateEmbeddedResponse templateCreateEmbedded(templateCreateEmbeddedRequest)
+
+Create Embedded Template
+
+Creates a template that can then be used.
+
+### Example
+
+```java
+REPLACE_ME_WITH_EXAMPLE_FOR__templateCreateEmbedded_Java_CODE
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateCreateEmbeddedRequest** | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md)|  |
+
+### Return type
+
+[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 ### HTTP response details

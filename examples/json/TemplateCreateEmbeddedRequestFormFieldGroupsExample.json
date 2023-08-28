@@ -1,0 +1,75 @@
+{
+  "client_id": "37dee8d8440c66d54cfa05d92c160882",
+  "file_urls": [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
+  ],
+  "title": "Test Template",
+  "subject": "Please sign this document",
+  "message": "For your approval",
+  "signer_roles": [
+    {
+      "name": "Client",
+      "order": 0
+    },
+    {
+      "name": "Witness",
+      "order": 1
+    }
+  ],
+  "cc_roles": [
+    "Manager"
+  ],
+  "merge_fields": [
+    {
+      "name": "Full Name",
+      "type": "text"
+    },
+    {
+      "name": "Is Registered?",
+      "type": "checkbox"
+    }
+  ],
+  "field_options": {
+    "date_format": "DD - MM - YYYY"
+  },
+  "form_fields_per_document": [
+    {
+      "document_index": 0,
+      "api_id": "uniqueIdHere_1",
+      "name": "",
+      "type": "radio",
+      "x": 112,
+      "y": 328,
+      "width": 18,
+      "height": 18,
+      "required": false,
+      "group": "RadioItemGroup1",
+      "is_checked": 1,
+      "signer": 0,
+      "page": 1
+    },
+    {
+      "document_index": 0,
+      "api_id": "uniqueIdHere_2",
+      "name": "",
+      "type": "radio",
+      "x": 112,
+      "y": 370,
+      "width": 18,
+      "height": 18,
+      "required": false,
+      "group": "RadioItemGroup1",
+      "is_checked": 0,
+      "signer": 0,
+      "page": 1
+    }
+  ],
+  "form_field_groups": [
+    {
+      "group_id": "RadioItemGroup1",
+      "group_label": "Radio Item Group 1",
+      "requirement": "require_0-1"
+    }
+  ],
+  "test_mode": true
+}

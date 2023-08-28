@@ -5,6 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**templateAddUser()**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template |
+| [**templateCreateEmbedded()**](TemplateApi.md#templateCreateEmbedded) | **POST** /template/create_embedded | Create Embedded Template |
 | [**templateCreateEmbeddedDraft()**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**templateDelete()**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template |
 | [**templateFiles()**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -77,6 +78,45 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `templateCreateEmbedded()`
+
+```php
+templateCreateEmbedded($template_create_embedded_request): \Dropbox\Sign\Model\TemplateCreateEmbeddedResponse
+```
+
+Create Embedded Template
+
+Creates a template that can then be used.
+
+### Example
+
+```php
+REPLACE_ME_WITH_EXAMPLE_FOR__templateCreateEmbedded_PHP_CODE
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_create_embedded_request** | [**\Dropbox\Sign\Model\TemplateCreateEmbeddedRequest**](../Model/TemplateCreateEmbeddedRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse**](../Model/TemplateCreateEmbeddedResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
