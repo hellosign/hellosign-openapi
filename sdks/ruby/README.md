@@ -293,6 +293,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::TemplateCreateEmbeddedDraftResponseTemplate](docs/TemplateCreateEmbeddedDraftResponseTemplate.md)
  - [Dropbox::Sign::TemplateCreateEmbeddedRequest](docs/TemplateCreateEmbeddedRequest.md)
  - [Dropbox::Sign::TemplateCreateEmbeddedResponse](docs/TemplateCreateEmbeddedResponse.md)
+ - [Dropbox::Sign::TemplateCreateEmbeddedResponseTemplate](docs/TemplateCreateEmbeddedResponseTemplate.md)
  - [Dropbox::Sign::TemplateEditResponse](docs/TemplateEditResponse.md)
  - [Dropbox::Sign::TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Dropbox::Sign::TemplateListResponse](docs/TemplateListResponse.md)

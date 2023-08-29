@@ -17,19 +17,16 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  class TemplateCreateEmbeddedResponse
-    # @return [TemplateCreateEmbeddedResponse]
-    attr_accessor :template
-
-    # A list of warnings.
-    # @return [Array<WarningResponse>]
-    attr_accessor :warnings
+  # Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+  class TemplateCreateEmbeddedResponseTemplate
+    # The id of the Template.
+    # @return [String]
+    attr_accessor :template_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'template' => :'template',
-        :'warnings' => :'warnings'
+        :'template_id' => :'template_id'
       }
     end
 
@@ -46,8 +43,7 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'template' => :'TemplateCreateEmbeddedResponse',
-        :'warnings' => :'Array<WarningResponse>'
+        :'template_id' => :'String'
       }
     end
 
@@ -69,37 +65,31 @@ module Dropbox::Sign
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [TemplateCreateEmbeddedResponse]
+    # @return [TemplateCreateEmbeddedResponseTemplate]
     def self.init(data)
       return ApiClient.default.convert_to_type(
         data,
-        "TemplateCreateEmbeddedResponse"
-      ) || TemplateCreateEmbeddedResponse.new
+        "TemplateCreateEmbeddedResponseTemplate"
+      ) || TemplateCreateEmbeddedResponseTemplate.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::TemplateCreateEmbeddedResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::TemplateCreateEmbeddedResponseTemplate` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::TemplateCreateEmbeddedResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::TemplateCreateEmbeddedResponseTemplate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'template')
-        self.template = attributes[:'template']
-      end
-
-      if attributes.key?(:'warnings')
-        if (value = attributes[:'warnings']).is_a?(Array)
-          self.warnings = value
-        end
+      if attributes.key?(:'template_id')
+        self.template_id = attributes[:'template_id']
       end
     end
 
@@ -121,8 +111,7 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          template == o.template &&
-          warnings == o.warnings
+          template_id == o.template_id
     end
 
     # @see the `==` method
@@ -134,7 +123,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template, warnings].hash
+      [template_id].hash
     end
 
     # Builds the object from hash
