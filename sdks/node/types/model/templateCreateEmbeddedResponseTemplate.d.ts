@@ -1,10 +1,10 @@
 import { AttributeTypeMap } from "./";
 import { WarningResponse } from "./warningResponse";
-export declare class TemplateCreateEmbeddedResponse {
-    "template"?: TemplateCreateEmbeddedResponse;
+export declare class TemplateCreateEmbeddedResponseTemplate {
+    "templateId"?: string;
     "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
-    static init(data: any): TemplateCreateEmbeddedResponse;
+    static init(data: any): TemplateCreateEmbeddedResponseTemplate;
 }

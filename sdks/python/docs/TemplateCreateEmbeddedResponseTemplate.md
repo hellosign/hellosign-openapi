@@ -1,12 +1,12 @@
-# TemplateCreateEmbeddedResponse
+# TemplateCreateEmbeddedResponseTemplate
 
-
+Template object with parameters: `template_id`, `edit_url`, `expires_at`.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template` | [```TemplateCreateEmbeddedResponse```](TemplateCreateEmbeddedResponse.md) |    |  |
+| `template_id` | ```str``` |  The id of the Template.  |  |
 | `warnings` | [```[WarningResponse]```](WarningResponse.md) |  A list of warnings.  |  |
 
 

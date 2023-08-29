@@ -18371,6 +18371,7 @@ __export(api_exports, {
   TemplateCreateEmbeddedDraftResponseTemplate: () => TemplateCreateEmbeddedDraftResponseTemplate,
   TemplateCreateEmbeddedRequest: () => TemplateCreateEmbeddedRequest,
   TemplateCreateEmbeddedResponse: () => TemplateCreateEmbeddedResponse,
+  TemplateCreateEmbeddedResponseTemplate: () => TemplateCreateEmbeddedResponseTemplate,
   TemplateEditResponse: () => TemplateEditResponse,
   TemplateGetResponse: () => TemplateGetResponse,
   TemplateListResponse: () => TemplateListResponse,
@@ -23873,7 +23874,34 @@ TemplateCreateEmbeddedResponse.attributeTypeMap = [
   {
     name: "template",
     baseName: "template",
-    type: "TemplateResponse"
+    type: "TemplateCreateEmbeddedResponse"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "Array<WarningResponse>"
+  }
+];
+
+// model/templateCreateEmbeddedResponseTemplate.ts
+var _TemplateCreateEmbeddedResponseTemplate = class {
+  static getAttributeTypeMap() {
+    return _TemplateCreateEmbeddedResponseTemplate.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateCreateEmbeddedResponseTemplate"
+    );
+  }
+};
+var TemplateCreateEmbeddedResponseTemplate = _TemplateCreateEmbeddedResponseTemplate;
+TemplateCreateEmbeddedResponseTemplate.discriminator = void 0;
+TemplateCreateEmbeddedResponseTemplate.attributeTypeMap = [
+  {
+    name: "templateId",
+    baseName: "template_id",
+    type: "string"
   },
   {
     name: "warnings",
@@ -26274,6 +26302,7 @@ var typeMap = {
   TemplateCreateEmbeddedDraftResponseTemplate,
   TemplateCreateEmbeddedRequest,
   TemplateCreateEmbeddedResponse,
+  TemplateCreateEmbeddedResponseTemplate,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
@@ -33498,6 +33527,7 @@ var APIS = [
   TemplateCreateEmbeddedDraftResponseTemplate,
   TemplateCreateEmbeddedRequest,
   TemplateCreateEmbeddedResponse,
+  TemplateCreateEmbeddedResponseTemplate,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,

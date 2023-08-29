@@ -35,71 +35,72 @@ import com.dropbox.sign.JSON;
 
 import com.dropbox.sign.ApiException;
 /**
- * TemplateCreateEmbeddedResponse
+ * Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
  */
+@ApiModel(description = "Template object with parameters: `template_id`, `edit_url`, `expires_at`.")
 @JsonPropertyOrder({
-    TemplateCreateEmbeddedResponse.JSON_PROPERTY_TEMPLATE,
-    TemplateCreateEmbeddedResponse.JSON_PROPERTY_WARNINGS
+    TemplateCreateEmbeddedResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
+    TemplateCreateEmbeddedResponseTemplate.JSON_PROPERTY_WARNINGS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TemplateCreateEmbeddedResponse {
-  public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private TemplateCreateEmbeddedResponse template;
+public class TemplateCreateEmbeddedResponseTemplate {
+  public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
+  private String templateId;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<WarningResponse> warnings = null;
 
-  public TemplateCreateEmbeddedResponse() { 
+  public TemplateCreateEmbeddedResponseTemplate() { 
   }
 
   /**
    * Attempt to instantiate and hydrate a new instance of this class
    * @param jsonData String of JSON data representing target object
    */
-  static public TemplateCreateEmbeddedResponse init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, TemplateCreateEmbeddedResponse.class);
+  static public TemplateCreateEmbeddedResponseTemplate init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, TemplateCreateEmbeddedResponseTemplate.class);
   }
 
-  static public TemplateCreateEmbeddedResponse init(HashMap data) throws Exception {
+  static public TemplateCreateEmbeddedResponseTemplate init(HashMap data) throws Exception {
     return new ObjectMapper().readValue(
       new ObjectMapper().writeValueAsString(data),
-      TemplateCreateEmbeddedResponse.class
+      TemplateCreateEmbeddedResponseTemplate.class
     );
   }
 
-  public TemplateCreateEmbeddedResponse template(TemplateCreateEmbeddedResponse template) {
-    this.template = template;
+  public TemplateCreateEmbeddedResponseTemplate templateId(String templateId) {
+    this.templateId = templateId;
     return this;
   }
 
    /**
-   * Get template
-   * @return template
+   * The id of the Template.
+   * @return templateId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @ApiModelProperty(value = "The id of the Template.")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TemplateCreateEmbeddedResponse getTemplate() {
-    return template;
+  public String getTemplateId() {
+    return templateId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(TemplateCreateEmbeddedResponse template) {
-    this.template = template;
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
   }
 
 
-  public TemplateCreateEmbeddedResponse warnings(List<WarningResponse> warnings) {
+  public TemplateCreateEmbeddedResponseTemplate warnings(List<WarningResponse> warnings) {
     this.warnings = warnings;
     return this;
   }
 
-  public TemplateCreateEmbeddedResponse addWarningsItem(WarningResponse warningsItem) {
+  public TemplateCreateEmbeddedResponseTemplate addWarningsItem(WarningResponse warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
     }
@@ -129,7 +130,7 @@ public class TemplateCreateEmbeddedResponse {
 
 
   /**
-   * Return true if this TemplateCreateEmbeddedResponse object is equal to o.
+   * Return true if this TemplateCreateEmbeddedResponseTemplate object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -139,21 +140,21 @@ public class TemplateCreateEmbeddedResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TemplateCreateEmbeddedResponse templateCreateEmbeddedResponse = (TemplateCreateEmbeddedResponse) o;
-    return Objects.equals(this.template, templateCreateEmbeddedResponse.template) &&
-        Objects.equals(this.warnings, templateCreateEmbeddedResponse.warnings);
+    TemplateCreateEmbeddedResponseTemplate templateCreateEmbeddedResponseTemplate = (TemplateCreateEmbeddedResponseTemplate) o;
+    return Objects.equals(this.templateId, templateCreateEmbeddedResponseTemplate.templateId) &&
+        Objects.equals(this.warnings, templateCreateEmbeddedResponseTemplate.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(template, warnings);
+    return Objects.hash(templateId, warnings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TemplateCreateEmbeddedResponse {\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("class TemplateCreateEmbeddedResponseTemplate {\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -163,23 +164,23 @@ public class TemplateCreateEmbeddedResponse {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
-    if (template != null) {
-        if (isFileTypeOrListOfFiles(template)) {
+    if (templateId != null) {
+        if (isFileTypeOrListOfFiles(templateId)) {
             fileTypeFound = true;
         }
 
-        if (template.getClass().equals(java.io.File.class) ||
-            template.getClass().equals(Integer.class) ||
-            template.getClass().equals(String.class) ||
-            template.getClass().isEnum()) {
-            map.put("template", template);
-        } else if (isListOfFile(template)) {
-            for(int i = 0; i< getListSize(template); i++) {
-                map.put("template[" + i + "]", getFromList(template, i));
+        if (templateId.getClass().equals(java.io.File.class) ||
+            templateId.getClass().equals(Integer.class) ||
+            templateId.getClass().equals(String.class) ||
+            templateId.getClass().isEnum()) {
+            map.put("template_id", templateId);
+        } else if (isListOfFile(templateId)) {
+            for(int i = 0; i< getListSize(templateId); i++) {
+                map.put("template_id[" + i + "]", getFromList(templateId, i));
             }
         }
         else {
-            map.put("template", JSON.getDefault().getMapper().writeValueAsString(template));
+            map.put("template_id", JSON.getDefault().getMapper().writeValueAsString(templateId));
         }
     }
     if (warnings != null) {

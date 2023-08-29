@@ -25,8 +25,14 @@
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { WarningResponse } from "./warningResponse";
 
-export class TemplateCreateEmbeddedResponse {
-  "template"?: TemplateCreateEmbeddedResponse;
+/**
+ * Template object with parameters: `template_id`, `edit_url`, `expires_at`.
+ */
+export class TemplateCreateEmbeddedResponseTemplate {
+  /**
+   * The id of the Template.
+   */
+  "templateId"?: string;
   /**
    * A list of warnings.
    */
@@ -36,9 +42,9 @@ export class TemplateCreateEmbeddedResponse {
 
   static attributeTypeMap: AttributeTypeMap = [
     {
-      name: "template",
-      baseName: "template",
-      type: "TemplateCreateEmbeddedResponse",
+      name: "templateId",
+      baseName: "template_id",
+      type: "string",
     },
     {
       name: "warnings",
@@ -48,11 +54,14 @@ export class TemplateCreateEmbeddedResponse {
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TemplateCreateEmbeddedResponse.attributeTypeMap;
+    return TemplateCreateEmbeddedResponseTemplate.attributeTypeMap;
   }
 
   /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data: any): TemplateCreateEmbeddedResponse {
-    return ObjectSerializer.deserialize(data, "TemplateCreateEmbeddedResponse");
+  static init(data: any): TemplateCreateEmbeddedResponseTemplate {
+    return ObjectSerializer.deserialize(
+      data,
+      "TemplateCreateEmbeddedResponseTemplate"
+    );
   }
 }

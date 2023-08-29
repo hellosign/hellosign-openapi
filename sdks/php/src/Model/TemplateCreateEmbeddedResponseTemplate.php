@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateCreateEmbeddedResponse
+ * TemplateCreateEmbeddedResponseTemplate
  *
  * PHP version 7.4
  *
@@ -34,9 +34,10 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * TemplateCreateEmbeddedResponse Class Doc Comment
+ * TemplateCreateEmbeddedResponseTemplate Class Doc Comment
  *
  * @category Class
+ * @description Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
  * @author   OpenAPI Generator team
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -44,7 +45,7 @@ use ReturnTypeWillChange;
  * @template TValue mixed|null
  * @internal This class should not be instantiated directly
  */
-class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +54,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateCreateEmbeddedResponse';
+    protected static $openAPIModelName = 'TemplateCreateEmbeddedResponseTemplate';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +62,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse',
+        'template_id' => 'string',
         'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
@@ -73,7 +74,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'template' => null,
+        'template_id' => null,
         'warnings' => null,
     ];
 
@@ -104,7 +105,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'template' => 'template',
+        'template_id' => 'template_id',
         'warnings' => 'warnings',
     ];
 
@@ -114,7 +115,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $setters = [
-        'template' => 'setTemplate',
+        'template_id' => 'setTemplateId',
         'warnings' => 'setWarnings',
     ];
 
@@ -124,7 +125,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $getters = [
-        'template' => 'getTemplate',
+        'template_id' => 'getTemplateId',
         'warnings' => 'getWarnings',
     ];
 
@@ -184,23 +185,23 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['template'] = $data['template'] ?? null;
+        $this->container['template_id'] = $data['template_id'] ?? null;
         $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /** @deprecated use ::init() */
-    public static function fromArray(array $data): TemplateCreateEmbeddedResponse
+    public static function fromArray(array $data): TemplateCreateEmbeddedResponseTemplate
     {
         return self::init($data);
     }
 
     /** Attempt to instantiate and hydrate a new instance of this class */
-    public static function init(array $data): TemplateCreateEmbeddedResponse
+    public static function init(array $data): TemplateCreateEmbeddedResponseTemplate
     {
-        /** @var TemplateCreateEmbeddedResponse $obj */
+        /** @var TemplateCreateEmbeddedResponseTemplate $obj */
         $obj = ObjectSerializer::deserialize(
             $data,
-            TemplateCreateEmbeddedResponse::class,
+            TemplateCreateEmbeddedResponseTemplate::class,
         );
 
         return $obj;
@@ -230,25 +231,25 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
     }
 
     /**
-     * Gets template
+     * Gets template_id
      *
-     * @return TemplateCreateEmbeddedResponse|null
+     * @return string|null
      */
-    public function getTemplate()
+    public function getTemplateId()
     {
-        return $this->container['template'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets template
+     * Sets template_id
      *
-     * @param TemplateCreateEmbeddedResponse|null $template template
+     * @param string|null $template_id the id of the Template
      *
      * @return self
      */
-    public function setTemplate(?TemplateCreateEmbeddedResponse $template)
+    public function setTemplateId(?string $template_id)
     {
-        $this->container['template'] = $template;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }
