@@ -6263,6 +6263,9 @@ components:
               type: string
             validation_custom_regex_format_label:
               type: string
+            content:
+              description: '_t__Sub::FormFieldsPerDocument::CONTENT_TEXT'
+              type: string
             font_family:
               description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
               type: string

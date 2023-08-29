@@ -22406,6 +22406,11 @@ SubFormFieldsPerDocumentText.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "content",
+    baseName: "content",
+    type: "string"
+  },
+  {
     name: "fontFamily",
     baseName: "font_family",
     type: "SubFormFieldsPerDocumentText.FontFamilyEnum"

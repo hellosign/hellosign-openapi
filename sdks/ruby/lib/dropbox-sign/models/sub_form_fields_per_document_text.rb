@@ -49,6 +49,10 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :validation_custom_regex_format_label
 
+    # Content of a `me_now` text field
+    # @return [String]
+    attr_accessor :content
+
     # Font family for the field.
     # @return [String]
     attr_accessor :font_family
@@ -90,6 +94,7 @@ module Dropbox::Sign
         :'validation_type' => :'validation_type',
         :'validation_custom_regex' => :'validation_custom_regex',
         :'validation_custom_regex_format_label' => :'validation_custom_regex_format_label',
+        :'content' => :'content',
         :'font_family' => :'font_family',
         :'font_size' => :'font_size'
       }
@@ -116,6 +121,7 @@ module Dropbox::Sign
         :'validation_type' => :'String',
         :'validation_custom_regex' => :'String',
         :'validation_custom_regex_format_label' => :'String',
+        :'content' => :'String',
         :'font_family' => :'String',
         :'font_size' => :'Integer'
       }
@@ -199,6 +205,10 @@ module Dropbox::Sign
         self.validation_custom_regex_format_label = attributes[:'validation_custom_regex_format_label']
       end
 
+      if attributes.key?(:'content')
+        self.content = attributes[:'content']
+      end
+
       if attributes.key?(:'font_family')
         self.font_family = attributes[:'font_family']
       end
@@ -263,6 +273,7 @@ module Dropbox::Sign
           validation_type == o.validation_type &&
           validation_custom_regex == o.validation_custom_regex &&
           validation_custom_regex_format_label == o.validation_custom_regex_format_label &&
+          content == o.content &&
           font_family == o.font_family &&
           font_size == o.font_size && super(o)
     end
@@ -276,7 +287,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, placeholder, auto_fill_type, link_id, masked, validation_type, validation_custom_regex, validation_custom_regex_format_label, font_family, font_size].hash
+      [type, placeholder, auto_fill_type, link_id, masked, validation_type, validation_custom_regex, validation_custom_regex_format_label, content, font_family, font_size].hash
     end
 
     # Builds the object from hash

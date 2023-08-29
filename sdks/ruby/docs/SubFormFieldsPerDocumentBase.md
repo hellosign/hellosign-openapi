@@ -23,7 +23,7 @@ The fields that should appear on the document, expressed as an array of objects.
 | `api_id`<sup>*_required_</sup> | ```String``` |  An identifier for the field that is unique across all documents in the request.  |  |
 | `height`<sup>*_required_</sup> | ```Integer``` |  Size of the field in pixels.  |  |
 | `required`<sup>*_required_</sup> | ```Boolean``` |  Whether this field is required.  |  |
-| `signer`<sup>*_required_</sup> | ```String``` |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  |  |
+| `signer`<sup>*_required_</sup> | ```String``` |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE**: To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  |  |
 | `type`<sup>*_required_</sup> | ```String``` |    |  |
 | `width`<sup>*_required_</sup> | ```Integer``` |  Size of the field in pixels.  |  |
 | `x`<sup>*_required_</sup> | ```Integer``` |  Location coordinates of the field in pixels.  |  |
