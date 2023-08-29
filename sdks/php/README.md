@@ -333,7 +333,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TemplateCreateEmbeddedDraftResponseTemplate](docs/Model/TemplateCreateEmbeddedDraftResponseTemplate.md)
 - [TemplateCreateEmbeddedRequest](docs/Model/TemplateCreateEmbeddedRequest.md)
 - [TemplateCreateEmbeddedResponse](docs/Model/TemplateCreateEmbeddedResponse.md)
-- [TemplateCreateEmbeddedResponseTemplate](docs/Model/TemplateCreateEmbeddedResponseTemplate.md)
 - [TemplateEditResponse](docs/Model/TemplateEditResponse.md)
 - [TemplateGetResponse](docs/Model/TemplateGetResponse.md)
 - [TemplateListResponse](docs/Model/TemplateListResponse.md)

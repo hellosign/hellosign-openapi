@@ -61,7 +61,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse',
+        'template' => '\Dropbox\Sign\Model\TemplateResponse',
         'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
@@ -232,7 +232,7 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
     /**
      * Gets template
      *
-     * @return TemplateCreateEmbeddedResponse|null
+     * @return TemplateResponse|null
      */
     public function getTemplate()
     {
@@ -242,11 +242,11 @@ class TemplateCreateEmbeddedResponse implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets template
      *
-     * @param TemplateCreateEmbeddedResponse|null $template template
+     * @param TemplateResponse|null $template template
      *
      * @return self
      */
-    public function setTemplate(?TemplateCreateEmbeddedResponse $template)
+    public function setTemplate(?TemplateResponse $template)
     {
         $this->container['template'] = $template;
 

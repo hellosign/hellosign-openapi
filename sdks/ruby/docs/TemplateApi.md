@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [`template_add_user`](TemplateApi.md#template_add_user) | **POST** `/template/add_user/{template_id}` | Add User to Template |
+| [`template_create_embedded`](TemplateApi.md#template_create_embedded) | **POST** `/template/create_embedded` | Create Embedded Template |
 | [`template_create_embedded_draft`](TemplateApi.md#template_create_embedded_draft) | **POST** `/template/create_embedded_draft` | Create Embedded Template Draft |
 | [`template_delete`](TemplateApi.md#template_delete) | **POST** `/template/delete/{template_id}` | Delete Template |
 | [`template_files`](TemplateApi.md#template_files) | **GET** `/template/files/{template_id}` | Get Template Files |
@@ -89,6 +90,107 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## `template_create_embedded`
+
+> `<TemplateCreateEmbeddedResponse> template_create_embedded(template_create_embedded_request)`
+
+Create Embedded Template
+
+Creates a template that can then be used.
+
+### Examples
+
+```ruby
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  # Configure HTTP basic authorization: api_key
+  config.username = "YOUR_API_KEY"
+
+  # or, configure Bearer (JWT) authorization: oauth2
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+template_api = Dropbox::Sign::TemplateApi.new
+
+role_1 = Dropbox::Sign::SubTemplateRole.new
+role_1.name = "Client"
+role_1.order = 0
+
+role_2 = Dropbox::Sign::SubTemplateRole.new
+role_2.name = "Witness"
+role_2.order = 1
+
+merge_field_1 = Dropbox::Sign::SubMergeField.new
+merge_field_1.name = "Full Name"
+merge_field_1.type = "text"
+
+merge_field_2 = Dropbox::Sign::SubMergeField.new
+merge_field_2.name = "Is Registered?"
+merge_field_2.type = "checkbox"
+
+field_options = Dropbox::Sign::SubFieldOptions.new
+field_options.date_format = "DD - MM - YYYY"
+
+data = Dropbox::Sign::TemplateCreateEmbeddedRequest.new
+data.client_id = "37dee8d8440c66d54cfa05d92c160882"
+data.files = [File.new("example_signature_request.pdf", "r")]
+data.title = "Test Template"
+data.subject = "Please sign this document"
+data.message = "For your approval"
+data.signer_roles = [role_1, role_2]
+data.cc_roles = ["Manager"]
+data.merge_fields = [merge_field_1, merge_field_2]
+data.field_options = field_options
+data.test_mode = true
+
+begin
+  result = template_api.template_create_embedded(data)
+  p result
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling Dropbox Sign API: #{e}"
+end
+
+```
+
+#### Using the `template_create_embedded_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<TemplateCreateEmbeddedResponse>, Integer, Hash)> template_create_embedded_with_http_info(template_create_embedded_request)`
+
+```ruby
+begin
+  # Create Embedded Template
+  data, status_code, headers = api_instance.template_create_embedded_with_http_info(template_create_embedded_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TemplateCreateEmbeddedResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling TemplateApi->template_create_embedded_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_create_embedded_request` | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md) |  |  |
+
+### Return type
+
+[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
 - **Accept**: application/json
 
 

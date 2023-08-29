@@ -4638,7 +4638,7 @@ paths:
         - Template
       summary: 'Create Embedded Template'
       description: 'Creates a template that can then be used.'
-      operationId: TemplateCreateEmbedded
+      operationId: templateCreateEmbedded
       requestBody:
         required: true
         content:

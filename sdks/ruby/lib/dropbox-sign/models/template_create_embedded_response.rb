@@ -17,73 +17,43 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # This class extends `SubFormFieldsPerDocumentBase`.
-  class SubFormFieldsPerDocumentTextMerge < SubFormFieldsPerDocumentBase
-    # A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.
-    # @return [String]
-    attr_accessor :type
+  class TemplateCreateEmbeddedResponse
+    # @return [TemplateResponse]
+    attr_accessor :template
 
-    # Font family for the field.
-    # @return [String]
-    attr_accessor :font_family
-
-    # The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-    # @return [Integer]
-    attr_accessor :font_size
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # A list of warnings.
+    # @return [Array<WarningResponse>]
+    attr_accessor :warnings
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'font_family' => :'font_family',
-        :'font_size' => :'font_size'
+        :'template' => :'template',
+        :'warnings' => :'warnings'
       }
     end
 
-    # Returns all the JSON keys this model knows about, including the ones defined in its parent(s)
+    # Returns all the JSON keys this model knows about
     def self.acceptable_attributes
-      attribute_map.values.concat(superclass.acceptable_attributes)
+      attribute_map.values
     end
 
     # Returns attribute map of this model + parent
     def self.merged_attributes
-      self.superclass.attribute_map.merge(self.attribute_map)
+      self.attribute_map
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
-        :'font_family' => :'String',
-        :'font_size' => :'Integer'
+        :'template' => :'TemplateResponse',
+        :'warnings' => :'Array<WarningResponse>'
       }
     end
 
     # Attribute type mapping of this model + parent
     def self.merged_types
-      self.superclass.openapi_types.merge(self.openapi_types)
+      self.openapi_types
     end
 
     # List of attributes with nullable: true
@@ -94,80 +64,56 @@ module Dropbox::Sign
 
     # Returns list of attributes with nullable: true of this model + parent
     def self.merged_nullable
-      self.superclass.openapi_nullable.merge(self.openapi_nullable)
+      self.openapi_nullable
     end
 
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
-    # @return [SubFormFieldsPerDocumentTextMerge]
+    # @return [TemplateCreateEmbeddedResponse]
     def self.init(data)
       return ApiClient.default.convert_to_type(
         data,
-        "SubFormFieldsPerDocumentTextMerge"
-      ) || SubFormFieldsPerDocumentTextMerge.new
+        "TemplateCreateEmbeddedResponse"
+      ) || TemplateCreateEmbeddedResponse.new
     end
 
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::SubFormFieldsPerDocumentTextMerge` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Dropbox::Sign::TemplateCreateEmbeddedResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.merged_attributes.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::SubFormFieldsPerDocumentTextMerge`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Dropbox::Sign::TemplateCreateEmbeddedResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      # call parent's initialize
-      super(attributes)
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      else
-        self.type = 'text-merge'
+      if attributes.key?(:'template')
+        self.template = attributes[:'template']
       end
 
-      if attributes.key?(:'font_family')
-        self.font_family = attributes[:'font_family']
-      end
-
-      if attributes.key?(:'font_size')
-        self.font_size = attributes[:'font_size']
+      if attributes.key?(:'warnings')
+        if (value = attributes[:'warnings']).is_a?(Array)
+          self.warnings = value
+        end
       end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
-      invalid_properties = super
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
+      invalid_properties = Array.new
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @type.nil?
-      font_family_validator = EnumAttributeValidator.new('String', ["helvetica", "arial", "courier", "calibri", "cambria", "georgia", "times", "trebuchet", "verdana", "roboto", "robotoMono", "notoSans", "notoSerif", "notoCJK-JP-Regular", "notoHebrew-Regular", "notoSanThaiMerged"])
-      return false unless font_family_validator.valid?(@font_family)
-      true && super
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] font_family Object to be assigned
-    def font_family=(font_family)
-      validator = EnumAttributeValidator.new('String', ["helvetica", "arial", "courier", "calibri", "cambria", "georgia", "times", "trebuchet", "verdana", "roboto", "robotoMono", "notoSans", "notoSerif", "notoCJK-JP-Regular", "notoHebrew-Regular", "notoSanThaiMerged"])
-      unless validator.valid?(font_family)
-        fail ArgumentError, "invalid value for \"font_family\", must be one of #{validator.allowable_values}."
-      end
-      @font_family = font_family
+      true
     end
 
     # Checks equality by comparing each attribute.
@@ -175,9 +121,8 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          font_family == o.font_family &&
-          font_size == o.font_size && super(o)
+          template == o.template &&
+          warnings == o.warnings
     end
 
     # @see the `==` method
@@ -189,7 +134,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, font_family, font_size].hash
+      [template, warnings].hash
     end
 
     # Builds the object from hash
@@ -204,7 +149,6 @@ module Dropbox::Sign
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
-      super(attributes)
       attribute_map = self.class.merged_attributes
 
       self.class.merged_types.each_pair do |key, type|
@@ -282,7 +226,7 @@ module Dropbox::Sign
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
     def to_hash(include_nil = true)
-      hash = super
+      hash = {}
       self.class.merged_attributes.each_pair do |attr, param|
         value = self.send(attr)
         if value.nil?

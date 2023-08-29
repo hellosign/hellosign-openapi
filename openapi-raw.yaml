@@ -4589,7 +4589,7 @@ paths:
         - Template
       summary: '_t__TemplateCreateEmbedded::SUMMARY'
       description: '_t__TemplateCreateEmbedded::DESCRIPTION'
-      operationId: TemplateCreateEmbedded
+      operationId: templateCreateEmbedded
       requestBody:
         required: true
         content:

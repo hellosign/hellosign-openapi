@@ -29,6 +29,8 @@ from dropbox_sign.model.file_response_data_uri import FileResponseDataUri
 from dropbox_sign.model.template_add_user_request import TemplateAddUserRequest
 from dropbox_sign.model.template_create_embedded_draft_request import TemplateCreateEmbeddedDraftRequest
 from dropbox_sign.model.template_create_embedded_draft_response import TemplateCreateEmbeddedDraftResponse
+from dropbox_sign.model.template_create_embedded_request import TemplateCreateEmbeddedRequest
+from dropbox_sign.model.template_create_embedded_response import TemplateCreateEmbeddedResponse
 from dropbox_sign.model.template_get_response import TemplateGetResponse
 from dropbox_sign.model.template_list_response import TemplateListResponse
 from dropbox_sign.model.template_remove_user_request import TemplateRemoveUserRequest
@@ -102,6 +104,60 @@ class TemplateApi(object):
                 ],
                 'content_type': [
                     'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.template_create_embedded_endpoint = _Endpoint(
+            settings={
+                'response_type': (TemplateCreateEmbeddedResponse,),
+                'auth': [
+                    'api_key',
+                    'oauth2'
+                ],
+                'endpoint_path': '/template/create_embedded',
+                'operation_id': 'template_create_embedded',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'template_create_embedded_request',
+                ],
+                'required': [
+                    'template_create_embedded_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'template_create_embedded_request':
+                        (TemplateCreateEmbeddedRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'template_create_embedded_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json',
+                    'multipart/form-data'
                 ]
             },
             api_client=api_client
@@ -711,6 +767,106 @@ class TemplateApi(object):
                 e.body = self.api_client.deserialize(
                     response=type('obj_dict', (object,), {'data': e.body}),
                     response_type=[TemplateGetResponse],
+                    _check_type=True,
+                )
+
+                raise e
+            range_code = "4XX"[0]
+            range_code_left = int(f"{range_code}00")
+            range_code_right = int(f"{range_code}99")
+
+            if range_code_left <= e.status <= range_code_right:
+                e.body = self.api_client.deserialize(
+                    response=type('obj_dict', (object,), {'data': e.body}),
+                    response_type=[ErrorResponse],
+                    _check_type=True,
+                )
+
+                raise e
+
+    def template_create_embedded(
+        self,
+        template_create_embedded_request,
+        **kwargs
+    ) -> TemplateCreateEmbeddedResponse:
+        """Create Embedded Template  # noqa: E501
+
+        Creates a template that can then be used.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.template_create_embedded(template_create_embedded_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            template_create_embedded_request (TemplateCreateEmbeddedRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TemplateCreateEmbeddedResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['template_create_embedded_request'] = \
+            template_create_embedded_request
+        try:
+            return self.template_create_embedded_endpoint.call_with_http_info(**kwargs)
+        except ApiException as e:
+            if e.status == 200:
+                e.body = self.api_client.deserialize(
+                    response=type('obj_dict', (object,), {'data': e.body}),
+                    response_type=[TemplateCreateEmbeddedResponse],
                     _check_type=True,
                 )
 
