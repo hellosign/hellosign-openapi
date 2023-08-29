@@ -32,13 +32,7 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
-if TYPE_CHECKING:
-    from dropbox_sign.model.warning_response import WarningResponse
 
-
-def lazy_import():
-    from dropbox_sign.model.warning_response import WarningResponse
-    globals()['WarningResponse'] = WarningResponse
 
 
 class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
@@ -77,7 +71,6 @@ class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -92,10 +85,8 @@ class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'template_id': (str,),  # noqa: E501
-            'warnings': ([WarningResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -120,7 +111,6 @@ class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
 
     attribute_map = {
         'template_id': 'template_id',  # noqa: E501
-        'warnings': 'warnings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,14 +125,6 @@ class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
     @template_id.setter
     def template_id(self, value: str):
         setattr(self, "template_id", value)
-
-    @property
-    def warnings(self) -> List[WarningResponse]:
-        return self.get("warnings")
-
-    @warnings.setter
-    def warnings(self, value: List[WarningResponse]):
-        setattr(self, "warnings", value)
 
     @classmethod
     @convert_js_args_to_python_args
@@ -181,7 +163,6 @@ class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             template_id (str): The id of the Template.. [optional]  # noqa: E501
-            warnings ([WarningResponse]): A list of warnings.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,7 +245,6 @@ class TemplateCreateEmbeddedResponseTemplate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             template_id (str): The id of the Template.. [optional]  # noqa: E501
-            warnings ([WarningResponse]): A list of warnings.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

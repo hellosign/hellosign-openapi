@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,8 +24,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,17 +36,13 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "Template object with parameters: `template_id`, `edit_url`, `expires_at`.")
 @JsonPropertyOrder({
-    TemplateCreateEmbeddedResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
-    TemplateCreateEmbeddedResponseTemplate.JSON_PROPERTY_WARNINGS
+    TemplateCreateEmbeddedResponseTemplate.JSON_PROPERTY_TEMPLATE_ID
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateCreateEmbeddedResponseTemplate {
   public static final String JSON_PROPERTY_TEMPLATE_ID = "template_id";
   private String templateId;
-
-  public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = null;
 
   public TemplateCreateEmbeddedResponseTemplate() { 
   }
@@ -95,40 +88,6 @@ public class TemplateCreateEmbeddedResponseTemplate {
   }
 
 
-  public TemplateCreateEmbeddedResponseTemplate warnings(List<WarningResponse> warnings) {
-    this.warnings = warnings;
-    return this;
-  }
-
-  public TemplateCreateEmbeddedResponseTemplate addWarningsItem(WarningResponse warningsItem) {
-    if (this.warnings == null) {
-      this.warnings = new ArrayList<>();
-    }
-    this.warnings.add(warningsItem);
-    return this;
-  }
-
-   /**
-   * A list of warnings.
-   * @return warnings
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<WarningResponse> getWarnings() {
-    return warnings;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarnings(List<WarningResponse> warnings) {
-    this.warnings = warnings;
-  }
-
-
   /**
    * Return true if this TemplateCreateEmbeddedResponseTemplate object is equal to o.
    */
@@ -141,13 +100,12 @@ public class TemplateCreateEmbeddedResponseTemplate {
       return false;
     }
     TemplateCreateEmbeddedResponseTemplate templateCreateEmbeddedResponseTemplate = (TemplateCreateEmbeddedResponseTemplate) o;
-    return Objects.equals(this.templateId, templateCreateEmbeddedResponseTemplate.templateId) &&
-        Objects.equals(this.warnings, templateCreateEmbeddedResponseTemplate.warnings);
+    return Objects.equals(this.templateId, templateCreateEmbeddedResponseTemplate.templateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, warnings);
+    return Objects.hash(templateId);
   }
 
   @Override
@@ -155,7 +113,6 @@ public class TemplateCreateEmbeddedResponseTemplate {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateCreateEmbeddedResponseTemplate {\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
-    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -181,25 +138,6 @@ public class TemplateCreateEmbeddedResponseTemplate {
         }
         else {
             map.put("template_id", JSON.getDefault().getMapper().writeValueAsString(templateId));
-        }
-    }
-    if (warnings != null) {
-        if (isFileTypeOrListOfFiles(warnings)) {
-            fileTypeFound = true;
-        }
-
-        if (warnings.getClass().equals(java.io.File.class) ||
-            warnings.getClass().equals(Integer.class) ||
-            warnings.getClass().equals(String.class) ||
-            warnings.getClass().isEnum()) {
-            map.put("warnings", warnings);
-        } else if (isListOfFile(warnings)) {
-            for(int i = 0; i< getListSize(warnings); i++) {
-                map.put("warnings[" + i + "]", getFromList(warnings, i));
-            }
-        }
-        else {
-            map.put("warnings", JSON.getDefault().getMapper().writeValueAsString(warnings));
         }
     }
     } catch (Exception e) {

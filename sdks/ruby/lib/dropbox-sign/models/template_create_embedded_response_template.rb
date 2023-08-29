@@ -23,15 +23,10 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :template_id
 
-    # A list of warnings.
-    # @return [Array<WarningResponse>]
-    attr_accessor :warnings
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'template_id' => :'template_id',
-        :'warnings' => :'warnings'
+        :'template_id' => :'template_id'
       }
     end
 
@@ -48,8 +43,7 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'template_id' => :'String',
-        :'warnings' => :'Array<WarningResponse>'
+        :'template_id' => :'String'
       }
     end
 
@@ -97,12 +91,6 @@ module Dropbox::Sign
       if attributes.key?(:'template_id')
         self.template_id = attributes[:'template_id']
       end
-
-      if attributes.key?(:'warnings')
-        if (value = attributes[:'warnings']).is_a?(Array)
-          self.warnings = value
-        end
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,8 +111,7 @@ module Dropbox::Sign
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          template_id == o.template_id &&
-          warnings == o.warnings
+          template_id == o.template_id
     end
 
     # @see the `==` method
@@ -136,7 +123,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, warnings].hash
+      [template_id].hash
     end
 
     # Builds the object from hash

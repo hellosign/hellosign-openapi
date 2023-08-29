@@ -171,7 +171,9 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    /**
    * A list of warnings.
    * @return warnings
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)

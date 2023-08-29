@@ -10345,6 +10345,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+          deprecated: true
       type: object
       x-internal: true
     TemplateCreateEmbeddedResponseTemplate:
@@ -10353,11 +10354,6 @@ components:
         template_id:
           description: 'The id of the Template.'
           type: string
-        warnings:
-          description: 'A list of warnings.'
-          type: array
-          items:
-            $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
     TemplateResponseDocument:
@@ -11060,6 +11056,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+          deprecated: true
       type: object
       x-internal: true
     UnclaimedDraftResponse:

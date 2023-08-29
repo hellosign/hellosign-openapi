@@ -258,6 +258,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      * Gets warnings
      *
      * @return WarningResponse[]|null
+     * @deprecated
      */
     public function getWarnings()
     {
@@ -270,6 +271,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      * @param WarningResponse[]|null $warnings a list of warnings
      *
      * @return self
+     * @deprecated
      */
     public function setWarnings(?array $warnings)
     {

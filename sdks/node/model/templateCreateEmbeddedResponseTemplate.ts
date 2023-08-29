@@ -23,7 +23,6 @@
  */
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
-import { WarningResponse } from "./warningResponse";
 
 /**
  * Template object with parameters: `template_id`, `edit_url`, `expires_at`.
@@ -33,10 +32,6 @@ export class TemplateCreateEmbeddedResponseTemplate {
    * The id of the Template.
    */
   "templateId"?: string;
-  /**
-   * A list of warnings.
-   */
-  "warnings"?: Array<WarningResponse>;
 
   static discriminator: string | undefined = undefined;
 
@@ -45,11 +40,6 @@ export class TemplateCreateEmbeddedResponseTemplate {
       name: "templateId",
       baseName: "template_id",
       type: "string",
-    },
-    {
-      name: "warnings",
-      baseName: "warnings",
-      type: "Array<WarningResponse>",
     },
   ];
 

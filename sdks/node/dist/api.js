@@ -23902,11 +23902,6 @@ TemplateCreateEmbeddedResponseTemplate.attributeTypeMap = [
     name: "templateId",
     baseName: "template_id",
     type: "string"
-  },
-  {
-    name: "warnings",
-    baseName: "warnings",
-    type: "Array<WarningResponse>"
   }
 ];
 

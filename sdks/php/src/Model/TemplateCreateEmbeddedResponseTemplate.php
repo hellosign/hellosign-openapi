@@ -63,7 +63,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
      */
     protected static $openAPITypes = [
         'template_id' => 'string',
-        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**
@@ -75,7 +74,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
      */
     protected static $openAPIFormats = [
         'template_id' => null,
-        'warnings' => null,
     ];
 
     /**
@@ -106,7 +104,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'template_id' => 'template_id',
-        'warnings' => 'warnings',
     ];
 
     /**
@@ -116,7 +113,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'template_id' => 'setTemplateId',
-        'warnings' => 'setWarnings',
     ];
 
     /**
@@ -126,7 +122,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'template_id' => 'getTemplateId',
-        'warnings' => 'getWarnings',
     ];
 
     /**
@@ -186,7 +181,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
     public function __construct(array $data = null)
     {
         $this->container['template_id'] = $data['template_id'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -250,30 +244,6 @@ class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAcc
     public function setTemplateId(?string $template_id)
     {
         $this->container['template_id'] = $template_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return WarningResponse[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param WarningResponse[]|null $warnings a list of warnings
-     *
-     * @return self
-     */
-    public function setWarnings(?array $warnings)
-    {
-        $this->container['warnings'] = $warnings;
 
         return $this;
     }

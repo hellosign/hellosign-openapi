@@ -1,8 +1,6 @@
 import { AttributeTypeMap } from "./";
-import { WarningResponse } from "./warningResponse";
 export declare class TemplateCreateEmbeddedResponseTemplate {
     "templateId"?: string;
-    "warnings"?: Array<WarningResponse>;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
