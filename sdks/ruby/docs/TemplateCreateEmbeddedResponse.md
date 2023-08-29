@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template` | [```TemplateResponse```](TemplateResponse.md) |    |  |
+| `template` | [```TemplateCreateEmbeddedResponse```](TemplateCreateEmbeddedResponse.md) |    |  |
 | `warnings` | [```Array<WarningResponse>```](WarningResponse.md) |  A list of warnings.  |  |
 

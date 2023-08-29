@@ -10365,6 +10365,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+          deprecated: true
+      type: object
+      x-internal: true
+    TemplateCreateEmbeddedResponseTemplate:
+      description: 'Template object with parameters: `template_id`, `edit_url`, `expires_at`.'
+      properties:
+        template_id:
+          description: 'The id of the Template.'
+          type: string
       type: object
       x-internal: true
     TemplateCreateEmbeddedResponseTemplate:
@@ -11080,6 +11089,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+          deprecated: true
       type: object
       x-internal: true
     UnclaimedDraftResponse:

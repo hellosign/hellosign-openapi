@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateUpdateFilesResponseTemplate
+ * TemplateCreateEmbeddedResponseTemplate
  *
  * PHP version 7.4
  *
@@ -34,10 +34,10 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * TemplateUpdateFilesResponseTemplate Class Doc Comment
+ * TemplateCreateEmbeddedResponseTemplate Class Doc Comment
  *
  * @category Class
- * @description Contains template id
+ * @description Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
  * @author   OpenAPI Generator team
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -45,7 +45,7 @@ use ReturnTypeWillChange;
  * @template TValue mixed|null
  * @internal This class should not be instantiated directly
  */
-class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess, JsonSerializable
+class TemplateCreateEmbeddedResponseTemplate implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -54,7 +54,7 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateUpdateFilesResponseTemplate';
+    protected static $openAPIModelName = 'TemplateCreateEmbeddedResponseTemplate';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -63,7 +63,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $openAPITypes = [
         'template_id' => 'string',
-        'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
     /**
@@ -75,7 +74,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $openAPIFormats = [
         'template_id' => null,
-        'warnings' => null,
     ];
 
     /**
@@ -106,7 +104,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'template_id' => 'template_id',
-        'warnings' => 'warnings',
     ];
 
     /**
@@ -116,7 +113,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'template_id' => 'setTemplateId',
-        'warnings' => 'setWarnings',
     ];
 
     /**
@@ -126,7 +122,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'template_id' => 'getTemplateId',
-        'warnings' => 'getWarnings',
     ];
 
     /**
@@ -186,22 +181,21 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['template_id'] = $data['template_id'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
     }
 
     /** @deprecated use ::init() */
-    public static function fromArray(array $data): TemplateUpdateFilesResponseTemplate
+    public static function fromArray(array $data): TemplateCreateEmbeddedResponseTemplate
     {
         return self::init($data);
     }
 
     /** Attempt to instantiate and hydrate a new instance of this class */
-    public static function init(array $data): TemplateUpdateFilesResponseTemplate
+    public static function init(array $data): TemplateCreateEmbeddedResponseTemplate
     {
-        /** @var TemplateUpdateFilesResponseTemplate $obj */
+        /** @var TemplateCreateEmbeddedResponseTemplate $obj */
         $obj = ObjectSerializer::deserialize(
             $data,
-            TemplateUpdateFilesResponseTemplate::class,
+            TemplateCreateEmbeddedResponseTemplate::class,
         );
 
         return $obj;
@@ -250,32 +244,6 @@ class TemplateUpdateFilesResponseTemplate implements ModelInterface, ArrayAccess
     public function setTemplateId(?string $template_id)
     {
         $this->container['template_id'] = $template_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return WarningResponse[]|null
-     * @deprecated
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param WarningResponse[]|null $warnings a list of warnings
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setWarnings(?array $warnings)
-    {
-        $this->container['warnings'] = $warnings;
 
         return $this;
     }

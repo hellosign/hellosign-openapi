@@ -312,6 +312,7 @@ Class | Method | HTTP request | Description
  - [Model.TemplateCreateEmbeddedDraftResponseTemplate](docs/TemplateCreateEmbeddedDraftResponseTemplate.md)
  - [Model.TemplateCreateEmbeddedRequest](docs/TemplateCreateEmbeddedRequest.md)
  - [Model.TemplateCreateEmbeddedResponse](docs/TemplateCreateEmbeddedResponse.md)
+ - [Model.TemplateCreateEmbeddedResponseTemplate](docs/TemplateCreateEmbeddedResponseTemplate.md)
  - [Model.TemplateEditResponse](docs/TemplateEditResponse.md)
  - [Model.TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Model.TemplateListResponse](docs/TemplateListResponse.md)

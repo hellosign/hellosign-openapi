@@ -9758,6 +9758,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+          deprecated: true
+      type: object
+      x-internal: true
+    TemplateCreateEmbeddedResponseTemplate:
+      description: '_t__TemplateCreateEmbeddedResponseTemplate::DESCRIPTION'
+      properties:
+        template_id:
+          description: '_t__TemplateResponse::TEMPLATE_ID'
+          type: string
       type: object
       x-internal: true
     TemplateCreateEmbeddedResponseTemplate:
@@ -10300,6 +10309,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WarningResponse'
+          deprecated: true
       type: object
       x-internal: true
     UnclaimedDraftResponse:

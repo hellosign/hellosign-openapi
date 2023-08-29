@@ -42,12 +42,10 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TemplateCreateEmbeddedResponseTemplate" /> class.
         /// </summary>
         /// <param name="templateId">The id of the Template..</param>
-        /// <param name="warnings">A list of warnings..</param>
-        public TemplateCreateEmbeddedResponseTemplate(string templateId = default(string), List<WarningResponse> warnings = default(List<WarningResponse>))
+        public TemplateCreateEmbeddedResponseTemplate(string templateId = default(string))
         {
             
             this.TemplateId = templateId;
-            this.Warnings = warnings;
         }
 
         /// <summary>
@@ -74,13 +72,6 @@ namespace Dropbox.Sign.Model
         public string TemplateId { get; set; }
 
         /// <summary>
-        /// A list of warnings.
-        /// </summary>
-        /// <value>A list of warnings.</value>
-        [DataMember(Name = "warnings", EmitDefaultValue = true)]
-        public List<WarningResponse> Warnings { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,7 +80,6 @@ namespace Dropbox.Sign.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateCreateEmbeddedResponseTemplate {\n");
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
-            sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,12 +119,6 @@ namespace Dropbox.Sign.Model
                     this.TemplateId == input.TemplateId ||
                     (this.TemplateId != null &&
                     this.TemplateId.Equals(input.TemplateId))
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -151,10 +135,6 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();
                 }
-                if (this.Warnings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Warnings.GetHashCode();
-                }
                 return hashCode;
             }
         }
@@ -167,12 +147,6 @@ namespace Dropbox.Sign.Model
                 Property = "TemplateId",
                 Type = "string",
                 Value = TemplateId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "warnings",
-                Property = "Warnings",
-                Type = "List<WarningResponse>",
-                Value = Warnings,
             });
 
             return types;

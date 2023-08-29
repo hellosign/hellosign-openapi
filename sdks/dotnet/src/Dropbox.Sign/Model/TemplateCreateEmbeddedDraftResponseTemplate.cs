@@ -96,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
+        [Obsolete]
         public List<WarningResponse> Warnings { get; set; }
 
         /// <summary>

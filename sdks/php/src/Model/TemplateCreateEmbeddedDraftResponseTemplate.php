@@ -318,6 +318,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      * Gets warnings
      *
      * @return WarningResponse[]|null
+     * @deprecated
      */
     public function getWarnings()
     {
@@ -330,6 +331,7 @@ class TemplateCreateEmbeddedDraftResponseTemplate implements ModelInterface, Arr
      * @param WarningResponse[]|null $warnings a list of warnings
      *
      * @return self
+     * @deprecated
      */
     public function setWarnings(?array $warnings)
     {
