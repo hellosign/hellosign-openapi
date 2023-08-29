@@ -5,6 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[```template_add_user```](TemplateApi.md#template_add_user) | ```POST /template/add_user/{template_id}``` | Add User to Template|
+|[```template_create_embedded```](TemplateApi.md#template_create_embedded) | ```POST /template/create_embedded``` | Create Embedded Template|
 |[```template_create_embedded_draft```](TemplateApi.md#template_create_embedded_draft) | ```POST /template/create_embedded_draft``` | Create Embedded Template Draft|
 |[```template_delete```](TemplateApi.md#template_delete) | ```POST /template/delete/{template_id}``` | Delete Template|
 |[```template_files```](TemplateApi.md#template_files) | ```GET /template/files/{template_id}``` | Get Template Files|
@@ -78,6 +79,110 @@ with ApiClient(configuration) as api_client:
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```template_create_embedded```
+> ```TemplateCreateEmbeddedResponse template_create_embedded(template_create_embedded_request)```
+
+Create Embedded Template
+
+Creates a template that can then be used.
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    template_api = apis.TemplateApi(api_client)
+
+    role_1 = models.SubTemplateRole(
+        name="Client",
+        order=0,
+    )
+
+    role_2 = models.SubTemplateRole(
+        name="Witness",
+        order=1,
+    )
+
+    merge_field_1 = models.SubMergeField(
+        name="Full Name",
+        type="text",
+    )
+
+    merge_field_2 = models.SubMergeField(
+        name="Is Registered?",
+        type="checkbox",
+    )
+
+    field_options = models.SubFieldOptions(
+        date_format="DD - MM - YYYY",
+    )
+
+    data = models.TemplateCreateEmbeddedRequest(
+        client_id="37dee8d8440c66d54cfa05d92c160882",
+        files=[open("example_signature_request.pdf", "rb")],
+        title="Test Template",
+        subject="Please sign this document",
+        message="For your approval",
+        signer_roles=[role_1, role_2],
+        cc_roles=["Manager"],
+        merge_fields=[merge_field_1, merge_field_2],
+        field_options=field_options,
+        test_mode=True,
+    )
+
+    try:
+        response = template_api.template_create_embedded(data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
+```
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `template_create_embedded_request` | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md) |  |  |
+
+### Return type
+
+[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 

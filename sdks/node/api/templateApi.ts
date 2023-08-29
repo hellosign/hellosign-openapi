@@ -40,6 +40,8 @@ import {
   TemplateAddUserRequest,
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
+  TemplateCreateEmbeddedRequest,
+  TemplateCreateEmbeddedResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -288,6 +290,176 @@ export class TemplateApi {
                 body = ObjectSerializer.deserialize(
                   response.data,
                   "TemplateGetResponse"
+                );
+
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (
+                response.status >= rangeCodeLeft &&
+                response.status <= rangeCodeRight
+              ) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * Creates a template that can then be used.
+   * @summary Create Embedded Template
+   * @param templateCreateEmbeddedRequest
+   * @param options
+   */
+  public async templateCreateEmbedded(
+    templateCreateEmbeddedRequest: TemplateCreateEmbeddedRequest,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<TemplateCreateEmbeddedResponse>> {
+    if (
+      templateCreateEmbeddedRequest !== null &&
+      templateCreateEmbeddedRequest !== undefined &&
+      templateCreateEmbeddedRequest.constructor.name !==
+        "TemplateCreateEmbeddedRequest"
+    ) {
+      templateCreateEmbeddedRequest = ObjectSerializer.deserialize(
+        templateCreateEmbeddedRequest,
+        "TemplateCreateEmbeddedRequest"
+      );
+    }
+
+    const localVarPath = this.basePath + "/template/create_embedded";
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'templateCreateEmbeddedRequest' is not null or undefined
+    if (
+      templateCreateEmbeddedRequest === null ||
+      templateCreateEmbeddedRequest === undefined
+    ) {
+      throw new Error(
+        "Required parameter templateCreateEmbeddedRequest was null or undefined when calling templateCreateEmbedded."
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    const result = generateFormData(
+      templateCreateEmbeddedRequest,
+      TemplateCreateEmbeddedRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        templateCreateEmbeddedRequest,
+        "TemplateCreateEmbeddedRequest"
+      );
+    }
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "POST",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data,
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<TemplateCreateEmbeddedResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+
+              if (
+                response.status &&
+                response.status >= 200 &&
+                response.status <= 299
+              ) {
+                body = ObjectSerializer.deserialize(
+                  body,
+                  "TemplateCreateEmbeddedResponse"
+                );
+                resolve({ response: response, body: body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              const response = error.response;
+
+              let body;
+
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "TemplateCreateEmbeddedResponse"
                 );
 
                 reject(new HttpError(response, body, response.status));

@@ -169,7 +169,7 @@ namespace Dropbox.Sign.Model
         /// <param name="options">Array of string values representing dropdown values. (required).</param>
         /// <param name="content">Selected value in &#x60;options&#x60; array. Value must exist in array..</param>
         /// <param name="fontFamily">Font family for the field..</param>
-        /// <param name="fontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field..</param>
+        /// <param name="fontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field..</param>
         /// <param name="documentIndex">Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to. (required).</param>
         /// <param name="apiId">An identifier for the field that is unique across all documents in the request. (required).</param>
         /// <param name="height">Size of the field in pixels. (required).</param>
@@ -248,9 +248,9 @@ namespace Dropbox.Sign.Model
         public string Content { get; set; }
 
         /// <summary>
-        /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+        /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
-        /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.   **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
+        /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
 

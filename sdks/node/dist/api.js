@@ -18369,6 +18369,8 @@ __export(api_exports, {
   TemplateCreateEmbeddedDraftRequest: () => TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse: () => TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate: () => TemplateCreateEmbeddedDraftResponseTemplate,
+  TemplateCreateEmbeddedRequest: () => TemplateCreateEmbeddedRequest,
+  TemplateCreateEmbeddedResponse: () => TemplateCreateEmbeddedResponse,
   TemplateEditResponse: () => TemplateEditResponse,
   TemplateGetResponse: () => TemplateGetResponse,
   TemplateListResponse: () => TemplateListResponse,
@@ -23706,6 +23708,180 @@ TemplateCreateEmbeddedDraftResponseTemplate.attributeTypeMap = [
   }
 ];
 
+// model/templateCreateEmbeddedRequest.ts
+var _TemplateCreateEmbeddedRequest = class {
+  constructor() {
+    this["allowCcs"] = true;
+    this["allowReassign"] = false;
+    this["forceSignerRoles"] = false;
+    this["forceSubjectMessage"] = false;
+    this["showPreview"] = false;
+    this["showProgressStepper"] = true;
+    this["skipMeNow"] = false;
+    this["testMode"] = false;
+    this["usePreexistingFields"] = false;
+  }
+  static getAttributeTypeMap() {
+    return _TemplateCreateEmbeddedRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "TemplateCreateEmbeddedRequest");
+  }
+};
+var TemplateCreateEmbeddedRequest = _TemplateCreateEmbeddedRequest;
+TemplateCreateEmbeddedRequest.discriminator = void 0;
+TemplateCreateEmbeddedRequest.attributeTypeMap = [
+  {
+    name: "clientId",
+    baseName: "client_id",
+    type: "string"
+  },
+  {
+    name: "files",
+    baseName: "files",
+    type: "Array<RequestFile>"
+  },
+  {
+    name: "fileUrls",
+    baseName: "file_urls",
+    type: "Array<string>"
+  },
+  {
+    name: "allowCcs",
+    baseName: "allow_ccs",
+    type: "boolean"
+  },
+  {
+    name: "allowReassign",
+    baseName: "allow_reassign",
+    type: "boolean"
+  },
+  {
+    name: "attachments",
+    baseName: "attachments",
+    type: "Array<SubAttachment>"
+  },
+  {
+    name: "ccRoles",
+    baseName: "cc_roles",
+    type: "Array<string>"
+  },
+  {
+    name: "editorOptions",
+    baseName: "editor_options",
+    type: "SubEditorOptions"
+  },
+  {
+    name: "fieldOptions",
+    baseName: "field_options",
+    type: "SubFieldOptions"
+  },
+  {
+    name: "forceSignerRoles",
+    baseName: "force_signer_roles",
+    type: "boolean"
+  },
+  {
+    name: "forceSubjectMessage",
+    baseName: "force_subject_message",
+    type: "boolean"
+  },
+  {
+    name: "formFieldGroups",
+    baseName: "form_field_groups",
+    type: "Array<SubFormFieldGroup>"
+  },
+  {
+    name: "formFieldRules",
+    baseName: "form_field_rules",
+    type: "Array<SubFormFieldRule>"
+  },
+  {
+    name: "formFieldsPerDocument",
+    baseName: "form_fields_per_document",
+    type: "Array<SubFormFieldsPerDocumentBase>"
+  },
+  {
+    name: "mergeFields",
+    baseName: "merge_fields",
+    type: "Array<SubMergeField>"
+  },
+  {
+    name: "message",
+    baseName: "message",
+    type: "string"
+  },
+  {
+    name: "metadata",
+    baseName: "metadata",
+    type: "{ [key: string]: any; }"
+  },
+  {
+    name: "showPreview",
+    baseName: "show_preview",
+    type: "boolean"
+  },
+  {
+    name: "showProgressStepper",
+    baseName: "show_progress_stepper",
+    type: "boolean"
+  },
+  {
+    name: "signerRoles",
+    baseName: "signer_roles",
+    type: "Array<SubTemplateRole>"
+  },
+  {
+    name: "skipMeNow",
+    baseName: "skip_me_now",
+    type: "boolean"
+  },
+  {
+    name: "subject",
+    baseName: "subject",
+    type: "string"
+  },
+  {
+    name: "testMode",
+    baseName: "test_mode",
+    type: "boolean"
+  },
+  {
+    name: "title",
+    baseName: "title",
+    type: "string"
+  },
+  {
+    name: "usePreexistingFields",
+    baseName: "use_preexisting_fields",
+    type: "boolean"
+  }
+];
+
+// model/templateCreateEmbeddedResponse.ts
+var _TemplateCreateEmbeddedResponse = class {
+  static getAttributeTypeMap() {
+    return _TemplateCreateEmbeddedResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "TemplateCreateEmbeddedResponse");
+  }
+};
+var TemplateCreateEmbeddedResponse = _TemplateCreateEmbeddedResponse;
+TemplateCreateEmbeddedResponse.discriminator = void 0;
+TemplateCreateEmbeddedResponse.attributeTypeMap = [
+  {
+    name: "template",
+    baseName: "template",
+    type: "TemplateResponse"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "Array<WarningResponse>"
+  }
+];
+
 // model/templateEditResponse.ts
 var _TemplateEditResponse = class {
   static getAttributeTypeMap() {
@@ -26096,6 +26272,8 @@ var typeMap = {
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate,
+  TemplateCreateEmbeddedRequest,
+  TemplateCreateEmbeddedResponse,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
@@ -31407,6 +31585,130 @@ var TemplateApi = class {
       });
     });
   }
+  templateCreateEmbedded(_0) {
+    return __async(this, arguments, function* (templateCreateEmbeddedRequest, options = { headers: {} }) {
+      if (templateCreateEmbeddedRequest !== null && templateCreateEmbeddedRequest !== void 0 && templateCreateEmbeddedRequest.constructor.name !== "TemplateCreateEmbeddedRequest") {
+        templateCreateEmbeddedRequest = ObjectSerializer.deserialize(
+          templateCreateEmbeddedRequest,
+          "TemplateCreateEmbeddedRequest"
+        );
+      }
+      const localVarPath = this.basePath + "/template/create_embedded";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (templateCreateEmbeddedRequest === null || templateCreateEmbeddedRequest === void 0) {
+        throw new Error(
+          "Required parameter templateCreateEmbeddedRequest was null or undefined when calling templateCreateEmbedded."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        templateCreateEmbeddedRequest,
+        TemplateCreateEmbeddedRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          templateCreateEmbeddedRequest,
+          "TemplateCreateEmbeddedRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "POST",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      if (this.authentications.oauth2.accessToken) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            import_axios9.default.request(localVarRequestOptions).then(
+              (response) => {
+                let body = response.data;
+                if (response.status && response.status >= 200 && response.status <= 299) {
+                  body = ObjectSerializer.deserialize(
+                    body,
+                    "TemplateCreateEmbeddedResponse"
+                  );
+                  resolve({ response, body });
+                } else {
+                  reject(new HttpError(response, body, response.status));
+                }
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                const response = error.response;
+                let body;
+                if (response.status === 200) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "TemplateCreateEmbeddedResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                let rangeCodeLeft = Number("4XX"[0] + "00");
+                let rangeCodeRight = Number("4XX"[0] + "99");
+                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "ErrorResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+              }
+            );
+          }
+        );
+      });
+    });
+  }
   templateCreateEmbeddedDraft(_0) {
     return __async(this, arguments, function* (templateCreateEmbeddedDraftRequest, options = { headers: {} }) {
       if (templateCreateEmbeddedDraftRequest !== null && templateCreateEmbeddedDraftRequest !== void 0 && templateCreateEmbeddedDraftRequest.constructor.name !== "TemplateCreateEmbeddedDraftRequest") {
@@ -33194,6 +33496,8 @@ var APIS = [
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate,
+  TemplateCreateEmbeddedRequest,
+  TemplateCreateEmbeddedResponse,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,

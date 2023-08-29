@@ -167,6 +167,7 @@ Class | Method | HTTP request | Description
 *TeamApi* | [**TeamSubTeams**](docs/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams
 *TeamApi* | [**TeamUpdate**](docs/TeamApi.md#teamupdate) | **PUT** /team | Update Team
 *TemplateApi* | [**TemplateAddUser**](docs/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template
+*TemplateApi* | [**TemplateCreateEmbedded**](docs/TemplateApi.md#templatecreateembedded) | **POST** /template/create_embedded | Create Embedded Template
 *TemplateApi* | [**TemplateCreateEmbeddedDraft**](docs/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 *TemplateApi* | [**TemplateDelete**](docs/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template
 *TemplateApi* | [**TemplateFiles**](docs/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files
@@ -309,6 +310,8 @@ Class | Method | HTTP request | Description
  - [Model.TemplateCreateEmbeddedDraftRequest](docs/TemplateCreateEmbeddedDraftRequest.md)
  - [Model.TemplateCreateEmbeddedDraftResponse](docs/TemplateCreateEmbeddedDraftResponse.md)
  - [Model.TemplateCreateEmbeddedDraftResponseTemplate](docs/TemplateCreateEmbeddedDraftResponseTemplate.md)
+ - [Model.TemplateCreateEmbeddedRequest](docs/TemplateCreateEmbeddedRequest.md)
+ - [Model.TemplateCreateEmbeddedResponse](docs/TemplateCreateEmbeddedResponse.md)
  - [Model.TemplateEditResponse](docs/TemplateEditResponse.md)
  - [Model.TemplateGetResponse](docs/TemplateGetResponse.md)
  - [Model.TemplateListResponse](docs/TemplateListResponse.md)

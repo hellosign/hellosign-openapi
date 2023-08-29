@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FileResponse, FileResponseDataUri, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FileResponse, FileResponseDataUri, TemplateAddUserRequest, TemplateCreateEmbeddedDraftRequest, TemplateCreateEmbeddedDraftResponse, TemplateCreateEmbeddedRequest, TemplateCreateEmbeddedResponse, TemplateGetResponse, TemplateListResponse, TemplateRemoveUserRequest, TemplateUpdateFilesRequest, TemplateUpdateFilesResponse } from "../model";
 import { optionsI, returnTypeT, returnTypeI } from "./";
 export declare enum TemplateApiApiKeys {
 }
@@ -26,6 +26,7 @@ export declare class TemplateApi {
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
     templateAddUser(templateId: string, templateAddUserRequest: TemplateAddUserRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
+    templateCreateEmbedded(templateCreateEmbeddedRequest: TemplateCreateEmbeddedRequest, options?: optionsI): Promise<returnTypeT<TemplateCreateEmbeddedResponse>>;
     templateCreateEmbeddedDraft(templateCreateEmbeddedDraftRequest: TemplateCreateEmbeddedDraftRequest, options?: optionsI): Promise<returnTypeT<TemplateCreateEmbeddedDraftResponse>>;
     templateDelete(templateId: string, options?: optionsI): Promise<returnTypeI>;
     templateFiles(templateId: string, fileType?: "pdf" | "zip", options?: optionsI): Promise<returnTypeT<Buffer>>;

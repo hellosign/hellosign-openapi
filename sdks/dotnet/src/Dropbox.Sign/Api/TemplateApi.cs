@@ -53,6 +53,29 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of TemplateGetResponse</returns>
         ApiResponse<TemplateGetResponse> TemplateAddUserWithHttpInfo(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0);
         /// <summary>
+        /// Create Embedded Template
+        /// </summary>
+        /// <remarks>
+        /// Creates a template that can then be used.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TemplateCreateEmbeddedResponse</returns>
+        TemplateCreateEmbeddedResponse TemplateCreateEmbedded(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Create Embedded Template
+        /// </summary>
+        /// <remarks>
+        /// Creates a template that can then be used.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TemplateCreateEmbeddedResponse</returns>
+        ApiResponse<TemplateCreateEmbeddedResponse> TemplateCreateEmbeddedWithHttpInfo(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0);
+        /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
         /// <remarks>
@@ -307,6 +330,31 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplateGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TemplateGetResponse>> TemplateAddUserWithHttpInfoAsync(string templateId, TemplateAddUserRequest templateAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Create Embedded Template
+        /// </summary>
+        /// <remarks>
+        /// Creates a template that can then be used.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TemplateCreateEmbeddedResponse</returns>
+        System.Threading.Tasks.Task<TemplateCreateEmbeddedResponse> TemplateCreateEmbeddedAsync(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create Embedded Template
+        /// </summary>
+        /// <remarks>
+        /// Creates a template that can then be used.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TemplateCreateEmbeddedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TemplateCreateEmbeddedResponse>> TemplateCreateEmbeddedWithHttpInfoAsync(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Template Draft
         /// </summary>
@@ -855,6 +903,188 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TemplateAddUser", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create Embedded Template Creates a template that can then be used.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>TemplateCreateEmbeddedResponse</returns>
+        public TemplateCreateEmbeddedResponse TemplateCreateEmbedded(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedResponse> localVarResponse = TemplateCreateEmbeddedWithHttpInfo(templateCreateEmbeddedRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Embedded Template Creates a template that can then be used.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of TemplateCreateEmbeddedResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedResponse> TemplateCreateEmbeddedWithHttpInfo(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'templateCreateEmbeddedRequest' is set
+            if (templateCreateEmbeddedRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateCreateEmbeddedRequest' when calling TemplateApi->TemplateCreateEmbedded");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = templateCreateEmbeddedRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = templateCreateEmbeddedRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbedded";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<TemplateCreateEmbeddedResponse>("/template/create_embedded", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TemplateCreateEmbedded", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create Embedded Template Creates a template that can then be used.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of TemplateCreateEmbeddedResponse</returns>
+        public async System.Threading.Tasks.Task<TemplateCreateEmbeddedResponse> TemplateCreateEmbeddedAsync(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedResponse> localVarResponse = await TemplateCreateEmbeddedWithHttpInfoAsync(templateCreateEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Embedded Template Creates a template that can then be used.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="templateCreateEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (TemplateCreateEmbeddedResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<TemplateCreateEmbeddedResponse>> TemplateCreateEmbeddedWithHttpInfoAsync(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'templateCreateEmbeddedRequest' is set
+            if (templateCreateEmbeddedRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'templateCreateEmbeddedRequest' when calling TemplateApi->TemplateCreateEmbedded");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = templateCreateEmbeddedRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = templateCreateEmbeddedRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbedded";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplateCreateEmbeddedResponse>("/template/create_embedded", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TemplateCreateEmbedded", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
