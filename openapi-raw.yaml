@@ -6301,360 +6301,6 @@ components:
           type: boolean
           default: false
       type: object
-    SubFormFieldsPerDocumentTypeEnum:
-      type: string
-      enum:
-        - checkbox
-        - checkbox-merge
-        - date_signed
-        - dropdown
-        - hyperlink
-        - initials
-        - signature
-        - radio
-        - text
-        - text-merge
-    SubFormFieldsPerDocumentFontEnum:
-      type: string
-      enum:
-        - helvetica
-        - arial
-        - courier
-        - calibri
-        - cambria
-        - georgia
-        - times
-        - trebuchet
-        - verdana
-        - roboto
-        - robotoMono
-        - notoSans
-        - notoSerif
-        - notoCJK-JP-Regular
-        - notoHebrew-Regular
-        - notoSanThaiMerged
-    SubFormFieldsPerDocumentText:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - options
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_TEXT'
-              type: string
-              default: text
-            placeholder:
-              description: '_t__Sub::FormFieldsPerDocument::PLACEHOLDER'
-              type: string
-            auto_fill_type:
-              description: '_t__Sub::FormFieldsPerDocument::AUTO_FILL_TYPE'
-              type: string
-            link_id:
-              description: '_t__Sub::FormFieldsPerDocument::LINK_ID'
-              type: string
-            masked:
-              description: '_t__Sub::FormFieldsPerDocument::MASKED'
-              type: boolean
-            validation_type:
-              description: '_t__Sub::FormFieldsPerDocument::VALIDATION_TYPE'
-              type: string
-              enum:
-                - numbers_only
-                - letters_only
-                - phone_number
-                - bank_routing_number
-                - bank_account_number
-                - email_address
-                - zip_code
-                - social_security_number
-                - employer_identification_number
-                - custom_regex
-            validation_custom_regex:
-              type: string
-            validation_custom_regex_format_label:
-              type: string
-            content:
-              description: '_t__Sub::FormFieldsPerDocument::CONTENT_TEXT'
-              type: string
-            font_family:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentDropdown:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - options
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_DROPDOWN'
-              type: string
-              default: dropdown
-            options:
-              description: '_t__Sub::FormFieldsPerDocument::OPTIONS'
-              type: array
-              items:
-                type: string
-              minItems: 1
-            content:
-              description: '_t__Sub::FormFieldsPerDocument::CONTENT_DROPDOWN'
-              type: string
-            font_family:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentHyperlink:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - content
-            - content_url
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_HYPERLINK'
-              type: string
-              default: hyperlink
-            content:
-              description: '_t__Sub::FormFieldsPerDocument::CONTENT_HYPERLINK'
-              type: string
-            content_url:
-              description: '_t__Sub::FormFieldsPerDocument::CONTENT_URL'
-              type: string
-            font_family:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentCheckbox:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - is_checked
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_CHECKBOX'
-              type: string
-              default: checkbox
-            group:
-              description: '_t__Sub::FormFieldsPerDocument::GROUP'
-              type: string
-            is_checked:
-              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_CHECKBOX'
-              type: boolean
-          type: object
-    SubFormFieldsPerDocumentRadio:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - group
-            - is_checked
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_RADIO'
-              type: string
-              default: radio
-            group:
-              description: '_t__Sub::FormFieldsPerDocument::GROUP'
-              type: string
-            is_checked:
-              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_RADIO'
-              type: boolean
-          type: object
-    SubFormFieldsPerDocumentSignature:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_SIGNATURE'
-              type: string
-              default: signature
-          type: object
-    SubFormFieldsPerDocumentDateSigned:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_DATE_SIGNED'
-              type: string
-              default: date_signed
-            font_family:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentInitials:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_INITIALS'
-              type: string
-              default: initials
-          type: object
-    SubFormFieldsPerDocumentTextMerge:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE'
-              type: string
-              default: text-merge
-            font_family:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentCheckboxMerge:
-      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: '_t__Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE'
-              type: string
-              default: checkbox-merge
-          type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -7435,6 +7081,380 @@ components:
           items:
             type: string
       type: object
+    SubFormFieldsPerDocumentCheckbox:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - is_checked
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_CHECKBOX'
+              type: string
+              default: checkbox
+            group:
+              description: '_t__Sub::FormFieldsPerDocument::GROUP'
+              type: string
+            is_checked:
+              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_CHECKBOX'
+              type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentCheckboxMerge:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE'
+              type: string
+              default: checkbox-merge
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentDateSigned:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_DATE_SIGNED'
+              type: string
+              default: date_signed
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentDropdown:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_DROPDOWN'
+              type: string
+              default: dropdown
+            options:
+              description: '_t__Sub::FormFieldsPerDocument::OPTIONS'
+              type: array
+              items:
+                type: string
+              minItems: 1
+            content:
+              description: '_t__Sub::FormFieldsPerDocument::CONTENT_DROPDOWN'
+              type: string
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentHyperlink:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - content
+            - content_url
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_HYPERLINK'
+              type: string
+              default: hyperlink
+            content:
+              description: '_t__Sub::FormFieldsPerDocument::CONTENT_HYPERLINK'
+              type: string
+            content_url:
+              description: '_t__Sub::FormFieldsPerDocument::CONTENT_URL'
+              type: string
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentInitials:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_INITIALS'
+              type: string
+              default: initials
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentRadio:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - group
+            - is_checked
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_RADIO'
+              type: string
+              default: radio
+            group:
+              description: '_t__Sub::FormFieldsPerDocument::GROUP'
+              type: string
+            is_checked:
+              description: '_t__Sub::FormFieldsPerDocument::IS_CHECKED_RADIO'
+              type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentSignature:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_SIGNATURE'
+              type: string
+              default: signature
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentText:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_TEXT'
+              type: string
+              default: text
+            placeholder:
+              description: '_t__Sub::FormFieldsPerDocument::PLACEHOLDER'
+              type: string
+            auto_fill_type:
+              description: '_t__Sub::FormFieldsPerDocument::AUTO_FILL_TYPE'
+              type: string
+            link_id:
+              description: '_t__Sub::FormFieldsPerDocument::LINK_ID'
+              type: string
+            masked:
+              description: '_t__Sub::FormFieldsPerDocument::MASKED'
+              type: boolean
+            validation_type:
+              description: '_t__Sub::FormFieldsPerDocument::VALIDATION_TYPE'
+              type: string
+              enum:
+                - numbers_only
+                - letters_only
+                - phone_number
+                - bank_routing_number
+                - bank_account_number
+                - email_address
+                - zip_code
+                - social_security_number
+                - employer_identification_number
+                - custom_regex
+            validation_custom_regex:
+              type: string
+            validation_custom_regex_format_label:
+              type: string
+            content:
+              description: '_t__Sub::FormFieldsPerDocument::CONTENT_TEXT'
+              type: string
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentTextMerge:
+      description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION_EXTENDS'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: '_t__Sub::FormFieldsPerDocument::TYPE_TEXT_MERGE'
+              type: string
+              default: text-merge
+            font_family:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_FAMILY'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentTypeEnum:
+      type: string
+      enum:
+        - checkbox
+        - checkbox-merge
+        - date_signed
+        - dropdown
+        - hyperlink
+        - initials
+        - signature
+        - radio
+        - text
+        - text-merge
+    SubFormFieldsPerDocumentFontEnum:
+      type: string
+      enum:
+        - helvetica
+        - arial
+        - courier
+        - calibri
+        - cambria
+        - georgia
+        - times
+        - trebuchet
+        - verdana
+        - roboto
+        - robotoMono
+        - notoSans
+        - notoSerif
+        - notoCJK-JP-Regular
+        - notoHebrew-Regular
+        - notoSanThaiMerged
     SubFormFieldsPerDocumentBase:
       description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
       required:
@@ -9740,6 +9760,19 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
+    TemplateCreateEmbeddedResponseTemplate:
+      description: '_t__TemplateCreateEmbeddedResponseTemplate::DESCRIPTION'
+      properties:
+        template_id:
+          description: '_t__TemplateResponse::TEMPLATE_ID'
+          type: string
+        warnings:
+          description: '_t__WarningResponse::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal: true
     TemplateResponseDocument:
       properties:
         name:
@@ -10377,7 +10410,7 @@ components:
     TemplateCreateEmbeddedResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateResponse'
+          $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
