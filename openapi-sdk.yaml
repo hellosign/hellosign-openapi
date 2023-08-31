@@ -6395,378 +6395,6 @@ components:
           type: boolean
           default: false
       type: object
-    SubFormFieldsPerDocumentTypeEnum:
-      type: string
-      enum:
-        - checkbox
-        - checkbox-merge
-        - date_signed
-        - dropdown
-        - hyperlink
-        - initials
-        - signature
-        - radio
-        - text
-        - text-merge
-    SubFormFieldsPerDocumentFontEnum:
-      type: string
-      enum:
-        - helvetica
-        - arial
-        - courier
-        - calibri
-        - cambria
-        - georgia
-        - times
-        - trebuchet
-        - verdana
-        - roboto
-        - robotoMono
-        - notoSans
-        - notoSerif
-        - notoCJK-JP-Regular
-        - notoHebrew-Regular
-        - notoSanThaiMerged
-    SubFormFieldsPerDocumentText:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - options
-          properties:
-            type:
-              description: 'A text input field. Use the `SubFormFieldsPerDocumentText` class.'
-              type: string
-              default: text
-            placeholder:
-              description: 'Placeholder value for text field.'
-              type: string
-            auto_fill_type:
-              description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
-              type: string
-            link_id:
-              description: 'Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.'
-              type: string
-            masked:
-              description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
-              type: boolean
-            validation_type:
-              description: |-
-                Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
-
-                **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
-              type: string
-              enum:
-                - numbers_only
-                - letters_only
-                - phone_number
-                - bank_routing_number
-                - bank_account_number
-                - email_address
-                - zip_code
-                - social_security_number
-                - employer_identification_number
-                - custom_regex
-            validation_custom_regex:
-              type: string
-            validation_custom_regex_format_label:
-              type: string
-            content:
-              description: 'Content of a `me_now` text field'
-              type: string
-            font_family:
-              description: 'Font family for the field.'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: |-
-                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
-
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentDropdown:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - options
-          properties:
-            type:
-              description: 'An input field for dropdowns. Use the `SubFormFieldsPerDocumentDropdown` class.'
-              type: string
-              default: dropdown
-            options:
-              description: 'Array of string values representing dropdown values.'
-              type: array
-              items:
-                type: string
-              minItems: 1
-            content:
-              description: 'Selected value in `options` array. Value must exist in array.'
-              type: string
-            font_family:
-              description: 'Font family for the field.'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: |-
-                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
-
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentHyperlink:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - content
-            - content_url
-          properties:
-            type:
-              description: 'A hyperlink field. Use the `SubFormFieldsPerDocumentHyperlink` class.'
-              type: string
-              default: hyperlink
-            content:
-              description: 'Link Text.'
-              type: string
-            content_url:
-              description: 'Link URL.'
-              type: string
-            font_family:
-              description: 'Font family for the field.'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: |-
-                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
-
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentCheckbox:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - is_checked
-          properties:
-            type:
-              description: 'A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.'
-              type: string
-              default: checkbox
-            group:
-              description: 'String referencing group defined in `form_field_groups` parameter.'
-              type: string
-            is_checked:
-              description: '`true` for checking the checkbox field by default, otherwise `false`.'
-              type: boolean
-          type: object
-    SubFormFieldsPerDocumentRadio:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-            - group
-            - is_checked
-          properties:
-            type:
-              description: 'An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.'
-              type: string
-              default: radio
-            group:
-              description: 'String referencing group defined in `form_field_groups` parameter.'
-              type: string
-            is_checked:
-              description: '`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.'
-              type: boolean
-          type: object
-    SubFormFieldsPerDocumentSignature:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: 'A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.'
-              type: string
-              default: signature
-          type: object
-    SubFormFieldsPerDocumentDateSigned:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: 'A date. Use the `SubFormFieldsPerDocumentDateSigned` class.'
-              type: string
-              default: date_signed
-            font_family:
-              description: 'Font family for the field.'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: |-
-                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
-
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentInitials:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: 'An input field for initials. Use the `SubFormFieldsPerDocumentInitials` class.'
-              type: string
-              default: initials
-          type: object
-    SubFormFieldsPerDocumentTextMerge:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: 'A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.'
-              type: string
-              default: text-merge
-            font_family:
-              description: 'Font family for the field.'
-              type: string
-              enum:
-                - helvetica
-                - arial
-                - courier
-                - calibri
-                - cambria
-                - georgia
-                - times
-                - trebuchet
-                - verdana
-                - roboto
-                - robotoMono
-                - notoSans
-                - notoSerif
-                - notoCJK-JP-Regular
-                - notoHebrew-Regular
-                - notoSanThaiMerged
-            font_size:
-              description: |-
-                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
-
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
-              type: integer
-          type: object
-    SubFormFieldsPerDocumentCheckboxMerge:
-      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
-      allOf:
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
-        -
-          required:
-            - type
-          properties:
-            type:
-              description: 'A checkbox field that has default value set using pre-filled data. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.'
-              type: string
-              default: checkbox-merge
-          type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -7791,6 +7419,398 @@ components:
           items:
             type: string
       type: object
+    SubFormFieldsPerDocumentCheckbox:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - is_checked
+          properties:
+            type:
+              description: 'A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.'
+              type: string
+              default: checkbox
+            group:
+              description: 'String referencing group defined in `form_field_groups` parameter.'
+              type: string
+            is_checked:
+              description: '`true` for checking the checkbox field by default, otherwise `false`.'
+              type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentCheckboxMerge:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: 'A checkbox field that has default value set using pre-filled data. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.'
+              type: string
+              default: checkbox-merge
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentDateSigned:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: 'A date. Use the `SubFormFieldsPerDocumentDateSigned` class.'
+              type: string
+              default: date_signed
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentDropdown:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: 'An input field for dropdowns. Use the `SubFormFieldsPerDocumentDropdown` class.'
+              type: string
+              default: dropdown
+            options:
+              description: 'Array of string values representing dropdown values.'
+              type: array
+              items:
+                type: string
+              minItems: 1
+            content:
+              description: 'Selected value in `options` array. Value must exist in array.'
+              type: string
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentHyperlink:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - content
+            - content_url
+          properties:
+            type:
+              description: 'A hyperlink field. Use the `SubFormFieldsPerDocumentHyperlink` class.'
+              type: string
+              default: hyperlink
+            content:
+              description: 'Link Text.'
+              type: string
+            content_url:
+              description: 'Link URL.'
+              type: string
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentInitials:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: 'An input field for initials. Use the `SubFormFieldsPerDocumentInitials` class.'
+              type: string
+              default: initials
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentRadio:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - group
+            - is_checked
+          properties:
+            type:
+              description: 'An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.'
+              type: string
+              default: radio
+            group:
+              description: 'String referencing group defined in `form_field_groups` parameter.'
+              type: string
+            is_checked:
+              description: '`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.'
+              type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentSignature:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: 'A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.'
+              type: string
+              default: signature
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentText:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+            - options
+          properties:
+            type:
+              description: 'A text input field. Use the `SubFormFieldsPerDocumentText` class.'
+              type: string
+              default: text
+            placeholder:
+              description: 'Placeholder value for text field.'
+              type: string
+            auto_fill_type:
+              description: 'Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.'
+              type: string
+            link_id:
+              description: 'Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.'
+              type: string
+            masked:
+              description: 'Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.'
+              type: boolean
+            validation_type:
+              description: |-
+                Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
+
+                **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
+              type: string
+              enum:
+                - numbers_only
+                - letters_only
+                - phone_number
+                - bank_routing_number
+                - bank_account_number
+                - email_address
+                - zip_code
+                - social_security_number
+                - employer_identification_number
+                - custom_regex
+            validation_custom_regex:
+              type: string
+            validation_custom_regex_format_label:
+              type: string
+            content:
+              description: 'Content of a `me_now` text field'
+              type: string
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentTextMerge:
+      description: 'This class extends `SubFormFieldsPerDocumentBase`.'
+      allOf:
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        -
+          required:
+            - type
+          properties:
+            type:
+              description: 'A text field that has default text set using pre-filled data. Use the `SubFormFieldsPerDocumentTextMerge` class.'
+              type: string
+              default: text-merge
+            font_family:
+              description: 'Font family for the field.'
+              type: string
+              enum:
+                - helvetica
+                - arial
+                - courier
+                - calibri
+                - cambria
+                - georgia
+                - times
+                - trebuchet
+                - verdana
+                - roboto
+                - robotoMono
+                - notoSans
+                - notoSerif
+                - notoCJK-JP-Regular
+                - notoHebrew-Regular
+                - notoSanThaiMerged
+            font_size:
+              description: |-
+                The initial px font size for the field contents. Can be any integer value between `7` and `49`.
+
+                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+              type: integer
+          type: object
+        -
+          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+    SubFormFieldsPerDocumentTypeEnum:
+      type: string
+      enum:
+        - checkbox
+        - checkbox-merge
+        - date_signed
+        - dropdown
+        - hyperlink
+        - initials
+        - signature
+        - radio
+        - text
+        - text-merge
+    SubFormFieldsPerDocumentFontEnum:
+      type: string
+      enum:
+        - helvetica
+        - arial
+        - courier
+        - calibri
+        - cambria
+        - georgia
+        - times
+        - trebuchet
+        - verdana
+        - roboto
+        - robotoMono
+        - notoSans
+        - notoSerif
+        - notoCJK-JP-Regular
+        - notoHebrew-Regular
+        - notoSanThaiMerged
     SubFormFieldsPerDocumentBase:
       description: |-
         The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
