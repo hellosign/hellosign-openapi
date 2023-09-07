@@ -468,8 +468,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 

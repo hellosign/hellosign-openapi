@@ -290,8 +290,7 @@ The first step in an embedded template workflow. Creates a draft template that c
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const templateApi = new DropboxSign.TemplateApi();
 
@@ -358,8 +357,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const templateApi = new DropboxSign.TemplateApi();
 
