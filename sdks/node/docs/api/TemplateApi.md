@@ -1055,8 +1055,7 @@ Overlays a new file with the overlay of an existing template. The new file(s) mu
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import fs from "fs";
 
 const templateApi = new DropboxSign.TemplateApi();
 
@@ -1086,8 +1085,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const templateApi = new DropboxSign.TemplateApi();
 
