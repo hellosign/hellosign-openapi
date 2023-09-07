@@ -123,8 +123,7 @@ Creates a template that can then be used.
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const templateApi = new DropboxSign.TemplateApi();
 
@@ -191,8 +190,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const templateApi = new DropboxSign.TemplateApi();
 
