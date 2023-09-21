@@ -60,6 +60,18 @@ class SubFormFieldsPerDocumentTypeEnum
 
     public const TEXT_MERGE = 'text-merge';
 
+    public const AUTO = 'auto';
+
+    public const CHECKBOX_ANNOTATE = 'checkbox_annotate';
+
+    public const EXECUTIONDATE = 'executiondate';
+
+    public const INTIALS_ANNOTATE = 'intials_annotate';
+
+    public const SIGNATURE_ANNOTATE = 'signature_annotate';
+
+    public const TEXT_ANNOTATE = 'text_annotate';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -77,6 +89,12 @@ class SubFormFieldsPerDocumentTypeEnum
             self::RADIO,
             self::TEXT,
             self::TEXT_MERGE,
+            self::AUTO,
+            self::CHECKBOX_ANNOTATE,
+            self::EXECUTIONDATE,
+            self::INTIALS_ANNOTATE,
+            self::SIGNATURE_ANNOTATE,
+            self::TEXT_ANNOTATE,
         ];
     }
 }

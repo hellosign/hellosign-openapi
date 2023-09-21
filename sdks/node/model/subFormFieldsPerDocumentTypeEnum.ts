@@ -35,4 +35,10 @@ export enum SubFormFieldsPerDocumentTypeEnum {
   Radio = "radio",
   Text = "text",
   TextMerge = "text-merge",
+  Auto = "auto",
+  CheckboxAnnotate = "checkbox_annotate",
+  Executiondate = "executiondate",
+  IntialsAnnotate = "intials_annotate",
+  SignatureAnnotate = "signature_annotate",
+  TextAnnotate = "text_annotate",
 }

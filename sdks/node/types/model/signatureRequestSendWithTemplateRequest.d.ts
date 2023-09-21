@@ -13,6 +13,7 @@ export declare class SignatureRequestSendWithTemplateRequest {
     "files"?: Array<RequestFile>;
     "fileUrls"?: Array<string>;
     "isQualifiedSignature"?: boolean;
+    "isEid"?: boolean;
     "message"?: string;
     "metadata"?: {
         [key: string]: any;

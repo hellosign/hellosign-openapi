@@ -81,6 +81,10 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :is_qualified_signature
 
+    # Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    # @return [Boolean]
+    attr_accessor :is_eid
+
     # The custom message in the email that will be sent to the signers.
     # @return [String]
     attr_accessor :message
@@ -135,6 +139,7 @@ module Dropbox::Sign
         :'form_fields_per_document' => :'form_fields_per_document',
         :'hide_text_tags' => :'hide_text_tags',
         :'is_qualified_signature' => :'is_qualified_signature',
+        :'is_eid' => :'is_eid',
         :'message' => :'message',
         :'metadata' => :'metadata',
         :'signing_options' => :'signing_options',
@@ -176,6 +181,7 @@ module Dropbox::Sign
         :'form_fields_per_document' => :'Array<SubFormFieldsPerDocumentBase>',
         :'hide_text_tags' => :'Boolean',
         :'is_qualified_signature' => :'Boolean',
+        :'is_eid' => :'Boolean',
         :'message' => :'String',
         :'metadata' => :'Hash<String, Object>',
         :'signing_options' => :'SubSigningOptions',
@@ -322,6 +328,12 @@ module Dropbox::Sign
         self.is_qualified_signature = false
       end
 
+      if attributes.key?(:'is_eid')
+        self.is_eid = attributes[:'is_eid']
+      else
+        self.is_eid = false
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
       end
@@ -450,6 +462,7 @@ module Dropbox::Sign
           form_fields_per_document == o.form_fields_per_document &&
           hide_text_tags == o.hide_text_tags &&
           is_qualified_signature == o.is_qualified_signature &&
+          is_eid == o.is_eid &&
           message == o.message &&
           metadata == o.metadata &&
           signing_options == o.signing_options &&
@@ -470,7 +483,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
+      [files, file_urls, signers, grouped_signers, allow_decline, allow_reassign, attachments, cc_email_addresses, client_id, custom_fields, field_options, form_field_groups, form_field_rules, form_fields_per_document, hide_text_tags, is_qualified_signature, is_eid, message, metadata, signing_options, signing_redirect_url, subject, test_mode, title, use_text_tags, expires_at].hash
     end
 
     # Builds the object from hash

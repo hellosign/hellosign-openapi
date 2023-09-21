@@ -21260,6 +21260,7 @@ var _SignatureRequestSendRequest = class {
     this["allowReassign"] = false;
     this["hideTextTags"] = false;
     this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
     this["testMode"] = false;
     this["useTextTags"] = false;
   }
@@ -21354,6 +21355,11 @@ SignatureRequestSendRequest.attributeTypeMap = [
     type: "boolean"
   },
   {
+    name: "isEid",
+    baseName: "is_eid",
+    type: "boolean"
+  },
+  {
     name: "message",
     baseName: "message",
     type: "string"
@@ -21405,6 +21411,7 @@ var _SignatureRequestSendWithTemplateRequest = class {
   constructor() {
     this["allowDecline"] = false;
     this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
     this["testMode"] = false;
   }
   static getAttributeTypeMap() {
@@ -21463,6 +21470,11 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
   {
     name: "isQualifiedSignature",
     baseName: "is_qualified_signature",
+    type: "boolean"
+  },
+  {
+    name: "isEid",
+    baseName: "is_eid",
     type: "boolean"
   },
   {
@@ -22528,6 +22540,12 @@ var SubFormFieldsPerDocumentTypeEnum = /* @__PURE__ */ ((SubFormFieldsPerDocumen
   SubFormFieldsPerDocumentTypeEnum2["Radio"] = "radio";
   SubFormFieldsPerDocumentTypeEnum2["Text"] = "text";
   SubFormFieldsPerDocumentTypeEnum2["TextMerge"] = "text-merge";
+  SubFormFieldsPerDocumentTypeEnum2["Auto"] = "auto";
+  SubFormFieldsPerDocumentTypeEnum2["CheckboxAnnotate"] = "checkbox_annotate";
+  SubFormFieldsPerDocumentTypeEnum2["Executiondate"] = "executiondate";
+  SubFormFieldsPerDocumentTypeEnum2["IntialsAnnotate"] = "intials_annotate";
+  SubFormFieldsPerDocumentTypeEnum2["SignatureAnnotate"] = "signature_annotate";
+  SubFormFieldsPerDocumentTypeEnum2["TextAnnotate"] = "text_annotate";
   return SubFormFieldsPerDocumentTypeEnum2;
 })(SubFormFieldsPerDocumentTypeEnum || {});
 

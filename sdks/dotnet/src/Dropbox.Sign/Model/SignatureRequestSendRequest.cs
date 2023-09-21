@@ -57,6 +57,7 @@ namespace Dropbox.Sign.Model
         /// <param name="formFieldsPerDocument">The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;.</param>
         /// <param name="hideTextTags">Enables automatic Text Tag removal when set to true.  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on &#x60;false&#x60; and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information. (default to false).</param>
         /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
+        /// <param name="isEid">Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
         /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
         /// <param name="signingOptions">signingOptions.</param>
@@ -66,7 +67,7 @@ namespace Dropbox.Sign.Model
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
-        public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
+        public SignatureRequestSendRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, bool isQualifiedSignature = false, bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, int? expiresAt = default(int?))
         {
             
             this.Files = files;
@@ -85,6 +86,7 @@ namespace Dropbox.Sign.Model
             this.FormFieldsPerDocument = formFieldsPerDocument;
             this.HideTextTags = hideTextTags;
             this.IsQualifiedSignature = isQualifiedSignature;
+            this.IsEid = isEid;
             this.Message = message;
             this.Metadata = metadata;
             this.SigningOptions = signingOptions;
@@ -221,7 +223,15 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
         [DataMember(Name = "is_qualified_signature", EmitDefaultValue = true)]
+        [Obsolete]
         public bool IsQualifiedSignature { get; set; }
+
+        /// <summary>
+        /// Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+        /// </summary>
+        /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
+        [DataMember(Name = "is_eid", EmitDefaultValue = true)]
+        public bool IsEid { get; set; }
 
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
@@ -309,6 +319,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  FormFieldsPerDocument: ").Append(FormFieldsPerDocument).Append("\n");
             sb.Append("  HideTextTags: ").Append(HideTextTags).Append("\n");
             sb.Append("  IsQualifiedSignature: ").Append(IsQualifiedSignature).Append("\n");
+            sb.Append("  IsEid: ").Append(IsEid).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  SigningOptions: ").Append(SigningOptions).Append("\n");
@@ -440,6 +451,10 @@ namespace Dropbox.Sign.Model
                     this.IsQualifiedSignature.Equals(input.IsQualifiedSignature)
                 ) && 
                 (
+                    this.IsEid == input.IsEid ||
+                    this.IsEid.Equals(input.IsEid)
+                ) && 
+                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
@@ -546,6 +561,7 @@ namespace Dropbox.Sign.Model
                 }
                 hashCode = (hashCode * 59) + this.HideTextTags.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsQualifiedSignature.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsEid.GetHashCode();
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
@@ -678,6 +694,12 @@ namespace Dropbox.Sign.Model
                 Property = "IsQualifiedSignature",
                 Type = "bool",
                 Value = IsQualifiedSignature,
+            });
+            types.Add(new OpenApiType(){
+                Name = "is_eid",
+                Property = "IsEid",
+                Type = "bool",
+                Value = IsEid,
             });
             types.Add(new OpenApiType(){
                 Name = "message",
