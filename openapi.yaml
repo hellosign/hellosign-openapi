@@ -6987,13 +6987,12 @@ components:
             **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
           type: boolean
           default: false
-        is_qualified_signature:
+        is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
-            which requires a face-to-face call to verify the signer's identity.<br>
-            **Note**: QES is only available on the Premium API plan as an add-on purchase.
-            Cannot be used in `test_mode`. Only works on requests with one signer.
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -7079,13 +7078,12 @@ components:
           type: array
           items:
             type: string
-        is_qualified_signature:
+        is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
-            which requires a face-to-face call to verify the signer's identity.<br>
-            **Note**: QES is only available on the Premium API plan as an add-on purchase.
-            Cannot be used in `test_mode`. Only works on requests with one signer.
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -7792,6 +7790,12 @@ components:
         - radio
         - text
         - text-merge
+        - auto
+        - checkbox_annotate
+        - executiondate
+        - intials_annotate
+        - signature_annotate
+        - text_annotate
     SubFormFieldsPerDocumentFontEnum:
       type: string
       enum:
