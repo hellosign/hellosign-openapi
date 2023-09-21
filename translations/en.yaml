@@ -372,6 +372,11 @@
     which requires a face-to-face call to verify the signer's identity.<br>
     **Note**: QES is only available on the Premium API plan as an add-on purchase.
     Cannot be used in `test_mode`. Only works on requests with one signer.
+"SignatureRequestSend::IS_EID": |-
+    Send with a value of `true` if you wish to enable
+    [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID),
+    which requires the signer to verify their identity with an eID provider to sign a document.<br>
+    **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSend::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSend::SUBJECT": The subject in the email that will be sent to the signers.
@@ -398,6 +403,11 @@
   which requires a face-to-face call to verify the signer's identity.<br>
   **Note**: QES is only available on the Premium API plan as an add-on purchase.
   Cannot be used in `test_mode`. Only works on requests with one signer.
+"SignatureRequestSendWithTemplate::IS_EID": |-
+    Send with a value of `true` if you wish to enable
+    [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID),
+    which requires the signer to verify their identity with an eID provider to sign a document.<br>
+    **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSendWithTemplate::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSendWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
@@ -977,7 +987,7 @@
   Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
 
   **NOTE**: To set the value of the field as the preparer you must set this to `me_now`
-  
+
   **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
