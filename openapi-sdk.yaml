@@ -6997,6 +6997,7 @@ components:
           type: boolean
           default: false
           deprecated: true
+          x-hideOn: doc
         is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
@@ -7098,6 +7099,7 @@ components:
           type: boolean
           default: false
           deprecated: true
+          x-hideOn: doc
         is_eid:
           description: |-
             Send with a value of `true` if you wish to enable

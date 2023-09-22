@@ -6752,6 +6752,7 @@ components:
           type: boolean
           default: false
           deprecated: true
+          x-hideOn: doc
         is_eid:
           description: '_t__SignatureRequestSend::IS_EID'
           type: boolean
@@ -6835,6 +6836,7 @@ components:
           type: boolean
           default: false
           deprecated: true
+          x-hideOn: doc
         is_eid:
           description: '_t__SignatureRequestSendWithTemplate::IS_EID'
           type: boolean
