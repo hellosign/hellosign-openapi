@@ -21260,6 +21260,7 @@ var _SignatureRequestSendRequest = class {
     this["allowReassign"] = false;
     this["hideTextTags"] = false;
     this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
     this["testMode"] = false;
     this["useTextTags"] = false;
   }
@@ -21354,6 +21355,11 @@ SignatureRequestSendRequest.attributeTypeMap = [
     type: "boolean"
   },
   {
+    name: "isEid",
+    baseName: "is_eid",
+    type: "boolean"
+  },
+  {
     name: "message",
     baseName: "message",
     type: "string"
@@ -21405,6 +21411,7 @@ var _SignatureRequestSendWithTemplateRequest = class {
   constructor() {
     this["allowDecline"] = false;
     this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
     this["testMode"] = false;
   }
   static getAttributeTypeMap() {
@@ -21463,6 +21470,11 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
   {
     name: "isQualifiedSignature",
     baseName: "is_qualified_signature",
+    type: "boolean"
+  },
+  {
+    name: "isEid",
+    baseName: "is_eid",
     type: "boolean"
   },
   {

@@ -6996,6 +6996,16 @@ components:
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
+          deprecated: true
+          x-hideOn: doc
+        is_eid:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
         message:
           description: 'The custom message in the email that will be sent to the signers.'
           type: string
@@ -7086,6 +7096,16 @@ components:
             which requires a face-to-face call to verify the signer's identity.<br>
             **Note**: QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
+          deprecated: true
+          x-hideOn: doc
+        is_eid:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:

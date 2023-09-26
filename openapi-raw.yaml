@@ -6751,6 +6751,12 @@ components:
           description: '_t__SignatureRequestSend::IS_QUALIFIED_SIGNATURE'
           type: boolean
           default: false
+          deprecated: true
+          x-hideOn: doc
+        is_eid:
+          description: '_t__SignatureRequestSend::IS_EID'
+          type: boolean
+          default: false
         message:
           description: '_t__SignatureRequestSend::MESSAGE'
           type: string
@@ -6827,6 +6833,12 @@ components:
             type: string
         is_qualified_signature:
           description: '_t__SignatureRequestSendWithTemplate::IS_QUALIFIED_SIGNATURE'
+          type: boolean
+          default: false
+          deprecated: true
+          x-hideOn: doc
+        is_eid:
+          description: '_t__SignatureRequestSendWithTemplate::IS_EID'
           type: boolean
           default: false
         message:

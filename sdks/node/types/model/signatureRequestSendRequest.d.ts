@@ -25,6 +25,7 @@ export declare class SignatureRequestSendRequest {
     "formFieldsPerDocument"?: Array<SubFormFieldsPerDocumentBase>;
     "hideTextTags"?: boolean;
     "isQualifiedSignature"?: boolean;
+    "isEid"?: boolean;
     "message"?: string;
     "metadata"?: {
         [key: string]: any;
