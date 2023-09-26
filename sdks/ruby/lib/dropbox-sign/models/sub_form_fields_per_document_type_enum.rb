@@ -28,12 +28,6 @@ module Dropbox::Sign
     RADIO = "radio".freeze
     TEXT = "text".freeze
     TEXT_MERGE = "text-merge".freeze
-    AUTO = "auto".freeze
-    CHECKBOX_ANNOTATE = "checkbox_annotate".freeze
-    EXECUTIONDATE = "executiondate".freeze
-    INTIALS_ANNOTATE = "intials_annotate".freeze
-    SIGNATURE_ANNOTATE = "signature_annotate".freeze
-    TEXT_ANNOTATE = "text_annotate".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

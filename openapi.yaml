@@ -7790,12 +7790,6 @@ components:
         - radio
         - text
         - text-merge
-        - auto
-        - checkbox_annotate
-        - executiondate
-        - intials_annotate
-        - signature_annotate
-        - text_annotate
     SubFormFieldsPerDocumentFontEnum:
       type: string
       enum:

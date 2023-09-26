@@ -22540,12 +22540,6 @@ var SubFormFieldsPerDocumentTypeEnum = /* @__PURE__ */ ((SubFormFieldsPerDocumen
   SubFormFieldsPerDocumentTypeEnum2["Radio"] = "radio";
   SubFormFieldsPerDocumentTypeEnum2["Text"] = "text";
   SubFormFieldsPerDocumentTypeEnum2["TextMerge"] = "text-merge";
-  SubFormFieldsPerDocumentTypeEnum2["Auto"] = "auto";
-  SubFormFieldsPerDocumentTypeEnum2["CheckboxAnnotate"] = "checkbox_annotate";
-  SubFormFieldsPerDocumentTypeEnum2["Executiondate"] = "executiondate";
-  SubFormFieldsPerDocumentTypeEnum2["IntialsAnnotate"] = "intials_annotate";
-  SubFormFieldsPerDocumentTypeEnum2["SignatureAnnotate"] = "signature_annotate";
-  SubFormFieldsPerDocumentTypeEnum2["TextAnnotate"] = "text_annotate";
   return SubFormFieldsPerDocumentTypeEnum2;
 })(SubFormFieldsPerDocumentTypeEnum || {});
 

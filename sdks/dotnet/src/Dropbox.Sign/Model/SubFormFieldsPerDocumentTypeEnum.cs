@@ -90,43 +90,7 @@ namespace Dropbox.Sign.Model
         /// Enum TextMerge for value: text-merge
         /// </summary>
         [EnumMember(Value = "text-merge")]
-        TextMerge = 10,
-
-        /// <summary>
-        /// Enum Auto for value: auto
-        /// </summary>
-        [EnumMember(Value = "auto")]
-        Auto = 11,
-
-        /// <summary>
-        /// Enum CheckboxAnnotate for value: checkbox_annotate
-        /// </summary>
-        [EnumMember(Value = "checkbox_annotate")]
-        CheckboxAnnotate = 12,
-
-        /// <summary>
-        /// Enum Executiondate for value: executiondate
-        /// </summary>
-        [EnumMember(Value = "executiondate")]
-        Executiondate = 13,
-
-        /// <summary>
-        /// Enum IntialsAnnotate for value: intials_annotate
-        /// </summary>
-        [EnumMember(Value = "intials_annotate")]
-        IntialsAnnotate = 14,
-
-        /// <summary>
-        /// Enum SignatureAnnotate for value: signature_annotate
-        /// </summary>
-        [EnumMember(Value = "signature_annotate")]
-        SignatureAnnotate = 15,
-
-        /// <summary>
-        /// Enum TextAnnotate for value: text_annotate
-        /// </summary>
-        [EnumMember(Value = "text_annotate")]
-        TextAnnotate = 16
+        TextMerge = 10
 
     }
 

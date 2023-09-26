@@ -49,19 +49,7 @@ public enum SubFormFieldsPerDocumentTypeEnum {
   
   TEXT("text"),
   
-  TEXT_MERGE("text-merge"),
-  
-  AUTO("auto"),
-  
-  CHECKBOX_ANNOTATE("checkbox_annotate"),
-  
-  EXECUTIONDATE("executiondate"),
-  
-  INTIALS_ANNOTATE("intials_annotate"),
-  
-  SIGNATURE_ANNOTATE("signature_annotate"),
-  
-  TEXT_ANNOTATE("text_annotate");
+  TEXT_MERGE("text-merge");
 
   private String value;
 
