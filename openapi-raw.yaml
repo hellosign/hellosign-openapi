@@ -4583,31 +4583,31 @@ paths:
         seo:
           title: '_t__TemplateAddUser::SEO::TITLE'
           description: '_t__TemplateAddUser::SEO::DESCRIPTION'
-  /template/create_embedded:
+  /template/create:
     post:
       tags:
         - Template
-      summary: '_t__TemplateCreateEmbedded::SUMMARY'
-      description: '_t__TemplateCreateEmbedded::DESCRIPTION'
-      operationId: templateCreateEmbedded
+      summary: '_t__TemplateCreate::SUMMARY'
+      description: '_t__TemplateCreate::DESCRIPTION'
+      operationId: templateCreate
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedRequest'
+              $ref: '#/components/schemas/TemplateCreateRequest'
             examples:
               default_example:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestDefaultExample'
+                $ref: '#/components/examples/TemplateCreateRequestDefaultExample'
               form_fields_per_document:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample'
+                $ref: '#/components/examples/TemplateCreateRequestFormFieldsPerDocumentExample'
               form_field_groups:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldGroupsExample'
+                $ref: '#/components/examples/TemplateCreateRequestFormFieldGroupsExample'
               form_field_rules:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldRulesExample'
+                $ref: '#/components/examples/TemplateCreateRequestFormFieldRulesExample'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedRequest'
+              $ref: '#/components/schemas/TemplateCreateRequest'
       responses:
         '200':
           description: 'successful operation'
@@ -4621,10 +4621,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
+                $ref: '#/components/schemas/TemplateCreateResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/TemplateCreateEmbeddedResponseExample'
+                  $ref: '#/components/examples/TemplateCreateResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -4657,46 +4657,46 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateCreateEmbedded.php
+            $ref: examples/TemplateCreate.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateCreateEmbedded.cs
+            $ref: examples/TemplateCreate.cs
         -
           lang: JavaScript
           label: JavaScript
           source:
-            $ref: examples/TemplateCreateEmbedded.js
+            $ref: examples/TemplateCreate.js
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateCreateEmbedded.ts
+            $ref: examples/TemplateCreate.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateCreateEmbedded.java
+            $ref: examples/TemplateCreate.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateCreateEmbedded.rb
+            $ref: examples/TemplateCreate.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateCreateEmbedded.py
+            $ref: examples/TemplateCreate.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateCreateEmbedded.sh
+            $ref: examples/TemplateCreate.sh
       x-meta:
         seo:
-          title: '_t__TemplateCreateEmbedded::SEO::TITLE'
-          description: '_t__TemplateCreateEmbedded::SEO::DESCRIPTION'
+          title: '_t__TemplateCreate::SEO::TITLE'
+          description: '_t__TemplateCreate::SEO::DESCRIPTION'
   /template/create_embedded_draft:
     post:
       tags:
@@ -7853,54 +7853,37 @@ components:
           type: boolean
           default: false
       type: object
-    TemplateCreateEmbeddedRequest:
+    TemplateCreateRequest:
       required:
-        - client_id
+        - signer_roles
+        - form_fields_per_document
       properties:
         files:
-          description: '_t__TemplateCreateEmbedded::FILES'
+          description: '_t__TemplateCreate::FILES'
           type: array
           items:
             type: string
             format: binary
         file_urls:
-          description: '_t__TemplateCreateEmbedded::FILE_URLS'
+          description: '_t__TemplateCreate::FILE_URLS'
           type: array
           items:
             type: string
-        allow_ccs:
-          description: '_t__TemplateCreateEmbedded::ALLOW_CCS'
-          type: boolean
-          default: true
-        allow_reassign:
-          description: '_t__TemplateCreateEmbedded::ALLOW_REASSIGN'
-          type: boolean
-          default: false
         attachments:
           description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
           items:
             $ref: '#/components/schemas/SubAttachment'
         cc_roles:
-          description: '_t__TemplateCreateEmbedded::CC_ROLES'
+          description: '_t__TemplateCreate::CC_ROLES'
           type: array
           items:
             type: string
         client_id:
-          description: '_t__TemplateCreateEmbedded::CLIENT_ID'
+          description: '_t__TemplateCreate::CLIENT_ID'
           type: string
-        editor_options:
-          $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        force_signer_roles:
-          description: '_t__TemplateCreateEmbedded::FORCE_SIGNER_ROLES'
-          type: boolean
-          default: false
-        force_subject_message:
-          description: '_t__TemplateCreateEmbedded::FORCE_SUBJECT_MESSAGE'
-          type: boolean
-          default: false
         form_field_groups:
           description: '_t__Sub::FormFieldGroup::DESCRIPTION'
           type: array
@@ -7917,12 +7900,12 @@ components:
           items:
             $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
         merge_fields:
-          description: '_t__TemplateCreateEmbedded::MERGE_FIELDS'
+          description: '_t__TemplateCreate::MERGE_FIELDS'
           type: array
           items:
             $ref: '#/components/schemas/SubMergeField'
         message:
-          description: '_t__TemplateCreateEmbedded::MESSAGE'
+          description: '_t__TemplateCreate::MESSAGE'
           type: string
           maxLength: 5000
         metadata:
@@ -7930,36 +7913,24 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {  }
-        show_preview:
-          description: '_t__TemplateCreateEmbedded::SHOW_PREVIEW'
-          type: boolean
-          default: false
-        show_progress_stepper:
-          description: '_t__TemplateCreateEmbedded::SHOW_PROGRESS_STEPPER'
-          type: boolean
-          default: true
         signer_roles:
-          description: '_t__TemplateCreateEmbedded::SIGNER_ROLES'
+          description: '_t__TemplateCreate::SIGNER_ROLES'
           type: array
           items:
             $ref: '#/components/schemas/SubTemplateRole'
-        skip_me_now:
-          description: '_t__TemplateCreateEmbedded::SKIP_ME_NOW'
-          type: boolean
-          default: false
         subject:
-          description: '_t__TemplateCreateEmbedded::SUBJECT'
+          description: '_t__TemplateCreate::SUBJECT'
           type: string
           maxLength: 200
         test_mode:
-          description: '_t__TemplateCreateEmbedded::TEST_MODE'
+          description: '_t__TemplateCreate::TEST_MODE'
           type: boolean
           default: false
         title:
-          description: '_t__TemplateCreateEmbedded::TITLE'
+          description: '_t__TemplateCreate::TITLE'
           type: string
         use_preexisting_fields:
-          description: '_t__TemplateCreateEmbedded::USE_PREEXISTING_FIELDS'
+          description: '_t__TemplateCreate::USE_PREEXISTING_FIELDS'
           type: boolean
           default: false
       type: object
@@ -9773,8 +9744,8 @@ components:
           deprecated: true
       type: object
       x-internal: true
-    TemplateCreateEmbeddedResponseTemplate:
-      description: '_t__TemplateCreateEmbeddedResponseTemplate::DESCRIPTION'
+    TemplateCreateResponseTemplate:
+      description: '_t__TemplateCreateResponseTemplate::DESCRIPTION'
       properties:
         template_id:
           description: '_t__TemplateResponse::TEMPLATE_ID'
@@ -10416,10 +10387,10 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateEmbeddedResponse:
+    TemplateCreateResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
+          $ref: '#/components/schemas/TemplateCreateResponse'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
@@ -10605,22 +10576,22 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateAddUserRequestDefaultExample.json
-    TemplateCreateEmbeddedRequestDefaultExample:
+    TemplateCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestDefaultExample.json
-    TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample:
+        $ref: examples/json/TemplateCreateRequestDefaultExample.json
+    TemplateCreateRequestFormFieldsPerDocumentExample:
       summary: 'Form Fields Per Document Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample.json
-    TemplateCreateEmbeddedRequestFormFieldGroupsExample:
+        $ref: examples/json/TemplateCreateRequestFormFieldsPerDocumentExample.json
+    TemplateCreateRequestFormFieldGroupsExample:
       summary: 'Form Fields Per Document and Groups Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldGroupsExample.json
-    TemplateCreateEmbeddedRequestFormFieldRulesExample:
+        $ref: examples/json/TemplateCreateRequestFormFieldGroupsExample.json
+    TemplateCreateRequestFormFieldRulesExample:
       summary: 'Form Fields Per Document and Rules Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldRulesExample.json
+        $ref: examples/json/TemplateCreateRequestFormFieldRulesExample.json
     TemplateCreateEmbeddedDraftRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -10925,10 +10896,10 @@ components:
       summary: '_t__TeamSubTeamsResponseExample::SUMMARY'
       value:
         $ref: examples/json/TeamSubTeamsResponseExample.json
-    TemplateCreateEmbeddedResponseExample:
-      summary: '_t__TemplateCreateEmbeddedResponseExample::SUMMARY'
+    TemplateCreateResponseExample:
+      summary: '_t__TemplateCreateResponseExample::SUMMARY'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedResponseExample.json
+        $ref: examples/json/TemplateCreateResponseExample.json
     TemplateCreateEmbeddedDraftResponseExample:
       summary: '_t__TemplateCreateEmbeddedDraftResponseExample::SUMMARY'
       value:

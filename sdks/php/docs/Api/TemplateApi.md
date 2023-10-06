@@ -5,7 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**templateAddUser()**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| [**templateCreateEmbedded()**](TemplateApi.md#templateCreateEmbedded) | **POST** /template/create_embedded | Create Embedded Template |
+| [**templateCreate()**](TemplateApi.md#templateCreate) | **POST** /template/create | Create  Template |
 | [**templateCreateEmbeddedDraft()**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**templateDelete()**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template |
 | [**templateFiles()**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -84,13 +84,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `templateCreateEmbedded()`
+## `templateCreate()`
 
 ```php
-templateCreateEmbedded($template_create_embedded_request): \Dropbox\Sign\Model\TemplateCreateEmbeddedResponse
+templateCreate($template_create_request): \Dropbox\Sign\Model\TemplateCreateResponse
 ```
 
-Create Embedded Template
+Create  Template
 
 Creates a template that can then be used.
 
@@ -99,12 +99,12 @@ Creates a template that can then be used.
 ```php
 <?php
 
-require_once __DIR__ . "/vendor/autoload.php";
+require_once __DIR__ . '/vendor/autoload.php';
 
 $config = Dropbox\Sign\Configuration::getDefaultConfiguration();
 
 // Configure HTTP basic authorization: api_key
-$config->setUsername("YOUR_API_KEY");
+$config->setUsername('YOUR_API_KEY');
 
 // or, configure Bearer (JWT) authorization: oauth2
 // $config->setAccessToken("YOUR_ACCESS_TOKEN");
@@ -112,42 +112,42 @@ $config->setUsername("YOUR_API_KEY");
 $templateApi = new Dropbox\Sign\Api\TemplateApi($config);
 
 $role1 = new Dropbox\Sign\Model\SubTemplateRole();
-$role1->setName("Client")
+$role1->setName('Client')
     ->setOrder(0);
 
 $role2 = new Dropbox\Sign\Model\SubTemplateRole();
-$role2->setName("Witness")
+$role2->setName('Witness')
     ->setOrder(1);
 
 $mergeField1 = new Dropbox\Sign\Model\SubMergeField();
-$mergeField1->setName("Full Name")
+$mergeField1->setName('Full Name')
     ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_TEXT);
 
 $mergeField2 = new Dropbox\Sign\Model\SubMergeField();
-$mergeField2->setName("Is Registered?")
+$mergeField2->setName('Is Registered?')
     ->setType(Dropbox\Sign\Model\SubMergeField::TYPE_CHECKBOX);
 
 $fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
 $fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new Dropbox\Sign\Model\TemplateCreateEmbeddeRequest();
-$data->setClientId("37dee8d8440c66d54cfa05d92c160882")
-    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
-    ->setTitle("Test Template")
-    ->setSubject("Please sign this document")
-    ->setMessage("For your approval")
+$data = new Dropbox\Sign\Model\TemplateCreateRequest();
+$data->setClientId('37dee8d8440c66d54cfa05d92c160882')
+    ->setFiles([new SplFileObject(__DIR__ . '/example_signature_request.pdf')])
+    ->setTitle('Test Template')
+    ->setSubject('Please sign this document')
+    ->setMessage('For your approval')
     ->setSignerRoles([$role1, $role2])
-    ->setCcRoles(["Manager"])
+    ->setCcRoles(['Manager'])
     ->setMergeFields([$mergeField1, $mergeField2])
     ->setFieldOptions($fieldOptions)
     ->setTestMode(true);
 
 try {
-    $result = $templateApi->templateCreateEmbedded($data);
+    $result = $templateApi->templateCreate($data);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
-    echo "Exception when calling Dropbox Sign API: "
+    echo 'Exception when calling Dropbox Sign API: '
         . print_r($error->getError());
 }
 
@@ -157,11 +157,11 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_create_embedded_request** | [**\Dropbox\Sign\Model\TemplateCreateEmbeddedRequest**](../Model/TemplateCreateEmbeddedRequest.md)|  | |
+| **template_create_request** | [**\Dropbox\Sign\Model\TemplateCreateRequest**](../Model/TemplateCreateRequest.md)|  | |
 
 ### Return type
 
-[**\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse**](../Model/TemplateCreateEmbeddedResponse.md)
+[**\Dropbox\Sign\Model\TemplateCreateResponse**](../Model/TemplateCreateResponse.md)
 
 ### Authorization
 

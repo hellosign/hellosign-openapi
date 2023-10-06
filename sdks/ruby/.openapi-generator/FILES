@@ -139,9 +139,9 @@ docs/TemplateApi.md
 docs/TemplateCreateEmbeddedDraftRequest.md
 docs/TemplateCreateEmbeddedDraftResponse.md
 docs/TemplateCreateEmbeddedDraftResponseTemplate.md
-docs/TemplateCreateEmbeddedRequest.md
-docs/TemplateCreateEmbeddedResponse.md
-docs/TemplateCreateEmbeddedResponseTemplate.md
+docs/TemplateCreateRequest.md
+docs/TemplateCreateResponse.md
+docs/TemplateCreateResponseTemplate.md
 docs/TemplateEditResponse.md
 docs/TemplateGetResponse.md
 docs/TemplateListResponse.md
@@ -327,9 +327,9 @@ lib/dropbox-sign/models/template_add_user_request.rb
 lib/dropbox-sign/models/template_create_embedded_draft_request.rb
 lib/dropbox-sign/models/template_create_embedded_draft_response.rb
 lib/dropbox-sign/models/template_create_embedded_draft_response_template.rb
-lib/dropbox-sign/models/template_create_embedded_request.rb
-lib/dropbox-sign/models/template_create_embedded_response.rb
-lib/dropbox-sign/models/template_create_embedded_response_template.rb
+lib/dropbox-sign/models/template_create_request.rb
+lib/dropbox-sign/models/template_create_response.rb
+lib/dropbox-sign/models/template_create_response_template.rb
 lib/dropbox-sign/models/template_edit_response.rb
 lib/dropbox-sign/models/template_get_response.rb
 lib/dropbox-sign/models/template_list_response.rb

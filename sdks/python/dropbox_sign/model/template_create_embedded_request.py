@@ -124,6 +124,8 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
         lazy_import()
         return {
             'client_id': (str,),  # noqa: E501
+            'form_fields_per_document': ([SubFormFieldsPerDocumentBase],),  # noqa: E501
+            'signer_roles': ([SubTemplateRole],),  # noqa: E501
             'files': ([file_type],),  # noqa: E501
             'file_urls': ([str],),  # noqa: E501
             'allow_ccs': (bool,),  # noqa: E501
@@ -136,13 +138,11 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
             'force_subject_message': (bool,),  # noqa: E501
             'form_field_groups': ([SubFormFieldGroup],),  # noqa: E501
             'form_field_rules': ([SubFormFieldRule],),  # noqa: E501
-            'form_fields_per_document': ([SubFormFieldsPerDocumentBase],),  # noqa: E501
             'merge_fields': ([SubMergeField],),  # noqa: E501
             'message': (str,),  # noqa: E501
             'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'show_preview': (bool,),  # noqa: E501
             'show_progress_stepper': (bool,),  # noqa: E501
-            'signer_roles': ([SubTemplateRole],),  # noqa: E501
             'skip_me_now': (bool,),  # noqa: E501
             'subject': (str,),  # noqa: E501
             'test_mode': (bool,),  # noqa: E501
@@ -172,6 +172,8 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
 
     attribute_map = {
         'client_id': 'client_id',  # noqa: E501
+        'form_fields_per_document': 'form_fields_per_document',  # noqa: E501
+        'signer_roles': 'signer_roles',  # noqa: E501
         'files': 'files',  # noqa: E501
         'file_urls': 'file_urls',  # noqa: E501
         'allow_ccs': 'allow_ccs',  # noqa: E501
@@ -184,13 +186,11 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
         'force_subject_message': 'force_subject_message',  # noqa: E501
         'form_field_groups': 'form_field_groups',  # noqa: E501
         'form_field_rules': 'form_field_rules',  # noqa: E501
-        'form_fields_per_document': 'form_fields_per_document',  # noqa: E501
         'merge_fields': 'merge_fields',  # noqa: E501
         'message': 'message',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'show_preview': 'show_preview',  # noqa: E501
         'show_progress_stepper': 'show_progress_stepper',  # noqa: E501
-        'signer_roles': 'signer_roles',  # noqa: E501
         'skip_me_now': 'skip_me_now',  # noqa: E501
         'subject': 'subject',  # noqa: E501
         'test_mode': 'test_mode',  # noqa: E501
@@ -210,6 +210,22 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
     @client_id.setter
     def client_id(self, value: str):
         setattr(self, "client_id", value)
+
+    @property
+    def form_fields_per_document(self) -> List[SubFormFieldsPerDocumentBase]:
+        return self.get("form_fields_per_document")
+
+    @form_fields_per_document.setter
+    def form_fields_per_document(self, value: List[SubFormFieldsPerDocumentBase]):
+        setattr(self, "form_fields_per_document", value)
+
+    @property
+    def signer_roles(self) -> List[SubTemplateRole]:
+        return self.get("signer_roles")
+
+    @signer_roles.setter
+    def signer_roles(self, value: List[SubTemplateRole]):
+        setattr(self, "signer_roles", value)
 
     @property
     def files(self) -> List[file_type]:
@@ -308,14 +324,6 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
         setattr(self, "form_field_rules", value)
 
     @property
-    def form_fields_per_document(self) -> List[SubFormFieldsPerDocumentBase]:
-        return self.get("form_fields_per_document")
-
-    @form_fields_per_document.setter
-    def form_fields_per_document(self, value: List[SubFormFieldsPerDocumentBase]):
-        setattr(self, "form_fields_per_document", value)
-
-    @property
     def merge_fields(self) -> List[SubMergeField]:
         return self.get("merge_fields")
 
@@ -354,14 +362,6 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
     @show_progress_stepper.setter
     def show_progress_stepper(self, value: bool):
         setattr(self, "show_progress_stepper", value)
-
-    @property
-    def signer_roles(self) -> List[SubTemplateRole]:
-        return self.get("signer_roles")
-
-    @signer_roles.setter
-    def signer_roles(self, value: List[SubTemplateRole]):
-        setattr(self, "signer_roles", value)
 
     @property
     def skip_me_now(self) -> bool:
@@ -405,11 +405,13 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, client_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, client_id, form_fields_per_document, signer_roles, *args, **kwargs):  # noqa: E501
         """TemplateCreateEmbeddedRequest - a model defined in OpenAPI
 
         Args:
             client_id (str): Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
+            form_fields_per_document ([SubFormFieldsPerDocumentBase]): The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+            signer_roles ([SubTemplateRole]): An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -454,13 +456,11 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
             force_subject_message (bool): Provide users the ability to review/edit the template subject and message.. [optional] if omitted the server will use the default value of False  # noqa: E501
             form_field_groups ([SubFormFieldGroup]): Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.. [optional]  # noqa: E501
             form_field_rules ([SubFormFieldRule]): Conditional Logic rules for fields defined in `form_fields_per_document`.. [optional]  # noqa: E501
-            form_fields_per_document ([SubFormFieldsPerDocumentBase]): The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`. [optional]  # noqa: E501
             merge_fields ([SubMergeField]): Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.. [optional]  # noqa: E501
             message (str): The default template email message.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.. [optional]  # noqa: E501
             show_preview (bool): This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.. [optional] if omitted the server will use the default value of False  # noqa: E501
             show_progress_stepper (bool): When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.. [optional] if omitted the server will use the default value of True  # noqa: E501
-            signer_roles ([SubTemplateRole]): An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.. [optional]  # noqa: E501
             skip_me_now (bool): Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             subject (str): The template title (alias).. [optional]  # noqa: E501
             test_mode (bool): Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -494,6 +494,8 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.client_id = client_id
+        self.form_fields_per_document = form_fields_per_document
+        self.signer_roles = signer_roles
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -514,11 +516,13 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, client_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, client_id, form_fields_per_document, signer_roles, *args, **kwargs):  # noqa: E501
         """TemplateCreateEmbeddedRequest - a model defined in OpenAPI
 
         Args:
             client_id (str): Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
+            form_fields_per_document ([SubFormFieldsPerDocumentBase]): The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+            signer_roles ([SubTemplateRole]): An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -563,13 +567,11 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
             force_subject_message (bool): Provide users the ability to review/edit the template subject and message.. [optional] if omitted the server will use the default value of False  # noqa: E501
             form_field_groups ([SubFormFieldGroup]): Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.. [optional]  # noqa: E501
             form_field_rules ([SubFormFieldRule]): Conditional Logic rules for fields defined in `form_fields_per_document`.. [optional]  # noqa: E501
-            form_fields_per_document ([SubFormFieldsPerDocumentBase]): The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`. [optional]  # noqa: E501
             merge_fields ([SubMergeField]): Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter. If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.. [optional]  # noqa: E501
             message (str): The default template email message.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.. [optional]  # noqa: E501
             show_preview (bool): This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.. [optional] if omitted the server will use the default value of False  # noqa: E501
             show_progress_stepper (bool): When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.. [optional] if omitted the server will use the default value of True  # noqa: E501
-            signer_roles ([SubTemplateRole]): An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.. [optional]  # noqa: E501
             skip_me_now (bool): Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             subject (str): The template title (alias).. [optional]  # noqa: E501
             test_mode (bool): Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -601,6 +603,8 @@ class TemplateCreateEmbeddedRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.client_id = client_id
+        self.form_fields_per_document = form_fields_per_document
+        self.signer_roles = signer_roles
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

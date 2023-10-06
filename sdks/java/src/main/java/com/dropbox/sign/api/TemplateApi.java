@@ -15,8 +15,8 @@ import com.dropbox.sign.model.FileResponseDataUri;
 import com.dropbox.sign.model.TemplateAddUserRequest;
 import com.dropbox.sign.model.TemplateCreateEmbeddedDraftRequest;
 import com.dropbox.sign.model.TemplateCreateEmbeddedDraftResponse;
-import com.dropbox.sign.model.TemplateCreateEmbeddedRequest;
-import com.dropbox.sign.model.TemplateCreateEmbeddedResponse;
+import com.dropbox.sign.model.TemplateCreateRequest;
+import com.dropbox.sign.model.TemplateCreateResponse;
 import com.dropbox.sign.model.TemplateGetResponse;
 import com.dropbox.sign.model.TemplateListResponse;
 import com.dropbox.sign.model.TemplateRemoveUserRequest;
@@ -142,10 +142,10 @@ public class TemplateApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Create Embedded Template
+   * Create  Template
    * Creates a template that can then be used.
-   * @param templateCreateEmbeddedRequest  (required)
-   * @return TemplateCreateEmbeddedResponse
+   * @param templateCreateRequest  (required)
+   * @return TemplateCreateResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -154,16 +154,16 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public TemplateCreateEmbeddedResponse templateCreateEmbedded(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest) throws ApiException {
-    return templateCreateEmbeddedWithHttpInfo(templateCreateEmbeddedRequest).getData();
+  public TemplateCreateResponse templateCreate(TemplateCreateRequest templateCreateRequest) throws ApiException {
+    return templateCreateWithHttpInfo(templateCreateRequest).getData();
   }
 
 
   /**
-   * Create Embedded Template
+   * Create  Template
    * Creates a template that can then be used.
-   * @param templateCreateEmbeddedRequest  (required)
-   * @return ApiResponse&lt;TemplateCreateEmbeddedResponse&gt;
+   * @param templateCreateRequest  (required)
+   * @return ApiResponse&lt;TemplateCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -172,17 +172,17 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TemplateCreateEmbeddedResponse> templateCreateEmbeddedWithHttpInfo(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest) throws ApiException {
+  public ApiResponse<TemplateCreateResponse> templateCreateWithHttpInfo(TemplateCreateRequest templateCreateRequest) throws ApiException {
     
-    Object localVarPostBody = templateCreateEmbeddedRequest;
+    Object localVarPostBody = templateCreateRequest;
     
-    // verify the required parameter 'templateCreateEmbeddedRequest' is set
-    if (templateCreateEmbeddedRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'templateCreateEmbeddedRequest' when calling templateCreateEmbedded");
+    // verify the required parameter 'templateCreateRequest' is set
+    if (templateCreateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'templateCreateRequest' when calling templateCreate");
     }
     
     // create path and map variables
-    String localVarPath = "/template/create_embedded";
+    String localVarPath = "/template/create";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -203,16 +203,16 @@ public class TemplateApi {
       "application/json", "multipart/form-data"
     };
 
-    localVarFormParams = templateCreateEmbeddedRequest.createFormData();
+    localVarFormParams = templateCreateRequest.createFormData();
     boolean isFileTypeFound = !localVarFormParams.isEmpty();
 
     final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
 
-    GenericType<TemplateCreateEmbeddedResponse> localVarReturnType = new GenericType<TemplateCreateEmbeddedResponse>() {};
+    GenericType<TemplateCreateResponse> localVarReturnType = new GenericType<TemplateCreateResponse>() {};
 
-    return apiClient.invokeAPI("TemplateApi.templateCreateEmbedded", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("TemplateApi.templateCreate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

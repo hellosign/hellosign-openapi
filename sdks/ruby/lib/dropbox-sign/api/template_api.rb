@@ -137,31 +137,31 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
-    # Create Embedded Template
+    # Create  Template
     # Creates a template that can then be used.
-    # @param template_create_embedded_request [TemplateCreateEmbeddedRequest] 
+    # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [TemplateCreateEmbeddedResponse]
-    def template_create_embedded(template_create_embedded_request, opts = {})
-      data, _status_code, _headers = template_create_embedded_with_http_info(template_create_embedded_request, opts)
+    # @return [TemplateCreateResponse]
+    def template_create(template_create_request, opts = {})
+      data, _status_code, _headers = template_create_with_http_info(template_create_request, opts)
       data
     end
 
-    # Create Embedded Template
+    # Create  Template
     # Creates a template that can then be used.
-    # @param template_create_embedded_request [TemplateCreateEmbeddedRequest] 
+    # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(TemplateCreateEmbeddedResponse, Integer, Hash)>] TemplateCreateEmbeddedResponse data, response status code and response headers
-    def template_create_embedded_with_http_info(template_create_embedded_request, opts = {})
+    # @return [Array<(TemplateCreateResponse, Integer, Hash)>] TemplateCreateResponse data, response status code and response headers
+    def template_create_with_http_info(template_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplateApi.template_create_embedded ...'
+        @api_client.config.logger.debug 'Calling API: TemplateApi.template_create ...'
       end
-      # verify the required parameter 'template_create_embedded_request' is set
-      if @api_client.config.client_side_validation && template_create_embedded_request.nil?
-        fail ArgumentError, "Missing the required parameter 'template_create_embedded_request' when calling TemplateApi.template_create_embedded"
+      # verify the required parameter 'template_create_request' is set
+      if @api_client.config.client_side_validation && template_create_request.nil?
+        fail ArgumentError, "Missing the required parameter 'template_create_request' when calling TemplateApi.template_create"
       end
       # resource path
-      local_var_path = '/template/create_embedded'
+      local_var_path = '/template/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -179,8 +179,8 @@ module Dropbox::Sign
       post_body = {}
       form_params = opts[:form_params] || {}
       result = @api_client.generate_form_data(
-        template_create_embedded_request,
-        Dropbox::Sign::TemplateCreateEmbeddedRequest.openapi_types
+        template_create_request,
+        Dropbox::Sign::TemplateCreateRequest.openapi_types
       )
 
       # form parameters
@@ -193,13 +193,13 @@ module Dropbox::Sign
       end
 
       # return_type
-      return_type = opts[:debug_return_type] || 'TemplateCreateEmbeddedResponse'
+      return_type = opts[:debug_return_type] || 'TemplateCreateResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
 
       new_options = opts.merge(
-        :operation => :"TemplateApi.template_create_embedded",
+        :operation => :"TemplateApi.template_create",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -214,7 +214,7 @@ module Dropbox::Sign
         if e.code === 200
           body = @api_client.convert_to_type(
             JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
-            "Dropbox::Sign::TemplateCreateEmbeddedResponse"
+            "Dropbox::Sign::TemplateCreateResponse"
           )
 
           fail ApiError.new(:code => e.code,
@@ -241,7 +241,7 @@ module Dropbox::Sign
       end
 
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplateApi#template_create_embedded\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplateApi#template_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
