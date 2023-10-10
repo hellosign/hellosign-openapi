@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseAccountQuota;
@@ -23,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,15 +36,15 @@ import com.dropbox.sign.ApiException;
  * TemplateResponseAccount
  */
 @JsonPropertyOrder({
-    TemplateResponseAccount.JSON_PROPERTY_ACCOUNT_ID,
-    TemplateResponseAccount.JSON_PROPERTY_EMAIL_ADDRESS,
-    TemplateResponseAccount.JSON_PROPERTY_IS_LOCKED,
-    TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HS,
-    TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HF,
-    TemplateResponseAccount.JSON_PROPERTY_QUOTAS
+  TemplateResponseAccount.JSON_PROPERTY_ACCOUNT_ID,
+  TemplateResponseAccount.JSON_PROPERTY_EMAIL_ADDRESS,
+  TemplateResponseAccount.JSON_PROPERTY_IS_LOCKED,
+  TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HS,
+  TemplateResponseAccount.JSON_PROPERTY_IS_PAID_HF,
+  TemplateResponseAccount.JSON_PROPERTY_QUOTAS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseAccount {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
@@ -91,7 +91,7 @@ public class TemplateResponseAccount {
    * The id of the Account.
    * @return accountId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of the Account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class TemplateResponseAccount {
    * The email address associated with the Account.
    * @return emailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The email address associated with the Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class TemplateResponseAccount {
    * Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
    * @return isLocked
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns `true` if the user has been locked out of their account by a team admin.")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class TemplateResponseAccount {
    * Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
    * @return isPaidHs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns `true` if the user has a paid Dropbox Sign account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class TemplateResponseAccount {
    * Returns &#x60;true&#x60; if the user has a paid HelloFax account.
    * @return isPaidHf
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Returns `true` if the user has a paid HelloFax account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class TemplateResponseAccount {
    * Get quotas
    * @return quotas
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUOTAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

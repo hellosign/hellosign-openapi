@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,13 +36,13 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "Specific metadata about the event.")
 @JsonPropertyOrder({
-    EventCallbackRequestEventMetadata.JSON_PROPERTY_RELATED_SIGNATURE_ID,
-    EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID,
-    EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_APP_ID,
-    EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
+  EventCallbackRequestEventMetadata.JSON_PROPERTY_RELATED_SIGNATURE_ID,
+  EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID,
+  EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_APP_ID,
+  EventCallbackRequestEventMetadata.JSON_PROPERTY_EVENT_MESSAGE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackRequestEventMetadata {
   public static final String JSON_PROPERTY_RELATED_SIGNATURE_ID = "related_signature_id";
   private String relatedSignatureId;
@@ -83,7 +83,7 @@ public class EventCallbackRequestEventMetadata {
    * Signature ID for a specific signer. Applicable to &#x60;signature_request_signed&#x60; and &#x60;signature_request_viewed&#x60; events.
    * @return relatedSignatureId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.")
   @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class EventCallbackRequestEventMetadata {
    * Account ID the event was reported for.
    * @return reportedForAccountId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Account ID the event was reported for.")
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class EventCallbackRequestEventMetadata {
    * App ID the event was reported for.
    * @return reportedForAppId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "App ID the event was reported for.")
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class EventCallbackRequestEventMetadata {
    * Message about a declined or failed (due to error) signature flow.
    * @return eventMessage
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Message about a declined or failed (due to error) signature flow.")
   @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

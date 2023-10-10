@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,13 +35,13 @@ import com.dropbox.sign.ApiException;
  * SubAttachment
  */
 @JsonPropertyOrder({
-    SubAttachment.JSON_PROPERTY_NAME,
-    SubAttachment.JSON_PROPERTY_SIGNER_INDEX,
-    SubAttachment.JSON_PROPERTY_INSTRUCTIONS,
-    SubAttachment.JSON_PROPERTY_REQUIRED
+  SubAttachment.JSON_PROPERTY_NAME,
+  SubAttachment.JSON_PROPERTY_SIGNER_INDEX,
+  SubAttachment.JSON_PROPERTY_INSTRUCTIONS,
+  SubAttachment.JSON_PROPERTY_REQUIRED
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubAttachment {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -82,7 +82,7 @@ public class SubAttachment {
    * The name of attachment.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of attachment.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -108,7 +108,7 @@ public class SubAttachment {
    * The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
    * @return signerIndex
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The signer's index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.")
   @JsonProperty(JSON_PROPERTY_SIGNER_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -134,7 +134,7 @@ public class SubAttachment {
    * The instructions for uploading the attachment.
    * @return instructions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The instructions for uploading the attachment.")
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,7 +160,7 @@ public class SubAttachment {
    * Determines if the attachment must be uploaded.
    * @return required
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Determines if the attachment must be uploaded.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

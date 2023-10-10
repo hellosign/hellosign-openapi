@@ -130,32 +130,6 @@ public class Example {
 ```
 
 
-  ## Using a Proxy
-
-  To add a HTTP proxy for the API client, use `ClientConfig`:
-
-  ```java
-  
-    import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
-    import org.glassfish.jersey.client.ClientConfig;
-    import org.glassfish.jersey.client.ClientProperties;
-    import com.dropbox.sign.*;
-    import com.dropbox.sign.api.AccountApi;
-
-    ...
-
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    ClientConfig clientConfig = defaultClient.getClientConfig();
-    clientConfig.connectorProvider(new ApacheConnectorProvider());
-    clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
-    clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
-    clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
-    defaultClient.setClientConfig(clientConfig);
-
-    AccountApi apiInstance = new AccountApi(defaultClient);
-  
-  ```
-
 
 ## Documentation for API Endpoints
 

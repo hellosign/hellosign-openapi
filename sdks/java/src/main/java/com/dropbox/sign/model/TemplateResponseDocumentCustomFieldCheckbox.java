@@ -14,12 +14,10 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldBase;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,15 +40,11 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "This class extends `TemplateResponseDocumentCustomFieldBase`")
 @JsonPropertyOrder({
-    TemplateResponseDocumentCustomFieldCheckbox.JSON_PROPERTY_TYPE
+  TemplateResponseDocumentCustomFieldCheckbox.JSON_PROPERTY_TYPE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldText.class, name = "text"),
-})
 
 public class TemplateResponseDocumentCustomFieldCheckbox extends TemplateResponseDocumentCustomFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -82,7 +77,7 @@ public class TemplateResponseDocumentCustomFieldCheckbox extends TemplateRespons
    * The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -192,13 +187,11 @@ public class TemplateResponseDocumentCustomFieldCheckbox extends TemplateRespons
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", TemplateResponseDocumentCustomFieldCheckbox.class);
-  mappings.put("text", TemplateResponseDocumentCustomFieldText.class);
-  mappings.put("TemplateResponseDocumentCustomFieldCheckbox", TemplateResponseDocumentCustomFieldCheckbox.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentCustomFieldCheckbox.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("TemplateResponseDocumentCustomFieldCheckbox", TemplateResponseDocumentCustomFieldCheckbox.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentCustomFieldCheckbox.class, "type", mappings);
+  }
 }
 

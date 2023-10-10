@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,12 +35,12 @@ import com.dropbox.sign.ApiException;
  * SubUnclaimedDraftTemplateSigner
  */
 @JsonPropertyOrder({
-    SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_ROLE,
-    SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_NAME,
-    SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_EMAIL_ADDRESS
+  SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_ROLE,
+  SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_NAME,
+  SubUnclaimedDraftTemplateSigner.JSON_PROPERTY_EMAIL_ADDRESS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubUnclaimedDraftTemplateSigner {
   public static final String JSON_PROPERTY_ROLE = "role";
   private String role;
@@ -78,7 +78,7 @@ public class SubUnclaimedDraftTemplateSigner {
    * Must match an existing role in chosen Template(s).
    * @return role
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Must match an existing role in chosen Template(s).")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,7 +104,7 @@ public class SubUnclaimedDraftTemplateSigner {
    * The name of the signer filling the role of &#x60;role&#x60;.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the signer filling the role of `role`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +130,7 @@ public class SubUnclaimedDraftTemplateSigner {
    * The email address of the signer filling the role of &#x60;role&#x60;.
    * @return emailAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The email address of the signer filling the role of `role`.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

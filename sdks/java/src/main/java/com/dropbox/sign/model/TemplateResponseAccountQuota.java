@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,13 +36,13 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.")
 @JsonPropertyOrder({
-    TemplateResponseAccountQuota.JSON_PROPERTY_TEMPLATES_LEFT,
-    TemplateResponseAccountQuota.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
-    TemplateResponseAccountQuota.JSON_PROPERTY_DOCUMENTS_LEFT,
-    TemplateResponseAccountQuota.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
+  TemplateResponseAccountQuota.JSON_PROPERTY_TEMPLATES_LEFT,
+  TemplateResponseAccountQuota.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
+  TemplateResponseAccountQuota.JSON_PROPERTY_DOCUMENTS_LEFT,
+  TemplateResponseAccountQuota.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseAccountQuota {
   public static final String JSON_PROPERTY_TEMPLATES_LEFT = "templates_left";
   private Integer templatesLeft;
@@ -83,7 +83,7 @@ public class TemplateResponseAccountQuota {
    * API templates remaining.
    * @return templatesLeft
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "API templates remaining.")
   @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,7 +109,7 @@ public class TemplateResponseAccountQuota {
    * API signature requests remaining.
    * @return apiSignatureRequestsLeft
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "API signature requests remaining.")
   @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,7 +135,7 @@ public class TemplateResponseAccountQuota {
    * Signature requests remaining.
    * @return documentsLeft
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signature requests remaining.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,7 +161,7 @@ public class TemplateResponseAccountQuota {
    * SMS verifications remaining.
    * @return smsVerificationsLeft
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "SMS verifications remaining.")
   @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

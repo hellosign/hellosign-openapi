@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,11 +35,11 @@ import com.dropbox.sign.ApiException;
  * SubBulkSignerListCustomField
  */
 @JsonPropertyOrder({
-    SubBulkSignerListCustomField.JSON_PROPERTY_NAME,
-    SubBulkSignerListCustomField.JSON_PROPERTY_VALUE
+  SubBulkSignerListCustomField.JSON_PROPERTY_NAME,
+  SubBulkSignerListCustomField.JSON_PROPERTY_VALUE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubBulkSignerListCustomField {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -74,7 +74,7 @@ public class SubBulkSignerListCustomField {
    * The name of the custom field. Must be the field&#39;s &#x60;name&#x60; or &#x60;api_id&#x60;.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the custom field. Must be the field's `name` or `api_id`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +100,7 @@ public class SubBulkSignerListCustomField {
    * The value of the custom field.
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The value of the custom field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

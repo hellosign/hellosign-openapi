@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubSignatureRequestSigner;
@@ -23,10 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,12 +38,12 @@ import com.dropbox.sign.ApiException;
  * SubSignatureRequestGroupedSigners
  */
 @JsonPropertyOrder({
-    SubSignatureRequestGroupedSigners.JSON_PROPERTY_GROUP,
-    SubSignatureRequestGroupedSigners.JSON_PROPERTY_SIGNERS,
-    SubSignatureRequestGroupedSigners.JSON_PROPERTY_ORDER
+  SubSignatureRequestGroupedSigners.JSON_PROPERTY_GROUP,
+  SubSignatureRequestGroupedSigners.JSON_PROPERTY_SIGNERS,
+  SubSignatureRequestGroupedSigners.JSON_PROPERTY_ORDER
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubSignatureRequestGroupedSigners {
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
@@ -81,7 +81,7 @@ public class SubSignatureRequestGroupedSigners {
    * The name of the group.
    * @return group
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the group.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,6 +104,9 @@ public class SubSignatureRequestGroupedSigners {
   }
 
   public SubSignatureRequestGroupedSigners addSignersItem(SubSignatureRequestSigner signersItem) {
+    if (this.signers == null) {
+      this.signers = new ArrayList<>();
+    }
     this.signers.add(signersItem);
     return this;
   }
@@ -112,7 +115,7 @@ public class SubSignatureRequestGroupedSigners {
    * Signers belonging to this Group.  **NOTE**: Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
    * @return signers
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,7 +141,7 @@ public class SubSignatureRequestGroupedSigners {
    * The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.
    * @return order
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The order the group is required to sign in. Use this instead of Signer-level `order`.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

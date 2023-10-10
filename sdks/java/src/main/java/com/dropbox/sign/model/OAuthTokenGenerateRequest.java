@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,14 +35,14 @@ import com.dropbox.sign.ApiException;
  * OAuthTokenGenerateRequest
  */
 @JsonPropertyOrder({
-    OAuthTokenGenerateRequest.JSON_PROPERTY_CLIENT_ID,
-    OAuthTokenGenerateRequest.JSON_PROPERTY_CLIENT_SECRET,
-    OAuthTokenGenerateRequest.JSON_PROPERTY_CODE,
-    OAuthTokenGenerateRequest.JSON_PROPERTY_GRANT_TYPE,
-    OAuthTokenGenerateRequest.JSON_PROPERTY_STATE
+  OAuthTokenGenerateRequest.JSON_PROPERTY_CLIENT_ID,
+  OAuthTokenGenerateRequest.JSON_PROPERTY_CLIENT_SECRET,
+  OAuthTokenGenerateRequest.JSON_PROPERTY_CODE,
+  OAuthTokenGenerateRequest.JSON_PROPERTY_GRANT_TYPE,
+  OAuthTokenGenerateRequest.JSON_PROPERTY_STATE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OAuthTokenGenerateRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -86,7 +86,7 @@ public class OAuthTokenGenerateRequest {
    * The client id of the app requesting authorization.
    * @return clientId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The client id of the app requesting authorization.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -112,7 +112,7 @@ public class OAuthTokenGenerateRequest {
    * The secret token of your app.
    * @return clientSecret
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The secret token of your app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -138,7 +138,7 @@ public class OAuthTokenGenerateRequest {
    * The code passed to your callback when the user granted access.
    * @return code
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The code passed to your callback when the user granted access.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -164,7 +164,7 @@ public class OAuthTokenGenerateRequest {
    * When generating a new token use &#x60;authorization_code&#x60;.
    * @return grantType
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "When generating a new token use `authorization_code`.")
   @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -190,7 +190,7 @@ public class OAuthTokenGenerateRequest {
    * Same as the state you specified earlier.
    * @return state
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Same as the state you specified earlier.")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

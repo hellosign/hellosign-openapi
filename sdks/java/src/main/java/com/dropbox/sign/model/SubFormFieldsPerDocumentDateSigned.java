@@ -14,20 +14,10 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentCheckbox;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentCheckboxMerge;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentDateSigned;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentDropdown;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentHyperlink;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentInitials;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentRadio;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentSignature;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentText;
-import com.dropbox.sign.model.SubFormFieldsPerDocumentTextMerge;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,25 +40,13 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
-    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_TYPE,
-    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
-    SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_SIZE
+  SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_TYPE,
+  SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
+  SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_SIZE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentCheckboxMerge.class, name = "checkbox-merge"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDateSigned.class, name = "date_signed"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentDropdown.class, name = "dropdown"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentHyperlink.class, name = "hyperlink"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentInitials.class, name = "initials"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentRadio.class, name = "radio"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentSignature.class, name = "signature"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentText.class, name = "text"),
-  @JsonSubTypes.Type(value = SubFormFieldsPerDocumentTextMerge.class, name = "text-merge"),
-})
 
 public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -169,7 +148,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * A date. Use the &#x60;SubFormFieldsPerDocumentDateSigned&#x60; class.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "A date. Use the `SubFormFieldsPerDocumentDateSigned` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -195,7 +174,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * Font family for the field.
    * @return fontFamily
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +200,7 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
    * @return fontSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,21 +352,11 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", SubFormFieldsPerDocumentCheckbox.class);
-  mappings.put("checkbox-merge", SubFormFieldsPerDocumentCheckboxMerge.class);
-  mappings.put("date_signed", SubFormFieldsPerDocumentDateSigned.class);
-  mappings.put("dropdown", SubFormFieldsPerDocumentDropdown.class);
-  mappings.put("hyperlink", SubFormFieldsPerDocumentHyperlink.class);
-  mappings.put("initials", SubFormFieldsPerDocumentInitials.class);
-  mappings.put("radio", SubFormFieldsPerDocumentRadio.class);
-  mappings.put("signature", SubFormFieldsPerDocumentSignature.class);
-  mappings.put("text", SubFormFieldsPerDocumentText.class);
-  mappings.put("text-merge", SubFormFieldsPerDocumentTextMerge.class);
-  mappings.put("SubFormFieldsPerDocumentDateSigned", SubFormFieldsPerDocumentDateSigned.class);
-  JSON.registerDiscriminator(SubFormFieldsPerDocumentDateSigned.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("SubFormFieldsPerDocumentDateSigned", SubFormFieldsPerDocumentDateSigned.class);
+    JSON.registerDiscriminator(SubFormFieldsPerDocumentDateSigned.class, "type", mappings);
+  }
 }
 

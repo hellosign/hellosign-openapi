@@ -18,7 +18,7 @@ import com.dropbox.sign.model.EventCallbackRequestEventMetadata;
 import org.apache.commons.codec.digest.HmacAlgorithms;
 import org.apache.commons.codec.digest.HmacUtils;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackHelper {
     public static final String EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
 

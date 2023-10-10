@@ -14,11 +14,9 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.SignatureRequestResponseCustomFieldCheckbox;
-import com.dropbox.sign.model.SignatureRequestResponseCustomFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,18 +39,16 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`")
 @JsonPropertyOrder({
-    SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_TYPE,
-    SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_NAME,
-    SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_REQUIRED,
-    SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_API_ID,
-    SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_EDITOR
+  SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_TYPE,
+  SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_NAME,
+  SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_REQUIRED,
+  SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_API_ID,
+  SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_EDITOR
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldCheckbox.class, name = "SignatureRequestResponseCustomFieldCheckbox"),
-  @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldText.class, name = "SignatureRequestResponseCustomFieldText"),
   @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldCheckbox.class, name = "checkbox"),
   @JsonSubTypes.Type(value = SignatureRequestResponseCustomFieldText.class, name = "text"),
 })
@@ -99,7 +96,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -125,7 +122,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * The name of the Custom Field.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the Custom Field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -151,7 +148,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * A boolean value denoting if this field is required.
    * @return required
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A boolean value denoting if this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +174,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * The unique ID for this field.
    * @return apiId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +200,7 @@ public class SignatureRequestResponseCustomFieldBase {
    * The name of the Role that is able to edit this field.
    * @return editor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the Role that is able to edit this field.")
   @JsonProperty(JSON_PROPERTY_EDITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,15 +391,13 @@ public class SignatureRequestResponseCustomFieldBase {
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("SignatureRequestResponseCustomFieldCheckbox", SignatureRequestResponseCustomFieldCheckbox.class);
-  mappings.put("SignatureRequestResponseCustomFieldText", SignatureRequestResponseCustomFieldText.class);
-  mappings.put("checkbox", SignatureRequestResponseCustomFieldCheckbox.class);
-  mappings.put("text", SignatureRequestResponseCustomFieldText.class);
-  mappings.put("SignatureRequestResponseCustomFieldBase", SignatureRequestResponseCustomFieldBase.class);
-  JSON.registerDiscriminator(SignatureRequestResponseCustomFieldBase.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("checkbox", SignatureRequestResponseCustomFieldCheckbox.class);
+    mappings.put("text", SignatureRequestResponseCustomFieldText.class);
+    mappings.put("SignatureRequestResponseCustomFieldBase", SignatureRequestResponseCustomFieldBase.class);
+    JSON.registerDiscriminator(SignatureRequestResponseCustomFieldBase.class, "type", mappings);
+  }
 }
 

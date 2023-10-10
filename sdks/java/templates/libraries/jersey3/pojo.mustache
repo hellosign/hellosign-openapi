@@ -1,3 +1,4 @@
+import com.dropbox.sign.ApiException;
 /**
  * {{description}}{{^description}}{{classname}}{{/description}}{{#isDeprecated}}
  * @deprecated{{/isDeprecated}}
@@ -19,6 +20,7 @@
   {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
 {{/vars}}
 })
+@JsonIgnoreProperties(ignoreUnknown=true)
 {{#isClassnameSanitized}}
 @JsonTypeName("{{name}}")
 {{/isClassnameSanitized}}
@@ -107,6 +109,21 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
   {{/readOnlyVars}}
   }{{/jackson}}{{/withXml}}{{/vendorExtensions.x-has-readonly-properties}}
+
+  /**
+   * Attempt to instantiate and hydrate a new instance of this class
+   * @param jsonData String of JSON data representing target object
+   */
+  static public {{classname}} init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, {{classname}}.class);
+  }
+
+  static public {{classname}} init(HashMap data) throws Exception {
+    return new ObjectMapper().readValue(
+      new ObjectMapper().writeValueAsString(data),
+      {{classname}}.class
+    );
+  }
   {{#vars}}
 
   {{^isReadOnly}}
@@ -131,6 +148,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
   }
+  {{#vendorExtensions.x-int-or-string}}
+  public {{classname}} {{name}}(Integer {{name}}) {
+    this.{{name}} = String.valueOf({{name}});
+    return this;
+  }
+  {{/vendorExtensions.x-int-or-string}}
   {{#isArray}}
 
   public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
@@ -271,6 +294,12 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
+  {{#vendorExtensions.x-int-or-string}}
+
+  public void {{setter}}(Integer {{name}}) {
+    this.{{name}} = String.valueOf({{name}});
+  }
+  {{/vendorExtensions.x-int-or-string}}
   {{/isReadOnly}}
 
   {{/vars}}
@@ -335,6 +364,61 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/additionalPropertiesType}}
     sb.append("}");
     return sb.toString();
+  }
+
+  public Map<String, Object> createFormData() throws ApiException {
+    Map<String, Object> map = new HashMap<>();
+    boolean fileTypeFound = false;
+    {{#parent}}
+     map.putAll(super.createFormData());
+    {{/parent}}
+    try {
+    {{#vars}}
+    if ({{name}} != null) {
+        if (isFileTypeOrListOfFiles({{name}})) {
+            fileTypeFound = true;
+        }
+
+        if ({{name}}.getClass().equals(java.io.File.class) ||
+            {{name}}.getClass().equals(Integer.class) ||
+            {{name}}.getClass().equals(String.class) ||
+            {{name}}.getClass().isEnum()) {
+            map.put("{{baseName}}", {{name}});
+        } else if (isListOfFile({{name}})) {
+            for(int i = 0; i< getListSize({{name}}); i++) {
+                map.put("{{baseName}}[" + i + "]", getFromList({{name}}, i));
+            }
+        }
+        else {
+            map.put("{{baseName}}", JSON.getDefault().getMapper().writeValueAsString({{name}}));
+        }
+    }
+    {{/vars}}
+    } catch (Exception e) {
+        throw new ApiException(e);
+    }
+
+    return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
+    return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
+  }
+
+  private boolean isListOfFile(Object obj) throws Exception {
+      return obj instanceof java.util.List && !isListEmpty(obj) && getFromList(obj, 0) instanceof java.io.File;
+  }
+
+  private boolean isListEmpty(Object obj) throws Exception {
+    return (boolean) Class.forName(java.util.List.class.getName()).getMethod("isEmpty").invoke(obj);
+  }
+
+  private Object getFromList(Object obj, int index) throws Exception {
+    return Class.forName(java.util.List.class.getName()).getMethod("get", int.class).invoke(obj, index);
+  }
+
+  private int getListSize(Object obj) throws Exception {
+    return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
   }
 
   /**

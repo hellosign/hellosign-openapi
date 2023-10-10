@@ -2,6 +2,7 @@
 
 package {{invokerPackage}};
 
+import com.dropbox.sign.model.ErrorResponse;
 import java.util.Map;
 import java.util.List;
 {{#caseInsensitiveResponseHeaders}}
@@ -17,6 +18,7 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
+    private ErrorResponse errorResponse;
 
     public ApiException() {}
 
@@ -70,6 +72,11 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
         this.responseBody = responseBody;
     }
 
+    public ApiException(int code, String message, Map<String, List<String>> responseHeaders, String responseBody, ErrorResponse errorResponse) {
+        this(code, message, responseHeaders, responseBody);
+        this.errorResponse = errorResponse;
+    }
+
     /**
      * Get the HTTP status code.
      *
@@ -95,5 +102,9 @@ public class ApiException extends{{#useRuntimeException}} RuntimeException {{/us
      */
     public String getResponseBody() {
         return responseBody;
+    }
+
+    public ErrorResponse getErrorResponse() {
+        return errorResponse;
     }
 }

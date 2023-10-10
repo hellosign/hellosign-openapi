@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentFieldGroupRule;
@@ -23,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,11 +36,11 @@ import com.dropbox.sign.ApiException;
  * TemplateResponseDocumentFieldGroup
  */
 @JsonPropertyOrder({
-    TemplateResponseDocumentFieldGroup.JSON_PROPERTY_NAME,
-    TemplateResponseDocumentFieldGroup.JSON_PROPERTY_RULE
+  TemplateResponseDocumentFieldGroup.JSON_PROPERTY_NAME,
+  TemplateResponseDocumentFieldGroup.JSON_PROPERTY_RULE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseDocumentFieldGroup {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -75,7 +75,7 @@ public class TemplateResponseDocumentFieldGroup {
    * The name of the form field group.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the form field group.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class TemplateResponseDocumentFieldGroup {
    * Get rule
    * @return rule
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -23,6 +23,9 @@ lazy val root = (project in file(".")).
       "com.fasterxml.jackson.datatype" % "jackson-datatype-joda" % "2.13.2" % "compile",
       {{/joda}}
       "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % "2.13.2" % "compile",
+      {{#threetenbp}}
+      "com.github.joschi.jackson" % "jackson-datatype-threetenbp" % "2.12.5" % "compile",
+      {{/threetenbp}}
       {{#openApiNullable}}
       "org.openapitools" % "jackson-databind-nullable" % "0.2.6" % "compile",
       {{/openApiNullable}}
@@ -33,6 +36,8 @@ lazy val root = (project in file(".")).
       "org.tomitribe" % "tomitribe-http-signatures" % "1.7" % "compile",
       {{/hasHttpSignatureMethods}}
       "jakarta.annotation" % "jakarta.annotation-api" % "2.1.0" % "compile",
-      "org.junit.jupiter" % "junit-jupiter-api" % "5.8.2" % "test"
+      {{! TODO use the latest JUnit }}
+      {{! "org.junit.jupiter" % "junit-jupiter-api" % "5.8.2" % "test" }}
+      "junit" % "junit" % "4.13.2" % "test"
     )
   )

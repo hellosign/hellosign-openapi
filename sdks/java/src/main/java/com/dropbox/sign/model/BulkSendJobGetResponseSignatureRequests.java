@@ -14,10 +14,8 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.SignatureRequestResponse;
 import com.dropbox.sign.model.SignatureRequestResponseAttachment;
 import com.dropbox.sign.model.SignatureRequestResponseCustomFieldBase;
 import com.dropbox.sign.model.SignatureRequestResponseDataBase;
@@ -27,10 +25,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,33 +41,33 @@ import com.dropbox.sign.ApiException;
  * BulkSendJobGetResponseSignatureRequests
  */
 @JsonPropertyOrder({
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_TEST_MODE,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURE_REQUEST_ID,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_TITLE,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_ORIGINAL_TITLE,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SUBJECT,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_MESSAGE,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_METADATA,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_CREATED_AT,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_EXPIRES_AT,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_IS_COMPLETE,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_IS_DECLINED,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_HAS_ERROR,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_FILES_URL,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNING_URL,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_DETAILS_URL,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_TEMPLATE_IDS,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_CUSTOM_FIELDS,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_ATTACHMENTS,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_RESPONSE_DATA,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURES,
-    BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_BULK_SEND_JOB_ID
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_TEST_MODE,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURE_REQUEST_ID,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_TITLE,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_ORIGINAL_TITLE,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SUBJECT,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_MESSAGE,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_METADATA,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_CREATED_AT,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_EXPIRES_AT,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_IS_COMPLETE,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_IS_DECLINED,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_HAS_ERROR,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_FILES_URL,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNING_URL,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_DETAILS_URL,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_TEMPLATE_IDS,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_CUSTOM_FIELDS,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_ATTACHMENTS,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_RESPONSE_DATA,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_SIGNATURES,
+  BulkSendJobGetResponseSignatureRequests.JSON_PROPERTY_BULK_SEND_JOB_ID
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BulkSendJobGetResponseSignatureRequests {
   public static final String JSON_PROPERTY_TEST_MODE = "test_mode";
   private Boolean testMode = false;
@@ -119,25 +118,25 @@ public class BulkSendJobGetResponseSignatureRequests {
   private String detailsUrl;
 
   public static final String JSON_PROPERTY_CC_EMAIL_ADDRESSES = "cc_email_addresses";
-  private List<String> ccEmailAddresses = null;
+  private List<String> ccEmailAddresses;
 
   public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
   private String signingRedirectUrl;
 
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
-  private List<String> templateIds = null;
+  private List<String> templateIds;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SignatureRequestResponseCustomFieldBase> customFields = null;
+  private List<SignatureRequestResponseCustomFieldBase> customFields;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
-  private List<SignatureRequestResponseAttachment> attachments = null;
+  private List<SignatureRequestResponseAttachment> attachments;
 
   public static final String JSON_PROPERTY_RESPONSE_DATA = "response_data";
-  private List<SignatureRequestResponseDataBase> responseData = null;
+  private List<SignatureRequestResponseDataBase> responseData;
 
   public static final String JSON_PROPERTY_SIGNATURES = "signatures";
-  private List<SignatureRequestResponseSignatures> signatures = null;
+  private List<SignatureRequestResponseSignatures> signatures;
 
   public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
   private String bulkSendJobId;
@@ -169,7 +168,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Whether this is a test signature request. Test requests have no legal value. Defaults to &#x60;false&#x60;.
    * @return testMode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +194,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The id of the SignatureRequest.
    * @return signatureRequestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +220,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The email address of the initiator of the SignatureRequest.
    * @return requesterEmailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The email address of the initiator of the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +246,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The title the specified Account uses for the SignatureRequest.
    * @return title
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The title the specified Account uses for the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,7 +272,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Default Label for account.
    * @return originalTitle
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Default Label for account.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,7 +298,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The subject in the email that was initially sent to the signers.
    * @return subject
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The subject in the email that was initially sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -325,7 +324,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The custom message in the email that was initially sent to the signers.
    * @return message
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The custom message in the email that was initially sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,7 +350,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The metadata attached to the signature request.
    * @return metadata
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The metadata attached to the signature request.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +376,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Time the signature request was created.
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time the signature request was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -403,7 +402,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    * @return expiresAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -429,7 +428,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Whether or not the SignatureRequest has been fully executed by all signers.
    * @return isComplete
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the SignatureRequest has been fully executed by all signers.")
   @JsonProperty(JSON_PROPERTY_IS_COMPLETE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -455,7 +454,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Whether or not the SignatureRequest has been declined by a signer.
    * @return isDeclined
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the SignatureRequest has been declined by a signer.")
   @JsonProperty(JSON_PROPERTY_IS_DECLINED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -481,7 +480,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
    * @return hasError
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).")
   @JsonProperty(JSON_PROPERTY_HAS_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -507,7 +506,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The URL where a copy of the request&#39;s documents can be downloaded.
    * @return filesUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL where a copy of the request's documents can be downloaded.")
   @JsonProperty(JSON_PROPERTY_FILES_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -533,7 +532,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
    * @return signingUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.")
   @JsonProperty(JSON_PROPERTY_SIGNING_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -559,7 +558,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The URL where the requester and the signers can view the current status of the SignatureRequest.
    * @return detailsUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL where the requester and the signers can view the current status of the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_DETAILS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -593,7 +592,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
    * @return ccEmailAddresses
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.")
   @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -619,7 +618,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The URL you want the signer redirected to after they successfully sign.
    * @return signingRedirectUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want the signer redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -653,7 +652,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Templates IDs used in this SignatureRequest (if any).
    * @return templateIds
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Templates IDs used in this SignatureRequest (if any).")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -687,7 +686,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
    * @return customFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -721,7 +720,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * Signer attachments.
    * @return attachments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signer attachments.")
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -755,7 +754,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
    * @return responseData
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.")
   @JsonProperty(JSON_PROPERTY_RESPONSE_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -789,7 +788,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * An array of signature objects, 1 for each signer.
    * @return signatures
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of signature objects, 1 for each signer.")
   @JsonProperty(JSON_PROPERTY_SIGNATURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -815,7 +814,7 @@ public class BulkSendJobGetResponseSignatureRequests {
    * The id of the BulkSendJob.
    * @return bulkSendJobId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of the BulkSendJob.")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

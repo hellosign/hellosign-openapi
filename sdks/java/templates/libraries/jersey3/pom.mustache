@@ -91,6 +91,22 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
             <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -345,6 +361,13 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-version}</version>
         </dependency>
+        {{#threetenbp}}
+        <dependency>
+            <groupId>com.github.joschi.jackson</groupId>
+            <artifactId>jackson-datatype-threetenbp</artifactId>
+            <version>${jackson-threetenbp-version}</version>
+        </dependency>
+        {{/threetenbp}}
         {{#hasHttpSignatureMethods}}
         <dependency>
             <groupId>org.tomitribe</groupId>
@@ -380,10 +403,23 @@
             <version>${jersey-version}</version>
         </dependency>
         <!-- test dependencies -->
-        <dependency>
+        {{! TODO use latest version of junit }}
+        {{!<dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>}}
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -399,11 +435,16 @@
         <jackson-version>2.13.4</jackson-version>
         <jackson-databind-version>2.13.4.2</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
+        {{#threetenbp}}
+        <jackson-threetenbp-version>2.9.10</jackson-threetenbp-version>
+        {{/threetenbp}}
         <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
         {{#useBeanValidation}}
         <beanvalidation-version>2.0.2</beanvalidation-version>
         {{/useBeanValidation}}
-        <junit-version>5.8.2</junit-version>
+        {{! TODO use latest version of junit }}
+        {{!<junit-version>5.8.2</junit-version>}}
+        <junit-version>4.13.1</junit-version>
         {{#hasHttpSignatureMethods}}
         <http-signature-version>1.7</http-signature-version>
         {{/hasHttpSignatureMethods}}
@@ -411,5 +452,6 @@
         <scribejava-apis-version>8.3.1</scribejava-apis-version>
         {{/hasOAuthMethods}}
         <spotless.version>2.21.0</spotless.version>
+        <mockito.version>3.12.4</mockito.version>
     </properties>
 </project>
