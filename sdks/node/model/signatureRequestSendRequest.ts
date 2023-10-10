@@ -96,7 +96,7 @@ export class SignatureRequestSendRequest {
    */
   "isQualifiedSignature"?: boolean = false;
   /**
-   * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-ID), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+   * Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
    */
   "isEid"?: boolean = false;
   /**
