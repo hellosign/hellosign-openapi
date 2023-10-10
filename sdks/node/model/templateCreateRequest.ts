@@ -49,6 +49,10 @@ export class TemplateCreateRequest {
    */
   "fileUrls"?: Array<string>;
   /**
+   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+   */
+  "allowReassign"?: boolean = false;
+  /**
    * A list describing the attachments
    */
   "attachments"?: Array<SubAttachment>;
@@ -120,6 +124,11 @@ export class TemplateCreateRequest {
       name: "fileUrls",
       baseName: "file_urls",
       type: "Array<string>",
+    },
+    {
+      name: "allowReassign",
+      baseName: "allow_reassign",
+      type: "boolean",
     },
     {
       name: "attachments",

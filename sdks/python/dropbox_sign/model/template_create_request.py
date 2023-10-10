@@ -124,6 +124,7 @@ class TemplateCreateRequest(ModelNormal):
             'signer_roles': ([SubTemplateRole],),  # noqa: E501
             'files': ([file_type],),  # noqa: E501
             'file_urls': ([str],),  # noqa: E501
+            'allow_reassign': (bool,),  # noqa: E501
             'attachments': ([SubAttachment],),  # noqa: E501
             'cc_roles': ([str],),  # noqa: E501
             'client_id': (str,),  # noqa: E501
@@ -164,6 +165,7 @@ class TemplateCreateRequest(ModelNormal):
         'signer_roles': 'signer_roles',  # noqa: E501
         'files': 'files',  # noqa: E501
         'file_urls': 'file_urls',  # noqa: E501
+        'allow_reassign': 'allow_reassign',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'cc_roles': 'cc_roles',  # noqa: E501
         'client_id': 'client_id',  # noqa: E501
@@ -215,6 +217,14 @@ class TemplateCreateRequest(ModelNormal):
     @file_urls.setter
     def file_urls(self, value: List[str]):
         setattr(self, "file_urls", value)
+
+    @property
+    def allow_reassign(self) -> bool:
+        return self.get("allow_reassign")
+
+    @allow_reassign.setter
+    def allow_reassign(self, value: bool):
+        setattr(self, "allow_reassign", value)
 
     @property
     def attachments(self) -> List[SubAttachment]:
@@ -362,6 +372,7 @@ class TemplateCreateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
+            allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
             cc_roles ([str]): The CC roles that must be assigned when using the template to send a signature request. [optional]  # noqa: E501
             client_id (str): Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.. [optional]  # noqa: E501
@@ -464,6 +475,7 @@ class TemplateCreateRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
+            allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
             cc_roles ([str]): The CC roles that must be assigned when using the template to send a signature request. [optional]  # noqa: E501
             client_id (str): Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.. [optional]  # noqa: E501

@@ -66,6 +66,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'signer_roles' => '\Dropbox\Sign\Model\SubTemplateRole[]',
         'files' => '\SplFileObject[]',
         'file_urls' => 'string[]',
+        'allow_reassign' => 'bool',
         'attachments' => '\Dropbox\Sign\Model\SubAttachment[]',
         'cc_roles' => 'string[]',
         'client_id' => 'string',
@@ -93,6 +94,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'signer_roles' => null,
         'files' => 'binary',
         'file_urls' => null,
+        'allow_reassign' => null,
         'attachments' => null,
         'cc_roles' => null,
         'client_id' => null,
@@ -139,6 +141,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'signer_roles' => 'signer_roles',
         'files' => 'files',
         'file_urls' => 'file_urls',
+        'allow_reassign' => 'allow_reassign',
         'attachments' => 'attachments',
         'cc_roles' => 'cc_roles',
         'client_id' => 'client_id',
@@ -164,6 +167,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'signer_roles' => 'setSignerRoles',
         'files' => 'setFiles',
         'file_urls' => 'setFileUrls',
+        'allow_reassign' => 'setAllowReassign',
         'attachments' => 'setAttachments',
         'cc_roles' => 'setCcRoles',
         'client_id' => 'setClientId',
@@ -189,6 +193,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         'signer_roles' => 'getSignerRoles',
         'files' => 'getFiles',
         'file_urls' => 'getFileUrls',
+        'allow_reassign' => 'getAllowReassign',
         'attachments' => 'getAttachments',
         'cc_roles' => 'getCcRoles',
         'client_id' => 'getClientId',
@@ -264,6 +269,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['signer_roles'] = $data['signer_roles'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
         $this->container['file_urls'] = $data['file_urls'] ?? null;
+        $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
         $this->container['attachments'] = $data['attachments'] ?? null;
         $this->container['cc_roles'] = $data['cc_roles'] ?? null;
         $this->container['client_id'] = $data['client_id'] ?? null;
@@ -426,6 +432,30 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, JsonSerializ
     public function setFileUrls(?array $file_urls)
     {
         $this->container['file_urls'] = $file_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_reassign
+     *
+     * @return bool|null
+     */
+    public function getAllowReassign()
+    {
+        return $this->container['allow_reassign'];
+    }
+
+    /**
+     * Sets allow_reassign
+     *
+     * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+     *
+     * @return self
+     */
+    public function setAllowReassign(?bool $allow_reassign)
+    {
+        $this->container['allow_reassign'] = $allow_reassign;
 
         return $this;
     }

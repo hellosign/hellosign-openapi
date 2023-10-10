@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 | `signerRoles`<sup>*_required_</sup> | [```List<SubTemplateRole>```](SubTemplateRole.md) |  An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.  |  |
 | `files` | ```List<File>``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `fileUrls` | ```List<String>``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
+| `allowReassign` | ```Boolean``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  |  |
 | `attachments` | [```List<SubAttachment>```](SubAttachment.md) |  A list describing the attachments  |  |
 | `ccRoles` | ```List<String>``` |  The CC roles that must be assigned when using the template to send a signature request  |  |
 | `clientId` | ```String``` |  Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app.  |  |

@@ -23724,6 +23724,7 @@ TemplateCreateEmbeddedDraftResponseTemplate.attributeTypeMap = [
 // model/templateCreateRequest.ts
 var _TemplateCreateRequest = class {
   constructor() {
+    this["allowReassign"] = false;
     this["testMode"] = false;
     this["usePreexistingFields"] = false;
   }
@@ -23756,6 +23757,11 @@ TemplateCreateRequest.attributeTypeMap = [
     name: "fileUrls",
     baseName: "file_urls",
     type: "Array<string>"
+  },
+  {
+    name: "allowReassign",
+    baseName: "allow_reassign",
+    type: "boolean"
   },
   {
     name: "attachments",

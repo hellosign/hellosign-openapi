@@ -43,6 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
+        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
         /// <param name="ccRoles">The CC roles that must be assigned when using the template to send a signature request.</param>
         /// <param name="clientId">Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app..</param>
@@ -58,7 +59,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="usePreexistingFields">Enable the detection of predefined PDF fields by setting the &#x60;use_preexisting_fields&#x60; to &#x60;true&#x60; (defaults to disabled, or &#x60;false&#x60;). (default to false).</param>
-        public TemplateCreateRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccRoles = default(List<string>), string clientId = default(string), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), List<SubMergeField> mergeFields = default(List<SubMergeField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubTemplateRole> signerRoles = default(List<SubTemplateRole>), string subject = default(string), bool testMode = false, string title = default(string), bool usePreexistingFields = false)
+        public TemplateCreateRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccRoles = default(List<string>), string clientId = default(string), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), List<SubMergeField> mergeFields = default(List<SubMergeField>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubTemplateRole> signerRoles = default(List<SubTemplateRole>), string subject = default(string), bool testMode = false, string title = default(string), bool usePreexistingFields = false)
         {
             
             // to ensure "formFieldsPerDocument" is required (not null)
@@ -75,6 +76,7 @@ namespace Dropbox.Sign.Model
             this.SignerRoles = signerRoles;
             this.Files = files;
             this.FileUrls = fileUrls;
+            this.AllowReassign = allowReassign;
             this.Attachments = attachments;
             this.CcRoles = ccRoles;
             this.ClientId = clientId;
@@ -133,6 +135,13 @@ namespace Dropbox.Sign.Model
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
+
+        /// <summary>
+        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.
+        /// </summary>
+        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.</value>
+        [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
+        public bool AllowReassign { get; set; }
 
         /// <summary>
         /// A list describing the attachments
@@ -236,6 +245,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  SignerRoles: ").Append(SignerRoles).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
+            sb.Append("  AllowReassign: ").Append(AllowReassign).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
             sb.Append("  CcRoles: ").Append(CcRoles).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
@@ -307,6 +317,10 @@ namespace Dropbox.Sign.Model
                     this.FileUrls != null &&
                     input.FileUrls != null &&
                     this.FileUrls.SequenceEqual(input.FileUrls)
+                ) && 
+                (
+                    this.AllowReassign == input.AllowReassign ||
+                    this.AllowReassign.Equals(input.AllowReassign)
                 ) && 
                 (
                     this.Attachments == input.Attachments ||
@@ -404,6 +418,7 @@ namespace Dropbox.Sign.Model
                 {
                     hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AllowReassign.GetHashCode();
                 if (this.Attachments != null)
                 {
                     hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
@@ -480,6 +495,12 @@ namespace Dropbox.Sign.Model
                 Property = "FileUrls",
                 Type = "List<string>",
                 Value = FileUrls,
+            });
+            types.Add(new OpenApiType(){
+                Name = "allow_reassign",
+                Property = "AllowReassign",
+                Type = "bool",
+                Value = AllowReassign,
             });
             types.Add(new OpenApiType(){
                 Name = "attachments",

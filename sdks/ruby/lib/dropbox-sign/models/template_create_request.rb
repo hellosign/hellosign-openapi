@@ -34,6 +34,10 @@ module Dropbox::Sign
     # @return [Array<String>]
     attr_accessor :file_urls
 
+    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+    # @return [Boolean]
+    attr_accessor :allow_reassign
+
     # A list describing the attachments
     # @return [Array<SubAttachment>]
     attr_accessor :attachments
@@ -92,6 +96,7 @@ module Dropbox::Sign
         :'signer_roles' => :'signer_roles',
         :'files' => :'files',
         :'file_urls' => :'file_urls',
+        :'allow_reassign' => :'allow_reassign',
         :'attachments' => :'attachments',
         :'cc_roles' => :'cc_roles',
         :'client_id' => :'client_id',
@@ -125,6 +130,7 @@ module Dropbox::Sign
         :'signer_roles' => :'Array<SubTemplateRole>',
         :'files' => :'Array<File>',
         :'file_urls' => :'Array<String>',
+        :'allow_reassign' => :'Boolean',
         :'attachments' => :'Array<SubAttachment>',
         :'cc_roles' => :'Array<String>',
         :'client_id' => :'String',
@@ -204,6 +210,12 @@ module Dropbox::Sign
         if (value = attributes[:'file_urls']).is_a?(Array)
           self.file_urls = value
         end
+      end
+
+      if attributes.key?(:'allow_reassign')
+        self.allow_reassign = attributes[:'allow_reassign']
+      else
+        self.allow_reassign = false
       end
 
       if attributes.key?(:'attachments')
@@ -343,6 +355,7 @@ module Dropbox::Sign
           signer_roles == o.signer_roles &&
           files == o.files &&
           file_urls == o.file_urls &&
+          allow_reassign == o.allow_reassign &&
           attachments == o.attachments &&
           cc_roles == o.cc_roles &&
           client_id == o.client_id &&
@@ -367,7 +380,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [form_fields_per_document, signer_roles, files, file_urls, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields].hash
+      [form_fields_per_document, signer_roles, files, file_urls, allow_reassign, attachments, cc_roles, client_id, field_options, form_field_groups, form_field_rules, merge_fields, message, metadata, subject, test_mode, title, use_preexisting_fields].hash
     end
 
     # Builds the object from hash

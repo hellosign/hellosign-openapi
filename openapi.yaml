@@ -8290,6 +8290,13 @@ components:
           type: array
           items:
             type: string
+        allow_reassign:
+          description: |-
+            Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
+
+            **Note**: Only available for Premium plan and higher.
+          type: boolean
+          default: false
         attachments:
           description: 'A list describing the attachments'
           type: array

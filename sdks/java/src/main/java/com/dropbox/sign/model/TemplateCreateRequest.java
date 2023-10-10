@@ -51,6 +51,7 @@ import com.dropbox.sign.ApiException;
     TemplateCreateRequest.JSON_PROPERTY_SIGNER_ROLES,
     TemplateCreateRequest.JSON_PROPERTY_FILES,
     TemplateCreateRequest.JSON_PROPERTY_FILE_URLS,
+    TemplateCreateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
     TemplateCreateRequest.JSON_PROPERTY_ATTACHMENTS,
     TemplateCreateRequest.JSON_PROPERTY_CC_ROLES,
     TemplateCreateRequest.JSON_PROPERTY_CLIENT_ID,
@@ -79,6 +80,9 @@ public class TemplateCreateRequest {
 
   public static final String JSON_PROPERTY_FILE_URLS = "file_urls";
   private List<String> fileUrls = null;
+
+  public static final String JSON_PROPERTY_ALLOW_REASSIGN = "allow_reassign";
+  private Boolean allowReassign = false;
 
   public static final String JSON_PROPERTY_ATTACHMENTS = "attachments";
   private List<SubAttachment> attachments = null;
@@ -264,6 +268,32 @@ public class TemplateCreateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFileUrls(List<String> fileUrls) {
     this.fileUrls = fileUrls;
+  }
+
+
+  public TemplateCreateRequest allowReassign(Boolean allowReassign) {
+    this.allowReassign = allowReassign;
+    return this;
+  }
+
+   /**
+   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.
+   * @return allowReassign
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.")
+  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllowReassign() {
+    return allowReassign;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowReassign(Boolean allowReassign) {
+    this.allowReassign = allowReassign;
   }
 
 
@@ -669,6 +699,7 @@ public class TemplateCreateRequest {
         Objects.equals(this.signerRoles, templateCreateRequest.signerRoles) &&
         Objects.equals(this.files, templateCreateRequest.files) &&
         Objects.equals(this.fileUrls, templateCreateRequest.fileUrls) &&
+        Objects.equals(this.allowReassign, templateCreateRequest.allowReassign) &&
         Objects.equals(this.attachments, templateCreateRequest.attachments) &&
         Objects.equals(this.ccRoles, templateCreateRequest.ccRoles) &&
         Objects.equals(this.clientId, templateCreateRequest.clientId) &&
@@ -686,7 +717,7 @@ public class TemplateCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(formFieldsPerDocument, signerRoles, files, fileUrls, attachments, ccRoles, clientId, fieldOptions, formFieldGroups, formFieldRules, mergeFields, message, metadata, subject, testMode, title, usePreexistingFields);
+    return Objects.hash(formFieldsPerDocument, signerRoles, files, fileUrls, allowReassign, attachments, ccRoles, clientId, fieldOptions, formFieldGroups, formFieldRules, mergeFields, message, metadata, subject, testMode, title, usePreexistingFields);
   }
 
   @Override
@@ -697,6 +728,7 @@ public class TemplateCreateRequest {
     sb.append("    signerRoles: ").append(toIndentedString(signerRoles)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
+    sb.append("    allowReassign: ").append(toIndentedString(allowReassign)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    ccRoles: ").append(toIndentedString(ccRoles)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
@@ -792,6 +824,25 @@ public class TemplateCreateRequest {
         }
         else {
             map.put("file_urls", JSON.getDefault().getMapper().writeValueAsString(fileUrls));
+        }
+    }
+    if (allowReassign != null) {
+        if (isFileTypeOrListOfFiles(allowReassign)) {
+            fileTypeFound = true;
+        }
+
+        if (allowReassign.getClass().equals(java.io.File.class) ||
+            allowReassign.getClass().equals(Integer.class) ||
+            allowReassign.getClass().equals(String.class) ||
+            allowReassign.getClass().isEnum()) {
+            map.put("allow_reassign", allowReassign);
+        } else if (isListOfFile(allowReassign)) {
+            for(int i = 0; i< getListSize(allowReassign); i++) {
+                map.put("allow_reassign[" + i + "]", getFromList(allowReassign, i));
+            }
+        }
+        else {
+            map.put("allow_reassign", JSON.getDefault().getMapper().writeValueAsString(allowReassign));
         }
     }
     if (attachments != null) {

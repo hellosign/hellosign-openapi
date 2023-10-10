@@ -7869,6 +7869,10 @@ components:
           type: array
           items:
             type: string
+        allow_reassign:
+          description: '_t__TemplateCreateEmbeddedDraft::ALLOW_REASSIGN'
+          type: boolean
+          default: false
         attachments:
           description: '_t__SubAttachment::LIST_DESCRIPTION'
           type: array
