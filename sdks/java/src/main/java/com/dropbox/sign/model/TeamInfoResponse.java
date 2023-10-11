@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TeamParentResponse;
@@ -23,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,14 +36,14 @@ import com.dropbox.sign.ApiException;
  * TeamInfoResponse
  */
 @JsonPropertyOrder({
-    TeamInfoResponse.JSON_PROPERTY_TEAM_ID,
-    TeamInfoResponse.JSON_PROPERTY_TEAM_PARENT,
-    TeamInfoResponse.JSON_PROPERTY_NAME,
-    TeamInfoResponse.JSON_PROPERTY_NUM_MEMBERS,
-    TeamInfoResponse.JSON_PROPERTY_NUM_SUB_TEAMS
+  TeamInfoResponse.JSON_PROPERTY_TEAM_ID,
+  TeamInfoResponse.JSON_PROPERTY_TEAM_PARENT,
+  TeamInfoResponse.JSON_PROPERTY_NAME,
+  TeamInfoResponse.JSON_PROPERTY_NUM_MEMBERS,
+  TeamInfoResponse.JSON_PROPERTY_NUM_SUB_TEAMS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamInfoResponse {
   public static final String JSON_PROPERTY_TEAM_ID = "team_id";
   private String teamId;
@@ -87,7 +87,7 @@ public class TeamInfoResponse {
    * The id of a team
    * @return teamId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,7 +113,7 @@ public class TeamInfoResponse {
    * Get teamParent
    * @return teamParent
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,7 +139,7 @@ public class TeamInfoResponse {
    * The name of a team
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,7 +165,7 @@ public class TeamInfoResponse {
    * Number of members within a team
    * @return numMembers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of members within a team")
   @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,7 +191,7 @@ public class TeamInfoResponse {
    * Number of sub teams within a team
    * @return numSubTeams
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of sub teams within a team")
   @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.AccountResponse;
@@ -26,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,13 +39,13 @@ import com.dropbox.sign.ApiException;
  * EventCallbackRequest
  */
 @JsonPropertyOrder({
-    EventCallbackRequest.JSON_PROPERTY_EVENT,
-    EventCallbackRequest.JSON_PROPERTY_ACCOUNT,
-    EventCallbackRequest.JSON_PROPERTY_SIGNATURE_REQUEST,
-    EventCallbackRequest.JSON_PROPERTY_TEMPLATE
+  EventCallbackRequest.JSON_PROPERTY_EVENT,
+  EventCallbackRequest.JSON_PROPERTY_ACCOUNT,
+  EventCallbackRequest.JSON_PROPERTY_SIGNATURE_REQUEST,
+  EventCallbackRequest.JSON_PROPERTY_TEMPLATE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCallbackRequest {
   public static final String JSON_PROPERTY_EVENT = "event";
   private EventCallbackRequestEvent event;
@@ -86,7 +86,7 @@ public class EventCallbackRequest {
    * Get event
    * @return event
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EVENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -112,7 +112,7 @@ public class EventCallbackRequest {
    * Get account
    * @return account
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,7 +138,7 @@ public class EventCallbackRequest {
    * Get signatureRequest
    * @return signatureRequest
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,7 +164,7 @@ public class EventCallbackRequest {
    * Get template
    * @return template
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

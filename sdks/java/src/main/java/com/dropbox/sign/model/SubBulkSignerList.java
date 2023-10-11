@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubBulkSignerListCustomField;
@@ -24,10 +23,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,17 +39,17 @@ import com.dropbox.sign.ApiException;
  * SubBulkSignerList
  */
 @JsonPropertyOrder({
-    SubBulkSignerList.JSON_PROPERTY_CUSTOM_FIELDS,
-    SubBulkSignerList.JSON_PROPERTY_SIGNERS
+  SubBulkSignerList.JSON_PROPERTY_CUSTOM_FIELDS,
+  SubBulkSignerList.JSON_PROPERTY_SIGNERS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubBulkSignerList {
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<SubBulkSignerListCustomField> customFields = null;
+  private List<SubBulkSignerListCustomField> customFields;
 
   public static final String JSON_PROPERTY_SIGNERS = "signers";
-  private List<SubSignatureRequestTemplateSigner> signers = null;
+  private List<SubSignatureRequestTemplateSigner> signers;
 
   public SubBulkSignerList() { 
   }
@@ -86,7 +86,7 @@ public class SubBulkSignerList {
    * An array of custom field values.
    * @return customFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of custom field values.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +120,7 @@ public class SubBulkSignerList {
    * Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.
    * @return signers
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

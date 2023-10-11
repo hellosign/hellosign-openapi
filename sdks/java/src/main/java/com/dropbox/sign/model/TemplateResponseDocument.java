@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldBase;
@@ -26,10 +25,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,15 +41,15 @@ import com.dropbox.sign.ApiException;
  * TemplateResponseDocument
  */
 @JsonPropertyOrder({
-    TemplateResponseDocument.JSON_PROPERTY_NAME,
-    TemplateResponseDocument.JSON_PROPERTY_INDEX,
-    TemplateResponseDocument.JSON_PROPERTY_FIELD_GROUPS,
-    TemplateResponseDocument.JSON_PROPERTY_FORM_FIELDS,
-    TemplateResponseDocument.JSON_PROPERTY_CUSTOM_FIELDS,
-    TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS
+  TemplateResponseDocument.JSON_PROPERTY_NAME,
+  TemplateResponseDocument.JSON_PROPERTY_INDEX,
+  TemplateResponseDocument.JSON_PROPERTY_FIELD_GROUPS,
+  TemplateResponseDocument.JSON_PROPERTY_FORM_FIELDS,
+  TemplateResponseDocument.JSON_PROPERTY_CUSTOM_FIELDS,
+  TemplateResponseDocument.JSON_PROPERTY_STATIC_FIELDS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseDocument {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -58,16 +58,16 @@ public class TemplateResponseDocument {
   private Integer index;
 
   public static final String JSON_PROPERTY_FIELD_GROUPS = "field_groups";
-  private List<TemplateResponseDocumentFieldGroup> fieldGroups = null;
+  private List<TemplateResponseDocumentFieldGroup> fieldGroups;
 
   public static final String JSON_PROPERTY_FORM_FIELDS = "form_fields";
-  private List<TemplateResponseDocumentFormFieldBase> formFields = null;
+  private List<TemplateResponseDocumentFormFieldBase> formFields;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
-  private List<TemplateResponseDocumentCustomFieldBase> customFields = null;
+  private List<TemplateResponseDocumentCustomFieldBase> customFields;
 
   public static final String JSON_PROPERTY_STATIC_FIELDS = "static_fields";
-  private List<TemplateResponseDocumentStaticFieldBase> staticFields = null;
+  private List<TemplateResponseDocumentStaticFieldBase> staticFields;
 
   public TemplateResponseDocument() { 
   }
@@ -96,7 +96,7 @@ public class TemplateResponseDocument {
    * Name of the associated file.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the associated file.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,7 +122,7 @@ public class TemplateResponseDocument {
    * Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
    * @return index
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Document ordering, the lowest index is displayed first and the highest last (0-based indexing).")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,7 +156,7 @@ public class TemplateResponseDocument {
    * An array of Form Field Group objects.
    * @return fieldGroups
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Form Field Group objects.")
   @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,7 +190,7 @@ public class TemplateResponseDocument {
    * An array of Form Field objects containing the name and type of each named field.
    * @return formFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,7 +224,7 @@ public class TemplateResponseDocument {
    * An array of Form Field objects containing the name and type of each named field.
    * @return customFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,7 +258,7 @@ public class TemplateResponseDocument {
    * An array describing static overlay fields. **Note** only available for certain subscriptions.
    * @return staticFields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An array describing static overlay fields. **Note** only available for certain subscriptions.")
   @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

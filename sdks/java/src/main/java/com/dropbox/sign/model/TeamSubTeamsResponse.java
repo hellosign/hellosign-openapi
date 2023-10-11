@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.ListInfoResponse;
@@ -25,10 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,21 +40,21 @@ import com.dropbox.sign.ApiException;
  * TeamSubTeamsResponse
  */
 @JsonPropertyOrder({
-    TeamSubTeamsResponse.JSON_PROPERTY_SUB_TEAMS,
-    TeamSubTeamsResponse.JSON_PROPERTY_LIST_INFO,
-    TeamSubTeamsResponse.JSON_PROPERTY_WARNINGS
+  TeamSubTeamsResponse.JSON_PROPERTY_SUB_TEAMS,
+  TeamSubTeamsResponse.JSON_PROPERTY_LIST_INFO,
+  TeamSubTeamsResponse.JSON_PROPERTY_WARNINGS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TeamSubTeamsResponse {
   public static final String JSON_PROPERTY_SUB_TEAMS = "sub_teams";
-  private List<SubTeamResponse> subTeams = null;
+  private List<SubTeamResponse> subTeams;
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = null;
+  private List<WarningResponse> warnings;
 
   public TeamSubTeamsResponse() { 
   }
@@ -91,7 +91,7 @@ public class TeamSubTeamsResponse {
    * Contains a list with sub teams.
    * @return subTeams
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Contains a list with sub teams.")
   @JsonProperty(JSON_PROPERTY_SUB_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class TeamSubTeamsResponse {
    * Get listInfo
    * @return listInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class TeamSubTeamsResponse {
    * Get warnings
    * @return warnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

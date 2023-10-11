@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,11 +35,11 @@ import com.dropbox.sign.ApiException;
  * SignatureRequestRemindRequest
  */
 @JsonPropertyOrder({
-    SignatureRequestRemindRequest.JSON_PROPERTY_EMAIL_ADDRESS,
-    SignatureRequestRemindRequest.JSON_PROPERTY_NAME
+  SignatureRequestRemindRequest.JSON_PROPERTY_EMAIL_ADDRESS,
+  SignatureRequestRemindRequest.JSON_PROPERTY_NAME
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestRemindRequest {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "email_address";
   private String emailAddress;
@@ -74,7 +74,7 @@ public class SignatureRequestRemindRequest {
    * The email address of the signer to send a reminder to.
    * @return emailAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The email address of the signer to send a reminder to.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +100,7 @@ public class SignatureRequestRemindRequest {
    * The name of the signer to send a reminder to. Include if two or more signers share an email address.
    * @return name
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the signer to send a reminder to. Include if two or more signers share an email address.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

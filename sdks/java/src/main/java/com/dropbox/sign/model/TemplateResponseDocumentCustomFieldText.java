@@ -14,13 +14,11 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldBase;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentCustomFieldText;
 import com.dropbox.sign.model.TemplateResponseFieldAvgTextLength;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,19 +41,15 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "This class extends `TemplateResponseDocumentCustomFieldBase`")
 @JsonPropertyOrder({
-    TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_TYPE,
-    TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_AVG_TEXT_LENGTH,
-    TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_IS_MULTILINE,
-    TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
-    TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_FONT_FAMILY
+  TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_TYPE,
+  TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_AVG_TEXT_LENGTH,
+  TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_IS_MULTILINE,
+  TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_ORIGINAL_FONT_SIZE,
+  TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_FONT_FAMILY
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentCustomFieldText.class, name = "text"),
-})
 
 public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDocumentCustomFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -99,7 +94,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * The type of this Custom Field. Only &#x60;text&#x60; and &#x60;checkbox&#x60; are currently supported.  * Text uses &#x60;TemplateResponseDocumentCustomFieldText&#x60; * Checkbox uses &#x60;TemplateResponseDocumentCustomFieldCheckbox&#x60;
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -125,7 +120,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * Get avgTextLength
    * @return avgTextLength
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +146,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * Whether this form field is multiline text.
    * @return isMultiline
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this form field is multiline text.")
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +172,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * Original font size used in this form field&#39;s text.
    * @return originalFontSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Original font size used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +198,7 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * Font family used in this form field&#39;s text.
    * @return fontFamily
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Font family used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -397,13 +392,11 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", TemplateResponseDocumentCustomFieldCheckbox.class);
-  mappings.put("text", TemplateResponseDocumentCustomFieldText.class);
-  mappings.put("TemplateResponseDocumentCustomFieldText", TemplateResponseDocumentCustomFieldText.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentCustomFieldText.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("TemplateResponseDocumentCustomFieldText", TemplateResponseDocumentCustomFieldText.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentCustomFieldText.class, "type", mappings);
+  }
 }
 

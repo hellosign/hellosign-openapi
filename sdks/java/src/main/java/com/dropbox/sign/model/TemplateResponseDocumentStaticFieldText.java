@@ -14,18 +14,10 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldBase;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldCheckbox;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldDateSigned;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldDropdown;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldHyperlink;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldInitials;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldRadio;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldSignature;
-import com.dropbox.sign.model.TemplateResponseDocumentStaticFieldText;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -47,21 +40,11 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "This class extends `TemplateResponseDocumentStaticFieldBase`")
 @JsonPropertyOrder({
-    TemplateResponseDocumentStaticFieldText.JSON_PROPERTY_TYPE
+  TemplateResponseDocumentStaticFieldText.JSON_PROPERTY_TYPE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldCheckbox.class, name = "checkbox"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldDateSigned.class, name = "date_signed"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldDropdown.class, name = "dropdown"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldHyperlink.class, name = "hyperlink"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldInitials.class, name = "initials"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldRadio.class, name = "radio"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldSignature.class, name = "signature"),
-  @JsonSubTypes.Type(value = TemplateResponseDocumentStaticFieldText.class, name = "text"),
-})
 
 public class TemplateResponseDocumentStaticFieldText extends TemplateResponseDocumentStaticFieldBase {
   public static final String JSON_PROPERTY_TYPE = "type";
@@ -94,7 +77,7 @@ public class TemplateResponseDocumentStaticFieldText extends TemplateResponseDoc
    * The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentStaticFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentStaticFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentStaticFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentStaticFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentStaticFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentStaticFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentStaticFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentStaticFieldInitials&#x60;
    * @return type
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -204,19 +187,11 @@ public class TemplateResponseDocumentStaticFieldText extends TemplateResponseDoc
     return o.toString().replace("\n", "\n    ");
   }
 
-static {
-  // Initialize and register the discriminator mappings.
-  Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("checkbox", TemplateResponseDocumentStaticFieldCheckbox.class);
-  mappings.put("date_signed", TemplateResponseDocumentStaticFieldDateSigned.class);
-  mappings.put("dropdown", TemplateResponseDocumentStaticFieldDropdown.class);
-  mappings.put("hyperlink", TemplateResponseDocumentStaticFieldHyperlink.class);
-  mappings.put("initials", TemplateResponseDocumentStaticFieldInitials.class);
-  mappings.put("radio", TemplateResponseDocumentStaticFieldRadio.class);
-  mappings.put("signature", TemplateResponseDocumentStaticFieldSignature.class);
-  mappings.put("text", TemplateResponseDocumentStaticFieldText.class);
-  mappings.put("TemplateResponseDocumentStaticFieldText", TemplateResponseDocumentStaticFieldText.class);
-  JSON.registerDiscriminator(TemplateResponseDocumentStaticFieldText.class, "type", mappings);
-}
+  static {
+    // Initialize and register the discriminator mappings.
+    Map<String, Class<?>> mappings = new HashMap<>();
+    mappings.put("TemplateResponseDocumentStaticFieldText", TemplateResponseDocumentStaticFieldText.class);
+    JSON.registerDiscriminator(TemplateResponseDocumentStaticFieldText.class, "type", mappings);
+  }
 }
 

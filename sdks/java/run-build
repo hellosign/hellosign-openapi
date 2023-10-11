@@ -9,7 +9,7 @@ WORKING_DIR="/app/java"
 
 docker run --rm \
   -v "${DIR}/:/local" \
-  openapitools/openapi-generator-cli:v5.3.0 generate \
+  openapitools/openapi-generator-cli:v7.0.1 generate \
     -i "/local/openapi-sdk.yaml" \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \

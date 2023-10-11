@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.ListInfoResponse;
@@ -25,10 +24,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,21 +40,21 @@ import com.dropbox.sign.ApiException;
  * SignatureRequestListResponse
  */
 @JsonPropertyOrder({
-    SignatureRequestListResponse.JSON_PROPERTY_SIGNATURE_REQUESTS,
-    SignatureRequestListResponse.JSON_PROPERTY_LIST_INFO,
-    SignatureRequestListResponse.JSON_PROPERTY_WARNINGS
+  SignatureRequestListResponse.JSON_PROPERTY_SIGNATURE_REQUESTS,
+  SignatureRequestListResponse.JSON_PROPERTY_LIST_INFO,
+  SignatureRequestListResponse.JSON_PROPERTY_WARNINGS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignatureRequestListResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUESTS = "signature_requests";
-  private List<SignatureRequestResponse> signatureRequests = null;
+  private List<SignatureRequestResponse> signatureRequests;
 
   public static final String JSON_PROPERTY_LIST_INFO = "list_info";
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<WarningResponse> warnings = null;
+  private List<WarningResponse> warnings;
 
   public SignatureRequestListResponse() { 
   }
@@ -91,7 +91,7 @@ public class SignatureRequestListResponse {
    * Contains information about signature requests.
    * @return signatureRequests
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Contains information about signature requests.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class SignatureRequestListResponse {
    * Get listInfo
    * @return listInfo
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class SignatureRequestListResponse {
    * A list of warnings.
    * @return warnings
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

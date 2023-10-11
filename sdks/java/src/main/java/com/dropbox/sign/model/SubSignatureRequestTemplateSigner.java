@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,15 +35,15 @@ import com.dropbox.sign.ApiException;
  * SubSignatureRequestTemplateSigner
  */
 @JsonPropertyOrder({
-    SubSignatureRequestTemplateSigner.JSON_PROPERTY_ROLE,
-    SubSignatureRequestTemplateSigner.JSON_PROPERTY_NAME,
-    SubSignatureRequestTemplateSigner.JSON_PROPERTY_EMAIL_ADDRESS,
-    SubSignatureRequestTemplateSigner.JSON_PROPERTY_PIN,
-    SubSignatureRequestTemplateSigner.JSON_PROPERTY_SMS_PHONE_NUMBER,
-    SubSignatureRequestTemplateSigner.JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE
+  SubSignatureRequestTemplateSigner.JSON_PROPERTY_ROLE,
+  SubSignatureRequestTemplateSigner.JSON_PROPERTY_NAME,
+  SubSignatureRequestTemplateSigner.JSON_PROPERTY_EMAIL_ADDRESS,
+  SubSignatureRequestTemplateSigner.JSON_PROPERTY_PIN,
+  SubSignatureRequestTemplateSigner.JSON_PROPERTY_SMS_PHONE_NUMBER,
+  SubSignatureRequestTemplateSigner.JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubSignatureRequestTemplateSigner {
   public static final String JSON_PROPERTY_ROLE = "role";
   private String role;
@@ -125,7 +125,7 @@ public class SubSignatureRequestTemplateSigner {
    * Must match an existing role in chosen Template(s). It&#39;s case-sensitive.
    * @return role
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Must match an existing role in chosen Template(s). It's case-sensitive.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -151,7 +151,7 @@ public class SubSignatureRequestTemplateSigner {
    * The name of the signer.
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The name of the signer.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -177,7 +177,7 @@ public class SubSignatureRequestTemplateSigner {
    * The email address of the signer.
    * @return emailAddress
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "The email address of the signer.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -203,7 +203,7 @@ public class SubSignatureRequestTemplateSigner {
    * The 4- to 12-character access code that will secure this signer&#39;s signature page.
    * @return pin
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The 4- to 12-character access code that will secure this signer's signature page.")
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class SubSignatureRequestTemplateSigner {
    * An E.164 formatted phone number.  **Note**: Not available in test mode and requires a Standard plan or higher.
    * @return smsPhoneNumber
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "An E.164 formatted phone number.  **Note**: Not available in test mode and requires a Standard plan or higher.")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class SubSignatureRequestTemplateSigner {
    * Specifies the feature used with the &#x60;sms_phone_number&#x60;. Default &#x60;authentication&#x60;.  If &#x60;authentication&#x60;, signer is sent a verification code via SMS that is required to access the document.  If &#x60;delivery&#x60;, a link to complete the signature request is delivered via SMS (_and_ email).
    * @return smsPhoneNumberType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

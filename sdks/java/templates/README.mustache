@@ -124,6 +124,34 @@ REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_Java_CODE
   ```
 
 {{/jersey2}}
+{{#jersey3}}
+  ## Using a Proxy
+
+  To add a HTTP proxy for the API client, use `ClientConfig`:
+
+  ```java
+  {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}
+    import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
+    import org.glassfish.jersey.client.ClientConfig;
+    import org.glassfish.jersey.client.ClientProperties;
+    import {{{invokerPackage}}}.*;
+    import {{{package}}}.{{{classname}}};
+
+    ...
+
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    ClientConfig clientConfig = defaultClient.getClientConfig();
+    clientConfig.connectorProvider(new ApacheConnectorProvider());
+    clientConfig.property(ClientProperties.PROXY_URI, "http://proxy_url_here");
+    clientConfig.property(ClientProperties.PROXY_USERNAME, "proxy_username");
+    clientConfig.property(ClientProperties.PROXY_PASSWORD, "proxy_password");
+    defaultClient.setClientConfig(clientConfig);
+
+    {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
+  {{/-first}}{{/operation}}{{/operations}}{{/-first}}{{/apis}}{{/apiInfo}}
+  ```
+
+{{/jersey3}}
 
 ## Documentation for API Endpoints
 

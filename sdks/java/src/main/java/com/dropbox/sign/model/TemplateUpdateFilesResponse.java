@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.TemplateUpdateFilesResponseTemplate;
@@ -23,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,10 +36,10 @@ import com.dropbox.sign.ApiException;
  * TemplateUpdateFilesResponse
  */
 @JsonPropertyOrder({
-    TemplateUpdateFilesResponse.JSON_PROPERTY_TEMPLATE
+  TemplateUpdateFilesResponse.JSON_PROPERTY_TEMPLATE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateUpdateFilesResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private TemplateUpdateFilesResponseTemplate template;
@@ -71,7 +71,7 @@ public class TemplateUpdateFilesResponse {
    * Get template
    * @return template
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

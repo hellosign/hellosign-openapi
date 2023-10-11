@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,15 +36,15 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "A group of documents that a user can take ownership of via the claim URL.")
 @JsonPropertyOrder({
-    UnclaimedDraftResponse.JSON_PROPERTY_SIGNATURE_REQUEST_ID,
-    UnclaimedDraftResponse.JSON_PROPERTY_CLAIM_URL,
-    UnclaimedDraftResponse.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-    UnclaimedDraftResponse.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
-    UnclaimedDraftResponse.JSON_PROPERTY_EXPIRES_AT,
-    UnclaimedDraftResponse.JSON_PROPERTY_TEST_MODE
+  UnclaimedDraftResponse.JSON_PROPERTY_SIGNATURE_REQUEST_ID,
+  UnclaimedDraftResponse.JSON_PROPERTY_CLAIM_URL,
+  UnclaimedDraftResponse.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+  UnclaimedDraftResponse.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
+  UnclaimedDraftResponse.JSON_PROPERTY_EXPIRES_AT,
+  UnclaimedDraftResponse.JSON_PROPERTY_TEST_MODE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UnclaimedDraftResponse {
   public static final String JSON_PROPERTY_SIGNATURE_REQUEST_ID = "signature_request_id";
   private String signatureRequestId;
@@ -91,7 +91,7 @@ public class UnclaimedDraftResponse {
    * The ID of the signature request that is represented by this UnclaimedDraft.
    * @return signatureRequestId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ID of the signature request that is represented by this UnclaimedDraft.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUEST_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,7 +117,7 @@ public class UnclaimedDraftResponse {
    * The URL to be used to claim this UnclaimedDraft.
    * @return claimUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL to be used to claim this UnclaimedDraft.")
   @JsonProperty(JSON_PROPERTY_CLAIM_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,7 +143,7 @@ public class UnclaimedDraftResponse {
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +169,7 @@ public class UnclaimedDraftResponse {
    * The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
    * @return requestingRedirectUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).")
   @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,7 +195,7 @@ public class UnclaimedDraftResponse {
    * When the link expires.
    * @return expiresAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,7 +221,7 @@ public class UnclaimedDraftResponse {
    * Whether this is a test draft. Signature requests made from test drafts have no legal value.
    * @return testMode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this is a test draft. Signature requests made from test drafts have no legal value.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

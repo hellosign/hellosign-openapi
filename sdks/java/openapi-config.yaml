@@ -1,8 +1,12 @@
 generatorName: java
 additionalProperties:
-  library: jersey2
+  library: jersey3
   openApiNullable: false
   java8: true
+  # TODO preferably remove threetenbp (https://github.com/OpenAPITools/openapi-generator/pull/10025)
+  threetenbp: true
+  useJakartaEe: true
+  swagger1AnnotationLibrary: true
   invokerPackage: com.dropbox.sign
   apiPackage: com.dropbox.sign.api
   modelPackage: com.dropbox.sign.model
@@ -29,6 +33,9 @@ files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles
     destinationFilename: src/main/java/com/dropbox/sign/EventCallbackHelper.java
+  CustomInstantDeserializer.mustache:
+    templateType: SupportingFiles
+    destinationFilename: src/main/java/com/dropbox/sign/CustomInstantDeserializer.java
   VERSION.mustache:
     templateType: SupportingFiles
     destinationFilename: VERSION

@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubEditorOptions;
@@ -23,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,17 +36,17 @@ import com.dropbox.sign.ApiException;
  * UnclaimedDraftEditAndResendRequest
  */
 @JsonPropertyOrder({
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_CLIENT_ID,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_EDITOR_OPTIONS,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-    UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_TEST_MODE
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_CLIENT_ID,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_EDITOR_OPTIONS,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+  UnclaimedDraftEditAndResendRequest.JSON_PROPERTY_TEST_MODE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UnclaimedDraftEditAndResendRequest {
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
@@ -99,7 +99,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
    * @return clientId
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -125,7 +125,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * Get editorOptions
    * @return editorOptions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,7 +151,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;.
    * @return isForEmbeddedSigning
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The request created from this draft will also be signable in embedded mode if set to `true`.")
   @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,7 +177,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * The email address of the user that should be designated as the requester of this draft. If not set, original requester&#39;s email address will be used.
    * @return requesterEmailAddress
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.")
   @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,7 +203,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * The URL you want signers redirected to after they successfully request a signature.
    * @return requestingRedirectUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully request a signature.")
   @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +229,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
    * @return showProgressStepper
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
   @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,7 +255,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * The URL you want signers redirected to after they successfully sign.
    * @return signingRedirectUrl
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,7 +281,7 @@ public class UnclaimedDraftEditAndResendRequest {
    * Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
    * @return testMode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

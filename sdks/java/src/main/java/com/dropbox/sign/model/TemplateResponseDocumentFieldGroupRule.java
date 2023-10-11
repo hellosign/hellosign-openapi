@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,11 +36,11 @@ import com.dropbox.sign.ApiException;
  */
 @ApiModel(description = "The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).")
 @JsonPropertyOrder({
-    TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_REQUIREMENT,
-    TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_GROUP_LABEL
+  TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_REQUIREMENT,
+  TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_GROUP_LABEL
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateResponseDocumentFieldGroupRule {
   public static final String JSON_PROPERTY_REQUIREMENT = "requirement";
   private String requirement;
@@ -75,7 +75,7 @@ public class TemplateResponseDocumentFieldGroupRule {
    * Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
    * @return requirement
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,7 +101,7 @@ public class TemplateResponseDocumentFieldGroupRule {
    * Name of the group
    * @return groupLabel
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the group")
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
