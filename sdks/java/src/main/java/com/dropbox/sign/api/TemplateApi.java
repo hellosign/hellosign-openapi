@@ -15,8 +15,6 @@ import com.dropbox.sign.model.FileResponseDataUri;
 import com.dropbox.sign.model.TemplateAddUserRequest;
 import com.dropbox.sign.model.TemplateCreateEmbeddedDraftRequest;
 import com.dropbox.sign.model.TemplateCreateEmbeddedDraftResponse;
-import com.dropbox.sign.model.TemplateCreateEmbeddedRequest;
-import com.dropbox.sign.model.TemplateCreateEmbeddedResponse;
 import com.dropbox.sign.model.TemplateGetResponse;
 import com.dropbox.sign.model.TemplateListResponse;
 import com.dropbox.sign.model.TemplateRemoveUserRequest;
@@ -138,81 +136,6 @@ public class TemplateApi {
     GenericType<TemplateGetResponse> localVarReturnType = new GenericType<TemplateGetResponse>() {};
 
     return apiClient.invokeAPI("TemplateApi.templateAddUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Create Embedded Template
-   * Creates a template that can then be used.
-   * @param templateCreateEmbeddedRequest  (required)
-   * @return TemplateCreateEmbeddedResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public TemplateCreateEmbeddedResponse templateCreateEmbedded(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest) throws ApiException {
-    return templateCreateEmbeddedWithHttpInfo(templateCreateEmbeddedRequest).getData();
-  }
-
-
-  /**
-   * Create Embedded Template
-   * Creates a template that can then be used.
-   * @param templateCreateEmbeddedRequest  (required)
-   * @return ApiResponse&lt;TemplateCreateEmbeddedResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
-       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<TemplateCreateEmbeddedResponse> templateCreateEmbeddedWithHttpInfo(TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest) throws ApiException {
-    
-    Object localVarPostBody = templateCreateEmbeddedRequest;
-    
-    // verify the required parameter 'templateCreateEmbeddedRequest' is set
-    if (templateCreateEmbeddedRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'templateCreateEmbeddedRequest' when calling templateCreateEmbedded");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/template/create_embedded";
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json", "multipart/form-data"
-    };
-
-    localVarFormParams = templateCreateEmbeddedRequest.createFormData();
-    boolean isFileTypeFound = !localVarFormParams.isEmpty();
-
-    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
-
-    GenericType<TemplateCreateEmbeddedResponse> localVarReturnType = new GenericType<TemplateCreateEmbeddedResponse>() {};
-
-    return apiClient.invokeAPI("TemplateApi.templateCreateEmbedded", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

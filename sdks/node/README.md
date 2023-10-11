@@ -150,7 +150,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *TeamApi* | [**teamSubTeams**](./docs/api/TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | *TeamApi* | [**teamUpdate**](./docs/api/TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 | *TemplateApi* | [**templateAddUser**](./docs/api/TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| *TemplateApi* | [**templateCreateEmbedded**](./docs/api/TemplateApi.md#templatecreateembedded) | **POST** /template/create_embedded | Create Embedded Template |
 | *TemplateApi* | [**templateCreateEmbeddedDraft**](./docs/api/TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | *TemplateApi* | [**templateDelete**](./docs/api/TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
 | *TemplateApi* | [**templateFiles**](./docs/api/TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -291,9 +290,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [TemplateCreateEmbeddedDraftRequest](./docs/model/TemplateCreateEmbeddedDraftRequest.md)
 - [TemplateCreateEmbeddedDraftResponse](./docs/model/TemplateCreateEmbeddedDraftResponse.md)
 - [TemplateCreateEmbeddedDraftResponseTemplate](./docs/model/TemplateCreateEmbeddedDraftResponseTemplate.md)
-- [TemplateCreateEmbeddedRequest](./docs/model/TemplateCreateEmbeddedRequest.md)
-- [TemplateCreateEmbeddedResponse](./docs/model/TemplateCreateEmbeddedResponse.md)
-- [TemplateCreateEmbeddedResponseTemplate](./docs/model/TemplateCreateEmbeddedResponseTemplate.md)
 - [TemplateEditResponse](./docs/model/TemplateEditResponse.md)
 - [TemplateGetResponse](./docs/model/TemplateGetResponse.md)
 - [TemplateListResponse](./docs/model/TemplateListResponse.md)
