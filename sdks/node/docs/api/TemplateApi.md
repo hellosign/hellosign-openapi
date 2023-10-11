@@ -5,7 +5,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**templateAddUser()**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| [**templateCreateEmbedded()**](TemplateApi.md#templateCreateEmbedded) | **POST** /template/create_embedded | Create Embedded Template |
+| [**templateCreate()**](TemplateApi.md#templateCreate) | **POST** /template/create | Create  Template |
 | [**templateCreateEmbeddedDraft()**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**templateDelete()**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template |
 | [**templateFiles()**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -109,13 +109,13 @@ result.then(response => {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `templateCreateEmbedded()`
+## `templateCreate()`
 
 ```typescript
-templateCreateEmbedded(templateCreateEmbeddedRequest: TemplateCreateEmbeddedRequest): TemplateCreateEmbeddedResponse
+templateCreate(templateCreateRequest: TemplateCreateRequest): TemplateCreateResponse
 ```
 
-Create Embedded Template
+Create  Template
 
 Creates a template that can then be used.
 
@@ -158,7 +158,7 @@ const fieldOptions: DropboxSign.SubFieldOptions = {
   dateFormat: DropboxSign.SubFieldOptions.DateFormatEnum.DD_MM_YYYY,
 };
 
-const data: DropboxSign.TemplateCreateEmbeddedRequest = {
+const data: DropboxSign.TemplateCreateRequest = {
   clientId: "37dee8d8440c66d54cfa05d92c160882",
   files: [fs.createReadStream("example_signature_request.pdf")],
   title: "Test Template",
@@ -177,7 +177,7 @@ const data: DropboxSign.TemplateCreateEmbeddedRequest = {
   testMode: true,
 };
 
-const result = templateApi.templateCreateEmbedded(data);
+const result = templateApi.templateCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -245,7 +245,7 @@ const data = {
   testMode: true,
 };
 
-const result = templateApi.templateCreateEmbedded(data);
+const result = templateApi.templateCreate(data);
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -259,11 +259,11 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **templateCreateEmbeddedRequest** | [**TemplateCreateEmbeddedRequest**](../model/TemplateCreateEmbeddedRequest.md)|  | |
+| **templateCreateRequest** | [**TemplateCreateRequest**](../model/TemplateCreateRequest.md)|  | |
 
 ### Return type
 
-[**TemplateCreateEmbeddedResponse**](../model/TemplateCreateEmbeddedResponse.md)
+[**TemplateCreateResponse**](../model/TemplateCreateResponse.md)
 
 ### Authorization
 

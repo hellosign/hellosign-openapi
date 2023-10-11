@@ -136,9 +136,9 @@ docs/TemplateApi.md
 docs/TemplateCreateEmbeddedDraftRequest.md
 docs/TemplateCreateEmbeddedDraftResponse.md
 docs/TemplateCreateEmbeddedDraftResponseTemplate.md
-docs/TemplateCreateEmbeddedRequest.md
-docs/TemplateCreateEmbeddedResponse.md
-docs/TemplateCreateEmbeddedResponseTemplate.md
+docs/TemplateCreateRequest.md
+docs/TemplateCreateResponse.md
+docs/TemplateCreateResponseTemplate.md
 docs/TemplateEditResponse.md
 docs/TemplateGetResponse.md
 docs/TemplateListResponse.md
@@ -326,9 +326,9 @@ dropbox_sign/model/template_add_user_request.py
 dropbox_sign/model/template_create_embedded_draft_request.py
 dropbox_sign/model/template_create_embedded_draft_response.py
 dropbox_sign/model/template_create_embedded_draft_response_template.py
-dropbox_sign/model/template_create_embedded_request.py
-dropbox_sign/model/template_create_embedded_response.py
-dropbox_sign/model/template_create_embedded_response_template.py
+dropbox_sign/model/template_create_request.py
+dropbox_sign/model/template_create_response.py
+dropbox_sign/model/template_create_response_template.py
 dropbox_sign/model/template_edit_response.py
 dropbox_sign/model/template_get_response.py
 dropbox_sign/model/template_list_response.py

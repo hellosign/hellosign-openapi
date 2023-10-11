@@ -40,8 +40,8 @@ import {
   TemplateAddUserRequest,
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
-  TemplateCreateEmbeddedRequest,
-  TemplateCreateEmbeddedResponse,
+  TemplateCreateRequest,
+  TemplateCreateResponse,
   TemplateGetResponse,
   TemplateListResponse,
   TemplateRemoveUserRequest,
@@ -318,27 +318,26 @@ export class TemplateApi {
   }
   /**
    * Creates a template that can then be used.
-   * @summary Create Embedded Template
-   * @param templateCreateEmbeddedRequest
+   * @summary Create  Template
+   * @param templateCreateRequest
    * @param options
    */
-  public async templateCreateEmbedded(
-    templateCreateEmbeddedRequest: TemplateCreateEmbeddedRequest,
+  public async templateCreate(
+    templateCreateRequest: TemplateCreateRequest,
     options: optionsI = { headers: {} }
-  ): Promise<returnTypeT<TemplateCreateEmbeddedResponse>> {
+  ): Promise<returnTypeT<TemplateCreateResponse>> {
     if (
-      templateCreateEmbeddedRequest !== null &&
-      templateCreateEmbeddedRequest !== undefined &&
-      templateCreateEmbeddedRequest.constructor.name !==
-        "TemplateCreateEmbeddedRequest"
+      templateCreateRequest !== null &&
+      templateCreateRequest !== undefined &&
+      templateCreateRequest.constructor.name !== "TemplateCreateRequest"
     ) {
-      templateCreateEmbeddedRequest = ObjectSerializer.deserialize(
-        templateCreateEmbeddedRequest,
-        "TemplateCreateEmbeddedRequest"
+      templateCreateRequest = ObjectSerializer.deserialize(
+        templateCreateRequest,
+        "TemplateCreateRequest"
       );
     }
 
-    const localVarPath = this.basePath + "/template/create_embedded";
+    const localVarPath = this.basePath + "/template/create";
     let localVarQueryParameters: any = {};
     let localVarHeaderParams: any = (<any>Object).assign(
       {},
@@ -354,13 +353,10 @@ export class TemplateApi {
     let localVarFormParams: any = {};
     let localVarBodyParams: any = undefined;
 
-    // verify required parameter 'templateCreateEmbeddedRequest' is not null or undefined
-    if (
-      templateCreateEmbeddedRequest === null ||
-      templateCreateEmbeddedRequest === undefined
-    ) {
+    // verify required parameter 'templateCreateRequest' is not null or undefined
+    if (templateCreateRequest === null || templateCreateRequest === undefined) {
       throw new Error(
-        "Required parameter templateCreateEmbeddedRequest was null or undefined when calling templateCreateEmbedded."
+        "Required parameter templateCreateRequest was null or undefined when calling templateCreate."
       );
     }
 
@@ -369,8 +365,8 @@ export class TemplateApi {
     let localVarUseFormData = false;
 
     const result = generateFormData(
-      templateCreateEmbeddedRequest,
-      TemplateCreateEmbeddedRequest.attributeTypeMap
+      templateCreateRequest,
+      TemplateCreateRequest.attributeTypeMap
     );
     localVarUseFormData = result.localVarUseFormData;
 
@@ -384,8 +380,8 @@ export class TemplateApi {
       };
     } else {
       data = ObjectSerializer.serialize(
-        templateCreateEmbeddedRequest,
-        "TemplateCreateEmbeddedRequest"
+        templateCreateRequest,
+        "TemplateCreateRequest"
       );
     }
 
@@ -426,7 +422,7 @@ export class TemplateApi {
     }
 
     return interceptorPromise.then(() => {
-      return new Promise<returnTypeT<TemplateCreateEmbeddedResponse>>(
+      return new Promise<returnTypeT<TemplateCreateResponse>>(
         (resolve, reject) => {
           axios.request(localVarRequestOptions).then(
             (response) => {
@@ -439,7 +435,7 @@ export class TemplateApi {
               ) {
                 body = ObjectSerializer.deserialize(
                   body,
-                  "TemplateCreateEmbeddedResponse"
+                  "TemplateCreateResponse"
                 );
                 resolve({ response: response, body: body });
               } else {
@@ -459,7 +455,7 @@ export class TemplateApi {
               if (response.status === 200) {
                 body = ObjectSerializer.deserialize(
                   response.data,
-                  "TemplateCreateEmbeddedResponse"
+                  "TemplateCreateResponse"
                 );
 
                 reject(new HttpError(response, body, response.status));

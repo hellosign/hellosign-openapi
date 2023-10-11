@@ -29,8 +29,8 @@ from dropbox_sign.model.file_response_data_uri import FileResponseDataUri
 from dropbox_sign.model.template_add_user_request import TemplateAddUserRequest
 from dropbox_sign.model.template_create_embedded_draft_request import TemplateCreateEmbeddedDraftRequest
 from dropbox_sign.model.template_create_embedded_draft_response import TemplateCreateEmbeddedDraftResponse
-from dropbox_sign.model.template_create_embedded_request import TemplateCreateEmbeddedRequest
-from dropbox_sign.model.template_create_embedded_response import TemplateCreateEmbeddedResponse
+from dropbox_sign.model.template_create_request import TemplateCreateRequest
+from dropbox_sign.model.template_create_response import TemplateCreateResponse
 from dropbox_sign.model.template_get_response import TemplateGetResponse
 from dropbox_sign.model.template_list_response import TemplateListResponse
 from dropbox_sign.model.template_remove_user_request import TemplateRemoveUserRequest
@@ -108,24 +108,24 @@ class TemplateApi(object):
             },
             api_client=api_client
         )
-        self.template_create_embedded_endpoint = _Endpoint(
+        self.template_create_endpoint = _Endpoint(
             settings={
-                'response_type': (TemplateCreateEmbeddedResponse,),
+                'response_type': (TemplateCreateResponse,),
                 'auth': [
                     'api_key',
                     'oauth2'
                 ],
-                'endpoint_path': '/template/create_embedded',
-                'operation_id': 'template_create_embedded',
+                'endpoint_path': '/template/create',
+                'operation_id': 'template_create',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'template_create_embedded_request',
+                    'template_create_request',
                 ],
                 'required': [
-                    'template_create_embedded_request',
+                    'template_create_request',
                 ],
                 'nullable': [
                 ],
@@ -140,13 +140,13 @@ class TemplateApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'template_create_embedded_request':
-                        (TemplateCreateEmbeddedRequest,),
+                    'template_create_request':
+                        (TemplateCreateRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'template_create_embedded_request': 'body',
+                    'template_create_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -784,22 +784,22 @@ class TemplateApi(object):
 
                 raise e
 
-    def template_create_embedded(
+    def template_create(
         self,
-        template_create_embedded_request,
+        template_create_request,
         **kwargs
-    ) -> TemplateCreateEmbeddedResponse:
-        """Create Embedded Template  # noqa: E501
+    ) -> TemplateCreateResponse:
+        """Create  Template  # noqa: E501
 
         Creates a template that can then be used.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.template_create_embedded(template_create_embedded_request, async_req=True)
+        >>> thread = api.template_create(template_create_request, async_req=True)
         >>> result = thread.get()
 
         Args:
-            template_create_embedded_request (TemplateCreateEmbeddedRequest):
+            template_create_request (TemplateCreateRequest):
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -830,7 +830,7 @@ class TemplateApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            TemplateCreateEmbeddedResponse
+            TemplateCreateResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -858,15 +858,15 @@ class TemplateApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['template_create_embedded_request'] = \
-            template_create_embedded_request
+        kwargs['template_create_request'] = \
+            template_create_request
         try:
-            return self.template_create_embedded_endpoint.call_with_http_info(**kwargs)
+            return self.template_create_endpoint.call_with_http_info(**kwargs)
         except ApiException as e:
             if e.status == 200:
                 e.body = self.api_client.deserialize(
                     response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[TemplateCreateEmbeddedResponse],
+                    response_type=[TemplateCreateResponse],
                     _check_type=True,
                 )
 
