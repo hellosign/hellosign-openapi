@@ -5,7 +5,7 @@ additionalProperties:
   packageAuthors: Dropbox Sign API Team
   packageCompany: Dropbox Sign API Team
   packageDescription: Client library for using the Dropbox Sign API
-  packageVersion: 1.1-dev
+  packageVersion: 1.2-dev
   packageTitle: Dropbox Sign .Net SDK
   sortModelPropertiesByRequiredFlag: true
   optionalEmitDefaultValues: true
