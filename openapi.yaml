@@ -9220,20 +9220,6 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
-    EventCallbackRequest:
-      title: EventCallbackRequest
-      required:
-        - event
-      properties:
-        event:
-          $ref: '#/components/schemas/EventCallbackRequestEvent'
-        account:
-          $ref: '#/components/schemas/AccountResponse'
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-        template:
-          $ref: '#/components/schemas/TemplateResponse'
-      type: object
     FileResponse:
       properties:
         file_url:
@@ -9549,69 +9535,6 @@ components:
         error_name:
           description: 'Name of the error.'
           type: string
-      type: object
-    EventCallbackRequestEvent:
-      description: 'Basic information about the event that occurred.'
-      required:
-        - event_time
-        - event_type
-        - event_hash
-        - event_metadata
-      properties:
-        event_time:
-          description: 'Time the event was created (using Unix time).'
-          type: string
-        event_type:
-          description: 'Type of callback event that was triggered.'
-          type: string
-          enum:
-            - account_confirmed
-            - unknown_error
-            - file_error
-            - sign_url_invalid
-            - signature_request_viewed
-            - signature_request_signed
-            - signature_request_sent
-            - signature_request_all_signed
-            - signature_request_email_bounce
-            - signature_request_remind
-            - signature_request_incomplete_qes
-            - signature_request_destroyed
-            - signature_request_canceled
-            - signature_request_downloadable
-            - signature_request_declined
-            - signature_request_reassigned
-            - signature_request_invalid
-            - signature_request_prepared
-            - signature_request_expired
-            - template_created
-            - template_error
-            - callback_test
-        event_hash:
-          description: 'Generated hash used to verify source of event data.'
-          type: string
-        event_metadata:
-          $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
-      type: object
-    EventCallbackRequestEventMetadata:
-      description: 'Specific metadata about the event.'
-      properties:
-        related_signature_id:
-          description: 'Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.'
-          type: string
-          nullable: true
-        reported_for_account_id:
-          description: 'Account ID the event was reported for.'
-          type: string
-          nullable: true
-        reported_for_app_id:
-          description: 'App ID the event was reported for.'
-          type: string
-          nullable: true
-        event_message:
-          description: 'Message about a declined or failed (due to error) signature flow.'
-          type: string
-          nullable: true
       type: object
     ListInfoResponse:
       description: 'Contains pagination information about the data returned.'
@@ -11225,6 +11148,83 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
+    EventCallbackRequest:
+      title: EventCallbackRequest
+      required:
+        - event
+      properties:
+        event:
+          $ref: '#/components/schemas/EventCallbackRequestEvent'
+        account:
+          $ref: '#/components/schemas/AccountResponse'
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+        template:
+          $ref: '#/components/schemas/TemplateResponse'
+      type: object
+    EventCallbackRequestEvent:
+      description: 'Basic information about the event that occurred.'
+      required:
+        - event_time
+        - event_type
+        - event_hash
+        - event_metadata
+      properties:
+        event_time:
+          description: 'Time the event was created (using Unix time).'
+          type: string
+        event_type:
+          description: 'Type of callback event that was triggered.'
+          type: string
+          enum:
+            - account_confirmed
+            - unknown_error
+            - file_error
+            - sign_url_invalid
+            - signature_request_viewed
+            - signature_request_signed
+            - signature_request_sent
+            - signature_request_all_signed
+            - signature_request_email_bounce
+            - signature_request_remind
+            - signature_request_incomplete_qes
+            - signature_request_destroyed
+            - signature_request_canceled
+            - signature_request_downloadable
+            - signature_request_declined
+            - signature_request_reassigned
+            - signature_request_invalid
+            - signature_request_prepared
+            - signature_request_expired
+            - template_created
+            - template_error
+            - callback_test
+        event_hash:
+          description: 'Generated hash used to verify source of event data.'
+          type: string
+        event_metadata:
+          $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
+      type: object
+    EventCallbackRequestEventMetadata:
+      description: 'Specific metadata about the event.'
+      properties:
+        related_signature_id:
+          description: 'Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.'
+          type: string
+          nullable: true
+        reported_for_account_id:
+          description: 'Account ID the event was reported for.'
+          type: string
+          nullable: true
+        reported_for_app_id:
+          description: 'App ID the event was reported for.'
+          type: string
+          nullable: true
+        event_message:
+          description: 'Message about a declined or failed (due to error) signature flow.'
+          type: string
+          nullable: true
+      type: object
   responses:
     EventCallbackResponse:
       description: 'successful operation'
@@ -11538,26 +11538,6 @@ components:
       summary: 'API App Update'
       value:
         $ref: examples/json/ApiAppUpdateResponseExample.json
-    EventCallbackAccountSignatureRequestSentExample:
-      summary: 'Example: signature_request_sent'
-      value:
-        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
-    EventCallbackAccountTemplateCreatedExample:
-      summary: 'Example: template_created'
-      value:
-        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
-    EventCallbackAppAccountConfirmedExample:
-      summary: 'Example: account_confirmed'
-      value:
-        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
-    EventCallbackAppSignatureRequestSentExample:
-      summary: 'Example: signature_request_sent'
-      value:
-        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
-    EventCallbackAppTemplateCreatedExample:
-      summary: 'Example: template_created'
-      value:
-        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
     SignatureRequestCreateEmbeddedResponseExample:
       summary: 'Create Embedded Signature Request'
       value:
@@ -11686,6 +11666,26 @@ components:
       summary: 'Unclaimed Draft Create'
       value:
         $ref: examples/json/UnclaimedDraftCreateResponseExample.json
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
+      value:
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: 'Example: template_created'
+      value:
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackAppAccountConfirmedExample:
+      summary: 'Example: account_confirmed'
+      value:
+        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
+    EventCallbackAppSignatureRequestSentExample:
+      summary: 'Example: signature_request_sent'
+      value:
+        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
+    EventCallbackAppTemplateCreatedExample:
+      summary: 'Example: template_created'
+      value:
+        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
   requestBodies:
     EventCallbackAccountRequest:
       description: |-
