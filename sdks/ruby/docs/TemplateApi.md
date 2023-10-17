@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [`template_add_user`](TemplateApi.md#template_add_user) | **POST** `/template/add_user/{template_id}` | Add User to Template |
-| [`template_create_embedded`](TemplateApi.md#template_create_embedded) | **POST** `/template/create_embedded` | Create Embedded Template |
+| [`template_create`](TemplateApi.md#template_create) | **POST** `/template/create` | Create  Template |
 | [`template_create_embedded_draft`](TemplateApi.md#template_create_embedded_draft) | **POST** `/template/create_embedded_draft` | Create Embedded Template Draft |
 | [`template_delete`](TemplateApi.md#template_delete) | **POST** `/template/delete/{template_id}` | Delete Template |
 | [`template_files`](TemplateApi.md#template_files) | **GET** `/template/files/{template_id}` | Get Template Files |
@@ -93,11 +93,11 @@ end
 - **Accept**: application/json
 
 
-## `template_create_embedded`
+## `template_create`
 
-> `<TemplateCreateEmbeddedResponse> template_create_embedded(template_create_embedded_request)`
+> `<TemplateCreateResponse> template_create(template_create_request)`
 
-Create Embedded Template
+Create  Template
 
 Creates a template that can then be used.
 
@@ -135,7 +135,7 @@ merge_field_2.type = "checkbox"
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = Dropbox::Sign::TemplateCreateEmbeddedRequest.new
+data = Dropbox::Sign::TemplateCreateRequest.new
 data.client_id = "37dee8d8440c66d54cfa05d92c160882"
 data.files = [File.new("example_signature_request.pdf", "r")]
 data.title = "Test Template"
@@ -148,7 +148,7 @@ data.field_options = field_options
 data.test_mode = true
 
 begin
-  result = template_api.template_create_embedded(data)
+  result = template_api.template_create(data)
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
@@ -156,21 +156,21 @@ end
 
 ```
 
-#### Using the `template_create_embedded_with_http_info` variant
+#### Using the `template_create_with_http_info` variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<TemplateCreateEmbeddedResponse>, Integer, Hash)> template_create_embedded_with_http_info(template_create_embedded_request)`
+> `<Array(<TemplateCreateResponse>, Integer, Hash)> template_create_with_http_info(template_create_request)`
 
 ```ruby
 begin
-  # Create Embedded Template
-  data, status_code, headers = api_instance.template_create_embedded_with_http_info(template_create_embedded_request)
+  # Create  Template
+  data, status_code, headers = api_instance.template_create_with_http_info(template_create_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <TemplateCreateEmbeddedResponse>
+  p data # => <TemplateCreateResponse>
 rescue Dropbox::Sign::ApiError => e
-  puts "Error when calling TemplateApi->template_create_embedded_with_http_info: #{e}"
+  puts "Error when calling TemplateApi->template_create_with_http_info: #{e}"
 end
 ```
 
@@ -178,11 +178,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template_create_embedded_request` | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md) |  |  |
+| `template_create_request` | [**TemplateCreateRequest**](TemplateCreateRequest.md) |  |  |
 
 ### Return type
 
-[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+[**TemplateCreateResponse**](TemplateCreateResponse.md)
 
 ### Authorization
 

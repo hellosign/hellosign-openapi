@@ -4632,31 +4632,31 @@ paths:
         seo:
           title: 'Add User to Template | REST API | Dropbox Sign for Developers'
           description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here.'
-  /template/create_embedded:
+  /template/create:
     post:
       tags:
         - Template
-      summary: 'Create Embedded Template'
+      summary: 'Create  Template'
       description: 'Creates a template that can then be used.'
-      operationId: templateCreateEmbedded
+      operationId: templateCreate
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedRequest'
+              $ref: '#/components/schemas/TemplateCreateRequest'
             examples:
               default_example:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestDefaultExample'
+                $ref: '#/components/examples/TemplateCreateRequestDefaultExample'
               form_fields_per_document:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample'
+                $ref: '#/components/examples/TemplateCreateRequestFormFieldsPerDocumentExample'
               form_field_groups:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldGroupsExample'
+                $ref: '#/components/examples/TemplateCreateRequestFormFieldGroupsExample'
               form_field_rules:
-                $ref: '#/components/examples/TemplateCreateEmbeddedRequestFormFieldRulesExample'
+                $ref: '#/components/examples/TemplateCreateRequestFormFieldRulesExample'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TemplateCreateEmbeddedRequest'
+              $ref: '#/components/schemas/TemplateCreateRequest'
       responses:
         200:
           description: 'successful operation'
@@ -4670,10 +4670,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
+                $ref: '#/components/schemas/TemplateCreateResponse'
               examples:
                 default_example:
-                  $ref: '#/components/examples/TemplateCreateEmbeddedResponseExample'
+                  $ref: '#/components/examples/TemplateCreateResponseExample'
         4XX:
           description: failed_operation
           content:
@@ -4706,46 +4706,46 @@ paths:
           lang: PHP
           label: PHP
           source:
-            $ref: examples/TemplateCreateEmbedded.php
+            $ref: examples/TemplateCreate.php
         -
           lang: 'C#'
           label: 'C#'
           source:
-            $ref: examples/TemplateCreateEmbedded.cs
+            $ref: examples/TemplateCreate.cs
         -
           lang: JavaScript
           label: JavaScript
           source:
-            $ref: examples/TemplateCreateEmbedded.js
+            $ref: examples/TemplateCreate.js
         -
           lang: TypeScript
           label: TypeScript
           source:
-            $ref: examples/TemplateCreateEmbedded.ts
+            $ref: examples/TemplateCreate.ts
         -
           lang: Java
           label: Java
           source:
-            $ref: examples/TemplateCreateEmbedded.java
+            $ref: examples/TemplateCreate.java
         -
           lang: Ruby
           label: Ruby
           source:
-            $ref: examples/TemplateCreateEmbedded.rb
+            $ref: examples/TemplateCreate.rb
         -
           lang: Python
           label: Python
           source:
-            $ref: examples/TemplateCreateEmbedded.py
+            $ref: examples/TemplateCreate.py
         -
           lang: cURL
           label: cURL
           source:
-            $ref: examples/TemplateCreateEmbedded.sh
+            $ref: examples/TemplateCreate.sh
       x-meta:
         seo:
-          title: 'Create Embedded Template | Dropbox Sign for Developers'
-          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded template, click here.'
+          title: 'Create Template | Dropbox Sign for Developers'
+          description: 'The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an template, click here.'
   /template/create_embedded_draft:
     post:
       tags:
@@ -6987,13 +6987,12 @@ components:
             **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
           type: boolean
           default: false
-        is_qualified_signature:
+        is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
-            which requires a face-to-face call to verify the signer's identity.<br>
-            **Note**: QES is only available on the Premium API plan as an add-on purchase.
-            Cannot be used in `test_mode`. Only works on requests with one signer.
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -7079,13 +7078,12 @@ components:
           type: array
           items:
             type: string
-        is_qualified_signature:
+        is_eid:
           description: |-
             Send with a value of `true` if you wish to enable
-            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
-            which requires a face-to-face call to verify the signer's identity.<br>
-            **Note**: QES is only available on the Premium API plan as an add-on purchase.
-            Cannot be used in `test_mode`. Only works on requests with one signer.
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -8270,9 +8268,10 @@ components:
           type: boolean
           default: false
       type: object
-    TemplateCreateEmbeddedRequest:
+    TemplateCreateRequest:
       required:
-        - client_id
+        - signer_roles
+        - form_fields_per_document
       properties:
         files:
           description: |-
@@ -8291,10 +8290,6 @@ components:
           type: array
           items:
             type: string
-        allow_ccs:
-          description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.'
-          type: boolean
-          default: true
         allow_reassign:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
@@ -8315,18 +8310,8 @@ components:
         client_id:
           description: 'Client id of the app you''re using to create this draft. Used to apply the branding and callback url defined for the app.'
           type: string
-        editor_options:
-          $ref: '#/components/schemas/SubEditorOptions'
         field_options:
           $ref: '#/components/schemas/SubFieldOptions'
-        force_signer_roles:
-          description: 'Provide users the ability to review/edit the template signer roles.'
-          type: boolean
-          default: false
-        force_subject_message:
-          description: 'Provide users the ability to review/edit the template subject and message.'
-          type: boolean
-          default: false
         form_field_groups:
           description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
           type: array
@@ -8375,27 +8360,11 @@ components:
           type: object
           maxItems: 10
           additionalProperties: {}
-        show_preview:
-          description: |-
-            This allows the requester to enable the editor/preview experience.
-
-            - `show_preview=true`: Allows requesters to enable the editor/preview experience.
-            - `show_preview=false`: Allows requesters to disable the editor/preview experience.
-          type: boolean
-          default: false
-        show_progress_stepper:
-          description: 'When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.'
-          type: boolean
-          default: true
         signer_roles:
           description: 'An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.'
           type: array
           items:
             $ref: '#/components/schemas/SubTemplateRole'
-        skip_me_now:
-          description: 'Disables the "Me (Now)" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.'
-          type: boolean
-          default: false
         subject:
           description: 'The template title (alias).'
           type: string
@@ -10368,8 +10337,8 @@ components:
           deprecated: true
       type: object
       x-internal: true
-    TemplateCreateEmbeddedResponseTemplate:
-      description: 'Template object with parameters: `template_id`, `edit_url`, `expires_at`.'
+    TemplateCreateResponseTemplate:
+      description: 'Template object with parameters: `template_id`.'
       properties:
         template_id:
           description: 'The id of the Template.'
@@ -11184,10 +11153,10 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
-    TemplateCreateEmbeddedResponse:
+    TemplateCreateResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateEmbeddedResponse'
+          $ref: '#/components/schemas/TemplateCreateResponse'
         warnings:
           description: 'A list of warnings.'
           type: array
@@ -11373,22 +11342,22 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/TemplateAddUserRequestDefaultExample.json
-    TemplateCreateEmbeddedRequestDefaultExample:
+    TemplateCreateRequestDefaultExample:
       summary: 'Default Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestDefaultExample.json
-    TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample:
+        $ref: examples/json/TemplateCreateRequestDefaultExample.json
+    TemplateCreateRequestFormFieldsPerDocumentExample:
       summary: 'Form Fields Per Document Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldsPerDocumentExample.json
-    TemplateCreateEmbeddedRequestFormFieldGroupsExample:
+        $ref: examples/json/TemplateCreateRequestFormFieldsPerDocumentExample.json
+    TemplateCreateRequestFormFieldGroupsExample:
       summary: 'Form Fields Per Document and Groups Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldGroupsExample.json
-    TemplateCreateEmbeddedRequestFormFieldRulesExample:
+        $ref: examples/json/TemplateCreateRequestFormFieldGroupsExample.json
+    TemplateCreateRequestFormFieldRulesExample:
       summary: 'Form Fields Per Document and Rules Example'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedRequestFormFieldRulesExample.json
+        $ref: examples/json/TemplateCreateRequestFormFieldRulesExample.json
     TemplateCreateEmbeddedDraftRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -11693,10 +11662,10 @@ components:
       summary: 'Team Sub Teams List'
       value:
         $ref: examples/json/TeamSubTeamsResponseExample.json
-    TemplateCreateEmbeddedResponseExample:
-      summary: 'Create Embedded Template'
+    TemplateCreateResponseExample:
+      summary: 'Create Template'
       value:
-        $ref: examples/json/TemplateCreateEmbeddedResponseExample.json
+        $ref: examples/json/TemplateCreateResponseExample.json
     TemplateCreateEmbeddedDraftResponseExample:
       summary: 'Create Embedded Draft Template'
       value:

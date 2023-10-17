@@ -145,6 +145,7 @@ class SignatureRequestSendRequest(ModelNormal):
             'form_fields_per_document': ([SubFormFieldsPerDocumentBase],),  # noqa: E501
             'hide_text_tags': (bool,),  # noqa: E501
             'is_qualified_signature': (bool,),  # noqa: E501
+            'is_eid': (bool,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'signing_options': (SubSigningOptions,),  # noqa: E501
@@ -193,6 +194,7 @@ class SignatureRequestSendRequest(ModelNormal):
         'form_fields_per_document': 'form_fields_per_document',  # noqa: E501
         'hide_text_tags': 'hide_text_tags',  # noqa: E501
         'is_qualified_signature': 'is_qualified_signature',  # noqa: E501
+        'is_eid': 'is_eid',  # noqa: E501
         'message': 'message',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'signing_options': 'signing_options',  # noqa: E501
@@ -338,6 +340,14 @@ class SignatureRequestSendRequest(ModelNormal):
         setattr(self, "is_qualified_signature", value)
 
     @property
+    def is_eid(self) -> bool:
+        return self.get("is_eid")
+
+    @is_eid.setter
+    def is_eid(self, value: bool):
+        setattr(self, "is_eid", value)
+
+    @property
     def message(self) -> str:
         return self.get("message")
 
@@ -461,6 +471,7 @@ class SignatureRequestSendRequest(ModelNormal):
             form_fields_per_document ([SubFormFieldsPerDocumentBase]): The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`. [optional]  # noqa: E501
             hide_text_tags (bool): Enables automatic Text Tag removal when set to true.  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
             is_qualified_signature (bool): Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_eid (bool): Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
             message (str): The custom message in the email that will be sent to the signers.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.. [optional]  # noqa: E501
             signing_options (SubSigningOptions): [optional]  # noqa: E501
@@ -567,6 +578,7 @@ class SignatureRequestSendRequest(ModelNormal):
             form_fields_per_document ([SubFormFieldsPerDocumentBase]): The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`. [optional]  # noqa: E501
             hide_text_tags (bool): Enables automatic Text Tag removal when set to true.  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.. [optional] if omitted the server will use the default value of False  # noqa: E501
             is_qualified_signature (bool): Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_eid (bool): Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
             message (str): The custom message in the email that will be sent to the signers.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.. [optional]  # noqa: E501
             signing_options (SubSigningOptions): [optional]  # noqa: E501

@@ -372,6 +372,11 @@
     which requires a face-to-face call to verify the signer's identity.<br>
     **Note**: QES is only available on the Premium API plan as an add-on purchase.
     Cannot be used in `test_mode`. Only works on requests with one signer.
+"SignatureRequestSend::IS_EID": |-
+    Send with a value of `true` if you wish to enable
+    [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+    which requires the signer to verify their identity with an eID provider to sign a document.<br>
+    **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSend::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSend::SUBJECT": The subject in the email that will be sent to the signers.
@@ -398,6 +403,11 @@
   which requires a face-to-face call to verify the signer's identity.<br>
   **Note**: QES is only available on the Premium API plan as an add-on purchase.
   Cannot be used in `test_mode`. Only works on requests with one signer.
+"SignatureRequestSendWithTemplate::IS_EID": |-
+    Send with a value of `true` if you wish to enable
+    [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+    which requires the signer to verify their identity with an eID provider to sign a document.<br>
+    **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSendWithTemplate::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSendWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
@@ -561,42 +571,34 @@
 "TemplateCreateEmbeddedDraft::TITLE": The title you want to assign to the SignatureRequest.
 "TemplateCreateEmbeddedDraft::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
 
-"TemplateCreateEmbedded::SUMMARY": Create Embedded Template
-"TemplateCreateEmbedded::DESCRIPTION": Creates a template that can then be used.
 
-"TemplateCreateEmbedded::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
-"TemplateCreateEmbedded::ALLOW_REASSIGN": |-
+"TemplateCreate::SUMMARY": Create  Template
+"TemplateCreate::DESCRIPTION": Creates a template that can then be used.
+
+"TemplateCreate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.
+"TemplateCreate::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
   **Note**: Only available for Premium plan and higher.
-"TemplateCreateEmbedded::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
-"TemplateCreateEmbedded::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
-"TemplateCreateEmbedded::FILES": |-
+"TemplateCreate::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
+"TemplateCreate::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
+"TemplateCreate::FILES": |-
   Use `files[]` to indicate the uploaded file(s) to send for signature.
 
   This endpoint requires either **files** or **file_urls[]**, but not both.
-"TemplateCreateEmbedded::FILE_URLS": |-
+"TemplateCreate::FILE_URLS": |-
   Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
 
   This endpoint requires either **files** or **file_urls[]**, but not both.
-"TemplateCreateEmbedded::FORCE_SIGNER_ROLES": Provide users the ability to review/edit the template signer roles.
-"TemplateCreateEmbedded::FORCE_SUBJECT_MESSAGE": Provide users the ability to review/edit the template subject and message.
-"TemplateCreateEmbedded::MERGE_FIELDS": |-
+"TemplateCreate::MERGE_FIELDS": |-
   Add merge fields to the template. Merge fields are placed by the user creating the template and used to pre-fill data by passing values into signature requests with the `custom_fields` parameter.
   If the signature request using that template *does not* pass a value into a merge field, then an empty field remains in the document.
-"TemplateCreateEmbedded::MESSAGE": The default template email message.
-"TemplateCreateEmbedded::SHOW_PREVIEW": |-
-  This allows the requester to enable the editor/preview experience.
-
-  - `show_preview=true`: Allows requesters to enable the editor/preview experience.
-  - `show_preview=false`: Allows requesters to disable the editor/preview experience.
-"TemplateCreateEmbedded::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
-"TemplateCreateEmbedded::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
-"TemplateCreateEmbedded::SKIP_ME_NOW": Disables the "Me (Now)" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.
-"TemplateCreateEmbedded::SUBJECT": The template title (alias).
-"TemplateCreateEmbedded::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
-"TemplateCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
-"TemplateCreateEmbedded::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
+"TemplateCreate::MESSAGE": The default template email message.
+"TemplateCreate::SIGNER_ROLES": An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
+"TemplateCreate::SUBJECT": The template title (alias).
+"TemplateCreate::TEST_MODE": Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.
+"TemplateCreate::TITLE": The title you want to assign to the SignatureRequest.
+"TemplateCreate::USE_PREEXISTING_FIELDS": Enable the detection of predefined PDF fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`).
 
 "TemplateDelete::SUMMARY": Delete Template
 "TemplateDelete::DESCRIPTION": Completely deletes the template specified from the account.
@@ -977,7 +979,7 @@
   Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
 
   **NOTE**: To set the value of the field as the preparer you must set this to `me_now`
-  
+
   **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
@@ -1349,7 +1351,7 @@
 
 "TemplateAddUserResponseExample::SUMMARY": Add User to Template
 "TemplateCreateEmbeddedDraftResponseExample::SUMMARY": Create Embedded Draft Template
-"TemplateCreateEmbeddedResponseExample::SUMMARY": Create Embedded Template
+"TemplateCreateResponseExample::SUMMARY": Create Template
 "TemplateFilesResponseExample::SUMMARY": Template Files
 "TemplateGetResponseExample::SUMMARY": Get Template
 "TemplateListResponseExample::SUMMARY": List Templates
@@ -1380,9 +1382,9 @@
 "TemplateCreateEmbeddedDraftResponseTemplate::EDIT_URL": Link to edit the template.
 "TemplateCreateEmbeddedDraftResponseTemplate::EXPIRES_AT": When the link expires.
 
-"TemplateCreateEmbeddedResponseTemplate::DESCRIPTION": "Template object with parameters: `template_id`, `edit_url`, `expires_at`."
-"TemplateCreateEmbeddedResponseTemplate::EDIT_URL": Link to edit the template.
-"TemplateCreateEmbeddedResponseTemplate::EXPIRES_AT": When the link expires.
+"TemplateCreateEmbeddedResponseTemplate::DESCRIPTION": "Template object with parameters: `template_id`."
+
+"TemplateCreateResponseTemplate::DESCRIPTION": "Template object with parameters: `template_id`."
 
 "TemplateUpdateFilesResponseTemplate::DESCRIPTION": "Contains template id"
 
@@ -1630,8 +1632,8 @@
 "TemplateAddUser::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to give an Account access to a Template, click here."
 "TemplateCreateEmbeddedDraft::SEO::TITLE": "Create Embedded Template Draft | Dropbox Sign for Developers"
 "TemplateCreateEmbeddedDraft::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded draft template, click here."
-"TemplateCreateEmbedded::SEO::TITLE": "Create Embedded Template | Dropbox Sign for Developers"
-"TemplateCreateEmbedded::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an embedded template, click here."
+"TemplateCreate::SEO::TITLE": "Create Template | Dropbox Sign for Developers"
+"TemplateCreate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to create an template, click here."
 "TemplateDelete::SEO::TITLE": "Delete Template | API Documentation | Dropbox Sign for Developers"
 "TemplateDelete::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to completely delete a template from the account, click here."
 "TemplateFiles::SEO::TITLE": "Get Template Files | API Documentation | Dropbox Sign for Developers"

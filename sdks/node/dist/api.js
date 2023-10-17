@@ -18369,9 +18369,9 @@ __export(api_exports, {
   TemplateCreateEmbeddedDraftRequest: () => TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse: () => TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate: () => TemplateCreateEmbeddedDraftResponseTemplate,
-  TemplateCreateEmbeddedRequest: () => TemplateCreateEmbeddedRequest,
-  TemplateCreateEmbeddedResponse: () => TemplateCreateEmbeddedResponse,
-  TemplateCreateEmbeddedResponseTemplate: () => TemplateCreateEmbeddedResponseTemplate,
+  TemplateCreateRequest: () => TemplateCreateRequest,
+  TemplateCreateResponse: () => TemplateCreateResponse,
+  TemplateCreateResponseTemplate: () => TemplateCreateResponseTemplate,
   TemplateEditResponse: () => TemplateEditResponse,
   TemplateGetResponse: () => TemplateGetResponse,
   TemplateListResponse: () => TemplateListResponse,
@@ -21260,6 +21260,7 @@ var _SignatureRequestSendRequest = class {
     this["allowReassign"] = false;
     this["hideTextTags"] = false;
     this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
     this["testMode"] = false;
     this["useTextTags"] = false;
   }
@@ -21354,6 +21355,11 @@ SignatureRequestSendRequest.attributeTypeMap = [
     type: "boolean"
   },
   {
+    name: "isEid",
+    baseName: "is_eid",
+    type: "boolean"
+  },
+  {
     name: "message",
     baseName: "message",
     type: "string"
@@ -21405,6 +21411,7 @@ var _SignatureRequestSendWithTemplateRequest = class {
   constructor() {
     this["allowDecline"] = false;
     this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
     this["testMode"] = false;
   }
   static getAttributeTypeMap() {
@@ -21463,6 +21470,11 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
   {
     name: "isQualifiedSignature",
     baseName: "is_qualified_signature",
+    type: "boolean"
+  },
+  {
+    name: "isEid",
+    baseName: "is_eid",
     type: "boolean"
   },
   {
@@ -23709,33 +23721,32 @@ TemplateCreateEmbeddedDraftResponseTemplate.attributeTypeMap = [
   }
 ];
 
-// model/templateCreateEmbeddedRequest.ts
-var _TemplateCreateEmbeddedRequest = class {
+// model/templateCreateRequest.ts
+var _TemplateCreateRequest = class {
   constructor() {
-    this["allowCcs"] = true;
     this["allowReassign"] = false;
-    this["forceSignerRoles"] = false;
-    this["forceSubjectMessage"] = false;
-    this["showPreview"] = false;
-    this["showProgressStepper"] = true;
-    this["skipMeNow"] = false;
     this["testMode"] = false;
     this["usePreexistingFields"] = false;
   }
   static getAttributeTypeMap() {
-    return _TemplateCreateEmbeddedRequest.attributeTypeMap;
+    return _TemplateCreateRequest.attributeTypeMap;
   }
   static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateCreateEmbeddedRequest");
+    return ObjectSerializer.deserialize(data, "TemplateCreateRequest");
   }
 };
-var TemplateCreateEmbeddedRequest = _TemplateCreateEmbeddedRequest;
-TemplateCreateEmbeddedRequest.discriminator = void 0;
-TemplateCreateEmbeddedRequest.attributeTypeMap = [
+var TemplateCreateRequest = _TemplateCreateRequest;
+TemplateCreateRequest.discriminator = void 0;
+TemplateCreateRequest.attributeTypeMap = [
   {
-    name: "clientId",
-    baseName: "client_id",
-    type: "string"
+    name: "formFieldsPerDocument",
+    baseName: "form_fields_per_document",
+    type: "Array<SubFormFieldsPerDocumentBase>"
+  },
+  {
+    name: "signerRoles",
+    baseName: "signer_roles",
+    type: "Array<SubTemplateRole>"
   },
   {
     name: "files",
@@ -23746,11 +23757,6 @@ TemplateCreateEmbeddedRequest.attributeTypeMap = [
     name: "fileUrls",
     baseName: "file_urls",
     type: "Array<string>"
-  },
-  {
-    name: "allowCcs",
-    baseName: "allow_ccs",
-    type: "boolean"
   },
   {
     name: "allowReassign",
@@ -23768,24 +23774,14 @@ TemplateCreateEmbeddedRequest.attributeTypeMap = [
     type: "Array<string>"
   },
   {
-    name: "editorOptions",
-    baseName: "editor_options",
-    type: "SubEditorOptions"
+    name: "clientId",
+    baseName: "client_id",
+    type: "string"
   },
   {
     name: "fieldOptions",
     baseName: "field_options",
     type: "SubFieldOptions"
-  },
-  {
-    name: "forceSignerRoles",
-    baseName: "force_signer_roles",
-    type: "boolean"
-  },
-  {
-    name: "forceSubjectMessage",
-    baseName: "force_subject_message",
-    type: "boolean"
   },
   {
     name: "formFieldGroups",
@@ -23796,11 +23792,6 @@ TemplateCreateEmbeddedRequest.attributeTypeMap = [
     name: "formFieldRules",
     baseName: "form_field_rules",
     type: "Array<SubFormFieldRule>"
-  },
-  {
-    name: "formFieldsPerDocument",
-    baseName: "form_fields_per_document",
-    type: "Array<SubFormFieldsPerDocumentBase>"
   },
   {
     name: "mergeFields",
@@ -23816,26 +23807,6 @@ TemplateCreateEmbeddedRequest.attributeTypeMap = [
     name: "metadata",
     baseName: "metadata",
     type: "{ [key: string]: any; }"
-  },
-  {
-    name: "showPreview",
-    baseName: "show_preview",
-    type: "boolean"
-  },
-  {
-    name: "showProgressStepper",
-    baseName: "show_progress_stepper",
-    type: "boolean"
-  },
-  {
-    name: "signerRoles",
-    baseName: "signer_roles",
-    type: "Array<SubTemplateRole>"
-  },
-  {
-    name: "skipMeNow",
-    baseName: "skip_me_now",
-    type: "boolean"
   },
   {
     name: "subject",
@@ -23859,22 +23830,22 @@ TemplateCreateEmbeddedRequest.attributeTypeMap = [
   }
 ];
 
-// model/templateCreateEmbeddedResponse.ts
-var _TemplateCreateEmbeddedResponse = class {
+// model/templateCreateResponse.ts
+var _TemplateCreateResponse = class {
   static getAttributeTypeMap() {
-    return _TemplateCreateEmbeddedResponse.attributeTypeMap;
+    return _TemplateCreateResponse.attributeTypeMap;
   }
   static init(data) {
-    return ObjectSerializer.deserialize(data, "TemplateCreateEmbeddedResponse");
+    return ObjectSerializer.deserialize(data, "TemplateCreateResponse");
   }
 };
-var TemplateCreateEmbeddedResponse = _TemplateCreateEmbeddedResponse;
-TemplateCreateEmbeddedResponse.discriminator = void 0;
-TemplateCreateEmbeddedResponse.attributeTypeMap = [
+var TemplateCreateResponse = _TemplateCreateResponse;
+TemplateCreateResponse.discriminator = void 0;
+TemplateCreateResponse.attributeTypeMap = [
   {
     name: "template",
     baseName: "template",
-    type: "TemplateCreateEmbeddedResponse"
+    type: "TemplateCreateResponse"
   },
   {
     name: "warnings",
@@ -23883,21 +23854,18 @@ TemplateCreateEmbeddedResponse.attributeTypeMap = [
   }
 ];
 
-// model/templateCreateEmbeddedResponseTemplate.ts
-var _TemplateCreateEmbeddedResponseTemplate = class {
+// model/templateCreateResponseTemplate.ts
+var _TemplateCreateResponseTemplate = class {
   static getAttributeTypeMap() {
-    return _TemplateCreateEmbeddedResponseTemplate.attributeTypeMap;
+    return _TemplateCreateResponseTemplate.attributeTypeMap;
   }
   static init(data) {
-    return ObjectSerializer.deserialize(
-      data,
-      "TemplateCreateEmbeddedResponseTemplate"
-    );
+    return ObjectSerializer.deserialize(data, "TemplateCreateResponseTemplate");
   }
 };
-var TemplateCreateEmbeddedResponseTemplate = _TemplateCreateEmbeddedResponseTemplate;
-TemplateCreateEmbeddedResponseTemplate.discriminator = void 0;
-TemplateCreateEmbeddedResponseTemplate.attributeTypeMap = [
+var TemplateCreateResponseTemplate = _TemplateCreateResponseTemplate;
+TemplateCreateResponseTemplate.discriminator = void 0;
+TemplateCreateResponseTemplate.attributeTypeMap = [
   {
     name: "templateId",
     baseName: "template_id",
@@ -26295,9 +26263,9 @@ var typeMap = {
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate,
-  TemplateCreateEmbeddedRequest,
-  TemplateCreateEmbeddedResponse,
-  TemplateCreateEmbeddedResponseTemplate,
+  TemplateCreateRequest,
+  TemplateCreateResponse,
+  TemplateCreateResponseTemplate,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,
@@ -31609,15 +31577,15 @@ var TemplateApi = class {
       });
     });
   }
-  templateCreateEmbedded(_0) {
-    return __async(this, arguments, function* (templateCreateEmbeddedRequest, options = { headers: {} }) {
-      if (templateCreateEmbeddedRequest !== null && templateCreateEmbeddedRequest !== void 0 && templateCreateEmbeddedRequest.constructor.name !== "TemplateCreateEmbeddedRequest") {
-        templateCreateEmbeddedRequest = ObjectSerializer.deserialize(
-          templateCreateEmbeddedRequest,
-          "TemplateCreateEmbeddedRequest"
+  templateCreate(_0) {
+    return __async(this, arguments, function* (templateCreateRequest, options = { headers: {} }) {
+      if (templateCreateRequest !== null && templateCreateRequest !== void 0 && templateCreateRequest.constructor.name !== "TemplateCreateRequest") {
+        templateCreateRequest = ObjectSerializer.deserialize(
+          templateCreateRequest,
+          "TemplateCreateRequest"
         );
       }
-      const localVarPath = this.basePath + "/template/create_embedded";
+      const localVarPath = this.basePath + "/template/create";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
         {},
@@ -31631,16 +31599,16 @@ var TemplateApi = class {
       }
       let localVarFormParams = {};
       let localVarBodyParams = void 0;
-      if (templateCreateEmbeddedRequest === null || templateCreateEmbeddedRequest === void 0) {
+      if (templateCreateRequest === null || templateCreateRequest === void 0) {
         throw new Error(
-          "Required parameter templateCreateEmbeddedRequest was null or undefined when calling templateCreateEmbedded."
+          "Required parameter templateCreateRequest was null or undefined when calling templateCreate."
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
       let localVarUseFormData = false;
       const result = generateFormData(
-        templateCreateEmbeddedRequest,
-        TemplateCreateEmbeddedRequest.attributeTypeMap
+        templateCreateRequest,
+        TemplateCreateRequest.attributeTypeMap
       );
       localVarUseFormData = result.localVarUseFormData;
       let data = {};
@@ -31650,8 +31618,8 @@ var TemplateApi = class {
         localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
       } else {
         data = ObjectSerializer.serialize(
-          templateCreateEmbeddedRequest,
-          "TemplateCreateEmbeddedRequest"
+          templateCreateRequest,
+          "TemplateCreateRequest"
         );
       }
       let localVarRequestOptions = {
@@ -31694,7 +31662,7 @@ var TemplateApi = class {
                 if (response.status && response.status >= 200 && response.status <= 299) {
                   body = ObjectSerializer.deserialize(
                     body,
-                    "TemplateCreateEmbeddedResponse"
+                    "TemplateCreateResponse"
                   );
                   resolve({ response, body });
                 } else {
@@ -31711,7 +31679,7 @@ var TemplateApi = class {
                 if (response.status === 200) {
                   body = ObjectSerializer.deserialize(
                     response.data,
-                    "TemplateCreateEmbeddedResponse"
+                    "TemplateCreateResponse"
                   );
                   reject(new HttpError(response, body, response.status));
                   return;
@@ -33306,7 +33274,7 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var USER_AGENT = "OpenAPI-Generator/1.1-dev/node";
+var USER_AGENT = "OpenAPI-Generator/1.2-dev/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;
@@ -33520,9 +33488,9 @@ var APIS = [
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate,
-  TemplateCreateEmbeddedRequest,
-  TemplateCreateEmbeddedResponse,
-  TemplateCreateEmbeddedResponseTemplate,
+  TemplateCreateRequest,
+  TemplateCreateResponse,
+  TemplateCreateResponseTemplate,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,

@@ -123,6 +123,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             'files': ([file_type],),  # noqa: E501
             'file_urls': ([str],),  # noqa: E501
             'is_qualified_signature': (bool,),  # noqa: E501
+            'is_eid': (bool,),  # noqa: E501
             'message': (str,),  # noqa: E501
             'metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'signing_options': (SubSigningOptions,),  # noqa: E501
@@ -162,6 +163,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         'files': 'files',  # noqa: E501
         'file_urls': 'file_urls',  # noqa: E501
         'is_qualified_signature': 'is_qualified_signature',  # noqa: E501
+        'is_eid': 'is_eid',  # noqa: E501
         'message': 'message',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'signing_options': 'signing_options',  # noqa: E501
@@ -247,6 +249,14 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
     @is_qualified_signature.setter
     def is_qualified_signature(self, value: bool):
         setattr(self, "is_qualified_signature", value)
+
+    @property
+    def is_eid(self) -> bool:
+        return self.get("is_eid")
+
+    @is_eid.setter
+    def is_eid(self, value: bool):
+        setattr(self, "is_eid", value)
 
     @property
     def message(self) -> str:
@@ -351,6 +361,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             is_qualified_signature (bool): Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_eid (bool): Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
             message (str): The custom message in the email that will be sent to the signers.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.. [optional]  # noqa: E501
             signing_options (SubSigningOptions): [optional]  # noqa: E501
@@ -452,6 +463,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             is_qualified_signature (bool): Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_eid (bool): Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.. [optional] if omitted the server will use the default value of False  # noqa: E501
             message (str): The custom message in the email that will be sent to the signers.. [optional]  # noqa: E501
             metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.. [optional]  # noqa: E501
             signing_options (SubSigningOptions): [optional]  # noqa: E501

@@ -49,6 +49,7 @@ namespace Dropbox.Sign.Model
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
+        /// <param name="isEid">Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
         /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
         /// <param name="signers">Add Signers to your Templated-based Signature Request. (required).</param>
@@ -57,7 +58,7 @@ namespace Dropbox.Sign.Model
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
-        public SignatureRequestSendWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool isQualifiedSignature = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
+        public SignatureRequestSendWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool isQualifiedSignature = false, bool isEid = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), string subject = default(string), bool testMode = false, string title = default(string))
         {
             
             // to ensure "templateIds" is required (not null)
@@ -79,6 +80,7 @@ namespace Dropbox.Sign.Model
             this.Files = files;
             this.FileUrls = fileUrls;
             this.IsQualifiedSignature = isQualifiedSignature;
+            this.IsEid = isEid;
             this.Message = message;
             this.Metadata = metadata;
             this.SigningOptions = signingOptions;
@@ -165,7 +167,15 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
         [DataMember(Name = "is_qualified_signature", EmitDefaultValue = true)]
+        [Obsolete]
         public bool IsQualifiedSignature { get; set; }
+
+        /// <summary>
+        /// Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+        /// </summary>
+        /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
+        [DataMember(Name = "is_eid", EmitDefaultValue = true)]
+        public bool IsEid { get; set; }
 
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
@@ -232,6 +242,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  FileUrls: ").Append(FileUrls).Append("\n");
             sb.Append("  IsQualifiedSignature: ").Append(IsQualifiedSignature).Append("\n");
+            sb.Append("  IsEid: ").Append(IsEid).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  SigningOptions: ").Append(SigningOptions).Append("\n");
@@ -324,6 +335,10 @@ namespace Dropbox.Sign.Model
                     this.IsQualifiedSignature.Equals(input.IsQualifiedSignature)
                 ) && 
                 (
+                    this.IsEid == input.IsEid ||
+                    this.IsEid.Equals(input.IsEid)
+                ) && 
+                (
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
@@ -399,6 +414,7 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.FileUrls.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsQualifiedSignature.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsEid.GetHashCode();
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
@@ -484,6 +500,12 @@ namespace Dropbox.Sign.Model
                 Property = "IsQualifiedSignature",
                 Type = "bool",
                 Value = IsQualifiedSignature,
+            });
+            types.Add(new OpenApiType(){
+                Name = "is_eid",
+                Property = "IsEid",
+                Type = "bool",
+                Value = IsEid,
             });
             types.Add(new OpenApiType(){
                 Name = "message",

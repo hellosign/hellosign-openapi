@@ -53,6 +53,7 @@ import com.dropbox.sign.ApiException;
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILES,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_FILE_URLS,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_IS_QUALIFIED_SIGNATURE,
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_IS_EID,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_MESSAGE,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_METADATA,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
@@ -90,6 +91,9 @@ public class SignatureRequestSendWithTemplateRequest {
 
   public static final String JSON_PROPERTY_IS_QUALIFIED_SIGNATURE = "is_qualified_signature";
   private Boolean isQualifiedSignature = false;
+
+  public static final String JSON_PROPERTY_IS_EID = "is_eid";
+  private Boolean isEid = false;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -388,7 +392,9 @@ public class SignatureRequestSendWithTemplateRequest {
    /**
    * Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isQualifiedSignature
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")
   @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
@@ -403,6 +409,32 @@ public class SignatureRequestSendWithTemplateRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsQualifiedSignature(Boolean isQualifiedSignature) {
     this.isQualifiedSignature = isQualifiedSignature;
+  }
+
+
+  public SignatureRequestSendWithTemplateRequest isEid(Boolean isEid) {
+    this.isEid = isEid;
+    return this;
+  }
+
+   /**
+   * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+   * @return isEid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")
+  @JsonProperty(JSON_PROPERTY_IS_EID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsEid() {
+    return isEid;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_EID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsEid(Boolean isEid) {
+    this.isEid = isEid;
   }
 
 
@@ -617,6 +649,7 @@ public class SignatureRequestSendWithTemplateRequest {
         Objects.equals(this.files, signatureRequestSendWithTemplateRequest.files) &&
         Objects.equals(this.fileUrls, signatureRequestSendWithTemplateRequest.fileUrls) &&
         Objects.equals(this.isQualifiedSignature, signatureRequestSendWithTemplateRequest.isQualifiedSignature) &&
+        Objects.equals(this.isEid, signatureRequestSendWithTemplateRequest.isEid) &&
         Objects.equals(this.message, signatureRequestSendWithTemplateRequest.message) &&
         Objects.equals(this.metadata, signatureRequestSendWithTemplateRequest.metadata) &&
         Objects.equals(this.signingOptions, signatureRequestSendWithTemplateRequest.signingOptions) &&
@@ -628,7 +661,7 @@ public class SignatureRequestSendWithTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
+    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
   }
 
   @Override
@@ -644,6 +677,7 @@ public class SignatureRequestSendWithTemplateRequest {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    isQualifiedSignature: ").append(toIndentedString(isQualifiedSignature)).append("\n");
+    sb.append("    isEid: ").append(toIndentedString(isEid)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    signingOptions: ").append(toIndentedString(signingOptions)).append("\n");
@@ -828,6 +862,25 @@ public class SignatureRequestSendWithTemplateRequest {
         }
         else {
             map.put("is_qualified_signature", JSON.getDefault().getMapper().writeValueAsString(isQualifiedSignature));
+        }
+    }
+    if (isEid != null) {
+        if (isFileTypeOrListOfFiles(isEid)) {
+            fileTypeFound = true;
+        }
+
+        if (isEid.getClass().equals(java.io.File.class) ||
+            isEid.getClass().equals(Integer.class) ||
+            isEid.getClass().equals(String.class) ||
+            isEid.getClass().isEnum()) {
+            map.put("is_eid", isEid);
+        } else if (isListOfFile(isEid)) {
+            for(int i = 0; i< getListSize(isEid); i++) {
+                map.put("is_eid[" + i + "]", getFromList(isEid, i));
+            }
+        }
+        else {
+            map.put("is_eid", JSON.getDefault().getMapper().writeValueAsString(isEid));
         }
     }
     if (message != null) {

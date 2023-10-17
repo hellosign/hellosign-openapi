@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**templateAddUser**](TemplateApi.md#templateAddUser) | **POST** /template/add_user/{template_id} | Add User to Template
-[**templateCreateEmbedded**](TemplateApi.md#templateCreateEmbedded) | **POST** /template/create_embedded | Create Embedded Template
+[**templateCreate**](TemplateApi.md#templateCreate) | **POST** /template/create | Create  Template
 [**templateCreateEmbeddedDraft**](TemplateApi.md#templateCreateEmbeddedDraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft
 [**templateDelete**](TemplateApi.md#templateDelete) | **POST** /template/delete/{template_id} | Delete Template
 [**templateFiles**](TemplateApi.md#templateFiles) | **GET** /template/files/{template_id} | Get Template Files
@@ -101,11 +101,11 @@ Name | Type | Description  | Notes
 | **4XX** | failed_operation |  -  |
 
 
-## templateCreateEmbedded
+## templateCreate
 
-> TemplateCreateEmbeddedResponse templateCreateEmbedded(templateCreateEmbeddedRequest)
+> TemplateCreateResponse templateCreate(templateCreateRequest)
 
-Create Embedded Template
+Create  Template
 
 Creates a template that can then be used.
 
@@ -158,7 +158,7 @@ public class Example {
         var subFieldOptions = new SubFieldOptions()
             .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
 
-        var data = new TemplateCreateEmbeddedRequest()
+        var data = new TemplateCreateRequest()
             .clientId("37dee8d8440c66d54cfa05d92c160882")
             .addFilesItem(new File("example_signature_request.pdf"))
             .title("Test Template")
@@ -171,7 +171,7 @@ public class Example {
             .testMode(true);
 
         try {
-            TemplateCreateEmbeddedResponse result = templateApi.templateCreateEmbedded(data);
+            TemplateCreateResponse result = templateApi.templateCreate(data);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AccountApi#accountCreate");
@@ -190,11 +190,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateCreateEmbeddedRequest** | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md)|  |
+ **templateCreateRequest** | [**TemplateCreateRequest**](TemplateCreateRequest.md)|  |
 
 ### Return type
 
-[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+[**TemplateCreateResponse**](TemplateCreateResponse.md)
 
 ### Authorization
 

@@ -11,4 +11,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build dropbox-sign.gemspec
-  - gem install ./dropbox-sign-1.1-dev.gem
+  - gem install ./dropbox-sign-1.2-dev.gem

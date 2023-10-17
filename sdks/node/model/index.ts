@@ -122,9 +122,9 @@ import { TemplateAddUserRequest } from "./templateAddUserRequest";
 import { TemplateCreateEmbeddedDraftRequest } from "./templateCreateEmbeddedDraftRequest";
 import { TemplateCreateEmbeddedDraftResponse } from "./templateCreateEmbeddedDraftResponse";
 import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmbeddedDraftResponseTemplate";
-import { TemplateCreateEmbeddedRequest } from "./templateCreateEmbeddedRequest";
-import { TemplateCreateEmbeddedResponse } from "./templateCreateEmbeddedResponse";
-import { TemplateCreateEmbeddedResponseTemplate } from "./templateCreateEmbeddedResponseTemplate";
+import { TemplateCreateRequest } from "./templateCreateRequest";
+import { TemplateCreateResponse } from "./templateCreateResponse";
+import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
 import { TemplateEditResponse } from "./templateEditResponse";
 import { TemplateGetResponse } from "./templateGetResponse";
 import { TemplateListResponse } from "./templateListResponse";
@@ -365,10 +365,9 @@ export let typeMap: { [index: string]: any } = {
   TemplateCreateEmbeddedDraftResponse: TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate:
     TemplateCreateEmbeddedDraftResponseTemplate,
-  TemplateCreateEmbeddedRequest: TemplateCreateEmbeddedRequest,
-  TemplateCreateEmbeddedResponse: TemplateCreateEmbeddedResponse,
-  TemplateCreateEmbeddedResponseTemplate:
-    TemplateCreateEmbeddedResponseTemplate,
+  TemplateCreateRequest: TemplateCreateRequest,
+  TemplateCreateResponse: TemplateCreateResponse,
+  TemplateCreateResponseTemplate: TemplateCreateResponseTemplate,
   TemplateEditResponse: TemplateEditResponse,
   TemplateGetResponse: TemplateGetResponse,
   TemplateListResponse: TemplateListResponse,
@@ -561,9 +560,9 @@ export {
   TemplateCreateEmbeddedDraftRequest,
   TemplateCreateEmbeddedDraftResponse,
   TemplateCreateEmbeddedDraftResponseTemplate,
-  TemplateCreateEmbeddedRequest,
-  TemplateCreateEmbeddedResponse,
-  TemplateCreateEmbeddedResponseTemplate,
+  TemplateCreateRequest,
+  TemplateCreateResponse,
+  TemplateCreateResponseTemplate,
   TemplateEditResponse,
   TemplateGetResponse,
   TemplateListResponse,

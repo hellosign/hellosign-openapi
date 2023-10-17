@@ -469,37 +469,37 @@ class TemplateApi
     }
 
     /**
-     * Operation templateCreateEmbedded
+     * Operation templateCreate
      *
-     * Create Embedded Template
+     * Create  Template
      *
-     * @param Model\TemplateCreateEmbeddedRequest $template_create_embedded_request template_create_embedded_request (required)
+     * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
-     * @return Model\TemplateCreateEmbeddedResponse
+     * @return Model\TemplateCreateResponse
      */
-    public function templateCreateEmbedded(Model\TemplateCreateEmbeddedRequest $template_create_embedded_request)
+    public function templateCreate(Model\TemplateCreateRequest $template_create_request)
     {
-        list($response) = $this->templateCreateEmbeddedWithHttpInfo($template_create_embedded_request);
+        list($response) = $this->templateCreateWithHttpInfo($template_create_request);
 
         return $response;
     }
 
     /**
-     * Operation templateCreateEmbeddedWithHttpInfo
+     * Operation templateCreateWithHttpInfo
      *
-     * Create Embedded Template
+     * Create  Template
      *
-     * @param Model\TemplateCreateEmbeddedRequest $template_create_embedded_request (required)
+     * @param Model\TemplateCreateRequest $template_create_request (required)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
-     * @return array of Model\TemplateCreateEmbeddedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of Model\TemplateCreateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function templateCreateEmbeddedWithHttpInfo(Model\TemplateCreateEmbeddedRequest $template_create_embedded_request)
+    public function templateCreateWithHttpInfo(Model\TemplateCreateRequest $template_create_request)
     {
-        $request = $this->templateCreateEmbeddedRequest($template_create_embedded_request);
+        $request = $this->templateCreateRequest($template_create_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -540,14 +540,14 @@ class TemplateApi
             $statusCode = $response->getStatusCode();
 
             if ($statusCode === 200) {
-                if ('\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse' === '\SplFileObject') {
+                if ('\Dropbox\Sign\Model\TemplateCreateResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
                     $content = (string) $response->getBody();
                 }
 
                 return [
-                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse', []),
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\TemplateCreateResponse', []),
                     $response->getStatusCode(),
                     $response->getHeaders(),
                 ];
@@ -569,7 +569,7 @@ class TemplateApi
                 ];
             }
 
-            $returnType = '\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse';
+            $returnType = '\Dropbox\Sign\Model\TemplateCreateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -587,7 +587,7 @@ class TemplateApi
             if ($statusCode === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse',
+                    '\Dropbox\Sign\Model\TemplateCreateResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -609,18 +609,18 @@ class TemplateApi
     }
 
     /**
-     * Operation templateCreateEmbeddedAsync
+     * Operation templateCreateAsync
      *
-     * Create Embedded Template
+     * Create  Template
      *
-     * @param Model\TemplateCreateEmbeddedRequest $template_create_embedded_request (required)
+     * @param Model\TemplateCreateRequest $template_create_request (required)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function templateCreateEmbeddedAsync(Model\TemplateCreateEmbeddedRequest $template_create_embedded_request)
+    public function templateCreateAsync(Model\TemplateCreateRequest $template_create_request)
     {
-        return $this->templateCreateEmbeddedAsyncWithHttpInfo($template_create_embedded_request)
+        return $this->templateCreateAsyncWithHttpInfo($template_create_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -629,19 +629,19 @@ class TemplateApi
     }
 
     /**
-     * Operation templateCreateEmbeddedAsyncWithHttpInfo
+     * Operation templateCreateAsyncWithHttpInfo
      *
-     * Create Embedded Template
+     * Create  Template
      *
-     * @param Model\TemplateCreateEmbeddedRequest $template_create_embedded_request (required)
+     * @param Model\TemplateCreateRequest $template_create_request (required)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function templateCreateEmbeddedAsyncWithHttpInfo(Model\TemplateCreateEmbeddedRequest $template_create_embedded_request)
+    public function templateCreateAsyncWithHttpInfo(Model\TemplateCreateRequest $template_create_request)
     {
-        $returnType = '\Dropbox\Sign\Model\TemplateCreateEmbeddedResponse';
-        $request = $this->templateCreateEmbeddedRequest($template_create_embedded_request);
+        $returnType = '\Dropbox\Sign\Model\TemplateCreateResponse';
+        $request = $this->templateCreateRequest($template_create_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -677,29 +677,29 @@ class TemplateApi
     }
 
     /**
-     * Create request for operation 'templateCreateEmbedded'
+     * Create request for operation 'templateCreate'
      *
-     * @param Model\TemplateCreateEmbeddedRequest $template_create_embedded_request (required)
+     * @param Model\TemplateCreateRequest $template_create_request (required)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function templateCreateEmbeddedRequest(Model\TemplateCreateEmbeddedRequest $template_create_embedded_request)
+    public function templateCreateRequest(Model\TemplateCreateRequest $template_create_request)
     {
-        // verify the required parameter 'template_create_embedded_request' is set
-        if ($template_create_embedded_request === null || (is_array($template_create_embedded_request) && count($template_create_embedded_request) === 0)) {
+        // verify the required parameter 'template_create_request' is set
+        if ($template_create_request === null || (is_array($template_create_request) && count($template_create_request) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $template_create_embedded_request when calling templateCreateEmbedded'
+                'Missing the required parameter $template_create_request when calling templateCreate'
             );
         }
 
-        $resourcePath = '/template/create_embedded';
+        $resourcePath = '/template/create';
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
 
         $formParams = ObjectSerializer::getFormParams(
-            $template_create_embedded_request
+            $template_create_request
         );
 
         $multipart = !empty($formParams);
@@ -718,9 +718,9 @@ class TemplateApi
         // for model (json/xml)
         if (count($formParams) === 0) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_create_embedded_request));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_create_request));
             } else {
-                $httpBody = $template_create_embedded_request;
+                $httpBody = $template_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -744,7 +744,7 @@ class TemplateApi
                 }
 
                 if ($payloadHook = $this->config->getPayloadHook()) {
-                    $payloadHook('multipart', $multipartContents, $template_create_embedded_request);
+                    $payloadHook('multipart', $multipartContents, $template_create_request);
                 }
 
                 $httpBody = new Psr7\MultipartStream($multipartContents);

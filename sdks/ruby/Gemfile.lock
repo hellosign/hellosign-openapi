@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dropbox-sign (1.1.pre.dev)
+    dropbox-sign (1.2.pre.dev)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
@@ -13,7 +13,7 @@ GEM
     diff-lcs (1.5.0)
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    ffi (1.15.5)
+    ffi (1.16.3)
     jaro_winkler (1.5.4)
     json_spec (1.1.5)
       multi_json (~> 1.0)

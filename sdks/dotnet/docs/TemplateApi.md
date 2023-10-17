@@ -5,7 +5,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**TemplateAddUser**](TemplateApi.md#templateadduser) | **POST** /template/add_user/{template_id} | Add User to Template |
-| [**TemplateCreateEmbedded**](TemplateApi.md#templatecreateembedded) | **POST** /template/create_embedded | Create Embedded Template |
+| [**TemplateCreate**](TemplateApi.md#templatecreate) | **POST** /template/create | Create  Template |
 | [**TemplateCreateEmbeddedDraft**](TemplateApi.md#templatecreateembeddeddraft) | **POST** /template/create_embedded_draft | Create Embedded Template Draft |
 | [**TemplateDelete**](TemplateApi.md#templatedelete) | **POST** /template/delete/{template_id} | Delete Template |
 | [**TemplateFiles**](TemplateApi.md#templatefiles) | **GET** /template/files/{template_id} | Get Template Files |
@@ -116,11 +116,11 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="templatecreateembedded"></a>
-# **TemplateCreateEmbedded**
-> TemplateCreateEmbeddedResponse TemplateCreateEmbedded (TemplateCreateEmbeddedRequest templateCreateEmbeddedRequest)
+<a name="templatecreate"></a>
+# **TemplateCreate**
+> TemplateCreateResponse TemplateCreate (TemplateCreateRequest templateCreateRequest)
 
-Create Embedded Template
+Create  Template
 
 Creates a template that can then be used.
 
@@ -179,7 +179,7 @@ public class Example
             )
         };
 
-        var data = new TemplateCreateEmbeddedRequest(
+        var data = new TemplateCreateRequest(
             clientId: "37dee8d8440c66d54cfa05d92c160882",
             files: files,
             title: "Test Template",
@@ -194,7 +194,7 @@ public class Example
 
         try
         {
-            var result = templateApi.TemplateCreateEmbedded(data);
+            var result = templateApi.TemplateCreate(data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -208,21 +208,21 @@ public class Example
 
 ```
 
-#### Using the TemplateCreateEmbeddedWithHttpInfo variant
+#### Using the TemplateCreateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Create Embedded Template
-    ApiResponse<TemplateCreateEmbeddedResponse> response = apiInstance.TemplateCreateEmbeddedWithHttpInfo(templateCreateEmbeddedRequest);
+    // Create  Template
+    ApiResponse<TemplateCreateResponse> response = apiInstance.TemplateCreateWithHttpInfo(templateCreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TemplateApi.TemplateCreateEmbeddedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TemplateApi.TemplateCreateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -232,11 +232,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **templateCreateEmbeddedRequest** | [**TemplateCreateEmbeddedRequest**](TemplateCreateEmbeddedRequest.md) |  |  |
+| **templateCreateRequest** | [**TemplateCreateRequest**](TemplateCreateRequest.md) |  |  |
 
 ### Return type
 
-[**TemplateCreateEmbeddedResponse**](TemplateCreateEmbeddedResponse.md)
+[**TemplateCreateResponse**](TemplateCreateResponse.md)
 
 ### Authorization
 
