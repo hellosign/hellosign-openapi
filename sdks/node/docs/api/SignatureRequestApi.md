@@ -468,8 +468,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
@@ -528,8 +527,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
@@ -1433,8 +1431,7 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
@@ -1522,8 +1519,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 

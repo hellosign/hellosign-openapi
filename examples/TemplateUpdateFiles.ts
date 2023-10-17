@@ -1,6 +1,5 @@
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import fs from "fs";
 
 const templateApi = new DropboxSign.TemplateApi();
 
