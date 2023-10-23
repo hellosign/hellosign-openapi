@@ -165,6 +165,8 @@ class ApiClient(object):
 
         # post parameters
         if post_params or files:
+            # if files and not post_params:
+            #    header_params['Content-Type'] = 'multipart/form-data'
             post_params = post_params if post_params else []
             post_params = self.sanitize_for_serialization(post_params)
             post_params = self.parameters_to_tuples(post_params,
@@ -776,7 +778,6 @@ class Endpoint(object):
                     """
                     body = param_value.to_dict()
                     remove_files = []
-
                     for oas_name in param_value.openapi_types:
                         if hasattr(param_value, oas_name):
                             obj = param_value[oas_name]
@@ -824,7 +825,7 @@ class Endpoint(object):
                 collection_format = self.collection_format_map.get(param_name)
                 if collection_format:
                     params['collection_format'][base_name] = collection_format
-
+        
         return params
 
     def __call__(self, *args, **kwargs):
@@ -907,7 +908,7 @@ class Endpoint(object):
         else:
             content_type_headers_list = self.headers_map['content_type']
             if content_type_headers_list:
-                if len(params['form']) > 0:
+                if len(params['form']) > 0 or len(params['file']) > 0:
                     params['header']['Content-Type'] = 'multipart/form-data'
                 elif params['body'] != "":
                     header_list = self.api_client.select_header_content_type(
