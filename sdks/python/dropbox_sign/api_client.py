@@ -168,8 +168,6 @@ class ApiClient(object):
 
         # post parameters
         if post_params or files:
-            # if files and not post_params:
-            #    header_params['Content-Type'] = 'multipart/form-data'
             post_params = post_params if post_params else []
             post_params = self.sanitize_for_serialization(post_params)
             post_params = self.parameters_to_tuples(post_params,
