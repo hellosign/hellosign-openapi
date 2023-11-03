@@ -776,6 +776,7 @@ class Endpoint(object):
                     """
                     body = param_value.to_dict()
                     remove_files = []
+
                     for oas_name in param_value.openapi_types:
                         if hasattr(param_value, oas_name):
                             obj = param_value[oas_name]
@@ -823,7 +824,7 @@ class Endpoint(object):
                 collection_format = self.collection_format_map.get(param_name)
                 if collection_format:
                     params['collection_format'][base_name] = collection_format
-        
+
         return params
 
     def __call__(self, *args, **kwargs):
