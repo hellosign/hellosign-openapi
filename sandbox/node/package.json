@@ -2,15 +2,15 @@
   "name": "@dropbox/sign-sandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Example.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@dropbox/sign": "file:./artifacts/dropbox-sign-sdk.tgz",
-    "@types/node": "^17.0.10",
-    "ts-node": "^10.4.0",
-    "typescript": "^3.9.5"
+    "@types/node": "^20.8.10",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.3.0"
   },
   "author": "",
   "license": "ISC"
