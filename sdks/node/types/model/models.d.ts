@@ -1,4 +1,5 @@
 /// <reference types="node" />
+/// <reference types="node" />
 import { AxiosRequestConfig } from "axios";
 import * as fs from "fs";
 import { Headers } from "form-data";
@@ -12,7 +13,7 @@ export interface RequestDetailedFile {
         filepath?: string;
     };
 }
-export declare type RequestFile = fs.ReadStream | RequestDetailedFile;
+export type RequestFile = fs.ReadStream | RequestDetailedFile;
 interface AttributeType {
     name: string;
     baseName: string;
@@ -53,5 +54,5 @@ export declare class VoidAuth implements Authentication {
     password: string;
     applyToRequest(_: AxiosRequestConfig): void;
 }
-export declare type Interceptor = (requestOptions: AxiosRequestConfig) => Promise<void> | void;
+export type Interceptor = (requestOptions: AxiosRequestConfig) => Promise<void> | void;
 export {};
