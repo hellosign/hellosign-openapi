@@ -9,4 +9,4 @@ docker run --rm \
   -v "${ROOT_DIR}:/app" \
   -v "dropbox-sign-sdk-npm-cache:/root/.npm" \
   -w /app \
-  node:17 "$@"
+  node:18 "$@"
