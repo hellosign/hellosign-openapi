@@ -11101,7 +11101,7 @@ components:
     TemplateCreateResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateResponse'
+          $ref: '#/components/schemas/TemplateCreateResponseTemplate'
         warnings:
           description: 'A list of warnings.'
           type: array

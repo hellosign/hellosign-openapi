@@ -7870,7 +7870,7 @@ components:
           items:
             type: string
         allow_reassign:
-          description: '_t__TemplateCreateEmbeddedDraft::ALLOW_REASSIGN'
+          description: '_t__TemplateCreate::ALLOW_REASSIGN'
           type: boolean
           default: false
         attachments:
@@ -10317,7 +10317,7 @@ components:
     TemplateCreateResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateResponse'
+          $ref: '#/components/schemas/TemplateCreateResponseTemplate'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array

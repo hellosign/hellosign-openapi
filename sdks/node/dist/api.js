@@ -26492,7 +26492,7 @@ TemplateCreateResponse.attributeTypeMap = [
   {
     name: "template",
     baseName: "template",
-    type: "TemplateCreateResponse"
+    type: "TemplateCreateResponseTemplate"
   },
   {
     name: "warnings",
