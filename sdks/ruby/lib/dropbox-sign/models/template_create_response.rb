@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class TemplateCreateResponse
-    # @return [TemplateCreateResponse]
+    # @return [TemplateCreateResponseTemplate]
     attr_accessor :template
 
     # A list of warnings.
@@ -46,7 +46,7 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'template' => :'TemplateCreateResponse',
+        :'template' => :'TemplateCreateResponseTemplate',
         :'warnings' => :'Array<WarningResponse>'
       }
     end
