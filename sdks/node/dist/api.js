@@ -31714,7 +31714,7 @@ var SignatureRequestApi = class {
       if (forceDownload !== void 0) {
         localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
           forceDownload,
-          "number"
+          "boolean"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);

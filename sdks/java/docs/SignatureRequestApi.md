@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signatureRequestId** | **String**| The id of the SignatureRequest to retrieve. |
  **fileType** | **String**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to pdf] [enum: pdf, zip]
- **forceDownload** | **Integer**| If set to `1`, browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded. | [optional] [default to 1]
+ **forceDownload** | **Boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded. | [optional] [default to true]
 
 ### Return type
 

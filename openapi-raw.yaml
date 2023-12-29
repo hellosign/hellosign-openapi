@@ -2233,8 +2233,8 @@ paths:
           in: query
           description: '_t__SignatureRequestFiles::FORCE_DOWNLOAD'
           schema:
-            type: integer
-            default: 1
+            type: boolean
+            default: true
       responses:
         '200':
           description: 'successful operation'
