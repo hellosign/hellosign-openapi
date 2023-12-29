@@ -651,7 +651,7 @@ catch (ApiException e)
 
 <a name="signaturerequestfiles"></a>
 # **SignatureRequestFiles**
-> System.IO.Stream SignatureRequestFiles (string signatureRequestId, string? fileType = null)
+> System.IO.Stream SignatureRequestFiles (string signatureRequestId, string? fileType = null, int? forceDownload = null)
 
 Download Files
 
@@ -707,7 +707,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Download Files
-    ApiResponse<System.IO.Stream> response = apiInstance.SignatureRequestFilesWithHttpInfo(signatureRequestId, fileType);
+    ApiResponse<System.IO.Stream> response = apiInstance.SignatureRequestFilesWithHttpInfo(signatureRequestId, fileType, forceDownload);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -726,6 +726,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
 | **fileType** | **string?** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to pdf] |
+| **forceDownload** | **int?** | If set to `1`, browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded. | [optional] [default to 1] |
 
 ### Return type
 

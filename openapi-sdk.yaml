@@ -2255,6 +2255,16 @@ paths:
             enum:
               - pdf
               - zip
+        -
+          name: force_download
+          in: query
+          description: |-
+            If set to `1`, browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.
+
+            **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded.
+          schema:
+            type: integer
+            default: 1
       responses:
         200:
           description: 'successful operation'

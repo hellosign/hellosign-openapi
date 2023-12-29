@@ -2228,6 +2228,13 @@ paths:
             enum:
               - pdf
               - zip
+        -
+          name: force_download
+          in: query
+          description: '_t__SignatureRequestFiles::FORCE_DOWNLOAD'
+          schema:
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
