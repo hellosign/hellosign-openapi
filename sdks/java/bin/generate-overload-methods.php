@@ -150,10 +150,12 @@ class GenerateOverloadMethods
 
             $data = "{$type} {$name} = ";
 
-            if ($value !== null && strtolower(trim($type)) === 'string') {
-                $data .= '"' . $value . '";';
-            } elseif ($value === null) {
+            if ($value === null) {
                 $data .= "null;";
+            } elseif (strtolower(trim($type)) === 'string') {
+                $data .= '"' . $value . '";';
+            } elseif (strtolower(trim($type)) === 'boolean') {
+                $data .= $value ? "true;" : "false;";
             } else {
                 $data .= "{$value};";
             }
