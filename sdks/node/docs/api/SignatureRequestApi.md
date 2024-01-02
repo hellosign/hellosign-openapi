@@ -735,7 +735,7 @@ result.then(response => {
 ## `signatureRequestFiles()`
 
 ```typescript
-signatureRequestFiles(signatureRequestId: string, fileType: 'pdf' | 'zip', forceDownload: boolean): Buffer
+signatureRequestFiles(signatureRequestId: string, fileType: 'pdf' | 'zip'): Buffer
 ```
 
 Download Files
@@ -804,7 +804,6 @@ result.then(response => {
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to retrieve. | |
 | **fileType** | **'pdf' | 'zip'**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to &#39;pdf&#39;] |
-| **forceDownload** | **boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded. | [optional] [default to true] |
 
 ### Return type
 

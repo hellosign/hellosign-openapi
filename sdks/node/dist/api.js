@@ -31681,8 +31681,8 @@ var SignatureRequestApi = class {
       });
     });
   }
-  signatureRequestFiles(_0, _1, _2) {
-    return __async(this, arguments, function* (signatureRequestId, fileType, forceDownload, options = { headers: {} }) {
+  signatureRequestFiles(_0, _1) {
+    return __async(this, arguments, function* (signatureRequestId, fileType, options = { headers: {} }) {
       const localVarPath = this.basePath + "/signature_request/files/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -31709,12 +31709,6 @@ var SignatureRequestApi = class {
         localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
           fileType,
           "'pdf' | 'zip'"
-        );
-      }
-      if (forceDownload !== void 0) {
-        localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
-          forceDownload,
-          "boolean"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);

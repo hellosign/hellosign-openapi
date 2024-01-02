@@ -927,13 +927,11 @@ export class SignatureRequestApi {
    * @summary Download Files
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.  **Note**: If &#x60;file_type&#x60; is set to &#x60;zip&#x60; this parameter will be ignored and the file will always be downloaded.
    * @param options
    */
   public async signatureRequestFiles(
     signatureRequestId: string,
     fileType?: "pdf" | "zip",
-    forceDownload?: boolean,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<Buffer>> {
     const localVarPath =
@@ -968,13 +966,6 @@ export class SignatureRequestApi {
       localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
         fileType,
         "'pdf' | 'zip'"
-      );
-    }
-
-    if (forceDownload !== undefined) {
-      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
-        forceDownload,
-        "boolean"
       );
     }
 

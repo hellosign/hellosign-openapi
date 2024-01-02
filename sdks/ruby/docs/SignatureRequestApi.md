@@ -562,7 +562,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to retrieve. |  |
 | `file_type` | **String** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to &#39;pdf&#39;] |
-| `force_download` | **Boolean** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded. | [optional][default to true] |
 
 ### Return type
 

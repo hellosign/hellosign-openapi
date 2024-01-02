@@ -2235,6 +2235,7 @@ paths:
           schema:
             type: boolean
             default: true
+          x-hideOn: sdk
       responses:
         '200':
           description: 'successful operation'

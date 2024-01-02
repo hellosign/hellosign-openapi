@@ -530,7 +530,6 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (default to 'pdf')
-    # @option opts [Boolean] :force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.  **Note**: If &#x60;file_type&#x60; is set to &#x60;zip&#x60; this parameter will be ignored and the file will always be downloaded. (default to true)
     # @return [File]
     def signature_request_files(signature_request_id, opts = {})
       data, _status_code, _headers = signature_request_files_with_http_info(signature_request_id, opts)
@@ -542,7 +541,6 @@ module Dropbox::Sign
     # @param signature_request_id [String] The id of the SignatureRequest to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
-    # @option opts [Boolean] :force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.  **Note**: If &#x60;file_type&#x60; is set to &#x60;zip&#x60; this parameter will be ignored and the file will always be downloaded.
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def signature_request_files_with_http_info(signature_request_id, opts = {})
       if @api_client.config.debugging
@@ -562,7 +560,6 @@ module Dropbox::Sign
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'file_type'] = opts[:'file_type'] if !opts[:'file_type'].nil?
-      query_params[:'force_download'] = opts[:'force_download'] if !opts[:'force_download'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

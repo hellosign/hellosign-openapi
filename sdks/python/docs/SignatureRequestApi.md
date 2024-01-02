@@ -554,7 +554,6 @@ with ApiClient(configuration) as api_client:
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to retrieve. |  |
 | `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to &quot;pdf&quot;] |
-| `force_download` | **bool** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded. | [optional][default to True] |
 
 ### Return type
 
