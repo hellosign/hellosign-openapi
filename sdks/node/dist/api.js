@@ -31681,8 +31681,8 @@ var SignatureRequestApi = class {
       });
     });
   }
-  signatureRequestFiles(_0, _1) {
-    return __async(this, arguments, function* (signatureRequestId, fileType, options = { headers: {} }) {
+  signatureRequestFiles(_0, _1, _2) {
+    return __async(this, arguments, function* (signatureRequestId, fileType, forceDownload, options = { headers: {} }) {
       const localVarPath = this.basePath + "/signature_request/files/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -31709,6 +31709,12 @@ var SignatureRequestApi = class {
         localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
           fileType,
           "'pdf' | 'zip'"
+        );
+      }
+      if (forceDownload !== void 0) {
+        localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+          forceDownload,
+          "boolean"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -31887,8 +31893,8 @@ var SignatureRequestApi = class {
       });
     });
   }
-  signatureRequestFilesAsFileUrl(_0) {
-    return __async(this, arguments, function* (signatureRequestId, options = { headers: {} }) {
+  signatureRequestFilesAsFileUrl(_0, _1) {
+    return __async(this, arguments, function* (signatureRequestId, forceDownload, options = { headers: {} }) {
       const localVarPath = this.basePath + "/signature_request/files_as_file_url/{signature_request_id}".replace(
         "{signature_request_id}",
         encodeURIComponent(String(signatureRequestId))
@@ -31909,6 +31915,12 @@ var SignatureRequestApi = class {
       if (signatureRequestId === null || signatureRequestId === void 0) {
         throw new Error(
           "Required parameter signatureRequestId was null or undefined when calling signatureRequestFilesAsFileUrl."
+        );
+      }
+      if (forceDownload !== void 0) {
+        localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+          forceDownload,
+          "boolean"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -34544,8 +34556,8 @@ var TemplateApi = class {
       });
     });
   }
-  templateFiles(_0, _1) {
-    return __async(this, arguments, function* (templateId, fileType, options = { headers: {} }) {
+  templateFiles(_0, _1, _2) {
+    return __async(this, arguments, function* (templateId, fileType, forceDownload, options = { headers: {} }) {
       const localVarPath = this.basePath + "/template/files/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -34572,6 +34584,12 @@ var TemplateApi = class {
         localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
           fileType,
           "'pdf' | 'zip'"
+        );
+      }
+      if (forceDownload !== void 0) {
+        localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+          forceDownload,
+          "boolean"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -34750,8 +34768,8 @@ var TemplateApi = class {
       });
     });
   }
-  templateFilesAsFileUrl(_0) {
-    return __async(this, arguments, function* (templateId, options = { headers: {} }) {
+  templateFilesAsFileUrl(_0, _1) {
+    return __async(this, arguments, function* (templateId, forceDownload, options = { headers: {} }) {
       const localVarPath = this.basePath + "/template/files_as_file_url/{template_id}".replace(
         "{template_id}",
         encodeURIComponent(String(templateId))
@@ -34772,6 +34790,12 @@ var TemplateApi = class {
       if (templateId === null || templateId === void 0) {
         throw new Error(
           "Required parameter templateId was null or undefined when calling templateFilesAsFileUrl."
+        );
+      }
+      if (forceDownload !== void 0) {
+        localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+          forceDownload,
+          "boolean"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);

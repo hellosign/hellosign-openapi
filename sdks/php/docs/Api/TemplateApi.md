@@ -333,7 +333,7 @@ void (empty response body)
 ## `templateFiles()`
 
 ```php
-templateFiles($template_id, $file_type): \SplFileObject
+templateFiles($template_id, $file_type, $force_download): \SplFileObject
 ```
 
 Get Template Files
@@ -377,6 +377,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the template files to retrieve. | |
 | **file_type** | **string**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] |
+| **force_download** | **bool**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
 
 ### Return type
 
@@ -461,7 +462,7 @@ try {
 ## `templateFilesAsFileUrl()`
 
 ```php
-templateFilesAsFileUrl($template_id): \Dropbox\Sign\Model\FileResponse
+templateFilesAsFileUrl($template_id, $force_download): \Dropbox\Sign\Model\FileResponse
 ```
 
 Get Template Files as File Url
@@ -503,6 +504,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the template files to retrieve. | |
+| **force_download** | **bool**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
 
 ### Return type
 

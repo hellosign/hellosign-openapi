@@ -411,6 +411,7 @@ with ApiClient(configuration) as api_client:
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
 | `file_type` | **str** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] |
+| `force_download` | **bool** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional][default to True] |
 
 ### Return type
 
@@ -549,6 +550,7 @@ with ApiClient(configuration) as api_client:
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **str** | The id of the template files to retrieve. |  |
+| `force_download` | **bool** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional][default to True] |
 
 ### Return type
 

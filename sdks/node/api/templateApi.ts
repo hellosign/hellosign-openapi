@@ -764,11 +764,13 @@ export class TemplateApi {
    * @summary Get Template Files
    * @param templateId The id of the template files to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async templateFiles(
     templateId: string,
     fileType?: "pdf" | "zip",
+    forceDownload?: boolean,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<Buffer>> {
     const localVarPath =
@@ -803,6 +805,13 @@ export class TemplateApi {
       localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
         fileType,
         "'pdf' | 'zip'"
+      );
+    }
+
+    if (forceDownload !== undefined) {
+      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+        forceDownload,
+        "boolean"
       );
     }
 
@@ -1040,10 +1049,12 @@ export class TemplateApi {
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as File Url
    * @param templateId The id of the template files to retrieve.
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async templateFilesAsFileUrl(
     templateId: string,
+    forceDownload?: boolean,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FileResponse>> {
     const localVarPath =
@@ -1071,6 +1082,13 @@ export class TemplateApi {
     if (templateId === null || templateId === undefined) {
       throw new Error(
         "Required parameter templateId was null or undefined when calling templateFilesAsFileUrl."
+      );
+    }
+
+    if (forceDownload !== undefined) {
+      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+        forceDownload,
+        "boolean"
       );
     }
 

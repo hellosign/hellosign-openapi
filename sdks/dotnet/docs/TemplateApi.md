@@ -489,7 +489,7 @@ void (empty response body)
 
 <a name="templatefiles"></a>
 # **TemplateFiles**
-> System.IO.Stream TemplateFiles (string templateId, string? fileType = null)
+> System.IO.Stream TemplateFiles (string templateId, string? fileType = null, bool? forceDownload = null)
 
 Get Template Files
 
@@ -545,7 +545,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Template Files
-    ApiResponse<System.IO.Stream> response = apiInstance.TemplateFilesWithHttpInfo(templateId, fileType);
+    ApiResponse<System.IO.Stream> response = apiInstance.TemplateFilesWithHttpInfo(templateId, fileType, forceDownload);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -564,6 +564,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template files to retrieve. |  |
 | **fileType** | **string?** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional]  |
+| **forceDownload** | **bool?** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
 
 ### Return type
 
@@ -684,7 +685,7 @@ catch (ApiException e)
 
 <a name="templatefilesasfileurl"></a>
 # **TemplateFilesAsFileUrl**
-> FileResponse TemplateFilesAsFileUrl (string templateId)
+> FileResponse TemplateFilesAsFileUrl (string templateId, bool? forceDownload = null)
 
 Get Template Files as File Url
 
@@ -736,7 +737,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Template Files as File Url
-    ApiResponse<FileResponse> response = apiInstance.TemplateFilesAsFileUrlWithHttpInfo(templateId);
+    ApiResponse<FileResponse> response = apiInstance.TemplateFilesAsFileUrlWithHttpInfo(templateId, forceDownload);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -754,6 +755,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template files to retrieve. |  |
+| **forceDownload** | **bool?** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
 
 ### Return type
 

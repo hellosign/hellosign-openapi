@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFiles
 
-> File signatureRequestFiles(signatureRequestId, fileType)
+> File signatureRequestFiles(signatureRequestId, fileType, forceDownload)
 
 Download Files
 
@@ -619,6 +619,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signatureRequestId** | **String**| The id of the SignatureRequest to retrieve. |
  **fileType** | **String**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to pdf] [enum: pdf, zip]
+ **forceDownload** | **Boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true]
 
 ### Return type
 
@@ -723,7 +724,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFilesAsFileUrl
 
-> FileResponse signatureRequestFilesAsFileUrl(signatureRequestId)
+> FileResponse signatureRequestFilesAsFileUrl(signatureRequestId, forceDownload)
 
 Download Files as File Url
 
@@ -781,6 +782,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signatureRequestId** | **String**| The id of the SignatureRequest to retrieve. |
+ **forceDownload** | **Boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true]
 
 ### Return type
 

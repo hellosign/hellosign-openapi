@@ -2258,14 +2258,10 @@ paths:
         -
           name: force_download
           in: query
-          description: |-
-            By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.
-
-            **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded.
+          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
           schema:
             type: boolean
             default: true
-          x-hideOn: sdk
       responses:
         200:
           description: 'successful operation'
@@ -2494,6 +2490,13 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+        -
+          name: force_download
+          in: query
+          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          schema:
+            type: boolean
+            default: true
       responses:
         200:
           description: 'successful operation'
@@ -4999,6 +5002,13 @@ paths:
             enum:
               - pdf
               - zip
+        -
+          name: force_download
+          in: query
+          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          schema:
+            type: boolean
+            default: true
       responses:
         200:
           description: 'successful operation'
@@ -5225,6 +5235,13 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
+        -
+          name: force_download
+          in: query
+          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          schema:
+            type: boolean
+            default: true
       responses:
         200:
           description: 'successful operation'

@@ -461,7 +461,7 @@ try {
 ## `signatureRequestFiles()`
 
 ```php
-signatureRequestFiles($signature_request_id, $file_type): \SplFileObject
+signatureRequestFiles($signature_request_id, $file_type, $force_download): \SplFileObject
 ```
 
 Download Files
@@ -505,6 +505,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to retrieve. | |
 | **file_type** | **string**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to &#39;pdf&#39;] |
+| **force_download** | **bool**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
 
 ### Return type
 
@@ -589,7 +590,7 @@ try {
 ## `signatureRequestFilesAsFileUrl()`
 
 ```php
-signatureRequestFilesAsFileUrl($signature_request_id): \Dropbox\Sign\Model\FileResponse
+signatureRequestFilesAsFileUrl($signature_request_id, $force_download): \Dropbox\Sign\Model\FileResponse
 ```
 
 Download Files as File Url
@@ -631,6 +632,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to retrieve. | |
+| **force_download** | **bool**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
 
 ### Return type
 

@@ -562,6 +562,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to retrieve. |  |
 | `file_type` | **String** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional][default to &#39;pdf&#39;] |
+| `force_download` | **Boolean** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional][default to true] |
 
 ### Return type
 
@@ -651,7 +652,7 @@ end
 
 ## `signature_request_files_as_file_url`
 
-> `<FileResponse> signature_request_files_as_file_url(signature_request_id)`
+> `<FileResponse> signature_request_files_as_file_url(signature_request_id, opts)`
 
 Download Files as File Url
 
@@ -687,12 +688,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FileResponse>, Integer, Hash)> signature_request_files_as_file_url_with_http_info(signature_request_id)`
+> `<Array(<FileResponse>, Integer, Hash)> signature_request_files_as_file_url_with_http_info(signature_request_id, opts)`
 
 ```ruby
 begin
   # Download Files as File Url
-  data, status_code, headers = api_instance.signature_request_files_as_file_url_with_http_info(signature_request_id)
+  data, status_code, headers = api_instance.signature_request_files_as_file_url_with_http_info(signature_request_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponse>
@@ -706,6 +707,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to retrieve. |  |
+| `force_download` | **Boolean** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional][default to true] |
 
 ### Return type
 

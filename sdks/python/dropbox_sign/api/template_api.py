@@ -284,6 +284,7 @@ class TemplateApi(object):
                 'all': [
                     'template_id',
                     'file_type',
+                    'force_download',
                 ],
                 'required': [
                     'template_id',
@@ -311,14 +312,18 @@ class TemplateApi(object):
                         (str,),
                     'file_type':
                         (str,),
+                    'force_download':
+                        (bool,),
                 },
                 'attribute_map': {
                     'template_id': 'template_id',
                     'file_type': 'file_type',
+                    'force_download': 'force_download',
                 },
                 'location_map': {
                     'template_id': 'path',
                     'file_type': 'query',
+                    'force_download': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -400,6 +405,7 @@ class TemplateApi(object):
             params_map={
                 'all': [
                     'template_id',
+                    'force_download',
                 ],
                 'required': [
                     'template_id',
@@ -419,12 +425,16 @@ class TemplateApi(object):
                 'openapi_types': {
                     'template_id':
                         (str,),
+                    'force_download':
+                        (bool,),
                 },
                 'attribute_map': {
                     'template_id': 'template_id',
+                    'force_download': 'force_download',
                 },
                 'location_map': {
                     'template_id': 'path',
+                    'force_download': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1081,6 +1091,7 @@ class TemplateApi(object):
 
         Keyword Args:
             file_type (str): Set to `pdf` for a single merged document or `zip` for a collection of individual documents.. [optional]
+            force_download (bool): By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of True
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1281,6 +1292,7 @@ class TemplateApi(object):
             template_id (str): The id of the template files to retrieve.
 
         Keyword Args:
+            force_download (bool): By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of True
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

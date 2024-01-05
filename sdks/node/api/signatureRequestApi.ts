@@ -927,11 +927,13 @@ export class SignatureRequestApi {
    * @summary Download Files
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async signatureRequestFiles(
     signatureRequestId: string,
     fileType?: "pdf" | "zip",
+    forceDownload?: boolean,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<Buffer>> {
     const localVarPath =
@@ -966,6 +968,13 @@ export class SignatureRequestApi {
       localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
         fileType,
         "'pdf' | 'zip'"
+      );
+    }
+
+    if (forceDownload !== undefined) {
+      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+        forceDownload,
+        "boolean"
       );
     }
 
@@ -1203,10 +1212,12 @@ export class SignatureRequestApi {
    * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as File Url
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async signatureRequestFilesAsFileUrl(
     signatureRequestId: string,
+    forceDownload?: boolean,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FileResponse>> {
     const localVarPath =
@@ -1234,6 +1245,13 @@ export class SignatureRequestApi {
     if (signatureRequestId === null || signatureRequestId === undefined) {
       throw new Error(
         "Required parameter signatureRequestId was null or undefined when calling signatureRequestFilesAsFileUrl."
+      );
+    }
+
+    if (forceDownload !== undefined) {
+      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+        forceDownload,
+        "boolean"
       );
     }
 

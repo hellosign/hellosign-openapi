@@ -305,10 +305,7 @@
   If the files are currently being prepared, a status code of `409` will be returned instead.
 "SignatureRequestFiles::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to retrieve.
 "SignatureRequestFiles::FILE_TYPE": Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
-"SignatureRequestFiles::FORCE_DOWNLOAD": |-
-  By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.
-
-  **Note**: If `file_type` is set to `zip` this parameter will be ignored and the file will always be downloaded.
+"SignatureRequestFiles::FORCE_DOWNLOAD": By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.
 "SignatureRequestFiles::GET_DATA_URI": If `true`, the response will contain the file as base64 encoded string. Base64 encoding is only available for PDFs.
 "SignatureRequestFiles::GET_URL": If `true`, the response will contain a url link to the file instead. Links are only available for PDFs and have a TTL of 3 days.
 
@@ -613,6 +610,7 @@
   Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.
 
   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
+"TemplateFiles::FORCE_DOWNLOAD": By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.
 "TemplateFilesAsFileUrl::SUMMARY": Get Template Files as File Url
 "TemplateFilesAsFileUrl::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).

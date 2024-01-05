@@ -333,6 +333,7 @@ class SignatureRequestApi(object):
                 'all': [
                     'signature_request_id',
                     'file_type',
+                    'force_download',
                 ],
                 'required': [
                     'signature_request_id',
@@ -360,14 +361,18 @@ class SignatureRequestApi(object):
                         (str,),
                     'file_type':
                         (str,),
+                    'force_download':
+                        (bool,),
                 },
                 'attribute_map': {
                     'signature_request_id': 'signature_request_id',
                     'file_type': 'file_type',
+                    'force_download': 'force_download',
                 },
                 'location_map': {
                     'signature_request_id': 'path',
                     'file_type': 'query',
+                    'force_download': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -449,6 +454,7 @@ class SignatureRequestApi(object):
             params_map={
                 'all': [
                     'signature_request_id',
+                    'force_download',
                 ],
                 'required': [
                     'signature_request_id',
@@ -468,12 +474,16 @@ class SignatureRequestApi(object):
                 'openapi_types': {
                     'signature_request_id':
                         (str,),
+                    'force_download':
+                        (bool,),
                 },
                 'attribute_map': {
                     'signature_request_id': 'signature_request_id',
+                    'force_download': 'force_download',
                 },
                 'location_map': {
                     'signature_request_id': 'path',
+                    'force_download': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1430,6 +1440,7 @@ class SignatureRequestApi(object):
 
         Keyword Args:
             file_type (str): Set to `pdf` for a single merged document or `zip` for a collection of individual documents.. [optional] if omitted the server will use the default value of "pdf"
+            force_download (bool): By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of True
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1630,6 +1641,7 @@ class SignatureRequestApi(object):
             signature_request_id (str): The id of the SignatureRequest to retrieve.
 
         Keyword Args:
+            force_download (bool): By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of True
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
