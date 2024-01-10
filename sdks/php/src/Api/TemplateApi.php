@@ -1361,13 +1361,13 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return SplFileObject
      */
-    public function templateFiles(string $template_id, string $file_type = null, bool $force_download = true)
+    public function templateFiles(string $template_id, string $file_type = null, int $force_download = 1)
     {
         list($response) = $this->templateFilesWithHttpInfo($template_id, $file_type, $force_download);
 
@@ -1381,13 +1381,13 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function templateFilesWithHttpInfo(string $template_id, string $file_type = null, bool $force_download = true)
+    public function templateFilesWithHttpInfo(string $template_id, string $file_type = null, int $force_download = 1)
     {
         $request = $this->templateFilesRequest($template_id, $file_type, $force_download);
 
@@ -1505,12 +1505,12 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function templateFilesAsync(string $template_id, string $file_type = null, bool $force_download = true)
+    public function templateFilesAsync(string $template_id, string $file_type = null, int $force_download = 1)
     {
         return $this->templateFilesAsyncWithHttpInfo($template_id, $file_type, $force_download)
             ->then(
@@ -1527,12 +1527,12 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function templateFilesAsyncWithHttpInfo(string $template_id, string $file_type = null, bool $force_download = true)
+    public function templateFilesAsyncWithHttpInfo(string $template_id, string $file_type = null, int $force_download = 1)
     {
         $returnType = '\SplFileObject';
         $request = $this->templateFilesRequest($template_id, $file_type, $force_download);
@@ -1575,12 +1575,12 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function templateFilesRequest(string $template_id, string $file_type = null, bool $force_download = true)
+    public function templateFilesRequest(string $template_id, string $file_type = null, int $force_download = 1)
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
@@ -2019,13 +2019,13 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return Model\FileResponse
      */
-    public function templateFilesAsFileUrl(string $template_id, bool $force_download = true)
+    public function templateFilesAsFileUrl(string $template_id, int $force_download = 1)
     {
         list($response) = $this->templateFilesAsFileUrlWithHttpInfo($template_id, $force_download);
 
@@ -2038,13 +2038,13 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return array of Model\FileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function templateFilesAsFileUrlWithHttpInfo(string $template_id, bool $force_download = true)
+    public function templateFilesAsFileUrlWithHttpInfo(string $template_id, int $force_download = 1)
     {
         $request = $this->templateFilesAsFileUrlRequest($template_id, $force_download);
 
@@ -2161,12 +2161,12 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function templateFilesAsFileUrlAsync(string $template_id, bool $force_download = true)
+    public function templateFilesAsFileUrlAsync(string $template_id, int $force_download = 1)
     {
         return $this->templateFilesAsFileUrlAsyncWithHttpInfo($template_id, $force_download)
             ->then(
@@ -2182,12 +2182,12 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function templateFilesAsFileUrlAsyncWithHttpInfo(string $template_id, bool $force_download = true)
+    public function templateFilesAsFileUrlAsyncWithHttpInfo(string $template_id, int $force_download = 1)
     {
         $returnType = '\Dropbox\Sign\Model\FileResponse';
         $request = $this->templateFilesAsFileUrlRequest($template_id, $force_download);
@@ -2229,12 +2229,12 @@ class TemplateApi
      * Create request for operation 'templateFilesAsFileUrl'
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param bool $force_download By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function templateFilesAsFileUrlRequest(string $template_id, bool $force_download = true)
+    public function templateFilesAsFileUrlRequest(string $template_id, int $force_download = 1)
     {
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {

@@ -489,7 +489,7 @@ void (empty response body)
 
 <a name="templatefiles"></a>
 # **TemplateFiles**
-> System.IO.Stream TemplateFiles (string templateId, string? fileType = null, bool? forceDownload = null)
+> System.IO.Stream TemplateFiles (string templateId, string? fileType = null, int? forceDownload = null)
 
 Get Template Files
 
@@ -564,7 +564,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template files to retrieve. |  |
 | **fileType** | **string?** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional]  |
-| **forceDownload** | **bool?** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **int?** | By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -685,7 +685,7 @@ catch (ApiException e)
 
 <a name="templatefilesasfileurl"></a>
 # **TemplateFilesAsFileUrl**
-> FileResponse TemplateFilesAsFileUrl (string templateId, bool? forceDownload = null)
+> FileResponse TemplateFilesAsFileUrl (string templateId, int? forceDownload = null)
 
 Get Template Files as File Url
 
@@ -755,7 +755,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template files to retrieve. |  |
-| **forceDownload** | **bool?** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **int?** | By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

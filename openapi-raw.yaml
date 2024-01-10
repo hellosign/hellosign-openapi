@@ -2233,8 +2233,8 @@ paths:
           in: query
           description: '_t__SignatureRequestFiles::FORCE_DOWNLOAD'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
@@ -2462,8 +2462,8 @@ paths:
           in: query
           description: '_t__SignatureRequestFiles::FORCE_DOWNLOAD'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
@@ -4955,8 +4955,8 @@ paths:
           in: query
           description: '_t__TemplateFiles::FORCE_DOWNLOAD'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
@@ -5182,8 +5182,8 @@ paths:
           in: query
           description: '_t__TemplateFiles::FORCE_DOWNLOAD'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'

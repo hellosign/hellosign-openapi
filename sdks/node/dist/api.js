@@ -31714,7 +31714,7 @@ var SignatureRequestApi = class {
       if (forceDownload !== void 0) {
         localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
           forceDownload,
-          "boolean"
+          "number"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -31920,7 +31920,7 @@ var SignatureRequestApi = class {
       if (forceDownload !== void 0) {
         localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
           forceDownload,
-          "boolean"
+          "number"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -34589,7 +34589,7 @@ var TemplateApi = class {
       if (forceDownload !== void 0) {
         localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
           forceDownload,
-          "boolean"
+          "number"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);
@@ -34795,7 +34795,7 @@ var TemplateApi = class {
       if (forceDownload !== void 0) {
         localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
           forceDownload,
-          "boolean"
+          "number"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);

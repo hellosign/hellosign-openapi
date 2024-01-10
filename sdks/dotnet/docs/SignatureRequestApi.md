@@ -651,7 +651,7 @@ catch (ApiException e)
 
 <a name="signaturerequestfiles"></a>
 # **SignatureRequestFiles**
-> System.IO.Stream SignatureRequestFiles (string signatureRequestId, string? fileType = null, bool? forceDownload = null)
+> System.IO.Stream SignatureRequestFiles (string signatureRequestId, string? fileType = null, int? forceDownload = null)
 
 Download Files
 
@@ -726,7 +726,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
 | **fileType** | **string?** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to pdf] |
-| **forceDownload** | **bool?** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **int?** | By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -847,7 +847,7 @@ catch (ApiException e)
 
 <a name="signaturerequestfilesasfileurl"></a>
 # **SignatureRequestFilesAsFileUrl**
-> FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId, bool? forceDownload = null)
+> FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId, int? forceDownload = null)
 
 Download Files as File Url
 
@@ -917,7 +917,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
-| **forceDownload** | **bool?** | By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **int?** | By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

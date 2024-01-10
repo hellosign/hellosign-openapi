@@ -529,7 +529,7 @@ void (empty response body)
 ## `templateFiles()`
 
 ```typescript
-templateFiles(templateId: string, fileType: 'pdf' | 'zip', forceDownload: boolean): Buffer
+templateFiles(templateId: string, fileType: 'pdf' | 'zip', forceDownload: number): Buffer
 ```
 
 Get Template Files
@@ -596,7 +596,7 @@ result.then(response => {
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the template files to retrieve. | |
 | **fileType** | **'pdf' | 'zip'**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] |
-| **forceDownload** | **boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **number**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -701,7 +701,7 @@ result.then(response => {
 ## `templateFilesAsFileUrl()`
 
 ```typescript
-templateFilesAsFileUrl(templateId: string, forceDownload: boolean): FileResponse
+templateFilesAsFileUrl(templateId: string, forceDownload: number): FileResponse
 ```
 
 Get Template Files as File Url
@@ -763,7 +763,7 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the template files to retrieve. | |
-| **forceDownload** | **boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **number**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

@@ -369,7 +369,7 @@ public class TemplateApi {
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return File
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -379,45 +379,45 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public File templateFiles(String templateId, String fileType, Boolean forceDownload) throws ApiException {
+  public File templateFiles(String templateId, String fileType, Integer forceDownload) throws ApiException {
     return templateFilesWithHttpInfo(templateId, fileType, forceDownload).getData();
   }
 
 
   /**
-   * @see TemplateApi#templateFiles(String, String, Boolean)
+   * @see TemplateApi#templateFiles(String, String, Integer)
    */
   public File templateFiles(String templateId) throws ApiException {
     String fileType = null;
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return templateFilesWithHttpInfo(templateId, fileType, forceDownload).getData();
   }
 
   /**
-   * @see TemplateApi#templateFilesWithHttpInfo(String, String, Boolean)
+   * @see TemplateApi#templateFilesWithHttpInfo(String, String, Integer)
    */
   public ApiResponse<File> templateFilesWithHttpInfo(String templateId) throws ApiException {
     String fileType = null;
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return templateFilesWithHttpInfo(templateId, fileType, forceDownload);
   }
 
   /**
-   * @see TemplateApi#templateFiles(String, String, Boolean)
+   * @see TemplateApi#templateFiles(String, String, Integer)
    */
   public File templateFiles(String templateId, String fileType) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return templateFilesWithHttpInfo(templateId, fileType, forceDownload).getData();
   }
 
   /**
-   * @see TemplateApi#templateFilesWithHttpInfo(String, String, Boolean)
+   * @see TemplateApi#templateFilesWithHttpInfo(String, String, Integer)
    */
   public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return templateFilesWithHttpInfo(templateId, fileType, forceDownload);
   }
@@ -428,7 +428,7 @@ public class TemplateApi {
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -438,10 +438,10 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType, Boolean forceDownload) throws ApiException {
+  public ApiResponse<File> templateFilesWithHttpInfo(String templateId, String fileType, Integer forceDownload) throws ApiException {
     
     if (forceDownload == null) {
-        forceDownload = true;
+        forceDownload = 1;
     }
     Object localVarPostBody = null;
     
@@ -568,7 +568,7 @@ public class TemplateApi {
    * Get Template Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return FileResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -578,25 +578,25 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FileResponse templateFilesAsFileUrl(String templateId, Boolean forceDownload) throws ApiException {
+  public FileResponse templateFilesAsFileUrl(String templateId, Integer forceDownload) throws ApiException {
     return templateFilesAsFileUrlWithHttpInfo(templateId, forceDownload).getData();
   }
 
 
   /**
-   * @see TemplateApi#templateFilesAsFileUrl(String, Boolean)
+   * @see TemplateApi#templateFilesAsFileUrl(String, Integer)
    */
   public FileResponse templateFilesAsFileUrl(String templateId) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return templateFilesAsFileUrlWithHttpInfo(templateId, forceDownload).getData();
   }
 
   /**
-   * @see TemplateApi#templateFilesAsFileUrlWithHttpInfo(String, Boolean)
+   * @see TemplateApi#templateFilesAsFileUrlWithHttpInfo(String, Integer)
    */
   public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(String templateId) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return templateFilesAsFileUrlWithHttpInfo(templateId, forceDownload);
   }
@@ -606,7 +606,7 @@ public class TemplateApi {
    * Get Template Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
    * @param templateId The id of the template files to retrieve. (required)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;FileResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -616,10 +616,10 @@ public class TemplateApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(String templateId, Boolean forceDownload) throws ApiException {
+  public ApiResponse<FileResponse> templateFilesAsFileUrlWithHttpInfo(String templateId, Integer forceDownload) throws ApiException {
     
     if (forceDownload == null) {
-        forceDownload = true;
+        forceDownload = 1;
     }
     Object localVarPostBody = null;
     

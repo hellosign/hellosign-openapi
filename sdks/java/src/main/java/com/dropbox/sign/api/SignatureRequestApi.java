@@ -437,7 +437,7 @@ public class SignatureRequestApi {
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to pdf)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return File
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -447,45 +447,45 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public File signatureRequestFiles(String signatureRequestId, String fileType, Boolean forceDownload) throws ApiException {
+  public File signatureRequestFiles(String signatureRequestId, String fileType, Integer forceDownload) throws ApiException {
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType, forceDownload).getData();
   }
 
 
   /**
-   * @see SignatureRequestApi#signatureRequestFiles(String, String, Boolean)
+   * @see SignatureRequestApi#signatureRequestFiles(String, String, Integer)
    */
   public File signatureRequestFiles(String signatureRequestId) throws ApiException {
     String fileType = "pdf";
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType, forceDownload).getData();
   }
 
   /**
-   * @see SignatureRequestApi#signatureRequestFilesWithHttpInfo(String, String, Boolean)
+   * @see SignatureRequestApi#signatureRequestFilesWithHttpInfo(String, String, Integer)
    */
   public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId) throws ApiException {
     String fileType = "pdf";
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType, forceDownload);
   }
 
   /**
-   * @see SignatureRequestApi#signatureRequestFiles(String, String, Boolean)
+   * @see SignatureRequestApi#signatureRequestFiles(String, String, Integer)
    */
   public File signatureRequestFiles(String signatureRequestId, String fileType) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType, forceDownload).getData();
   }
 
   /**
-   * @see SignatureRequestApi#signatureRequestFilesWithHttpInfo(String, String, Boolean)
+   * @see SignatureRequestApi#signatureRequestFilesWithHttpInfo(String, String, Integer)
    */
   public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId, String fileType) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return signatureRequestFilesWithHttpInfo(signatureRequestId, fileType, forceDownload);
   }
@@ -496,7 +496,7 @@ public class SignatureRequestApi {
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to pdf)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -506,13 +506,13 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId, String fileType, Boolean forceDownload) throws ApiException {
+  public ApiResponse<File> signatureRequestFilesWithHttpInfo(String signatureRequestId, String fileType, Integer forceDownload) throws ApiException {
     
     if (fileType == null) {
         fileType = "pdf";
     }
     if (forceDownload == null) {
-        forceDownload = true;
+        forceDownload = 1;
     }
     Object localVarPostBody = null;
     
@@ -639,7 +639,7 @@ public class SignatureRequestApi {
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return FileResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -649,25 +649,25 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId, Boolean forceDownload) throws ApiException {
+  public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId, Integer forceDownload) throws ApiException {
     return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload).getData();
   }
 
 
   /**
-   * @see SignatureRequestApi#signatureRequestFilesAsFileUrl(String, Boolean)
+   * @see SignatureRequestApi#signatureRequestFilesAsFileUrl(String, Integer)
    */
   public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload).getData();
   }
 
   /**
-   * @see SignatureRequestApi#signatureRequestFilesAsFileUrlWithHttpInfo(String, Boolean)
+   * @see SignatureRequestApi#signatureRequestFilesAsFileUrlWithHttpInfo(String, Integer)
    */
   public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId) throws ApiException {
-    Boolean forceDownload = true;
+    Integer forceDownload = 1;
 
     return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload);
   }
@@ -677,7 +677,7 @@ public class SignatureRequestApi {
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;false&#x60; the PDF file will be displayed in the browser. (optional, default to true)
+   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;FileResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -687,10 +687,10 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId, Boolean forceDownload) throws ApiException {
+  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId, Integer forceDownload) throws ApiException {
     
     if (forceDownload == null) {
-        forceDownload = true;
+        forceDownload = 1;
     }
     Object localVarPostBody = null;
     

@@ -2258,10 +2258,10 @@ paths:
         -
           name: force_download
           in: query
-          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          description: 'By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         200:
           description: 'successful operation'
@@ -2493,10 +2493,10 @@ paths:
         -
           name: force_download
           in: query
-          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          description: 'By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         200:
           description: 'successful operation'
@@ -5005,10 +5005,10 @@ paths:
         -
           name: force_download
           in: query
-          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          description: 'By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         200:
           description: 'successful operation'
@@ -5238,10 +5238,10 @@ paths:
         -
           name: force_download
           in: query
-          description: 'By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser.'
+          description: 'By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.'
           schema:
-            type: boolean
-            default: true
+            type: integer
+            default: 1
       responses:
         200:
           description: 'successful operation'

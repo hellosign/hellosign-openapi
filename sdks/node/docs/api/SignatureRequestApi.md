@@ -735,7 +735,7 @@ result.then(response => {
 ## `signatureRequestFiles()`
 
 ```typescript
-signatureRequestFiles(signatureRequestId: string, fileType: 'pdf' | 'zip', forceDownload: boolean): Buffer
+signatureRequestFiles(signatureRequestId: string, fileType: 'pdf' | 'zip', forceDownload: number): Buffer
 ```
 
 Download Files
@@ -804,7 +804,7 @@ result.then(response => {
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to retrieve. | |
 | **fileType** | **'pdf' | 'zip'**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to &#39;pdf&#39;] |
-| **forceDownload** | **boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **number**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -909,7 +909,7 @@ result.then(response => {
 ## `signatureRequestFilesAsFileUrl()`
 
 ```typescript
-signatureRequestFilesAsFileUrl(signatureRequestId: string, forceDownload: boolean): FileResponse
+signatureRequestFilesAsFileUrl(signatureRequestId: string, forceDownload: number): FileResponse
 ```
 
 Download Files as File Url
@@ -971,7 +971,7 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to retrieve. | |
-| **forceDownload** | **boolean**| By default the browser will download the file save it locally. When set to `false` the PDF file will be displayed in the browser. | [optional] [default to true] |
+| **forceDownload** | **number**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
