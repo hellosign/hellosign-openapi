@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFiles
 
-> File signatureRequestFiles(signatureRequestId, fileType, forceDownload)
+> File signatureRequestFiles(signatureRequestId, fileType)
 
 Download Files
 
@@ -619,7 +619,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signatureRequestId** | **String**| The id of the SignatureRequest to retrieve. |
  **fileType** | **String**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to pdf] [enum: pdf, zip]
- **forceDownload** | **Integer**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1]
 
 ### Return type
 

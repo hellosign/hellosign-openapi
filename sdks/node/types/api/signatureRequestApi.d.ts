@@ -30,7 +30,7 @@ export declare class SignatureRequestApi {
     signatureRequestCancel(signatureRequestId: string, options?: optionsI): Promise<returnTypeI>;
     signatureRequestCreateEmbedded(signatureRequestCreateEmbeddedRequest: SignatureRequestCreateEmbeddedRequest, options?: optionsI): Promise<returnTypeT<SignatureRequestGetResponse>>;
     signatureRequestCreateEmbeddedWithTemplate(signatureRequestCreateEmbeddedWithTemplateRequest: SignatureRequestCreateEmbeddedWithTemplateRequest, options?: optionsI): Promise<returnTypeT<SignatureRequestGetResponse>>;
-    signatureRequestFiles(signatureRequestId: string, fileType?: "pdf" | "zip", forceDownload?: number, options?: optionsI): Promise<returnTypeT<Buffer>>;
+    signatureRequestFiles(signatureRequestId: string, fileType?: "pdf" | "zip", options?: optionsI): Promise<returnTypeT<Buffer>>;
     signatureRequestFilesAsDataUri(signatureRequestId: string, options?: optionsI): Promise<returnTypeT<FileResponseDataUri>>;
     signatureRequestFilesAsFileUrl(signatureRequestId: string, forceDownload?: number, options?: optionsI): Promise<returnTypeT<FileResponse>>;
     signatureRequestGet(signatureRequestId: string, options?: optionsI): Promise<returnTypeT<SignatureRequestGetResponse>>;

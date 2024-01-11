@@ -1655,15 +1655,14 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return SplFileObject
      */
-    public function signatureRequestFiles(string $signature_request_id, string $file_type = 'pdf', int $force_download = 1)
+    public function signatureRequestFiles(string $signature_request_id, string $file_type = 'pdf')
     {
-        list($response) = $this->signatureRequestFilesWithHttpInfo($signature_request_id, $file_type, $force_download);
+        list($response) = $this->signatureRequestFilesWithHttpInfo($signature_request_id, $file_type);
 
         return $response;
     }
@@ -1675,15 +1674,14 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return array of \SplFileObject|\Dropbox\Sign\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function signatureRequestFilesWithHttpInfo(string $signature_request_id, string $file_type = 'pdf', int $force_download = 1)
+    public function signatureRequestFilesWithHttpInfo(string $signature_request_id, string $file_type = 'pdf')
     {
-        $request = $this->signatureRequestFilesRequest($signature_request_id, $file_type, $force_download);
+        $request = $this->signatureRequestFilesRequest($signature_request_id, $file_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1799,14 +1797,13 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function signatureRequestFilesAsync(string $signature_request_id, string $file_type = 'pdf', int $force_download = 1)
+    public function signatureRequestFilesAsync(string $signature_request_id, string $file_type = 'pdf')
     {
-        return $this->signatureRequestFilesAsyncWithHttpInfo($signature_request_id, $file_type, $force_download)
+        return $this->signatureRequestFilesAsyncWithHttpInfo($signature_request_id, $file_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1821,15 +1818,14 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function signatureRequestFilesAsyncWithHttpInfo(string $signature_request_id, string $file_type = 'pdf', int $force_download = 1)
+    public function signatureRequestFilesAsyncWithHttpInfo(string $signature_request_id, string $file_type = 'pdf')
     {
         $returnType = '\SplFileObject';
-        $request = $this->signatureRequestFilesRequest($signature_request_id, $file_type, $force_download);
+        $request = $this->signatureRequestFilesRequest($signature_request_id, $file_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1869,12 +1865,11 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function signatureRequestFilesRequest(string $signature_request_id, string $file_type = 'pdf', int $force_download = 1)
+    public function signatureRequestFilesRequest(string $signature_request_id, string $file_type = 'pdf')
     {
         // verify the required parameter 'signature_request_id' is set
         if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
@@ -1899,16 +1894,6 @@ class SignatureRequestApi
                 }
             } else {
                 $queryParams['file_type'] = $file_type;
-            }
-        }
-        // query params
-        if ($force_download !== null) {
-            if ('form' === 'form' && is_array($force_download)) {
-                foreach ($force_download as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            } else {
-                $queryParams['force_download'] = $force_download;
             }
         }
 

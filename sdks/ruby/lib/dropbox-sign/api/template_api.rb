@@ -427,7 +427,6 @@ module Dropbox::Sign
     # @param template_id [String] The id of the template files to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
-    # @option opts [Integer] :force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (default to 1)
     # @return [File]
     def template_files(template_id, opts = {})
       data, _status_code, _headers = template_files_with_http_info(template_id, opts)
@@ -439,7 +438,6 @@ module Dropbox::Sign
     # @param template_id [String] The id of the template files to retrieve.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :file_type Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
-    # @option opts [Integer] :force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def template_files_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
@@ -459,7 +457,6 @@ module Dropbox::Sign
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'file_type'] = opts[:'file_type'] if !opts[:'file_type'].nil?
-      query_params[:'force_download'] = opts[:'force_download'] if !opts[:'force_download'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -130,10 +130,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream TemplateFiles(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0);
+        System.IO.Stream TemplateFiles(string templateId, string? fileType = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Template Files
@@ -144,10 +143,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(string templateId, string? fileType = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Template Files as Data Uri
         /// </summary>
@@ -418,11 +416,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Template Files
@@ -433,11 +430,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Template Files as Data Uri
         /// </summary>
@@ -1455,12 +1451,11 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream TemplateFiles(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0)
+        public System.IO.Stream TemplateFiles(string templateId, string? fileType = default(string?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = TemplateFilesWithHttpInfo(templateId, fileType, forceDownload);
+            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = TemplateFilesWithHttpInfo(templateId, fileType);
             return localVarResponse.Data;
         }
 
@@ -1470,10 +1465,9 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public Dropbox.Sign.Client.ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<System.IO.Stream> TemplateFilesWithHttpInfo(string templateId, string? fileType = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1509,10 +1503,6 @@ namespace Dropbox.Sign.Api
             if (fileType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
-            }
-            if (forceDownload != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1550,13 +1540,12 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> TemplateFilesAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await TemplateFilesWithHttpInfoAsync(templateId, fileType, forceDownload, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await TemplateFilesWithHttpInfoAsync(templateId, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1566,11 +1555,10 @@ namespace Dropbox.Sign.Api
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template files to retrieve.</param>
         /// <param name="fileType">Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)</param>
-        /// <param name="forceDownload">By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> TemplateFilesWithHttpInfoAsync(string templateId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templateId' is set
             if (templateId == null)
@@ -1608,10 +1596,6 @@ namespace Dropbox.Sign.Api
             if (fileType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
-            }
-            if (forceDownload != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;

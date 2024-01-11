@@ -489,7 +489,7 @@ void (empty response body)
 
 <a name="templatefiles"></a>
 # **TemplateFiles**
-> System.IO.Stream TemplateFiles (string templateId, string? fileType = null, int? forceDownload = null)
+> System.IO.Stream TemplateFiles (string templateId, string? fileType = null)
 
 Get Template Files
 
@@ -545,7 +545,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Template Files
-    ApiResponse<System.IO.Stream> response = apiInstance.TemplateFilesWithHttpInfo(templateId, fileType, forceDownload);
+    ApiResponse<System.IO.Stream> response = apiInstance.TemplateFilesWithHttpInfo(templateId, fileType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -564,7 +564,6 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template files to retrieve. |  |
 | **fileType** | **string?** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional]  |
-| **forceDownload** | **int?** | By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

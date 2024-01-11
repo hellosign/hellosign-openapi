@@ -529,7 +529,7 @@ void (empty response body)
 ## `templateFiles()`
 
 ```typescript
-templateFiles(templateId: string, fileType: 'pdf' | 'zip', forceDownload: number): Buffer
+templateFiles(templateId: string, fileType: 'pdf' | 'zip'): Buffer
 ```
 
 Get Template Files
@@ -596,7 +596,6 @@ result.then(response => {
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the template files to retrieve. | |
 | **fileType** | **'pdf' | 'zip'**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] |
-| **forceDownload** | **number**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

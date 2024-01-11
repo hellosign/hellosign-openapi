@@ -764,13 +764,11 @@ export class TemplateApi {
    * @summary Get Template Files
    * @param templateId The id of the template files to retrieve.
    * @param fileType Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents.
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async templateFiles(
     templateId: string,
     fileType?: "pdf" | "zip",
-    forceDownload?: number,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<Buffer>> {
     const localVarPath =
@@ -805,13 +803,6 @@ export class TemplateApi {
       localVarQueryParameters["file_type"] = ObjectSerializer.serialize(
         fileType,
         "'pdf' | 'zip'"
-      );
-    }
-
-    if (forceDownload !== undefined) {
-      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
-        forceDownload,
-        "number"
       );
     }
 

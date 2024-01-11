@@ -402,7 +402,7 @@ null (empty response body)
 
 ## templateFiles
 
-> File templateFiles(templateId, fileType, forceDownload)
+> File templateFiles(templateId, fileType)
 
 Get Template Files
 
@@ -462,7 +462,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**| The id of the template files to retrieve. |
  **fileType** | **String**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [enum: pdf, zip]
- **forceDownload** | **Integer**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1]
 
 ### Return type
 

@@ -461,7 +461,7 @@ try {
 ## `signatureRequestFiles()`
 
 ```php
-signatureRequestFiles($signature_request_id, $file_type, $force_download): \SplFileObject
+signatureRequestFiles($signature_request_id, $file_type): \SplFileObject
 ```
 
 Download Files
@@ -505,7 +505,6 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to retrieve. | |
 | **file_type** | **string**| Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to &#39;pdf&#39;] |
-| **force_download** | **int**| By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
