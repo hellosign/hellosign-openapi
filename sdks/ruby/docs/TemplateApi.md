@@ -569,7 +569,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the template files to retrieve. |  |
-| `force_download` | **Integer** | By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional][default to 1] |
+| `force_download` | **Integer** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional][default to 1] |
 
 ### Return type
 

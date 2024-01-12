@@ -1635,7 +1635,7 @@ class SignatureRequestApi(object):
             signature_request_id (str): The id of the SignatureRequest to retrieve.
 
         Keyword Args:
-            force_download (int): By default the browser will download the file save it locally. When set to `0` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of 1
+            force_download (int): By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of 1
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

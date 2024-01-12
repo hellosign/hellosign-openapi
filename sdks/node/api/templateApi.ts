@@ -1040,7 +1040,7 @@ export class TemplateApi {
    * Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
    * @summary Get Template Files as File Url
    * @param templateId The id of the template files to retrieve.
-   * @param forceDownload By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async templateFilesAsFileUrl(

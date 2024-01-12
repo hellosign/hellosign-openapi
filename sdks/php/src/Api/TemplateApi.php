@@ -2004,7 +2004,7 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -2023,7 +2023,7 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
@@ -2146,7 +2146,7 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
@@ -2167,7 +2167,7 @@ class TemplateApi
      * Get Template Files as File Url
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
@@ -2214,7 +2214,7 @@ class TemplateApi
      * Create request for operation 'templateFilesAsFileUrl'
      *
      * @param string $template_id The id of the template files to retrieve. (required)
-     * @param int $force_download By default the browser will download the file save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
+     * @param int $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
