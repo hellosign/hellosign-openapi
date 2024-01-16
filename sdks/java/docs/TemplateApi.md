@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ## templateFilesAsFileUrl
 
-> FileResponse templateFilesAsFileUrl(templateId)
+> FileResponse templateFilesAsFileUrl(templateId, forceDownload)
 
 Get Template Files as File Url
 
@@ -624,6 +624,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**| The id of the template files to retrieve. |
+ **forceDownload** | **Integer**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1]
 
 ### Return type
 

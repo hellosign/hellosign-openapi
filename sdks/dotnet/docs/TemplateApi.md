@@ -684,7 +684,7 @@ catch (ApiException e)
 
 <a name="templatefilesasfileurl"></a>
 # **TemplateFilesAsFileUrl**
-> FileResponse TemplateFilesAsFileUrl (string templateId)
+> FileResponse TemplateFilesAsFileUrl (string templateId, int? forceDownload = null)
 
 Get Template Files as File Url
 
@@ -736,7 +736,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Template Files as File Url
-    ApiResponse<FileResponse> response = apiInstance.TemplateFilesAsFileUrlWithHttpInfo(templateId);
+    ApiResponse<FileResponse> response = apiInstance.TemplateFilesAsFileUrlWithHttpInfo(templateId, forceDownload);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -754,6 +754,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **templateId** | **string** | The id of the template files to retrieve. |  |
+| **forceDownload** | **int?** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

@@ -2450,6 +2450,13 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+        -
+          name: force_download
+          in: query
+          description: '_t__SignatureRequestFiles::FORCE_DOWNLOAD'
+          schema:
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
@@ -5156,6 +5163,13 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
+        -
+          name: force_download
+          in: query
+          description: '_t__TemplateFiles::FORCE_DOWNLOAD'
+          schema:
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'

@@ -449,6 +449,7 @@ class SignatureRequestApi(object):
             params_map={
                 'all': [
                     'signature_request_id',
+                    'force_download',
                 ],
                 'required': [
                     'signature_request_id',
@@ -468,12 +469,16 @@ class SignatureRequestApi(object):
                 'openapi_types': {
                     'signature_request_id':
                         (str,),
+                    'force_download':
+                        (int,),
                 },
                 'attribute_map': {
                     'signature_request_id': 'signature_request_id',
+                    'force_download': 'force_download',
                 },
                 'location_map': {
                     'signature_request_id': 'path',
+                    'force_download': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1630,6 +1635,7 @@ class SignatureRequestApi(object):
             signature_request_id (str): The id of the SignatureRequest to retrieve.
 
         Keyword Args:
+            force_download (int): By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.. [optional] if omitted the server will use the default value of 1
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

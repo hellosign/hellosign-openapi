@@ -700,7 +700,7 @@ result.then(response => {
 ## `templateFilesAsFileUrl()`
 
 ```typescript
-templateFilesAsFileUrl(templateId: string): FileResponse
+templateFilesAsFileUrl(templateId: string, forceDownload: number): FileResponse
 ```
 
 Get Template Files as File Url
@@ -762,6 +762,7 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **templateId** | **string**| The id of the template files to retrieve. | |
+| **forceDownload** | **number**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

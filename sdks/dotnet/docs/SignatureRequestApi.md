@@ -846,7 +846,7 @@ catch (ApiException e)
 
 <a name="signaturerequestfilesasfileurl"></a>
 # **SignatureRequestFilesAsFileUrl**
-> FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId)
+> FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId, int? forceDownload = null)
 
 Download Files as File Url
 
@@ -898,7 +898,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Download Files as File Url
-    ApiResponse<FileResponse> response = apiInstance.SignatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId);
+    ApiResponse<FileResponse> response = apiInstance.SignatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -916,6 +916,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
+| **forceDownload** | **int?** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

@@ -198,9 +198,10 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileResponse</returns>
-        FileResponse SignatureRequestFilesAsFileUrl(string signatureRequestId, int operationIndex = 0);
+        FileResponse SignatureRequestFilesAsFileUrl(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Download Files as File Url
@@ -210,9 +211,10 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileResponse</returns>
-        ApiResponse<FileResponse> SignatureRequestFilesAsFileUrlWithHttpInfo(string signatureRequestId, int operationIndex = 0);
+        ApiResponse<FileResponse> SignatureRequestFilesAsFileUrlWithHttpInfo(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0);
         /// <summary>
         /// Get Signature Request
         /// </summary>
@@ -601,10 +603,11 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Download Files as File Url
@@ -614,10 +617,11 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Signature Request
         /// </summary>
@@ -2184,11 +2188,12 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FileResponse</returns>
-        public FileResponse SignatureRequestFilesAsFileUrl(string signatureRequestId, int operationIndex = 0)
+        public FileResponse SignatureRequestFilesAsFileUrl(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0)
         {
-            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = SignatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId);
+            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = SignatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload);
             return localVarResponse.Data;
         }
 
@@ -2197,9 +2202,10 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FileResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FileResponse> SignatureRequestFilesAsFileUrlWithHttpInfo(string signatureRequestId, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FileResponse> SignatureRequestFilesAsFileUrlWithHttpInfo(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2230,6 +2236,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (forceDownload != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
+            }
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestFilesAsFileUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2265,12 +2275,13 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        public async System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = await SignatureRequestFilesAsFileUrlWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = await SignatureRequestFilesAsFileUrlWithHttpInfoAsync(signatureRequestId, forceDownload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2279,10 +2290,11 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to retrieve.</param>
+        /// <param name="forceDownload">By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2315,6 +2327,10 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            if (forceDownload != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
+            }
             localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestFilesAsFileUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
