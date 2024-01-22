@@ -8964,6 +8964,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCC'
+        allow_ccs:
+          description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.'
+          type: boolean
+          default: true
         client_id:
           description: 'Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.'
           type: string

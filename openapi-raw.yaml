@@ -8386,6 +8386,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCC'
+        allow_ccs:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS'
+          type: boolean
+          default: true
         client_id:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID'
           type: string

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **AllowDecline** | **bool** |  Allows signers to decline to sign a document if `true`. Defaults to `false`.  | [optional] [default to false]
 **AllowReassign** | **bool** |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  | [optional] [default to false]
 **Ccs** | [**List&lt;SubCC&gt;**](SubCC.md) |  Add CC email recipients. Required when a CC role exists for the Template.  | [optional] 
+**AllowCcs** | **bool** |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.  | [optional] [default to true]
 **CustomFields** | [**List&lt;SubCustomField&gt;**](SubCustomField.md) |  An array defining values and options for custom fields. Required when a custom field exists in the Template.  | [optional] 
 **EditorOptions** | [**SubEditorOptions**](SubEditorOptions.md) |    | [optional] 
 **FieldOptions** | [**SubFieldOptions**](SubFieldOptions.md) |    | [optional] 
