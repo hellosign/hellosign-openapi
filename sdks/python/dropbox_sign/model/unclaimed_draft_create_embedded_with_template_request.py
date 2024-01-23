@@ -126,6 +126,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
             'allow_decline': (bool,),  # noqa: E501
             'allow_reassign': (bool,),  # noqa: E501
             'ccs': ([SubCC],),  # noqa: E501
+            'allow_ccs': (bool,),  # noqa: E501
             'custom_fields': ([SubCustomField],),  # noqa: E501
             'editor_options': (SubEditorOptions,),  # noqa: E501
             'field_options': (SubFieldOptions,),  # noqa: E501
@@ -178,6 +179,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
         'allow_decline': 'allow_decline',  # noqa: E501
         'allow_reassign': 'allow_reassign',  # noqa: E501
         'ccs': 'ccs',  # noqa: E501
+        'allow_ccs': 'allow_ccs',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
         'editor_options': 'editor_options',  # noqa: E501
         'field_options': 'field_options',  # noqa: E501
@@ -255,6 +257,14 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
     @ccs.setter
     def ccs(self, value: List[SubCC]):
         setattr(self, "ccs", value)
+
+    @property
+    def allow_ccs(self) -> bool:
+        return self.get("allow_ccs")
+
+    @allow_ccs.setter
+    def allow_ccs(self, value: bool):
+        setattr(self, "allow_ccs", value)
 
     @property
     def custom_fields(self) -> List[SubCustomField]:
@@ -484,6 +494,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
             allow_decline (bool): Allows signers to decline to sign a document if `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             ccs ([SubCC]): Add CC email recipients. Required when a CC role exists for the Template.. [optional]  # noqa: E501
+            allow_ccs (bool): This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.. [optional] if omitted the server will use the default value of False  # noqa: E501
             custom_fields ([SubCustomField]): An array defining values and options for custom fields. Required when a custom field exists in the Template.. [optional]  # noqa: E501
             editor_options (SubEditorOptions): [optional]  # noqa: E501
             field_options (SubFieldOptions): [optional]  # noqa: E501
@@ -599,6 +610,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest(ModelNormal):
             allow_decline (bool): Allows signers to decline to sign a document if `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             ccs ([SubCC]): Add CC email recipients. Required when a CC role exists for the Template.. [optional]  # noqa: E501
+            allow_ccs (bool): This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.. [optional] if omitted the server will use the default value of False  # noqa: E501
             custom_fields ([SubCustomField]): An array defining values and options for custom fields. Required when a custom field exists in the Template.. [optional]  # noqa: E501
             editor_options (SubEditorOptions): [optional]  # noqa: E501
             field_options (SubFieldOptions): [optional]  # noqa: E501

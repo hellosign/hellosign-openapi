@@ -28076,6 +28076,7 @@ var _UnclaimedDraftCreateEmbeddedWithTemplateRequest = class {
   constructor() {
     this["allowDecline"] = false;
     this["allowReassign"] = false;
+    this["allowCcs"] = false;
     this["forceSignerRoles"] = false;
     this["forceSubjectMessage"] = false;
     this["holdRequest"] = false;
@@ -28129,6 +28130,11 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     name: "ccs",
     baseName: "ccs",
     type: "Array<SubCC>"
+  },
+  {
+    name: "allowCcs",
+    baseName: "allow_ccs",
+    type: "boolean"
   },
   {
     name: "customFields",

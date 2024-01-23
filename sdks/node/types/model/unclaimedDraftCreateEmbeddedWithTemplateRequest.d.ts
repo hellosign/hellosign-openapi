@@ -12,6 +12,7 @@ export declare class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;
     "ccs"?: Array<SubCC>;
+    "allowCcs"?: boolean;
     "customFields"?: Array<SubCustomField>;
     "editorOptions"?: SubEditorOptions;
     "fieldOptions"?: SubFieldOptions;

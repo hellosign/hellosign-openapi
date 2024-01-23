@@ -42,6 +42,10 @@ module Dropbox::Sign
     # @return [Array<SubCC>]
     attr_accessor :ccs
 
+    # This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
+    # @return [Boolean]
+    attr_accessor :allow_ccs
+
     # An array defining values and options for custom fields. Required when a custom field exists in the Template.
     # @return [Array<SubCustomField>]
     attr_accessor :custom_fields
@@ -140,6 +144,7 @@ module Dropbox::Sign
         :'allow_decline' => :'allow_decline',
         :'allow_reassign' => :'allow_reassign',
         :'ccs' => :'ccs',
+        :'allow_ccs' => :'allow_ccs',
         :'custom_fields' => :'custom_fields',
         :'editor_options' => :'editor_options',
         :'field_options' => :'field_options',
@@ -185,6 +190,7 @@ module Dropbox::Sign
         :'allow_decline' => :'Boolean',
         :'allow_reassign' => :'Boolean',
         :'ccs' => :'Array<SubCC>',
+        :'allow_ccs' => :'Boolean',
         :'custom_fields' => :'Array<SubCustomField>',
         :'editor_options' => :'SubEditorOptions',
         :'field_options' => :'SubFieldOptions',
@@ -282,6 +288,12 @@ module Dropbox::Sign
         if (value = attributes[:'ccs']).is_a?(Array)
           self.ccs = value
         end
+      end
+
+      if attributes.key?(:'allow_ccs')
+        self.allow_ccs = attributes[:'allow_ccs']
+      else
+        self.allow_ccs = false
       end
 
       if attributes.key?(:'custom_fields')
@@ -497,6 +509,7 @@ module Dropbox::Sign
           allow_decline == o.allow_decline &&
           allow_reassign == o.allow_reassign &&
           ccs == o.ccs &&
+          allow_ccs == o.allow_ccs &&
           custom_fields == o.custom_fields &&
           editor_options == o.editor_options &&
           field_options == o.field_options &&
@@ -531,7 +544,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_id, requester_email_address, template_ids, allow_decline, allow_reassign, ccs, custom_fields, editor_options, field_options, files, file_urls, force_signer_roles, force_subject_message, hold_request, is_for_embedded_signing, message, metadata, preview_only, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, title, populate_auto_fill_fields].hash
+      [client_id, requester_email_address, template_ids, allow_decline, allow_reassign, ccs, allow_ccs, custom_fields, editor_options, field_options, files, file_urls, force_signer_roles, force_subject_message, hold_request, is_for_embedded_signing, message, metadata, preview_only, requesting_redirect_url, show_preview, show_progress_stepper, signers, signing_options, signing_redirect_url, skip_me_now, subject, test_mode, title, populate_auto_fill_fields].hash
     end
 
     # Builds the object from hash

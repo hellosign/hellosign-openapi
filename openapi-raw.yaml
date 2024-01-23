@@ -8389,7 +8389,7 @@ components:
         allow_ccs:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS'
           type: boolean
-          default: true
+          default: false
         client_id:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID'
           type: string

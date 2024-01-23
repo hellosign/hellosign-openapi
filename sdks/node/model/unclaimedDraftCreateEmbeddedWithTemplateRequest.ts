@@ -56,6 +56,10 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
    */
   "ccs"?: Array<SubCC>;
   /**
+   * This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
+   */
+  "allowCcs"?: boolean = false;
+  /**
    * An array defining values and options for custom fields. Required when a custom field exists in the Template.
    */
   "customFields"?: Array<SubCustomField>;
@@ -171,6 +175,11 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
       name: "ccs",
       baseName: "ccs",
       type: "Array<SubCC>",
+    },
+    {
+      name: "allowCcs",
+      baseName: "allow_ccs",
+      type: "boolean",
     },
     {
       name: "customFields",

@@ -99,7 +99,7 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   private List<SubCC> ccs = null;
 
   public static final String JSON_PROPERTY_ALLOW_CCS = "allow_ccs";
-  private Boolean allowCcs = true;
+  private Boolean allowCcs = false;
 
   public static final String JSON_PROPERTY_CUSTOM_FIELDS = "custom_fields";
   private List<SubCustomField> customFields = null;
