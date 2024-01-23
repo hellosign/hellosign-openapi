@@ -8488,6 +8488,10 @@ components:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
+        allow_ccs:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS'
+          type: boolean
+          default: false
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:

@@ -28086,6 +28086,7 @@ var _UnclaimedDraftCreateEmbeddedWithTemplateRequest = class {
     this["skipMeNow"] = false;
     this["testMode"] = false;
     this["populateAutoFillFields"] = false;
+    this["allowCcs"] = false;
   }
   static getAttributeTypeMap() {
     return _UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap;
@@ -28243,6 +28244,11 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
   {
     name: "populateAutoFillFields",
     baseName: "populate_auto_fill_fields",
+    type: "boolean"
+  },
+  {
+    name: "allowCcs",
+    baseName: "allow_ccs",
     type: "boolean"
   }
 ];

@@ -800,6 +800,7 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
   ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+"UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
 "UnclaimedDraftEditAndResend::SUMMARY": Edit and Resend Unclaimed Draft
 "UnclaimedDraftEditAndResend::DESCRIPTION": |-
   Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.

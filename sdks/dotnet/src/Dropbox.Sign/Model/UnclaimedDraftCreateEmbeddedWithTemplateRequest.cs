@@ -70,7 +70,8 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
-        public UnclaimedDraftCreateEmbeddedWithTemplateRequest(bool allowDecline = false, bool allowReassign = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool forceSignerRoles = false, bool forceSubjectMessage = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool previewOnly = false, string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = false, bool showProgressStepper = true, List<SubUnclaimedDraftTemplateSigner> signers = default(List<SubUnclaimedDraftTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), List<string> templateIds = default(List<string>), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
+        /// <param name="allowCcs">This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft. (default to false).</param>
+        public UnclaimedDraftCreateEmbeddedWithTemplateRequest(bool allowDecline = false, bool allowReassign = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool forceSignerRoles = false, bool forceSubjectMessage = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool previewOnly = false, string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = false, bool showProgressStepper = true, List<SubUnclaimedDraftTemplateSigner> signers = default(List<SubUnclaimedDraftTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), List<string> templateIds = default(List<string>), bool testMode = false, string title = default(string), bool populateAutoFillFields = false, bool allowCcs = false)
         {
             
             // to ensure "clientId" is required (not null)
@@ -117,6 +118,7 @@ namespace Dropbox.Sign.Model
             this.TestMode = testMode;
             this.Title = title;
             this.PopulateAutoFillFields = populateAutoFillFields;
+            this.AllowCcs = allowCcs;
         }
 
         /// <summary>
@@ -336,6 +338,13 @@ namespace Dropbox.Sign.Model
         public bool PopulateAutoFillFields { get; set; }
 
         /// <summary>
+        /// This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
+        /// </summary>
+        /// <value>This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.</value>
+        [DataMember(Name = "allow_ccs", EmitDefaultValue = true)]
+        public bool AllowCcs { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -372,6 +381,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  TestMode: ").Append(TestMode).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  PopulateAutoFillFields: ").Append(PopulateAutoFillFields).Append("\n");
+            sb.Append("  AllowCcs: ").Append(AllowCcs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -546,6 +556,10 @@ namespace Dropbox.Sign.Model
                 (
                     this.PopulateAutoFillFields == input.PopulateAutoFillFields ||
                     this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
+                ) && 
+                (
+                    this.AllowCcs == input.AllowCcs ||
+                    this.AllowCcs.Equals(input.AllowCcs)
                 );
         }
 
@@ -638,6 +652,7 @@ namespace Dropbox.Sign.Model
                     hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.PopulateAutoFillFields.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowCcs.GetHashCode();
                 return hashCode;
             }
         }
@@ -818,6 +833,12 @@ namespace Dropbox.Sign.Model
                 Property = "PopulateAutoFillFields",
                 Type = "bool",
                 Value = PopulateAutoFillFields,
+            });
+            types.Add(new OpenApiType(){
+                Name = "allow_ccs",
+                Property = "AllowCcs",
+                Type = "bool",
+                Value = AllowCcs,
             });
 
             return types;

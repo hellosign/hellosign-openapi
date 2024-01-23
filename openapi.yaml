@@ -9066,6 +9066,10 @@ components:
             ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
+        allow_ccs:
+          description: 'This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.'
+          type: boolean
+          default: false
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
