@@ -68,7 +68,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'allow_decline' => 'bool',
         'allow_reassign' => 'bool',
         'ccs' => '\Dropbox\Sign\Model\SubCC[]',
-        'allow_ccs' => 'bool',
         'custom_fields' => '\Dropbox\Sign\Model\SubCustomField[]',
         'editor_options' => '\Dropbox\Sign\Model\SubEditorOptions',
         'field_options' => '\Dropbox\Sign\Model\SubFieldOptions',
@@ -92,6 +91,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'bool',
         'title' => 'string',
         'populate_auto_fill_fields' => 'bool',
+        'allow_ccs' => 'bool',
     ];
 
     /**
@@ -108,7 +108,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'allow_decline' => null,
         'allow_reassign' => null,
         'ccs' => null,
-        'allow_ccs' => null,
         'custom_fields' => null,
         'editor_options' => null,
         'field_options' => null,
@@ -132,6 +131,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => null,
         'title' => null,
         'populate_auto_fill_fields' => null,
+        'allow_ccs' => null,
     ];
 
     /**
@@ -167,7 +167,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'allow_decline' => 'allow_decline',
         'allow_reassign' => 'allow_reassign',
         'ccs' => 'ccs',
-        'allow_ccs' => 'allow_ccs',
         'custom_fields' => 'custom_fields',
         'editor_options' => 'editor_options',
         'field_options' => 'field_options',
@@ -191,6 +190,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'test_mode',
         'title' => 'title',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
+        'allow_ccs' => 'allow_ccs',
     ];
 
     /**
@@ -205,7 +205,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'allow_decline' => 'setAllowDecline',
         'allow_reassign' => 'setAllowReassign',
         'ccs' => 'setCcs',
-        'allow_ccs' => 'setAllowCcs',
         'custom_fields' => 'setCustomFields',
         'editor_options' => 'setEditorOptions',
         'field_options' => 'setFieldOptions',
@@ -229,6 +228,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
+        'allow_ccs' => 'setAllowCcs',
     ];
 
     /**
@@ -243,7 +243,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'allow_decline' => 'getAllowDecline',
         'allow_reassign' => 'getAllowReassign',
         'ccs' => 'getCcs',
-        'allow_ccs' => 'getAllowCcs',
         'custom_fields' => 'getCustomFields',
         'editor_options' => 'getEditorOptions',
         'field_options' => 'getFieldOptions',
@@ -267,6 +266,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
+        'allow_ccs' => 'getAllowCcs',
     ];
 
     /**
@@ -331,7 +331,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         $this->container['allow_decline'] = $data['allow_decline'] ?? false;
         $this->container['allow_reassign'] = $data['allow_reassign'] ?? false;
         $this->container['ccs'] = $data['ccs'] ?? null;
-        $this->container['allow_ccs'] = $data['allow_ccs'] ?? false;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['editor_options'] = $data['editor_options'] ?? null;
         $this->container['field_options'] = $data['field_options'] ?? null;
@@ -355,6 +354,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         $this->container['test_mode'] = $data['test_mode'] ?? false;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['populate_auto_fill_fields'] = $data['populate_auto_fill_fields'] ?? false;
+        $this->container['allow_ccs'] = $data['allow_ccs'] ?? false;
     }
 
     /** @deprecated use ::init() */
@@ -559,30 +559,6 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
     public function setCcs(?array $ccs)
     {
         $this->container['ccs'] = $ccs;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_ccs
-     *
-     * @return bool|null
-     */
-    public function getAllowCcs()
-    {
-        return $this->container['allow_ccs'];
-    }
-
-    /**
-     * Sets allow_ccs
-     *
-     * @param bool|null $allow_ccs this allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft
-     *
-     * @return self
-     */
-    public function setAllowCcs(?bool $allow_ccs)
-    {
-        $this->container['allow_ccs'] = $allow_ccs;
 
         return $this;
     }
@@ -1147,6 +1123,30 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
     public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {
         $this->container['populate_auto_fill_fields'] = $populate_auto_fill_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_ccs
+     *
+     * @return bool|null
+     */
+    public function getAllowCcs()
+    {
+        return $this->container['allow_ccs'];
+    }
+
+    /**
+     * Sets allow_ccs
+     *
+     * @param bool|null $allow_ccs this allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft
+     *
+     * @return self
+     */
+    public function setAllowCcs(?bool $allow_ccs)
+    {
+        $this->container['allow_ccs'] = $allow_ccs;
 
         return $this;
     }

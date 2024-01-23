@@ -28076,7 +28076,6 @@ var _UnclaimedDraftCreateEmbeddedWithTemplateRequest = class {
   constructor() {
     this["allowDecline"] = false;
     this["allowReassign"] = false;
-    this["allowCcs"] = false;
     this["forceSignerRoles"] = false;
     this["forceSubjectMessage"] = false;
     this["holdRequest"] = false;
@@ -28087,6 +28086,7 @@ var _UnclaimedDraftCreateEmbeddedWithTemplateRequest = class {
     this["skipMeNow"] = false;
     this["testMode"] = false;
     this["populateAutoFillFields"] = false;
+    this["allowCcs"] = false;
   }
   static getAttributeTypeMap() {
     return _UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap;
@@ -28130,11 +28130,6 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
     name: "ccs",
     baseName: "ccs",
     type: "Array<SubCC>"
-  },
-  {
-    name: "allowCcs",
-    baseName: "allow_ccs",
-    type: "boolean"
   },
   {
     name: "customFields",
@@ -28249,6 +28244,11 @@ UnclaimedDraftCreateEmbeddedWithTemplateRequest.attributeTypeMap = [
   {
     name: "populateAutoFillFields",
     baseName: "populate_auto_fill_fields",
+    type: "boolean"
+  },
+  {
+    name: "allowCcs",
+    baseName: "allow_ccs",
     type: "boolean"
   }
 ];

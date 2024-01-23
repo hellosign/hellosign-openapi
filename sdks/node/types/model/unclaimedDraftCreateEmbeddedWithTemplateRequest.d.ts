@@ -12,7 +12,6 @@ export declare class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     "allowDecline"?: boolean;
     "allowReassign"?: boolean;
     "ccs"?: Array<SubCC>;
-    "allowCcs"?: boolean;
     "customFields"?: Array<SubCustomField>;
     "editorOptions"?: SubEditorOptions;
     "fieldOptions"?: SubFieldOptions;
@@ -38,6 +37,7 @@ export declare class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     "testMode"?: boolean;
     "title"?: string;
     "populateAutoFillFields"?: boolean;
+    "allowCcs"?: boolean;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

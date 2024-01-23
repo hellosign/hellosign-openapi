@@ -8386,10 +8386,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubCC'
-        allow_ccs:
-          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS'
-          type: boolean
-          default: false
         client_id:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID'
           type: string
@@ -8490,6 +8486,10 @@ components:
           maxLength: 255
         populate_auto_fill_fields:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
+          type: boolean
+          default: false
+        allow_ccs:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS'
           type: boolean
           default: false
       type: object
