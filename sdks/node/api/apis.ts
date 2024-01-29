@@ -39,7 +39,7 @@ export const queryParamsSerializer = (params) => {
 
 export { RequestFile } from "../model";
 
-export const USER_AGENT = "OpenAPI-Generator/1.2-dev/node";
+export const USER_AGENT = "OpenAPI-Generator/1.3-dev/node";
 
 /**
  * Generates an object containing form data.
