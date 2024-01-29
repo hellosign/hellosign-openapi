@@ -546,6 +546,21 @@ export class TeamApi {
             const response = error.response;
 
             let body;
+
+            let rangeCodeLeft = Number("4XX"[0] + "00");
+            let rangeCodeRight = Number("4XX"[0] + "99");
+            if (
+              response.status >= rangeCodeLeft &&
+              response.status <= rangeCodeRight
+            ) {
+              body = ObjectSerializer.deserialize(
+                response.data,
+                "ErrorResponse"
+              );
+
+              reject(new HttpError(response, body, response.status));
+              return;
+            }
           }
         );
       });
