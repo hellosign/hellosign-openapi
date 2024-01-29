@@ -5,6 +5,7 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
+  transformIgnorePatterns: ["node_modules/(?!axios)"],
   testRegex: '/tests/.*\\.(test|spec)?\\.(ts|tsx)$',
 };
 export default config;

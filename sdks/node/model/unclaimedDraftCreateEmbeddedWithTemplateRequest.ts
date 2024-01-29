@@ -138,6 +138,10 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
    * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  ⚠️ **Note** ⚠️: Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    */
   "populateAutoFillFields"?: boolean = false;
+  /**
+   * This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
+   */
+  "allowCcs"?: boolean = false;
 
   static discriminator: string | undefined = undefined;
 
@@ -285,6 +289,11 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
     {
       name: "populateAutoFillFields",
       baseName: "populate_auto_fill_fields",
+      type: "boolean",
+    },
+    {
+      name: "allowCcs",
+      baseName: "allow_ccs",
       type: "boolean",
     },
   ];

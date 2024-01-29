@@ -2450,6 +2450,13 @@ paths:
           schema:
             type: string
           example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+        -
+          name: force_download
+          in: query
+          description: '_t__SignatureRequestFiles::FORCE_DOWNLOAD'
+          schema:
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
@@ -5156,6 +5163,13 @@ paths:
           schema:
             type: string
           example: f57db65d3f933b5316d398057a36176831451a35
+        -
+          name: force_download
+          in: query
+          description: '_t__TemplateFiles::FORCE_DOWNLOAD'
+          schema:
+            type: integer
+            default: 1
       responses:
         '200':
           description: 'successful operation'
@@ -7870,7 +7884,7 @@ components:
           items:
             type: string
         allow_reassign:
-          description: '_t__TemplateCreateEmbeddedDraft::ALLOW_REASSIGN'
+          description: '_t__TemplateCreate::ALLOW_REASSIGN'
           type: boolean
           default: false
         attachments:
@@ -8474,6 +8488,10 @@ components:
           description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS'
           type: boolean
           default: false
+        allow_ccs:
+          description: '_t__UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS'
+          type: boolean
+          default: false
       type: object
     UnclaimedDraftEditAndResendRequest:
       required:
@@ -8641,20 +8659,6 @@ components:
       properties:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
-      type: object
-    EventCallbackRequest:
-      title: EventCallbackRequest
-      required:
-        - event
-      properties:
-        event:
-          $ref: '#/components/schemas/EventCallbackRequestEvent'
-        account:
-          $ref: '#/components/schemas/AccountResponse'
-        signature_request:
-          $ref: '#/components/schemas/SignatureRequestResponse'
-        template:
-          $ref: '#/components/schemas/TemplateResponse'
       type: object
     FileResponse:
       properties:
@@ -8971,69 +8975,6 @@ components:
         error_name:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
-      type: object
-    EventCallbackRequestEvent:
-      description: '_t__EventCallbackRequestEvent::DESCRIPTION'
-      required:
-        - event_time
-        - event_type
-        - event_hash
-        - event_metadata
-      properties:
-        event_time:
-          description: '_t__EventCallbackRequestEvent::EVENT_TIME'
-          type: string
-        event_type:
-          description: '_t__EventCallbackRequestEvent::EVENT_TYPE'
-          type: string
-          enum:
-            - account_confirmed
-            - unknown_error
-            - file_error
-            - sign_url_invalid
-            - signature_request_viewed
-            - signature_request_signed
-            - signature_request_sent
-            - signature_request_all_signed
-            - signature_request_email_bounce
-            - signature_request_remind
-            - signature_request_incomplete_qes
-            - signature_request_destroyed
-            - signature_request_canceled
-            - signature_request_downloadable
-            - signature_request_declined
-            - signature_request_reassigned
-            - signature_request_invalid
-            - signature_request_prepared
-            - signature_request_expired
-            - template_created
-            - template_error
-            - callback_test
-        event_hash:
-          description: '_t__EventCallbackRequestEvent::EVENT_HASH'
-          type: string
-        event_metadata:
-          $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
-      type: object
-    EventCallbackRequestEventMetadata:
-      description: '_t__EventCallbackRequestEventMetadata::DESCRIPTION'
-      properties:
-        related_signature_id:
-          description: '_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID'
-          type: string
-          nullable: true
-        reported_for_account_id:
-          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID'
-          type: string
-          nullable: true
-        reported_for_app_id:
-          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID'
-          type: string
-          nullable: true
-        event_message:
-          description: '_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE'
-          type: string
-          nullable: true
       type: object
     ListInfoResponse:
       description: '_t__ListInfoResponse::DESCRIPTION'
@@ -10394,7 +10335,7 @@ components:
     TemplateCreateResponse:
       properties:
         template:
-          $ref: '#/components/schemas/TemplateCreateResponse'
+          $ref: '#/components/schemas/TemplateCreateResponseTemplate'
         warnings:
           description: '_t__WarningResponse::LIST_DESCRIPTION'
           type: array
@@ -10463,6 +10404,83 @@ components:
             $ref: '#/components/schemas/WarningResponse'
       type: object
       x-internal: true
+    EventCallbackRequest:
+      title: EventCallbackRequest
+      required:
+        - event
+      properties:
+        event:
+          $ref: '#/components/schemas/EventCallbackRequestEvent'
+        account:
+          $ref: '#/components/schemas/AccountResponse'
+        signature_request:
+          $ref: '#/components/schemas/SignatureRequestResponse'
+        template:
+          $ref: '#/components/schemas/TemplateResponse'
+      type: object
+    EventCallbackRequestEvent:
+      description: '_t__EventCallbackRequestEvent::DESCRIPTION'
+      required:
+        - event_time
+        - event_type
+        - event_hash
+        - event_metadata
+      properties:
+        event_time:
+          description: '_t__EventCallbackRequestEvent::EVENT_TIME'
+          type: string
+        event_type:
+          description: '_t__EventCallbackRequestEvent::EVENT_TYPE'
+          type: string
+          enum:
+            - account_confirmed
+            - unknown_error
+            - file_error
+            - sign_url_invalid
+            - signature_request_viewed
+            - signature_request_signed
+            - signature_request_sent
+            - signature_request_all_signed
+            - signature_request_email_bounce
+            - signature_request_remind
+            - signature_request_incomplete_qes
+            - signature_request_destroyed
+            - signature_request_canceled
+            - signature_request_downloadable
+            - signature_request_declined
+            - signature_request_reassigned
+            - signature_request_invalid
+            - signature_request_prepared
+            - signature_request_expired
+            - template_created
+            - template_error
+            - callback_test
+        event_hash:
+          description: '_t__EventCallbackRequestEvent::EVENT_HASH'
+          type: string
+        event_metadata:
+          $ref: '#/components/schemas/EventCallbackRequestEventMetadata'
+      type: object
+    EventCallbackRequestEventMetadata:
+      description: '_t__EventCallbackRequestEventMetadata::DESCRIPTION'
+      properties:
+        related_signature_id:
+          description: '_t__EventCallbackRequestEventMetadata::RELATED_SIGNATURE_ID'
+          type: string
+          nullable: true
+        reported_for_account_id:
+          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_ACCOUNT_ID'
+          type: string
+          nullable: true
+        reported_for_app_id:
+          description: '_t__EventCallbackRequestEventMetadata::REPORTED_FOR_APP_ID'
+          type: string
+          nullable: true
+        event_message:
+          description: '_t__EventCallbackRequestEventMetadata::EVENT_MESSAGE'
+          type: string
+          nullable: true
+      type: object
   responses:
     EventCallbackResponse:
       description: 'successful operation'
@@ -10776,26 +10794,6 @@ components:
       summary: '_t__ApiAppUpdateResponseExample::SUMMARY'
       value:
         $ref: examples/json/ApiAppUpdateResponseExample.json
-    EventCallbackAccountSignatureRequestSentExample:
-      summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
-    EventCallbackAccountTemplateCreatedExample:
-      summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
-    EventCallbackAppAccountConfirmedExample:
-      summary: '_t__EventCallbackAppAccountConfirmedExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
-    EventCallbackAppSignatureRequestSentExample:
-      summary: '_t__EventCallbackAppSignatureRequestSentExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
-    EventCallbackAppTemplateCreatedExample:
-      summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
-      value:
-        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
     SignatureRequestCreateEmbeddedResponseExample:
       summary: '_t__SignatureRequestCreateEmbeddedResponseExample::SUMMARY'
       value:
@@ -10924,6 +10922,26 @@ components:
       summary: '_t__UnclaimedDraftCreateResponseExample::SUMMARY'
       value:
         $ref: examples/json/UnclaimedDraftCreateResponseExample.json
+    EventCallbackAccountSignatureRequestSentExample:
+      summary: '_t__EventCallbackAccountSignatureRequestSentExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAccountSignatureRequestSentExample.json
+    EventCallbackAccountTemplateCreatedExample:
+      summary: '_t__EventCallbackAccountTemplateCreatedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAccountTemplateCreatedExample.json
+    EventCallbackAppAccountConfirmedExample:
+      summary: '_t__EventCallbackAppAccountConfirmedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAppAccountConfirmedExample.json
+    EventCallbackAppSignatureRequestSentExample:
+      summary: '_t__EventCallbackAppSignatureRequestSentExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAppSignatureRequestSentExample.json
+    EventCallbackAppTemplateCreatedExample:
+      summary: '_t__EventCallbackAppTemplateCreatedExample::SUMMARY'
+      value:
+        $ref: examples/json/EventCallbackAppTemplateCreatedExample.json
   requestBodies:
     EventCallbackAccountRequest:
       description: '_t__EventCallbackAccountRequest::DESCRIPTION'

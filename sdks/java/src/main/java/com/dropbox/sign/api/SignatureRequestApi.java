@@ -613,6 +613,7 @@ public class SignatureRequestApi {
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return FileResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -622,8 +623,27 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
+  public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId, Integer forceDownload) throws ApiException {
+    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload).getData();
+  }
+
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFilesAsFileUrl(String, Integer)
+   */
   public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId) throws ApiException {
-    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId).getData();
+    Integer forceDownload = 1;
+
+    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFilesAsFileUrlWithHttpInfo(String, Integer)
+   */
+  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId) throws ApiException {
+    Integer forceDownload = 1;
+
+    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload);
   }
 
 
@@ -631,6 +651,7 @@ public class SignatureRequestApi {
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;FileResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -640,8 +661,11 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId) throws ApiException {
+  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId, Integer forceDownload) throws ApiException {
     
+    if (forceDownload == null) {
+        forceDownload = 1;
+    }
     Object localVarPostBody = null;
     
     // verify the required parameter 'signatureRequestId' is set
@@ -659,6 +683,7 @@ public class SignatureRequestApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force_download", forceDownload));
 
     
     

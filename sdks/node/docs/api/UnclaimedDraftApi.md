@@ -24,8 +24,7 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
 
@@ -95,8 +94,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
 
@@ -199,8 +197,7 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
 
@@ -231,8 +228,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const unclaimedDraftApi = new DropboxSign.UnclaimedDraftApi();
 

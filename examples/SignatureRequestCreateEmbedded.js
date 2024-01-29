@@ -1,6 +1,5 @@
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 

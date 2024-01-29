@@ -23,10 +23,11 @@
  */
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { TemplateCreateResponseTemplate } from "./templateCreateResponseTemplate";
 import { WarningResponse } from "./warningResponse";
 
 export class TemplateCreateResponse {
-  "template"?: TemplateCreateResponse;
+  "template"?: TemplateCreateResponseTemplate;
   /**
    * A list of warnings.
    */
@@ -38,7 +39,7 @@ export class TemplateCreateResponse {
     {
       name: "template",
       baseName: "template",
-      type: "TemplateCreateResponse",
+      type: "TemplateCreateResponseTemplate",
     },
     {
       name: "warnings",

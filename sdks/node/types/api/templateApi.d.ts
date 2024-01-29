@@ -31,7 +31,7 @@ export declare class TemplateApi {
     templateDelete(templateId: string, options?: optionsI): Promise<returnTypeI>;
     templateFiles(templateId: string, fileType?: "pdf" | "zip", options?: optionsI): Promise<returnTypeT<Buffer>>;
     templateFilesAsDataUri(templateId: string, options?: optionsI): Promise<returnTypeT<FileResponseDataUri>>;
-    templateFilesAsFileUrl(templateId: string, options?: optionsI): Promise<returnTypeT<FileResponse>>;
+    templateFilesAsFileUrl(templateId: string, forceDownload?: number, options?: optionsI): Promise<returnTypeT<FileResponse>>;
     templateGet(templateId: string, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;
     templateList(accountId?: string, page?: number, pageSize?: number, query?: string, options?: optionsI): Promise<returnTypeT<TemplateListResponse>>;
     templateRemoveUser(templateId: string, templateRemoveUserRequest: TemplateRemoveUserRequest, options?: optionsI): Promise<returnTypeT<TemplateGetResponse>>;

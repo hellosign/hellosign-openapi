@@ -25,8 +25,7 @@ Creates a new API App.
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const apiAppApi = new DropboxSign.ApiAppApi();
 
@@ -71,8 +70,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const apiAppApi = new DropboxSign.ApiAppApi();
 
@@ -402,8 +400,7 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const apiAppApi = new DropboxSign.ApiAppApi();
 
@@ -441,8 +438,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const apiAppApi = new DropboxSign.ApiAppApi();
 

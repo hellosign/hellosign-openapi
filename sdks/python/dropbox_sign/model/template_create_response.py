@@ -33,11 +33,14 @@ from dropbox_sign.model_utils import (  # noqa: F401
 )
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
+    from dropbox_sign.model.template_create_response_template import TemplateCreateResponseTemplate
     from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
+    from dropbox_sign.model.template_create_response_template import TemplateCreateResponseTemplate
     from dropbox_sign.model.warning_response import WarningResponse
+    globals()['TemplateCreateResponseTemplate'] = TemplateCreateResponseTemplate
     globals()['WarningResponse'] = WarningResponse
 
 
@@ -94,7 +97,7 @@ class TemplateCreateResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'template': (TemplateCreateResponse,),  # noqa: E501
+            'template': (TemplateCreateResponseTemplate,),  # noqa: E501
             'warnings': ([WarningResponse],),  # noqa: E501
         }
 
@@ -129,11 +132,11 @@ class TemplateCreateResponse(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def template(self) -> TemplateCreateResponse:
+    def template(self) -> TemplateCreateResponseTemplate:
         return self.get("template")
 
     @template.setter
-    def template(self, value: TemplateCreateResponse):
+    def template(self, value: TemplateCreateResponseTemplate):
         setattr(self, "template", value)
 
     @property
@@ -180,7 +183,7 @@ class TemplateCreateResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            template (TemplateCreateResponse): [optional]  # noqa: E501
+            template (TemplateCreateResponseTemplate): [optional]  # noqa: E501
             warnings ([WarningResponse]): A list of warnings.. [optional]  # noqa: E501
         """
 
@@ -263,7 +266,7 @@ class TemplateCreateResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            template (TemplateCreateResponse): [optional]  # noqa: E501
+            template (TemplateCreateResponseTemplate): [optional]  # noqa: E501
             warnings ([WarningResponse]): A list of warnings.. [optional]  # noqa: E501
         """
 

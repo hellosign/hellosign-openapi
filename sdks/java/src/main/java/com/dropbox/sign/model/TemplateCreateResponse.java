@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.TemplateCreateResponseTemplate;
 import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -45,7 +46,7 @@ import com.dropbox.sign.ApiException;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TemplateCreateResponse {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private TemplateCreateResponse template;
+  private TemplateCreateResponseTemplate template;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<WarningResponse> warnings = null;
@@ -68,7 +69,7 @@ public class TemplateCreateResponse {
     );
   }
 
-  public TemplateCreateResponse template(TemplateCreateResponse template) {
+  public TemplateCreateResponse template(TemplateCreateResponseTemplate template) {
     this.template = template;
     return this;
   }
@@ -82,14 +83,14 @@ public class TemplateCreateResponse {
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TemplateCreateResponse getTemplate() {
+  public TemplateCreateResponseTemplate getTemplate() {
     return template;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(TemplateCreateResponse template) {
+  public void setTemplate(TemplateCreateResponseTemplate template) {
     this.template = template;
   }
 

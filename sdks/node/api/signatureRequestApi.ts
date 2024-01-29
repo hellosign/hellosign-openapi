@@ -575,6 +575,21 @@ export class SignatureRequestApi {
             const response = error.response;
 
             let body;
+
+            let rangeCodeLeft = Number("4XX"[0] + "00");
+            let rangeCodeRight = Number("4XX"[0] + "99");
+            if (
+              response.status >= rangeCodeLeft &&
+              response.status <= rangeCodeRight
+            ) {
+              body = ObjectSerializer.deserialize(
+                response.data,
+                "ErrorResponse"
+              );
+
+              reject(new HttpError(response, body, response.status));
+              return;
+            }
           }
         );
       });
@@ -1203,10 +1218,12 @@ export class SignatureRequestApi {
    * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as File Url
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async signatureRequestFilesAsFileUrl(
     signatureRequestId: string,
+    forceDownload?: number,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FileResponse>> {
     const localVarPath =
@@ -1234,6 +1251,13 @@ export class SignatureRequestApi {
     if (signatureRequestId === null || signatureRequestId === undefined) {
       throw new Error(
         "Required parameter signatureRequestId was null or undefined when calling signatureRequestFilesAsFileUrl."
+      );
+    }
+
+    if (forceDownload !== undefined) {
+      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+        forceDownload,
+        "number"
       );
     }
 
@@ -2049,6 +2073,21 @@ export class SignatureRequestApi {
             const response = error.response;
 
             let body;
+
+            let rangeCodeLeft = Number("4XX"[0] + "00");
+            let rangeCodeRight = Number("4XX"[0] + "99");
+            if (
+              response.status >= rangeCodeLeft &&
+              response.status <= rangeCodeRight
+            ) {
+              body = ObjectSerializer.deserialize(
+                response.data,
+                "ErrorResponse"
+              );
+
+              reject(new HttpError(response, body, response.status));
+              return;
+            }
           }
         );
       });

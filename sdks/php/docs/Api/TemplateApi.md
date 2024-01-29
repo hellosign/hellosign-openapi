@@ -461,7 +461,7 @@ try {
 ## `templateFilesAsFileUrl()`
 
 ```php
-templateFilesAsFileUrl($template_id): \Dropbox\Sign\Model\FileResponse
+templateFilesAsFileUrl($template_id, $force_download): \Dropbox\Sign\Model\FileResponse
 ```
 
 Get Template Files as File Url
@@ -503,6 +503,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**| The id of the template files to retrieve. | |
+| **force_download** | **int**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

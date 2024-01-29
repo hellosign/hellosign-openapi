@@ -468,8 +468,7 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
@@ -528,8 +527,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
@@ -910,7 +908,7 @@ result.then(response => {
 ## `signatureRequestFilesAsFileUrl()`
 
 ```typescript
-signatureRequestFilesAsFileUrl(signatureRequestId: string): FileResponse
+signatureRequestFilesAsFileUrl(signatureRequestId: string, forceDownload: number): FileResponse
 ```
 
 Download Files as File Url
@@ -972,6 +970,7 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signatureRequestId** | **string**| The id of the SignatureRequest to retrieve. | |
+| **forceDownload** | **number**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -1433,8 +1432,7 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 
 ```typescript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 
@@ -1522,8 +1520,7 @@ result.then(response => {
 
 ```javascript
 import * as DropboxSign from "@dropbox/sign";
-
-const fs = require('fs');
+import * as fs from 'fs';
 
 const signatureRequestApi = new DropboxSign.SignatureRequestApi();
 

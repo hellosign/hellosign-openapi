@@ -907,7 +907,7 @@ class Endpoint(object):
         else:
             content_type_headers_list = self.headers_map['content_type']
             if content_type_headers_list:
-                if len(params['form']) > 0:
+                if len(params['form']) > 0 or ('file' in params.keys() and len(params['file']) > 0):
                     params['header']['Content-Type'] = 'multipart/form-data'
                 elif params['body'] != "":
                     header_list = self.api_client.select_header_content_type(

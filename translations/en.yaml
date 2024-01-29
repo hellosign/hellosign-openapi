@@ -305,6 +305,7 @@
   If the files are currently being prepared, a status code of `409` will be returned instead.
 "SignatureRequestFiles::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to retrieve.
 "SignatureRequestFiles::FILE_TYPE": Set to `pdf` for a single merged document or `zip` for a collection of individual documents.
+"SignatureRequestFiles::FORCE_DOWNLOAD": By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.
 "SignatureRequestFiles::GET_DATA_URI": If `true`, the response will contain the file as base64 encoded string. Base64 encoding is only available for PDFs.
 "SignatureRequestFiles::GET_URL": If `true`, the response will contain a url link to the file instead. Links are only available for PDFs and have a TTL of 3 days.
 
@@ -609,6 +610,7 @@
   Obtain a copy of the current documents specified by the `template_id` parameter. Returns a PDF or ZIP file.
 
   If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
+"TemplateFiles::FORCE_DOWNLOAD": By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser.
 "TemplateFilesAsFileUrl::SUMMARY": Get Template Files as File Url
 "TemplateFilesAsFileUrl::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).
@@ -798,6 +800,7 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
   ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+"UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
 "UnclaimedDraftEditAndResend::SUMMARY": Edit and Resend Unclaimed Draft
 "UnclaimedDraftEditAndResend::DESCRIPTION": |-
   Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.

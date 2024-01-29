@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 | `testMode` | ```Boolean``` |  Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.  |  |
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `populateAutoFillFields` | ```Boolean``` |  Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.<br><br>⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.  |  |
+| `allowCcs` | ```Boolean``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.  |  |
 
 
 

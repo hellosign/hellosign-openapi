@@ -514,7 +514,7 @@ end
 
 ## `template_files_as_file_url`
 
-> `<FileResponse> template_files_as_file_url(template_id)`
+> `<FileResponse> template_files_as_file_url(template_id, opts)`
 
 Get Template Files as File Url
 
@@ -550,12 +550,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> `<Array(<FileResponse>, Integer, Hash)> template_files_as_file_url_with_http_info(template_id)`
+> `<Array(<FileResponse>, Integer, Hash)> template_files_as_file_url_with_http_info(template_id, opts)`
 
 ```ruby
 begin
   # Get Template Files as File Url
-  data, status_code, headers = api_instance.template_files_as_file_url_with_http_info(template_id)
+  data, status_code, headers = api_instance.template_files_as_file_url_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponse>
@@ -569,6 +569,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `template_id` | **String** | The id of the template files to retrieve. |  |
+| `force_download` | **Integer** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional][default to 1] |
 
 ### Return type
 

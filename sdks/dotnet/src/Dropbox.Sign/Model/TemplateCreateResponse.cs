@@ -43,7 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="template">template.</param>
         /// <param name="warnings">A list of warnings..</param>
-        public TemplateCreateResponse(TemplateCreateResponse template = default(TemplateCreateResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
+        public TemplateCreateResponse(TemplateCreateResponseTemplate template = default(TemplateCreateResponseTemplate), List<WarningResponse> warnings = default(List<WarningResponse>))
         {
             
             this.Template = template;
@@ -70,7 +70,7 @@ namespace Dropbox.Sign.Model
         /// Gets or Sets Template
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = true)]
-        public TemplateCreateResponse Template { get; set; }
+        public TemplateCreateResponseTemplate Template { get; set; }
 
         /// <summary>
         /// A list of warnings.
@@ -164,7 +164,7 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "template",
                 Property = "Template",
-                Type = "TemplateCreateResponse",
+                Type = "TemplateCreateResponseTemplate",
                 Value = Template,
             });
             types.Add(new OpenApiType(){

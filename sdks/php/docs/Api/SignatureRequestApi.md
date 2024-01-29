@@ -589,7 +589,7 @@ try {
 ## `signatureRequestFilesAsFileUrl()`
 
 ```php
-signatureRequestFilesAsFileUrl($signature_request_id): \Dropbox\Sign\Model\FileResponse
+signatureRequestFilesAsFileUrl($signature_request_id, $force_download): \Dropbox\Sign\Model\FileResponse
 ```
 
 Download Files as File Url
@@ -631,6 +631,7 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to retrieve. | |
+| **force_download** | **int**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
