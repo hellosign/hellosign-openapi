@@ -506,7 +506,7 @@ $signingOptions->setDraw(true)
 $fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
 $fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
 
-$data = new Dropbox\Sign\Model\SignatureRequestSendRequest();
+$data = new Dropbox\Sign\Model\SignatureRequestEditRequest();
 $data->setTitle("NDA with Acme Co.")
     ->setSubject("The NDA we talked about")
     ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
@@ -524,8 +524,10 @@ $data->setTitle("NDA with Acme Co.")
     ->setFieldOptions($fieldOptions)
     ->setTestMode(true);
 
+$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
 try {
-    $result = $signatureRequestApi->signatureRequestSend($data);
+    $result = $signatureRequestApi->signatureRequestEdit($signatureRequestId, $data);
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();

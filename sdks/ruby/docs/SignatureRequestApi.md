@@ -548,7 +548,7 @@ signing_options.default_type = "draw"
 field_options = Dropbox::Sign::SubFieldOptions.new
 field_options.date_format = "DD - MM - YYYY"
 
-data = Dropbox::Sign::SignatureRequestSendRequest.new
+data = Dropbox::Sign::SignatureRequestEditRequest.new
 data.title = "NDA with Acme Co."
 data.subject = "The NDA we talked about"
 data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
@@ -566,8 +566,10 @@ data.signing_options = signing_options
 data.field_options = field_options
 data.test_mode = true
 
+signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
 begin
-  result = signature_request_api.signature_request_send(data)
+  result = signature_request_api.signature_request_edit(signature_request_id, data)
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

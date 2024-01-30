@@ -562,7 +562,7 @@ with ApiClient(configuration) as api_client:
         date_format="DD - MM - YYYY",
     )
 
-    data = models.SignatureRequestSendRequest(
+    data = models.SignatureRequestEditRequest(
         title="NDA with Acme Co.",
         subject="The NDA we talked about",
         message="Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
@@ -581,8 +581,10 @@ with ApiClient(configuration) as api_client:
         test_mode=True,
     )
 
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
     try:
-        response = signature_request_api.signature_request_send(data)
+        response = signature_request_api.signature_request_edit(signature_request_id, data)
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

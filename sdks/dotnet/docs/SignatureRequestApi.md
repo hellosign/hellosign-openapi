@@ -719,7 +719,7 @@ public class Example
             )
         };
 
-        var data = new SignatureRequestSendRequest(
+        var data = new SignatureRequestEditRequest(
             title: "NDA with Acme Co.",
             subject: "The NDA we talked about",
             message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
@@ -732,9 +732,11 @@ public class Example
             testMode: true
         );
 
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
         try
         {
-            var result = signatureRequestApi.SignatureRequestSend(data);
+            var result = signatureRequestApi.SignatureRequestEdit(signatureRequestId, data);
             Console.WriteLine(result);
         }
         catch (ApiException e)
