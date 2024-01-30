@@ -29889,6 +29889,16 @@ var ApiAppApi = class {
               }
               const response = error.response;
               let body;
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
             }
           );
         });
@@ -31588,6 +31598,16 @@ var SignatureRequestApi = class {
               }
               const response = error.response;
               let body;
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
             }
           );
         });
@@ -32814,6 +32834,16 @@ var SignatureRequestApi = class {
               }
               const response = error.response;
               let body;
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
             }
           );
         });
@@ -33561,6 +33591,16 @@ var TeamApi = class {
               }
               const response = error.response;
               let body;
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
             }
           );
         });
@@ -34837,6 +34877,16 @@ var TemplateApi = class {
               }
               const response = error.response;
               let body;
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
             }
           );
         });
@@ -36217,7 +36267,7 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var USER_AGENT = "OpenAPI-Generator/1.2-dev/node";
+var USER_AGENT = "OpenAPI-Generator/1.3-dev/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;
