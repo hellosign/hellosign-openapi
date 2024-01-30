@@ -2202,6 +2202,128 @@ paths:
         seo:
           title: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE'
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION'
+  '/signature_request/edit/{signature_request_id}':
+    post:
+      tags:
+        - 'Signature Request'
+      summary: '_t__SignatureRequestEdit::SUMMARY'
+      description: '_t__SignatureRequestEdit::DESCRIPTION'
+      operationId: signatureRequestEdit
+      parameters:
+        -
+          name: signature_request_id
+          in: path
+          description: '_t__SignatureRequestEdit::SIGNATURE_REQUEST_ID'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureRequestEditRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/SignatureRequestEditRequestDefaultExample'
+              grouped_signers_example:
+                $ref: '#/components/examples/SignatureRequestEditRequestGroupedSignersExample'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SignatureRequestEditRequest'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureRequestGetResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/SignatureRequestEditResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - request_signature
+            - signature_request_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/SignatureRequestEdit.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/SignatureRequestEdit.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/SignatureRequestEdit.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/SignatureRequestEdit.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/SignatureRequestEdit.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/SignatureRequestEdit.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestEdit.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestEdit.sh
+      x-meta:
+        seo:
+          title: '_t__SignatureRequestEdit::SEO::TITLE'
+          description: '_t__SignatureRequestEdit::SEO::DESCRIPTION'
+      x-hideOn: doc
+      x-beta: closed
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -6678,6 +6800,122 @@ components:
           type: boolean
           default: false
       type: object
+    SignatureRequestEditRequest:
+      properties:
+        files:
+          description: '_t__SignatureRequestSend::FILES'
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: '_t__SignatureRequestSend::FILE_URLS'
+          type: array
+          items:
+            type: string
+        signers:
+          description: '_t__Sub::SignatureRequestSigner::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+        grouped_signers:
+          description: '_t__Sub::SignatureRequestGroupedSigners::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
+        allow_decline:
+          description: '_t__SignatureRequestSend::ALLOW_DECLINE'
+          type: boolean
+          default: false
+        allow_reassign:
+          description: '_t__SignatureRequestSend::ALLOW_REASSIGN'
+          type: boolean
+          default: false
+        attachments:
+          description: '_t__SubAttachment::LIST_DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubAttachment'
+        cc_email_addresses:
+          description: '_t__SignatureRequestSend::CC_EMAIL_ADDRESSES'
+          type: array
+          items:
+            type: string
+            format: email
+        client_id:
+          description: '_t__SignatureRequestSend::CLIENT_ID'
+          type: string
+        custom_fields:
+          description: '_t__Sub::CustomField::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        field_options:
+          $ref: '#/components/schemas/SubFieldOptions'
+        form_field_groups:
+          description: '_t__Sub::FormFieldGroup::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldGroup'
+        form_field_rules:
+          description: '_t__Sub::FormFieldRule::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldRule'
+        form_fields_per_document:
+          description: '_t__Sub::FormFieldsPerDocument::DESCRIPTION'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        hide_text_tags:
+          description: '_t__SignatureRequestSend::HIDE_TEXT_TAGS'
+          type: boolean
+          default: false
+        is_qualified_signature:
+          description: '_t__SignatureRequestSend::IS_QUALIFIED_SIGNATURE'
+          type: boolean
+          default: false
+          deprecated: true
+          x-hideOn: doc
+        is_eid:
+          description: '_t__SignatureRequestSend::IS_EID'
+          type: boolean
+          default: false
+        message:
+          description: '_t__SignatureRequestSend::MESSAGE'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: '_t__Sub::Metadata::DESCRIPTION'
+          type: object
+          maxItems: 10
+          additionalProperties: {  }
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        signing_redirect_url:
+          description: '_t__SignatureRequestSend::SIGNING_REDIRECT_URL'
+          type: string
+        subject:
+          description: '_t__SignatureRequestSend::SUBJECT'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: '_t__SignatureRequestSend::TEST_MODE'
+          type: boolean
+          default: false
+        title:
+          description: '_t__SignatureRequestSend::TITLE'
+          type: string
+          maxLength: 255
+        use_text_tags:
+          description: '_t__SignatureRequestSend::USE_PREEXISTING_FIELDS'
+          type: boolean
+          default: false
+        expires_at:
+          description: '_t__SignatureRequestSend::EXPIRES_AT'
+          type: integer
+          nullable: true
+      type: object
     SignatureRequestRemindRequest:
       required:
         - email_address
@@ -10550,6 +10788,14 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample.json
+    SignatureRequestEditRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditRequestDefaultExample.json
+    SignatureRequestEditRequestGroupedSignersExample:
+      summary: 'Grouped Signers Example'
+      value:
+        $ref: examples/json/SignatureRequestEditRequestGroupedSignersExample.json
     SignatureRequestRemindRequestDefaultExample:
       summary: 'Default Example'
       value:
