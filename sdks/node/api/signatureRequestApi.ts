@@ -1026,7 +1026,7 @@ export class SignatureRequestApi {
     }
 
     let localVarRequestOptions: AxiosRequestConfig = {
-      method: "POST",
+      method: "PUT",
       params: localVarQueryParameters,
       headers: localVarHeaderParams,
       url: localVarPath,

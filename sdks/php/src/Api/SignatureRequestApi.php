@@ -1979,7 +1979,7 @@ class SignatureRequestApi
         $query = Psr7\Query::build($queryParams);
 
         return new Psr7\Request(
-            'POST',
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

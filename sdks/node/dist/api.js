@@ -31916,7 +31916,7 @@ var SignatureRequestApi = class {
         );
       }
       let localVarRequestOptions = {
-        method: "POST",
+        method: "PUT",
         params: localVarQueryParameters,
         headers: localVarHeaderParams,
         url: localVarPath,

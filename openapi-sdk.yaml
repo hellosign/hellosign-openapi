@@ -2227,7 +2227,7 @@ paths:
           title: 'Signature Request with Template | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here.'
   '/signature_request/edit/{signature_request_id}':
-    post:
+    put:
       tags:
         - 'Signature Request'
       summary: 'Edit Signature Request'
@@ -2288,6 +2288,8 @@ paths:
                   $ref: '#/components/examples/Error402ResponseExample'
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
                 409_example:
                   $ref: '#/components/examples/Error409ResponseExample'
                 429_example:

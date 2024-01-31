@@ -327,7 +327,7 @@ class SignatureRequestApi(object):
                 ],
                 'endpoint_path': '/signature_request/edit/{signature_request_id}',
                 'operation_id': 'signature_request_edit',
-                'http_method': 'POST',
+                'http_method': 'PUT',
                 'servers': None,
             },
             params_map={

@@ -2203,7 +2203,7 @@ paths:
           title: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE'
           description: '_t__SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION'
   '/signature_request/edit/{signature_request_id}':
-    post:
+    put:
       tags:
         - 'Signature Request'
       summary: '_t__SignatureRequestEdit::SUMMARY'
@@ -2264,6 +2264,8 @@ paths:
                   $ref: '#/components/examples/Error402ResponseExample'
                 403_example:
                   $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
                 409_example:
                   $ref: '#/components/examples/Error409ResponseExample'
                 429_example:

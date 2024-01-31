@@ -1970,7 +1970,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SignatureRequestGetResponse>("/signature_request/edit/{signature_request_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<SignatureRequestGetResponse>("/signature_request/edit/{signature_request_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SignatureRequestEdit", localVarResponse);
@@ -2071,7 +2071,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SignatureRequestGetResponse>("/signature_request/edit/{signature_request_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SignatureRequestGetResponse>("/signature_request/edit/{signature_request_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

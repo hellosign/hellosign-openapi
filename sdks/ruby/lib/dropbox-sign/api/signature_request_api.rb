@@ -603,7 +603,7 @@ module Dropbox::Sign
       )
 
       begin
-        data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       rescue Dropbox::Sign::ApiError => e
         if e.code === 200
           body = @api_client.convert_to_type(

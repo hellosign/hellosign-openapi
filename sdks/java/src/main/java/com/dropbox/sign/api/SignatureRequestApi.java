@@ -512,7 +512,7 @@ public class SignatureRequestApi {
 
     GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
 
-    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestEdit", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestEdit", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
