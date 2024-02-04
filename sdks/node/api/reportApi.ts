@@ -278,6 +278,8 @@ export class ReportApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }

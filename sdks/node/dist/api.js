@@ -29134,6 +29134,7 @@ var AccountApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -29238,6 +29239,7 @@ var AccountApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -29357,6 +29359,7 @@ var AccountApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -29480,6 +29483,7 @@ var AccountApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -29654,6 +29658,7 @@ var ApiAppApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -29744,6 +29749,7 @@ var ApiAppApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -29843,6 +29849,7 @@ var ApiAppApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -29946,6 +29953,7 @@ var ApiAppApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -30073,6 +30081,7 @@ var ApiAppApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -30242,6 +30251,7 @@ var BulkSendJobApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -30350,6 +30360,7 @@ var BulkSendJobApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -30536,6 +30547,7 @@ var EmbeddedApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -30640,6 +30652,7 @@ var EmbeddedApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -30794,6 +30807,7 @@ var OAuthApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -30893,6 +30907,7 @@ var OAuthApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -31065,6 +31080,7 @@ var ReportApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -31238,6 +31254,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -31362,6 +31379,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -31453,6 +31471,7 @@ var SignatureRequestApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -31576,6 +31595,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -31700,6 +31720,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -31803,6 +31824,7 @@ var SignatureRequestApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -31906,6 +31928,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32012,6 +32035,7 @@ var SignatureRequestApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -32115,6 +32139,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32235,6 +32260,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32339,6 +32365,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32471,6 +32498,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32557,6 +32585,7 @@ var SignatureRequestApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -32680,6 +32709,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32804,6 +32834,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -32936,6 +32967,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -33116,6 +33148,7 @@ var TeamApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -33232,6 +33265,7 @@ var TeamApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -33314,6 +33348,7 @@ var TeamApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -33405,6 +33440,7 @@ var TeamApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -33506,6 +33542,7 @@ var TeamApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -33608,6 +33645,7 @@ var TeamApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -33724,6 +33762,7 @@ var TeamApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -33844,6 +33883,7 @@ var TeamApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -33959,6 +33999,7 @@ var TeamApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -34076,6 +34117,7 @@ var TeamApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -34261,6 +34303,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -34385,6 +34428,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -34509,6 +34553,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -34600,6 +34645,7 @@ var TemplateApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -34702,6 +34748,7 @@ var TemplateApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -34805,6 +34852,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -34911,6 +34959,7 @@ var TemplateApi = class {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+              reject(error);
             }
           );
         });
@@ -35014,6 +35063,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35134,6 +35184,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35266,6 +35317,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35398,6 +35450,7 @@ var TemplateApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35576,6 +35629,7 @@ var UnclaimedDraftApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35700,6 +35754,7 @@ var UnclaimedDraftApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35824,6 +35879,7 @@ var UnclaimedDraftApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
@@ -35956,6 +36012,7 @@ var UnclaimedDraftApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }

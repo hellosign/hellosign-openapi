@@ -281,6 +281,8 @@ export class ApiAppApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -403,6 +405,8 @@ export class ApiAppApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -536,6 +540,8 @@ export class ApiAppApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -673,6 +679,8 @@ export class ApiAppApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -848,6 +856,8 @@ export class ApiAppApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });

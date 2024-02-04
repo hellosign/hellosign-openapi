@@ -295,6 +295,8 @@ export class TeamApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -453,6 +455,8 @@ export class TeamApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -561,6 +565,8 @@ export class TeamApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -680,6 +686,8 @@ export class TeamApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -812,6 +820,8 @@ export class TeamApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -945,6 +955,8 @@ export class TeamApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1101,6 +1113,8 @@ export class TeamApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1266,6 +1280,8 @@ export class TeamApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -1421,6 +1437,8 @@ export class TeamApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1580,6 +1598,8 @@ export class TeamApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });

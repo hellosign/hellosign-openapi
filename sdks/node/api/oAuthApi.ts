@@ -257,6 +257,8 @@ export class OAuthApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -396,6 +398,8 @@ export class OAuthApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
