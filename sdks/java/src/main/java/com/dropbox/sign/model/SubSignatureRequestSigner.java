@@ -226,11 +226,11 @@ public class SubSignatureRequestSigner {
   }
 
    /**
-   * An E.164 formatted phone number.  **Note**: Not available in test mode and requires a Standard plan or higher.
+   * An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **Note**: Not available in test mode and requires a Standard plan or higher.
    * @return smsPhoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An E.164 formatted phone number.  **Note**: Not available in test mode and requires a Standard plan or higher.")
+  @ApiModelProperty(value = "An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **Note**: Not available in test mode and requires a Standard plan or higher.")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
