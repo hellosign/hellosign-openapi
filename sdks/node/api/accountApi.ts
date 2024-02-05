@@ -287,6 +287,8 @@ export class AccountApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -425,6 +427,8 @@ export class AccountApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -586,6 +590,8 @@ export class AccountApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -751,6 +757,8 @@ export class AccountApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }

@@ -290,6 +290,8 @@ export class UnclaimedDraftApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -460,6 +462,8 @@ export class UnclaimedDraftApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -632,6 +636,8 @@ export class UnclaimedDraftApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -816,6 +822,8 @@ export class UnclaimedDraftApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
