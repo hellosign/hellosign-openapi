@@ -9,6 +9,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`signature_request_cancel`](SignatureRequestApi.md#signature_request_cancel) | **POST** `/signature_request/cancel/{signature_request_id}` | Cancel Incomplete Signature Request |
 | [`signature_request_create_embedded`](SignatureRequestApi.md#signature_request_create_embedded) | **POST** `/signature_request/create_embedded` | Create Embedded Signature Request |
 | [`signature_request_create_embedded_with_template`](SignatureRequestApi.md#signature_request_create_embedded_with_template) | **POST** `/signature_request/create_embedded_with_template` | Create Embedded Signature Request with Template |
+| [`signature_request_edit`](SignatureRequestApi.md#signature_request_edit) | **PUT** `/signature_request/edit/{signature_request_id}` | Edit Signature Request |
 | [`signature_request_files`](SignatureRequestApi.md#signature_request_files) | **GET** `/signature_request/files/{signature_request_id}` | Download Files |
 | [`signature_request_files_as_data_uri`](SignatureRequestApi.md#signature_request_files_as_data_uri) | **GET** `/signature_request/files_as_data_uri/{signature_request_id}` | Download Files as Data Uri |
 | [`signature_request_files_as_file_url`](SignatureRequestApi.md#signature_request_files_as_file_url) | **GET** `/signature_request/files_as_file_url/{signature_request_id}` | Download Files as File Url |
@@ -489,6 +490,117 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `signature_request_create_embedded_with_template_request` | [**SignatureRequestCreateEmbeddedWithTemplateRequest**](SignatureRequestCreateEmbeddedWithTemplateRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+
+## `signature_request_edit`
+
+> `<SignatureRequestGetResponse> signature_request_edit(signature_request_id, signature_request_edit_request)`
+
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+
+### Examples
+
+```ruby
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  # Configure HTTP basic authorization: api_key
+  config.username = "YOUR_API_KEY"
+
+  # or, configure Bearer (JWT) authorization: oauth2
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
+
+signer_1 = Dropbox::Sign::SubSignatureRequestSigner.new
+signer_1.email_address = "jack@example.com"
+signer_1.name = "Jack"
+signer_1.order = 0
+
+signer_2 = Dropbox::Sign::SubSignatureRequestSigner.new
+signer_2.email_address = "jill@example.com"
+signer_2.name = "Jill"
+signer_2.order = 1
+
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.draw = true
+signing_options.type = true
+signing_options.upload = true
+signing_options.phone = true
+signing_options.default_type = "draw"
+
+field_options = Dropbox::Sign::SubFieldOptions.new
+field_options.date_format = "DD - MM - YYYY"
+
+data = Dropbox::Sign::SignatureRequestEditRequest.new
+data.title = "NDA with Acme Co."
+data.subject = "The NDA we talked about"
+data.message = "Please sign this NDA and then we can discuss more. Let me know if you have any questions."
+data.signers = [signer_1, signer_2]
+data.cc_email_addresses = [
+  "lawyer1@dropboxsign.com",
+  "lawyer2@dropboxsign.com",
+]
+data.files = [File.new("example_signature_request.pdf", "r")]
+data.metadata = {
+  custom_id: 1234,
+  custom_text: "NDA #9",
+}
+data.signing_options = signing_options
+data.field_options = field_options
+data.test_mode = true
+
+signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+begin
+  result = signature_request_api.signature_request_edit(signature_request_id, data)
+  p result
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling Dropbox Sign API: #{e}"
+end
+
+```
+
+#### Using the `signature_request_edit_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request)`
+
+```ruby
+begin
+  # Edit Signature Request
+  data, status_code, headers = api_instance.signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SignatureRequestGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling SignatureRequestApi->signature_request_edit_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_request` | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
 
 ### Return type
 

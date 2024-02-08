@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *SignatureRequestApi* | [**SignatureRequestCancel**](docs/SignatureRequestApi.md#signaturerequestcancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request
 *SignatureRequestApi* | [**SignatureRequestCreateEmbedded**](docs/SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request
 *SignatureRequestApi* | [**SignatureRequestCreateEmbeddedWithTemplate**](docs/SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template
+*SignatureRequestApi* | [**SignatureRequestEdit**](docs/SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request
 *SignatureRequestApi* | [**SignatureRequestFiles**](docs/SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files
 *SignatureRequestApi* | [**SignatureRequestFilesAsDataUri**](docs/SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri
 *SignatureRequestApi* | [**SignatureRequestFilesAsFileUrl**](docs/SignatureRequestApi.md#signaturerequestfilesasfileurl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url
@@ -232,6 +233,7 @@ Class | Method | HTTP request | Description
  - [Model.SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [Model.SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [Model.SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [Model.SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
  - [Model.SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)
  - [Model.SignatureRequestListResponse](docs/SignatureRequestListResponse.md)
  - [Model.SignatureRequestRemindRequest](docs/SignatureRequestRemindRequest.md)

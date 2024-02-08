@@ -59,6 +59,7 @@ docs/SignatureRequestBulkCreateEmbeddedWithTemplateRequest.md
 docs/SignatureRequestBulkSendWithTemplateRequest.md
 docs/SignatureRequestCreateEmbeddedRequest.md
 docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md
+docs/SignatureRequestEditRequest.md
 docs/SignatureRequestGetResponse.md
 docs/SignatureRequestListResponse.md
 docs/SignatureRequestRemindRequest.md
@@ -249,6 +250,7 @@ lib/dropbox-sign/models/signature_request_bulk_create_embedded_with_template_req
 lib/dropbox-sign/models/signature_request_bulk_send_with_template_request.rb
 lib/dropbox-sign/models/signature_request_create_embedded_request.rb
 lib/dropbox-sign/models/signature_request_create_embedded_with_template_request.rb
+lib/dropbox-sign/models/signature_request_edit_request.rb
 lib/dropbox-sign/models/signature_request_get_response.rb
 lib/dropbox-sign/models/signature_request_list_response.rb
 lib/dropbox-sign/models/signature_request_remind_request.rb

@@ -9,6 +9,7 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**signatureRequestCancel()**](SignatureRequestApi.md#signatureRequestCancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request |
 | [**signatureRequestCreateEmbedded()**](SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | [**signatureRequestCreateEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
+| [**signatureRequestEdit()**](SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
 | [**signatureRequestFiles()**](SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | [**signatureRequestFilesAsDataUri()**](SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | [**signatureRequestFilesAsFileUrl()**](SignatureRequestApi.md#signatureRequestFilesAsFileUrl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -440,6 +441,108 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_create_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestCreateEmbeddedWithTemplateRequest**](../Model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEdit()`
+
+```php
+signatureRequestEdit($signature_request_id, $signature_request_edit_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+
+### Example
+
+```php
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+
+$signer1 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
+$signer1->setEmailAddress("jack@example.com")
+    ->setName("Jack")
+    ->setOrder(0);
+
+$signer2 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
+$signer2->setEmailAddress("jill@example.com")
+    ->setName("Jill")
+    ->setOrder(1);
+
+$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
+$signingOptions->setDraw(true)
+    ->setType(true)
+    ->setUpload(true)
+    ->setPhone(false)
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+
+$fieldOptions = new Dropbox\Sign\Model\SubFieldOptions();
+$fieldOptions->setDateFormat(Dropbox\Sign\Model\SubFieldOptions::DATE_FORMAT_DD_MM_YYYY);
+
+$data = new Dropbox\Sign\Model\SignatureRequestEditRequest();
+$data->setTitle("NDA with Acme Co.")
+    ->setSubject("The NDA we talked about")
+    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
+    ->setSigners([$signer1, $signer2])
+    ->setCcEmailAddresses([
+        "lawyer1@dropboxsign.com",
+        "lawyer2@dropboxsign.com",
+    ])
+    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setMetadata([
+        "custom_id" => 1234,
+        "custom_text" => "NDA #9",
+    ])
+    ->setSigningOptions($signingOptions)
+    ->setFieldOptions($fieldOptions)
+    ->setTestMode(true);
+
+$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+try {
+    $result = $signatureRequestApi->signatureRequestEdit($signatureRequestId, $data);
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_request** | [**\Dropbox\Sign\Model\SignatureRequestEditRequest**](../Model/SignatureRequestEditRequest.md)|  | |
 
 ### Return type
 

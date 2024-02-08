@@ -126,6 +126,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 ```SignatureRequestApi``` | [```signature_request_cancel```](docs/SignatureRequestApi.md#signature_request_cancel) | ```POST /signature_request/cancel/{signature_request_id}``` | Cancel Incomplete Signature Request|
 ```SignatureRequestApi``` | [```signature_request_create_embedded```](docs/SignatureRequestApi.md#signature_request_create_embedded) | ```POST /signature_request/create_embedded``` | Create Embedded Signature Request|
 ```SignatureRequestApi``` | [```signature_request_create_embedded_with_template```](docs/SignatureRequestApi.md#signature_request_create_embedded_with_template) | ```POST /signature_request/create_embedded_with_template``` | Create Embedded Signature Request with Template|
+```SignatureRequestApi``` | [```signature_request_edit```](docs/SignatureRequestApi.md#signature_request_edit) | ```PUT /signature_request/edit/{signature_request_id}``` | Edit Signature Request|
 ```SignatureRequestApi``` | [```signature_request_files```](docs/SignatureRequestApi.md#signature_request_files) | ```GET /signature_request/files/{signature_request_id}``` | Download Files|
 ```SignatureRequestApi``` | [```signature_request_files_as_data_uri```](docs/SignatureRequestApi.md#signature_request_files_as_data_uri) | ```GET /signature_request/files_as_data_uri/{signature_request_id}``` | Download Files as Data Uri|
 ```SignatureRequestApi``` | [```signature_request_files_as_file_url```](docs/SignatureRequestApi.md#signature_request_files_as_file_url) | ```GET /signature_request/files_as_file_url/{signature_request_id}``` | Download Files as File Url|
@@ -212,6 +213,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
  - [SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)
  - [SignatureRequestListResponse](docs/SignatureRequestListResponse.md)
  - [SignatureRequestRemindRequest](docs/SignatureRequestRemindRequest.md)

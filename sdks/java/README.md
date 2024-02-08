@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
 *SignatureRequestApi* | [**signatureRequestCancel**](docs/SignatureRequestApi.md#signatureRequestCancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request
 *SignatureRequestApi* | [**signatureRequestCreateEmbedded**](docs/SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request
 *SignatureRequestApi* | [**signatureRequestCreateEmbeddedWithTemplate**](docs/SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template
+*SignatureRequestApi* | [**signatureRequestEdit**](docs/SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request
 *SignatureRequestApi* | [**signatureRequestFiles**](docs/SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files
 *SignatureRequestApi* | [**signatureRequestFilesAsDataUri**](docs/SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri
 *SignatureRequestApi* | [**signatureRequestFilesAsFileUrl**](docs/SignatureRequestApi.md#signatureRequestFilesAsFileUrl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url
@@ -270,6 +271,7 @@ Class | Method | HTTP request | Description
  - [SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
  - [SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)
  - [SignatureRequestListResponse](docs/SignatureRequestListResponse.md)
  - [SignatureRequestRemindRequest](docs/SignatureRequestRemindRequest.md)

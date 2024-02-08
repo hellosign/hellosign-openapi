@@ -6881,6 +6881,160 @@ components:
           type: boolean
           default: false
       type: object
+    SignatureRequestEditRequest:
+      properties:
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        signers:
+          description: |-
+            Add Signers to your Signature Request.
+
+            This endpoint requires either **signers** or **grouped_signers**, but not both.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+        grouped_signers:
+          description: |-
+            Add Grouped Signers to your Signature Request.
+
+            This endpoint requires either **signers** or **grouped_signers**, but not both.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
+        allow_decline:
+          description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        allow_reassign:
+          description: |-
+            Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
+
+            **Note**: Only available for Premium plan and higher.
+          type: boolean
+          default: false
+        attachments:
+          description: 'A list describing the attachments'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubAttachment'
+        cc_email_addresses:
+          description: 'The email addresses that should be CCed.'
+          type: array
+          items:
+            type: string
+            format: email
+        client_id:
+          description: 'The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.'
+          type: string
+        custom_fields:
+          description: |-
+            When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
+
+            Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.
+
+            For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        field_options:
+          $ref: '#/components/schemas/SubFieldOptions'
+        form_field_groups:
+          description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldGroup'
+        form_field_rules:
+          description: 'Conditional Logic rules for fields defined in `form_fields_per_document`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldRule'
+        form_fields_per_document:
+          description: |-
+            The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
+
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+
+            * Text Field use `SubFormFieldsPerDocumentText`
+            * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
+            * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`
+            * Checkbox Field use `SubFormFieldsPerDocumentCheckbox`
+            * Radio Field use `SubFormFieldsPerDocumentRadio`
+            * Signature Field use `SubFormFieldsPerDocumentSignature`
+            * Date Signed Field use `SubFormFieldsPerDocumentDateSigned`
+            * Initials Field use `SubFormFieldsPerDocumentInitials`
+            * Text Merge Field use `SubFormFieldsPerDocumentTextMerge`
+            * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        hide_text_tags:
+          description: |-
+            Enables automatic Text Tag removal when set to true.
+
+            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+          type: boolean
+          default: false
+        is_eid:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
+        message:
+          description: 'The custom message in the email that will be sent to the signers.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        signing_redirect_url:
+          description: 'The URL you want signers redirected to after they successfully sign.'
+          type: string
+        subject:
+          description: 'The subject in the email that will be sent to the signers.'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: 'Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+          maxLength: 255
+        use_text_tags:
+          description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
+          type: boolean
+          default: false
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
+      type: object
     SignatureRequestRemindRequest:
       required:
         - email_address
@@ -11312,6 +11466,14 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample.json
+    SignatureRequestEditRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditRequestDefaultExample.json
+    SignatureRequestEditRequestGroupedSignersExample:
+      summary: 'Grouped Signers Example'
+      value:
+        $ref: examples/json/SignatureRequestEditRequestGroupedSignersExample.json
     SignatureRequestRemindRequestDefaultExample:
       summary: 'Default Example'
       value:
