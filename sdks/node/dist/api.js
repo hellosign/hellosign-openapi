@@ -32008,6 +32008,7 @@ var SignatureRequestApi = class {
                   reject(new HttpError(response, body, response.status));
                   return;
                 }
+                reject(error);
               }
             );
           }
