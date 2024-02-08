@@ -1126,6 +1126,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
