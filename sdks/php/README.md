@@ -169,6 +169,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | *SignatureRequestApi* | [**signatureRequestCreateEmbedded**](docs/Api/SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | *SignatureRequestApi* | [**signatureRequestCreateEmbeddedWithTemplate**](docs/Api/SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
 | *SignatureRequestApi* | [**signatureRequestEdit**](docs/Api/SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| *SignatureRequestApi* | [**signatureRequestEditWithTemplate**](docs/Api/SignatureRequestApi.md#signaturerequesteditwithtemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | *SignatureRequestApi* | [**signatureRequestFiles**](docs/Api/SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | *SignatureRequestApi* | [**signatureRequestFilesAsDataUri**](docs/Api/SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | *SignatureRequestApi* | [**signatureRequestFilesAsFileUrl**](docs/Api/SignatureRequestApi.md#signaturerequestfilesasfileurl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -255,6 +256,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SignatureRequestCreateEmbeddedRequest](docs/Model/SignatureRequestCreateEmbeddedRequest.md)
 - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/Model/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
 - [SignatureRequestEditRequest](docs/Model/SignatureRequestEditRequest.md)
+- [SignatureRequestEditWithTemplateRequest](docs/Model/SignatureRequestEditWithTemplateRequest.md)
 - [SignatureRequestGetResponse](docs/Model/SignatureRequestGetResponse.md)
 - [SignatureRequestListResponse](docs/Model/SignatureRequestListResponse.md)
 - [SignatureRequestRemindRequest](docs/Model/SignatureRequestRemindRequest.md)

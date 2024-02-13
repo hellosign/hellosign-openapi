@@ -18058,6 +18058,7 @@ __export(api_exports, {
   SignatureRequestCreateEmbeddedRequest: () => SignatureRequestCreateEmbeddedRequest,
   SignatureRequestCreateEmbeddedWithTemplateRequest: () => SignatureRequestCreateEmbeddedWithTemplateRequest,
   SignatureRequestEditRequest: () => SignatureRequestEditRequest,
+  SignatureRequestEditWithTemplateRequest: () => SignatureRequestEditWithTemplateRequest,
   SignatureRequestGetResponse: () => SignatureRequestGetResponse,
   SignatureRequestListResponse: () => SignatureRequestListResponse,
   SignatureRequestRemindRequest: () => SignatureRequestRemindRequest,
@@ -23204,6 +23205,114 @@ SignatureRequestEditRequest.attributeTypeMap = [
     name: "expiresAt",
     baseName: "expires_at",
     type: "number"
+  }
+];
+
+// model/signatureRequestEditWithTemplateRequest.ts
+var _SignatureRequestEditWithTemplateRequest = class {
+  constructor() {
+    this["allowDecline"] = false;
+    this["isQualifiedSignature"] = false;
+    this["isEid"] = false;
+    this["testMode"] = false;
+  }
+  static getAttributeTypeMap() {
+    return _SignatureRequestEditWithTemplateRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(
+      data,
+      "SignatureRequestEditWithTemplateRequest"
+    );
+  }
+};
+var SignatureRequestEditWithTemplateRequest = _SignatureRequestEditWithTemplateRequest;
+SignatureRequestEditWithTemplateRequest.discriminator = void 0;
+SignatureRequestEditWithTemplateRequest.attributeTypeMap = [
+  {
+    name: "templateIds",
+    baseName: "template_ids",
+    type: "Array<string>"
+  },
+  {
+    name: "signers",
+    baseName: "signers",
+    type: "Array<SubSignatureRequestTemplateSigner>"
+  },
+  {
+    name: "allowDecline",
+    baseName: "allow_decline",
+    type: "boolean"
+  },
+  {
+    name: "ccs",
+    baseName: "ccs",
+    type: "Array<SubCC>"
+  },
+  {
+    name: "clientId",
+    baseName: "client_id",
+    type: "string"
+  },
+  {
+    name: "customFields",
+    baseName: "custom_fields",
+    type: "Array<SubCustomField>"
+  },
+  {
+    name: "files",
+    baseName: "files",
+    type: "Array<RequestFile>"
+  },
+  {
+    name: "fileUrls",
+    baseName: "file_urls",
+    type: "Array<string>"
+  },
+  {
+    name: "isQualifiedSignature",
+    baseName: "is_qualified_signature",
+    type: "boolean"
+  },
+  {
+    name: "isEid",
+    baseName: "is_eid",
+    type: "boolean"
+  },
+  {
+    name: "message",
+    baseName: "message",
+    type: "string"
+  },
+  {
+    name: "metadata",
+    baseName: "metadata",
+    type: "{ [key: string]: any; }"
+  },
+  {
+    name: "signingOptions",
+    baseName: "signing_options",
+    type: "SubSigningOptions"
+  },
+  {
+    name: "signingRedirectUrl",
+    baseName: "signing_redirect_url",
+    type: "string"
+  },
+  {
+    name: "subject",
+    baseName: "subject",
+    type: "string"
+  },
+  {
+    name: "testMode",
+    baseName: "test_mode",
+    type: "boolean"
+  },
+  {
+    name: "title",
+    baseName: "title",
+    type: "string"
   }
 ];
 
@@ -28997,6 +29106,7 @@ var typeMap = {
   SignatureRequestCreateEmbeddedRequest,
   SignatureRequestCreateEmbeddedWithTemplateRequest,
   SignatureRequestEditRequest,
+  SignatureRequestEditWithTemplateRequest,
   SignatureRequestGetResponse,
   SignatureRequestListResponse,
   SignatureRequestRemindRequest,
@@ -31934,6 +32044,139 @@ var SignatureRequestApi = class {
         data = ObjectSerializer.serialize(
           signatureRequestEditRequest,
           "SignatureRequestEditRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      if (this.authentications.oauth2.accessToken) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                let body = response.data;
+                if (response.status && response.status >= 200 && response.status <= 299) {
+                  body = ObjectSerializer.deserialize(
+                    body,
+                    "SignatureRequestGetResponse"
+                  );
+                  resolve({ response, body });
+                } else {
+                  reject(new HttpError(response, body, response.status));
+                }
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                const response = error.response;
+                let body;
+                if (response.status === 200) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "SignatureRequestGetResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                let rangeCodeLeft = Number("4XX"[0] + "00");
+                let rangeCodeRight = Number("4XX"[0] + "99");
+                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "ErrorResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  signatureRequestEditWithTemplate(_0, _1) {
+    return __async(this, arguments, function* (signatureRequestId, signatureRequestEditWithTemplateRequest, options = { headers: {} }) {
+      if (signatureRequestEditWithTemplateRequest !== null && signatureRequestEditWithTemplateRequest !== void 0 && signatureRequestEditWithTemplateRequest.constructor.name !== "SignatureRequestEditWithTemplateRequest") {
+        signatureRequestEditWithTemplateRequest = ObjectSerializer.deserialize(
+          signatureRequestEditWithTemplateRequest,
+          "SignatureRequestEditWithTemplateRequest"
+        );
+      }
+      const localVarPath = this.basePath + "/signature_request/edit_with_template/{signature_request_id}".replace(
+        "{signature_request_id}",
+        encodeURIComponent(String(signatureRequestId))
+      );
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (signatureRequestId === null || signatureRequestId === void 0) {
+        throw new Error(
+          "Required parameter signatureRequestId was null or undefined when calling signatureRequestEditWithTemplate."
+        );
+      }
+      if (signatureRequestEditWithTemplateRequest === null || signatureRequestEditWithTemplateRequest === void 0) {
+        throw new Error(
+          "Required parameter signatureRequestEditWithTemplateRequest was null or undefined when calling signatureRequestEditWithTemplate."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        signatureRequestEditWithTemplateRequest,
+        SignatureRequestEditWithTemplateRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          signatureRequestEditWithTemplateRequest,
+          "SignatureRequestEditWithTemplateRequest"
         );
       }
       let localVarRequestOptions = {
@@ -36460,6 +36703,7 @@ var APIS = [
   SignatureRequestCreateEmbeddedRequest,
   SignatureRequestCreateEmbeddedWithTemplateRequest,
   SignatureRequestEditRequest,
+  SignatureRequestEditWithTemplateRequest,
   SignatureRequestGetResponse,
   SignatureRequestListResponse,
   SignatureRequestRemindRequest,

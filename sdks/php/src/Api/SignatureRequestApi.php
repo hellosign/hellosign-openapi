@@ -1987,6 +1987,344 @@ class SignatureRequestApi
     }
 
     /**
+     * Operation signatureRequestEditWithTemplate
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string $signature_request_id The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request signature_request_edit_with_template_request (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return Model\SignatureRequestGetResponse
+     */
+    public function signatureRequestEditWithTemplate(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    {
+        list($response) = $this->signatureRequestEditWithTemplateWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request);
+
+        return $response;
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplateWithHttpInfo
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string $signature_request_id The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     *
+     * @throws ApiException on non-2xx response
+     * @throws InvalidArgumentException
+     * @return array of Model\SignatureRequestGetResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function signatureRequestEditWithTemplateWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    {
+        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+                $this->response = $response;
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode === 200) {
+                if ('\Dropbox\Sign\Model\SignatureRequestGetResponse' === '\SplFileObject') {
+                    $content = $response->getBody(); //stream goes to serializer
+                } else {
+                    $content = (string) $response->getBody();
+                }
+
+                return [
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\SignatureRequestGetResponse', []),
+                    $response->getStatusCode(),
+                    $response->getHeaders(),
+                ];
+            }
+
+            $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
+            $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
+            if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
+                if ('\Dropbox\Sign\Model\ErrorResponse' === '\SplFileObject') {
+                    $content = $response->getBody(); //stream goes to serializer
+                } else {
+                    $content = (string) $response->getBody();
+                }
+
+                return [
+                    ObjectSerializer::deserialize($content, '\Dropbox\Sign\Model\ErrorResponse', []),
+                    $response->getStatusCode(),
+                    $response->getHeaders(),
+                ];
+            }
+
+            $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders(),
+            ];
+        } catch (ApiException $e) {
+            $statusCode = $e->getCode();
+
+            if ($statusCode === 200) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\Dropbox\Sign\Model\SignatureRequestGetResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+            }
+
+            $rangeCodeLeft = (int) (substr('4XX', 0, 1) . '00');
+            $rangeCodeRight = (int) (substr('4XX', 0, 1) . '99');
+            if ($statusCode >= $rangeCodeLeft && $statusCode <= $rangeCodeRight) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\Dropbox\Sign\Model\ErrorResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplateAsync
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string $signature_request_id The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     *
+     * @throws InvalidArgumentException
+     * @return Promise\PromiseInterface
+     */
+    public function signatureRequestEditWithTemplateAsync(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    {
+        return $this->signatureRequestEditWithTemplateAsyncWithHttpInfo($signature_request_id, $signature_request_edit_with_template_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation signatureRequestEditWithTemplateAsyncWithHttpInfo
+     *
+     * Edit Signature Request With Template
+     *
+     * @param string $signature_request_id The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     *
+     * @throws InvalidArgumentException
+     * @return Promise\PromiseInterface
+     */
+    public function signatureRequestEditWithTemplateAsyncWithHttpInfo(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    {
+        $returnType = '\Dropbox\Sign\Model\SignatureRequestGetResponse';
+        $request = $this->signatureRequestEditWithTemplateRequest($signature_request_id, $signature_request_edit_with_template_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders(),
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'signatureRequestEditWithTemplate'
+     *
+     * @param string $signature_request_id The id of the SignatureRequest to edit. (required)
+     * @param Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request (required)
+     *
+     * @throws InvalidArgumentException
+     * @return Psr7\Request
+     */
+    public function signatureRequestEditWithTemplateRequest(string $signature_request_id, Model\SignatureRequestEditWithTemplateRequest $signature_request_edit_with_template_request)
+    {
+        // verify the required parameter 'signature_request_id' is set
+        if ($signature_request_id === null || (is_array($signature_request_id) && count($signature_request_id) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_id when calling signatureRequestEditWithTemplate'
+            );
+        }
+        // verify the required parameter 'signature_request_edit_with_template_request' is set
+        if ($signature_request_edit_with_template_request === null || (is_array($signature_request_edit_with_template_request) && count($signature_request_edit_with_template_request) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $signature_request_edit_with_template_request when calling signatureRequestEditWithTemplate'
+            );
+        }
+
+        $resourcePath = '/signature_request/edit_with_template/{signature_request_id}';
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+
+        $formParams = ObjectSerializer::getFormParams(
+            $signature_request_edit_with_template_request
+        );
+
+        $multipart = !empty($formParams);
+
+        // path params
+        if ($signature_request_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'signature_request_id' . '}',
+                ObjectSerializer::toPathValue($signature_request_id),
+                $resourcePath
+            );
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) === 0) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($signature_request_edit_with_template_request));
+            } else {
+                $httpBody = $signature_request_edit_with_template_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem,
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                if (!empty($body)) {
+                    $multipartContents[] = [
+                        'name' => 'body',
+                        'contents' => $body,
+                        'headers' => ['Content-Type' => 'application/json'],
+                    ];
+                }
+
+                if ($payloadHook = $this->config->getPayloadHook()) {
+                    $payloadHook('multipart', $multipartContents, $signature_request_edit_with_template_request);
+                }
+
+                $httpBody = new Psr7\MultipartStream($multipartContents);
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername())) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Psr7\Query::build($queryParams);
+
+        return new Psr7\Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation signatureRequestFiles
      *
      * Download Files

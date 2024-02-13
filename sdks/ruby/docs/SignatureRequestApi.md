@@ -10,6 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [`signature_request_create_embedded`](SignatureRequestApi.md#signature_request_create_embedded) | **POST** `/signature_request/create_embedded` | Create Embedded Signature Request |
 | [`signature_request_create_embedded_with_template`](SignatureRequestApi.md#signature_request_create_embedded_with_template) | **POST** `/signature_request/create_embedded_with_template` | Create Embedded Signature Request with Template |
 | [`signature_request_edit`](SignatureRequestApi.md#signature_request_edit) | **PUT** `/signature_request/edit/{signature_request_id}` | Edit Signature Request |
+| [`signature_request_edit_with_template`](SignatureRequestApi.md#signature_request_edit_with_template) | **PUT** `/signature_request/edit_with_template/{signature_request_id}` | Edit Signature Request With Template |
 | [`signature_request_files`](SignatureRequestApi.md#signature_request_files) | **GET** `/signature_request/files/{signature_request_id}` | Download Files |
 | [`signature_request_files_as_data_uri`](SignatureRequestApi.md#signature_request_files_as_data_uri) | **GET** `/signature_request/files_as_data_uri/{signature_request_id}` | Download Files as Data Uri |
 | [`signature_request_files_as_file_url`](SignatureRequestApi.md#signature_request_files_as_file_url) | **GET** `/signature_request/files_as_file_url/{signature_request_id}` | Download Files as File Url |
@@ -601,6 +602,111 @@ end
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
 | `signature_request_edit_request` | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+
+## `signature_request_edit_with_template`
+
+> `<SignatureRequestGetResponse> signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request)`
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+
+### Examples
+
+```ruby
+require "dropbox-sign"
+
+Dropbox::Sign.configure do |config|
+  # Configure HTTP basic authorization: api_key
+  config.username = "YOUR_API_KEY"
+
+  # or, configure Bearer (JWT) authorization: oauth2
+  # config.access_token = "YOUR_ACCESS_TOKEN"
+end
+
+signature_request_api = Dropbox::Sign::SignatureRequestApi.new
+
+signer_1 = Dropbox::Sign::SubSignatureRequestTemplateSigner.new
+signer_1.role = "Client"
+signer_1.email_address = "george@example.com"
+signer_1.name = "George"
+
+cc_1 = Dropbox::Sign::SubCC.new
+cc_1.role = "Accounting"
+cc_1.email_address = "accounting@example.com"
+
+custom_field_1 = Dropbox::Sign::SubCustomField.new
+custom_field_1.name = "Cost"
+custom_field_1.value = "$20,000"
+custom_field_1.editor = "Client"
+custom_field_1.required = true
+
+signing_options = Dropbox::Sign::SubSigningOptions.new
+signing_options.draw = true
+signing_options.type = true
+signing_options.upload = true
+signing_options.phone = false
+signing_options.default_type = "draw"
+
+data = Dropbox::Sign::SignatureRequestSendWithTemplateRequest.new
+data.template_ids = ["c26b8a16784a872da37ea946b9ddec7c1e11dff6"]
+data.subject = "Purchase Order"
+data.message = "Glad we could come to an agreement."
+data.signers = [signer_1]
+data.ccs = [cc_1]
+data.custom_fields = [custom_field_1]
+data.signing_options = signing_options
+data.test_mode = true
+
+signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+begin
+  result = signature_request_api.signature_request_edit_with_template(signature_request_id, data)
+  p result
+rescue Dropbox::Sign::ApiError => e
+  puts "Exception when calling Dropbox Sign API: #{e}"
+end
+
+```
+
+#### Using the `signature_request_edit_with_template_with_http_info` variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> `<Array(<SignatureRequestGetResponse>, Integer, Hash)> signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request)`
+
+```ruby
+begin
+  # Edit Signature Request With Template
+  data, status_code, headers = api_instance.signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SignatureRequestGetResponse>
+rescue Dropbox::Sign::ApiError => e
+  puts "Error when calling SignatureRequestApi->signature_request_edit_with_template_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **String** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_with_template_request` | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
 
 ### Return type
 
