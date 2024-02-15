@@ -2469,7 +2469,7 @@ paths:
       x-meta:
         seo:
           title: 'Edit Signature Request with Template | API Documentation | Dropbox Sign for Developers'
-          description: 'Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here.'
+          description: 'Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based off of the Template, click here.'
       x-hideOn: doc
       x-beta: closed
   '/signature_request/files/{signature_request_id}':

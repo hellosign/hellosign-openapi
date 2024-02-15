@@ -1622,7 +1622,7 @@
 "SignatureRequestSendWithTemplate::SEO::TITLE": "Send with Template | API Documentation | Dropbox Sign for Developers"
 "SignatureRequestSendWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here."
 "SignatureRequestEditWithTemplate::SEO::TITLE": "Edit Signature Request with Template | API Documentation | Dropbox Sign for Developers"
-"SignatureRequestEditWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here."
+"SignatureRequestEditWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based off of the Template, click here."
 "SignatureRequestUpdate::SEO::TITLE": "Update Signature Request | REST API | Dropbox Sign for Developers"
 "SignatureRequestUpdate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here."
 "TeamAddMember::SEO::TITLE": "Add User to Team | API Documentation | Dropbox Sign for Developers"
