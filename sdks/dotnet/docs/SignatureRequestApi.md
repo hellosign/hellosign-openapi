@@ -10,6 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**SignatureRequestCreateEmbedded**](SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | [**SignatureRequestCreateEmbeddedWithTemplate**](SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
 | [**SignatureRequestEdit**](SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| [**SignatureRequestEditWithTemplate**](SignatureRequestApi.md#signaturerequesteditwithtemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | [**SignatureRequestFiles**](SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | [**SignatureRequestFilesAsDataUri**](SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | [**SignatureRequestFilesAsFileUrl**](SignatureRequestApi.md#signaturerequestfilesasfileurl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -776,6 +777,139 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
 | **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="signaturerequesteditwithtemplate"></a>
+# **SignatureRequestEditWithTemplate**
+> SignatureRequestGetResponse SignatureRequestEditWithTemplate (string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            emailAddress: "george@example.com",
+            name: "George"
+        );
+
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@emaple.com"
+        );
+
+        var customField1 = new SubCustomField(
+            name: "Cost",
+            value: "$20,000",
+            editor: "Client",
+            required: true
+        );
+
+        var signingOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: false,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var data = new SignatureRequestEditWithTemplateRequest(
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            subject: "Purchase Order",
+            message: "Glad we could come to an agreement.",
+            signers: new List<SubSignatureRequestTemplateSigner>(){signer1},
+            ccs: new List<SubCC>(){cc1},
+            customFields: new List<SubCustomField>(){customField1},
+            signingOptions: signingOptions,
+            testMode: true
+        );
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestEditWithTemplate(signatureRequestId, data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the SignatureRequestEditWithTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edit Signature Request With Template
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SignatureRequestApi.SignatureRequestEditWithTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
+| **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
 
 ### Return type
 

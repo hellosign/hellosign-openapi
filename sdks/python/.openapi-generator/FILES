@@ -57,6 +57,7 @@ docs/SignatureRequestBulkSendWithTemplateRequest.md
 docs/SignatureRequestCreateEmbeddedRequest.md
 docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md
 docs/SignatureRequestEditRequest.md
+docs/SignatureRequestEditWithTemplateRequest.md
 docs/SignatureRequestGetResponse.md
 docs/SignatureRequestListResponse.md
 docs/SignatureRequestRemindRequest.md
@@ -250,6 +251,7 @@ dropbox_sign/model/signature_request_bulk_send_with_template_request.py
 dropbox_sign/model/signature_request_create_embedded_request.py
 dropbox_sign/model/signature_request_create_embedded_with_template_request.py
 dropbox_sign/model/signature_request_edit_request.py
+dropbox_sign/model/signature_request_edit_with_template_request.py
 dropbox_sign/model/signature_request_get_response.py
 dropbox_sign/model/signature_request_list_response.py
 dropbox_sign/model/signature_request_remind_request.py

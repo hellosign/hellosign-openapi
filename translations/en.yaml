@@ -420,6 +420,10 @@
 "SignatureRequestSendWithTemplate::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
 "SignatureRequestSendWithTemplate::TITLE": The title you want to assign to the SignatureRequest.
 
+"SignatureRequestEditWithTemplate::SUMMARY": Edit Signature Request With Template
+"SignatureRequestEditWithTemplate::DESCRIPTION": Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+"SignatureRequestEditWithTemplate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+
 "SignatureRequestUpdate::SUMMARY": Update Signature Request
 "SignatureRequestUpdate::DESCRIPTION": |-
   Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.
@@ -1249,7 +1253,9 @@
 "SignatureRequestReleaseHoldResponseExample::SUMMARY": Send Signature Release Hold
 "SignatureRequestRemindResponseExample::SUMMARY": Send Signature Request Reminder
 "SignatureRequestSendResponseExample::SUMMARY": Send Signature Request
+"SignatureRequestEditResponseExample::SUMMARY": Edit Signature Request
 "SignatureRequestSendWithTemplateResponseExample::SUMMARY": Send Signature Request With Template
+"SignatureRequestEditWithTemplateResponseExample::SUMMARY": Edit Signature Request With Template
 "SignatureRequestBulkSendWithTemplateResponseExample::SUMMARY": Send Signature Request With Template
 "SignatureRequestBulkCreateEmbeddedWithTemplateResponseExample::SUMMARY": Bulk Send Create Embedded Signature Request With Template
 "SignatureRequestUpdateResponseExample::SUMMARY": Signature Request Update
@@ -1615,6 +1621,8 @@
 "SignatureRequestEdit::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest with the submitted documents, click here."
 "SignatureRequestSendWithTemplate::SEO::TITLE": "Send with Template | API Documentation | Dropbox Sign for Developers"
 "SignatureRequestSendWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to create and send a new SignatureRequest based off of the Template, click here."
+"SignatureRequestEditWithTemplate::SEO::TITLE": "Edit Signature Request with Template | API Documentation | Dropbox Sign for Developers"
+"SignatureRequestEditWithTemplate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based off of the Template, click here."
 "SignatureRequestUpdate::SEO::TITLE": "Update Signature Request | REST API | Dropbox Sign for Developers"
 "SignatureRequestUpdate::SEO::DESCRIPTION": "Dropbox Sign API allows you to build custom integrations. To find out how to update the email address/name for a signer on a signature request, click here."
 "TeamAddMember::SEO::TITLE": "Add User to Team | API Documentation | Dropbox Sign for Developers"

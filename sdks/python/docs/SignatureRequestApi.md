@@ -10,6 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |[```signature_request_create_embedded```](SignatureRequestApi.md#signature_request_create_embedded) | ```POST /signature_request/create_embedded``` | Create Embedded Signature Request|
 |[```signature_request_create_embedded_with_template```](SignatureRequestApi.md#signature_request_create_embedded_with_template) | ```POST /signature_request/create_embedded_with_template``` | Create Embedded Signature Request with Template|
 |[```signature_request_edit```](SignatureRequestApi.md#signature_request_edit) | ```PUT /signature_request/edit/{signature_request_id}``` | Edit Signature Request|
+|[```signature_request_edit_with_template```](SignatureRequestApi.md#signature_request_edit_with_template) | ```PUT /signature_request/edit_with_template/{signature_request_id}``` | Edit Signature Request With Template|
 |[```signature_request_files```](SignatureRequestApi.md#signature_request_files) | ```GET /signature_request/files/{signature_request_id}``` | Download Files|
 |[```signature_request_files_as_data_uri```](SignatureRequestApi.md#signature_request_files_as_data_uri) | ```GET /signature_request/files_as_data_uri/{signature_request_id}``` | Download Files as Data Uri|
 |[```signature_request_files_as_file_url```](SignatureRequestApi.md#signature_request_files_as_file_url) | ```GET /signature_request/files_as_file_url/{signature_request_id}``` | Download Files as File Url|
@@ -598,6 +599,113 @@ with ApiClient(configuration) as api_client:
 | ---- | ---- | ----------- | ----- |
 | `signature_request_id` | **str** | The id of the SignatureRequest to edit. |  |
 | `signature_request_edit_request` | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+**4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# ```signature_request_edit_with_template```
+> ```SignatureRequestGetResponse signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request)```
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+
+### Example
+
+* Basic Authentication (api_key):
+* Bearer (JWT) Authentication (oauth2):
+
+```python
+from pprint import pprint
+
+from dropbox_sign import \
+    ApiClient, ApiException, Configuration, apis, models
+
+configuration = Configuration(
+    # Configure HTTP basic authorization: api_key
+    username="YOUR_API_KEY",
+
+    # or, configure Bearer (JWT) authorization: oauth2
+    # access_token="YOUR_ACCESS_TOKEN",
+)
+
+with ApiClient(configuration) as api_client:
+    signature_request_api = apis.SignatureRequestApi(api_client)
+
+    signer_1 = models.SubSignatureRequestTemplateSigner(
+        role="Client",
+        email_address="george@example.com",
+        name="George",
+    )
+
+    cc_1 = models.SubCC(
+        role="Accounting",
+        email_address="accounting@example.com",
+    )
+
+    custom_field_1 = models.SubCustomField(
+        name="Cost",
+        value="$20,000",
+        editor="Client",
+        required=True,
+    )
+
+    signing_options = models.SubSigningOptions(
+        draw=True,
+        type=True,
+        upload=True,
+        phone=False,
+        default_type="draw",
+    )
+
+    data = models.SignatureRequestSendWithTemplateRequest(
+        template_ids=["c26b8a16784a872da37ea946b9ddec7c1e11dff6"],
+        subject="Purchase Order",
+        message="Glad we could come to an agreement.",
+        signers=[signer_1],
+        ccs=[cc_1],
+        custom_fields=[custom_field_1],
+        signing_options=signing_options,
+        test_mode=True,
+    )
+
+    signature_request_id = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f"
+
+    try:
+        response = signature_request_api.signature_request_edit_with_template(signature_request_id, data)
+        pprint(response)
+    except ApiException as e:
+        print("Exception when calling Dropbox Sign API: %s\n" % e)
+
+```
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| `signature_request_id` | **str** | The id of the SignatureRequest to edit. |  |
+| `signature_request_edit_with_template_request` | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
 
 ### Return type
 

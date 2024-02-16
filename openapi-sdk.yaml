@@ -2350,6 +2350,128 @@ paths:
           description: 'Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest with the submitted documents, click here.'
       x-hideOn: doc
       x-beta: closed
+  '/signature_request/edit_with_template/{signature_request_id}':
+    put:
+      tags:
+        - 'Signature Request'
+      summary: 'Edit Signature Request With Template'
+      description: 'Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.'
+      operationId: signatureRequestEditWithTemplate
+      parameters:
+        -
+          name: signature_request_id
+          in: path
+          description: 'The id of the SignatureRequest to edit.'
+          required: true
+          schema:
+            type: string
+          example: fa5c8a0b0f492d768749333ad6fcc214c111e967
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureRequestEditWithTemplateRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/SignatureRequestEditWithTemplateRequestDefaultExample'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SignatureRequestEditWithTemplateRequest'
+      responses:
+        200:
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignatureRequestGetResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/SignatureRequestEditWithTemplateResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                409_example:
+                  $ref: '#/components/examples/Error409ResponseExample'
+                429_example:
+                  $ref: '#/components/examples/Error429ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+        -
+          oauth2:
+            - request_signature
+            - signature_request_access
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/SignatureRequestEditWithTemplate.sh
+      x-meta:
+        seo:
+          title: 'Edit Signature Request with Template | API Documentation | Dropbox Sign for Developers'
+          description: 'Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based off of the Template, click here.'
+      x-hideOn: doc
+      x-beta: closed
   '/signature_request/files/{signature_request_id}':
     get:
       tags:
@@ -7170,6 +7292,105 @@ components:
           type: integer
           nullable: true
       type: object
+    SignatureRequestEditWithTemplateRequest:
+      description: ''
+      required:
+        - signers
+        - template_ids
+      properties:
+        template_ids:
+          description: 'Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.'
+          type: array
+          items:
+            type: string
+        allow_decline:
+          description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        ccs:
+          description: 'Add CC email recipients. Required when a CC role exists for the Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCC'
+        client_id:
+          description: 'Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.'
+          type: string
+        custom_fields:
+          description: 'An array defining values and options for custom fields. Required when a custom field exists in the Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        is_qualified_signature:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
+            which requires a face-to-face call to verify the signer's identity.<br>
+            **Note**: QES is only available on the Premium API plan as an add-on purchase.
+            Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
+          deprecated: true
+          x-hideOn: doc
+        is_eid:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
+        message:
+          description: 'The custom message in the email that will be sent to the signers.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        signers:
+          description: 'Add Signers to your Templated-based Signature Request.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        signing_redirect_url:
+          description: 'The URL you want signers redirected to after they successfully sign.'
+          type: string
+        subject:
+          description: 'The subject in the email that will be sent to the signers.'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: 'Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+          maxLength: 255
+      type: object
     SignatureRequestRemindRequest:
       required:
         - email_address
@@ -11631,6 +11852,10 @@ components:
       summary: 'Grouped Signers Example'
       value:
         $ref: examples/json/SignatureRequestEditRequestGroupedSignersExample.json
+    SignatureRequestEditWithTemplateRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditWithTemplateRequestDefaultExample.json
     SignatureRequestRemindRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -11899,10 +12124,18 @@ components:
       summary: 'Send Signature Request'
       value:
         $ref: examples/json/SignatureRequestSendResponseExample.json
+    SignatureRequestEditResponseExample:
+      summary: 'Edit Signature Request'
+      value:
+        $ref: examples/json/SignatureRequestEditResponseExample.json
     SignatureRequestSendWithTemplateResponseExample:
       summary: 'Send Signature Request With Template'
       value:
         $ref: examples/json/SignatureRequestSendWithTemplateResponseExample.json
+    SignatureRequestEditWithTemplateResponseExample:
+      summary: 'Edit Signature Request With Template'
+      value:
+        $ref: examples/json/SignatureRequestEditWithTemplateResponseExample.json
     SignatureRequestUpdateResponseExample:
       summary: 'Signature Request Update'
       value:
