@@ -89,6 +89,7 @@ docs/SubAttachment.md
 docs/SubBulkSignerList.md
 docs/SubBulkSignerListCustomField.md
 docs/SubCC.md
+docs/SubCertificationTypes.md
 docs/SubCustomField.md
 docs/SubEditorOptions.md
 docs/SubFieldOptions.md
@@ -281,6 +282,7 @@ lib/dropbox-sign/models/sub_attachment.rb
 lib/dropbox-sign/models/sub_bulk_signer_list.rb
 lib/dropbox-sign/models/sub_bulk_signer_list_custom_field.rb
 lib/dropbox-sign/models/sub_cc.rb
+lib/dropbox-sign/models/sub_certification_types.rb
 lib/dropbox-sign/models/sub_custom_field.rb
 lib/dropbox-sign/models/sub_editor_options.rb
 lib/dropbox-sign/models/sub_field_options.rb

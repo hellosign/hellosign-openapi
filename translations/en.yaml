@@ -848,6 +848,14 @@
 "Sub::CC::EMAIL_ADDRESS": The email address of the CC recipient.
 "Sub::CC::ROLE": Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.
 
+"Sub::CertificationTypes::DESCRIPTION": |-
+  Optional certification types to be applied to your Signature Request after completion.
+
+  After all parties have signed and completed identity verification (if `is_eid` is `true`), your document's hash will be sent to the specified certificate authority for archiving and integrity verification.
+
+  At this time only a single certification type can be selected per Signature Request.
+"Sub::CertificationTypes::NOM_151": NOM 151, or Normativa 151, is a certificate which verifies the integrity of an electronically signed document in compliance with Mexican regulations.
+
 "Sub::CustomField::DESCRIPTION": |-
   When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
 

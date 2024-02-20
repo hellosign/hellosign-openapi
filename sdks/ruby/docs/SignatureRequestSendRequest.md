@@ -32,4 +32,5 @@
 | `title` | ```String``` |  The title you want to assign to the SignatureRequest.  |  |
 | `use_text_tags` | ```Boolean``` |  Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.  |  [default to false] |
 | `expires_at` | ```Integer``` |  When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  |  |
+| `certification_types` | [```SubCertificationTypes```](SubCertificationTypes.md) |    |  |
 

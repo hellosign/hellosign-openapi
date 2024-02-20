@@ -264,6 +264,7 @@ Class | Method | HTTP request | Description
  - [Model.SubBulkSignerList](docs/SubBulkSignerList.md)
  - [Model.SubBulkSignerListCustomField](docs/SubBulkSignerListCustomField.md)
  - [Model.SubCC](docs/SubCC.md)
+ - [Model.SubCertificationTypes](docs/SubCertificationTypes.md)
  - [Model.SubCustomField](docs/SubCustomField.md)
  - [Model.SubEditorOptions](docs/SubEditorOptions.md)
  - [Model.SubFieldOptions](docs/SubFieldOptions.md)

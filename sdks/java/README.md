@@ -302,6 +302,7 @@ Class | Method | HTTP request | Description
  - [SubBulkSignerList](docs/SubBulkSignerList.md)
  - [SubBulkSignerListCustomField](docs/SubBulkSignerListCustomField.md)
  - [SubCC](docs/SubCC.md)
+ - [SubCertificationTypes](docs/SubCertificationTypes.md)
  - [SubCustomField](docs/SubCustomField.md)
  - [SubEditorOptions](docs/SubEditorOptions.md)
  - [SubFieldOptions](docs/SubFieldOptions.md)

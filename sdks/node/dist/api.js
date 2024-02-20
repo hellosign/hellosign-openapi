@@ -18087,6 +18087,7 @@ __export(api_exports, {
   SubBulkSignerList: () => SubBulkSignerList,
   SubBulkSignerListCustomField: () => SubBulkSignerListCustomField,
   SubCC: () => SubCC,
+  SubCertificationTypes: () => SubCertificationTypes,
   SubCustomField: () => SubCustomField,
   SubEditorOptions: () => SubEditorOptions,
   SubFieldOptions: () => SubFieldOptions,
@@ -24313,6 +24314,11 @@ SignatureRequestSendRequest.attributeTypeMap = [
     name: "expiresAt",
     baseName: "expires_at",
     type: "number"
+  },
+  {
+    name: "certificationTypes",
+    baseName: "certification_types",
+    type: "SubCertificationTypes"
   }
 ];
 
@@ -24421,6 +24427,11 @@ SignatureRequestSendWithTemplateRequest.attributeTypeMap = [
     name: "title",
     baseName: "title",
     type: "string"
+  },
+  {
+    name: "certificationTypes",
+    baseName: "certification_types",
+    type: "SubCertificationTypes"
   }
 ];
 
@@ -24564,6 +24575,28 @@ SubCC.attributeTypeMap = [
     name: "emailAddress",
     baseName: "email_address",
     type: "string"
+  }
+];
+
+// model/subCertificationTypes.ts
+var _SubCertificationTypes = class {
+  constructor() {
+    this["nom151"] = false;
+  }
+  static getAttributeTypeMap() {
+    return _SubCertificationTypes.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "SubCertificationTypes");
+  }
+};
+var SubCertificationTypes = _SubCertificationTypes;
+SubCertificationTypes.discriminator = void 0;
+SubCertificationTypes.attributeTypeMap = [
+  {
+    name: "nom151",
+    baseName: "nom_151",
+    type: "boolean"
   }
 ];
 
@@ -29133,6 +29166,7 @@ var typeMap = {
   SubBulkSignerList,
   SubBulkSignerListCustomField,
   SubCC,
+  SubCertificationTypes,
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,
@@ -36732,6 +36766,7 @@ var APIS = [
   SubBulkSignerList,
   SubBulkSignerListCustomField,
   SubCC,
+  SubCertificationTypes,
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,

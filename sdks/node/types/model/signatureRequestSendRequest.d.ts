@@ -1,5 +1,6 @@
 import { RequestFile, AttributeTypeMap } from "./";
 import { SubAttachment } from "./subAttachment";
+import { SubCertificationTypes } from "./subCertificationTypes";
 import { SubCustomField } from "./subCustomField";
 import { SubFieldOptions } from "./subFieldOptions";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
@@ -37,6 +38,7 @@ export declare class SignatureRequestSendRequest {
     "title"?: string;
     "useTextTags"?: boolean;
     "expiresAt"?: number | null;
+    "certificationTypes"?: SubCertificationTypes;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

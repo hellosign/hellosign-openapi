@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubCC;
+import com.dropbox.sign.model.SubCertificationTypes;
 import com.dropbox.sign.model.SubCustomField;
 import com.dropbox.sign.model.SubSignatureRequestTemplateSigner;
 import com.dropbox.sign.model.SubSigningOptions;
@@ -60,7 +61,8 @@ import com.dropbox.sign.ApiException;
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_SUBJECT,
     SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
-    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_TITLE,
+    SignatureRequestSendWithTemplateRequest.JSON_PROPERTY_CERTIFICATION_TYPES
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -115,6 +117,9 @@ public class SignatureRequestSendWithTemplateRequest {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public static final String JSON_PROPERTY_CERTIFICATION_TYPES = "certification_types";
+  private SubCertificationTypes certificationTypes;
 
   public SignatureRequestSendWithTemplateRequest() { 
   }
@@ -628,6 +633,32 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
 
+  public SignatureRequestSendWithTemplateRequest certificationTypes(SubCertificationTypes certificationTypes) {
+    this.certificationTypes = certificationTypes;
+    return this;
+  }
+
+   /**
+   * Get certificationTypes
+   * @return certificationTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CERTIFICATION_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubCertificationTypes getCertificationTypes() {
+    return certificationTypes;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CERTIFICATION_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCertificationTypes(SubCertificationTypes certificationTypes) {
+    this.certificationTypes = certificationTypes;
+  }
+
+
   /**
    * Return true if this SignatureRequestSendWithTemplateRequest object is equal to o.
    */
@@ -656,12 +687,13 @@ public class SignatureRequestSendWithTemplateRequest {
         Objects.equals(this.signingRedirectUrl, signatureRequestSendWithTemplateRequest.signingRedirectUrl) &&
         Objects.equals(this.subject, signatureRequestSendWithTemplateRequest.subject) &&
         Objects.equals(this.testMode, signatureRequestSendWithTemplateRequest.testMode) &&
-        Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title);
+        Objects.equals(this.title, signatureRequestSendWithTemplateRequest.title) &&
+        Objects.equals(this.certificationTypes, signatureRequestSendWithTemplateRequest.certificationTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title);
+    return Objects.hash(templateIds, signers, allowDecline, ccs, clientId, customFields, files, fileUrls, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, certificationTypes);
   }
 
   @Override
@@ -685,6 +717,7 @@ public class SignatureRequestSendWithTemplateRequest {
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    certificationTypes: ").append(toIndentedString(certificationTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1014,6 +1047,25 @@ public class SignatureRequestSendWithTemplateRequest {
         }
         else {
             map.put("title", JSON.getDefault().getMapper().writeValueAsString(title));
+        }
+    }
+    if (certificationTypes != null) {
+        if (isFileTypeOrListOfFiles(certificationTypes)) {
+            fileTypeFound = true;
+        }
+
+        if (certificationTypes.getClass().equals(java.io.File.class) ||
+            certificationTypes.getClass().equals(Integer.class) ||
+            certificationTypes.getClass().equals(String.class) ||
+            certificationTypes.getClass().isEnum()) {
+            map.put("certification_types", certificationTypes);
+        } else if (isListOfFile(certificationTypes)) {
+            for(int i = 0; i< getListSize(certificationTypes); i++) {
+                map.put("certification_types[" + i + "]", getFromList(certificationTypes, i));
+            }
+        }
+        else {
+            map.put("certification_types", JSON.getDefault().getMapper().writeValueAsString(certificationTypes));
         }
     }
     } catch (Exception e) {

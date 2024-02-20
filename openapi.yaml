@@ -7292,6 +7292,8 @@ components:
           description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
           type: integer
           nullable: true
+        certification_types:
+          $ref: '#/components/schemas/SubCertificationTypes'
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -7380,6 +7382,8 @@ components:
           description: 'The title you want to assign to the SignatureRequest.'
           type: string
           maxLength: 255
+        certification_types:
+          $ref: '#/components/schemas/SubCertificationTypes'
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -7470,6 +7474,19 @@ components:
           description: 'The email address of the CC recipient.'
           type: string
           format: email
+      type: object
+    SubCertificationTypes:
+      description: |-
+        Optional certification types to be applied to your Signature Request after completion.
+
+        After all parties have signed and completed identity verification (if `is_eid` is `true`), your document's hash will be sent to the specified certificate authority for archiving and integrity verification.
+
+        At this time only a single certification type can be selected per Signature Request.
+      properties:
+        nom_151:
+          description: 'NOM 151, or Normativa 151, is a certificate which verifies the integrity of an electronically signed document in compliance with Mexican regulations.'
+          type: boolean
+          default: false
       type: object
     SubCustomField:
       description: |-

@@ -245,6 +245,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [SubBulkSignerList](./docs/model/SubBulkSignerList.md)
 - [SubBulkSignerListCustomField](./docs/model/SubBulkSignerListCustomField.md)
 - [SubCC](./docs/model/SubCC.md)
+- [SubCertificationTypes](./docs/model/SubCertificationTypes.md)
 - [SubCustomField](./docs/model/SubCustomField.md)
 - [SubEditorOptions](./docs/model/SubEditorOptions.md)
 - [SubFieldOptions](./docs/model/SubFieldOptions.md)

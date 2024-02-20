@@ -34,6 +34,7 @@ from dropbox_sign.model_utils import (  # noqa: F401
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
     from dropbox_sign.model.sub_attachment import SubAttachment
+    from dropbox_sign.model.sub_certification_types import SubCertificationTypes
     from dropbox_sign.model.sub_custom_field import SubCustomField
     from dropbox_sign.model.sub_field_options import SubFieldOptions
     from dropbox_sign.model.sub_form_field_group import SubFormFieldGroup
@@ -46,6 +47,7 @@ if TYPE_CHECKING:
 
 def lazy_import():
     from dropbox_sign.model.sub_attachment import SubAttachment
+    from dropbox_sign.model.sub_certification_types import SubCertificationTypes
     from dropbox_sign.model.sub_custom_field import SubCustomField
     from dropbox_sign.model.sub_field_options import SubFieldOptions
     from dropbox_sign.model.sub_form_field_group import SubFormFieldGroup
@@ -55,6 +57,7 @@ def lazy_import():
     from dropbox_sign.model.sub_signature_request_signer import SubSignatureRequestSigner
     from dropbox_sign.model.sub_signing_options import SubSigningOptions
     globals()['SubAttachment'] = SubAttachment
+    globals()['SubCertificationTypes'] = SubCertificationTypes
     globals()['SubCustomField'] = SubCustomField
     globals()['SubFieldOptions'] = SubFieldOptions
     globals()['SubFormFieldGroup'] = SubFormFieldGroup
@@ -155,6 +158,7 @@ class SignatureRequestSendRequest(ModelNormal):
             'title': (str,),  # noqa: E501
             'use_text_tags': (bool,),  # noqa: E501
             'expires_at': (int, none_type,),  # noqa: E501
+            'certification_types': (SubCertificationTypes,),  # noqa: E501
         }
 
     @cached_property
@@ -204,6 +208,7 @@ class SignatureRequestSendRequest(ModelNormal):
         'title': 'title',  # noqa: E501
         'use_text_tags': 'use_text_tags',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
+        'certification_types': 'certification_types',  # noqa: E501
     }
 
     read_only_vars = {
@@ -419,6 +424,14 @@ class SignatureRequestSendRequest(ModelNormal):
     def expires_at(self, value: Optional[int]):
         setattr(self, "expires_at", value)
 
+    @property
+    def certification_types(self) -> SubCertificationTypes:
+        return self.get("certification_types")
+
+    @certification_types.setter
+    def certification_types(self, value: SubCertificationTypes):
+        setattr(self, "certification_types", value)
+
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -481,6 +494,7 @@ class SignatureRequestSendRequest(ModelNormal):
             title (str): The title you want to assign to the SignatureRequest.. [optional]  # noqa: E501
             use_text_tags (bool): Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             expires_at (int, none_type): When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
+            certification_types (SubCertificationTypes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -588,6 +602,7 @@ class SignatureRequestSendRequest(ModelNormal):
             title (str): The title you want to assign to the SignatureRequest.. [optional]  # noqa: E501
             use_text_tags (bool): Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             expires_at (int, none_type): When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
+            certification_types (SubCertificationTypes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

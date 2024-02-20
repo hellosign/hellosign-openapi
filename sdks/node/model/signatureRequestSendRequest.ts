@@ -24,6 +24,7 @@
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { SubAttachment } from "./subAttachment";
+import { SubCertificationTypes } from "./subCertificationTypes";
 import { SubCustomField } from "./subCustomField";
 import { SubFieldOptions } from "./subFieldOptions";
 import { SubFormFieldGroup } from "./subFormFieldGroup";
@@ -132,6 +133,7 @@ export class SignatureRequestSendRequest {
    * When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
    */
   "expiresAt"?: number | null;
+  "certificationTypes"?: SubCertificationTypes;
 
   static discriminator: string | undefined = undefined;
 
@@ -265,6 +267,11 @@ export class SignatureRequestSendRequest {
       name: "expiresAt",
       baseName: "expires_at",
       type: "number",
+    },
+    {
+      name: "certificationTypes",
+      baseName: "certification_types",
+      type: "SubCertificationTypes",
     },
   ];
 
