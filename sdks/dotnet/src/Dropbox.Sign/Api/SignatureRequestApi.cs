@@ -146,7 +146,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -159,7 +159,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -171,7 +171,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request With Template
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -184,7 +184,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request With Template
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -597,7 +597,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -611,7 +611,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -624,7 +624,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request With Template
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -638,7 +638,7 @@ namespace Dropbox.Sign.Api
         /// Edit Signature Request With Template
         /// </summary>
         /// <remarks>
-        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -1938,7 +1938,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -1952,7 +1952,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2036,7 +2036,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2051,7 +2051,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+        /// Edit Signature Request Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2138,7 +2138,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2152,7 +2152,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2236,7 +2236,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2251,7 +2251,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+        /// Edit Signature Request With Template Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>

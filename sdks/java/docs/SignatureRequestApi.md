@@ -567,6 +567,8 @@ Edit Signature Request
 
 Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
 
+**NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
+
 ### Example
 
 ```java
@@ -682,6 +684,8 @@ Name | Type | Description  | Notes
 Edit Signature Request With Template
 
 Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+
+**NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
 ### Example
 

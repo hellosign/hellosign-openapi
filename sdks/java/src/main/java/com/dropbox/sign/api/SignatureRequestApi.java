@@ -436,7 +436,7 @@ public class SignatureRequestApi {
   }
   /**
    * Edit Signature Request
-   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditRequest  (required)
    * @return SignatureRequestGetResponse
@@ -455,7 +455,7 @@ public class SignatureRequestApi {
 
   /**
    * Edit Signature Request
-   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
@@ -519,7 +519,7 @@ public class SignatureRequestApi {
   }
   /**
    * Edit Signature Request With Template
-   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditWithTemplateRequest  (required)
    * @return SignatureRequestGetResponse
@@ -538,7 +538,7 @@ public class SignatureRequestApi {
 
   /**
    * Edit Signature Request With Template
-   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** If Dropbox Sign SMS tools is used your quota will be deducted accordingly. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditWithTemplateRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
