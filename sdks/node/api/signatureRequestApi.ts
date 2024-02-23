@@ -950,7 +950,7 @@ export class SignatureRequestApi {
     });
   }
   /**
-   * Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota. However, all other quota-related features will be deducted.
+   * Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
    * @summary Edit Signature Request
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditRequest
@@ -1136,7 +1136,7 @@ export class SignatureRequestApi {
     });
   }
   /**
-   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota. However, all other quota-related features will be deducted.
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
    * @summary Edit Signature Request With Template
    * @param signatureRequestId The id of the SignatureRequest to edit.
    * @param signatureRequestEditWithTemplateRequest

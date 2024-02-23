@@ -526,7 +526,7 @@ module Dropbox::Sign
     end
 
     # Edit Signature Request
-    # Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota. However, all other quota-related features will be deducted.
+    # Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_request [SignatureRequestEditRequest] 
     # @param [Hash] opts the optional parameters
@@ -537,7 +537,7 @@ module Dropbox::Sign
     end
 
     # Edit Signature Request
-    # Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota. However, all other quota-related features will be deducted.
+    # Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_request [SignatureRequestEditRequest] 
     # @param [Hash] opts the optional parameters
@@ -641,7 +641,7 @@ module Dropbox::Sign
     end
 
     # Edit Signature Request With Template
-    # Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota. However, all other quota-related features will be deducted.
+    # Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_with_template_request [SignatureRequestEditWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
@@ -652,7 +652,7 @@ module Dropbox::Sign
     end
 
     # Edit Signature Request With Template
-    # Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota. However, all other quota-related features will be deducted.
+    # Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_with_template_request [SignatureRequestEditWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
