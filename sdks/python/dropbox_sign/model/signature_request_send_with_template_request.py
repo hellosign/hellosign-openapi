@@ -34,6 +34,7 @@ from dropbox_sign.model_utils import (  # noqa: F401
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
     from dropbox_sign.model.sub_cc import SubCC
+    from dropbox_sign.model.sub_certification_types import SubCertificationTypes
     from dropbox_sign.model.sub_custom_field import SubCustomField
     from dropbox_sign.model.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
     from dropbox_sign.model.sub_signing_options import SubSigningOptions
@@ -41,10 +42,12 @@ if TYPE_CHECKING:
 
 def lazy_import():
     from dropbox_sign.model.sub_cc import SubCC
+    from dropbox_sign.model.sub_certification_types import SubCertificationTypes
     from dropbox_sign.model.sub_custom_field import SubCustomField
     from dropbox_sign.model.sub_signature_request_template_signer import SubSignatureRequestTemplateSigner
     from dropbox_sign.model.sub_signing_options import SubSigningOptions
     globals()['SubCC'] = SubCC
+    globals()['SubCertificationTypes'] = SubCertificationTypes
     globals()['SubCustomField'] = SubCustomField
     globals()['SubSignatureRequestTemplateSigner'] = SubSignatureRequestTemplateSigner
     globals()['SubSigningOptions'] = SubSigningOptions
@@ -131,6 +134,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             'subject': (str,),  # noqa: E501
             'test_mode': (bool,),  # noqa: E501
             'title': (str,),  # noqa: E501
+            'certification_types': (SubCertificationTypes,),  # noqa: E501
         }
 
     @cached_property
@@ -171,6 +175,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
         'subject': 'subject',  # noqa: E501
         'test_mode': 'test_mode',  # noqa: E501
         'title': 'title',  # noqa: E501
+        'certification_types': 'certification_types',  # noqa: E501
     }
 
     read_only_vars = {
@@ -314,6 +319,14 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
     def title(self, value: str):
         setattr(self, "title", value)
 
+    @property
+    def certification_types(self) -> SubCertificationTypes:
+        return self.get("certification_types")
+
+    @certification_types.setter
+    def certification_types(self, value: SubCertificationTypes):
+        setattr(self, "certification_types", value)
+
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, template_ids, signers, *args, **kwargs):  # noqa: E501
@@ -369,6 +382,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             subject (str): The subject in the email that will be sent to the signers.. [optional]  # noqa: E501
             test_mode (bool): Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             title (str): The title you want to assign to the SignatureRequest.. [optional]  # noqa: E501
+            certification_types (SubCertificationTypes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -471,6 +485,7 @@ class SignatureRequestSendWithTemplateRequest(ModelNormal):
             subject (str): The subject in the email that will be sent to the signers.. [optional]  # noqa: E501
             test_mode (bool): Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             title (str): The title you want to assign to the SignatureRequest.. [optional]  # noqa: E501
+            certification_types (SubCertificationTypes): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -88,6 +88,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'string',
         'use_text_tags' => 'bool',
         'expires_at' => 'int',
+        'certification_types' => '\Dropbox\Sign\Model\SubCertificationTypes',
     ];
 
     /**
@@ -124,6 +125,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => null,
         'use_text_tags' => null,
         'expires_at' => null,
+        'certification_types' => null,
     ];
 
     /**
@@ -179,6 +181,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'title',
         'use_text_tags' => 'use_text_tags',
         'expires_at' => 'expires_at',
+        'certification_types' => 'certification_types',
     ];
 
     /**
@@ -213,6 +216,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'setTitle',
         'use_text_tags' => 'setUseTextTags',
         'expires_at' => 'setExpiresAt',
+        'certification_types' => 'setCertificationTypes',
     ];
 
     /**
@@ -247,6 +251,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         'title' => 'getTitle',
         'use_text_tags' => 'getUseTextTags',
         'expires_at' => 'getExpiresAt',
+        'certification_types' => 'getCertificationTypes',
     ];
 
     /**
@@ -331,6 +336,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
         $this->container['title'] = $data['title'] ?? null;
         $this->container['use_text_tags'] = $data['use_text_tags'] ?? false;
         $this->container['expires_at'] = $data['expires_at'] ?? null;
+        $this->container['certification_types'] = $data['certification_types'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -1020,6 +1026,30 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     public function setExpiresAt(?int $expires_at)
     {
         $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets certification_types
+     *
+     * @return SubCertificationTypes|null
+     */
+    public function getCertificationTypes()
+    {
+        return $this->container['certification_types'];
+    }
+
+    /**
+     * Sets certification_types
+     *
+     * @param SubCertificationTypes|null $certification_types certification_types
+     *
+     * @return self
+     */
+    public function setCertificationTypes(?SubCertificationTypes $certification_types)
+    {
+        $this->container['certification_types'] = $certification_types;
 
         return $this;
     }

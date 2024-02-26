@@ -245,6 +245,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SubBulkSignerList](docs/SubBulkSignerList.md)
  - [Dropbox::Sign::SubBulkSignerListCustomField](docs/SubBulkSignerListCustomField.md)
  - [Dropbox::Sign::SubCC](docs/SubCC.md)
+ - [Dropbox::Sign::SubCertificationTypes](docs/SubCertificationTypes.md)
  - [Dropbox::Sign::SubCustomField](docs/SubCustomField.md)
  - [Dropbox::Sign::SubEditorOptions](docs/SubEditorOptions.md)
  - [Dropbox::Sign::SubFieldOptions](docs/SubFieldOptions.md)

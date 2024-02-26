@@ -1,5 +1,6 @@
 import { RequestFile, AttributeTypeMap } from "./";
 import { SubCC } from "./subCC";
+import { SubCertificationTypes } from "./subCertificationTypes";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
 import { SubSigningOptions } from "./subSigningOptions";
@@ -23,6 +24,7 @@ export declare class SignatureRequestSendWithTemplateRequest {
     "subject"?: string;
     "testMode"?: boolean;
     "title"?: string;
+    "certificationTypes"?: SubCertificationTypes;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

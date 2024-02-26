@@ -23,6 +23,7 @@
 | `subject` | ```str``` |  The subject in the email that will be sent to the signers.  |  |
 | `test_mode` | ```bool``` |  Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.  |  [default to False] |
 | `title` | ```str``` |  The title you want to assign to the SignatureRequest.  |  |
+| `certification_types` | [```SubCertificationTypes```](SubCertificationTypes.md) |    |  |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

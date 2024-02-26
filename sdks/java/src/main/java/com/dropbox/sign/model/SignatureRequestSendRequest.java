@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.SubAttachment;
+import com.dropbox.sign.model.SubCertificationTypes;
 import com.dropbox.sign.model.SubCustomField;
 import com.dropbox.sign.model.SubFieldOptions;
 import com.dropbox.sign.model.SubFormFieldGroup;
@@ -74,7 +75,8 @@ import com.dropbox.sign.ApiException;
     SignatureRequestSendRequest.JSON_PROPERTY_TEST_MODE,
     SignatureRequestSendRequest.JSON_PROPERTY_TITLE,
     SignatureRequestSendRequest.JSON_PROPERTY_USE_TEXT_TAGS,
-    SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT
+    SignatureRequestSendRequest.JSON_PROPERTY_EXPIRES_AT,
+    SignatureRequestSendRequest.JSON_PROPERTY_CERTIFICATION_TYPES
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -156,6 +158,9 @@ public class SignatureRequestSendRequest {
 
   public static final String JSON_PROPERTY_EXPIRES_AT = "expires_at";
   private Integer expiresAt;
+
+  public static final String JSON_PROPERTY_CERTIFICATION_TYPES = "certification_types";
+  private SubCertificationTypes certificationTypes;
 
   public SignatureRequestSendRequest() { 
   }
@@ -941,6 +946,32 @@ public class SignatureRequestSendRequest {
   }
 
 
+  public SignatureRequestSendRequest certificationTypes(SubCertificationTypes certificationTypes) {
+    this.certificationTypes = certificationTypes;
+    return this;
+  }
+
+   /**
+   * Get certificationTypes
+   * @return certificationTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CERTIFICATION_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubCertificationTypes getCertificationTypes() {
+    return certificationTypes;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CERTIFICATION_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCertificationTypes(SubCertificationTypes certificationTypes) {
+    this.certificationTypes = certificationTypes;
+  }
+
+
   /**
    * Return true if this SignatureRequestSendRequest object is equal to o.
    */
@@ -978,12 +1009,13 @@ public class SignatureRequestSendRequest {
         Objects.equals(this.testMode, signatureRequestSendRequest.testMode) &&
         Objects.equals(this.title, signatureRequestSendRequest.title) &&
         Objects.equals(this.useTextTags, signatureRequestSendRequest.useTextTags) &&
-        Objects.equals(this.expiresAt, signatureRequestSendRequest.expiresAt);
+        Objects.equals(this.expiresAt, signatureRequestSendRequest.expiresAt) &&
+        Objects.equals(this.certificationTypes, signatureRequestSendRequest.certificationTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt);
+    return Objects.hash(files, fileUrls, signers, groupedSigners, allowDecline, allowReassign, attachments, ccEmailAddresses, clientId, customFields, fieldOptions, formFieldGroups, formFieldRules, formFieldsPerDocument, hideTextTags, isQualifiedSignature, isEid, message, metadata, signingOptions, signingRedirectUrl, subject, testMode, title, useTextTags, expiresAt, certificationTypes);
   }
 
   @Override
@@ -1016,6 +1048,7 @@ public class SignatureRequestSendRequest {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    certificationTypes: ").append(toIndentedString(certificationTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1516,6 +1549,25 @@ public class SignatureRequestSendRequest {
         }
         else {
             map.put("expires_at", JSON.getDefault().getMapper().writeValueAsString(expiresAt));
+        }
+    }
+    if (certificationTypes != null) {
+        if (isFileTypeOrListOfFiles(certificationTypes)) {
+            fileTypeFound = true;
+        }
+
+        if (certificationTypes.getClass().equals(java.io.File.class) ||
+            certificationTypes.getClass().equals(Integer.class) ||
+            certificationTypes.getClass().equals(String.class) ||
+            certificationTypes.getClass().isEnum()) {
+            map.put("certification_types", certificationTypes);
+        } else if (isListOfFile(certificationTypes)) {
+            for(int i = 0; i< getListSize(certificationTypes); i++) {
+                map.put("certification_types[" + i + "]", getFromList(certificationTypes, i));
+            }
+        }
+        else {
+            map.put("certification_types", JSON.getDefault().getMapper().writeValueAsString(certificationTypes));
         }
     }
     } catch (Exception e) {

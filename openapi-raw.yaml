@@ -7248,6 +7248,8 @@ components:
           description: '_t__SignatureRequestSend::EXPIRES_AT'
           type: integer
           nullable: true
+        certification_types:
+          $ref: '#/components/schemas/SubCertificationTypes'
       type: object
     SignatureRequestSendWithTemplateRequest:
       description: ''
@@ -7329,6 +7331,8 @@ components:
           description: '_t__SignatureRequestSendWithTemplate::TITLE'
           type: string
           maxLength: 255
+        certification_types:
+          $ref: '#/components/schemas/SubCertificationTypes'
       type: object
     SignatureRequestUpdateRequest:
       required:
@@ -7405,6 +7409,14 @@ components:
           description: '_t__Sub::CC::EMAIL_ADDRESS'
           type: string
           format: email
+      type: object
+    SubCertificationTypes:
+      description: '_t__Sub::CertificationTypes::DESCRIPTION'
+      properties:
+        nom_151:
+          description: '_t__Sub::CertificationTypes::NOM_151'
+          type: boolean
+          default: false
       type: object
     SubCustomField:
       description: '_t__Sub::CustomField::DESCRIPTION'

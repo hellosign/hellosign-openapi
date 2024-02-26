@@ -24,6 +24,7 @@
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { SubCC } from "./subCC";
+import { SubCertificationTypes } from "./subCertificationTypes";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";
 import { SubSigningOptions } from "./subSigningOptions";
@@ -94,6 +95,7 @@ export class SignatureRequestSendWithTemplateRequest {
    * The title you want to assign to the SignatureRequest.
    */
   "title"?: string;
+  "certificationTypes"?: SubCertificationTypes;
 
   static discriminator: string | undefined = undefined;
 
@@ -182,6 +184,11 @@ export class SignatureRequestSendWithTemplateRequest {
       name: "title",
       baseName: "title",
       type: "string",
+    },
+    {
+      name: "certificationTypes",
+      baseName: "certification_types",
+      type: "SubCertificationTypes",
     },
   ];
 

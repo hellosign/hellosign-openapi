@@ -85,6 +85,7 @@ from dropbox_sign.model.sub_attachment import SubAttachment
 from dropbox_sign.model.sub_bulk_signer_list import SubBulkSignerList
 from dropbox_sign.model.sub_bulk_signer_list_custom_field import SubBulkSignerListCustomField
 from dropbox_sign.model.sub_cc import SubCC
+from dropbox_sign.model.sub_certification_types import SubCertificationTypes
 from dropbox_sign.model.sub_custom_field import SubCustomField
 from dropbox_sign.model.sub_editor_options import SubEditorOptions
 from dropbox_sign.model.sub_field_options import SubFieldOptions

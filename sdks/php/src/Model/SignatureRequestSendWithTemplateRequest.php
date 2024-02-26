@@ -79,6 +79,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'string',
         'test_mode' => 'bool',
         'title' => 'string',
+        'certification_types' => '\Dropbox\Sign\Model\SubCertificationTypes',
     ];
 
     /**
@@ -106,6 +107,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => null,
         'test_mode' => null,
         'title' => null,
+        'certification_types' => null,
     ];
 
     /**
@@ -152,6 +154,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'subject',
         'test_mode' => 'test_mode',
         'title' => 'title',
+        'certification_types' => 'certification_types',
     ];
 
     /**
@@ -177,6 +180,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'setSubject',
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
+        'certification_types' => 'setCertificationTypes',
     ];
 
     /**
@@ -202,6 +206,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         'subject' => 'getSubject',
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
+        'certification_types' => 'getCertificationTypes',
     ];
 
     /**
@@ -277,6 +282,7 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         $this->container['subject'] = $data['subject'] ?? null;
         $this->container['test_mode'] = $data['test_mode'] ?? false;
         $this->container['title'] = $data['title'] ?? null;
+        $this->container['certification_types'] = $data['certification_types'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -756,6 +762,30 @@ class SignatureRequestSendWithTemplateRequest implements ModelInterface, ArrayAc
         }
 
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets certification_types
+     *
+     * @return SubCertificationTypes|null
+     */
+    public function getCertificationTypes()
+    {
+        return $this->container['certification_types'];
+    }
+
+    /**
+     * Sets certification_types
+     *
+     * @param SubCertificationTypes|null $certification_types certification_types
+     *
+     * @return self
+     */
+    public function setCertificationTypes(?SubCertificationTypes $certification_types)
+    {
+        $this->container['certification_types'] = $certification_types;
 
         return $this;
     }

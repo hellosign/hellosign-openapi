@@ -74,6 +74,7 @@ import { SubAttachment } from "./subAttachment";
 import { SubBulkSignerList } from "./subBulkSignerList";
 import { SubBulkSignerListCustomField } from "./subBulkSignerListCustomField";
 import { SubCC } from "./subCC";
+import { SubCertificationTypes } from "./subCertificationTypes";
 import { SubCustomField } from "./subCustomField";
 import { SubEditorOptions } from "./subEditorOptions";
 import { SubFieldOptions } from "./subFieldOptions";
@@ -321,6 +322,7 @@ export let typeMap: { [index: string]: any } = {
   SubBulkSignerList: SubBulkSignerList,
   SubBulkSignerListCustomField: SubBulkSignerListCustomField,
   SubCC: SubCC,
+  SubCertificationTypes: SubCertificationTypes,
   SubCustomField: SubCustomField,
   SubEditorOptions: SubEditorOptions,
   SubFieldOptions: SubFieldOptions,
@@ -517,6 +519,7 @@ export {
   SubBulkSignerList,
   SubBulkSignerListCustomField,
   SubCC,
+  SubCertificationTypes,
   SubCustomField,
   SubEditorOptions,
   SubFieldOptions,
