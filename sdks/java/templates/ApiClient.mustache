@@ -298,6 +298,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   /**
    * Helper method to set username for the first HTTP basic authentication.
    * @param username Username
+   * @deprecated use setApiKey
    */
   public void setUsername(String username) {
     for (Authentication auth : authentications.values()) {
@@ -312,6 +313,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   /**
    * Helper method to set password for the first HTTP basic authentication.
    * @param password Password
+   * @deprecated use setApiKey
    */
   public void setPassword(String password) {
     for (Authentication auth : authentications.values()) {
@@ -327,27 +329,13 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
 
   {{#hasApiKeyMethods}}
   /**
-   * Helper method to set API key value for the first API key authentication.
+   * Modified to use basic auth w/ a key instead of a header
    * @param apiKey the API key
    */
   public void setApiKey(String apiKey) {
     for (Authentication auth : authentications.values()) {
-      if (auth instanceof ApiKeyAuth) {
-        ((ApiKeyAuth) auth).setApiKey(apiKey);
-        return;
-      }
-    }
-    throw new RuntimeException("No API key authentication configured!");
-  }
-
-  /**
-   * Helper method to set API key prefix for the first API key authentication.
-   * @param apiKeyPrefix API key prefix
-   */
-  public void setApiKeyPrefix(String apiKeyPrefix) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof ApiKeyAuth) {
-        ((ApiKeyAuth) auth).setApiKeyPrefix(apiKeyPrefix);
+      if (auth instanceof HttpBasicAuth) {
+        ((HttpBasicAuth) auth).setUsername(password);
         return;
       }
     }
