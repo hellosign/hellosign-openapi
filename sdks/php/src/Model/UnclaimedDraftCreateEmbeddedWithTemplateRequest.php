@@ -91,6 +91,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'bool',
         'title' => 'string',
         'populate_auto_fill_fields' => 'bool',
+        'allow_ccs' => 'bool',
     ];
 
     /**
@@ -130,6 +131,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => null,
         'title' => null,
         'populate_auto_fill_fields' => null,
+        'allow_ccs' => null,
     ];
 
     /**
@@ -188,6 +190,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'test_mode',
         'title' => 'title',
         'populate_auto_fill_fields' => 'populate_auto_fill_fields',
+        'allow_ccs' => 'allow_ccs',
     ];
 
     /**
@@ -225,6 +228,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'setTestMode',
         'title' => 'setTitle',
         'populate_auto_fill_fields' => 'setPopulateAutoFillFields',
+        'allow_ccs' => 'setAllowCcs',
     ];
 
     /**
@@ -262,6 +266,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         'test_mode' => 'getTestMode',
         'title' => 'getTitle',
         'populate_auto_fill_fields' => 'getPopulateAutoFillFields',
+        'allow_ccs' => 'getAllowCcs',
     ];
 
     /**
@@ -349,6 +354,7 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
         $this->container['test_mode'] = $data['test_mode'] ?? false;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['populate_auto_fill_fields'] = $data['populate_auto_fill_fields'] ?? false;
+        $this->container['allow_ccs'] = $data['allow_ccs'] ?? false;
     }
 
     /** @deprecated use ::init() */
@@ -1117,6 +1123,30 @@ class UnclaimedDraftCreateEmbeddedWithTemplateRequest implements ModelInterface,
     public function setPopulateAutoFillFields(?bool $populate_auto_fill_fields)
     {
         $this->container['populate_auto_fill_fields'] = $populate_auto_fill_fields;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_ccs
+     *
+     * @return bool|null
+     */
+    public function getAllowCcs()
+    {
+        return $this->container['allow_ccs'];
+    }
+
+    /**
+     * Sets allow_ccs
+     *
+     * @param bool|null $allow_ccs this allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft
+     *
+     * @return self
+     */
+    public function setAllowCcs(?bool $allow_ccs)
+    {
+        $this->container['allow_ccs'] = $allow_ccs;
 
         return $this;
     }

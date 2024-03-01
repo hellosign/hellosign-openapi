@@ -411,7 +411,7 @@ class SubSignatureRequestTemplateSigner implements ModelInterface, ArrayAccess, 
     /**
      * Sets sms_phone_number
      *
-     * @param string|null $sms_phone_number An E.164 formatted phone number.  **Note**: Not available in test mode and requires a Standard plan or higher.
+     * @param string|null $sms_phone_number An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **Note**: Not available in test mode and requires a Standard plan or higher.
      *
      * @return self
      */

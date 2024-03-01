@@ -6,7 +6,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `template` | [```TemplateCreateResponse```](TemplateCreateResponse.md) |    |  |
+| `template` | [```TemplateCreateResponseTemplate```](TemplateCreateResponseTemplate.md) |    |  |
 | `warnings` | [```[WarningResponse]```](WarningResponse.md) |  A list of warnings.  |  |
 
 

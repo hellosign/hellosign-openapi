@@ -525,6 +525,236 @@ module Dropbox::Sign
       return data, status_code, headers
     end
 
+    # Edit Signature Request
+    # Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+    # @param signature_request_id [String] The id of the SignatureRequest to edit.
+    # @param signature_request_edit_request [SignatureRequestEditRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [SignatureRequestGetResponse]
+    def signature_request_edit(signature_request_id, signature_request_edit_request, opts = {})
+      data, _status_code, _headers = signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request, opts)
+      data
+    end
+
+    # Edit Signature Request
+    # Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+    # @param signature_request_id [String] The id of the SignatureRequest to edit.
+    # @param signature_request_edit_request [SignatureRequestEditRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
+    def signature_request_edit_with_http_info(signature_request_id, signature_request_edit_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SignatureRequestApi.signature_request_edit ...'
+      end
+      # verify the required parameter 'signature_request_id' is set
+      if @api_client.config.client_side_validation && signature_request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signature_request_id' when calling SignatureRequestApi.signature_request_edit"
+      end
+      # verify the required parameter 'signature_request_edit_request' is set
+      if @api_client.config.client_side_validation && signature_request_edit_request.nil?
+        fail ArgumentError, "Missing the required parameter 'signature_request_edit_request' when calling SignatureRequestApi.signature_request_edit"
+      end
+      # resource path
+      local_var_path = '/signature_request/edit/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        signature_request_edit_request,
+        Dropbox::Sign::SignatureRequestEditRequest.openapi_types
+      )
+
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SignatureRequestGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SignatureRequestApi.signature_request_edit",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::SignatureRequestGetResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SignatureRequestApi#signature_request_edit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Edit Signature Request With Template
+    # Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+    # @param signature_request_id [String] The id of the SignatureRequest to edit.
+    # @param signature_request_edit_with_template_request [SignatureRequestEditWithTemplateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [SignatureRequestGetResponse]
+    def signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request, opts = {})
+      data, _status_code, _headers = signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request, opts)
+      data
+    end
+
+    # Edit Signature Request With Template
+    # Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+    # @param signature_request_id [String] The id of the SignatureRequest to edit.
+    # @param signature_request_edit_with_template_request [SignatureRequestEditWithTemplateRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
+    def signature_request_edit_with_template_with_http_info(signature_request_id, signature_request_edit_with_template_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SignatureRequestApi.signature_request_edit_with_template ...'
+      end
+      # verify the required parameter 'signature_request_id' is set
+      if @api_client.config.client_side_validation && signature_request_id.nil?
+        fail ArgumentError, "Missing the required parameter 'signature_request_id' when calling SignatureRequestApi.signature_request_edit_with_template"
+      end
+      # verify the required parameter 'signature_request_edit_with_template_request' is set
+      if @api_client.config.client_side_validation && signature_request_edit_with_template_request.nil?
+        fail ArgumentError, "Missing the required parameter 'signature_request_edit_with_template_request' when calling SignatureRequestApi.signature_request_edit_with_template"
+      end
+      # resource path
+      local_var_path = '/signature_request/edit_with_template/{signature_request_id}'.sub('{' + 'signature_request_id' + '}', CGI.escape(signature_request_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      post_body = {}
+      form_params = opts[:form_params] || {}
+      result = @api_client.generate_form_data(
+        signature_request_edit_with_template_request,
+        Dropbox::Sign::SignatureRequestEditWithTemplateRequest.openapi_types
+      )
+
+      # form parameters
+      if result[:has_file]
+        form_params = opts[:form_params] || result[:params]
+        header_params['Content-Type'] = 'multipart/form-data'
+      else
+        # http body (model)
+        post_body = opts[:debug_body] || result[:params]
+      end
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SignatureRequestGetResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['api_key', 'oauth2']
+
+      new_options = opts.merge(
+        :operation => :"SignatureRequestApi.signature_request_edit_with_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      begin
+        data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      rescue Dropbox::Sign::ApiError => e
+        if e.code === 200
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::SignatureRequestGetResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+        range_code = "4XX".split('').first
+        range_code_left = "#{range_code}00".to_i
+        range_code_right = "#{range_code}99".to_i
+        if e.code >= range_code_left && e.code <= range_code_right
+          body = @api_client.convert_to_type(
+            JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
+            "Dropbox::Sign::ErrorResponse"
+          )
+
+          fail ApiError.new(:code => e.code,
+                            :response_headers => e.response_headers,
+                            :response_body => body),
+               e.message
+        end
+
+      end
+
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SignatureRequestApi#signature_request_edit_with_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Download Files
     # Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of `409` will be returned instead.
     # @param signature_request_id [String] The id of the SignatureRequest to retrieve.
@@ -724,6 +954,7 @@ module Dropbox::Sign
     # Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
     # @param signature_request_id [String] The id of the SignatureRequest to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (default to 1)
     # @return [FileResponse]
     def signature_request_files_as_file_url(signature_request_id, opts = {})
       data, _status_code, _headers = signature_request_files_as_file_url_with_http_info(signature_request_id, opts)
@@ -734,6 +965,7 @@ module Dropbox::Sign
     # Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
     # @param signature_request_id [String] The id of the SignatureRequest to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
     # @return [Array<(FileResponse, Integer, Hash)>] FileResponse data, response status code and response headers
     def signature_request_files_as_file_url_with_http_info(signature_request_id, opts = {})
       if @api_client.config.debugging
@@ -748,6 +980,7 @@ module Dropbox::Sign
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'force_download'] = opts[:'force_download'] if !opts[:'force_download'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

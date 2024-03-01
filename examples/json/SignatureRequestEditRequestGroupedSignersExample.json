@@ -1,0 +1,57 @@
+{
+  "title": "NDA with Acme Co.",
+  "subject": "The NDA we talked about",
+  "message": "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  "grouped_signers": [
+    {
+      "group": "Group #1",
+      "order": 0,
+      "signers": [
+        {
+          "email_address": "jack@example.com",
+          "name": "Jack"
+        },
+        {
+          "email_address": "jill@example.com",
+          "name": "Jill"
+        }
+      ]
+    },
+    {
+      "group": "Group #2",
+      "order": 1,
+      "signers": [
+        {
+          "email_address": "bob@example.com",
+          "name": "Bob"
+        },
+        {
+          "email_address": "charlie@example.com",
+          "name": "Charlie"
+        }
+      ]
+    }
+  ],
+  "cc_email_addresses": [
+    "lawyer@dropboxsign.com",
+    "lawyer@dropboxsign.com"
+  ],
+  "file_urls": [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
+  ],
+  "metadata": {
+    "custom_id": 1234,
+    "custom_text": "NDA #9"
+  },
+  "signing_options": {
+    "draw": true,
+    "type": true,
+    "upload": true,
+    "phone": false,
+    "default_type": "draw"
+  },
+  "field_options": {
+    "date_format": "DD - MM - YYYY"
+  },
+  "test_mode": true
+}

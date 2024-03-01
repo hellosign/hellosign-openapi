@@ -9,6 +9,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**SignatureRequestCancel**](SignatureRequestApi.md#signaturerequestcancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request |
 | [**SignatureRequestCreateEmbedded**](SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | [**SignatureRequestCreateEmbeddedWithTemplate**](SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
+| [**SignatureRequestEdit**](SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| [**SignatureRequestEditWithTemplate**](SignatureRequestApi.md#signaturerequesteditwithtemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | [**SignatureRequestFiles**](SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | [**SignatureRequestFilesAsDataUri**](SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
 | [**SignatureRequestFilesAsFileUrl**](SignatureRequestApi.md#signaturerequestfilesasfileurl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url |
@@ -649,6 +651,288 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="signaturerequestedit"></a>
+# **SignatureRequestEdit**
+> SignatureRequestGetResponse SignatureRequestEdit (string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest)
+
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestSigner(
+            emailAddress: "jack@example.com",
+            name: "Jack",
+            order: 0
+        );
+
+        var signer2 = new SubSignatureRequestSigner(
+            emailAddress: "jill@example.com",
+            name: "Jill",
+            order: 1
+        );
+
+        var signingOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: true,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var subFieldOptions = new SubFieldOptions(
+            dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
+        );
+
+        var metadata = new Dictionary<string, object>()
+        {
+            ["custom_id"] = 1234,
+            ["custom_text"] = "NDA #9"
+        };
+
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_signature_request.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new SignatureRequestEditRequest(
+            title: "NDA with Acme Co.",
+            subject: "The NDA we talked about",
+            message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+            signers: new List<SubSignatureRequestSigner>(){signer1, signer2},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
+            files: files,
+            metadata: metadata,
+            signingOptions: signingOptions,
+            fieldOptions: subFieldOptions,
+            testMode: true
+        );
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestEdit(signatureRequestId, data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the SignatureRequestEditWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edit Signature Request
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SignatureRequestApi.SignatureRequestEditWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
+| **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="signaturerequesteditwithtemplate"></a>
+# **SignatureRequestEditWithTemplate**
+> SignatureRequestGetResponse SignatureRequestEditWithTemplate (string signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest)
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Example
+```csharp
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            emailAddress: "george@example.com",
+            name: "George"
+        );
+
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@emaple.com"
+        );
+
+        var customField1 = new SubCustomField(
+            name: "Cost",
+            value: "$20,000",
+            editor: "Client",
+            required: true
+        );
+
+        var signingOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: false,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var data = new SignatureRequestEditWithTemplateRequest(
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            subject: "Purchase Order",
+            message: "Glad we could come to an agreement.",
+            signers: new List<SubSignatureRequestTemplateSigner>(){signer1},
+            ccs: new List<SubCC>(){cc1},
+            customFields: new List<SubCustomField>(){customField1},
+            signingOptions: signingOptions,
+            testMode: true
+        );
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestEditWithTemplate(signatureRequestId, data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
+```
+
+#### Using the SignatureRequestEditWithTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edit Signature Request With Template
+    ApiResponse<SignatureRequestGetResponse> response = apiInstance.SignatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SignatureRequestApi.SignatureRequestEditWithTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **signatureRequestId** | **string** | The id of the SignatureRequest to edit. |  |
+| **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md) |  |  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="signaturerequestfiles"></a>
 # **SignatureRequestFiles**
 > System.IO.Stream SignatureRequestFiles (string signatureRequestId, string? fileType = null)
@@ -846,7 +1130,7 @@ catch (ApiException e)
 
 <a name="signaturerequestfilesasfileurl"></a>
 # **SignatureRequestFilesAsFileUrl**
-> FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId)
+> FileResponse SignatureRequestFilesAsFileUrl (string signatureRequestId, int? forceDownload = null)
 
 Download Files as File Url
 
@@ -898,7 +1182,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Download Files as File Url
-    ApiResponse<FileResponse> response = apiInstance.SignatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId);
+    ApiResponse<FileResponse> response = apiInstance.SignatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -916,6 +1200,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
+| **forceDownload** | **int?** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 

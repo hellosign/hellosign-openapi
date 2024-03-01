@@ -17,6 +17,8 @@ import com.dropbox.sign.model.SignatureRequestBulkCreateEmbeddedWithTemplateRequ
 import com.dropbox.sign.model.SignatureRequestBulkSendWithTemplateRequest;
 import com.dropbox.sign.model.SignatureRequestCreateEmbeddedRequest;
 import com.dropbox.sign.model.SignatureRequestCreateEmbeddedWithTemplateRequest;
+import com.dropbox.sign.model.SignatureRequestEditRequest;
+import com.dropbox.sign.model.SignatureRequestEditWithTemplateRequest;
 import com.dropbox.sign.model.SignatureRequestGetResponse;
 import com.dropbox.sign.model.SignatureRequestListResponse;
 import com.dropbox.sign.model.SignatureRequestRemindRequest;
@@ -434,6 +436,172 @@ public class SignatureRequestApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Edit Signature Request
+   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditRequest  (required)
+   * @return SignatureRequestGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public SignatureRequestGetResponse signatureRequestEdit(String signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest) throws ApiException {
+    return signatureRequestEditWithHttpInfo(signatureRequestId, signatureRequestEditRequest).getData();
+  }
+
+
+  /**
+   * Edit Signature Request
+   * Edits and sends a SignatureRequest with the submitted documents. If &#x60;form_fields_per_document&#x60; is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditRequest  (required)
+   * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SignatureRequestGetResponse> signatureRequestEditWithHttpInfo(String signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest) throws ApiException {
+    
+    Object localVarPostBody = signatureRequestEditRequest;
+    
+    // verify the required parameter 'signatureRequestId' is set
+    if (signatureRequestId == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestEdit");
+    }
+    
+    // verify the required parameter 'signatureRequestEditRequest' is set
+    if (signatureRequestEditRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestEditRequest' when calling signatureRequestEdit");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/signature_request/edit/{signature_request_id}"
+      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json", "multipart/form-data"
+    };
+
+    localVarFormParams = signatureRequestEditRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+
+    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
+
+    GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
+
+    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestEdit", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Edit Signature Request With Template
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditWithTemplateRequest  (required)
+   * @return SignatureRequestGetResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public SignatureRequestGetResponse signatureRequestEditWithTemplate(String signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest) throws ApiException {
+    return signatureRequestEditWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditWithTemplateRequest).getData();
+  }
+
+
+  /**
+   * Edit Signature Request With Template
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @param signatureRequestId The id of the SignatureRequest to edit. (required)
+   * @param signatureRequestEditWithTemplateRequest  (required)
+   * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> successful operation </td><td>  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  </td></tr>
+       <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SignatureRequestGetResponse> signatureRequestEditWithTemplateWithHttpInfo(String signatureRequestId, SignatureRequestEditWithTemplateRequest signatureRequestEditWithTemplateRequest) throws ApiException {
+    
+    Object localVarPostBody = signatureRequestEditWithTemplateRequest;
+    
+    // verify the required parameter 'signatureRequestId' is set
+    if (signatureRequestId == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestId' when calling signatureRequestEditWithTemplate");
+    }
+    
+    // verify the required parameter 'signatureRequestEditWithTemplateRequest' is set
+    if (signatureRequestEditWithTemplateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signatureRequestEditWithTemplateRequest' when calling signatureRequestEditWithTemplate");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/signature_request/edit_with_template/{signature_request_id}"
+      .replaceAll("\\{" + "signature_request_id" + "\\}", apiClient.escapeString(signatureRequestId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json", "multipart/form-data"
+    };
+
+    localVarFormParams = signatureRequestEditWithTemplateRequest.createFormData();
+    boolean isFileTypeFound = !localVarFormParams.isEmpty();
+
+    final String localVarContentType = isFileTypeFound? "multipart/form-data" : apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "api_key", "oauth2" };
+
+    GenericType<SignatureRequestGetResponse> localVarReturnType = new GenericType<SignatureRequestGetResponse>() {};
+
+    return apiClient.invokeAPI("SignatureRequestApi.signatureRequestEditWithTemplate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Download Files
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a PDF or ZIP file.  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
@@ -614,6 +782,7 @@ public class SignatureRequestApi {
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return FileResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -623,8 +792,27 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
+  public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId, Integer forceDownload) throws ApiException {
+    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload).getData();
+  }
+
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFilesAsFileUrl(String, Integer)
+   */
   public FileResponse signatureRequestFilesAsFileUrl(String signatureRequestId) throws ApiException {
-    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId).getData();
+    Integer forceDownload = 1;
+
+    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload).getData();
+  }
+
+  /**
+   * @see SignatureRequestApi#signatureRequestFilesAsFileUrlWithHttpInfo(String, Integer)
+   */
+  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId) throws ApiException {
+    Integer forceDownload = 1;
+
+    return signatureRequestFilesAsFileUrlWithHttpInfo(signatureRequestId, forceDownload);
   }
 
 
@@ -632,6 +820,7 @@ public class SignatureRequestApi {
    * Download Files as File Url
    * Obtain a copy of the current documents specified by the &#x60;signature_request_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead.
    * @param signatureRequestId The id of the SignatureRequest to retrieve. (required)
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
    * @return ApiResponse&lt;FileResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -641,8 +830,11 @@ public class SignatureRequestApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId) throws ApiException {
+  public ApiResponse<FileResponse> signatureRequestFilesAsFileUrlWithHttpInfo(String signatureRequestId, Integer forceDownload) throws ApiException {
     
+    if (forceDownload == null) {
+        forceDownload = 1;
+    }
     Object localVarPostBody = null;
     
     // verify the required parameter 'signatureRequestId' is set
@@ -660,6 +852,7 @@ public class SignatureRequestApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "force_download", forceDownload));
 
     
     

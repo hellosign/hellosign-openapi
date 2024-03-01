@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**signatureRequestCancel**](SignatureRequestApi.md#signatureRequestCancel) | **POST** /signature_request/cancel/{signature_request_id} | Cancel Incomplete Signature Request
 [**signatureRequestCreateEmbedded**](SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request
 [**signatureRequestCreateEmbeddedWithTemplate**](SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template
+[**signatureRequestEdit**](SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request
+[**signatureRequestEditWithTemplate**](SignatureRequestApi.md#signatureRequestEditWithTemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template
 [**signatureRequestFiles**](SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files
 [**signatureRequestFilesAsDataUri**](SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri
 [**signatureRequestFilesAsFileUrl**](SignatureRequestApi.md#signatureRequestFilesAsFileUrl) | **GET** /signature_request/files_as_file_url/{signature_request_id} | Download Files as File Url
@@ -557,6 +559,243 @@ Name | Type | Description  | Notes
 | **4XX** | failed_operation |  -  |
 
 
+## signatureRequestEdit
+
+> SignatureRequestGetResponse signatureRequestEdit(signatureRequestId, signatureRequestEditRequest)
+
+Edit Signature Request
+
+Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.
+
+**NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Example
+
+```java
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
+public class Example {
+    public static void main(String[] args) {
+        var apiClient = Configuration.getDefaultApiClient();
+
+        // Configure HTTP basic authorization: api_key
+        var apiKey = (HttpBasicAuth) apiClient
+            .getAuthentication("api_key");
+        apiKey.setUsername("YOUR_API_KEY");
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        /*
+        var oauth2 = (HttpBearerAuth) apiClient
+            .getAuthentication("oauth2");
+        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
+        */
+
+        var signatureRequestApi = new SignatureRequestApi(apiClient);
+
+        var signer1 = new SubSignatureRequestSigner()
+            .emailAddress("jack@example.com")
+            .name("Jack")
+            .order(0);
+
+        var signer2 = new SubSignatureRequestSigner()
+            .emailAddress("jill@example.com")
+            .name("Jill")
+            .order(1);
+
+        var signingOptions = new SubSigningOptions()
+            .draw(true)
+            .type(true)
+            .upload(true)
+            .phone(true)
+            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+
+        var subFieldOptions = new SubFieldOptions()
+            .dateFormat(SubFieldOptions.DateFormatEnum.DDMMYYYY);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        var data = new SignatureRequestEditRequest()
+            .title("NDA with Acme Co.")
+            .subject("The NDA we talked about")
+            .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
+            .signers(List.of(signer1, signer2))
+            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
+            .addFilesItem(new File("example_signature_request.pdf"))
+            .metadata(Map.of("custom_id", 1234, "custom_text", "NDA #9"))
+            .signingOptions(signingOptions)
+            .fieldOptions(subFieldOptions)
+            .testMode(true);
+
+        try {
+            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEdit(signatureRequestId, data);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
+ **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md)|  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## signatureRequestEditWithTemplate
+
+> SignatureRequestGetResponse signatureRequestEditWithTemplate(signatureRequestId, signatureRequestEditWithTemplateRequest)
+
+Edit Signature Request With Template
+
+Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.
+
+**NOTE:** Edit and resend will not deduct your signature request quota.
+
+### Example
+
+```java
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
+
+import java.util.List;
+
+public class Example {
+    public static void main(String[] args) {
+        var apiClient = Configuration.getDefaultApiClient();
+
+        // Configure HTTP basic authorization: api_key
+        var apiKey = (HttpBasicAuth) apiClient
+            .getAuthentication("api_key");
+        apiKey.setUsername("YOUR_API_KEY");
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        /*
+        var oauth2 = (HttpBearerAuth) apiClient
+            .getAuthentication("oauth2");
+        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
+        */
+
+        var signatureRequestApi = new SignatureRequestApi(apiClient);
+
+        var signer1 = new SubSignatureRequestTemplateSigner()
+            .role("Client")
+            .emailAddress("george@example.com")
+            .name("George");
+
+        var cc1 = new SubCC()
+            .role("Accounting")
+            .emailAddress("accouting@emaple.com");
+
+        var customField1 = new SubCustomField()
+            .name("Cost")
+            .value("$20,000")
+            .editor("Client")
+            .required(true);
+
+        var signingOptions = new SubSigningOptions()
+            .draw(true)
+            .type(true)
+            .upload(true)
+            .phone(false)
+            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        var data = new SignatureRequestEditWithTemplateRequest()
+            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
+            .subject("Purchase Order")
+            .message("Glad we could come to an agreement.")
+            .signers(List.of(signer1))
+            .ccs(List.of(cc1))
+            .customFields(List.of(customField1))
+            .signingOptions(signingOptions)
+            .testMode(true);
+
+        try {
+            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEditWithTemplate(
+                signatureRequestId,
+                data
+            );
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AccountApi#accountCreate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
+ **signatureRequestEditWithTemplateRequest** | [**SignatureRequestEditWithTemplateRequest**](SignatureRequestEditWithTemplateRequest.md)|  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
 ## signatureRequestFiles
 
 > File signatureRequestFiles(signatureRequestId, fileType)
@@ -723,7 +962,7 @@ Name | Type | Description  | Notes
 
 ## signatureRequestFilesAsFileUrl
 
-> FileResponse signatureRequestFilesAsFileUrl(signatureRequestId)
+> FileResponse signatureRequestFilesAsFileUrl(signatureRequestId, forceDownload)
 
 Download Files as File Url
 
@@ -781,6 +1020,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signatureRequestId** | **String**| The id of the SignatureRequest to retrieve. |
+ **forceDownload** | **Integer**| By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1]
 
 ### Return type
 

@@ -62,6 +62,7 @@
       "61a832ff0d8423f91d503e76bfbcc750f7417c78"
     ],
     "test_mode": false,
-    "title": "NDA with Acme Co."
+    "title": "NDA with Acme Co.",
+    "allow_ccs": true
   }
 }

@@ -61,7 +61,7 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'template' => '\Dropbox\Sign\Model\TemplateCreateResponse',
+        'template' => '\Dropbox\Sign\Model\TemplateCreateResponseTemplate',
         'warnings' => '\Dropbox\Sign\Model\WarningResponse[]',
     ];
 
@@ -232,7 +232,7 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Gets template
      *
-     * @return TemplateCreateResponse|null
+     * @return TemplateCreateResponseTemplate|null
      */
     public function getTemplate()
     {
@@ -242,11 +242,11 @@ class TemplateCreateResponse implements ModelInterface, ArrayAccess, JsonSeriali
     /**
      * Sets template
      *
-     * @param TemplateCreateResponse|null $template template
+     * @param TemplateCreateResponseTemplate|null $template template
      *
      * @return self
      */
-    public function setTemplate(?TemplateCreateResponse $template)
+    public function setTemplate(?TemplateCreateResponseTemplate $template)
     {
         $this->container['template'] = $template;
 

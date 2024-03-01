@@ -621,6 +621,7 @@ module Dropbox::Sign
     # Obtain a copy of the current documents specified by the `template_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead. In this case please wait for the `template_created` callback event.
     # @param template_id [String] The id of the template files to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (default to 1)
     # @return [FileResponse]
     def template_files_as_file_url(template_id, opts = {})
       data, _status_code, _headers = template_files_as_file_url_with_http_info(template_id, opts)
@@ -631,6 +632,7 @@ module Dropbox::Sign
     # Obtain a copy of the current documents specified by the &#x60;template_id&#x60; parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of &#x60;409&#x60; will be returned instead. In this case please wait for the &#x60;template_created&#x60; callback event.
     # @param template_id [String] The id of the template files to retrieve.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
     # @return [Array<(FileResponse, Integer, Hash)>] FileResponse data, response status code and response headers
     def template_files_as_file_url_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
@@ -645,6 +647,7 @@ module Dropbox::Sign
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'force_download'] = opts[:'force_download'] if !opts[:'force_download'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

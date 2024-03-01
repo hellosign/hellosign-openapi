@@ -77,7 +77,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/1.2-dev/python'
+        self.user_agent = 'OpenAPI-Generator/1.3-dev/python'
 
     def __enter__(self):
         return self
@@ -887,7 +887,7 @@ class Endpoint(object):
         else:
             content_type_headers_list = self.headers_map['content_type']
             if content_type_headers_list:
-                if len(params['form']) > 0:
+                if len(params['form']) > 0 or ('file' in params.keys() and len(params['file']) > 0):
                     params['header']['Content-Type'] = 'multipart/form-data'
                 elif params['body'] != "":
                     header_list = self.api_client.select_header_content_type(

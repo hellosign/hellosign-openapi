@@ -42,6 +42,8 @@ import {
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
   SignatureRequestCreateEmbeddedWithTemplateRequest,
+  SignatureRequestEditRequest,
+  SignatureRequestEditWithTemplateRequest,
   SignatureRequestGetResponse,
   SignatureRequestListResponse,
   SignatureRequestRemindRequest,
@@ -295,6 +297,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -467,6 +471,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -575,6 +581,23 @@ export class SignatureRequestApi {
             const response = error.response;
 
             let body;
+
+            let rangeCodeLeft = Number("4XX"[0] + "00");
+            let rangeCodeRight = Number("4XX"[0] + "99");
+            if (
+              response.status >= rangeCodeLeft &&
+              response.status <= rangeCodeRight
+            ) {
+              body = ObjectSerializer.deserialize(
+                response.data,
+                "ErrorResponse"
+              );
+
+              reject(new HttpError(response, body, response.status));
+              return;
+            }
+
+            reject(error);
           }
         );
       });
@@ -744,6 +767,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -916,6 +941,380 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @summary Edit Signature Request
+   * @param signatureRequestId The id of the SignatureRequest to edit.
+   * @param signatureRequestEditRequest
+   * @param options
+   */
+  public async signatureRequestEdit(
+    signatureRequestId: string,
+    signatureRequestEditRequest: SignatureRequestEditRequest,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<SignatureRequestGetResponse>> {
+    if (
+      signatureRequestEditRequest !== null &&
+      signatureRequestEditRequest !== undefined &&
+      signatureRequestEditRequest.constructor.name !==
+        "SignatureRequestEditRequest"
+    ) {
+      signatureRequestEditRequest = ObjectSerializer.deserialize(
+        signatureRequestEditRequest,
+        "SignatureRequestEditRequest"
+      );
+    }
+
+    const localVarPath =
+      this.basePath +
+      "/signature_request/edit/{signature_request_id}".replace(
+        "{" + "signature_request_id" + "}",
+        encodeURIComponent(String(signatureRequestId))
+      );
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'signatureRequestId' is not null or undefined
+    if (signatureRequestId === null || signatureRequestId === undefined) {
+      throw new Error(
+        "Required parameter signatureRequestId was null or undefined when calling signatureRequestEdit."
+      );
+    }
+
+    // verify required parameter 'signatureRequestEditRequest' is not null or undefined
+    if (
+      signatureRequestEditRequest === null ||
+      signatureRequestEditRequest === undefined
+    ) {
+      throw new Error(
+        "Required parameter signatureRequestEditRequest was null or undefined when calling signatureRequestEdit."
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    const result = generateFormData(
+      signatureRequestEditRequest,
+      SignatureRequestEditRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        signatureRequestEditRequest,
+        "SignatureRequestEditRequest"
+      );
+    }
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "PUT",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data,
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<SignatureRequestGetResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+
+              if (
+                response.status &&
+                response.status >= 200 &&
+                response.status <= 299
+              ) {
+                body = ObjectSerializer.deserialize(
+                  body,
+                  "SignatureRequestGetResponse"
+                );
+                resolve({ response: response, body: body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              const response = error.response;
+
+              let body;
+
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "SignatureRequestGetResponse"
+                );
+
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (
+                response.status >= rangeCodeLeft &&
+                response.status <= rangeCodeRight
+              ) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+
+              reject(error);
+            }
+          );
+        }
+      );
+    });
+  }
+  /**
+   * Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.
+   * @summary Edit Signature Request With Template
+   * @param signatureRequestId The id of the SignatureRequest to edit.
+   * @param signatureRequestEditWithTemplateRequest
+   * @param options
+   */
+  public async signatureRequestEditWithTemplate(
+    signatureRequestId: string,
+    signatureRequestEditWithTemplateRequest: SignatureRequestEditWithTemplateRequest,
+    options: optionsI = { headers: {} }
+  ): Promise<returnTypeT<SignatureRequestGetResponse>> {
+    if (
+      signatureRequestEditWithTemplateRequest !== null &&
+      signatureRequestEditWithTemplateRequest !== undefined &&
+      signatureRequestEditWithTemplateRequest.constructor.name !==
+        "SignatureRequestEditWithTemplateRequest"
+    ) {
+      signatureRequestEditWithTemplateRequest = ObjectSerializer.deserialize(
+        signatureRequestEditWithTemplateRequest,
+        "SignatureRequestEditWithTemplateRequest"
+      );
+    }
+
+    const localVarPath =
+      this.basePath +
+      "/signature_request/edit_with_template/{signature_request_id}".replace(
+        "{" + "signature_request_id" + "}",
+        encodeURIComponent(String(signatureRequestId))
+      );
+    let localVarQueryParameters: any = {};
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders
+    );
+    const produces = ["application/json"];
+    // give precedence to 'application/json'
+    if (produces.indexOf("application/json") >= 0) {
+      localVarHeaderParams["content-type"] = "application/json";
+    } else {
+      localVarHeaderParams["content-type"] = produces.join(",");
+    }
+    let localVarFormParams: any = {};
+    let localVarBodyParams: any = undefined;
+
+    // verify required parameter 'signatureRequestId' is not null or undefined
+    if (signatureRequestId === null || signatureRequestId === undefined) {
+      throw new Error(
+        "Required parameter signatureRequestId was null or undefined when calling signatureRequestEditWithTemplate."
+      );
+    }
+
+    // verify required parameter 'signatureRequestEditWithTemplateRequest' is not null or undefined
+    if (
+      signatureRequestEditWithTemplateRequest === null ||
+      signatureRequestEditWithTemplateRequest === undefined
+    ) {
+      throw new Error(
+        "Required parameter signatureRequestEditWithTemplateRequest was null or undefined when calling signatureRequestEditWithTemplate."
+      );
+    }
+
+    (<any>Object).assign(localVarHeaderParams, options.headers);
+
+    let localVarUseFormData = false;
+
+    const result = generateFormData(
+      signatureRequestEditWithTemplateRequest,
+      SignatureRequestEditWithTemplateRequest.attributeTypeMap
+    );
+    localVarUseFormData = result.localVarUseFormData;
+
+    let data = {};
+    if (localVarUseFormData) {
+      const formData = toFormData(result.data);
+      data = formData;
+      localVarHeaderParams = {
+        ...localVarHeaderParams,
+        ...formData.getHeaders(),
+      };
+    } else {
+      data = ObjectSerializer.serialize(
+        signatureRequestEditWithTemplateRequest,
+        "SignatureRequestEditWithTemplateRequest"
+      );
+    }
+
+    let localVarRequestOptions: AxiosRequestConfig = {
+      method: "PUT",
+      params: localVarQueryParameters,
+      headers: localVarHeaderParams,
+      url: localVarPath,
+      paramsSerializer: this._useQuerystring
+        ? queryParamsSerializer
+        : undefined,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity,
+      responseType: "json",
+      data,
+    };
+
+    let authenticationPromise = Promise.resolve();
+    if (this.authentications.api_key.username) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.api_key.applyToRequest(localVarRequestOptions)
+      );
+    }
+    if (this.authentications.oauth2.accessToken) {
+      authenticationPromise = authenticationPromise.then(() =>
+        this.authentications.oauth2.applyToRequest(localVarRequestOptions)
+      );
+    }
+    authenticationPromise = authenticationPromise.then(() =>
+      this.authentications.default.applyToRequest(localVarRequestOptions)
+    );
+
+    let interceptorPromise = authenticationPromise;
+    for (const interceptor of this.interceptors) {
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions)
+      );
+    }
+
+    return interceptorPromise.then(() => {
+      return new Promise<returnTypeT<SignatureRequestGetResponse>>(
+        (resolve, reject) => {
+          axios.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+
+              if (
+                response.status &&
+                response.status >= 200 &&
+                response.status <= 299
+              ) {
+                body = ObjectSerializer.deserialize(
+                  body,
+                  "SignatureRequestGetResponse"
+                );
+                resolve({ response: response, body: body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error: AxiosError) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+
+              const response = error.response;
+
+              let body;
+
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "SignatureRequestGetResponse"
+                );
+
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (
+                response.status >= rangeCodeLeft &&
+                response.status <= rangeCodeRight
+              ) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+
+              reject(error);
             }
           );
         }
@@ -1056,6 +1455,8 @@ export class SignatureRequestApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -1193,6 +1594,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1203,10 +1606,12 @@ export class SignatureRequestApi {
    * Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a JSON object with a url to the file (PDFs only).  If the files are currently being prepared, a status code of `409` will be returned instead.
    * @summary Download Files as File Url
    * @param signatureRequestId The id of the SignatureRequest to retrieve.
+   * @param forceDownload By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser.
    * @param options
    */
   public async signatureRequestFilesAsFileUrl(
     signatureRequestId: string,
+    forceDownload?: number,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FileResponse>> {
     const localVarPath =
@@ -1234,6 +1639,13 @@ export class SignatureRequestApi {
     if (signatureRequestId === null || signatureRequestId === undefined) {
       throw new Error(
         "Required parameter signatureRequestId was null or undefined when calling signatureRequestFilesAsFileUrl."
+      );
+    }
+
+    if (forceDownload !== undefined) {
+      localVarQueryParameters["force_download"] = ObjectSerializer.serialize(
+        forceDownload,
+        "number"
       );
     }
 
@@ -1327,6 +1739,8 @@ export class SignatureRequestApi {
               reject(new HttpError(response, body, response.status));
               return;
             }
+
+            reject(error);
           }
         );
       });
@@ -1464,6 +1878,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1624,6 +2040,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1762,6 +2180,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -1946,6 +2366,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -2049,6 +2471,23 @@ export class SignatureRequestApi {
             const response = error.response;
 
             let body;
+
+            let rangeCodeLeft = Number("4XX"[0] + "00");
+            let rangeCodeRight = Number("4XX"[0] + "99");
+            if (
+              response.status >= rangeCodeLeft &&
+              response.status <= rangeCodeRight
+            ) {
+              body = ObjectSerializer.deserialize(
+                response.data,
+                "ErrorResponse"
+              );
+
+              reject(new HttpError(response, body, response.status));
+              return;
+            }
+
+            reject(error);
           }
         );
       });
@@ -2218,6 +2657,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -2389,6 +2830,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
@@ -2573,6 +3016,8 @@ export class SignatureRequestApi {
                 reject(new HttpError(response, body, response.status));
                 return;
               }
+
+              reject(error);
             }
           );
         }
