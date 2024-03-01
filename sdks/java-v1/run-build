@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# see https://github.com/OpenAPITools/openapi-generator/tree/v5.4.0/modules/openapi-generator/src/main/resources/Java
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+WORKING_DIR="/app/java"
+
+docker run --rm \
+  -v "${DIR}/:/local" \
+  openapitools/openapi-generator-cli:v5.3.0 generate \
+    -i "/local/openapi-sdk.yaml" \
+    -c "/local/openapi-config.yaml" \
+    -t "/local/templates" \
+    -o "/local/"
+
+printf "\nInstalling composer dependencies ...\n"
+mkdir -p "${DIR}/vendor"
+bash "${DIR}/bin/php" composer install
+printf "\n"
+
+printf "Adding examples to Docs ...\n"
+bash "${DIR}/bin/php" ./bin/generate-examples.php
+
+printf "Replacing strings ...\n"
+docker run --rm \
+  -v "${DIR}:${WORKING_DIR}" \
+  -w "${WORKING_DIR}" \
+  perl bash ./bin/replace
+
+printf "Generating method overloads ...\n"
+bash "${DIR}/bin/php" ./bin/generate-overload-methods.php
+
+printf "Scanning for prohibited keywords ...\n"
+docker run --rm \
+  -v "${DIR}:${WORKING_DIR}" \
+  -w "${WORKING_DIR}" \
+  perl bash ./bin/scan_for
+
+# avoid docker messing with permissions
+if [[ -z "$GITHUB_ACTIONS" ]]; then
+  chmod 644 "${DIR}/README.md"
+  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
+  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
+  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
+  find "${DIR}/src/" -type f -exec chmod 644 {} \;
+fi
+
+# Remove empty directory
+rm -rf "${DIR}/api"
+
+printf "Building ...\n"
+bash "${DIR}/bin/gradle" ./gradlew clean build
+
+printf "Success!\n"

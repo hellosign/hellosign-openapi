@@ -3,7 +3,7 @@
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
-SDKS=( dotnet java node php python ruby )
+SDKS=( dotnet java-v1 java-v2 node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
 
@@ -55,7 +55,7 @@ Copies build files for a given SDK into the repos/[SDK] directory.
 **WARNING** All files and directories present in the repos/[SDK] directory will
             be DELETED, except for the .git directory!
 
--t          target SDK, "all", "dotnet", "java", "node", "php", "python", "ruby"
+-t          target SDK, "all", "dotnet", "java-v2", "java-v1", "node", "php", "python", "ruby"
 -h          display this help and exit
 Example: copy-sdks -t php
 EOF
@@ -70,7 +70,8 @@ function validate_sdk_choice()
   if [[
     "${SDK}" != "all" &&
     "${SDK}" != "dotnet" &&
-    "${SDK}" != "java" &&
+    "${SDK}" != "java-v1" &&
+    "${SDK}" != "java-v2" &&
     "${SDK}" != "node" &&
     "${SDK}" != "php" &&
     "${SDK}" != "python" &&
@@ -104,7 +105,7 @@ function repo_not_cloned()
 
   if [[ "${SDK}" == "dotnet" ]]; then
     REPO="${REPO_DOTNET}"
-  elif [[ "${SDK}" == "java" ]]; then
+  elif [[ "${SDK}" == "java-v1" || "${SDK}" == "java-v2" ]]; then
     REPO="${REPO_JAVA}"
   elif [[ "${SDK}" == "node" ]]; then
     REPO="${REPO_NODE}"

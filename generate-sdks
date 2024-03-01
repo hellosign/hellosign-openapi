@@ -3,7 +3,7 @@
 set -e
 
 DIR=$(cd `dirname $0` && pwd)
-SDKS=( dotnet java node php python ruby )
+SDKS=( dotnet java-v1 java-v2 node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
 
@@ -54,7 +54,7 @@ Builds a given SDK into the sdks/[SDK] directory.
 **WARNING** All files and directories present in the sdks/[SDK] directory will
             be DELETED and REBUILT!
 
--t          target SDK, "all", "dotnet", "java", "node", "php", "python", "ruby"
+-t          target SDK, "all", "dotnet", "java-v2", "java-v1", "node", "php", "python", "ruby"
 -h          display this help and exit
 Example: generate-sdks -t php
 EOF
@@ -69,7 +69,8 @@ function validate_sdk_choice()
   if [[
     "${SDK}" != "all" &&
     "${SDK}" != "dotnet" &&
-    "${SDK}" != "java" &&
+    "${SDK}" != "java-v1" &&
+    "${SDK}" != "java-v2" &&
     "${SDK}" != "node" &&
     "${SDK}" != "php" &&
     "${SDK}" != "python" &&
@@ -113,7 +114,7 @@ function clear_previous_build_files()
   if [[ "${SDK}" == "dotnet" ]]; then
     rm -rf "${SDK_DIR}/docs"
     rm -rf "${SDK_DIR}/src/HelloSign"
-  elif [[ "${SDK}" == "java" ]]; then
+  elif [[ "${SDK}" == "java-v2" || "${SDK}" == "java-v1" ]]; then
     rm -rf "${SDK_DIR}/docs"
     rm -rf "${SDK_DIR}/src/main"
   elif [[ "${SDK}" == "node" ]]; then
@@ -155,7 +156,7 @@ function copy_examples()
 
   if [[ "${SDK}" == "dotnet" ]]; then
     cp -r "${DIR}/examples/"*.cs "${SDK_DIR}/examples/"
-  elif [[ "${SDK}" == "java" ]]; then
+  elif [[ "${SDK}" == "java-v2" || "${SDK}" == "java-v1" ]]; then
     cp -r "${DIR}/examples/"*.java "${SDK_DIR}/examples/"
   elif [[ "${SDK}" == "node" ]]; then
     cp -r "${DIR}/examples/"*.js "${SDK_DIR}/examples/"

@@ -1,0 +1,37 @@
+generatorName: java
+additionalProperties:
+  library: jersey2
+  openApiNullable: false
+  java8: true
+  invokerPackage: com.dropbox.sign
+  apiPackage: com.dropbox.sign.api
+  modelPackage: com.dropbox.sign.model
+  developerEmail: apisupport@hellosign.com
+  developerId: dropbox-sign-api-team
+  developerName: Dropbox Sign API Team
+  developerOrganization: Dropbox Sign
+  developerOrganizationUrl: https://hellosign.com
+  hideGenerationTimestamp: true
+  sortModelPropertiesByRequiredFlag: true
+  groupId: com.dropbox.sign
+  artifactId: dropbox-sign
+  artifactName: Dropbox Sign Java SDK
+  artifactVersion: 1.3-dev
+  artifactUrl: https://github.com/hellosign/dropbox-sign-java
+  artifactDescription: Use the Dropbox Sign Java SDK to connect your Java app to the service of Dropbox Sign in microseconds!
+  scmConnection: scm:git:git://github.com/hellosign/dropbox-sign-java.git
+  scmDeveloperConnection: scm:git:git@github.com:hellosign/dropbox-sign-java.git
+  scmUrl: https://github.com/hellosign/dropbox-sign-java
+  licenseName: MIT License
+  licenseUrl: https://www.opensource.org/licenses/mit-license.php
+
+files:
+  EventCallbackHelper.mustache:
+    templateType: SupportingFiles
+    destinationFilename: src/main/java/com/dropbox/sign/EventCallbackHelper.java
+  VERSION.mustache:
+    templateType: SupportingFiles
+    destinationFilename: VERSION
+globalProperties:
+  apiTests: false
+  modelTests: false
