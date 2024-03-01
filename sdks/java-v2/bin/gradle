@@ -10,6 +10,7 @@ WORKING_DIR="/app/java"
 
 docker run --rm \
   -v "${ROOT_DIR}:${WORKING_DIR}" \
+  -v "dropbox-sign-sdk-gradle-cache:/home/gradle/.gradle" \
   -v "dropbox-sign-sdk-maven-cache:/root/.m2" \
   -w "${WORKING_DIR}" \
   -e GEN_DIR=/app \
