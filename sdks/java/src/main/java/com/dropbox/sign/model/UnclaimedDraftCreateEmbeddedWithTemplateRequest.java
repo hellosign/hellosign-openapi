@@ -46,36 +46,36 @@ import com.dropbox.sign.ApiException;
  * UnclaimedDraftCreateEmbeddedWithTemplateRequest
  */
 @JsonPropertyOrder({
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEMPLATE_IDS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_DECLINE,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CCS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_EDITOR_OPTIONS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FIELD_OPTIONS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILES,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILE_URLS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_HOLD_REQUEST,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_MESSAGE,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_METADATA,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_PREVIEW_ONLY,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PREVIEW,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNERS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SKIP_ME_NOW,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
-    UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_CCS
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CLIENT_ID,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEMPLATE_IDS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_DECLINE,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_REASSIGN,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CCS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_CUSTOM_FIELDS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_EDITOR_OPTIONS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FIELD_OPTIONS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILES,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FILE_URLS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SIGNER_ROLES,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_FORCE_SUBJECT_MESSAGE,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_HOLD_REQUEST,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_MESSAGE,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_METADATA,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_PREVIEW_ONLY,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_REQUESTING_REDIRECT_URL,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PREVIEW,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SHOW_PROGRESS_STEPPER,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNERS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_OPTIONS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SKIP_ME_NOW,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_SUBJECT,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TEST_MODE,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_TITLE,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS,
+  UnclaimedDraftCreateEmbeddedWithTemplateRequest.JSON_PROPERTY_ALLOW_CCS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -1007,7 +1007,7 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
    * This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
    * @return allowCcs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.")
   @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
