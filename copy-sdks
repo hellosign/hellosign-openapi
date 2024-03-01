@@ -8,7 +8,8 @@ SHOW_HELP=0
 TARGET_SDK=
 
 REPO_DOTNET="https://github.com/hellosign/dropbox-sign-dotnet.git"
-REPO_JAVA="https://github.com/hellosign/dropbox-sign-java.git"
+REPO_JAVA_V1="--branch v1 https://github.com/hellosign/dropbox-sign-java.git"
+REPO_JAVA_V2="https://github.com/hellosign/dropbox-sign-java.git"
 REPO_NODE="https://github.com/hellosign/dropbox-sign-node.git"
 REPO_PHP="https://github.com/hellosign/dropbox-sign-php.git"
 REPO_PYTHON="https://github.com/hellosign/dropbox-sign-python.git"
@@ -105,8 +106,10 @@ function repo_not_cloned()
 
   if [[ "${SDK}" == "dotnet" ]]; then
     REPO="${REPO_DOTNET}"
-  elif [[ "${SDK}" == "java-v1" || "${SDK}" == "java-v2" ]]; then
-    REPO="${REPO_JAVA}"
+  elif [[ "${SDK}" == "java-v1" ]]; then
+    REPO="${REPO_JAVA_V1}"
+  elif [[ "${SDK}" == "java-v2" ]]; then
+    REPO="${REPO_JAVA_V2}"
   elif [[ "${SDK}" == "node" ]]; then
     REPO="${REPO_NODE}"
   elif [[ "${SDK}" == "php" ]]; then
