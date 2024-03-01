@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+
+WORKING_DIR="/app/openapi"
+SDK_DIR="${DIR}/../sdks/java-v1"
+TARGET_DIR="${DIR}/../sandbox/java"
+ARTIFACTS_DIR="${DIR}/../sandbox/java/artifacts"
+
+mkdir -p "${ARTIFACTS_DIR}"
+
+rm -f "${ARTIFACTS_DIR}/"*
+
+docker run --rm -it \
+  -v "${SDK_DIR}:${WORKING_DIR}" \
+  -v "${ARTIFACTS_DIR}:/artifacts" \
+  -v "dropbox-sign-sdk-maven-cache:/root/.m2" \
+  -w "${WORKING_DIR}" \
+  -e GEN_DIR=/app \
+  gradle:6.9.3-jdk8 ./gradlew clean fatJar
+
+cp "${SDK_DIR}/build/libs/"dropbox-sign-*-all.jar "${ARTIFACTS_DIR}/dropbox-sign.jar"
