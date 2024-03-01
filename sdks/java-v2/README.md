@@ -10,6 +10,14 @@ We've made important updates that introduce new functionality and create feature
 However, some of these changes are considered "breaking" in the sense that they'll require you to update your existing code in order to continue using the SDK.
 Please refer to this [migration guide](https://developers.hellosign.com/docs/sdks/java/migration-guide/) for more information.
 
+## Version & Requirements
+This is version 2.x of the Java SDK. It depends on Jakarta EE and Jersey 3.
+
+If your project has not been updated for Jakarta or Jersey 3, you should use the [V1 SDK](https://github.com/hellosign/dropbox-sign-java/tree/v1),
+which uses Jersey 2 & supports compatibility with Java EEs javax namespace.
+
+Both versions will receive updates so use whichever your application prefers.
+
 ## Contributing
 
 This repo is no longer accepting new issues or Pull Requests. All issues or
