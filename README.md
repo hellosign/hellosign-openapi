@@ -91,7 +91,7 @@ If you notice a bug in the generated code you can open a GitHub issue against th
 Changes must be made against the mustache files located with the templates directory for each SDK:
 
 * [/sdks/dotnet/templates](sdks/dotnet/templates)
-* [/sdks/java/templates](sdks/java/templates)
+* [/sdks/java-v2/templates](sdks/java-v2/templates)
 * [/sdks/node/templates](sdks/node/templates)
 * [/sdks/php/templates](sdks/php/templates)
 * [/sdks/python/templates](sdks/python/templates)
@@ -108,7 +108,7 @@ To begin run the [generate-sdks](generate-sdks) script to rebuild your SDKs loca
 Next, for the C#, Java, Node, or PHP SDKs run the correct script:
 
 * C# - `./bin/sandbox-dotnet`
-* Java - `./bin/sandbox-java`
+* Java - `./bin/sandbox-java-v2`
 * Node - `./bin/sandbox-node`
 * PHP - `./bin/sandbox-php`
 
@@ -117,7 +117,7 @@ Both Python and Ruby do not need to generate an archive, they can read directly 
 You can now use your favorite IDE to open the correct sandbox directory as a new project.
 
 * C# - [/sandbox/dotnet](sandbox/dotnet)
-* Java - [/sandbox/java](sandbox/java)
+* Java - [/sandbox/java](sandbox/java-v2)
 * Node - [/sandbox/node](sandbox/node)
 * PHP - [/sandbox/php](sandbox/php)
 * Python - [/sandbox/python](sandbox/python)

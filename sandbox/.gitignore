@@ -4,11 +4,17 @@ dotnet/*
 !dotnet/NuGet.Config
 !dotnet/Program.cs
 
-java/*
-!java/pom.xml
-!java/src
-java/src/main/java/com/dropbox/sign_sandbox/*
-!java/src/main/java/com/dropbox/sign_sandbox/Main.java
+java-v1/*
+!java-v1/pom.xml
+!java-v1/src
+java-v1/src/main/java/com/dropbox/sign_sandbox/*
+!java-v1/src/main/java/com/dropbox/sign_sandbox/Main.java
+
+java-v2/*
+!java-v2/pom.xml
+!java-v2/src
+java-v2/src/main/java/com/dropbox/sign_sandbox/*
+!java-v2/src/main/java/com/dropbox/sign_sandbox/Main.java
 
 node/*
 !node/Example.ts
