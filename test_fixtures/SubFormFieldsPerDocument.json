@@ -32,7 +32,8 @@
     "height": 16,
     "x": 112,
     "y": 328,
-    "options": ["foo"]
+    "options": ["foo"],
+    "font_size": 12
   },
   "SubFormFieldsPerDocumentHyperlink": {
     "type" : "hyperlink",
@@ -45,7 +46,8 @@
     "x": 112,
     "y": 328,
     "content": "Dropbox Sign",
-    "content_url": "https://dropboxsign.com"
+    "content_url": "https://dropboxsign.com",
+    "font_size": 12
   },
   "SubFormFieldsPerDocumentInitials": {
     "type" : "initials",
@@ -91,7 +93,8 @@
     "width": 100,
     "height": 16,
     "x": 112,
-    "y": 328
+    "y": 328,
+    "font_size": 12
   },
   "SubFormFieldsPerDocumentTextMerge": {
     "type" : "text-merge",
@@ -102,6 +105,7 @@
     "width": 100,
     "height": 16,
     "x": 112,
-    "y": 328
+    "y": 328,
+    "font_size": 12
   }
 }

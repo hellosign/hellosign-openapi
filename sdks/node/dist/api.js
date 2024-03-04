@@ -24982,6 +24982,7 @@ var _SubFormFieldsPerDocumentDateSigned = class extends SubFormFieldsPerDocument
   constructor() {
     super(...arguments);
     this["type"] = "date_signed";
+    this["fontSize"] = 12;
   }
   static getAttributeTypeMap() {
     return super.getAttributeTypeMap().concat(_SubFormFieldsPerDocumentDateSigned.attributeTypeMap);
@@ -25039,6 +25040,7 @@ var _SubFormFieldsPerDocumentDropdown = class extends SubFormFieldsPerDocumentBa
   constructor() {
     super(...arguments);
     this["type"] = "dropdown";
+    this["fontSize"] = 12;
   }
   static getAttributeTypeMap() {
     return super.getAttributeTypeMap().concat(_SubFormFieldsPerDocumentDropdown.attributeTypeMap);
@@ -25127,6 +25129,7 @@ var _SubFormFieldsPerDocumentHyperlink = class extends SubFormFieldsPerDocumentB
   constructor() {
     super(...arguments);
     this["type"] = "hyperlink";
+    this["fontSize"] = 12;
   }
   static getAttributeTypeMap() {
     return super.getAttributeTypeMap().concat(_SubFormFieldsPerDocumentHyperlink.attributeTypeMap);
@@ -25279,6 +25282,7 @@ var _SubFormFieldsPerDocumentText = class extends SubFormFieldsPerDocumentBase {
   constructor() {
     super(...arguments);
     this["type"] = "text";
+    this["fontSize"] = 12;
   }
   static getAttributeTypeMap() {
     return super.getAttributeTypeMap().concat(_SubFormFieldsPerDocumentText.attributeTypeMap);
@@ -25386,6 +25390,7 @@ var _SubFormFieldsPerDocumentTextMerge = class extends SubFormFieldsPerDocumentB
   constructor() {
     super(...arguments);
     this["type"] = "text-merge";
+    this["fontSize"] = 12;
   }
   static getAttributeTypeMap() {
     return super.getAttributeTypeMap().concat(_SubFormFieldsPerDocumentTextMerge.attributeTypeMap);

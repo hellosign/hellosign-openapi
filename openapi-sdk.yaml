@@ -8051,6 +8051,7 @@ components:
 
                 **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -8103,6 +8104,7 @@ components:
 
                 **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -8153,6 +8155,7 @@ components:
 
                 **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -8288,6 +8291,7 @@ components:
 
                 **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -8330,6 +8334,7 @@ components:
 
                 **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'

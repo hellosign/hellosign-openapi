@@ -148,7 +148,7 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
   private FontFamilyEnum fontFamily;
 
   public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
-  private Integer fontSize;
+  private Integer fontSize = 12;
 
   public SubFormFieldsPerDocumentHyperlink() { 
   }

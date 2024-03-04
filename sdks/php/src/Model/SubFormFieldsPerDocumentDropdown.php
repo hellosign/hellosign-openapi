@@ -241,7 +241,7 @@ class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBase
         $this->container['options'] = $data['options'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['font_family'] = $data['font_family'] ?? null;
-        $this->container['font_size'] = $data['font_size'] ?? null;
+        $this->container['font_size'] = $data['font_size'] ?? 12;
     }
 
     /** @deprecated use ::init() */

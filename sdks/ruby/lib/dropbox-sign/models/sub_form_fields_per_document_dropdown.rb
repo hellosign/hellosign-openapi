@@ -159,6 +159,8 @@ module Dropbox::Sign
 
       if attributes.key?(:'font_size')
         self.font_size = attributes[:'font_size']
+      else
+        self.font_size = 12
       end
     end
 

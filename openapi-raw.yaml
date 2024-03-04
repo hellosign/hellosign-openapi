@@ -7625,6 +7625,7 @@ components:
             font_size:
               description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -7674,6 +7675,7 @@ components:
             font_size:
               description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -7721,6 +7723,7 @@ components:
             font_size:
               description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -7850,6 +7853,7 @@ components:
             font_size:
               description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
@@ -7889,6 +7893,7 @@ components:
             font_size:
               description: '_t__Sub::FormFieldsPerDocument::FONT_SIZE'
               type: integer
+              default: 12
           type: object
         -
           $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
