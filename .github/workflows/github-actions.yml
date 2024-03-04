@@ -72,7 +72,7 @@ jobs:
       - name: Ensure no changes in Generated Code
         run: ./bin/check-clean-git-status node
 
-  java-sdk-build:
+  java-v1-sdk-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -82,10 +82,25 @@ jobs:
         run: ./build
 
       - name: Build Java SDK
-        run: ./generate-sdks -t java
+        run: ./generate-sdks -t java-v1
 
       - name: Ensure no changes in Generated Code
-        run: ./bin/check-clean-git-status java
+        run: ./bin/check-clean-git-status java-v1
+
+  java-v2-sdk-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Build OpenAPI Spec
+        run: ./build
+
+      - name: Build Java SDK
+        run: ./generate-sdks -t java-v2
+
+      - name: Ensure no changes in Generated Code
+        run: ./bin/check-clean-git-status java-v2
 
   dotnet-sdk-build:
     runs-on: ubuntu-latest

@@ -76,7 +76,7 @@ If you make a change to only a single language you only need to rebuild that SDK
 
 Any changes to translations/copy, or code samples, will require rebuilding the SDKs. Run the [generate-sdks](generate-sdks) script to get started.
 
-You can rebuild an individual SDK by running `./generate-sdks -t {SDK}` where `SDK` is one of `dotnet`, `java`, `node`, `php`, `python`, `ruby`.
+You can rebuild an individual SDK by running `./generate-sdks -t {SDK}` where `SDK` is one of `dotnet`, `java-v1`, `java-v2`, `node`, `php`, `python`, `ruby`.
 
 To rebuild all SDKs run `./generate-sdks -t all`.
 
