@@ -37,12 +37,8 @@ import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -123,12 +119,8 @@ import java.util.List;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -234,12 +226,8 @@ import java.util.List;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -341,12 +329,8 @@ import com.dropbox.sign.auth.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -422,12 +406,8 @@ import java.io.File;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -504,12 +484,8 @@ import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -585,12 +561,8 @@ import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -665,12 +637,8 @@ import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -746,12 +714,8 @@ import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -831,12 +795,8 @@ import com.dropbox.sign.model.*;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
@@ -927,12 +887,8 @@ import java.io.File;
 
 public class Example {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        // Configure HTTP basic authorization: api_key
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
