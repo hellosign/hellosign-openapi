@@ -6,8 +6,8 @@ DIR=$(cd `dirname $0` && pwd)
 
 WORKING_DIR="/app/openapi"
 SDK_DIR="${DIR}/../sdks/java-v2"
-TARGET_DIR="${DIR}/../sandbox/java"
-ARTIFACTS_DIR="${DIR}/../sandbox/java/artifacts"
+TARGET_DIR="${DIR}/../sandbox/java-v2"
+ARTIFACTS_DIR="${DIR}/../sandbox/java-v2/artifacts"
 
 mkdir -p "${ARTIFACTS_DIR}"
 
