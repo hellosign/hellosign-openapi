@@ -122,7 +122,8 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_size": 12
       },
       {
         "document_index": 0,
@@ -140,7 +141,8 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_size": 12
       },
       {
         "document_index": 0,
@@ -153,7 +155,8 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_size": 12
       },
       {
         "document_index": 0,
@@ -352,7 +355,8 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_size": 12
       },
       {
         "document_index": 0,
@@ -370,7 +374,8 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_size": 12
       },
       {
         "document_index": 0,
@@ -383,7 +388,8 @@
         "height": 30,
         "required": true,
         "signer": "1",
-        "page": 1
+        "page": 1,
+        "font_size": 12
       },
       {
         "document_index": 0,

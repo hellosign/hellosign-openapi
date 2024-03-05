@@ -229,7 +229,7 @@ class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocumentBase
 
         $this->container['type'] = $data['type'] ?? 'date_signed';
         $this->container['font_family'] = $data['font_family'] ?? null;
-        $this->container['font_size'] = $data['font_size'] ?? null;
+        $this->container['font_size'] = $data['font_size'] ?? 12;
     }
 
     /** @deprecated use ::init() */

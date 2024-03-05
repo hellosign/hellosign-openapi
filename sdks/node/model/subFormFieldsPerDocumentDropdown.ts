@@ -48,7 +48,7 @@ export class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
   /**
    * The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
    */
-  "fontSize"?: number;
+  "fontSize"?: number = 12;
 
   static discriminator: string | undefined = undefined;
 

@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 | `validation_custom_regex_format_label` | ```string``` |    |  |
 | `content` | ```string``` |  Content of a `me_now` text field  |  |
 | `font_family` | ```string``` |  Font family for the field.  |  |
-| `font_size` | ```int``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
+| `font_size` | ```int``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  [default to 12] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

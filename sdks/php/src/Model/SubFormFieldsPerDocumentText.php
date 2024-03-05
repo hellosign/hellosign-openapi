@@ -308,7 +308,7 @@ class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase
         $this->container['validation_custom_regex_format_label'] = $data['validation_custom_regex_format_label'] ?? null;
         $this->container['content'] = $data['content'] ?? null;
         $this->container['font_family'] = $data['font_family'] ?? null;
-        $this->container['font_size'] = $data['font_size'] ?? null;
+        $this->container['font_size'] = $data['font_size'] ?? 12;
     }
 
     /** @deprecated use ::init() */
