@@ -8,11 +8,8 @@ import com.dropbox.sign.model.*;
 
 public class Main {
     public static void main(String[] args) {
-        var apiClient = Configuration.getDefaultApiClient();
-
-        var apiKey = (HttpBasicAuth) apiClient
-            .getAuthentication("api_key");
-        apiKey.setUsername("YOUR_API_KEY");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setApiKey("YOUR_API_KEY");
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*

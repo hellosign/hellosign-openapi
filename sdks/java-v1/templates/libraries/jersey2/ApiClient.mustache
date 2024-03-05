@@ -436,45 +436,11 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    */
   public ApiClient setApiKey(String apiKey) {
     for (Authentication auth : authentications.values()) {
-      if (auth instanceof ApiKeyAuth) {
-        ((ApiKeyAuth) auth).setApiKey(apiKey);
+      if (auth instanceof HttpBasicAuth) {
+        ((HttpBasicAuth) auth).setUsername(apiKey);
         return this;
-      }
-    }
-    throw new RuntimeException("No API key authentication configured!");
-  }
-
-  /**
-   * Helper method to configure authentications which respects aliases of API keys.
-   *
-   * @param secrets Hash map from authentication name to its secret.
-   * @return a {@link {{invokerPackage}}.ApiClient} object.
-   */
-  public ApiClient configureApiKeys(Map<String, String> secrets) {
-    for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
-      Authentication auth = authEntry.getValue();
-      if (auth instanceof ApiKeyAuth) {
-        String name = authEntry.getKey();
-        // respect x-auth-id-alias property
-        name = authenticationLookup.containsKey(name) ? authenticationLookup.get(name) : name;
-        if (secrets.containsKey(name)) {
-          ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
-        }
-      }
-    }
-    return this;
-  }
-
-  /**
-   * Helper method to set API key prefix for the first API key authentication.
-   *
-   * @param apiKeyPrefix API key prefix
-   * @return a {@link {{invokerPackage}}.ApiClient} object.
-   */
-  public ApiClient setApiKeyPrefix(String apiKeyPrefix) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof ApiKeyAuth) {
-        ((ApiKeyAuth) auth).setApiKeyPrefix(apiKeyPrefix);
+      } else if (auth instanceof ApiKeyAuth) {
+        ((ApiKeyAuth) auth).setApiKey(apiKey);
         return this;
       }
     }
