@@ -168,6 +168,56 @@ namespace Dropbox.Sign.Api
         /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
         ApiResponse<SignatureRequestGetResponse> SignatureRequestEditWithHttpInfo(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0);
         /// <summary>
+        /// Edit Embedded Signature Request
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SignatureRequestGetResponse</returns>
+        SignatureRequestGetResponse SignatureRequestEditEmbedded(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Edit Embedded Signature Request
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0);
+        /// <summary>
+        /// Edit Embedded Signature Request with Template
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SignatureRequestGetResponse</returns>
+        SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// Edit Embedded Signature Request with Template
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
+        ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0);
+        /// <summary>
         /// Edit Signature Request With Template
         /// </summary>
         /// <remarks>
@@ -620,6 +670,60 @@ namespace Dropbox.Sign.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditRequest signatureRequestEditRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Edit Embedded Signature Request
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignatureRequestGetResponse</returns>
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Edit Embedded Signature Request
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Edit Embedded Signature Request with Template
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignatureRequestGetResponse</returns>
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Edit Embedded Signature Request with Template
+        /// </summary>
+        /// <remarks>
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </remarks>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Edit Signature Request With Template
         /// </summary>
@@ -2128,6 +2232,406 @@ namespace Dropbox.Sign.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SignatureRequestEdit", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SignatureRequestGetResponse</returns>
+        public SignatureRequestGetResponse SignatureRequestEditEmbedded(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditEmbeddedWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'signatureRequestId' is set
+            if (signatureRequestId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestId' when calling SignatureRequestApi->SignatureRequestEditEmbedded");
+            }
+
+            // verify the required parameter 'signatureRequestEditEmbeddedRequest' is set
+            if (signatureRequestEditEmbeddedRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestEditEmbeddedRequest' when calling SignatureRequestApi->SignatureRequestEditEmbedded");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = signatureRequestEditEmbeddedRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = signatureRequestEditEmbeddedRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbedded";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<SignatureRequestGetResponse>("/signature_request/edit_embedded/{signature_request_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SignatureRequestEditEmbedded", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignatureRequestGetResponse</returns>
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditEmbeddedWithHttpInfoAsync(signatureRequestId, signatureRequestEditEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedRequest signatureRequestEditEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'signatureRequestId' is set
+            if (signatureRequestId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestId' when calling SignatureRequestApi->SignatureRequestEditEmbedded");
+            }
+
+            // verify the required parameter 'signatureRequestEditEmbeddedRequest' is set
+            if (signatureRequestEditEmbeddedRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestEditEmbeddedRequest' when calling SignatureRequestApi->SignatureRequestEditEmbedded");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = signatureRequestEditEmbeddedRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = signatureRequestEditEmbeddedRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbedded";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SignatureRequestGetResponse>("/signature_request/edit_embedded/{signature_request_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SignatureRequestEditEmbedded", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SignatureRequestGetResponse</returns>
+        public SignatureRequestGetResponse SignatureRequestEditEmbeddedWithTemplate(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0)
+        {
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SignatureRequestGetResponse</returns>
+        public Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateWithHttpInfo(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'signatureRequestId' is set
+            if (signatureRequestId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestId' when calling SignatureRequestApi->SignatureRequestEditEmbeddedWithTemplate");
+            }
+
+            // verify the required parameter 'signatureRequestEditEmbeddedWithTemplateRequest' is set
+            if (signatureRequestEditEmbeddedWithTemplateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestEditEmbeddedWithTemplateRequest' when calling SignatureRequestApi->SignatureRequestEditEmbeddedWithTemplate");
+            }
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = signatureRequestEditEmbeddedWithTemplateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = signatureRequestEditEmbeddedWithTemplateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbeddedWithTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<SignatureRequestGetResponse>("/signature_request/edit_embedded_with_template/{signature_request_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SignatureRequestEditEmbeddedWithTemplate", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SignatureRequestGetResponse</returns>
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestEditEmbeddedWithTemplateAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// </summary>
+        /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
+        /// <param name="signatureRequestEditEmbeddedWithTemplateRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestEditEmbeddedWithTemplateWithHttpInfoAsync(string signatureRequestId, SignatureRequestEditEmbeddedWithTemplateRequest signatureRequestEditEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'signatureRequestId' is set
+            if (signatureRequestId == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestId' when calling SignatureRequestApi->SignatureRequestEditEmbeddedWithTemplate");
+            }
+
+            // verify the required parameter 'signatureRequestEditEmbeddedWithTemplateRequest' is set
+            if (signatureRequestEditEmbeddedWithTemplateRequest == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestEditEmbeddedWithTemplateRequest' when calling SignatureRequestApi->SignatureRequestEditEmbeddedWithTemplate");
+            }
+
+
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+
+            var localVarContentType = "";
+            var openApiTypes = signatureRequestEditEmbeddedWithTemplateRequest.GetOpenApiTypes();
+            if (ClientUtils.HasFileType(openApiTypes))
+            {
+                ClientUtils.SetFormData(localVarRequestOptions, openApiTypes);
+                localVarContentType = "multipart/form-data";
+            }
+            else
+            {
+                localVarContentType = "application/json";
+                localVarRequestOptions.Data = signatureRequestEditEmbeddedWithTemplateRequest;
+            }
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Dropbox.Sign.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            localVarRequestOptions.Operation = "SignatureRequestApi.SignatureRequestEditEmbeddedWithTemplate";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (api_key) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (oauth2) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<SignatureRequestGetResponse>("/signature_request/edit_embedded_with_template/{signature_request_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SignatureRequestEditEmbeddedWithTemplate", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

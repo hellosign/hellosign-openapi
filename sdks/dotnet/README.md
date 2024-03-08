@@ -146,6 +146,8 @@ Class | Method | HTTP request | Description
 *SignatureRequestApi* | [**SignatureRequestCreateEmbedded**](docs/SignatureRequestApi.md#signaturerequestcreateembedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request
 *SignatureRequestApi* | [**SignatureRequestCreateEmbeddedWithTemplate**](docs/SignatureRequestApi.md#signaturerequestcreateembeddedwithtemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template
 *SignatureRequestApi* | [**SignatureRequestEdit**](docs/SignatureRequestApi.md#signaturerequestedit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request
+*SignatureRequestApi* | [**SignatureRequestEditEmbedded**](docs/SignatureRequestApi.md#signaturerequesteditembedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request
+*SignatureRequestApi* | [**SignatureRequestEditEmbeddedWithTemplate**](docs/SignatureRequestApi.md#signaturerequesteditembeddedwithtemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template
 *SignatureRequestApi* | [**SignatureRequestEditWithTemplate**](docs/SignatureRequestApi.md#signaturerequesteditwithtemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template
 *SignatureRequestApi* | [**SignatureRequestFiles**](docs/SignatureRequestApi.md#signaturerequestfiles) | **GET** /signature_request/files/{signature_request_id} | Download Files
 *SignatureRequestApi* | [**SignatureRequestFilesAsDataUri**](docs/SignatureRequestApi.md#signaturerequestfilesasdatauri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri
@@ -234,6 +236,8 @@ Class | Method | HTTP request | Description
  - [Model.SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [Model.SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [Model.SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [Model.SignatureRequestEditEmbeddedRequest](docs/SignatureRequestEditEmbeddedRequest.md)
+ - [Model.SignatureRequestEditEmbeddedWithTemplateRequest](docs/SignatureRequestEditEmbeddedWithTemplateRequest.md)
  - [Model.SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
  - [Model.SignatureRequestEditWithTemplateRequest](docs/SignatureRequestEditWithTemplateRequest.md)
  - [Model.SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)

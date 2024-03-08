@@ -270,6 +270,10 @@
 "SignatureRequestCreateEmbedded::TITLE": The title you want to assign to the SignatureRequest.
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 
+"SignatureRequestEditEmbedded::SUMMARY": Edit Embedded Signature Request
+"SignatureRequestEditEmbedded::DESCRIPTION": Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestEditEmbedded::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+
 "SignatureRequestCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Signature Request with Template
 "SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
@@ -291,6 +295,11 @@
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
   ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+
+"SignatureRequestEditEmbeddedWithTemplate::SUMMARY": Edit Embedded Signature Request with Template
+"SignatureRequestEditEmbeddedWithTemplate::DESCRIPTION": Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestEditEmbeddedWithTemplate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
+
 "SignatureRequestFiles::SUMMARY": Download Files
 "SignatureRequestFiles::DESCRIPTION": |-
   Obtain a copy of the current documents specified by the `signature_request_id` parameter. Returns a PDF or ZIP file.
@@ -1260,7 +1269,9 @@
 "ReportResponse::SUCCESS": A message indicating the requested operation's success
 
 "SignatureRequestCreateEmbeddedResponseExample::SUMMARY": Create Embedded Signature Request
+"SignatureRequestEditEmbeddedResponseExample::SUMMARY": Edit Embedded Signature Request
 "SignatureRequestCreateEmbeddedWithTemplateResponseExample::SUMMARY": Create Embedded Signature Request With Template
+"SignatureRequestEditEmbeddedWithTemplateResponseExample::SUMMARY": Edit Embedded Signature Request With Template
 "SignatureRequestGetResponseExample::SUMMARY": Get Signature Request
 "SignatureRequestFilesResponseExample::SUMMARY": Signature Requests Files
 "SignatureRequestListResponseExample::SUMMARY": List Signature Requests
@@ -1615,8 +1626,12 @@
 "SignatureRequestCancel::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to cancel an incomplete signature request, click here."
 "SignatureRequestCreateEmbedded::SEO::TITLE": "Create Embedded Signature Request | Dropbox Sign for Developers"
 "SignatureRequestCreateEmbedded::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to create a new SignatureRequest in an iFrame, click here."
+"SignatureRequestEditEmbedded::SEO::TITLE": "Edit Embedded Signature Request | Dropbox Sign for Developers"
+"SignatureRequestEditEmbedded::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom integrations. To find out how to edit a SignatureRequest in an iFrame, click here."
 "SignatureRequestCreateEmbeddedWithTemplate::SEO::TITLE": "Signature Request with Template | Dropbox Sign for Developers"
 "SignatureRequestCreateEmbeddedWithTemplate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to create a new SignatureRequest based on the given Template, click here."
+"SignatureRequestEditEmbeddedWithTemplate::SEO::TITLE": "Signature Request with Template | Dropbox Sign for Developers"
+"SignatureRequestEditEmbeddedWithTemplate::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to edit a SignatureRequest based on the given Template, click here."
 "SignatureRequestFiles::SEO::TITLE": "Download Files | API Documentation | Dropbox Sign for Developers"
 "SignatureRequestFiles::SEO::DESCRIPTION": "The RESTful Dropbox Sign API allows you to build custom integrations. To find out how to get the current documents specified by the parameters, click here"
 "SignatureRequestGet::SEO::TITLE": "Get Signature Request | Documentation | Dropbox Sign for Developers"

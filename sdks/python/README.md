@@ -127,6 +127,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 ```SignatureRequestApi``` | [```signature_request_create_embedded```](docs/SignatureRequestApi.md#signature_request_create_embedded) | ```POST /signature_request/create_embedded``` | Create Embedded Signature Request|
 ```SignatureRequestApi``` | [```signature_request_create_embedded_with_template```](docs/SignatureRequestApi.md#signature_request_create_embedded_with_template) | ```POST /signature_request/create_embedded_with_template``` | Create Embedded Signature Request with Template|
 ```SignatureRequestApi``` | [```signature_request_edit```](docs/SignatureRequestApi.md#signature_request_edit) | ```PUT /signature_request/edit/{signature_request_id}``` | Edit Signature Request|
+```SignatureRequestApi``` | [```signature_request_edit_embedded```](docs/SignatureRequestApi.md#signature_request_edit_embedded) | ```PUT /signature_request/edit_embedded/{signature_request_id}``` | Edit Embedded Signature Request|
+```SignatureRequestApi``` | [```signature_request_edit_embedded_with_template```](docs/SignatureRequestApi.md#signature_request_edit_embedded_with_template) | ```PUT /signature_request/edit_embedded_with_template/{signature_request_id}``` | Edit Embedded Signature Request with Template|
 ```SignatureRequestApi``` | [```signature_request_edit_with_template```](docs/SignatureRequestApi.md#signature_request_edit_with_template) | ```PUT /signature_request/edit_with_template/{signature_request_id}``` | Edit Signature Request With Template|
 ```SignatureRequestApi``` | [```signature_request_files```](docs/SignatureRequestApi.md#signature_request_files) | ```GET /signature_request/files/{signature_request_id}``` | Download Files|
 ```SignatureRequestApi``` | [```signature_request_files_as_data_uri```](docs/SignatureRequestApi.md#signature_request_files_as_data_uri) | ```GET /signature_request/files_as_data_uri/{signature_request_id}``` | Download Files as Data Uri|
@@ -214,6 +216,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [SignatureRequestEditEmbeddedRequest](docs/SignatureRequestEditEmbeddedRequest.md)
+ - [SignatureRequestEditEmbeddedWithTemplateRequest](docs/SignatureRequestEditEmbeddedWithTemplateRequest.md)
  - [SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
  - [SignatureRequestEditWithTemplateRequest](docs/SignatureRequestEditWithTemplateRequest.md)
  - [SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)
