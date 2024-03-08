@@ -128,6 +128,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::SignatureRequestApi* | [**signature_request_create_embedded**](docs/SignatureRequestApi.md#signature_request_create_embedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 |*Dropbox::Sign::SignatureRequestApi* | [**signature_request_create_embedded_with_template**](docs/SignatureRequestApi.md#signature_request_create_embedded_with_template) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
 |*Dropbox::Sign::SignatureRequestApi* | [**signature_request_edit**](docs/SignatureRequestApi.md#signature_request_edit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+|*Dropbox::Sign::SignatureRequestApi* | [**signature_request_edit_embedded**](docs/SignatureRequestApi.md#signature_request_edit_embedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request |
+|*Dropbox::Sign::SignatureRequestApi* | [**signature_request_edit_embedded_with_template**](docs/SignatureRequestApi.md#signature_request_edit_embedded_with_template) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template |
 |*Dropbox::Sign::SignatureRequestApi* | [**signature_request_edit_with_template**](docs/SignatureRequestApi.md#signature_request_edit_with_template) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 |*Dropbox::Sign::SignatureRequestApi* | [**signature_request_files**](docs/SignatureRequestApi.md#signature_request_files) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 |*Dropbox::Sign::SignatureRequestApi* | [**signature_request_files_as_data_uri**](docs/SignatureRequestApi.md#signature_request_files_as_data_uri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
@@ -215,6 +217,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::SignatureRequestBulkSendWithTemplateRequest](docs/SignatureRequestBulkSendWithTemplateRequest.md)
  - [Dropbox::Sign::SignatureRequestCreateEmbeddedRequest](docs/SignatureRequestCreateEmbeddedRequest.md)
  - [Dropbox::Sign::SignatureRequestCreateEmbeddedWithTemplateRequest](docs/SignatureRequestCreateEmbeddedWithTemplateRequest.md)
+ - [Dropbox::Sign::SignatureRequestEditEmbeddedRequest](docs/SignatureRequestEditEmbeddedRequest.md)
+ - [Dropbox::Sign::SignatureRequestEditEmbeddedWithTemplateRequest](docs/SignatureRequestEditEmbeddedWithTemplateRequest.md)
  - [Dropbox::Sign::SignatureRequestEditRequest](docs/SignatureRequestEditRequest.md)
  - [Dropbox::Sign::SignatureRequestEditWithTemplateRequest](docs/SignatureRequestEditWithTemplateRequest.md)
  - [Dropbox::Sign::SignatureRequestGetResponse](docs/SignatureRequestGetResponse.md)

@@ -10,6 +10,8 @@ All URIs are relative to https://api.hellosign.com/v3.
 | [**signatureRequestCreateEmbedded()**](SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request |
 | [**signatureRequestCreateEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template |
 | [**signatureRequestEdit()**](SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request |
+| [**signatureRequestEditEmbedded()**](SignatureRequestApi.md#signatureRequestEditEmbedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request |
+| [**signatureRequestEditEmbeddedWithTemplate()**](SignatureRequestApi.md#signatureRequestEditEmbeddedWithTemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template |
 | [**signatureRequestEditWithTemplate()**](SignatureRequestApi.md#signatureRequestEditWithTemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template |
 | [**signatureRequestFiles()**](SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files |
 | [**signatureRequestFilesAsDataUri()**](SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri |
@@ -544,6 +546,192 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
 | **signature_request_edit_request** | [**\Dropbox\Sign\Model\SignatureRequestEditRequest**](../Model/SignatureRequestEditRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditEmbedded()`
+
+```php
+signatureRequestEditEmbedded($signature_request_id, $signature_request_edit_embedded_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+
+Edit Embedded Signature Request
+
+Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Example
+
+```php
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+
+$signer1 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
+$signer1->setEmailAddress("jack@example.com")
+    ->setName("Jack")
+    ->setOrder(0);
+
+$signer2 = new Dropbox\Sign\Model\SubSignatureRequestSigner();
+$signer2->setEmailAddress("jill@example.com")
+    ->setName("Jill")
+    ->setOrder(1);
+
+$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
+$signingOptions->setDraw(true)
+    ->setType(true)
+    ->setUpload(true)
+    ->setPhone(true)
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+
+$data = new Dropbox\Sign\Model\SignatureRequestEditEmbeddedRequest();
+$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
+    ->setTitle("NDA with Acme Co.")
+    ->setSubject("The NDA we talked about")
+    ->setMessage("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
+    ->setSigners([$signer1, $signer2])
+    ->setCcEmailAddresses([
+        "lawyer1@dropboxsign.com",
+        "lawyer2@dropboxsign.com",
+    ])
+    ->setFiles([new SplFileObject(__DIR__ . "/example_signature_request.pdf")])
+    ->setSigningOptions($signingOptions)
+    ->setTestMode(true);
+
+$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+try {
+    $result = $signatureRequestApi->signatureRequestEditEmbedded(
+        $signatureRequestId,
+        $data
+    );
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_embedded_request** | [**\Dropbox\Sign\Model\SignatureRequestEditEmbeddedRequest**](../Model/SignatureRequestEditEmbeddedRequest.md)|  | |
+
+### Return type
+
+[**\Dropbox\Sign\Model\SignatureRequestGetResponse**](../Model/SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key), [oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `signatureRequestEditEmbeddedWithTemplate()`
+
+```php
+signatureRequestEditEmbeddedWithTemplate($signature_request_id, $signature_request_edit_embedded_with_template_request): \Dropbox\Sign\Model\SignatureRequestGetResponse
+```
+
+Edit Embedded Signature Request with Template
+
+Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Example
+
+```php
+<?php
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+$config = Dropbox\Sign\Configuration::getDefaultConfiguration();
+
+// Configure HTTP basic authorization: api_key
+$config->setUsername("YOUR_API_KEY");
+
+// or, configure Bearer (JWT) authorization: oauth2
+// $config->setAccessToken("YOUR_ACCESS_TOKEN");
+
+$signatureRequestApi = new Dropbox\Sign\Api\SignatureRequestApi($config);
+
+$signer1 = new Dropbox\Sign\Model\SubSignatureRequestTemplateSigner();
+$signer1->setRole("Client")
+    ->setEmailAddress("george@example.com")
+    ->setName("George");
+
+$signingOptions = new Dropbox\Sign\Model\SubSigningOptions();
+$signingOptions->setDraw(true)
+    ->setType(true)
+    ->setUpload(true)
+    ->setPhone(false)
+    ->setDefaultType(Dropbox\Sign\Model\SubSigningOptions::DEFAULT_TYPE_DRAW);
+
+$data = new Dropbox\Sign\Model\SignatureRequestEditEmbeddedWithTemplateRequest();
+$data->setClientId("ec64a202072370a737edf4a0eb7f4437")
+    ->setTemplateIds(["c26b8a16784a872da37ea946b9ddec7c1e11dff6"])
+    ->setSubject("Purchase Order")
+    ->setMessage("Glad we could come to an agreement.")
+    ->setSigners([$signer1])
+    ->setSigningOptions($signingOptions)
+    ->setTestMode(true);
+
+$signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+try {
+    $result = $signatureRequestApi->signatureRequestEditEmbeddedWithTemplate(
+        $signatureRequestId,
+        $data
+    );
+    print_r($result);
+} catch (Dropbox\Sign\ApiException $e) {
+    $error = $e->getResponseObject();
+    echo "Exception when calling Dropbox Sign API: "
+        . print_r($error->getError());
+}
+
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **signature_request_id** | **string**| The id of the SignatureRequest to edit. | |
+| **signature_request_edit_embedded_with_template_request** | [**\Dropbox\Sign\Model\SignatureRequestEditEmbeddedWithTemplateRequest**](../Model/SignatureRequestEditEmbeddedWithTemplateRequest.md)|  | |
 
 ### Return type
 

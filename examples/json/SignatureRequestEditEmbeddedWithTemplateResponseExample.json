@@ -1,0 +1,45 @@
+{
+  "signature_request": {
+    "signature_request_id": "17d163069282df5eb63857d31ff4a3bffa9e46c0",
+    "title": "Purchase Order",
+    "original_title": "Purchase Order",
+    "subject": "Purchase Order",
+    "metadata": {},
+    "message": "Glad we could come to an agreement.",
+    "is_complete": false,
+    "is_declined": false,
+    "has_error": false,
+    "custom_fields": [
+      {
+        "name": "Cost",
+        "value": "$20,000",
+        "type": "text",
+        "editor": "Client",
+        "required": true
+      }
+    ],
+    "response_data": [],
+    "signing_url": null,
+    "signing_redirect_url": null,
+    "details_url": "https://app.hellosign.com/home/manage?guid=17d163069282df5eb63857d31ff4a3bffa9e46c0",
+    "requester_email_address": "me@dropboxsign.com",
+    "signatures": [
+      {
+        "signature_id": "78caf2a1d01cd39cea2bc1cbb340dac3",
+        "signer_email_address": "george@example.com",
+        "signer_name": "George",
+        "signer_role": "Client",
+        "order": null,
+        "status_code": "awaiting_signature",
+        "signed_at": null,
+        "last_viewed_at": null,
+        "last_reminded_at": null,
+        "has_pin": false,
+        "has_sms_auth": false
+      }
+    ],
+    "cc_email_addresses": [
+      "accounting@dropboxsign.com"
+    ]
+  }
+}

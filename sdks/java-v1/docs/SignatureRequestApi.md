@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**signatureRequestCreateEmbedded**](SignatureRequestApi.md#signatureRequestCreateEmbedded) | **POST** /signature_request/create_embedded | Create Embedded Signature Request
 [**signatureRequestCreateEmbeddedWithTemplate**](SignatureRequestApi.md#signatureRequestCreateEmbeddedWithTemplate) | **POST** /signature_request/create_embedded_with_template | Create Embedded Signature Request with Template
 [**signatureRequestEdit**](SignatureRequestApi.md#signatureRequestEdit) | **PUT** /signature_request/edit/{signature_request_id} | Edit Signature Request
+[**signatureRequestEditEmbedded**](SignatureRequestApi.md#signatureRequestEditEmbedded) | **PUT** /signature_request/edit_embedded/{signature_request_id} | Edit Embedded Signature Request
+[**signatureRequestEditEmbeddedWithTemplate**](SignatureRequestApi.md#signatureRequestEditEmbeddedWithTemplate) | **PUT** /signature_request/edit_embedded_with_template/{signature_request_id} | Edit Embedded Signature Request with Template
 [**signatureRequestEditWithTemplate**](SignatureRequestApi.md#signatureRequestEditWithTemplate) | **PUT** /signature_request/edit_with_template/{signature_request_id} | Edit Signature Request With Template
 [**signatureRequestFiles**](SignatureRequestApi.md#signatureRequestFiles) | **GET** /signature_request/files/{signature_request_id} | Download Files
 [**signatureRequestFilesAsDataUri**](SignatureRequestApi.md#signatureRequestFilesAsDataUri) | **GET** /signature_request/files_as_data_uri/{signature_request_id} | Download Files as Data Uri
@@ -632,6 +634,225 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
  **signatureRequestEditRequest** | [**SignatureRequestEditRequest**](SignatureRequestEditRequest.md)|  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## signatureRequestEditEmbedded
+
+> SignatureRequestGetResponse signatureRequestEditEmbedded(signatureRequestId, signatureRequestEditEmbeddedRequest)
+
+Edit Embedded Signature Request
+
+Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Example
+
+```java
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
+
+import java.io.File;
+import java.util.List;
+
+public class Example {
+    public static void main(String[] args) {
+        var apiClient = Configuration.getDefaultApiClient();
+
+        // Configure HTTP basic authorization: api_key
+        var apiKey = (HttpBasicAuth) apiClient
+            .getAuthentication("api_key");
+        apiKey.setUsername("YOUR_API_KEY");
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        /*
+        var oauth2 = (HttpBearerAuth) apiClient
+            .getAuthentication("oauth2");
+        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
+        */
+
+        var signatureRequestApi = new SignatureRequestApi(apiClient);
+
+        var signer1 = new SubSignatureRequestSigner()
+            .emailAddress("jack@example.com")
+            .name("Jack")
+            .order(0);
+
+        var signer2 = new SubSignatureRequestSigner()
+            .emailAddress("jill@example.com")
+            .name("Jill")
+            .order(1);
+
+        var signingOptions = new SubSigningOptions()
+            .draw(true)
+            .type(true)
+            .upload(true)
+            .phone(true)
+            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        var data = new SignatureRequestEditEmbeddedRequest()
+            .clientId("ec64a202072370a737edf4a0eb7f4437")
+            .title("NDA with Acme Co.")
+            .subject("The NDA we talked about")
+            .message("Please sign this NDA and then we can discuss more. Let me know if you have any questions.")
+            .signers(List.of(signer1, signer2))
+            .ccEmailAddresses(List.of("lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"))
+            .addFilesItem(new File("example_signature_request.pdf"))
+            .signingOptions(signingOptions)
+            .testMode(true);
+
+        try {
+            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEditEmbedded(
+                signatureRequestId,
+                data
+            );
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SignatureRequestApi#signatureRequestEditEmbedded");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
+ **signatureRequestEditEmbeddedRequest** | [**SignatureRequestEditEmbeddedRequest**](SignatureRequestEditEmbeddedRequest.md)|  |
+
+### Return type
+
+[**SignatureRequestGetResponse**](SignatureRequestGetResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | successful operation |  * X-RateLimit-Limit -  <br>  * X-RateLimit-Remaining -  <br>  * X-Ratelimit-Reset -  <br>  |
+| **4XX** | failed_operation |  -  |
+
+
+## signatureRequestEditEmbeddedWithTemplate
+
+> SignatureRequestGetResponse signatureRequestEditEmbeddedWithTemplate(signatureRequestId, signatureRequestEditEmbeddedWithTemplateRequest)
+
+Edit Embedded Signature Request with Template
+
+Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+
+### Example
+
+```java
+import com.dropbox.sign.ApiException;
+import com.dropbox.sign.Configuration;
+import com.dropbox.sign.api.*;
+import com.dropbox.sign.auth.*;
+import com.dropbox.sign.model.*;
+
+import java.util.List;
+
+public class Example {
+    public static void main(String[] args) {
+        var apiClient = Configuration.getDefaultApiClient();
+
+        // Configure HTTP basic authorization: api_key
+        var apiKey = (HttpBasicAuth) apiClient
+            .getAuthentication("api_key");
+        apiKey.setUsername("YOUR_API_KEY");
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        /*
+        var oauth2 = (HttpBearerAuth) apiClient
+            .getAuthentication("oauth2");
+        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
+        */
+
+        var signatureRequestApi = new SignatureRequestApi(apiClient);
+
+        var signer1 = new SubSignatureRequestTemplateSigner()
+            .role("Client")
+            .name("George");
+
+        var subSigningOptions = new SubSigningOptions()
+            .draw(true)
+            .type(true)
+            .upload(true)
+            .phone(false)
+            .defaultType(SubSigningOptions.DefaultTypeEnum.DRAW);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        var data = new SignatureRequestEditEmbeddedWithTemplateRequest()
+            .clientId("ec64a202072370a737edf4a0eb7f4437")
+            .templateIds(List.of("c26b8a16784a872da37ea946b9ddec7c1e11dff6"))
+            .subject("Purchase Order")
+            .message("Glad we could come to an agreement.")
+            .signers(List.of(signer1))
+            .signingOptions(subSigningOptions)
+            .testMode(true);
+
+        try {
+            SignatureRequestGetResponse result = signatureRequestApi.signatureRequestEditEmbeddedWithTemplate(
+                signatureRequestId,
+                data
+            );
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SignatureRequestApi#editEmbeddedWithTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **signatureRequestId** | **String**| The id of the SignatureRequest to edit. |
+ **signatureRequestEditEmbeddedWithTemplateRequest** | [**SignatureRequestEditEmbeddedWithTemplateRequest**](SignatureRequestEditEmbeddedWithTemplateRequest.md)|  |
 
 ### Return type
 

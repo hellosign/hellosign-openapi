@@ -1,0 +1,51 @@
+{
+  "client_id": "b6b8e7deaf8f0b95c029dca049356d4a2cf9710a",
+  "title": "NDA with Acme Co.",
+  "subject": "The NDA we talked about",
+  "message": "Please sign this NDA and then we can discuss more. Let me know if you\nhave any questions.",
+  "grouped_signers": [
+    {
+      "group": "Group #1",
+      "order": 0,
+      "signers": [
+        {
+          "email_address": "jack@example.com",
+          "name": "Jack"
+        },
+        {
+          "email_address": "jill@example.com",
+          "name": "Jill"
+        }
+      ]
+    },
+    {
+      "group": "Group #2",
+      "order": 1,
+      "signers": [
+        {
+          "email_address": "bob@example.com",
+          "name": "Bob"
+        },
+        {
+          "email_address": "charlie@example.com",
+          "name": "Charlie"
+        }
+      ]
+    }
+  ],
+  "cc_email_addresses": [
+    "lawyer@dropboxsign.com",
+    "lawyer@dropboxsign.com"
+  ],
+  "file_urls": [
+    "https://www.dropbox.com/s/ad9qnhbrjjn64tu/mutual-NDA-example.pdf?dl=1"
+  ],
+  "signing_options": {
+    "draw": true,
+    "type": true,
+    "upload": true,
+    "phone": false,
+    "default_type": "draw"
+  },
+  "test_mode": true
+}
