@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dropbox.sign.api.TeamApiTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-08-24T19:39:32" hostname="b5deab9de8a4" time="0.029">
+  <properties/>
+  <testcase name="teamCreateTest" classname="com.dropbox.sign.api.TeamApiTest" time="0.012"/>
+  <testcase name="teamGetTest" classname="com.dropbox.sign.api.TeamApiTest" time="0.004"/>
+  <testcase name="teamDeleteTest" classname="com.dropbox.sign.api.TeamApiTest" time="0.0"/>
+  <testcase name="teamAddMemberTest" classname="com.dropbox.sign.api.TeamApiTest" time="0.005"/>
+  <testcase name="teamRemoveMemberTest" classname="com.dropbox.sign.api.TeamApiTest" time="0.003"/>
+  <testcase name="teamUpdateTest" classname="com.dropbox.sign.api.TeamApiTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

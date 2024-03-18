@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dropbox.sign.api.SignatureRequestApiTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2023-08-24T19:39:32" hostname="b5deab9de8a4" time="0.148">
+  <properties/>
+  <testcase name="signatureRequestSendNoFileForcesApplicationJsonTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.026"/>
+  <testcase name="signatureRequestSendTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.013"/>
+  <testcase name="signatureRequestListTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.006"/>
+  <testcase name="signatureRequestReleaseHoldTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.005"/>
+  <testcase name="signatureRequestCreateEmbeddedTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.026"/>
+  <testcase name="signatureRequestCancelTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.001"/>
+  <testcase name="signatureRequestSendWithTemplateTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.01"/>
+  <testcase name="signatureRequestFilesTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.001"/>
+  <testcase name="signatureRequestBulkSendWithTemplateTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.006"/>
+  <testcase name="signatureRequestBulkCreateEmbeddedWithTemplateTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.006"/>
+  <testcase name="initAcceptsHashMap" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.005"/>
+  <testcase name="signatureRequestUpdateTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.007"/>
+  <testcase name="signatureRequestRemindTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.007"/>
+  <testcase name="signatureRequestGetTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.007"/>
+  <testcase name="signatureRequestSendFileForcesMultipartFormDataTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.012"/>
+  <testcase name="signatureRequestCreateEmbeddedWithTemplateTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.009"/>
+  <testcase name="signatureRequestRemoveTest" classname="com.dropbox.sign.api.SignatureRequestApiTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

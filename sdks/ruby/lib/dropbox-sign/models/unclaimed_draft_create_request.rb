@@ -73,7 +73,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :message
 
-    # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+    # Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  **NOTE**: If the metadata value uses brackets (`[]`) or curly braces (`{}`), the value will be considered a JSON and will be stored as such. To store the value as a string, use the escape (`\\`) character before the opeing bracket or curly brace.
     # @return [Hash<String, Object>]
     attr_accessor :metadata
 

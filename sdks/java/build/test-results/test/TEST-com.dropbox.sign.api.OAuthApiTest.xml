@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dropbox.sign.api.OAuthApiTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-08-24T19:39:32" hostname="b5deab9de8a4" time="0.01">
+  <properties/>
+  <testcase name="oauthTokenGenerateTest" classname="com.dropbox.sign.api.OAuthApiTest" time="0.006"/>
+  <testcase name="oauthTokenRefreshTest" classname="com.dropbox.sign.api.OAuthApiTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

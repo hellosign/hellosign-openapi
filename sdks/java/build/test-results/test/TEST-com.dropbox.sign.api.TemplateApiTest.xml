@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dropbox.sign.api.TemplateApiTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-08-24T19:39:32" hostname="b5deab9de8a4" time="0.051">
+  <properties/>
+  <testcase name="templateGetTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.017"/>
+  <testcase name="templateCreateEmbeddedDraftTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.007"/>
+  <testcase name="templateUpdateFilesTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.005"/>
+  <testcase name="templateDeleteTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.0"/>
+  <testcase name="templateRemoveUserTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.008"/>
+  <testcase name="templateFilesTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.0"/>
+  <testcase name="templateListTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.007"/>
+  <testcase name="templateAddUserTest" classname="com.dropbox.sign.api.TemplateApiTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
