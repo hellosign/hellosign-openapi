@@ -10182,6 +10182,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
+        bulk_send_job_id:
+          description: 'The ID of the Bulk Send job which sent the signature request, if applicable.'
+          type: string
+          nullable: true
       type: object
       x-internal: true
     SignatureRequestResponseAttachment:

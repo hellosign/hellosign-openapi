@@ -9982,6 +9982,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
+        bulk_send_job_id:
+          description: '_t__SignatureRequestResponse::BULK_SEND_JOB_ID'
+          type: string
+          nullable: true
       type: object
       x-internal: true
     SignatureRequestResponseAttachment:
