@@ -27,6 +27,7 @@ export declare class SignatureRequestResponse {
     "attachments"?: Array<SignatureRequestResponseAttachment> | null;
     "responseData"?: Array<SignatureRequestResponseDataBase> | null;
     "signatures"?: Array<SignatureRequestResponseSignatures>;
+    "bulkSendJobId"?: string | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;

@@ -23766,6 +23766,11 @@ SignatureRequestResponse.attributeTypeMap = [
     name: "signatures",
     baseName: "signatures",
     type: "Array<SignatureRequestResponseSignatures>"
+  },
+  {
+    name: "bulkSendJobId",
+    baseName: "bulk_send_job_id",
+    type: "string"
   }
 ];
 
