@@ -126,6 +126,7 @@ class SignatureRequestResponse(ModelNormal):
             'attachments': ([SignatureRequestResponseAttachment], none_type,),  # noqa: E501
             'response_data': ([SignatureRequestResponseDataBase], none_type,),  # noqa: E501
             'signatures': ([SignatureRequestResponseSignatures],),  # noqa: E501
+            'bulk_send_job_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -172,6 +173,7 @@ class SignatureRequestResponse(ModelNormal):
         'attachments': 'attachments',  # noqa: E501
         'response_data': 'response_data',  # noqa: E501
         'signatures': 'signatures',  # noqa: E501
+        'bulk_send_job_id': 'bulk_send_job_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -363,6 +365,14 @@ class SignatureRequestResponse(ModelNormal):
     def signatures(self, value: List[SignatureRequestResponseSignatures]):
         setattr(self, "signatures", value)
 
+    @property
+    def bulk_send_job_id(self) -> Optional[str]:
+        return self.get("bulk_send_job_id")
+
+    @bulk_send_job_id.setter
+    def bulk_send_job_id(self, value: Optional[str]):
+        setattr(self, "bulk_send_job_id", value)
+
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -422,6 +432,7 @@ class SignatureRequestResponse(ModelNormal):
             attachments ([SignatureRequestResponseAttachment], none_type): Signer attachments.. [optional]  # noqa: E501
             response_data ([SignatureRequestResponseDataBase], none_type): An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.. [optional]  # noqa: E501
             signatures ([SignatureRequestResponseSignatures]): An array of signature objects, 1 for each signer.. [optional]  # noqa: E501
+            bulk_send_job_id (str, none_type): The ID of the Bulk Send job which sent the signature request, if applicable.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -526,6 +537,7 @@ class SignatureRequestResponse(ModelNormal):
             attachments ([SignatureRequestResponseAttachment], none_type): Signer attachments.. [optional]  # noqa: E501
             response_data ([SignatureRequestResponseDataBase], none_type): An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.. [optional]  # noqa: E501
             signatures ([SignatureRequestResponseSignatures]): An array of signature objects, 1 for each signer.. [optional]  # noqa: E501
+            bulk_send_job_id (str, none_type): The ID of the Bulk Send job which sent the signature request, if applicable.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

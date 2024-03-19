@@ -29,4 +29,5 @@ Contains information about a signature request.
 | `attachments` | [```Array<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
 | `response_data` | [```Array<SignatureRequestResponseDataBase>```](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  |  |
 | `signatures` | [```Array<SignatureRequestResponseSignatures>```](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  |  |
+| `bulk_send_job_id` | ```String``` |  The ID of the Bulk Send job which sent the signature request, if applicable.  |  |
 
