@@ -85,6 +85,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
         'response_data' => '\Dropbox\Sign\Model\SignatureRequestResponseDataBase[]',
         'signatures' => '\Dropbox\Sign\Model\SignatureRequestResponseSignatures[]',
+        'bulk_send_job_id' => 'string',
     ];
 
     /**
@@ -118,6 +119,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'attachments' => null,
         'response_data' => null,
         'signatures' => null,
+        'bulk_send_job_id' => null,
     ];
 
     /**
@@ -170,6 +172,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'attachments' => 'attachments',
         'response_data' => 'response_data',
         'signatures' => 'signatures',
+        'bulk_send_job_id' => 'bulk_send_job_id',
     ];
 
     /**
@@ -201,6 +204,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'attachments' => 'setAttachments',
         'response_data' => 'setResponseData',
         'signatures' => 'setSignatures',
+        'bulk_send_job_id' => 'setBulkSendJobId',
     ];
 
     /**
@@ -232,6 +236,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'attachments' => 'getAttachments',
         'response_data' => 'getResponseData',
         'signatures' => 'getSignatures',
+        'bulk_send_job_id' => 'getBulkSendJobId',
     ];
 
     /**
@@ -313,6 +318,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['attachments'] = $data['attachments'] ?? null;
         $this->container['response_data'] = $data['response_data'] ?? null;
         $this->container['signatures'] = $data['signatures'] ?? null;
+        $this->container['bulk_send_job_id'] = $data['bulk_send_job_id'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -904,6 +910,30 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
     public function setSignatures(?array $signatures)
     {
         $this->container['signatures'] = $signatures;
+
+        return $this;
+    }
+
+    /**
+     * Gets bulk_send_job_id
+     *
+     * @return string|null
+     */
+    public function getBulkSendJobId()
+    {
+        return $this->container['bulk_send_job_id'];
+    }
+
+    /**
+     * Sets bulk_send_job_id
+     *
+     * @param string|null $bulk_send_job_id the ID of the Bulk Send job which sent the signature request, if applicable
+     *
+     * @return self
+     */
+    public function setBulkSendJobId(?string $bulk_send_job_id)
+    {
+        $this->container['bulk_send_job_id'] = $bulk_send_job_id;
 
         return $this;
     }
