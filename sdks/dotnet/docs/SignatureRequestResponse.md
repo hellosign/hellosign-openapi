@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **Attachments** | [**List&lt;SignatureRequestResponseAttachment&gt;**](SignatureRequestResponseAttachment.md) |  Signer attachments.  | [optional] 
 **ResponseData** | [**List&lt;SignatureRequestResponseDataBase&gt;**](SignatureRequestResponseDataBase.md) |  An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.  | [optional] 
 **Signatures** | [**List&lt;SignatureRequestResponseSignatures&gt;**](SignatureRequestResponseSignatures.md) |  An array of signature objects, 1 for each signer.  | [optional] 
+**BulkSendJobId** | **string** |  The ID of the Bulk Send job which sent the signature request, if applicable.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

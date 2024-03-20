@@ -124,6 +124,10 @@ export class SignatureRequestResponse {
    * An array of signature objects, 1 for each signer.
    */
   "signatures"?: Array<SignatureRequestResponseSignatures>;
+  /**
+   * The ID of the Bulk Send job which sent the signature request, if applicable.
+   */
+  "bulkSendJobId"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -242,6 +246,11 @@ export class SignatureRequestResponse {
       name: "signatures",
       baseName: "signatures",
       type: "Array<SignatureRequestResponseSignatures>",
+    },
+    {
+      name: "bulkSendJobId",
+      baseName: "bulk_send_job_id",
+      type: "string",
     },
   ];
 

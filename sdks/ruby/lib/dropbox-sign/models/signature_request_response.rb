@@ -111,6 +111,10 @@ module Dropbox::Sign
     # @return [Array<SignatureRequestResponseSignatures>]
     attr_accessor :signatures
 
+    # The ID of the Bulk Send job which sent the signature request, if applicable.
+    # @return [String, nil]
+    attr_accessor :bulk_send_job_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -136,7 +140,8 @@ module Dropbox::Sign
         :'custom_fields' => :'custom_fields',
         :'attachments' => :'attachments',
         :'response_data' => :'response_data',
-        :'signatures' => :'signatures'
+        :'signatures' => :'signatures',
+        :'bulk_send_job_id' => :'bulk_send_job_id'
       }
     end
 
@@ -175,7 +180,8 @@ module Dropbox::Sign
         :'custom_fields' => :'Array<SignatureRequestResponseCustomFieldBase>',
         :'attachments' => :'Array<SignatureRequestResponseAttachment>',
         :'response_data' => :'Array<SignatureRequestResponseDataBase>',
-        :'signatures' => :'Array<SignatureRequestResponseSignatures>'
+        :'signatures' => :'Array<SignatureRequestResponseSignatures>',
+        :'bulk_send_job_id' => :'String'
       }
     end
 
@@ -196,6 +202,7 @@ module Dropbox::Sign
         :'custom_fields',
         :'attachments',
         :'response_data',
+        :'bulk_send_job_id'
       ])
     end
 
@@ -334,6 +341,10 @@ module Dropbox::Sign
           self.signatures = value
         end
       end
+
+      if attributes.key?(:'bulk_send_job_id')
+        self.bulk_send_job_id = attributes[:'bulk_send_job_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -376,7 +387,8 @@ module Dropbox::Sign
           custom_fields == o.custom_fields &&
           attachments == o.attachments &&
           response_data == o.response_data &&
-          signatures == o.signatures
+          signatures == o.signatures &&
+          bulk_send_job_id == o.bulk_send_job_id
     end
 
     # @see the `==` method
@@ -388,7 +400,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [test_mode, signature_request_id, requester_email_address, title, original_title, subject, message, metadata, created_at, expires_at, is_complete, is_declined, has_error, files_url, signing_url, details_url, cc_email_addresses, signing_redirect_url, template_ids, custom_fields, attachments, response_data, signatures].hash
+      [test_mode, signature_request_id, requester_email_address, title, original_title, subject, message, metadata, created_at, expires_at, is_complete, is_declined, has_error, files_url, signing_url, details_url, cc_email_addresses, signing_redirect_url, template_ids, custom_fields, attachments, response_data, signatures, bulk_send_job_id].hash
     end
 
     # Builds the object from hash
