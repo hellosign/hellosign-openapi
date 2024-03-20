@@ -59,13 +59,14 @@ namespace Dropbox.Sign.Model
         /// <param name="detailsUrl">The URL where the requester and the signers can view the current status of the SignatureRequest..</param>
         /// <param name="ccEmailAddresses">A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed..</param>
         /// <param name="signingRedirectUrl">The URL you want the signer redirected to after they successfully sign..</param>
+        /// <param name="finalCopyUri">The path where the completed document can be downloaded.</param>
         /// <param name="templateIds">Templates IDs used in this SignatureRequest (if any)..</param>
         /// <param name="customFields">An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;.</param>
         /// <param name="attachments">Signer attachments..</param>
         /// <param name="responseData">An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers..</param>
         /// <param name="signatures">An array of signature objects, 1 for each signer..</param>
         /// <param name="bulkSendJobId">The id of the BulkSendJob..</param>
-        public BulkSendJobGetResponseSignatureRequests(bool? testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Object metadata = default(Object), int createdAt = default(int), int expiresAt = default(int), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string))
+        public BulkSendJobGetResponseSignatureRequests(bool? testMode = false, string signatureRequestId = default(string), string requesterEmailAddress = default(string), string title = default(string), string originalTitle = default(string), string subject = default(string), string message = default(string), Object metadata = default(Object), int createdAt = default(int), int expiresAt = default(int), bool isComplete = default(bool), bool isDeclined = default(bool), bool hasError = default(bool), string filesUrl = default(string), string signingUrl = default(string), string detailsUrl = default(string), List<string> ccEmailAddresses = default(List<string>), string signingRedirectUrl = default(string), string finalCopyUri = default(string), List<string> templateIds = default(List<string>), List<SignatureRequestResponseCustomFieldBase> customFields = default(List<SignatureRequestResponseCustomFieldBase>), List<SignatureRequestResponseAttachment> attachments = default(List<SignatureRequestResponseAttachment>), List<SignatureRequestResponseDataBase> responseData = default(List<SignatureRequestResponseDataBase>), List<SignatureRequestResponseSignatures> signatures = default(List<SignatureRequestResponseSignatures>), string bulkSendJobId = default(string))
         {
             
             // use default value if no "testMode" provided
@@ -87,6 +88,7 @@ namespace Dropbox.Sign.Model
             this.DetailsUrl = detailsUrl;
             this.CcEmailAddresses = ccEmailAddresses;
             this.SigningRedirectUrl = signingRedirectUrl;
+            this.FinalCopyUri = finalCopyUri;
             this.TemplateIds = templateIds;
             this.CustomFields = customFields;
             this.Attachments = attachments;
@@ -238,6 +240,13 @@ namespace Dropbox.Sign.Model
         public string SigningRedirectUrl { get; set; }
 
         /// <summary>
+        /// The path where the completed document can be downloaded
+        /// </summary>
+        /// <value>The path where the completed document can be downloaded</value>
+        [DataMember(Name = "final_copy_uri", EmitDefaultValue = true)]
+        public string FinalCopyUri { get; set; }
+
+        /// <summary>
         /// Templates IDs used in this SignatureRequest (if any).
         /// </summary>
         /// <value>Templates IDs used in this SignatureRequest (if any).</value>
@@ -305,6 +314,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  DetailsUrl: ").Append(DetailsUrl).Append("\n");
             sb.Append("  CcEmailAddresses: ").Append(CcEmailAddresses).Append("\n");
             sb.Append("  SigningRedirectUrl: ").Append(SigningRedirectUrl).Append("\n");
+            sb.Append("  FinalCopyUri: ").Append(FinalCopyUri).Append("\n");
             sb.Append("  TemplateIds: ").Append(TemplateIds).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
             sb.Append("  Attachments: ").Append(Attachments).Append("\n");
@@ -433,6 +443,11 @@ namespace Dropbox.Sign.Model
                     this.SigningRedirectUrl.Equals(input.SigningRedirectUrl))
                 ) && 
                 (
+                    this.FinalCopyUri == input.FinalCopyUri ||
+                    (this.FinalCopyUri != null &&
+                    this.FinalCopyUri.Equals(input.FinalCopyUri))
+                ) && 
+                (
                     this.TemplateIds == input.TemplateIds ||
                     this.TemplateIds != null &&
                     input.TemplateIds != null &&
@@ -534,6 +549,10 @@ namespace Dropbox.Sign.Model
                 if (this.SigningRedirectUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.SigningRedirectUrl.GetHashCode();
+                }
+                if (this.FinalCopyUri != null)
+                {
+                    hashCode = (hashCode * 59) + this.FinalCopyUri.GetHashCode();
                 }
                 if (this.TemplateIds != null)
                 {
@@ -673,6 +692,12 @@ namespace Dropbox.Sign.Model
                 Property = "SigningRedirectUrl",
                 Type = "string",
                 Value = SigningRedirectUrl,
+            });
+            types.Add(new OpenApiType(){
+                Name = "final_copy_uri",
+                Property = "FinalCopyUri",
+                Type = "string",
+                Value = FinalCopyUri,
             });
             types.Add(new OpenApiType(){
                 Name = "template_ids",
