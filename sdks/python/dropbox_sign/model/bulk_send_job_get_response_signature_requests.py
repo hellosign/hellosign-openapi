@@ -124,6 +124,7 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
             'details_url': (str,),  # noqa: E501
             'cc_email_addresses': ([str],),  # noqa: E501
             'signing_redirect_url': (str, none_type,),  # noqa: E501
+            'final_copy_uri': (str, none_type,),  # noqa: E501
             'template_ids': ([str], none_type,),  # noqa: E501
             'custom_fields': ([SignatureRequestResponseCustomFieldBase], none_type,),  # noqa: E501
             'attachments': ([SignatureRequestResponseAttachment], none_type,),  # noqa: E501
@@ -172,6 +173,7 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
         'details_url': 'details_url',  # noqa: E501
         'cc_email_addresses': 'cc_email_addresses',  # noqa: E501
         'signing_redirect_url': 'signing_redirect_url',  # noqa: E501
+        'final_copy_uri': 'final_copy_uri',  # noqa: E501
         'template_ids': 'template_ids',  # noqa: E501
         'custom_fields': 'custom_fields',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
@@ -328,6 +330,14 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
         setattr(self, "signing_redirect_url", value)
 
     @property
+    def final_copy_uri(self) -> Optional[str]:
+        return self.get("final_copy_uri")
+
+    @final_copy_uri.setter
+    def final_copy_uri(self, value: Optional[str]):
+        setattr(self, "final_copy_uri", value)
+
+    @property
     def template_ids(self) -> Optional[List[str]]:
         return self.get("template_ids")
 
@@ -429,6 +439,7 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
             details_url (str): The URL where the requester and the signers can view the current status of the SignatureRequest.. [optional]  # noqa: E501
             cc_email_addresses ([str]): A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.. [optional]  # noqa: E501
             signing_redirect_url (str, none_type): The URL you want the signer redirected to after they successfully sign.. [optional]  # noqa: E501
+            final_copy_uri (str, none_type): The path where the completed document can be downloaded. [optional]  # noqa: E501
             template_ids ([str], none_type): Templates IDs used in this SignatureRequest (if any).. [optional]  # noqa: E501
             custom_fields ([SignatureRequestResponseCustomFieldBase], none_type): An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`. [optional]  # noqa: E501
             attachments ([SignatureRequestResponseAttachment], none_type): Signer attachments.. [optional]  # noqa: E501
@@ -552,6 +563,7 @@ class BulkSendJobGetResponseSignatureRequests(ModelComposed):
             details_url (str): The URL where the requester and the signers can view the current status of the SignatureRequest.. [optional]  # noqa: E501
             cc_email_addresses ([str]): A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.. [optional]  # noqa: E501
             signing_redirect_url (str, none_type): The URL you want the signer redirected to after they successfully sign.. [optional]  # noqa: E501
+            final_copy_uri (str, none_type): The path where the completed document can be downloaded. [optional]  # noqa: E501
             template_ids ([str], none_type): Templates IDs used in this SignatureRequest (if any).. [optional]  # noqa: E501
             custom_fields ([SignatureRequestResponseCustomFieldBase], none_type): An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`. [optional]  # noqa: E501
             attachments ([SignatureRequestResponseAttachment], none_type): Signer attachments.. [optional]  # noqa: E501
