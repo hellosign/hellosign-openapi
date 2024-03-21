@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 | `details_url` | ```string``` |  The URL where the requester and the signers can view the current status of the SignatureRequest.  |  |
 | `cc_email_addresses` | ```string[]``` |  A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.  |  |
 | `signing_redirect_url` | ```string``` |  The URL you want the signer redirected to after they successfully sign.  |  |
+| `final_copy_uri` | ```string``` |  The path where the completed document can be downloaded  |  |
 | `template_ids` | ```string[]``` |  Templates IDs used in this SignatureRequest (if any).  |  |
 | `custom_fields` | [```\Dropbox\Sign\Model\SignatureRequestResponseCustomFieldBase[]```](SignatureRequestResponseCustomFieldBase.md) |  An array of Custom Field objects containing the name and type of each custom field.<br><br>* Text Field uses `SignatureRequestResponseCustomFieldText`<br>* Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`  |  |
 | `attachments` | [```\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
