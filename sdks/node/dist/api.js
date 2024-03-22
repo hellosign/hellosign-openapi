@@ -21884,6 +21884,11 @@ BulkSendJobGetResponseSignatureRequests.attributeTypeMap = [
     type: "string"
   },
   {
+    name: "finalCopyUri",
+    baseName: "final_copy_uri",
+    type: "string"
+  },
+  {
     name: "templateIds",
     baseName: "template_ids",
     type: "Array<string>"
@@ -23740,6 +23745,11 @@ SignatureRequestResponse.attributeTypeMap = [
   {
     name: "signingRedirectUrl",
     baseName: "signing_redirect_url",
+    type: "string"
+  },
+  {
+    name: "finalCopyUri",
+    baseName: "final_copy_uri",
     type: "string"
   },
   {

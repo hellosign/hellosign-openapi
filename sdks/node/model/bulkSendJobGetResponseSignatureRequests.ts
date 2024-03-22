@@ -103,6 +103,10 @@ export class BulkSendJobGetResponseSignatureRequests {
    */
   "signingRedirectUrl"?: string | null;
   /**
+   * The path where the completed document can be downloaded
+   */
+  "finalCopyUri"?: string | null;
+  /**
    * Templates IDs used in this SignatureRequest (if any).
    */
   "templateIds"?: Array<string> | null;
@@ -218,6 +222,11 @@ export class BulkSendJobGetResponseSignatureRequests {
     {
       name: "signingRedirectUrl",
       baseName: "signing_redirect_url",
+      type: "string",
+    },
+    {
+      name: "finalCopyUri",
+      baseName: "final_copy_uri",
       type: "string",
     },
     {

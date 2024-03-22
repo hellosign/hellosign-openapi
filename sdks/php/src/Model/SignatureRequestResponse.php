@@ -80,6 +80,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'details_url' => 'string',
         'cc_email_addresses' => 'string[]',
         'signing_redirect_url' => 'string',
+        'final_copy_uri' => 'string',
         'template_ids' => 'string[]',
         'custom_fields' => '\Dropbox\Sign\Model\SignatureRequestResponseCustomFieldBase[]',
         'attachments' => '\Dropbox\Sign\Model\SignatureRequestResponseAttachment[]',
@@ -114,6 +115,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'details_url' => null,
         'cc_email_addresses' => null,
         'signing_redirect_url' => null,
+        'final_copy_uri' => null,
         'template_ids' => null,
         'custom_fields' => null,
         'attachments' => null,
@@ -167,6 +169,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'details_url' => 'details_url',
         'cc_email_addresses' => 'cc_email_addresses',
         'signing_redirect_url' => 'signing_redirect_url',
+        'final_copy_uri' => 'final_copy_uri',
         'template_ids' => 'template_ids',
         'custom_fields' => 'custom_fields',
         'attachments' => 'attachments',
@@ -199,6 +202,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'details_url' => 'setDetailsUrl',
         'cc_email_addresses' => 'setCcEmailAddresses',
         'signing_redirect_url' => 'setSigningRedirectUrl',
+        'final_copy_uri' => 'setFinalCopyUri',
         'template_ids' => 'setTemplateIds',
         'custom_fields' => 'setCustomFields',
         'attachments' => 'setAttachments',
@@ -231,6 +235,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         'details_url' => 'getDetailsUrl',
         'cc_email_addresses' => 'getCcEmailAddresses',
         'signing_redirect_url' => 'getSigningRedirectUrl',
+        'final_copy_uri' => 'getFinalCopyUri',
         'template_ids' => 'getTemplateIds',
         'custom_fields' => 'getCustomFields',
         'attachments' => 'getAttachments',
@@ -313,6 +318,7 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
         $this->container['details_url'] = $data['details_url'] ?? null;
         $this->container['cc_email_addresses'] = $data['cc_email_addresses'] ?? null;
         $this->container['signing_redirect_url'] = $data['signing_redirect_url'] ?? null;
+        $this->container['final_copy_uri'] = $data['final_copy_uri'] ?? null;
         $this->container['template_ids'] = $data['template_ids'] ?? null;
         $this->container['custom_fields'] = $data['custom_fields'] ?? null;
         $this->container['attachments'] = $data['attachments'] ?? null;
@@ -790,6 +796,30 @@ class SignatureRequestResponse implements ModelInterface, ArrayAccess, JsonSeria
     public function setSigningRedirectUrl(?string $signing_redirect_url)
     {
         $this->container['signing_redirect_url'] = $signing_redirect_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets final_copy_uri
+     *
+     * @return string|null
+     */
+    public function getFinalCopyUri()
+    {
+        return $this->container['final_copy_uri'];
+    }
+
+    /**
+     * Sets final_copy_uri
+     *
+     * @param string|null $final_copy_uri The path where the completed document can be downloaded
+     *
+     * @return self
+     */
+    public function setFinalCopyUri(?string $final_copy_uri)
+    {
+        $this->container['final_copy_uri'] = $final_copy_uri;
 
         return $this;
     }

@@ -22,6 +22,7 @@ export declare class SignatureRequestResponse {
     "detailsUrl"?: string;
     "ccEmailAddresses"?: Array<string>;
     "signingRedirectUrl"?: string | null;
+    "finalCopyUri"?: string | null;
     "templateIds"?: Array<string> | null;
     "customFields"?: Array<SignatureRequestResponseCustomFieldBase> | null;
     "attachments"?: Array<SignatureRequestResponseAttachment> | null;

@@ -90,6 +90,10 @@ module Dropbox::Sign
     # @return [String, nil]
     attr_accessor :signing_redirect_url
 
+    # The path where the completed document can be downloaded
+    # @return [String, nil]
+    attr_accessor :final_copy_uri
+
     # Templates IDs used in this SignatureRequest (if any).
     # @return [Array<String>, nil]
     attr_accessor :template_ids
@@ -135,6 +139,7 @@ module Dropbox::Sign
         :'details_url' => :'details_url',
         :'cc_email_addresses' => :'cc_email_addresses',
         :'signing_redirect_url' => :'signing_redirect_url',
+        :'final_copy_uri' => :'final_copy_uri',
         :'template_ids' => :'template_ids',
         :'custom_fields' => :'custom_fields',
         :'attachments' => :'attachments',
@@ -175,6 +180,7 @@ module Dropbox::Sign
         :'details_url' => :'String',
         :'cc_email_addresses' => :'Array<String>',
         :'signing_redirect_url' => :'String',
+        :'final_copy_uri' => :'String',
         :'template_ids' => :'Array<String>',
         :'custom_fields' => :'Array<SignatureRequestResponseCustomFieldBase>',
         :'attachments' => :'Array<SignatureRequestResponseAttachment>',
@@ -197,6 +203,7 @@ module Dropbox::Sign
         :'message',
         :'signing_url',
         :'signing_redirect_url',
+        :'final_copy_uri',
         :'template_ids',
         :'custom_fields',
         :'attachments',
@@ -310,6 +317,10 @@ module Dropbox::Sign
         self.signing_redirect_url = attributes[:'signing_redirect_url']
       end
 
+      if attributes.key?(:'final_copy_uri')
+        self.final_copy_uri = attributes[:'final_copy_uri']
+      end
+
       if attributes.key?(:'template_ids')
         if (value = attributes[:'template_ids']).is_a?(Array)
           self.template_ids = value
@@ -381,6 +392,7 @@ module Dropbox::Sign
           details_url == o.details_url &&
           cc_email_addresses == o.cc_email_addresses &&
           signing_redirect_url == o.signing_redirect_url &&
+          final_copy_uri == o.final_copy_uri &&
           template_ids == o.template_ids &&
           custom_fields == o.custom_fields &&
           attachments == o.attachments &&
@@ -398,7 +410,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [test_mode, signature_request_id, requester_email_address, title, original_title, subject, message, metadata, created_at, expires_at, is_complete, is_declined, has_error, files_url, signing_url, details_url, cc_email_addresses, signing_redirect_url, template_ids, custom_fields, attachments, response_data, signatures, bulk_send_job_id].hash
+      [test_mode, signature_request_id, requester_email_address, title, original_title, subject, message, metadata, created_at, expires_at, is_complete, is_declined, has_error, files_url, signing_url, details_url, cc_email_addresses, signing_redirect_url, final_copy_uri, template_ids, custom_fields, attachments, response_data, signatures, bulk_send_job_id].hash
     end
 
     # Builds the object from hash

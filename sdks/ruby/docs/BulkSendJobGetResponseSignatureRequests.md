@@ -24,6 +24,7 @@
 | `details_url` | ```String``` |  The URL where the requester and the signers can view the current status of the SignatureRequest.  |  |
 | `cc_email_addresses` | ```Array<String>``` |  A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.  |  |
 | `signing_redirect_url` | ```String``` |  The URL you want the signer redirected to after they successfully sign.  |  |
+| `final_copy_uri` | ```String``` |  The path where the completed document can be downloaded  |  |
 | `template_ids` | ```Array<String>``` |  Templates IDs used in this SignatureRequest (if any).  |  |
 | `custom_fields` | [```Array<SignatureRequestResponseCustomFieldBase>```](SignatureRequestResponseCustomFieldBase.md) |  An array of Custom Field objects containing the name and type of each custom field.<br><br>* Text Field uses `SignatureRequestResponseCustomFieldText`<br>* Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`  |  |
 | `attachments` | [```Array<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |
