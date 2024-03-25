@@ -1,5 +1,5 @@
 import { EventCallbackRequest } from "./";
-import { HmacSHA256 } from "crypto-js";
+import * as crypto from "crypto";
 
 export class EventCallbackHelper {
   static readonly EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
@@ -13,12 +13,10 @@ export class EventCallbackHelper {
     apiKey: string,
     eventCallback: EventCallbackRequest
   ): boolean => {
-    const hash = HmacSHA256(
-      `${eventCallback.event.eventTime}${eventCallback.event.eventType}`,
-      apiKey
-    );
+    const hmac = crypto.createHmac("sha256", apiKey);
+    hmac.update(`${eventCallback.event.eventTime}${eventCallback.event.eventType}`);
 
-    return eventCallback.event.eventHash === hash.toString();
+    return eventCallback.event.eventHash === hmac.digest("hex").toString();
   };
 
   /**
