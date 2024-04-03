@@ -11715,6 +11715,7 @@ components:
             - template_created
             - template_error
             - callback_test
+            - signature_request_signer_removed
         event_hash:
           description: 'Generated hash used to verify source of event data.'
           type: string

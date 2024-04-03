@@ -202,6 +202,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     public const EVENT_TYPE_TEMPLATE_CREATED = 'template_created';
     public const EVENT_TYPE_TEMPLATE_ERROR = 'template_error';
     public const EVENT_TYPE_CALLBACK_TEST = 'callback_test';
+    public const EVENT_TYPE_SIGNATURE_REQUEST_SIGNER_REMOVED = 'signature_request_signer_removed';
 
     /**
      * Gets allowable values of the enum
@@ -233,6 +234,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
             self::EVENT_TYPE_TEMPLATE_CREATED,
             self::EVENT_TYPE_TEMPLATE_ERROR,
             self::EVENT_TYPE_CALLBACK_TEST,
+            self::EVENT_TYPE_SIGNATURE_REQUEST_SIGNER_REMOVED,
         ];
     }
 

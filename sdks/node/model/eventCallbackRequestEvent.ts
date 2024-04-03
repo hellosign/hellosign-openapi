@@ -102,5 +102,6 @@ export namespace EventCallbackRequestEvent {
     TemplateCreated = "template_created",
     TemplateError = "template_error",
     CallbackTest = "callback_test",
+    SignatureRequestSignerRemoved = "signature_request_signer_removed",
   }
 }

@@ -170,7 +170,13 @@ namespace Dropbox.Sign.Model
             /// Enum CallbackTest for value: callback_test
             /// </summary>
             [EnumMember(Value = "callback_test")]
-            CallbackTest = 22
+            CallbackTest = 22,
+
+            /// <summary>
+            /// Enum SignatureRequestSignerRemoved for value: signature_request_signer_removed
+            /// </summary>
+            [EnumMember(Value = "signature_request_signer_removed")]
+            SignatureRequestSignerRemoved = 23
 
         }
 

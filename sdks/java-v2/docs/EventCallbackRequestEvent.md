@@ -41,6 +41,7 @@ Name | Value
 | TEMPLATE_CREATED | &quot;template_created&quot; |
 | TEMPLATE_ERROR | &quot;template_error&quot; |
 | CALLBACK_TEST | &quot;callback_test&quot; |
+| SIGNATURE_REQUEST_SIGNER_REMOVED | &quot;signature_request_signer_removed&quot; |
 
 
 

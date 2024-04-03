@@ -89,6 +89,7 @@ class EventCallbackRequestEvent(ModelNormal):
             'TEMPLATE_CREATED': "template_created",
             'TEMPLATE_ERROR': "template_error",
             'CALLBACK_TEST': "callback_test",
+            'SIGNATURE_REQUEST_SIGNER_REMOVED': "signature_request_signer_removed",
         },
     }
 

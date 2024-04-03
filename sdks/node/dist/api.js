@@ -16878,6 +16878,7 @@ EventCallbackRequestEvent.attributeTypeMap = [
     EventTypeEnum2["TemplateCreated"] = "template_created";
     EventTypeEnum2["TemplateError"] = "template_error";
     EventTypeEnum2["CallbackTest"] = "callback_test";
+    EventTypeEnum2["SignatureRequestSignerRemoved"] = "signature_request_signer_removed";
   })(EventTypeEnum = EventCallbackRequestEvent2.EventTypeEnum || (EventCallbackRequestEvent2.EventTypeEnum = {}));
 })(EventCallbackRequestEvent || (EventCallbackRequestEvent = {}));
 
