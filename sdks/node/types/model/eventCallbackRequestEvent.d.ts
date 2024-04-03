@@ -33,6 +33,7 @@ export declare namespace EventCallbackRequestEvent {
         SignatureRequestExpired = "signature_request_expired",
         TemplateCreated = "template_created",
         TemplateError = "template_error",
-        CallbackTest = "callback_test"
+        CallbackTest = "callback_test",
+        SignatureRequestSignerRemoved = "signature_request_signer_removed"
     }
 }

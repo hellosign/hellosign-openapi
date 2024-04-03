@@ -94,7 +94,9 @@ public class EventCallbackRequestEvent {
     
     TEMPLATE_ERROR("template_error"),
     
-    CALLBACK_TEST("callback_test");
+    CALLBACK_TEST("callback_test"),
+    
+    SIGNATURE_REQUEST_SIGNER_REMOVED("signature_request_signer_removed");
 
     private String value;
 
