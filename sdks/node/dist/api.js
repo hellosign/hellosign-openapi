@@ -24727,7 +24727,7 @@ var ApiAppApi = class {
               }
               const response = error.response;
               let body;
-              if (response.status === 200) {
+              if (response.status === 201) {
                 body = ObjectSerializer.deserialize(
                   response.data,
                   "ApiAppGetResponse"
@@ -29484,7 +29484,7 @@ var TeamApi = class {
               }
               const response = error.response;
               let body;
-              if (response.status === 200) {
+              if (response.status === 201) {
                 body = ObjectSerializer.deserialize(
                   response.data,
                   "TeamGetResponse"

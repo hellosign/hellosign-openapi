@@ -200,7 +200,7 @@ class ApiAppApi
 
             $statusCode = $response->getStatusCode();
 
-            if ($statusCode === 200) {
+            if ($statusCode === 201) {
                 if ('\Dropbox\Sign\Model\ApiAppGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
@@ -245,7 +245,7 @@ class ApiAppApi
         } catch (ApiException $e) {
             $statusCode = $e->getCode();
 
-            if ($statusCode === 200) {
+            if ($statusCode === 201) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
                     '\Dropbox\Sign\Model\ApiAppGetResponse',

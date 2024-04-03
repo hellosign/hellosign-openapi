@@ -451,7 +451,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiAppCreateRequest'
       responses:
-        '200':
+        '201':
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
@@ -4761,7 +4761,7 @@ paths:
               account_id:
                 $ref: '#/components/examples/TeamRemoveMemberRequestAccountIdExample'
       responses:
-        '200':
+        '201':
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:

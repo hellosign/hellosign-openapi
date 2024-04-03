@@ -394,7 +394,7 @@ class ApiAppApi(object):
         try:
             return self.api_app_create_endpoint.call_with_http_info(**kwargs)
         except ApiException as e:
-            if e.status == 200:
+            if e.status == 201:
                 e.body = self.api_client.deserialize(
                     response=type('obj_dict', (object,), {'data': e.body}),
                     response_type=[ApiAppGetResponse],
