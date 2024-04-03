@@ -10,9 +10,8 @@ public class Example {
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        var oauth2 = (HttpBearerAuth) apiClient
-            .getAuthentication("oauth2");
-        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
+        var apiClient = Configuration.getDefaultApiClient()
+            .setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
         var signatureRequestApi = new SignatureRequestApi(apiClient);
