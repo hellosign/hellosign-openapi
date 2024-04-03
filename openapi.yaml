@@ -11685,7 +11685,6 @@ components:
         - event_time
         - event_type
         - event_hash
-        - event_metadata
       properties:
         event_time:
           description: 'Time the event was created (using Unix time).'

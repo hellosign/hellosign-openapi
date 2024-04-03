@@ -302,9 +302,6 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
         if ($this->container['event_hash'] === null) {
             $invalidProperties[] = "'event_hash' can't be null";
         }
-        if ($this->container['event_metadata'] === null) {
-            $invalidProperties[] = "'event_metadata' can't be null";
-        }
 
         return $invalidProperties;
     }
@@ -405,7 +402,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets event_metadata
      *
-     * @return EventCallbackRequestEventMetadata
+     * @return EventCallbackRequestEventMetadata|null
      */
     public function getEventMetadata()
     {
@@ -415,11 +412,11 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets event_metadata
      *
-     * @param EventCallbackRequestEventMetadata $event_metadata event_metadata
+     * @param EventCallbackRequestEventMetadata|null $event_metadata event_metadata
      *
      * @return self
      */
-    public function setEventMetadata(EventCallbackRequestEventMetadata $event_metadata)
+    public function setEventMetadata(?EventCallbackRequestEventMetadata $event_metadata)
     {
         $this->container['event_metadata'] = $event_metadata;
 

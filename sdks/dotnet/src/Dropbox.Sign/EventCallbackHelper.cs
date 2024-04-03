@@ -35,7 +35,7 @@ namespace Dropbox.Sign
         {
             var metaData = eventCallback.Event.EventMetadata;
 
-            if (String.IsNullOrEmpty(metaData.ReportedForAppId))
+            if (metaData == null || String.IsNullOrEmpty(metaData.ReportedForAppId))
             {
                 return EVENT_TYPE_ACCOUNT_CALLBACK;
             }

@@ -41,7 +41,7 @@ export class EventCallbackRequestEvent {
    * Generated hash used to verify source of event data.
    */
   "eventHash": string;
-  "eventMetadata": EventCallbackRequestEventMetadata;
+  "eventMetadata"?: EventCallbackRequestEventMetadata;
 
   static discriminator: string | undefined = undefined;
 

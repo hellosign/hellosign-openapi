@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using Xunit;
 using Dropbox.Sign.Model;
 
@@ -13,7 +12,32 @@ namespace Dropbox.Sign.Test
         [Fact]
         public void IsValidTest()
         {
-            var keys = new List<string>
+            var account_keys = new List<string>
+            {
+                "base",
+                "base_no_metadata",
+                "account",
+                "account_no_metadata",
+                "signature_request",
+                "signature_request_no_metadata",
+                "template",
+                "template_no_metadata",
+            };
+
+            foreach (var key in account_keys)
+            {
+                var requestData = TestHelper.GetJsonContents("EventCallbackHelper_AccountCallbacks", key);
+                var callbackEvent = EventCallbackRequest.Init(requestData.ToString());
+
+                Assert.True(EventCallbackHelper.IsValid(ApiKey, callbackEvent));
+                Assert.False(EventCallbackHelper.IsValid(Reverse(ApiKey), callbackEvent));
+                Assert.Equal(
+                    EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK,
+                    EventCallbackHelper.GetCallbackType(callbackEvent)
+                );
+            }
+            
+            var app_keys = new List<string>
             {
                 "base",
                 "account",
@@ -21,14 +45,17 @@ namespace Dropbox.Sign.Test
                 "template",
             };
 
-            foreach (var key in keys)
+            foreach (var key in app_keys)
             {
-                var requestData = TestHelper.GetJsonContents(nameof(EventCallbackHelper), key);
+                var requestData = TestHelper.GetJsonContents("EventCallbackHelper_AppCallbacks", key);
                 var callbackEvent = EventCallbackRequest.Init(requestData.ToString());
 
                 Assert.True(EventCallbackHelper.IsValid(ApiKey, callbackEvent));
                 Assert.False(EventCallbackHelper.IsValid(Reverse(ApiKey), callbackEvent));
-
+                Assert.Equal(
+                    EventCallbackHelper.EVENT_TYPE_APP_CALLBACK, 
+                    EventCallbackHelper.GetCallbackType(callbackEvent)
+                );
             }
         }
 
