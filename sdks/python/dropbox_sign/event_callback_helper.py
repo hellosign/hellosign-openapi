@@ -34,7 +34,7 @@ class EventCallbackHelper:
         """
         metadata: EventCallbackRequestEventMetadata = event_callback.event.event_metadata
 
-        if not metadata.reported_for_app_id:
+        if not metadata or not metadata.reported_for_app_id:
             return cls.EVENT_TYPE_ACCOUNT_CALLBACK
 
         return cls.EVENT_TYPE_APP_CALLBACK

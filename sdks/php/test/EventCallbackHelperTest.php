@@ -17,33 +17,55 @@ class EventCallbackHelperTest extends SignTestCase
     public function testIsValid(
         string $apiKey,
         array $data,
-        bool $passes
+        bool $passes,
+        string $callback_type
     ) {
         $callback_event = EventCallbackRequest::init($data);
 
-        $isValid = EventCallbackHelper::isValid($apiKey, $callback_event);
+        $this->assertEquals(
+            $passes,
+            EventCallbackHelper::isValid($apiKey, $callback_event)
+        );
 
-        if ($passes) {
-            $this->assertTrue($isValid);
-        } else {
-            $this->assertFalse($isValid);
-        }
+        $this->assertEquals(
+            $callback_type,
+            EventCallbackHelper::getCallbackType($callback_event)
+        );
     }
 
     public function providerIsValid(): iterable
     {
-        $fixtures = TestUtils::getFixtureData('EventCallbackHelper');
-        foreach ($fixtures as $data) {
+        $account_fixtures = TestUtils::getFixtureData('EventCallbackHelper_AccountCallbacks');
+        foreach ($account_fixtures as $data) {
             yield [
                 'apiKey' => self::APIKEY,
                 'data' => $data,
                 'passes' => true,
+                'callback_type' => EventCallbackHelper::EVENT_TYPE_ACCOUNT_CALLBACK,
             ];
 
             yield [
                 'apiKey' => strrev(self::APIKEY),
                 'data' => $data,
                 'passes' => false,
+                'callback_type' => EventCallbackHelper::EVENT_TYPE_ACCOUNT_CALLBACK,
+            ];
+        }
+
+        $app_fixtures = TestUtils::getFixtureData('EventCallbackHelper_AppCallbacks');
+        foreach ($app_fixtures as $data) {
+            yield [
+                'apiKey' => self::APIKEY,
+                'data' => $data,
+                'passes' => true,
+                'callback_type' => EventCallbackHelper::EVENT_TYPE_APP_CALLBACK,
+            ];
+
+            yield [
+                'apiKey' => strrev(self::APIKEY),
+                'data' => $data,
+                'passes' => false,
+                'callback_type' => EventCallbackHelper::EVENT_TYPE_APP_CALLBACK,
             ];
         }
     }

@@ -237,10 +237,10 @@ public class EventCallbackRequestEvent {
    * Get eventMetadata
    * @return eventMetadata
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public EventCallbackRequestEventMetadata getEventMetadata() {
     return eventMetadata;
@@ -248,7 +248,7 @@ public class EventCallbackRequestEvent {
 
 
   @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEventMetadata(EventCallbackRequestEventMetadata eventMetadata) {
     this.eventMetadata = eventMetadata;
   }

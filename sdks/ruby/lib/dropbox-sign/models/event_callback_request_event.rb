@@ -160,10 +160,6 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "event_hash", event_hash cannot be nil.')
       end
 
-      if @event_metadata.nil?
-        invalid_properties.push('invalid value for "event_metadata", event_metadata cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -175,7 +171,6 @@ module Dropbox::Sign
       event_type_validator = EnumAttributeValidator.new('String', ["account_confirmed", "unknown_error", "file_error", "sign_url_invalid", "signature_request_viewed", "signature_request_signed", "signature_request_sent", "signature_request_all_signed", "signature_request_email_bounce", "signature_request_remind", "signature_request_incomplete_qes", "signature_request_destroyed", "signature_request_canceled", "signature_request_downloadable", "signature_request_declined", "signature_request_reassigned", "signature_request_invalid", "signature_request_prepared", "signature_request_expired", "template_created", "template_error", "callback_test"])
       return false unless event_type_validator.valid?(@event_type)
       return false if @event_hash.nil?
-      return false if @event_metadata.nil?
       true
     end
 

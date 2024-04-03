@@ -23653,7 +23653,7 @@ EventCallbackHelper.isValid = (apiKey, eventCallback) => {
   return eventCallback.event.eventHash === hmac.digest("hex").toString();
 };
 EventCallbackHelper.getCallbackType = (eventCallback) => {
-  if (!eventCallback.event.eventMetadata.reportedForAppId) {
+  if (!eventCallback.event.eventMetadata || !eventCallback.event.eventMetadata.reportedForAppId) {
     return _EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
   }
   return _EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;

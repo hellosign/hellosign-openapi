@@ -11305,7 +11305,6 @@ components:
         - event_time
         - event_type
         - event_hash
-        - event_metadata
       properties:
         event_time:
           description: '_t__EventCallbackRequestEvent::EVENT_TIME'

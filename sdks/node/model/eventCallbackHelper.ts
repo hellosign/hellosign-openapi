@@ -26,7 +26,10 @@ export class EventCallbackHelper {
    * "app_callback" will always include a value for "reported_for_app_id"
    */
   static getCallbackType = (eventCallback: EventCallbackRequest): string => {
-    if (!eventCallback.event.eventMetadata.reportedForAppId) {
+    if (
+      !eventCallback.event.eventMetadata ||
+      !eventCallback.event.eventMetadata.reportedForAppId
+    ) {
       return EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
     }
 
