@@ -14,9 +14,8 @@ public class Main {
 
         // or, configure Bearer (JWT) authorization: oauth2
         /*
-        var oauth2 = (HttpBearerAuth) apiClient
-            .getAuthentication("oauth2");
-        oauth2.setBearerToken("YOUR_ACCESS_TOKEN");
+        ApiClient apiClient = Configuration.getDefaultApiClient()
+            .setBearerToken("YOUR_ACCESS_TOKEN");
         */
 
         AccountApi api = new AccountApi(apiClient);
