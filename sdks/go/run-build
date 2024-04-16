@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR=$(cd `dirname $0` && pwd)
+WORKING_DIR="/app/go"
+
+docker run --rm \
+  -v "${DIR}/:/local" \
+  openapitools/openapi-generator-cli:v7.4.0 generate \
+    -i "/local/openapi-sdk.yaml" \
+    -c "/local/openapi-config.yaml" \
+    -o "/local/"
+
+printf "Success!\n"

@@ -10257,13 +10257,13 @@ components:
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
-      required:
-        - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
+          required:
+            - name
+            - type
           properties:
             type:
               description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
@@ -10272,15 +10272,18 @@ components:
             value:
               description: 'A true/false for checkbox fields'
               type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
     SignatureRequestResponseCustomFieldText:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
-      required:
-        - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
+          required:
+            - name
+            - type
           properties:
             type:
               description: 'The type of this Custom Field. Only ''text'' and ''checkbox'' are currently supported.'
@@ -10288,7 +10291,10 @@ components:
               default: text
             value:
               description: 'A text string for text fields'
-              type: string
+              type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
     SignatureRequestResponseCustomFieldTypeEnum:
       type: string
       enum:
@@ -10339,7 +10345,6 @@ components:
         - text-merge
         - checkbox-merge
     SignatureRequestResponseDataValueCheckbox:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10352,8 +10357,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueCheckboxMerge:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10366,8 +10373,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueDateSigned:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10380,8 +10389,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueDropdown:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10394,8 +10405,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueInitials:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10408,8 +10421,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueRadio:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10422,8 +10437,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueSignature:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10436,8 +10453,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueText:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10450,8 +10469,10 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueTextMerge:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10464,6 +10485,9 @@ components:
             value:
               description: 'The value of the form field.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseSignatures:
       description: 'An array of signature objects, 1 for each signer.'
       properties:
@@ -10864,7 +10888,6 @@ components:
       description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
@@ -10878,11 +10901,13 @@ components:
                 * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`
               type: string
               default: checkbox
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
     TemplateResponseDocumentCustomFieldText:
       description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
@@ -10907,6 +10932,9 @@ components:
             fontFamily:
               description: 'Font family used in this form field''s text.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
     TemplateResponseDocumentFieldGroup:
       properties:
         name:
@@ -10983,13 +11011,12 @@ components:
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
-      required:
-        - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11005,15 +11032,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: checkbox
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldDateSigned:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11029,15 +11060,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: date_signed
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldDropdown:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11053,15 +11088,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: dropdown
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldHyperlink:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11088,15 +11127,19 @@ components:
             fontFamily:
               description: 'Font family used in this form field''s text.'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldInitials:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11112,16 +11155,20 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: initials
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldRadio:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
         - group
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11137,15 +11184,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: radio
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldSignature:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11161,15 +11212,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentFormFieldInitials`
               type: string
               default: signature
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldText:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11211,6 +11266,9 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentStaticFieldBase:
       description: 'An array describing static overlay fields. **Note** only available for certain subscriptions.'
       required:
@@ -11265,11 +11323,12 @@ components:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11285,15 +11344,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: checkbox
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldDateSigned:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11309,15 +11372,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: date_signed
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldDropdown:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11333,15 +11400,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: dropdown
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldHyperlink:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11357,15 +11428,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: hyperlink
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldInitials:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11381,15 +11456,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: initials
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldRadio:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11405,15 +11484,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: radio
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldSignature:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11429,15 +11512,19 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: signature
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldText:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: |-
@@ -11453,6 +11540,9 @@ components:
                 * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`
               type: string
               default: text
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseFieldAvgTextLength:
       description: 'Average text length in this field.'
       properties:

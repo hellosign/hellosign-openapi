@@ -10053,13 +10053,13 @@ components:
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
-      required:
-        - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
+          required:
+            - name
+            - type
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -10068,15 +10068,18 @@ components:
             value:
               description: '_t__SignatureRequestResponseCustomField::VALUE_CHECKBOX'
               type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
     SignatureRequestResponseCustomFieldText:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
-      required:
-        - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
         -
+          required:
+            - name
+            - type
           properties:
             type:
               description: '_t__SignatureRequestResponseCustomField::TYPE'
@@ -10084,7 +10087,10 @@ components:
               default: text
             value:
               description: '_t__SignatureRequestResponseCustomField::VALUE_TEXT'
-              type: string
+              type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
     SignatureRequestResponseCustomFieldTypeEnum:
       type: string
       enum:
@@ -10135,7 +10141,6 @@ components:
         - text-merge
         - checkbox-merge
     SignatureRequestResponseDataValueCheckbox:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10148,8 +10153,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueCheckboxMerge:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10162,8 +10169,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueDateSigned:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10176,8 +10185,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueDropdown:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10190,8 +10201,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueInitials:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10204,8 +10217,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueRadio:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10218,8 +10233,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: boolean
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueSignature:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10232,8 +10249,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueText:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10246,8 +10265,10 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueTextMerge:
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/SignatureRequestResponseDataBase'
@@ -10260,6 +10281,9 @@ components:
             value:
               description: '_t__SignatureRequestResponseDataValue::VALUE'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseSignatures:
       description: '_t__SignatureRequestResponseSignatures::DESCRIPTION'
       properties:
@@ -10657,7 +10681,6 @@ components:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
@@ -10667,11 +10690,13 @@ components:
               description: '_t__TemplateResponseDocumentCustomField::TYPE'
               type: string
               default: checkbox
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
     TemplateResponseDocumentCustomFieldText:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
@@ -10692,6 +10717,9 @@ components:
             fontFamily:
               description: '_t__TemplateResponseDocumentCustomField::FONT_FAMILY'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
     TemplateResponseDocumentFieldGroup:
       properties:
         name:
@@ -10763,55 +10791,66 @@ components:
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
-      required:
-        - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: checkbox
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldDateSigned:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: date_signed
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldDropdown:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: dropdown
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldHyperlink:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
@@ -10828,58 +10867,74 @@ components:
             fontFamily:
               description: '_t__TemplateResponseDocumentFormField::FONT_FAMILY'
               type: string
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldInitials:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: initials
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldRadio:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
         - group
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: radio
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldSignature:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
               type: string
               default: signature
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldText:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentFormField::TYPE'
@@ -10911,6 +10966,9 @@ components:
                 - employer_identification_number
                 - custom_regex
               nullable: true
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentStaticFieldBase:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION'
       required:
@@ -10965,114 +11023,146 @@ components:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: checkbox
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldDateSigned:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: date_signed
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldDropdown:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: dropdown
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldHyperlink:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: hyperlink
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldInitials:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: initials
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldRadio:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: radio
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldSignature:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: signature
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldText:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
       required:
         - type
-      type: object
       allOf:
         -
           $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
         -
+          required:
+            - type
           properties:
             type:
               description: '_t__TemplateResponseDocumentStaticField::TYPE'
               type: string
               default: text
+          type: object
+        -
+          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseFieldAvgTextLength:
       description: '_t__TemplateResponseFieldAvgTextLength::DESCRIPTION'
       properties:
