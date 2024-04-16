@@ -14308,7 +14308,7 @@ components:
             type: string
           value:
             description: A text string for text fields
-            type: boolean
+            type: string
         required:
         - name
         - type

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported. | [default to "text"]
-**Value** | Pointer to **bool** | A text string for text fields | [optional] 
+**Value** | Pointer to **string** | A text string for text fields | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetType sets Type field to given value.
 
 ### GetValue
 
-`func (o *SignatureRequestResponseCustomFieldText) GetValue() bool`
+`func (o *SignatureRequestResponseCustomFieldText) GetValue() string`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *SignatureRequestResponseCustomFieldText) GetValueOk() (*bool, bool)`
+`func (o *SignatureRequestResponseCustomFieldText) GetValueOk() (*string, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *SignatureRequestResponseCustomFieldText) SetValue(v bool)`
+`func (o *SignatureRequestResponseCustomFieldText) SetValue(v string)`
 
 SetValue sets Value field to given value.
 

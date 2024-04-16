@@ -26,7 +26,7 @@ type SignatureRequestResponseCustomFieldText struct {
 	// The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.
 	Type string `json:"type"`
 	// A text string for text fields
-	Value *bool `json:"value,omitempty"`
+	Value *string `json:"value,omitempty"`
 }
 
 type _SignatureRequestResponseCustomFieldText SignatureRequestResponseCustomFieldText
@@ -77,9 +77,9 @@ func (o *SignatureRequestResponseCustomFieldText) SetType(v string) {
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *SignatureRequestResponseCustomFieldText) GetValue() bool {
+func (o *SignatureRequestResponseCustomFieldText) GetValue() string {
 	if o == nil || IsNil(o.Value) {
-		var ret bool
+		var ret string
 		return ret
 	}
 	return *o.Value
@@ -87,7 +87,7 @@ func (o *SignatureRequestResponseCustomFieldText) GetValue() bool {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SignatureRequestResponseCustomFieldText) GetValueOk() (*bool, bool) {
+func (o *SignatureRequestResponseCustomFieldText) GetValueOk() (*string, bool) {
 	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *SignatureRequestResponseCustomFieldText) HasValue() bool {
 	return false
 }
 
-// SetValue gets a reference to the given bool and assigns it to the Value field.
-func (o *SignatureRequestResponseCustomFieldText) SetValue(v bool) {
+// SetValue gets a reference to the given string and assigns it to the Value field.
+func (o *SignatureRequestResponseCustomFieldText) SetValue(v string) {
 	o.Value = &v
 }
 

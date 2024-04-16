@@ -10087,7 +10087,7 @@ components:
               default: text
             value:
               description: '_t__SignatureRequestResponseCustomField::VALUE_TEXT'
-              type: boolean
+              type: string
           type: object
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'

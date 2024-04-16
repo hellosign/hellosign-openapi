@@ -10291,7 +10291,7 @@ components:
               default: text
             value:
               description: 'A text string for text fields'
-              type: boolean
+              type: string
           type: object
         -
           $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
