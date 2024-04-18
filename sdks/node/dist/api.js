@@ -25751,7 +25751,7 @@ var EmbeddedApi = class {
 };
 
 // api/oAuthApi.ts
-var defaultBasePath5 = "https://api.hellosign.com/v3";
+var defaultBasePath5 = "https://app.hellosign.com";
 var OAuthApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath5;
