@@ -371,11 +371,11 @@ public class SignatureRequestBulkSendWithTemplateRequest {
   }
 
    /**
-   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  **NOTE**: If the metadata value uses brackets (&#x60;[]&#x60;) or curly braces (&#x60;{}&#x60;), the value will be considered a JSON and will be stored as such. To store the value as a string, use the escape (&#x60;\\&#x60;) character before the opeing bracket or curly brace.
+   * Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
    * @return metadata
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.  **NOTE**: If the metadata value uses brackets (`[]`) or curly braces (`{}`), the value will be considered a JSON and will be stored as such. To store the value as a string, use the escape (`\\`) character before the opeing bracket or curly brace.")
+  @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
