@@ -2333,7 +2333,7 @@ class TeamApi
 
             $statusCode = $response->getStatusCode();
 
-            if ($statusCode === 200) {
+            if ($statusCode === 201) {
                 if ('\Dropbox\Sign\Model\TeamGetResponse' === '\SplFileObject') {
                     $content = $response->getBody(); //stream goes to serializer
                 } else {
@@ -2378,7 +2378,7 @@ class TeamApi
         } catch (ApiException $e) {
             $statusCode = $e->getCode();
 
-            if ($statusCode === 200) {
+            if ($statusCode === 201) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
                     '\Dropbox\Sign\Model\TeamGetResponse',

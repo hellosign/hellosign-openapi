@@ -105,6 +105,10 @@ export class SignatureRequestResponse {
    */
   "signingRedirectUrl"?: string | null;
   /**
+   * The path where the completed document can be downloaded
+   */
+  "finalCopyUri"?: string | null;
+  /**
    * Templates IDs used in this SignatureRequest (if any).
    */
   "templateIds"?: Array<string> | null;
@@ -124,6 +128,10 @@ export class SignatureRequestResponse {
    * An array of signature objects, 1 for each signer.
    */
   "signatures"?: Array<SignatureRequestResponseSignatures>;
+  /**
+   * The ID of the Bulk Send job which sent the signature request, if applicable.
+   */
+  "bulkSendJobId"?: string | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -219,6 +227,11 @@ export class SignatureRequestResponse {
       type: "string",
     },
     {
+      name: "finalCopyUri",
+      baseName: "final_copy_uri",
+      type: "string",
+    },
+    {
       name: "templateIds",
       baseName: "template_ids",
       type: "Array<string>",
@@ -242,6 +255,11 @@ export class SignatureRequestResponse {
       name: "signatures",
       baseName: "signatures",
       type: "Array<SignatureRequestResponseSignatures>",
+    },
+    {
+      name: "bulkSendJobId",
+      baseName: "bulk_send_job_id",
+      type: "string",
     },
   ];
 

@@ -451,7 +451,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiAppCreateRequest'
       responses:
-        '200':
+        '201':
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
@@ -4761,7 +4761,7 @@ paths:
               account_id:
                 $ref: '#/components/examples/TeamRemoveMemberRequestAccountIdExample'
       responses:
-        '200':
+        '201':
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
@@ -9953,6 +9953,10 @@ components:
           description: '_t__SignatureRequestResponse::SIGNING_REDIRECT_URL'
           type: string
           nullable: true
+        final_copy_uri:
+          description: '_t__SignatureRequestResponse::FINAL_COPY_URI'
+          type: string
+          nullable: true
         template_ids:
           description: '_t__SignatureRequestResponse::TEMPLATE_IDS'
           type: array
@@ -9982,6 +9986,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
+        bulk_send_job_id:
+          description: '_t__SignatureRequestResponse::BULK_SEND_JOB_ID'
+          type: string
+          nullable: true
       type: object
       x-internal: true
     SignatureRequestResponseAttachment:
@@ -11297,7 +11305,6 @@ components:
         - event_time
         - event_type
         - event_hash
-        - event_metadata
       properties:
         event_time:
           description: '_t__EventCallbackRequestEvent::EVENT_TIME'
@@ -11328,6 +11335,7 @@ components:
             - template_created
             - template_error
             - callback_test
+            - signature_request_signer_removed
         event_hash:
           description: '_t__EventCallbackRequestEvent::EVENT_HASH'
           type: string

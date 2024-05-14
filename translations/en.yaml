@@ -1301,12 +1301,14 @@
 "SignatureRequestResponse::REQUESTER_EMAIL_ADDRESS": The email address of the initiator of the SignatureRequest.
 "SignatureRequestResponse::SIGNATURE_REQUEST_ID": The id of the SignatureRequest.
 "SignatureRequestResponse::SIGNING_REDIRECT_URL": The URL you want the signer redirected to after they successfully sign.
+"SignatureRequestResponse::FINAL_COPY_URI": The path where the completed document can be downloaded
 "SignatureRequestResponse::SIGNING_URL": The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
 "SignatureRequestResponse::SUBJECT": The subject in the email that was initially sent to the signers.
 "SignatureRequestResponse::TEMPLATE_IDS": Templates IDs used in this SignatureRequest (if any).
 "SignatureRequestResponse::TEST_MODE": Whether this is a test signature request. Test requests have no legal value. Defaults to `false`.
 "SignatureRequestResponse::TITLE": The title the specified Account uses for the SignatureRequest.
 "SignatureRequestResponse::EXPIRES_AT": The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
+"SignatureRequestResponse::BULK_SEND_JOB_ID": The ID of the Bulk Send job which sent the signature request, if applicable.
 
 "SignatureRequestListResponse::DESCRIPTION": Contains information about signature requests.
 

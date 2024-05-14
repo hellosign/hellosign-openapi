@@ -457,7 +457,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ApiAppCreateRequest'
       responses:
-        200:
+        201:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
@@ -4320,7 +4320,7 @@ paths:
               account_id:
                 $ref: '#/components/examples/TeamRemoveMemberRequestAccountIdExample'
       responses:
-        200:
+        201:
           description: 'successful operation'
           headers:
             X-RateLimit-Limit:
@@ -10179,6 +10179,10 @@ components:
           description: 'The URL you want the signer redirected to after they successfully sign.'
           type: string
           nullable: true
+        final_copy_uri:
+          description: 'The path where the completed document can be downloaded'
+          type: string
+          nullable: true
         template_ids:
           description: 'Templates IDs used in this SignatureRequest (if any).'
           type: array
@@ -10212,6 +10216,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SignatureRequestResponseSignatures'
+        bulk_send_job_id:
+          description: 'The ID of the Bulk Send job which sent the signature request, if applicable.'
+          type: string
+          nullable: true
       type: object
       x-internal: true
     SignatureRequestResponseAttachment:
@@ -11707,7 +11715,6 @@ components:
         - event_time
         - event_type
         - event_hash
-        - event_metadata
       properties:
         event_time:
           description: 'Time the event was created (using Unix time).'
@@ -11738,6 +11745,7 @@ components:
             - template_created
             - template_error
             - callback_test
+            - signature_request_signer_removed
         event_hash:
           description: 'Generated hash used to verify source of event data.'
           type: string

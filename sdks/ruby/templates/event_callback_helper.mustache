@@ -36,7 +36,7 @@ module Dropbox::Sign
     def self.get_callback_type(event_callback)
       metadata = event_callback.event.event_metadata || EventCallbackRequestEventMetadata.new
 
-      if metadata.reported_for_app_id.nil? || metadata.reported_for_app_id.empty?
+      if metadata.nil? || metadata.reported_for_app_id.nil? || metadata.reported_for_app_id.empty?
         return EVENT_TYPE_ACCOUNT_CALLBACK
       end
 

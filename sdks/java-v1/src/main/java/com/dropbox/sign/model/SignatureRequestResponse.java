@@ -60,11 +60,13 @@ import com.dropbox.sign.ApiException;
     SignatureRequestResponse.JSON_PROPERTY_DETAILS_URL,
     SignatureRequestResponse.JSON_PROPERTY_CC_EMAIL_ADDRESSES,
     SignatureRequestResponse.JSON_PROPERTY_SIGNING_REDIRECT_URL,
+    SignatureRequestResponse.JSON_PROPERTY_FINAL_COPY_URI,
     SignatureRequestResponse.JSON_PROPERTY_TEMPLATE_IDS,
     SignatureRequestResponse.JSON_PROPERTY_CUSTOM_FIELDS,
     SignatureRequestResponse.JSON_PROPERTY_ATTACHMENTS,
     SignatureRequestResponse.JSON_PROPERTY_RESPONSE_DATA,
-    SignatureRequestResponse.JSON_PROPERTY_SIGNATURES
+    SignatureRequestResponse.JSON_PROPERTY_SIGNATURES,
+    SignatureRequestResponse.JSON_PROPERTY_BULK_SEND_JOB_ID
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -123,6 +125,9 @@ public class SignatureRequestResponse {
   public static final String JSON_PROPERTY_SIGNING_REDIRECT_URL = "signing_redirect_url";
   private String signingRedirectUrl;
 
+  public static final String JSON_PROPERTY_FINAL_COPY_URI = "final_copy_uri";
+  private String finalCopyUri;
+
   public static final String JSON_PROPERTY_TEMPLATE_IDS = "template_ids";
   private List<String> templateIds = null;
 
@@ -137,6 +142,9 @@ public class SignatureRequestResponse {
 
   public static final String JSON_PROPERTY_SIGNATURES = "signatures";
   private List<SignatureRequestResponseSignatures> signatures = null;
+
+  public static final String JSON_PROPERTY_BULK_SEND_JOB_ID = "bulk_send_job_id";
+  private String bulkSendJobId;
 
   public SignatureRequestResponse() { 
   }
@@ -632,6 +640,32 @@ public class SignatureRequestResponse {
   }
 
 
+  public SignatureRequestResponse finalCopyUri(String finalCopyUri) {
+    this.finalCopyUri = finalCopyUri;
+    return this;
+  }
+
+   /**
+   * The path where the completed document can be downloaded
+   * @return finalCopyUri
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The path where the completed document can be downloaded")
+  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFinalCopyUri() {
+    return finalCopyUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FINAL_COPY_URI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFinalCopyUri(String finalCopyUri) {
+    this.finalCopyUri = finalCopyUri;
+  }
+
+
   public SignatureRequestResponse templateIds(List<String> templateIds) {
     this.templateIds = templateIds;
     return this;
@@ -802,6 +836,32 @@ public class SignatureRequestResponse {
   }
 
 
+  public SignatureRequestResponse bulkSendJobId(String bulkSendJobId) {
+    this.bulkSendJobId = bulkSendJobId;
+    return this;
+  }
+
+   /**
+   * The ID of the Bulk Send job which sent the signature request, if applicable.
+   * @return bulkSendJobId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the Bulk Send job which sent the signature request, if applicable.")
+  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBulkSendJobId() {
+    return bulkSendJobId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBulkSendJobId(String bulkSendJobId) {
+    this.bulkSendJobId = bulkSendJobId;
+  }
+
+
   /**
    * Return true if this SignatureRequestResponse object is equal to o.
    */
@@ -832,16 +892,18 @@ public class SignatureRequestResponse {
         Objects.equals(this.detailsUrl, signatureRequestResponse.detailsUrl) &&
         Objects.equals(this.ccEmailAddresses, signatureRequestResponse.ccEmailAddresses) &&
         Objects.equals(this.signingRedirectUrl, signatureRequestResponse.signingRedirectUrl) &&
+        Objects.equals(this.finalCopyUri, signatureRequestResponse.finalCopyUri) &&
         Objects.equals(this.templateIds, signatureRequestResponse.templateIds) &&
         Objects.equals(this.customFields, signatureRequestResponse.customFields) &&
         Objects.equals(this.attachments, signatureRequestResponse.attachments) &&
         Objects.equals(this.responseData, signatureRequestResponse.responseData) &&
-        Objects.equals(this.signatures, signatureRequestResponse.signatures);
+        Objects.equals(this.signatures, signatureRequestResponse.signatures) &&
+        Objects.equals(this.bulkSendJobId, signatureRequestResponse.bulkSendJobId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(testMode, signatureRequestId, requesterEmailAddress, title, originalTitle, subject, message, metadata, createdAt, expiresAt, isComplete, isDeclined, hasError, filesUrl, signingUrl, detailsUrl, ccEmailAddresses, signingRedirectUrl, templateIds, customFields, attachments, responseData, signatures);
+    return Objects.hash(testMode, signatureRequestId, requesterEmailAddress, title, originalTitle, subject, message, metadata, createdAt, expiresAt, isComplete, isDeclined, hasError, filesUrl, signingUrl, detailsUrl, ccEmailAddresses, signingRedirectUrl, finalCopyUri, templateIds, customFields, attachments, responseData, signatures, bulkSendJobId);
   }
 
   @Override
@@ -866,11 +928,13 @@ public class SignatureRequestResponse {
     sb.append("    detailsUrl: ").append(toIndentedString(detailsUrl)).append("\n");
     sb.append("    ccEmailAddresses: ").append(toIndentedString(ccEmailAddresses)).append("\n");
     sb.append("    signingRedirectUrl: ").append(toIndentedString(signingRedirectUrl)).append("\n");
+    sb.append("    finalCopyUri: ").append(toIndentedString(finalCopyUri)).append("\n");
     sb.append("    templateIds: ").append(toIndentedString(templateIds)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    responseData: ").append(toIndentedString(responseData)).append("\n");
     sb.append("    signatures: ").append(toIndentedString(signatures)).append("\n");
+    sb.append("    bulkSendJobId: ").append(toIndentedString(bulkSendJobId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1221,6 +1285,25 @@ public class SignatureRequestResponse {
             map.put("signing_redirect_url", JSON.getDefault().getMapper().writeValueAsString(signingRedirectUrl));
         }
     }
+    if (finalCopyUri != null) {
+        if (isFileTypeOrListOfFiles(finalCopyUri)) {
+            fileTypeFound = true;
+        }
+
+        if (finalCopyUri.getClass().equals(java.io.File.class) ||
+            finalCopyUri.getClass().equals(Integer.class) ||
+            finalCopyUri.getClass().equals(String.class) ||
+            finalCopyUri.getClass().isEnum()) {
+            map.put("final_copy_uri", finalCopyUri);
+        } else if (isListOfFile(finalCopyUri)) {
+            for(int i = 0; i< getListSize(finalCopyUri); i++) {
+                map.put("final_copy_uri[" + i + "]", getFromList(finalCopyUri, i));
+            }
+        }
+        else {
+            map.put("final_copy_uri", JSON.getDefault().getMapper().writeValueAsString(finalCopyUri));
+        }
+    }
     if (templateIds != null) {
         if (isFileTypeOrListOfFiles(templateIds)) {
             fileTypeFound = true;
@@ -1314,6 +1397,25 @@ public class SignatureRequestResponse {
         }
         else {
             map.put("signatures", JSON.getDefault().getMapper().writeValueAsString(signatures));
+        }
+    }
+    if (bulkSendJobId != null) {
+        if (isFileTypeOrListOfFiles(bulkSendJobId)) {
+            fileTypeFound = true;
+        }
+
+        if (bulkSendJobId.getClass().equals(java.io.File.class) ||
+            bulkSendJobId.getClass().equals(Integer.class) ||
+            bulkSendJobId.getClass().equals(String.class) ||
+            bulkSendJobId.getClass().isEnum()) {
+            map.put("bulk_send_job_id", bulkSendJobId);
+        } else if (isListOfFile(bulkSendJobId)) {
+            for(int i = 0; i< getListSize(bulkSendJobId); i++) {
+                map.put("bulk_send_job_id[" + i + "]", getFromList(bulkSendJobId, i));
+            }
+        }
+        else {
+            map.put("bulk_send_job_id", JSON.getDefault().getMapper().writeValueAsString(bulkSendJobId));
         }
     }
     } catch (Exception e) {

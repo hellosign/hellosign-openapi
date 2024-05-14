@@ -1256,7 +1256,7 @@ export class TeamApi {
 
             let body;
 
-            if (response.status === 200) {
+            if (response.status === 201) {
               body = ObjectSerializer.deserialize(
                 response.data,
                 "TeamGetResponse"

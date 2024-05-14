@@ -33,3 +33,15 @@ rep 'LegalVersionEnum_Terms1' \
 rep 'TypeEnum_RequestSignature' \
   'UnclaimedDraftCreateEmbeddedRequest.TypeEnum.RequestSignature'
 printf "\n\n"
+
+printf "Fixing broken defaultBasePath for OAuth endpoints ...\n"
+perl -pi -e 's#let defaultBasePath = "https://api.hellosign.com/v3";#let defaultBasePath = "https://app.hellosign.com";#g' \
+  "${ROOT_DIR}/api/oAuthApi.ts"
+
+grep -ilr "https://api.hellosign.com/v3" "${ROOT_DIR}/api/oAuthApi.ts"
+if [ $? -eq 0 ]; then
+  printf "Error: https://api.hellosign.com/v3 server URL not replaced in api/oAuthApi.ts\n"
+  exit 1
+fi
+
+printf "\n\n"

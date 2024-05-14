@@ -170,7 +170,13 @@ namespace Dropbox.Sign.Model
             /// Enum CallbackTest for value: callback_test
             /// </summary>
             [EnumMember(Value = "callback_test")]
-            CallbackTest = 22
+            CallbackTest = 22,
+
+            /// <summary>
+            /// Enum SignatureRequestSignerRemoved for value: signature_request_signer_removed
+            /// </summary>
+            [EnumMember(Value = "signature_request_signer_removed")]
+            SignatureRequestSignerRemoved = 23
 
         }
 
@@ -192,7 +198,7 @@ namespace Dropbox.Sign.Model
         /// <param name="eventTime">Time the event was created (using Unix time). (required).</param>
         /// <param name="eventType">Type of callback event that was triggered. (required).</param>
         /// <param name="eventHash">Generated hash used to verify source of event data. (required).</param>
-        /// <param name="eventMetadata">eventMetadata (required).</param>
+        /// <param name="eventMetadata">eventMetadata.</param>
         public EventCallbackRequestEvent(string eventTime = default(string), EventTypeEnum eventType = default(EventTypeEnum), string eventHash = default(string), EventCallbackRequestEventMetadata eventMetadata = default(EventCallbackRequestEventMetadata))
         {
             
@@ -209,11 +215,6 @@ namespace Dropbox.Sign.Model
                 throw new ArgumentNullException("eventHash is a required property for EventCallbackRequestEvent and cannot be null");
             }
             this.EventHash = eventHash;
-            // to ensure "eventMetadata" is required (not null)
-            if (eventMetadata == null)
-            {
-                throw new ArgumentNullException("eventMetadata is a required property for EventCallbackRequestEvent and cannot be null");
-            }
             this.EventMetadata = eventMetadata;
         }
 
@@ -250,7 +251,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Gets or Sets EventMetadata
         /// </summary>
-        [DataMember(Name = "event_metadata", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "event_metadata", EmitDefaultValue = true)]
         public EventCallbackRequestEventMetadata EventMetadata { get; set; }
 
         /// <summary>

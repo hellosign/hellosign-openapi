@@ -19,20 +19,48 @@ public class EventCallbackHelperTest {
     public void testIsValid() throws Exception {
         String reverseApiKey = new StringBuilder(APIKEY).reverse().toString();
 
-        List<String> keys = Arrays.asList(
+        List<String> account_keys = Arrays.asList(
+            "base",
+            "base_no_metadata",
+            "account",
+            "account_no_metadata",
+            "signature_request",
+            "signature_request_no_metadata",
+            "template",
+            "template_no_metadata"
+        );
+
+        for (String key : account_keys) {
+            JsonNode content = TestHelper.getJsonContents("EventCallbackHelper_AccountCallbacks", key);
+
+            EventCallbackRequest callbackEvent = EventCallbackRequest.init(content.toString());
+
+            Assert.assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
+            Assert.assertFalse(EventCallbackHelper.isValid(reverseApiKey, callbackEvent));
+            Assert.assertEquals(
+                EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK,
+                EventCallbackHelper.getCallbackType(callbackEvent)
+            );
+        }
+
+        List<String> app_keys = Arrays.asList(
             "base",
             "account",
             "signature_request",
             "template"
         );
 
-        for (String key : keys) {
-            JsonNode content = TestHelper.getJsonContents("EventCallbackHelper", key);
+        for (String key : app_keys) {
+            JsonNode content = TestHelper.getJsonContents("EventCallbackHelper_AppCallbacks", key);
 
             EventCallbackRequest callbackEvent = EventCallbackRequest.init(content.toString());
 
             Assert.assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
             Assert.assertFalse(EventCallbackHelper.isValid(reverseApiKey, callbackEvent));
+            Assert.assertEquals(
+                EventCallbackHelper.EVENT_TYPE_APP_CALLBACK,
+                EventCallbackHelper.getCallbackType(callbackEvent)
+            );
         }
     }
 }

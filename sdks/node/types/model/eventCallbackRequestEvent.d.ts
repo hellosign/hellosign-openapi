@@ -4,7 +4,7 @@ export declare class EventCallbackRequestEvent {
     "eventTime": string;
     "eventType": EventCallbackRequestEvent.EventTypeEnum;
     "eventHash": string;
-    "eventMetadata": EventCallbackRequestEventMetadata;
+    "eventMetadata"?: EventCallbackRequestEventMetadata;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
@@ -33,6 +33,7 @@ export declare namespace EventCallbackRequestEvent {
         SignatureRequestExpired = "signature_request_expired",
         TemplateCreated = "template_created",
         TemplateError = "template_error",
-        CallbackTest = "callback_test"
+        CallbackTest = "callback_test",
+        SignatureRequestSignerRemoved = "signature_request_signer_removed"
     }
 }

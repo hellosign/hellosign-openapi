@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 | `eventTime`<sup>*_required_</sup> | ```String``` |  Time the event was created (using Unix time).  |  |
 | `eventType`<sup>*_required_</sup> | [```EventTypeEnum```](#EventTypeEnum) |  Type of callback event that was triggered.  |  |
 | `eventHash`<sup>*_required_</sup> | ```String``` |  Generated hash used to verify source of event data.  |  |
-| `eventMetadata`<sup>*_required_</sup> | [```EventCallbackRequestEventMetadata```](EventCallbackRequestEventMetadata.md) |    |  |
+| `eventMetadata` | [```EventCallbackRequestEventMetadata```](EventCallbackRequestEventMetadata.md) |    |  |
 
 
 
@@ -41,6 +41,7 @@ Name | Value
 | TEMPLATE_CREATED | &quot;template_created&quot; |
 | TEMPLATE_ERROR | &quot;template_error&quot; |
 | CALLBACK_TEST | &quot;callback_test&quot; |
+| SIGNATURE_REQUEST_SIGNER_REMOVED | &quot;signature_request_signer_removed&quot; |
 
 
 

@@ -70,8 +70,10 @@ abstract class EventCallbackHelper
     ): string {
         $meta_data = $event_callback->getEvent()->getEventMetadata();
 
-        return !empty($meta_data->getReportedForAppId())
-            ? self::EVENT_TYPE_APP_CALLBACK
-            : self::EVENT_TYPE_ACCOUNT_CALLBACK;
+        if (empty($meta_data) || empty($meta_data->getReportedForAppId())) {
+            return self::EVENT_TYPE_ACCOUNT_CALLBACK;
+        }
+
+        return self::EVENT_TYPE_APP_CALLBACK;
     }
 }

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 | `detailsUrl` | ```String``` |  The URL where the requester and the signers can view the current status of the SignatureRequest.  |  |
 | `ccEmailAddresses` | ```List<String>``` |  A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.  |  |
 | `signingRedirectUrl` | ```String``` |  The URL you want the signer redirected to after they successfully sign.  |  |
+| `finalCopyUri` | ```String``` |  The path where the completed document can be downloaded  |  |
 | `templateIds` | ```List<String>``` |  Templates IDs used in this SignatureRequest (if any).  |  |
 | `customFields` | [```List<SignatureRequestResponseCustomFieldBase>```](SignatureRequestResponseCustomFieldBase.md) |  An array of Custom Field objects containing the name and type of each custom field.<br><br>* Text Field uses `SignatureRequestResponseCustomFieldText`<br>* Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`  |  |
 | `attachments` | [```List<SignatureRequestResponseAttachment>```](SignatureRequestResponseAttachment.md) |  Signer attachments.  |  |

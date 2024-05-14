@@ -202,6 +202,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     public const EVENT_TYPE_TEMPLATE_CREATED = 'template_created';
     public const EVENT_TYPE_TEMPLATE_ERROR = 'template_error';
     public const EVENT_TYPE_CALLBACK_TEST = 'callback_test';
+    public const EVENT_TYPE_SIGNATURE_REQUEST_SIGNER_REMOVED = 'signature_request_signer_removed';
 
     /**
      * Gets allowable values of the enum
@@ -233,6 +234,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
             self::EVENT_TYPE_TEMPLATE_CREATED,
             self::EVENT_TYPE_TEMPLATE_ERROR,
             self::EVENT_TYPE_CALLBACK_TEST,
+            self::EVENT_TYPE_SIGNATURE_REQUEST_SIGNER_REMOVED,
         ];
     }
 
@@ -301,9 +303,6 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
 
         if ($this->container['event_hash'] === null) {
             $invalidProperties[] = "'event_hash' can't be null";
-        }
-        if ($this->container['event_metadata'] === null) {
-            $invalidProperties[] = "'event_metadata' can't be null";
         }
 
         return $invalidProperties;
@@ -405,7 +404,7 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Gets event_metadata
      *
-     * @return EventCallbackRequestEventMetadata
+     * @return EventCallbackRequestEventMetadata|null
      */
     public function getEventMetadata()
     {
@@ -415,11 +414,11 @@ class EventCallbackRequestEvent implements ModelInterface, ArrayAccess, JsonSeri
     /**
      * Sets event_metadata
      *
-     * @param EventCallbackRequestEventMetadata $event_metadata event_metadata
+     * @param EventCallbackRequestEventMetadata|null $event_metadata event_metadata
      *
      * @return self
      */
-    public function setEventMetadata(EventCallbackRequestEventMetadata $event_metadata)
+    public function setEventMetadata(?EventCallbackRequestEventMetadata $event_metadata)
     {
         $this->container['event_metadata'] = $event_metadata;
 

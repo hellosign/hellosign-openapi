@@ -756,7 +756,7 @@ module Dropbox::Sign
       begin
         data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       rescue Dropbox::Sign::ApiError => e
-        if e.code === 200
+        if e.code === 201
           body = @api_client.convert_to_type(
             JSON.parse("[#{e.response_body}]", :symbolize_names => true)[0],
             "Dropbox::Sign::TeamGetResponse"

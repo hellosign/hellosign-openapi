@@ -89,6 +89,7 @@ class EventCallbackRequestEvent(ModelNormal):
             'TEMPLATE_CREATED': "template_created",
             'TEMPLATE_ERROR': "template_error",
             'CALLBACK_TEST': "callback_test",
+            'SIGNATURE_REQUEST_SIGNER_REMOVED': "signature_request_signer_removed",
         },
     }
 
@@ -190,14 +191,13 @@ class EventCallbackRequestEvent(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, event_time, event_type, event_hash, event_metadata, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, event_time, event_type, event_hash, *args, **kwargs):  # noqa: E501
         """EventCallbackRequestEvent - a model defined in OpenAPI
 
         Args:
             event_time (str): Time the event was created (using Unix time).
             event_type (str): Type of callback event that was triggered.
             event_hash (str): Generated hash used to verify source of event data.
-            event_metadata (EventCallbackRequestEventMetadata):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,6 +230,7 @@ class EventCallbackRequestEvent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            event_metadata (EventCallbackRequestEventMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,7 +261,6 @@ class EventCallbackRequestEvent(ModelNormal):
         self.event_time = event_time
         self.event_type = event_type
         self.event_hash = event_hash
-        self.event_metadata = event_metadata
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -281,14 +281,13 @@ class EventCallbackRequestEvent(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, event_time, event_type, event_hash, event_metadata, *args, **kwargs):  # noqa: E501
+    def __init__(self, event_time, event_type, event_hash, *args, **kwargs):  # noqa: E501
         """EventCallbackRequestEvent - a model defined in OpenAPI
 
         Args:
             event_time (str): Time the event was created (using Unix time).
             event_type (str): Type of callback event that was triggered.
             event_hash (str): Generated hash used to verify source of event data.
-            event_metadata (EventCallbackRequestEventMetadata):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -321,6 +320,7 @@ class EventCallbackRequestEvent(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            event_metadata (EventCallbackRequestEventMetadata): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -349,7 +349,6 @@ class EventCallbackRequestEvent(ModelNormal):
         self.event_time = event_time
         self.event_type = event_type
         self.event_hash = event_hash
-        self.event_metadata = event_metadata
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

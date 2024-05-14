@@ -41,7 +41,7 @@ export class EventCallbackRequestEvent {
    * Generated hash used to verify source of event data.
    */
   "eventHash": string;
-  "eventMetadata": EventCallbackRequestEventMetadata;
+  "eventMetadata"?: EventCallbackRequestEventMetadata;
 
   static discriminator: string | undefined = undefined;
 
@@ -102,5 +102,6 @@ export namespace EventCallbackRequestEvent {
     TemplateCreated = "template_created",
     TemplateError = "template_error",
     CallbackTest = "callback_test",
+    SignatureRequestSignerRemoved = "signature_request_signer_removed",
   }
 }

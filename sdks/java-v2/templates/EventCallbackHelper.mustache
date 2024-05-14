@@ -39,7 +39,11 @@ public class EventCallbackHelper {
     public static String getCallbackType(EventCallbackRequest eventCallback) {
         EventCallbackRequestEventMetadata metadata = eventCallback.getEvent().getEventMetadata();
 
-        if (metadata.getReportedForAppId() == null || metadata.getReportedForAppId().isEmpty()) {
+        if (
+            metadata == null ||
+            metadata.getReportedForAppId() == null ||
+            metadata.getReportedForAppId().isEmpty()
+        ) {
             return EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
         }
 
