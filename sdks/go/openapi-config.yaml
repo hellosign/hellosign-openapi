@@ -1,0 +1,9 @@
+generatorName: go
+additionalProperties:
+  packageName: dropbox_sign
+  packageVersion: "1.0-dev"
+  useOneOfDiscriminatorLookup: true
+  enumClassPrefix: true
+
+files: {}
+globalProperties: {}

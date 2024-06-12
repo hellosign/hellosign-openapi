@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [[ $(git status --porcelain) != '' ]]; then
+  printf "Working directory is dirty.\n";
+  printf "Please check that you committed any changes after running.\n"
+  printf "You may need to rebuild the SDK by running:\n";
+  printf "\t./run-build\n"
+
+  git status
+
+  exit 1
+else
+  echo "Working directory is clean!"
+  exit 0
+fi
