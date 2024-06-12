@@ -202,7 +202,7 @@ class TeamResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): The name of your Team. [optional]  # noqa: E501
             accounts ([AccountResponse]): [optional]  # noqa: E501
-            invited_accounts ([AccountResponse]): A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.. [optional]  # noqa: E501
+            invited_accounts ([AccountResponse]): A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.. [optional]  # noqa: E501
             invited_emails ([str]): A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.. [optional]  # noqa: E501
         """
 
@@ -287,7 +287,7 @@ class TeamResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): The name of your Team. [optional]  # noqa: E501
             accounts ([AccountResponse]): [optional]  # noqa: E501
-            invited_accounts ([AccountResponse]): A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.. [optional]  # noqa: E501
+            invited_accounts ([AccountResponse]): A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.. [optional]  # noqa: E501
             invited_emails ([str]): A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.. [optional]  # noqa: E501
         """
 

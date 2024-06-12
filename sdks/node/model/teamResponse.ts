@@ -35,7 +35,7 @@ export class TeamResponse {
   "name"?: string;
   "accounts"?: Array<AccountResponse>;
   /**
-   * A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+   * A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.
    */
   "invitedAccounts"?: Array<AccountResponse>;
   /**

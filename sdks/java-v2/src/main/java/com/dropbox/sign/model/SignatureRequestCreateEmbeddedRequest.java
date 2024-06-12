@@ -309,11 +309,11 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
    /**
-   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
    * @return groupedSigners
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.")
+  @ApiModelProperty(value = "Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.")
   @JsonProperty(JSON_PROPERTY_GROUPED_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -361,11 +361,11 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
    /**
-   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan.
+   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan.
    * @return allowReassign
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.")
+  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan.")
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -833,11 +833,11 @@ public class SignatureRequestCreateEmbeddedRequest {
   }
 
    /**
-   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    * @return populateAutoFillFields
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
+  @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
   @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

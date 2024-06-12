@@ -44,9 +44,9 @@ namespace Dropbox.Sign.Model
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="signers">Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
-        /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
+        /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers..</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher. (default to false).</param>
+        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan and higher. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
         /// <param name="ccEmailAddresses">The email addresses that should be CCed..</param>
         /// <param name="clientId">The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app..</param>
@@ -56,8 +56,8 @@ namespace Dropbox.Sign.Model
         /// <param name="formFieldRules">Conditional Logic rules for fields defined in &#x60;form_fields_per_document&#x60;..</param>
         /// <param name="formFieldsPerDocument">The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use &#x60;SubFormFieldsPerDocumentText&#x60; * Dropdown Field use &#x60;SubFormFieldsPerDocumentDropdown&#x60; * Hyperlink Field use &#x60;SubFormFieldsPerDocumentHyperlink&#x60; * Checkbox Field use &#x60;SubFormFieldsPerDocumentCheckbox&#x60; * Radio Field use &#x60;SubFormFieldsPerDocumentRadio&#x60; * Signature Field use &#x60;SubFormFieldsPerDocumentSignature&#x60; * Date Signed Field use &#x60;SubFormFieldsPerDocumentDateSigned&#x60; * Initials Field use &#x60;SubFormFieldsPerDocumentInitials&#x60; * Text Merge Field use &#x60;SubFormFieldsPerDocumentTextMerge&#x60; * Checkbox Merge Field use &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60;.</param>
         /// <param name="hideTextTags">Enables automatic Text Tag removal when set to true.  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on &#x60;false&#x60; and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information. (default to false).</param>
-        /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
-        /// <param name="isEid">Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
+        /// <param name="isQualifiedSignature">Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
+        /// <param name="isEid">Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
         /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
         /// <param name="signingOptions">signingOptions.</param>
@@ -136,9 +136,9 @@ namespace Dropbox.Sign.Model
         public List<SubSignatureRequestSigner> Signers { get; set; }
 
         /// <summary>
-        /// Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+        /// Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
         /// </summary>
-        /// <value>Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.</value>
+        /// <value>Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.</value>
         [DataMember(Name = "grouped_signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestGroupedSigners> GroupedSigners { get; set; }
 
@@ -150,9 +150,9 @@ namespace Dropbox.Sign.Model
         public bool AllowDecline { get; set; }
 
         /// <summary>
-        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.
+        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan and higher.
         /// </summary>
-        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.</value>
+        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan and higher.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
 
@@ -219,17 +219,17 @@ namespace Dropbox.Sign.Model
         public bool HideTextTags { get; set; }
 
         /// <summary>
-        /// Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+        /// Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
         /// </summary>
-        /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
+        /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
         [DataMember(Name = "is_qualified_signature", EmitDefaultValue = true)]
         [Obsolete]
         public bool IsQualifiedSignature { get; set; }
 
         /// <summary>
-        /// Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+        /// Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
         /// </summary>
-        /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
+        /// <value>Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.</value>
         [DataMember(Name = "is_eid", EmitDefaultValue = true)]
         public bool IsEid { get; set; }
 

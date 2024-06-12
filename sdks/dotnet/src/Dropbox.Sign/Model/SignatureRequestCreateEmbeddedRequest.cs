@@ -44,9 +44,9 @@ namespace Dropbox.Sign.Model
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="signers">Add Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
-        /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both..</param>
+        /// <param name="groupedSigners">Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers..</param>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan. (default to false).</param>
+        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
         /// <param name="ccEmailAddresses">The email addresses that should be CCed..</param>
         /// <param name="clientId">Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes. (required).</param>
@@ -63,7 +63,7 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="useTextTags">Send with a value of &#x60;true&#x60; if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or &#x60;false&#x60;. (default to false).</param>
-        /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
+        /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
         /// <param name="expiresAt">When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details..</param>
         public SignatureRequestCreateEmbeddedRequest(List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>), List<SubSignatureRequestGroupedSigners> groupedSigners = default(List<SubSignatureRequestGroupedSigners>), bool allowDecline = false, bool allowReassign = false, List<SubAttachment> attachments = default(List<SubAttachment>), List<string> ccEmailAddresses = default(List<string>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubFieldOptions fieldOptions = default(SubFieldOptions), List<SubFormFieldGroup> formFieldGroups = default(List<SubFormFieldGroup>), List<SubFormFieldRule> formFieldRules = default(List<SubFormFieldRule>), List<SubFormFieldsPerDocumentBase> formFieldsPerDocument = default(List<SubFormFieldsPerDocumentBase>), bool hideTextTags = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool useTextTags = false, bool populateAutoFillFields = false, int? expiresAt = default(int?))
         {
@@ -144,9 +144,9 @@ namespace Dropbox.Sign.Model
         public List<SubSignatureRequestSigner> Signers { get; set; }
 
         /// <summary>
-        /// Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+        /// Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
         /// </summary>
-        /// <value>Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.</value>
+        /// <value>Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.</value>
         [DataMember(Name = "grouped_signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestGroupedSigners> GroupedSigners { get; set; }
 
@@ -158,9 +158,9 @@ namespace Dropbox.Sign.Model
         public bool AllowDecline { get; set; }
 
         /// <summary>
-        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan.
+        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan.
         /// </summary>
-        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan.</value>
+        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
 
@@ -268,9 +268,9 @@ namespace Dropbox.Sign.Model
         public bool UseTextTags { get; set; }
 
         /// <summary>
-        /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+        /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
         /// </summary>
-        /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
+        /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
 

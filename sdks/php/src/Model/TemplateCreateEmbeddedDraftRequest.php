@@ -488,7 +488,7 @@ class TemplateCreateEmbeddedDraftRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets allow_reassign
      *
-     * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+     * @param bool|null $allow_reassign Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.
      *
      * @return self
      */

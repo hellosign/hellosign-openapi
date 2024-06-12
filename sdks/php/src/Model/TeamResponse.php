@@ -303,7 +303,7 @@ class TeamResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets invited_accounts
      *
-     * @param AccountResponse[]|null $invited_accounts A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+     * @param AccountResponse[]|null $invited_accounts A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.
      *
      * @return self
      */

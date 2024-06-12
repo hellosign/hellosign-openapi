@@ -23,7 +23,7 @@ module Dropbox::Sign
       @api_client = api_client
     end
     # Get Embedded Template Edit URL
-    # Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+    # Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
     # @param template_id [String] The id of the template to edit.
     # @param embedded_edit_url_request [EmbeddedEditUrlRequest] 
     # @param [Hash] opts the optional parameters
@@ -34,7 +34,7 @@ module Dropbox::Sign
     end
 
     # Get Embedded Template Edit URL
-    # Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+    # Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
     # @param template_id [String] The id of the template to edit.
     # @param embedded_edit_url_request [EmbeddedEditUrlRequest] 
     # @param [Hash] opts the optional parameters
@@ -138,7 +138,7 @@ module Dropbox::Sign
     end
 
     # Get Embedded Sign URL
-    # Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+    # Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
     # @param signature_id [String] The id of the signature to get a signature url for.
     # @param [Hash] opts the optional parameters
     # @return [EmbeddedSignUrlResponse]
@@ -148,7 +148,7 @@ module Dropbox::Sign
     end
 
     # Get Embedded Sign URL
-    # Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+    # Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
     # @param signature_id [String] The id of the signature to get a signature url for.
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmbeddedSignUrlResponse, Integer, Hash)>] EmbeddedSignUrlResponse data, response status code and response headers

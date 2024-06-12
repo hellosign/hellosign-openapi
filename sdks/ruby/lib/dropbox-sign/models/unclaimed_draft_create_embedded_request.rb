@@ -42,7 +42,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
-    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.
     # @return [Boolean]
     attr_accessor :allow_reassign
 
@@ -151,11 +151,11 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_text_tags
 
-    # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+    # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
     # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 
-    # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **Note**: This does not correspond to the **expires_at** returned in the response.
+    # When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE**: This does not correspond to the **expires_at** returned in the response.
     # @return [Integer, nil]
     attr_accessor :expires_at
 

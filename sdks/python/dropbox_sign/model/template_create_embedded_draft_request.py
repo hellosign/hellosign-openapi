@@ -445,7 +445,7 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             allow_ccs (bool): This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.. [optional] if omitted the server will use the default value of True  # noqa: E501
-            allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
             cc_roles ([str]): The CC roles that must be assigned when using the template to send a signature request. [optional]  # noqa: E501
             editor_options (SubEditorOptions): [optional]  # noqa: E501
@@ -554,7 +554,7 @@ class TemplateCreateEmbeddedDraftRequest(ModelNormal):
             files ([file_type]): Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             file_urls ([str]): Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.. [optional]  # noqa: E501
             allow_ccs (bool): This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.. [optional] if omitted the server will use the default value of True  # noqa: E501
-            allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            allow_reassign (bool): Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.. [optional] if omitted the server will use the default value of False  # noqa: E501
             attachments ([SubAttachment]): A list describing the attachments. [optional]  # noqa: E501
             cc_roles ([str]): The CC roles that must be assigned when using the template to send a signature request. [optional]  # noqa: E501
             editor_options (SubEditorOptions): [optional]  # noqa: E501

@@ -30,7 +30,7 @@ module Dropbox::Sign
     # @return [Array<SubSignatureRequestSigner>]
     attr_accessor :signers
 
-    # Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+    # Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
     # @return [Array<SubSignatureRequestGroupedSigners>]
     attr_accessor :grouped_signers
 
@@ -38,7 +38,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
-    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.
     # @return [Boolean]
     attr_accessor :allow_reassign
 
@@ -77,11 +77,11 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :hide_text_tags
 
-    # Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
+    # Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.
     # @return [Boolean]
     attr_accessor :is_qualified_signature
 
-    # Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    # Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
     # @return [Boolean]
     attr_accessor :is_eid
 

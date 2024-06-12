@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Files** | **List&lt;System.IO.Stream&gt;** |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  | [optional] 
 **FileUrls** | **List&lt;string&gt;** |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  | [optional] 
 **AllowCcs** | **bool** |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.  | [optional] [default to true]
-**AllowReassign** | **bool** |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  | [optional] [default to false]
+**AllowReassign** | **bool** |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE**: Only available for Premium plan and higher.  | [optional] [default to false]
 **Attachments** | [**List&lt;SubAttachment&gt;**](SubAttachment.md) |  A list describing the attachments  | [optional] 
 **CcRoles** | **List&lt;string&gt;** |  The CC roles that must be assigned when using the template to send a signature request  | [optional] 
 **EditorOptions** | [**SubEditorOptions**](SubEditorOptions.md) |    | [optional] 

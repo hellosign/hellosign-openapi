@@ -288,7 +288,7 @@ public class SignatureRequestApi {
   }
   /**
    * Create Embedded Signature Request
-   * Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestCreateEmbeddedRequest  (required)
    * @return SignatureRequestGetResponse
    * @throws ApiException if fails to make API call
@@ -306,7 +306,7 @@ public class SignatureRequestApi {
 
   /**
    * Create Embedded Signature Request
-   * Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestCreateEmbeddedRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -363,7 +363,7 @@ public class SignatureRequestApi {
   }
   /**
    * Create Embedded Signature Request with Template
-   * Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestCreateEmbeddedWithTemplateRequest  (required)
    * @return SignatureRequestGetResponse
    * @throws ApiException if fails to make API call
@@ -381,7 +381,7 @@ public class SignatureRequestApi {
 
   /**
    * Create Embedded Signature Request with Template
-   * Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestCreateEmbeddedWithTemplateRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
    * @throws ApiException if fails to make API call
@@ -521,7 +521,7 @@ public class SignatureRequestApi {
   }
   /**
    * Edit Embedded Signature Request
-   * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditEmbeddedRequest  (required)
    * @return SignatureRequestGetResponse
@@ -540,7 +540,7 @@ public class SignatureRequestApi {
 
   /**
    * Edit Embedded Signature Request
-   * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditEmbeddedRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;
@@ -604,7 +604,7 @@ public class SignatureRequestApi {
   }
   /**
    * Edit Embedded Signature Request with Template
-   * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditEmbeddedWithTemplateRequest  (required)
    * @return SignatureRequestGetResponse
@@ -623,7 +623,7 @@ public class SignatureRequestApi {
 
   /**
    * Edit Embedded Signature Request with Template
-   * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+   * Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
    * @param signatureRequestId The id of the SignatureRequest to edit. (required)
    * @param signatureRequestEditEmbeddedWithTemplateRequest  (required)
    * @return ApiResponse&lt;SignatureRequestGetResponse&gt;

@@ -51,7 +51,7 @@ export class SignatureRequestCreateEmbeddedRequest {
    */
   "signers"?: Array<SubSignatureRequestSigner>;
   /**
-   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+   * Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
    */
   "groupedSigners"?: Array<SubSignatureRequestGroupedSigners>;
   /**
@@ -59,7 +59,7 @@ export class SignatureRequestCreateEmbeddedRequest {
    */
   "allowDecline"?: boolean = false;
   /**
-   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.
+   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan.
    */
   "allowReassign"?: boolean = false;
   /**
@@ -117,7 +117,7 @@ export class SignatureRequestCreateEmbeddedRequest {
    */
   "useTextTags"?: boolean = false;
   /**
-   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  ⚠️ **Note** ⚠️: Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    */
   "populateAutoFillFields"?: boolean = false;
   /**

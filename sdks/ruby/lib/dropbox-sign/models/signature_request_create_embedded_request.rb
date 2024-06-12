@@ -34,7 +34,7 @@ module Dropbox::Sign
     # @return [Array<SubSignatureRequestSigner>]
     attr_accessor :signers
 
-    # Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.
+    # Add Grouped Signers to your Signature Request.  This endpoint requires either **signers** or **grouped_signers**, but not both.  **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
     # @return [Array<SubSignatureRequestGroupedSigners>]
     attr_accessor :grouped_signers
 
@@ -42,7 +42,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :allow_decline
 
-    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan.
+    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan.
     # @return [Boolean]
     attr_accessor :allow_reassign
 
@@ -104,7 +104,7 @@ module Dropbox::Sign
     # @return [Boolean]
     attr_accessor :use_text_tags
 
-    # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+    # Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
     # @return [Boolean]
     attr_accessor :populate_auto_fill_fields
 

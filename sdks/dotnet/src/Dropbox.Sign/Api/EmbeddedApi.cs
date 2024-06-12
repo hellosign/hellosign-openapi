@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Template Edit URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Template Edit URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -56,7 +56,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Sign URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -68,7 +68,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Sign URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -88,7 +88,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Template Edit URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -102,7 +102,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Template Edit URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -115,7 +115,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Sign URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -128,7 +128,7 @@ namespace Dropbox.Sign.Api
         /// Get Embedded Sign URL
         /// </summary>
         /// <remarks>
-        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -257,7 +257,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -271,7 +271,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -355,7 +355,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -370,7 +370,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.
+        /// Get Embedded Template Edit URL Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId">The id of the template to edit.</param>
@@ -457,7 +457,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -470,7 +470,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -538,7 +538,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>
@@ -552,7 +552,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
+        /// Get Embedded Sign URL Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureId">The id of the signature to get a signature url for.</param>

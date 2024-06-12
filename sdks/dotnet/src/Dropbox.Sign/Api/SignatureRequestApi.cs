@@ -100,7 +100,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -112,7 +112,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -123,7 +123,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -135,7 +135,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -171,7 +171,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -184,7 +184,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -196,7 +196,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -209,7 +209,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -597,7 +597,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -610,7 +610,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -622,7 +622,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -635,7 +635,7 @@ namespace Dropbox.Sign.Api
         /// Create Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -674,7 +674,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -688,7 +688,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -701,7 +701,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -715,7 +715,7 @@ namespace Dropbox.Sign.Api
         /// Edit Embedded Signature Request with Template
         /// </summary>
         /// <remarks>
-        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -1678,7 +1678,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -1691,7 +1691,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -1767,7 +1767,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -1781,7 +1781,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedRequest"></param>
@@ -1860,7 +1860,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -1873,7 +1873,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -1949,7 +1949,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -1963,7 +1963,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Create Embedded Signature Request with Template Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestCreateEmbeddedWithTemplateRequest"></param>
@@ -2242,7 +2242,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2256,7 +2256,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2340,7 +2340,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2355,7 +2355,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2442,7 +2442,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2456,7 +2456,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2540,7 +2540,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>
@@ -2555,7 +2555,7 @@ namespace Dropbox.Sign.Api
         }
 
         /// <summary>
-        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+        /// Edit Embedded Signature Request with Template Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signatureRequestId">The id of the SignatureRequest to edit.</param>

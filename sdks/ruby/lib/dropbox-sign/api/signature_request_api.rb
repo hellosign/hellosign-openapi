@@ -308,7 +308,7 @@ module Dropbox::Sign
     end
 
     # Create Embedded Signature Request
-    # Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_create_embedded_request [SignatureRequestCreateEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
     # @return [SignatureRequestGetResponse]
@@ -318,7 +318,7 @@ module Dropbox::Sign
     end
 
     # Create Embedded Signature Request
-    # Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_create_embedded_request [SignatureRequestCreateEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
@@ -417,7 +417,7 @@ module Dropbox::Sign
     end
 
     # Create Embedded Signature Request with Template
-    # Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_create_embedded_with_template_request [SignatureRequestCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [SignatureRequestGetResponse]
@@ -427,7 +427,7 @@ module Dropbox::Sign
     end
 
     # Create Embedded Signature Request with Template
-    # Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_create_embedded_with_template_request [SignatureRequestCreateEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SignatureRequestGetResponse, Integer, Hash)>] SignatureRequestGetResponse data, response status code and response headers
@@ -641,7 +641,7 @@ module Dropbox::Sign
     end
 
     # Edit Embedded Signature Request
-    # Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_request [SignatureRequestEditEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
@@ -652,7 +652,7 @@ module Dropbox::Sign
     end
 
     # Edit Embedded Signature Request
-    # Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_request [SignatureRequestEditEmbeddedRequest] 
     # @param [Hash] opts the optional parameters
@@ -756,7 +756,7 @@ module Dropbox::Sign
     end
 
     # Edit Embedded Signature Request with Template
-    # Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_with_template_request [SignatureRequestEditEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters
@@ -767,7 +767,7 @@ module Dropbox::Sign
     end
 
     # Edit Embedded Signature Request with Template
-    # Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;Note&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+    # Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. &lt;u&gt;NOTE&lt;/u&gt; that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
     # @param signature_request_id [String] The id of the SignatureRequest to edit.
     # @param signature_request_edit_embedded_with_template_request [SignatureRequestEditEmbeddedWithTemplateRequest] 
     # @param [Hash] opts the optional parameters

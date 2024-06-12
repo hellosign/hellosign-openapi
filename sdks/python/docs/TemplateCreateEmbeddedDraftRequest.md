@@ -10,7 +10,7 @@
 | `files` | ```[file_type]``` |  Use `files[]` to indicate the uploaded file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `file_urls` | ```[str]``` |  Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.<br><br>This endpoint requires either **files** or **file_urls[]**, but not both.  |  |
 | `allow_ccs` | ```bool``` |  This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template.  |  [default to True] |
-| `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**Note**: Only available for Premium plan and higher.  |  [default to False] |
+| `allow_reassign` | ```bool``` |  Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.<br><br>**NOTE**: Only available for Premium plan and higher.  |  [default to False] |
 | `attachments` | [```[SubAttachment]```](SubAttachment.md) |  A list describing the attachments  |  |
 | `cc_roles` | ```[str]``` |  The CC roles that must be assigned when using the template to send a signature request  |  |
 | `editor_options` | [```SubEditorOptions```](SubEditorOptions.md) |    |  |

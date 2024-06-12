@@ -26,7 +26,7 @@ module Dropbox::Sign
     # @return [Array<AccountResponse>]
     attr_accessor :accounts
 
-    # A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.
+    # A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.
     # @return [Array<AccountResponse>]
     attr_accessor :invited_accounts
 

@@ -34,7 +34,7 @@ module Dropbox::Sign
     # @return [Array<String>]
     attr_accessor :file_urls
 
-    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+    # Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.
     # @return [Boolean]
     attr_accessor :allow_reassign
 

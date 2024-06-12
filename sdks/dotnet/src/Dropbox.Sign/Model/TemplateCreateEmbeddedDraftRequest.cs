@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="files">Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="fileUrls">Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both..</param>
         /// <param name="allowCcs">This allows the requester to specify whether the user is allowed to provide email addresses to CC when creating a template. (default to true).</param>
-        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher. (default to false).</param>
+        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan and higher. (default to false).</param>
         /// <param name="attachments">A list describing the attachments.</param>
         /// <param name="ccRoles">The CC roles that must be assigned when using the template to send a signature request.</param>
         /// <param name="clientId">Client id of the app you&#39;re using to create this draft. Used to apply the branding and callback url defined for the app. (required).</param>
@@ -146,9 +146,9 @@ namespace Dropbox.Sign.Model
         public bool AllowCcs { get; set; }
 
         /// <summary>
-        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.
+        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan and higher.
         /// </summary>
-        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.</value>
+        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE**: Only available for Premium plan and higher.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
 

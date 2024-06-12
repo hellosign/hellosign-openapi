@@ -50,7 +50,7 @@ export class TemplateCreateEmbeddedDraftRequest {
    */
   "allowCcs"?: boolean = true;
   /**
-   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE**: Only available for Premium plan and higher.
    */
   "allowReassign"?: boolean = false;
   /**
