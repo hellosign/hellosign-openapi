@@ -195,8 +195,8 @@ class SignatureRequestUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email_address (str): The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE**: Optional if `name` is provided.. [optional]  # noqa: E501
-            name (str): The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.. [optional]  # noqa: E501
+            email_address (str): The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.. [optional]  # noqa: E501
+            name (str): The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.. [optional]  # noqa: E501
             expires_at (int, none_type): The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
         """
 
@@ -283,8 +283,8 @@ class SignatureRequestUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email_address (str): The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE**: Optional if `name` is provided.. [optional]  # noqa: E501
-            name (str): The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.. [optional]  # noqa: E501
+            email_address (str): The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.. [optional]  # noqa: E501
+            name (str): The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.. [optional]  # noqa: E501
             expires_at (int, none_type): The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.. [optional]  # noqa: E501
         """
 

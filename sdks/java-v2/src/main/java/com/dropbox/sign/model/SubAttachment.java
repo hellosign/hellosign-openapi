@@ -105,11 +105,11 @@ public class SubAttachment {
   }
 
    /**
-   * The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+   * The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
    * @return signerIndex
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The signer's index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.")
+  @ApiModelProperty(required = true, value = "The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.")
   @JsonProperty(JSON_PROPERTY_SIGNER_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -161,7 +161,7 @@ class SubSignatureRequestGroupedSigners(ModelNormal):
 
         Args:
             group (str): The name of the group.
-            signers ([SubSignatureRequestSigner]): Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+            signers ([SubSignatureRequestSigner]): Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,7 +249,7 @@ class SubSignatureRequestGroupedSigners(ModelNormal):
 
         Args:
             group (str): The name of the group.
-            signers ([SubSignatureRequestSigner]): Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+            signers ([SubSignatureRequestSigner]): Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

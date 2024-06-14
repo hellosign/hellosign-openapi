@@ -22,7 +22,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :group
 
-    # Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+    # Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
     # @return [Array<SubSignatureRequestSigner>]
     attr_accessor :signers
 

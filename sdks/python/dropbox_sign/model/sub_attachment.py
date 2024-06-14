@@ -163,7 +163,7 @@ class SubAttachment(ModelNormal):
 
         Args:
             name (str): The name of attachment.
-            signer_index (int): The signer's index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+            signer_index (int): The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -252,7 +252,7 @@ class SubAttachment(ModelNormal):
 
         Args:
             name (str): The name of attachment.
-            signer_index (int): The signer's index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+            signer_index (int): The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

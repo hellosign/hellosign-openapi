@@ -167,14 +167,14 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="type">A date. Use the &#x60;SubFormFieldsPerDocumentDateSigned&#x60; class. (required) (default to &quot;date_signed&quot;).</param>
         /// <param name="fontFamily">Font family for the field..</param>
-        /// <param name="fontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field. (default to 12).</param>
+        /// <param name="fontSize">The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field. (default to 12).</param>
         /// <param name="documentIndex">Represents the integer index of the &#x60;file&#x60; or &#x60;file_url&#x60; document the field should be attached to. (required).</param>
         /// <param name="apiId">An identifier for the field that is unique across all documents in the request. (required).</param>
         /// <param name="height">Size of the field in pixels. (required).</param>
         /// <param name="name">Display name for the field..</param>
         /// <param name="page">Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them..</param>
         /// <param name="required">Whether this field is required. (required).</param>
-        /// <param name="signer">Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE**: If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data. (required).</param>
+        /// <param name="signer">Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data. (required).</param>
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
@@ -225,9 +225,9 @@ namespace Dropbox.Sign.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+        /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
-        /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
+        /// <value>The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.</value>
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
 

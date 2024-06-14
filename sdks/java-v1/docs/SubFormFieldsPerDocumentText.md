@@ -13,12 +13,12 @@ Name | Type | Description | Notes
 | `autoFillType` | ```String``` |  Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.  |  |
 | `linkId` | ```String``` |  Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.  |  |
 | `masked` | ```Boolean``` |  Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.  |  |
-| `validationType` | [```ValidationTypeEnum```](#ValidationTypeEnum) |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.<br><br>**NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.  |  |
+| `validationType` | [```ValidationTypeEnum```](#ValidationTypeEnum) |  Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.<br><br>**NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.  |  |
 | `validationCustomRegex` | ```String``` |    |  |
 | `validationCustomRegexFormatLabel` | ```String``` |    |  |
 | `content` | ```String``` |  Content of a `me_now` text field  |  |
 | `fontFamily` | [```FontFamilyEnum```](#FontFamilyEnum) |  Font family for the field.  |  |
-| `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
+| `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
 
 
 

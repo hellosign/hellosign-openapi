@@ -1195,7 +1195,7 @@ paths:
       tags:
         - Embedded
       summary: 'Get Embedded Template Edit URL'
-      description: 'Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.'
+      description: 'Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.'
       operationId: embeddedEditUrl
       parameters:
         -
@@ -1307,7 +1307,7 @@ paths:
       tags:
         - Embedded
       summary: 'Get Embedded Sign URL'
-      description: 'Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.'
+      description: 'Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.'
       operationId: embeddedSignUrl
       parameters:
         -
@@ -1684,7 +1684,7 @@ paths:
       description: |-
         Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
-        **NOTE**: Only available for Standard plan and higher.
+        **NOTE:** Only available for Standard plan and higher.
       operationId: signatureRequestBulkCreateEmbeddedWithTemplate
       requestBody:
         required: true
@@ -1794,7 +1794,7 @@ paths:
       description: |-
         Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.
 
-        **NOTE**: Only available for Standard plan and higher.
+        **NOTE:** Only available for Standard plan and higher.
       operationId: signatureRequestBulkSendWithTemplate
       requestBody:
         required: true
@@ -1910,7 +1910,7 @@ paths:
 
         To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
-        **NOTE**: To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
+        **NOTE:** To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
       operationId: signatureRequestCancel
       parameters:
         -
@@ -2013,7 +2013,7 @@ paths:
       tags:
         - 'Signature Request'
       summary: 'Create Embedded Signature Request'
-      description: 'Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
+      description: 'Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
       operationId: signatureRequestCreateEmbedded
       requestBody:
         required: true
@@ -2123,7 +2123,7 @@ paths:
       tags:
         - 'Signature Request'
       summary: 'Create Embedded Signature Request with Template'
-      description: 'Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
+      description: 'Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
       operationId: signatureRequestCreateEmbeddedWithTemplate
       requestBody:
         required: true
@@ -2358,7 +2358,7 @@ paths:
       tags:
         - 'Signature Request'
       summary: 'Edit Embedded Signature Request'
-      description: 'Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
+      description: 'Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
       operationId: signatureRequestEditEmbedded
       parameters:
         -
@@ -2481,7 +2481,7 @@ paths:
       tags:
         - 'Signature Request'
       summary: 'Edit Embedded Signature Request with Template'
-      description: 'Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
+      description: 'Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.'
       operationId: signatureRequestEditEmbeddedWithTemplate
       parameters:
         -
@@ -3423,7 +3423,7 @@ paths:
       description: |-
         Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.
 
-        **NOTE**: This action can **not** be used with embedded signature requests.
+        **NOTE:** This action can **not** be used with embedded signature requests.
       operationId: signatureRequestRemind
       parameters:
         -
@@ -3869,7 +3869,7 @@ paths:
 
         Updating the email address of a signer will generate a new `signature_id` value.
 
-        **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+        **NOTE:** This action cannot be performed on a signature request with an appended signature page.
       operationId: signatureRequestUpdate
       parameters:
         -
@@ -6411,7 +6411,7 @@ paths:
       description: |-
         Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
-        **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+        **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
       operationId: unclaimedDraftCreateEmbedded
       requestBody:
         required: true
@@ -6529,7 +6529,7 @@ paths:
       description: |-
         Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
-        **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+        **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
       operationId: unclaimedDraftCreateEmbeddedWithTemplate
       requestBody:
         required: true
@@ -6642,7 +6642,7 @@ paths:
       description: |-
         Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.
 
-        **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+        **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
       operationId: unclaimedDraftEditAndResend
       parameters:
         -
@@ -6889,7 +6889,7 @@ components:
           description: |-
             This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
 
-            **NOTE**: This parameter overwrites `show_preview=true` (if set).
+            **NOTE:** This parameter overwrites `show_preview=true` (if set).
           type: boolean
           default: false
         show_preview:
@@ -6987,7 +6987,7 @@ components:
 
                 By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-                **NOTE**: Not available in test mode and requires a Standard plan or higher.
+                **NOTE:** Not available in test mode and requires a Standard plan or higher.
             - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
                 You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -7076,7 +7076,7 @@ components:
 
                 By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-                **NOTE**: Not available in test mode and requires a Standard plan or higher.
+                **NOTE:** Not available in test mode and requires a Standard plan or higher.
             - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
                 You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -7179,8 +7179,6 @@ components:
             Add Grouped Signers to your Signature Request.
 
             This endpoint requires either **signers** or **grouped_signers**, but not both.
-
-            **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
@@ -7192,7 +7190,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan.
+            **NOTE:** Only available for Premium plan.
           type: boolean
           default: false
         attachments:
@@ -7235,7 +7233,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -7254,7 +7252,7 @@ components:
           description: |-
             Enables automatic Text Tag removal when set to true.
 
-            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+            **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
           type: boolean
           default: false
         message:
@@ -7291,7 +7289,7 @@ components:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-            ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+            **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
         expires_at:
@@ -7379,7 +7377,7 @@ components:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-            ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+            **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
       type: object
@@ -7415,8 +7413,6 @@ components:
             Add Grouped Signers to your Signature Request.
 
             This endpoint requires either **signers** or **grouped_signers**, but not both.
-
-            **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
@@ -7428,7 +7424,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan and higher.
+            **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -7471,7 +7467,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -7490,7 +7486,7 @@ components:
           description: |-
             Enables automatic Text Tag removal when set to true.
 
-            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+            **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
           type: boolean
           default: false
         is_qualified_signature:
@@ -7498,7 +7494,7 @@ components:
             Send with a value of `true` if you wish to enable
             [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
             which requires a face-to-face call to verify the signer's identity.<br>
-            **NOTE**: QES is only available on the Premium API plan as an add-on purchase.
+            **NOTE:** QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -7509,7 +7505,7 @@ components:
             Send with a value of `true` if you wish to enable
             [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
             which requires the signer to verify their identity with an eID provider to sign a document.<br>
-            **NOTE**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+            **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -7584,8 +7580,6 @@ components:
             Add Grouped Signers to your Signature Request.
 
             This endpoint requires either **signers** or **grouped_signers**, but not both.
-
-            **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
@@ -7597,7 +7591,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan.
+            **NOTE:** Only available for Premium plan.
           type: boolean
           default: false
         attachments:
@@ -7640,7 +7634,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -7659,7 +7653,7 @@ components:
           description: |-
             Enables automatic Text Tag removal when set to true.
 
-            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+            **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
           type: boolean
           default: false
         message:
@@ -7696,7 +7690,7 @@ components:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-            ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+            **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
         expires_at:
@@ -7784,7 +7778,7 @@ components:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-            ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+            **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
       type: object
@@ -7838,7 +7832,7 @@ components:
             Send with a value of `true` if you wish to enable
             [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
             which requires a face-to-face call to verify the signer's identity.<br>
-            **NOTE**: QES is only available on the Premium API plan as an add-on purchase.
+            **NOTE:** QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -7849,7 +7843,7 @@ components:
             Send with a value of `true` if you wish to enable
             [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
             which requires the signer to verify their identity with an eID provider to sign a document.<br>
-            **NOTE**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+            **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -7931,8 +7925,6 @@ components:
             Add Grouped Signers to your Signature Request.
 
             This endpoint requires either **signers** or **grouped_signers**, but not both.
-
-            **NOTE**: When using a single group of signers, the group must include at least two signers; when using multiple groups, at least one of those groups must have two or more signers.
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
@@ -7944,7 +7936,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan and higher.
+            **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -7987,7 +7979,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -8006,7 +7998,7 @@ components:
           description: |-
             Enables automatic Text Tag removal when set to true.
 
-            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+            **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
           type: boolean
           default: false
         is_qualified_signature:
@@ -8014,7 +8006,7 @@ components:
             Send with a value of `true` if you wish to enable
             [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
             which requires a face-to-face call to verify the signer's identity.<br>
-            **NOTE**: QES is only available on the Premium API plan as an add-on purchase.
+            **NOTE:** QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -8025,7 +8017,7 @@ components:
             Send with a value of `true` if you wish to enable
             [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
             which requires the signer to verify their identity with an eID provider to sign a document.<br>
-            **NOTE**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+            **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -8116,7 +8108,7 @@ components:
             Send with a value of `true` if you wish to enable
             [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
             which requires a face-to-face call to verify the signer's identity.<br>
-            **NOTE**: QES is only available on the Premium API plan as an add-on purchase.
+            **NOTE:** QES is only available on the Premium API plan as an add-on purchase.
             Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
@@ -8127,7 +8119,7 @@ components:
             Send with a value of `true` if you wish to enable
             [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
             which requires the signer to verify their identity with an eID provider to sign a document.<br>
-            **NOTE**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+            **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
           type: boolean
           default: false
         message:
@@ -8175,14 +8167,14 @@ components:
 
             This will generate a new `signature_id` value.
 
-            **NOTE**: Optional if `name` is provided.
+            **NOTE:** Optional if `name` is provided.
           type: string
           format: email
         name:
           description: |-
             The new name for the recipient.
 
-            **NOTE**: Optional if `email_address` is provided.
+            **NOTE:** Optional if `email_address` is provided.
           type: string
         signature_id:
           description: 'The signature ID for the recipient.'
@@ -8211,7 +8203,7 @@ components:
           description: |-
             The signer's index in the `signers` parameter (0-based indexing).
 
-            **NOTE**: Only one signer can be assigned per attachment.
+            **NOTE:** Only one signer can be assigned per attachment.
           type: integer
       type: object
     SubBulkSignerList:
@@ -8269,7 +8261,7 @@ components:
           description: |-
             Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.
 
-            **NOTE**: Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
+            **NOTE:** Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
           type: string
         name:
           description: 'The name of a custom field. When working with pre-filled data, the custom field''s name must have a matching merge field name or the field will remain empty on the document during signing.'
@@ -8303,7 +8295,7 @@ components:
           description: |-
             Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))
 
-            **NOTE**: Only available for Premium and higher.
+            **NOTE:** Only available for Premium and higher.
           type: string
           enum:
             - 'MM / DD / YYYY'
@@ -8537,7 +8529,7 @@ components:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+                **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
               default: 12
           type: object
@@ -8590,7 +8582,7 @@ components:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+                **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
               default: 12
           type: object
@@ -8641,7 +8633,7 @@ components:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+                **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
               default: 12
           type: object
@@ -8733,7 +8725,7 @@ components:
               description: |-
                 Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
 
-                **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
+                **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
               type: string
               enum:
                 - numbers_only
@@ -8777,7 +8769,7 @@ components:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+                **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
               default: 12
           type: object
@@ -8820,7 +8812,7 @@ components:
               description: |-
                 The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
-                **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+                **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
               type: integer
               default: 12
           type: object
@@ -8862,7 +8854,7 @@ components:
       description: |-
         The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-        **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+        **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
         * Text Field use `SubFormFieldsPerDocumentText`
         * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -8912,9 +8904,9 @@ components:
           description: |-
             Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
 
-            **NOTE**: To set the value of the field as the preparer you must set this to `me_now`
+            **NOTE:** To set the value of the field as the preparer you must set this to `me_now`
 
-            **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
           type: string
           x-int-or-string: true
         type:
@@ -8960,7 +8952,7 @@ components:
           description: |-
             Signers belonging to this Group.
 
-            **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+            **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
           type: array
           items:
             $ref: '#/components/schemas/SubSignatureRequestSigner'
@@ -9039,7 +9031,7 @@ components:
 
             By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-            **NOTE**: Not available in test mode and requires a Standard plan or higher.
+            **NOTE:** Not available in test mode and requires a Standard plan or higher.
           type: string
         sms_phone_number_type:
           description: |-
@@ -9080,7 +9072,7 @@ components:
 
             By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-            **NOTE**: Not available in test mode and requires a Standard plan or higher.
+            **NOTE:** Not available in test mode and requires a Standard plan or higher.
           type: string
         sms_phone_number_type:
           description: |-
@@ -9142,7 +9134,7 @@ components:
       description: |-
         This allows the requester to specify the types allowed for creating a signature.
 
-        **NOTE**: If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+        **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
       required:
         - default_type
       properties:
@@ -9245,7 +9237,7 @@ components:
           description: |-
             A role member will take in a new Team.
 
-            **NOTE**: This parameter is used only if `team_id` is provided.
+            **NOTE:** This parameter is used only if `team_id` is provided.
           type: string
           enum:
             - Member
@@ -9279,7 +9271,7 @@ components:
           description: |-
             The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.
 
-            **NOTE**: Only available for Enterprise plans.
+            **NOTE:** Only available for Enterprise plans.
           type: string
           format: email
         new_team_id:
@@ -9289,7 +9281,7 @@ components:
           description: |-
             A new role member will take in a new Team.
 
-            **NOTE**: This parameter is used only if `new_team_id` is provided.
+            **NOTE:** This parameter is used only if `new_team_id` is provided.
           type: string
           enum:
             - Member
@@ -9308,12 +9300,12 @@ components:
         account_id:
           description: |-
             The id of the Account to give access to the Template.
-            <b>NOTE</b> The account id prevails if email address is also provided.
+            **NOTE:** The account id prevails if email address is also provided.
           type: string
         email_address:
           description: |-
             The email address of the Account to give access to the Template.
-            <b>NOTE</b> The account id prevails if it is also provided.
+            **NOTE:** The account id prevails if it is also provided.
           type: string
           format: email
         skip_notification:
@@ -9347,7 +9339,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan and higher.
+            **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -9379,7 +9371,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -9463,7 +9455,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan and higher.
+            **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -9505,7 +9497,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -9687,7 +9679,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -9758,7 +9750,7 @@ components:
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-            **NOTE**: This does not correspond to the **expires_at** returned in the response.
+            **NOTE:** This does not correspond to the **expires_at** returned in the response.
           type: integer
           nullable: true
       type: object
@@ -9797,7 +9789,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan and higher.
+            **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
         attachments:
@@ -9850,7 +9842,7 @@ components:
           description: |-
             The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+            **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
             * Text Field use `SubFormFieldsPerDocumentText`
             * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -9948,14 +9940,14 @@ components:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-            ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+            **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
         expires_at:
           description: |-
             When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-            **NOTE**: This does not correspond to the **expires_at** returned in the response.
+            **NOTE:** This does not correspond to the **expires_at** returned in the response.
           type: integer
           nullable: true
       type: object
@@ -9973,7 +9965,7 @@ components:
           description: |-
             Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-            **NOTE**: Only available for Premium plan and higher.
+            **NOTE:** Only available for Premium plan and higher.
           type: boolean
           default: false
         ccs:
@@ -10045,7 +10037,7 @@ components:
             - `preview_only=true`: Allows requesters to enable the preview only experience.
             - `preview_only=false`: Allows requesters to disable the preview only experience.
 
-            **NOTE**: This parameter overwrites `show_preview=1` (if set).
+            **NOTE:** This parameter overwrites `show_preview=1` (if set).
           type: boolean
           default: false
         requester_email_address:
@@ -10102,7 +10094,7 @@ components:
           description: |-
             Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-            ⚠️ **NOTE** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+            **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
           type: boolean
           default: false
         allow_ccs:
@@ -11100,7 +11092,7 @@ components:
           items:
             $ref: '#/components/schemas/AccountResponse'
         invited_accounts:
-          description: 'A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.'
+          description: 'A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.'
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
@@ -11357,7 +11349,7 @@ components:
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
         static_fields:
-          description: 'An array describing static overlay fields. **NOTE** only available for certain subscriptions.'
+          description: 'An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.'
           type: array
           items:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
@@ -11760,7 +11752,7 @@ components:
                 - custom_regex
               nullable: true
     TemplateResponseDocumentStaticFieldBase:
-      description: 'An array describing static overlay fields. **NOTE** only available for certain subscriptions.'
+      description: 'An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.'
       required:
         - type
       properties:

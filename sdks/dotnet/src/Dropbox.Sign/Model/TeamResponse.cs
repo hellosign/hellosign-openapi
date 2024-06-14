@@ -43,7 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="name">The name of your Team.</param>
         /// <param name="accounts">accounts.</param>
-        /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in &#x60;GET /account&#x60;..</param>
+        /// <param name="invitedAccounts">A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;..</param>
         /// <param name="invitedEmails">A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account..</param>
         public TeamResponse(string name = default(string), List<AccountResponse> accounts = default(List<AccountResponse>), List<AccountResponse> invitedAccounts = default(List<AccountResponse>), List<string> invitedEmails = default(List<string>))
         {
@@ -84,9 +84,9 @@ namespace Dropbox.Sign.Model
         public List<AccountResponse> Accounts { get; set; }
 
         /// <summary>
-        /// A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
+        /// A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
         /// </summary>
-        /// <value>A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.</value>
+        /// <value>A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.</value>
         [DataMember(Name = "invited_accounts", EmitDefaultValue = true)]
         public List<AccountResponse> InvitedAccounts { get; set; }
 

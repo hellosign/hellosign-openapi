@@ -160,7 +160,7 @@ class EmbeddedApi(object):
     ) -> EmbeddedEditUrlResponse:
         """Get Embedded Template Edit URL  # noqa: E501
 
-        Retrieves an embedded object containing a template url that can be opened in an iFrame. NOTE that only templates created via the embedded template process are available to be edited with this endpoint.  # noqa: E501
+        Retrieves an embedded object containing a template url that can be opened in an iFrame. Note that only templates created via the embedded template process are available to be edited with this endpoint.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -263,7 +263,7 @@ class EmbeddedApi(object):
     ) -> EmbeddedSignUrlResponse:
         """Get Embedded Sign URL  # noqa: E501
 
-        Retrieves an embedded object containing a signature url that can be opened in an iFrame. NOTE that templates created via the embedded template process will only be accessible through the API.  # noqa: E501
+        Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -151,11 +151,11 @@ public class TeamResponse {
   }
 
    /**
-   * A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
+   * A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
    * @return invitedAccounts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of all Accounts that have an outstanding invitation to join your Team. NOTE that this response is a subset of the response parameters found in `GET /account`.")
+  @ApiModelProperty(value = "A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.")
   @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

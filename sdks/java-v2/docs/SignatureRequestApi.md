@@ -35,7 +35,7 @@ Embedded Bulk Send with Template
 
 Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
-**NOTE**: Only available for Standard plan and higher.
+**NOTE:** Only available for Standard plan and higher.
 
 ### Example
 
@@ -151,7 +151,7 @@ Bulk Send with Template
 
 Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.
 
-**NOTE**: Only available for Standard plan and higher.
+**NOTE:** Only available for Standard plan and higher.
 
 ### Example
 
@@ -273,7 +273,7 @@ This 200 OK response does not indicate a successful cancelation of the signature
 
 To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
-**NOTE**: To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
+**NOTE:** To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
 
 ### Example
 
@@ -345,7 +345,7 @@ null (empty response body)
 
 Create Embedded Signature Request
 
-Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
 ### Example
 
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 Create Embedded Signature Request with Template
 
-Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
 ### Example
 
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 
 Edit Embedded Signature Request
 
-Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
 ### Example
 
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 Edit Embedded Signature Request with Template
 
-Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>NOTE</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
 ### Example
 
@@ -1446,7 +1446,7 @@ Send Request Reminder
 
 Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.
 
-**NOTE**: This action can **not** be used with embedded signature requests.
+**NOTE:** This action can **not** be used with embedded signature requests.
 
 ### Example
 
@@ -1818,7 +1818,7 @@ Updates the email address and/or the name for a given signer on a signature requ
 
 Updating the email address of a signer will generate a new `signature_id` value.
 
-**NOTE**: This action cannot be performed on a signature request with an appended signature page.
+**NOTE:** This action cannot be performed on a signature request with an appended signature page.
 
 ### Example
 

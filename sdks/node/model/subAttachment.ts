@@ -30,7 +30,7 @@ export class SubAttachment {
    */
   "name": string;
   /**
-   * The signer\'s index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+   * The signer\'s index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
    */
   "signerIndex": number;
   /**
