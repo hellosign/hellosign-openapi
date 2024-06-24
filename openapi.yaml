@@ -6885,6 +6885,484 @@ components:
           type: boolean
           default: false
       type: object
+    SignatureRequestEditRequest:
+      properties:
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        signers:
+          description: |-
+            Add Signers to your Signature Request.
+
+            This endpoint requires either **signers** or **grouped_signers**, but not both.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+        grouped_signers:
+          description: |-
+            Add Grouped Signers to your Signature Request.
+
+            This endpoint requires either **signers** or **grouped_signers**, but not both.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
+        allow_decline:
+          description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        allow_reassign:
+          description: |-
+            Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
+
+            **Note**: Only available for Premium plan and higher.
+          type: boolean
+          default: false
+        attachments:
+          description: 'A list describing the attachments'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubAttachment'
+        cc_email_addresses:
+          description: 'The email addresses that should be CCed.'
+          type: array
+          items:
+            type: string
+            format: email
+        client_id:
+          description: 'The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.'
+          type: string
+        custom_fields:
+          description: |-
+            When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
+
+            Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.
+
+            For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        field_options:
+          $ref: '#/components/schemas/SubFieldOptions'
+        form_field_groups:
+          description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldGroup'
+        form_field_rules:
+          description: 'Conditional Logic rules for fields defined in `form_fields_per_document`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldRule'
+        form_fields_per_document:
+          description: |-
+            The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
+
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+
+            * Text Field use `SubFormFieldsPerDocumentText`
+            * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
+            * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`
+            * Checkbox Field use `SubFormFieldsPerDocumentCheckbox`
+            * Radio Field use `SubFormFieldsPerDocumentRadio`
+            * Signature Field use `SubFormFieldsPerDocumentSignature`
+            * Date Signed Field use `SubFormFieldsPerDocumentDateSigned`
+            * Initials Field use `SubFormFieldsPerDocumentInitials`
+            * Text Merge Field use `SubFormFieldsPerDocumentTextMerge`
+            * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        hide_text_tags:
+          description: |-
+            Enables automatic Text Tag removal when set to true.
+
+            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+          type: boolean
+          default: false
+        is_eid:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
+        message:
+          description: 'The custom message in the email that will be sent to the signers.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        signing_redirect_url:
+          description: 'The URL you want signers redirected to after they successfully sign.'
+          type: string
+        subject:
+          description: 'The subject in the email that will be sent to the signers.'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: 'Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+          maxLength: 255
+        use_text_tags:
+          description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
+          type: boolean
+          default: false
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
+      type: object
+    SignatureRequestEditEmbeddedRequest:
+      required:
+        - client_id
+      properties:
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        signers:
+          description: |-
+            Add Signers to your Signature Request.
+
+            This endpoint requires either **signers** or **grouped_signers**, but not both.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestSigner'
+        grouped_signers:
+          description: |-
+            Add Grouped Signers to your Signature Request.
+
+            This endpoint requires either **signers** or **grouped_signers**, but not both.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestGroupedSigners'
+        allow_decline:
+          description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        allow_reassign:
+          description: |-
+            Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
+
+            **Note**: Only available for Premium plan.
+          type: boolean
+          default: false
+        attachments:
+          description: 'A list describing the attachments'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubAttachment'
+        cc_email_addresses:
+          description: 'The email addresses that should be CCed.'
+          type: array
+          items:
+            type: string
+            format: email
+        client_id:
+          description: 'Client id of the app you''re using to create this embedded signature request. Used for security purposes.'
+          type: string
+        custom_fields:
+          description: |-
+            When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.
+
+            Pre-filled data can be used with "send-once" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.
+
+            For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        field_options:
+          $ref: '#/components/schemas/SubFieldOptions'
+        form_field_groups:
+          description: 'Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldGroup'
+        form_field_rules:
+          description: 'Conditional Logic rules for fields defined in `form_fields_per_document`.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldRule'
+        form_fields_per_document:
+          description: |-
+            The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
+
+            **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+
+            * Text Field use `SubFormFieldsPerDocumentText`
+            * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
+            * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink`
+            * Checkbox Field use `SubFormFieldsPerDocumentCheckbox`
+            * Radio Field use `SubFormFieldsPerDocumentRadio`
+            * Signature Field use `SubFormFieldsPerDocumentSignature`
+            * Date Signed Field use `SubFormFieldsPerDocumentDateSigned`
+            * Initials Field use `SubFormFieldsPerDocumentInitials`
+            * Text Merge Field use `SubFormFieldsPerDocumentTextMerge`
+            * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`
+          type: array
+          items:
+            $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
+        hide_text_tags:
+          description: |-
+            Enables automatic Text Tag removal when set to true.
+
+            **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+          type: boolean
+          default: false
+        message:
+          description: 'The custom message in the email that will be sent to the signers.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        subject:
+          description: 'The subject in the email that will be sent to the signers.'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: 'Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+          maxLength: 255
+        use_text_tags:
+          description: 'Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.'
+          type: boolean
+          default: false
+        populate_auto_fill_fields:
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+          type: boolean
+          default: false
+        expires_at:
+          description: 'When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.'
+          type: integer
+          nullable: true
+      type: object
+    SignatureRequestEditEmbeddedWithTemplateRequest:
+      required:
+        - client_id
+        - template_ids
+        - signers
+      properties:
+        template_ids:
+          description: 'Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.'
+          type: array
+          items:
+            type: string
+        allow_decline:
+          description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        ccs:
+          description: 'Add CC email recipients. Required when a CC role exists for the Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCC'
+        client_id:
+          description: 'Client id of the app you''re using to create this embedded signature request. Used for security purposes.'
+          type: string
+        custom_fields:
+          description: 'An array defining values and options for custom fields. Required when a custom field exists in the Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        message:
+          description: 'The custom message in the email that will be sent to the signers.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        signers:
+          description: 'Add Signers to your Templated-based Signature Request.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        subject:
+          description: 'The subject in the email that will be sent to the signers.'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: 'Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+          maxLength: 255
+        populate_auto_fill_fields:
+          description: |-
+            Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
+
+            ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+          type: boolean
+          default: false
+      type: object
+    SignatureRequestEditWithTemplateRequest:
+      description: ''
+      required:
+        - signers
+        - template_ids
+      properties:
+        template_ids:
+          description: 'Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.'
+          type: array
+          items:
+            type: string
+        allow_decline:
+          description: 'Allows signers to decline to sign a document if `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        ccs:
+          description: 'Add CC email recipients. Required when a CC role exists for the Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCC'
+        client_id:
+          description: 'Client id of the app to associate with the signature request. Used to apply the branding and callback url defined for the app.'
+          type: string
+        custom_fields:
+          description: 'An array defining values and options for custom fields. Required when a custom field exists in the Template.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubCustomField'
+        files:
+          description: |-
+            Use `files[]` to indicate the uploaded file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+            format: binary
+        file_urls:
+          description: |-
+            Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.
+
+            This endpoint requires either **files** or **file_urls[]**, but not both.
+          type: array
+          items:
+            type: string
+        is_eid:
+          description: |-
+            Send with a value of `true` if you wish to enable
+            [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
+            which requires the signer to verify their identity with an eID provider to sign a document.<br>
+            **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+          type: boolean
+          default: false
+        message:
+          description: 'The custom message in the email that will be sent to the signers.'
+          type: string
+          maxLength: 5000
+        metadata:
+          description: |-
+            Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.
+
+            Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
+          type: object
+          maxItems: 10
+          additionalProperties: {}
+        signers:
+          description: 'Add Signers to your Templated-based Signature Request.'
+          type: array
+          items:
+            $ref: '#/components/schemas/SubSignatureRequestTemplateSigner'
+        signing_options:
+          $ref: '#/components/schemas/SubSigningOptions'
+        signing_redirect_url:
+          description: 'The URL you want signers redirected to after they successfully sign.'
+          type: string
+        subject:
+          description: 'The subject in the email that will be sent to the signers.'
+          type: string
+          maxLength: 255
+        test_mode:
+          description: 'Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.'
+          type: boolean
+          default: false
+        title:
+          description: 'The title you want to assign to the SignatureRequest.'
+          type: string
+          maxLength: 255
+      type: object
     SignatureRequestRemindRequest:
       required:
         - email_address
@@ -7456,8 +7934,6 @@ components:
               description: '`true` for checking the checkbox field by default, otherwise `false`.'
               type: boolean
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentCheckboxMerge:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7472,8 +7948,6 @@ components:
               type: string
               default: checkbox-merge
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentDateSigned:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7515,8 +7989,6 @@ components:
               type: integer
               default: 12
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentDropdown:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7568,8 +8040,6 @@ components:
               type: integer
               default: 12
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentHyperlink:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7619,8 +8089,6 @@ components:
               type: integer
               default: 12
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentInitials:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7635,8 +8103,6 @@ components:
               type: string
               default: initials
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentRadio:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7659,8 +8125,6 @@ components:
               description: '`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.'
               type: boolean
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentSignature:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7675,8 +8139,6 @@ components:
               type: string
               default: signature
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentText:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7755,8 +8217,6 @@ components:
               type: integer
               default: 12
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentTextMerge:
       description: 'This class extends `SubFormFieldsPerDocumentBase`.'
       allOf:
@@ -7798,8 +8258,6 @@ components:
               type: integer
               default: 12
           type: object
-        -
-          $ref: '#/components/schemas/SubFormFieldsPerDocumentBase'
     SubFormFieldsPerDocumentTypeEnum:
       type: string
       enum:
@@ -9795,8 +10253,6 @@ components:
               description: 'A true/false for checkbox fields'
               type: boolean
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
     SignatureRequestResponseCustomFieldText:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
       allOf:
@@ -9815,8 +10271,6 @@ components:
               description: 'A text string for text fields'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseCustomFieldBase'
     SignatureRequestResponseCustomFieldTypeEnum:
       type: string
       enum:
@@ -9880,8 +10334,6 @@ components:
               description: 'The value of the form field.'
               type: boolean
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueCheckboxMerge:
       allOf:
         -
@@ -9896,8 +10348,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueDateSigned:
       allOf:
         -
@@ -9912,8 +10362,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueDropdown:
       allOf:
         -
@@ -9928,8 +10376,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueInitials:
       allOf:
         -
@@ -9944,8 +10390,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueRadio:
       allOf:
         -
@@ -9960,8 +10404,6 @@ components:
               description: 'The value of the form field.'
               type: boolean
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueSignature:
       allOf:
         -
@@ -9976,8 +10418,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueText:
       allOf:
         -
@@ -9992,8 +10432,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseDataValueTextMerge:
       allOf:
         -
@@ -10008,8 +10446,6 @@ components:
               description: 'The value of the form field.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/SignatureRequestResponseDataBase'
     SignatureRequestResponseSignatures:
       description: 'An array of signature objects, 1 for each signer.'
       properties:
@@ -10424,8 +10860,6 @@ components:
               type: string
               default: checkbox
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
     TemplateResponseDocumentCustomFieldText:
       description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
       required:
@@ -10455,8 +10889,6 @@ components:
               description: 'Font family used in this form field''s text.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentCustomFieldBase'
     TemplateResponseDocumentFieldGroup:
       properties:
         name:
@@ -10555,8 +10987,6 @@ components:
               type: string
               default: checkbox
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldDateSigned:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10583,8 +11013,6 @@ components:
               type: string
               default: date_signed
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldDropdown:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10611,8 +11039,6 @@ components:
               type: string
               default: dropdown
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldHyperlink:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10650,8 +11076,6 @@ components:
               description: 'Font family used in this form field''s text.'
               type: string
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldInitials:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10678,8 +11102,6 @@ components:
               type: string
               default: initials
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldRadio:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10707,8 +11129,6 @@ components:
               type: string
               default: radio
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldSignature:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10735,8 +11155,6 @@ components:
               type: string
               default: signature
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentFormFieldText:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
       required:
@@ -10789,8 +11207,6 @@ components:
                 - custom_regex
               nullable: true
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentFormFieldBase'
     TemplateResponseDocumentStaticFieldBase:
       description: 'An array describing static overlay fields. **Note** only available for certain subscriptions.'
       required:
@@ -10867,8 +11283,6 @@ components:
               type: string
               default: checkbox
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldDateSigned:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -10895,8 +11309,6 @@ components:
               type: string
               default: date_signed
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldDropdown:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -10923,8 +11335,6 @@ components:
               type: string
               default: dropdown
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldHyperlink:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -10951,8 +11361,6 @@ components:
               type: string
               default: hyperlink
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldInitials:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -10979,8 +11387,6 @@ components:
               type: string
               default: initials
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldRadio:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -11007,8 +11413,6 @@ components:
               type: string
               default: radio
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldSignature:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -11035,8 +11439,6 @@ components:
               type: string
               default: signature
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseDocumentStaticFieldText:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
       required:
@@ -11063,8 +11465,6 @@ components:
               type: string
               default: text
           type: object
-        -
-          $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
     TemplateResponseFieldAvgTextLength:
       description: 'Average text length in this field.'
       properties:
@@ -11423,6 +11823,30 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateRequestDefaultExample.json
+    SignatureRequestEditRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditRequestDefaultExample.json
+    SignatureRequestEditRequestGroupedSignersExample:
+      summary: 'Grouped Signers Example'
+      value:
+        $ref: examples/json/SignatureRequestEditRequestGroupedSignersExample.json
+    SignatureRequestEditEmbeddedRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditEmbeddedRequestDefaultExample.json
+    SignatureRequestEditEmbeddedRequestGroupedSignersExample:
+      summary: 'Grouped Signers Example'
+      value:
+        $ref: examples/json/SignatureRequestEditEmbeddedRequestGroupedSignersExample.json
+    SignatureRequestEditEmbeddedWithTemplateRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditEmbeddedWithTemplateRequestDefaultExample.json
+    SignatureRequestEditWithTemplateRequestDefaultExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/SignatureRequestEditWithTemplateRequestDefaultExample.json
     SignatureRequestRemindRequestDefaultExample:
       summary: 'Default Example'
       value:
@@ -11671,10 +12095,18 @@ components:
       summary: 'Create Embedded Signature Request'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedResponseExample.json
+    SignatureRequestEditEmbeddedResponseExample:
+      summary: 'Edit Embedded Signature Request'
+      value:
+        $ref: examples/json/SignatureRequestEditEmbeddedResponseExample.json
     SignatureRequestCreateEmbeddedWithTemplateResponseExample:
       summary: 'Create Embedded Signature Request With Template'
       value:
         $ref: examples/json/SignatureRequestCreateEmbeddedWithTemplateResponseExample.json
+    SignatureRequestEditEmbeddedWithTemplateResponseExample:
+      summary: 'Edit Embedded Signature Request With Template'
+      value:
+        $ref: examples/json/SignatureRequestEditEmbeddedWithTemplateResponseExample.json
     SignatureRequestFilesResponseExample:
       summary: 'Signature Requests Files'
       value:
@@ -11691,10 +12123,18 @@ components:
       summary: 'Send Signature Request'
       value:
         $ref: examples/json/SignatureRequestSendResponseExample.json
+    SignatureRequestEditResponseExample:
+      summary: 'Edit Signature Request'
+      value:
+        $ref: examples/json/SignatureRequestEditResponseExample.json
     SignatureRequestSendWithTemplateResponseExample:
       summary: 'Send Signature Request With Template'
       value:
         $ref: examples/json/SignatureRequestSendWithTemplateResponseExample.json
+    SignatureRequestEditWithTemplateResponseExample:
+      summary: 'Edit Signature Request With Template'
+      value:
+        $ref: examples/json/SignatureRequestEditWithTemplateResponseExample.json
     SignatureRequestUpdateResponseExample:
       summary: 'Signature Request Update'
       value:
