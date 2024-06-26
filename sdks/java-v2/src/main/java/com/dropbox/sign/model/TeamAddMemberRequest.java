@@ -49,7 +49,7 @@ public class TeamAddMemberRequest {
   private String emailAddress;
 
   /**
-   * A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided.
+   * A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
    */
   public enum RoleEnum {
     MEMBER("Member"),
@@ -166,11 +166,11 @@ public class TeamAddMemberRequest {
   }
 
    /**
-   * A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided.
+   * A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
    * @return role
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A role member will take in a new Team.  **Note**: This parameter is used only if `team_id` is provided.")
+  @ApiModelProperty(value = "A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

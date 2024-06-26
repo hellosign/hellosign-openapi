@@ -50,7 +50,7 @@ export class TemplateResponseDocument {
    */
   "customFields"?: Array<TemplateResponseDocumentCustomFieldBase>;
   /**
-   * An array describing static overlay fields. **Note** only available for certain subscriptions.
+   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
    */
   "staticFields"?: Array<TemplateResponseDocumentStaticFieldBase> | null;
 

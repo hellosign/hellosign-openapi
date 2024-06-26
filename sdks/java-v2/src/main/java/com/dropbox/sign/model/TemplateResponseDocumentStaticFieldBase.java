@@ -35,9 +35,9 @@ import com.dropbox.sign.JSON;
 
 import com.dropbox.sign.ApiException;
 /**
- * An array describing static overlay fields. **Note** only available for certain subscriptions.
+ * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
  */
-@ApiModel(description = "An array describing static overlay fields. **Note** only available for certain subscriptions.")
+@ApiModel(description = "An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.")
 @JsonPropertyOrder({
   TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_TYPE,
   TemplateResponseDocumentStaticFieldBase.JSON_PROPERTY_API_ID,

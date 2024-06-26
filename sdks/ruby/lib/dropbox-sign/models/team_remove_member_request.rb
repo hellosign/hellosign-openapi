@@ -26,7 +26,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :email_address
 
-    # The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans.
+    # The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
     # @return [String]
     attr_accessor :new_owner_email_address
 
@@ -34,7 +34,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :new_team_id
 
-    # A new role member will take in a new Team.  **Note**: This parameter is used only if `new_team_id` is provided.
+    # A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.
     # @return [String]
     attr_accessor :new_role
 

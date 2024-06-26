@@ -690,7 +690,7 @@ class SignatureRequestCreateEmbeddedWithTemplateRequest implements ModelInterfac
     /**
      * Sets populate_auto_fill_fields
      *
-     * @param bool|null $populate_auto_fill_fields Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+     * @param bool|null $populate_auto_fill_fields Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
      *
      * @return self
      */

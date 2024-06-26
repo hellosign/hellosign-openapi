@@ -182,8 +182,8 @@ class TemplateAddUserRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            account_id (str): The id of the Account to give access to the Template. <b>Note</b> The account id prevails if email address is also provided.. [optional]  # noqa: E501
-            email_address (str): The email address of the Account to give access to the Template. <b>Note</b> The account id prevails if it is also provided.. [optional]  # noqa: E501
+            account_id (str): The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.. [optional]  # noqa: E501
+            email_address (str): The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.. [optional]  # noqa: E501
             skip_notification (bool): If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
@@ -266,8 +266,8 @@ class TemplateAddUserRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            account_id (str): The id of the Account to give access to the Template. <b>Note</b> The account id prevails if email address is also provided.. [optional]  # noqa: E501
-            email_address (str): The email address of the Account to give access to the Template. <b>Note</b> The account id prevails if it is also provided.. [optional]  # noqa: E501
+            account_id (str): The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.. [optional]  # noqa: E501
+            email_address (str): The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.. [optional]  # noqa: E501
             skip_notification (bool): If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 

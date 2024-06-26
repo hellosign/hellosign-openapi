@@ -22,11 +22,11 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :signature_id
 
-    # The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE**: Optional if `name` is provided.
+    # The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.
     # @return [String]
     attr_accessor :email_address
 
-    # The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.
+    # The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.
     # @return [String]
     attr_accessor :name
 

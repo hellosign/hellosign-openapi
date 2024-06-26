@@ -325,7 +325,7 @@ class TeamAddMemberRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets role
      *
-     * @param string|null $role A role member will take in a new Team.  **Note**: This parameter is used only if `team_id` is provided.
+     * @param string|null $role A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.
      *
      * @return self
      */

@@ -22,7 +22,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :name
 
-    # The signer's index in the `signers` parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+    # The signer's index in the `signers` parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
     # @return [Integer]
     attr_accessor :signer_index
 

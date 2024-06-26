@@ -281,7 +281,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Sets email_address
      *
-     * @param string|null $email_address The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE**: Optional if `name` is provided.
+     * @param string|null $email_address The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.
      *
      * @return self
      */
@@ -305,7 +305,7 @@ class SignatureRequestUpdateRequest implements ModelInterface, ArrayAccess, Json
     /**
      * Sets name
      *
-     * @param string|null $name The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.
+     * @param string|null $name The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.
      *
      * @return self
      */

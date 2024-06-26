@@ -31,7 +31,7 @@ export class SubSignatureRequestGroupedSigners {
    */
   "group": string;
   /**
-   * Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+   * Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
    */
   "signers": Array<SubSignatureRequestSigner>;
   /**

@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="instructions">The instructions for uploading the attachment..</param>
         /// <param name="name">The name of attachment. (required).</param>
         /// <param name="required">Determines if the attachment must be uploaded. (default to false).</param>
-        /// <param name="signerIndex">The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment. (required).</param>
+        /// <param name="signerIndex">The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment. (required).</param>
         public SubAttachment(string instructions = default(string), string name = default(string), bool required = false, int signerIndex = default(int))
         {
             
@@ -83,9 +83,9 @@ namespace Dropbox.Sign.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.
+        /// The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
         /// </summary>
-        /// <value>The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE**: Only one signer can be assigned per attachment.</value>
+        /// <value>The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.</value>
         [DataMember(Name = "signer_index", IsRequired = true, EmitDefaultValue = true)]
         public int SignerIndex { get; set; }
 

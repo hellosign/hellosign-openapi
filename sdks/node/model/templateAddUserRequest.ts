@@ -26,11 +26,11 @@ import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 
 export class TemplateAddUserRequest {
   /**
-   * The id of the Account to give access to the Template. <b>Note</b> The account id prevails if email address is also provided.
+   * The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.
    */
   "accountId"?: string;
   /**
-   * The email address of the Account to give access to the Template. <b>Note</b> The account id prevails if it is also provided.
+   * The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
    */
   "emailAddress"?: string;
   /**

@@ -26,7 +26,7 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :email_address
 
-    # A role member will take in a new Team.  **Note**: This parameter is used only if `team_id` is provided.
+    # A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.
     # @return [String]
     attr_accessor :role
 

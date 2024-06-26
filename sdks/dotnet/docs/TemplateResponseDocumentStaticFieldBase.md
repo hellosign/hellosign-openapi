@@ -1,5 +1,5 @@
 # Dropbox.Sign.Model.TemplateResponseDocumentStaticFieldBase
-An array describing static overlay fields. **Note** only available for certain subscriptions.
+An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
 
 ## Properties
 

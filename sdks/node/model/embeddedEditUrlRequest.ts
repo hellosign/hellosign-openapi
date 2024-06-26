@@ -49,7 +49,7 @@ export class EmbeddedEditUrlRequest {
    */
   "mergeFields"?: Array<SubMergeField>;
   /**
-   * This allows the requester to enable the preview experience (i.e. does not allow the requester\'s end user to add any additional fields via the editor).  **Note**: This parameter overwrites `show_preview=true` (if set).
+   * This allows the requester to enable the preview experience (i.e. does not allow the requester\'s end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).
    */
   "previewOnly"?: boolean = false;
   /**

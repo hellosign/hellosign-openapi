@@ -38,7 +38,7 @@ use ReturnTypeWillChange;
  * SubSigningOptions Class Doc Comment
  *
  * @category Class
- * @description This allows the requester to specify the types allowed for creating a signature.  **Note**: If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+ * @description This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
  * @author   OpenAPI Generator team
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

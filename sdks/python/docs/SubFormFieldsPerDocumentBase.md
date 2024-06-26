@@ -2,7 +2,7 @@
 
 The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-**NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+**NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
 * Text Field use `SubFormFieldsPerDocumentText`
 * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -23,7 +23,7 @@ The fields that should appear on the document, expressed as an array of objects.
 | `api_id`<sup>*_required_</sup> | ```str``` |  An identifier for the field that is unique across all documents in the request.  |  |
 | `height`<sup>*_required_</sup> | ```int``` |  Size of the field in pixels.  |  |
 | `required`<sup>*_required_</sup> | ```bool``` |  Whether this field is required.  |  |
-| `signer`<sup>*_required_</sup> | ```str``` |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE**: To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  |  |
+| `signer`<sup>*_required_</sup> | ```str``` |  Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.<br><br>**NOTE:** To set the value of the field as the preparer you must set this to `me_now`<br><br>**NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.  |  |
 | `type`<sup>*_required_</sup> | ```str``` |    |  |
 | `width`<sup>*_required_</sup> | ```int``` |  Size of the field in pixels.  |  |
 | `x`<sup>*_required_</sup> | ```int``` |  Location coordinates of the field in pixels.  |  |

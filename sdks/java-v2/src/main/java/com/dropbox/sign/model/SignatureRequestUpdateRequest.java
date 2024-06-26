@@ -105,11 +105,11 @@ public class SignatureRequestUpdateRequest {
   }
 
    /**
-   * The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE**: Optional if &#x60;name&#x60; is provided.
+   * The new email address for the recipient.  This will generate a new &#x60;signature_id&#x60; value.  **NOTE:** Optional if &#x60;name&#x60; is provided.
    * @return emailAddress
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE**: Optional if `name` is provided.")
+  @ApiModelProperty(value = "The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,11 +131,11 @@ public class SignatureRequestUpdateRequest {
   }
 
    /**
-   * The new name for the recipient.  **NOTE**: Optional if &#x60;email_address&#x60; is provided.
+   * The new name for the recipient.  **NOTE:** Optional if &#x60;email_address&#x60; is provided.
    * @return name
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.")
+  @ApiModelProperty(value = "The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -34,7 +34,7 @@ export class TeamAddMemberRequest {
    */
   "emailAddress"?: string;
   /**
-   * A role member will take in a new Team.  **Note**: This parameter is used only if `team_id` is provided.
+   * A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.
    */
   "role"?: TeamAddMemberRequest.RoleEnum;
 

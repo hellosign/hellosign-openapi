@@ -32,9 +32,9 @@ import com.dropbox.sign.JSON;
 
 import com.dropbox.sign.ApiException;
 /**
- * This allows the requester to specify the types allowed for creating a signature.  **Note**: If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+ * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
  */
-@ApiModel(description = "This allows the requester to specify the types allowed for creating a signature.  **Note**: If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.")
+@ApiModel(description = "This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.")
 @JsonPropertyOrder({
   SubSigningOptions.JSON_PROPERTY_DEFAULT_TYPE,
   SubSigningOptions.JSON_PROPERTY_DRAW,

@@ -255,11 +255,11 @@ public class TemplateResponseDocument {
   }
 
    /**
-   * An array describing static overlay fields. **Note** only available for certain subscriptions.
+   * An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
    * @return staticFields
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array describing static overlay fields. **Note** only available for certain subscriptions.")
+  @ApiModelProperty(value = "An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.")
   @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
