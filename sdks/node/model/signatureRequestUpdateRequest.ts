@@ -30,11 +30,11 @@ export class SignatureRequestUpdateRequest {
    */
   "signatureId": string;
   /**
-   * The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE**: Optional if `name` is provided.
+   * The new email address for the recipient.  This will generate a new `signature_id` value.  **NOTE:** Optional if `name` is provided.
    */
   "emailAddress"?: string;
   /**
-   * The new name for the recipient.  **NOTE**: Optional if `email_address` is provided.
+   * The new name for the recipient.  **NOTE:** Optional if `email_address` is provided.
    */
   "name"?: string;
   /**

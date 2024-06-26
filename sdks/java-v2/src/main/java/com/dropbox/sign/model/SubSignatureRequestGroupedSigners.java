@@ -112,11 +112,11 @@ public class SubSignatureRequestGroupedSigners {
   }
 
    /**
-   * Signers belonging to this Group.  **NOTE**: Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+   * Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
    * @return signers
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Signers belonging to this Group.  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.")
+  @ApiModelProperty(required = true, value = "Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

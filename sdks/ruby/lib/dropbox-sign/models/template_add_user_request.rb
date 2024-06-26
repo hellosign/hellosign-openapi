@@ -18,11 +18,11 @@ end
 
 module Dropbox::Sign
   class TemplateAddUserRequest
-    # The id of the Account to give access to the Template. <b>Note</b> The account id prevails if email address is also provided.
+    # The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.
     # @return [String]
     attr_accessor :account_id
 
-    # The email address of the Account to give access to the Template. <b>Note</b> The account id prevails if it is also provided.
+    # The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
     # @return [String]
     attr_accessor :email_address
 

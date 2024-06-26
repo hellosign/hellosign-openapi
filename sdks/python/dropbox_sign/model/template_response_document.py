@@ -234,7 +234,7 @@ class TemplateResponseDocument(ModelNormal):
             field_groups ([TemplateResponseDocumentFieldGroup]): An array of Form Field Group objects.. [optional]  # noqa: E501
             form_fields ([TemplateResponseDocumentFormFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
             custom_fields ([TemplateResponseDocumentCustomFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
-            static_fields ([TemplateResponseDocumentStaticFieldBase], none_type): An array describing static overlay fields. **Note** only available for certain subscriptions.. [optional]  # noqa: E501
+            static_fields ([TemplateResponseDocumentStaticFieldBase], none_type): An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -321,7 +321,7 @@ class TemplateResponseDocument(ModelNormal):
             field_groups ([TemplateResponseDocumentFieldGroup]): An array of Form Field Group objects.. [optional]  # noqa: E501
             form_fields ([TemplateResponseDocumentFormFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
             custom_fields ([TemplateResponseDocumentCustomFieldBase]): An array of Form Field objects containing the name and type of each named field.. [optional]  # noqa: E501
-            static_fields ([TemplateResponseDocumentStaticFieldBase], none_type): An array describing static overlay fields. **Note** only available for certain subscriptions.. [optional]  # noqa: E501
+            static_fields ([TemplateResponseDocumentStaticFieldBase], none_type): An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -279,11 +279,11 @@ public class EmbeddedEditUrlRequest {
   }
 
    /**
-   * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  **Note**: This parameter overwrites &#x60;show_preview&#x3D;true&#x60; (if set).
+   * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;true&#x60; (if set).
    * @return previewOnly
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **Note**: This parameter overwrites `show_preview=true` (if set).")
+  @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).")
   @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

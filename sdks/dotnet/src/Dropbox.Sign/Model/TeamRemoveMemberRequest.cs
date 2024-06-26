@@ -34,9 +34,9 @@ namespace Dropbox.Sign.Model
     public partial class TeamRemoveMemberRequest : IOpenApiTyped, IEquatable<TeamRemoveMemberRequest>, IValidatableObject
     {
         /// <summary>
-        /// A new role member will take in a new Team.  **Note**: This parameter is used only if &#x60;new_team_id&#x60; is provided.
+        /// A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
         /// </summary>
-        /// <value>A new role member will take in a new Team.  **Note**: This parameter is used only if &#x60;new_team_id&#x60; is provided.</value>
+        /// <value>A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum NewRoleEnum
         {
@@ -68,9 +68,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// A new role member will take in a new Team.  **Note**: This parameter is used only if &#x60;new_team_id&#x60; is provided.
+        /// A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
         /// </summary>
-        /// <value>A new role member will take in a new Team.  **Note**: This parameter is used only if &#x60;new_team_id&#x60; is provided.</value>
+        /// <value>A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.</value>
         [DataMember(Name = "new_role", EmitDefaultValue = true)]
         public NewRoleEnum? NewRole { get; set; }
         /// <summary>
@@ -83,9 +83,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="accountId">**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team..</param>
         /// <param name="emailAddress">**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team..</param>
-        /// <param name="newOwnerEmailAddress">The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans..</param>
+        /// <param name="newOwnerEmailAddress">The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans..</param>
         /// <param name="newTeamId">Id of the new Team..</param>
-        /// <param name="newRole">A new role member will take in a new Team.  **Note**: This parameter is used only if &#x60;new_team_id&#x60; is provided..</param>
+        /// <param name="newRole">A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided..</param>
         public TeamRemoveMemberRequest(string accountId = default(string), string emailAddress = default(string), string newOwnerEmailAddress = default(string), string newTeamId = default(string), NewRoleEnum? newRole = default(NewRoleEnum?))
         {
             
@@ -127,9 +127,9 @@ namespace Dropbox.Sign.Model
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans.
+        /// The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
         /// </summary>
-        /// <value>The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans.</value>
+        /// <value>The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.</value>
         [DataMember(Name = "new_owner_email_address", EmitDefaultValue = true)]
         public string NewOwnerEmailAddress { get; set; }
 

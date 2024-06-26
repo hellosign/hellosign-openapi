@@ -140,7 +140,7 @@ class SubFieldOptions(ModelNormal):
         """SubFieldOptions - a model defined in OpenAPI
 
         Args:
-            date_format (str): Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.
+            date_format (str): Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -225,7 +225,7 @@ class SubFieldOptions(ModelNormal):
         """SubFieldOptions - a model defined in OpenAPI
 
         Args:
-            date_format (str): Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.
+            date_format (str): Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

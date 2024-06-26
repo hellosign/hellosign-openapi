@@ -306,11 +306,11 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   }
 
    /**
-   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.
+   * Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
    * @return allowReassign
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.")
+  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -684,11 +684,11 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   }
 
    /**
-   * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
+   * This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
    * @return previewOnly
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites `show_preview=1` (if set).")
+  @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites `show_preview=1` (if set).")
   @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -978,11 +978,11 @@ public class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
   }
 
    /**
-   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    * @return populateAutoFillFields
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
+  @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
   @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

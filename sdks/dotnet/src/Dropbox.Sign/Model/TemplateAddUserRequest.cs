@@ -41,8 +41,8 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateAddUserRequest" /> class.
         /// </summary>
-        /// <param name="accountId">The id of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if email address is also provided..</param>
-        /// <param name="emailAddress">The email address of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if it is also provided..</param>
+        /// <param name="accountId">The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided..</param>
+        /// <param name="emailAddress">The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided..</param>
         /// <param name="skipNotification">If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;. (default to false).</param>
         public TemplateAddUserRequest(string accountId = default(string), string emailAddress = default(string), bool skipNotification = false)
         {
@@ -69,16 +69,16 @@ namespace Dropbox.Sign.Model
         }
 
         /// <summary>
-        /// The id of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if email address is also provided.
+        /// The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.
         /// </summary>
-        /// <value>The id of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if email address is also provided.</value>
+        /// <value>The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
         /// <summary>
-        /// The email address of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if it is also provided.
+        /// The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
         /// </summary>
-        /// <value>The email address of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if it is also provided.</value>
+        /// <value>The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
 

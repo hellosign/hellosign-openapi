@@ -55,7 +55,7 @@ namespace Dropbox.Sign.Model
         /// <param name="subject">The subject in the email that will be sent to the signers..</param>
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
-        /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
+        /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
         public SignatureRequestEditEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
         {
             
@@ -205,9 +205,9 @@ namespace Dropbox.Sign.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+        /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
         /// </summary>
-        /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
+        /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
 

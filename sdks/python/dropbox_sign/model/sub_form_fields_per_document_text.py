@@ -374,7 +374,7 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: To set the value of the field as the preparer you must set this to `me_now`  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
             y (int): Location coordinates of the field in pixels.
@@ -412,12 +412,12 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             auto_fill_type (str): Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.. [optional]  # noqa: E501
             link_id (str): Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.. [optional]  # noqa: E501
             masked (bool): Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.. [optional]  # noqa: E501
-            validation_type (str): Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.. [optional]  # noqa: E501
+            validation_type (str): Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.. [optional]  # noqa: E501
             validation_custom_regex (str): [optional]  # noqa: E501
             validation_custom_regex_format_label (str): [optional]  # noqa: E501
             content (str): Content of a `me_now` text field. [optional]  # noqa: E501
             font_family (str): Font family for the field.. [optional]  # noqa: E501
-            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional] if omitted the server will use the default value of 12  # noqa: E501
+            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional] if omitted the server will use the default value of 12  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """
@@ -495,7 +495,7 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: To set the value of the field as the preparer you must set this to `me_now`  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
             y (int): Location coordinates of the field in pixels.
@@ -533,12 +533,12 @@ class SubFormFieldsPerDocumentText(ModelComposed):
             auto_fill_type (str): Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.. [optional]  # noqa: E501
             link_id (str): Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.. [optional]  # noqa: E501
             masked (bool): Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.. [optional]  # noqa: E501
-            validation_type (str): Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.. [optional]  # noqa: E501
+            validation_type (str): Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.. [optional]  # noqa: E501
             validation_custom_regex (str): [optional]  # noqa: E501
             validation_custom_regex_format_label (str): [optional]  # noqa: E501
             content (str): Content of a `me_now` text field. [optional]  # noqa: E501
             font_family (str): Font family for the field.. [optional]  # noqa: E501
-            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional] if omitted the server will use the default value of 12  # noqa: E501
+            font_size (int): The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.. [optional] if omitted the server will use the default value of 12  # noqa: E501
             name (str): Display name for the field.. [optional]  # noqa: E501
             page (int, none_type): Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.. [optional]  # noqa: E501
         """

@@ -17,7 +17,7 @@ module Dropbox
 end
 
 module Dropbox::Sign
-  # An array describing static overlay fields. **Note** only available for certain subscriptions.
+  # An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
   class TemplateResponseDocumentStaticFieldBase
     # @return [String]
     attr_accessor :type

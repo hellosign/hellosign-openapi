@@ -337,7 +337,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets new_owner_email_address
      *
-     * @param string|null $new_owner_email_address The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **Note**: Only available for Enterprise plans.
+     * @param string|null $new_owner_email_address The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
      *
      * @return self
      */
@@ -385,7 +385,7 @@ class TeamRemoveMemberRequest implements ModelInterface, ArrayAccess, JsonSerial
     /**
      * Sets new_role
      *
-     * @param string|null $new_role A new role member will take in a new Team.  **Note**: This parameter is used only if `new_team_id` is provided.
+     * @param string|null $new_role A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.
      *
      * @return self
      */

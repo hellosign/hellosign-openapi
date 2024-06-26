@@ -38,7 +38,7 @@ module Dropbox::Sign
     # @return [Array<TemplateResponseDocumentCustomFieldBase>]
     attr_accessor :custom_fields
 
-    # An array describing static overlay fields. **Note** only available for certain subscriptions.
+    # An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
     # @return [Array<TemplateResponseDocumentStaticFieldBase>, nil]
     attr_accessor :static_fields
 

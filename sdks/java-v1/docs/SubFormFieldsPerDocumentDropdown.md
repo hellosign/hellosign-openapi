@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 | `options`<sup>*_required_</sup> | ```List<String>``` |  Array of string values representing dropdown values.  |  |
 | `content` | ```String``` |  Selected value in `options` array. Value must exist in array.  |  |
 | `fontFamily` | [```FontFamilyEnum```](#FontFamilyEnum) |  Font family for the field.  |  |
-| `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
+| `fontSize` | ```Integer``` |  The initial px font size for the field contents. Can be any integer value between `7` and `49`.<br><br>**NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.  |  |
 
 
 

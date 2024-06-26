@@ -34,9 +34,9 @@ namespace Dropbox.Sign.Model
     public partial class SubFieldOptions : IOpenApiTyped, IEquatable<SubFieldOptions>, IValidatableObject
     {
         /// <summary>
-        /// Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.
+        /// Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
         /// </summary>
-        /// <value>Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.</value>
+        /// <value>Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum DateFormatEnum
         {
@@ -80,9 +80,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.
+        /// Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.
         /// </summary>
-        /// <value>Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher.</value>
+        /// <value>Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher.</value>
         [DataMember(Name = "date_format", IsRequired = true, EmitDefaultValue = true)]
         public DateFormatEnum DateFormat { get; set; }
         /// <summary>
@@ -93,7 +93,7 @@ namespace Dropbox.Sign.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFieldOptions" /> class.
         /// </summary>
-        /// <param name="dateFormat">Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **Note**: Only available for Premium and higher. (required).</param>
+        /// <param name="dateFormat">Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))  **NOTE:** Only available for Premium and higher. (required).</param>
         public SubFieldOptions(DateFormatEnum dateFormat = default(DateFormatEnum))
         {
             

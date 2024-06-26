@@ -127,7 +127,7 @@ public class UnclaimedDraftApi {
   }
   /**
    * Create Embedded Unclaimed Draft
-   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @param unclaimedDraftCreateEmbeddedRequest  (required)
    * @return UnclaimedDraftCreateResponse
    * @throws ApiException if fails to make API call
@@ -145,7 +145,7 @@ public class UnclaimedDraftApi {
 
   /**
    * Create Embedded Unclaimed Draft
-   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @param unclaimedDraftCreateEmbeddedRequest  (required)
    * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -202,7 +202,7 @@ public class UnclaimedDraftApi {
   }
   /**
    * Create Embedded Unclaimed Draft with Template
-   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @param unclaimedDraftCreateEmbeddedWithTemplateRequest  (required)
    * @return UnclaimedDraftCreateResponse
    * @throws ApiException if fails to make API call
@@ -220,7 +220,7 @@ public class UnclaimedDraftApi {
 
   /**
    * Create Embedded Unclaimed Draft with Template
-   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the \&quot;Request signature\&quot; page with the Draft loaded. Subsequent access to the claim URL will result in a &#x60;404&#x60;. For this embedded endpoint the &#x60;requester_email_address&#x60; parameter is required.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @param unclaimedDraftCreateEmbeddedWithTemplateRequest  (required)
    * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;
    * @throws ApiException if fails to make API call
@@ -277,7 +277,7 @@ public class UnclaimedDraftApi {
   }
   /**
    * Edit and Resend Unclaimed Draft
-   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @param signatureRequestId The ID of the signature request to edit and resend. (required)
    * @param unclaimedDraftEditAndResendRequest  (required)
    * @return UnclaimedDraftCreateResponse
@@ -296,7 +296,7 @@ public class UnclaimedDraftApi {
 
   /**
    * Edit and Resend Unclaimed Draft
-   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+   * Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter &#x60;test_mode&#x60; can be edited prior to request. Signers can be edited in embedded editor. Requester&#39;s email address will remain unchanged if &#x60;requester_email_address&#x60; parameter is not set.  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
    * @param signatureRequestId The ID of the signature request to edit and resend. (required)
    * @param unclaimedDraftEditAndResendRequest  (required)
    * @return ApiResponse&lt;UnclaimedDraftCreateResponse&gt;

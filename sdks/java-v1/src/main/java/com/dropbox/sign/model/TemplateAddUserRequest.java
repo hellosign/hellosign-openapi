@@ -75,11 +75,11 @@ public class TemplateAddUserRequest {
   }
 
    /**
-   * The id of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if email address is also provided.
+   * The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.
    * @return accountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Account to give access to the Template. <b>Note</b> The account id prevails if email address is also provided.")
+  @ApiModelProperty(value = "The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -101,11 +101,11 @@ public class TemplateAddUserRequest {
   }
 
    /**
-   * The email address of the Account to give access to the Template. &lt;b&gt;Note&lt;/b&gt; The account id prevails if it is also provided.
+   * The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
    * @return emailAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The email address of the Account to give access to the Template. <b>Note</b> The account id prevails if it is also provided.")
+  @ApiModelProperty(value = "The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

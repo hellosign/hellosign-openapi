@@ -37,7 +37,7 @@ use ReturnTypeWillChange;
  * TemplateResponseDocumentStaticFieldBase Class Doc Comment
  *
  * @category Class
- * @description An array describing static overlay fields. **Note** only available for certain subscriptions.
+ * @description An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
  * @author   OpenAPI Generator team
  * @see     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

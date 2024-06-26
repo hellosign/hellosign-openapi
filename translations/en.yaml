@@ -119,7 +119,7 @@
 "EmbeddedEditUrl::PREVIEW_ONLY": |-
   This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).
 
-  **Note**: This parameter overwrites `show_preview=true` (if set).
+  **NOTE:** This parameter overwrites `show_preview=true` (if set).
 "EmbeddedEditUrl::SHOW_PREVIEW": This allows the requester to enable the editor/preview experience.
 "EmbeddedEditUrl::SHOW_PROGRESS_STEPPER": When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.
 "EmbeddedEditUrl::TEMPLATE_ID": The id of the template to edit.
@@ -155,7 +155,7 @@
 "SignatureRequestBulkCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 
-  **NOTE**: Only available for Standard plan and higher.
+  **NOTE:** Only available for Standard plan and higher.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestBulkCreateEmbeddedWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
@@ -169,7 +169,7 @@
 
       By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-      **Note**: Not available in test mode and requires a Standard plan or higher.
+      **NOTE:** Not available in test mode and requires a Standard plan or higher.
   - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
       You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -192,7 +192,7 @@
 "SignatureRequestBulkSendWithTemplate::DESCRIPTION": |-
   Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.
 
-  **NOTE**: Only available for Standard plan and higher.
+  **NOTE:** Only available for Standard plan and higher.
 "SignatureRequestBulkSendWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestBulkSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestBulkSendWithTemplate::SIGNER_FILE": |-
@@ -205,7 +205,7 @@
 
       By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-      **Note**: Not available in test mode and requires a Standard plan or higher.
+      **NOTE:** Not available in test mode and requires a Standard plan or higher.
   - `*_field`: any column with a _field" suffix will be treated as a custom field (optional)
 
       You may only specify field values here, any other options should be set in the custom_fields request parameter.
@@ -235,16 +235,16 @@
 
   To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.
 
-  **NOTE**: To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
+  **NOTE:** To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.
 "SignatureRequestCancel::SIGNATURE_REQUEST_ID": The id of the incomplete SignatureRequest to cancel.
 
 "SignatureRequestCreateEmbedded::SUMMARY": Create Embedded Signature Request
-"SignatureRequestCreateEmbedded::DESCRIPTION": Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestCreateEmbedded::DESCRIPTION": Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestCreateEmbedded::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestCreateEmbedded::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Premium plan.
+  **NOTE:** Only available for Premium plan.
 "SignatureRequestCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestCreateEmbedded::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbedded::FILES": |-
@@ -259,11 +259,11 @@
 "SignatureRequestCreateEmbedded::HIDE_TEXT_TAGS": |-
   Enables automatic Text Tag removal when set to true.
 
-  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
 "SignatureRequestCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "SignatureRequestCreateEmbedded::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::SUBJECT": The subject in the email that will be sent to the signers.
 "SignatureRequestCreateEmbedded::TEST_MODE": Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.
@@ -271,11 +271,11 @@
 "SignatureRequestCreateEmbedded::USE_TEXT_TAGS": Send with a value of `true` if you wish to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document. Defaults to disabled, or `false`.
 
 "SignatureRequestEditEmbedded::SUMMARY": Edit Embedded Signature Request
-"SignatureRequestEditEmbedded::DESCRIPTION": Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestEditEmbedded::DESCRIPTION": Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestEditEmbedded::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
 
 "SignatureRequestCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Signature Request with Template
-"SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestCreateEmbeddedWithTemplate::DESCRIPTION": Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "SignatureRequestCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app you're using to create this embedded signature request. Used for security purposes.
 "SignatureRequestCreateEmbeddedWithTemplate::FILES": |-
@@ -294,10 +294,10 @@
 "SignatureRequestCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 
 "SignatureRequestEditEmbeddedWithTemplate::SUMMARY": Edit Embedded Signature Request with Template
-"SignatureRequestEditEmbeddedWithTemplate::DESCRIPTION": Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
+"SignatureRequestEditEmbeddedWithTemplate::DESCRIPTION": Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.
 "SignatureRequestEditEmbeddedWithTemplate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to edit.
 
 "SignatureRequestFiles::SUMMARY": Download Files
@@ -344,7 +344,7 @@
 "SignatureRequestRemind::DESCRIPTION": |-
   Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.
 
-  **NOTE**: This action can **not** be used with embedded signature requests.
+  **NOTE:** This action can **not** be used with embedded signature requests.
 "SignatureRequestRemind::EMAIL_ADDRESS": The email address of the signer to send a reminder to.
 "SignatureRequestRemind::NAME": The name of the signer to send a reminder to. Include if two or more
   signers share an email address.
@@ -365,7 +365,7 @@
 "SignatureRequestSend::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Premium plan and higher.
+  **NOTE:** Only available for Premium plan and higher.
 "SignatureRequestSend::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "SignatureRequestSend::CLIENT_ID": The client id of the API App you want to associate with this request. Used to apply the branding and callback url defined for the app.
 "SignatureRequestSend::FILES": |-
@@ -379,18 +379,18 @@
 "SignatureRequestSend::HIDE_TEXT_TAGS": |-
   Enables automatic Text Tag removal when set to true.
 
-  **NOTE**: Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
+  **NOTE:** Removing text tags this way can cause unwanted clipping. We recommend leaving this setting on `false` and instead hiding your text tags using white text or a similar approach. See the [Text Tags Walkthrough](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) for more information.
 "SignatureRequestSend::IS_QUALIFIED_SIGNATURE": |-
     Send with a value of `true` if you wish to enable
     [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
     which requires a face-to-face call to verify the signer's identity.<br>
-    **Note**: QES is only available on the Premium API plan as an add-on purchase.
+    **NOTE:** QES is only available on the Premium API plan as an add-on purchase.
     Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSend::IS_EID": |-
     Send with a value of `true` if you wish to enable
     [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
     which requires the signer to verify their identity with an eID provider to sign a document.<br>
-    **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSend::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSend::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSend::SUBJECT": The subject in the email that will be sent to the signers.
@@ -422,13 +422,13 @@
   Send with a value of `true` if you wish to enable
   [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES),
   which requires a face-to-face call to verify the signer's identity.<br>
-  **Note**: QES is only available on the Premium API plan as an add-on purchase.
+  **NOTE:** QES is only available on the Premium API plan as an add-on purchase.
   Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSendWithTemplate::IS_EID": |-
     Send with a value of `true` if you wish to enable
     [electronic identification (eID)](https://www.hellosign.com/features/electronic-id),
     which requires the signer to verify their identity with an eID provider to sign a document.<br>
-    **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
+    **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.
 "SignatureRequestSendWithTemplate::MESSAGE": The custom message in the email that will be sent to the signers.
 "SignatureRequestSendWithTemplate::SIGNING_REDIRECT_URL": The URL you want signers redirected to after they successfully sign.
 "SignatureRequestSendWithTemplate::SUBJECT": The subject in the email that will be sent to the signers.
@@ -449,17 +449,17 @@
 
   Updating the email address of a signer will generate a new `signature_id` value.
 
-  **NOTE**: This action cannot be performed on a signature request with an appended signature page.
+  **NOTE:** This action cannot be performed on a signature request with an appended signature page.
 "SignatureRequestUpdate::EMAIL_ADDRESS": |-
   The new email address for the recipient.
 
   This will generate a new `signature_id` value.
 
-  **NOTE**: Optional if `name` is provided.
+  **NOTE:** Optional if `name` is provided.
 "SignatureRequestUpdate::NAME": |-
   The new name for the recipient.
 
-  **NOTE**: Optional if `email_address` is provided.
+  **NOTE:** Optional if `email_address` is provided.
 "SignatureRequestUpdate::SIGNATURE_ID": The signature ID for the recipient.
 "SignatureRequestUpdate::EXPIRES_AT": The new time when the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 "SignatureRequestUpdate::SIGNATURE_REQUEST_ID": The id of the SignatureRequest to update.
@@ -477,7 +477,7 @@
 "TeamAddMember::ROLE": |-
   A role member will take in a new Team.
 
-  **Note**: This parameter is used only if `team_id` is provided.
+  **NOTE:** This parameter is used only if `team_id` is provided.
 "TeamAddMember::TEAM_ID": The id of the team.
 
 "TeamCreate::SUMMARY": Create Team
@@ -496,7 +496,7 @@
 "TeamRemoveMember::NEW_ROLE": |-
   A new role member will take in a new Team.
 
-  **Note**: This parameter is used only if `new_team_id` is provided.
+  **NOTE:** This parameter is used only if `new_team_id` is provided.
 "TeamRemoveMember::ACCOUNT_ID": |-
   **account_id** or **email_address** is required. If both are provided, the account id prevails.
 
@@ -508,7 +508,7 @@
 "TeamRemoveMember::NEW_OWNER_EMAIL_ADDRESS": |-
   The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.
 
-  **Note**: Only available for Enterprise plans.
+  **NOTE:** Only available for Enterprise plans.
 
 "TeamUpdate::SUMMARY": Update Team
 "TeamUpdate::DESCRIPTION": Updates the name of your Team.
@@ -555,10 +555,10 @@
 "TemplateAddUser::DESCRIPTION": Gives the specified Account access to the specified Template. The specified Account must be a part of your Team.
 "TemplateAddUser::ACCOUNT_ID": |-
   The id of the Account to give access to the Template.
-  <b>Note</b> The account id prevails if email address is also provided.
+  **NOTE:** The account id prevails if email address is also provided.
 "TemplateAddUser::EMAIL_ADDRESS": |-
   The email address of the Account to give access to the Template.
-  <b>Note</b> The account id prevails if it is also provided.
+  **NOTE:** The account id prevails if it is also provided.
 "TemplateAddUser::SKIP_NOTIFICATION": If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.
 "TemplateAddUser::TEMPLATE_ID": The id of the Template to give the Account access to.
 
@@ -569,7 +569,7 @@
 "TemplateCreateEmbeddedDraft::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Premium plan and higher.
+  **NOTE:** Only available for Premium plan and higher.
 "TemplateCreateEmbeddedDraft::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
 "TemplateCreateEmbeddedDraft::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
 "TemplateCreateEmbeddedDraft::FILES": |-
@@ -607,7 +607,7 @@
 "TemplateCreate::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Premium plan and higher.
+  **NOTE:** Only available for Premium plan and higher.
 "TemplateCreate::CC_ROLES": The CC roles that must be assigned when using the template to send a signature request
 "TemplateCreate::CLIENT_ID": Client id of the app you're using to create this draft. Used to apply the branding and callback url defined for the app.
 "TemplateCreate::FILES": |-
@@ -727,18 +727,18 @@
 "UnclaimedDraftCreate::EXPIRES_AT":  |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-  **Note**: This does not correspond to the **expires_at** returned in the response.
+  **NOTE:** This does not correspond to the **expires_at** returned in the response.
 "UnclaimedDraftCreateEmbedded::SUMMARY": Create Embedded Unclaimed Draft
 "UnclaimedDraftCreateEmbedded::DESCRIPTION": |-
   Creates a new Draft that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
-  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
 "UnclaimedDraftCreateEmbedded::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
 "UnclaimedDraftCreateEmbedded::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbedded::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Premium plan and higher.
+  **NOTE:** Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbedded::CC_EMAIL_ADDRESSES": The email addresses that should be CCed.
 "UnclaimedDraftCreateEmbedded::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbedded::FILES": |-
@@ -773,21 +773,21 @@
 "UnclaimedDraftCreateEmbedded::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "UnclaimedDraftCreateEmbedded::EXPIRES_AT":  |-
   When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
 
-  **Note**: This does not correspond to the **expires_at** returned in the response.
+  **NOTE:** This does not correspond to the **expires_at** returned in the response.
 "UnclaimedDraftCreateEmbeddedWithTemplate::SUMMARY": Create Embedded Unclaimed Draft with Template
 "UnclaimedDraftCreateEmbeddedWithTemplate::DESCRIPTION": |-
   Creates a new Draft with a previously saved template(s) that can be claimed and used in an embedded iFrame. The first authenticated user to access the URL will claim the Draft and will be shown the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a `404`. For this embedded endpoint the `requester_email_address` parameter is required.
 
-  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
 "UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_DECLINE": Allows signers to decline to sign a document if `true`. Defaults to `false`.
 "UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_REASSIGN": |-
   Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.
 
-  **Note**: Only available for Premium plan and higher.
+  **NOTE:** Only available for Premium plan and higher.
 "UnclaimedDraftCreateEmbeddedWithTemplate::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
 "UnclaimedDraftCreateEmbeddedWithTemplate::FILES": |-
   Use `files[]` to append additional files to the signature request being created from the template. Dropbox Sign will parse the files for [text tags](https://app.hellosign.com/api/textTagsWalkthrough) and append it to the signature request. Text tags for signers not on the template(s) will be ignored.
@@ -808,7 +808,7 @@
   - `preview_only=true`: Allows requesters to enable the preview only experience.
   - `preview_only=false`: Allows requesters to disable the preview only experience.
 
-  **Note**: This parameter overwrites `show_preview=1` (if set).
+  **NOTE:** This parameter overwrites `show_preview=1` (if set).
 "UnclaimedDraftCreateEmbeddedWithTemplate::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft.
 "UnclaimedDraftCreateEmbeddedWithTemplate::REQUESTING_REDIRECT_URL": The URL you want signers redirected to after they successfully request a signature.
 "UnclaimedDraftCreateEmbeddedWithTemplate::SHOW_PREVIEW": |-
@@ -826,13 +826,13 @@
 "UnclaimedDraftCreateEmbeddedWithTemplate::POPULATE_AUTO_FILL_FIELDS": |-
   Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.
 
-  ⚠️ **Note** ⚠️: Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
 "UnclaimedDraftCreateEmbeddedWithTemplate::ALLOW_CCS": This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.
 "UnclaimedDraftEditAndResend::SUMMARY": Edit and Resend Unclaimed Draft
 "UnclaimedDraftEditAndResend::DESCRIPTION": |-
   Creates a new signature request from an embedded request that can be edited prior to being sent to the recipients. Parameter `test_mode` can be edited prior to request. Signers can be edited in embedded editor. Requester's email address will remain unchanged if `requester_email_address` parameter is not set.
 
-  **NOTE**: Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
+  **NOTE:** Embedded unclaimed drafts can only be accessed in embedded iFrames whereas normal drafts can be used and accessed on Dropbox Sign.
 "UnclaimedDraftEditAndResend::REQUESTER_EMAIL_ADDRESS": The email address of the user that should be designated as the requester of this draft. If not set, original requester's email address will be used.
 "UnclaimedDraftEditAndResend::SIGNATURE_REQUEST_ID": The ID of the signature request to edit and resend.
 "UnclaimedDraftEditAndResend::CLIENT_ID": Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.
@@ -848,7 +848,7 @@
 "Sub::Attachment::SIGNER_INDEX": |-
   The signer's index in the `signers` parameter (0-based indexing).
 
-  **NOTE**: Only one signer can be assigned per attachment.
+  **NOTE:** Only one signer can be assigned per attachment.
 
 "Sub::BulkCustomField::DESCRIPTION": An array of custom field values.
 "Sub::BulkCustomField::NAME": The name of the custom field. Must be the field's `name` or `api_id`.
@@ -872,7 +872,7 @@
 "Sub::CustomField::EDITOR": |-
   Used to create editable merge fields. When the value matches a role passed in with `signers`, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to `required = true`.
 
-  **Note**: Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
+  **NOTE:** Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won't be editable.
 "Sub::CustomField::NAME": The name of a custom field. When working with pre-filled data, the custom field's name must have a matching merge field name or the field will remain empty on the document during signing.
 "Sub::CustomField::REQUIRED": Used to set an editable merge field when working with pre-filled data. When `true`, the custom field must specify a signer role in `editor`.
 "Sub::CustomField::TEMPLATE": An array defining values and options for custom fields. Required when a custom field exists in the Template.
@@ -886,7 +886,7 @@
 "Sub::FieldOptions::DATE_FORMAT": |-
   Allows requester to specify the date format (see list of allowed [formats](/api/reference/constants/#date-formats))
 
-  **Note**: Only available for Premium and higher.
+  **NOTE:** Only available for Premium and higher.
 
 "Sub::FormFieldGroup::DESCRIPTION": Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.
 "Sub::FormFieldGroup::GROUP_ID_LABEL": ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.
@@ -965,7 +965,7 @@
 "Sub::FormFieldsPerDocument::DESCRIPTION": |-
   The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)
 
-  **NOTE**: Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
+  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.
 
   * Text Field use `SubFormFieldsPerDocumentText`
   * Dropdown Field use `SubFormFieldsPerDocumentDropdown`
@@ -995,7 +995,7 @@
 "Sub::FormFieldsPerDocument::FONT_SIZE": |-
   The initial px font size for the field contents. Can be any integer value between `7` and `49`.
 
-  **NOTE**: Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
+  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
 "Sub::FormFieldsPerDocument::CONTENT_TEXT": Content of a `me_now` text field
 "Sub::FormFieldsPerDocument::OPTIONS": Array of string values representing dropdown values.
 "Sub::FormFieldsPerDocument::PAGE": |-
@@ -1008,9 +1008,9 @@
 "Sub::FormFieldsPerDocument::SIGNER": |-
   Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.
 
-  **NOTE**: To set the value of the field as the preparer you must set this to `me_now`
+  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`
 
-  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
 "Sub::FormFieldsPerDocument::TYPE": One of the [Type](/api/reference/constants/#field-types) options.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX": A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.
 "Sub::FormFieldsPerDocument::TYPE_CHECKBOX_MERGE": A checkbox field that has default value set using pre-filled data. Use the `SubFormFieldsPerDocumentCheckboxMerge` class.
@@ -1027,7 +1027,7 @@
 "Sub::FormFieldsPerDocument::VALIDATION_TYPE": |-
   Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
 
-  **NOTE**: When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
+  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.
 "Sub::FormFieldsPerDocument::WIDTH": Size of the field in pixels.
 "Sub::FormFieldsPerDocument::X": Location coordinates of the field in pixels.
 "Sub::FormFieldsPerDocument::Y": Location coordinates of the field in pixels.
@@ -1041,7 +1041,7 @@
 "Sub::SignatureRequestGroupedSigners::SIGNERS": |-
   Signers belonging to this Group.
 
-  **NOTE**: Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
 
 "Sub::MergeField::NAME": The name of the merge field. Must be unique.
 "Sub::MergeField::TYPE": The type of merge field.
@@ -1073,7 +1073,7 @@
 
   By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-  **Note**: Not available in test mode and requires a Standard plan or higher.
+  **NOTE:** Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
   Specifies the feature used with the `sms_phone_number`. Default `authentication`.
@@ -1092,7 +1092,7 @@
 
   By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).
 
-  **Note**: Not available in test mode and requires a Standard plan or higher.
+  **NOTE:** Not available in test mode and requires a Standard plan or higher.
 
 "Sub::SignatureRequestTemplateSigner::SIGNER_SMS_PHONE_NUMBER_TYPE": |-
   Specifies the feature used with the `sms_phone_number`. Default `authentication`.
@@ -1107,7 +1107,7 @@
 "Sub::SigningOptions::DESCRIPTION": |-
   This allows the requester to specify the types allowed for creating a signature.
 
-  **Note**: If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
+  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.
 "Sub::SigningOptions::DEFAULT": The default type shown (limited to the listed types)
 "Sub::SigningOptions::DRAW": Allows drawing the signature
 "Sub::SigningOptions::PHONE": Allows using a smartphone to email the signature
@@ -1448,7 +1448,7 @@
 "TemplateResponseDocument::FIELD_GROUPS": An array of Form Field Group objects.
 "TemplateResponseDocument::STATIC_FIELDS": |-
   An array describing static overlay fields.
-  <b>Note</b> only available for certain subscriptions.
+  **NOTE:** only available for certain subscriptions.
 
 "TemplateResponseCustomField::DESCRIPTION": Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.
 
@@ -1523,7 +1523,7 @@
 # text-only
 "TemplateResponseDocumentFormField::VALIDATION_TYPE": Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.
 
-"TemplateResponseDocumentStaticField::DESCRIPTION": An array describing static overlay fields. **Note** only available for certain subscriptions.
+"TemplateResponseDocumentStaticField::DESCRIPTION": An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
 "TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS": This class extends `TemplateResponseDocumentStaticFieldBase`
 "TemplateResponseDocumentStaticField::NAME": The name of the static field.
 "TemplateResponseDocumentStaticField::TYPE": |-

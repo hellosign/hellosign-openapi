@@ -34,9 +34,9 @@ namespace Dropbox.Sign.Model
     public partial class TeamAddMemberRequest : IOpenApiTyped, IEquatable<TeamAddMemberRequest>, IValidatableObject
     {
         /// <summary>
-        /// A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided.
+        /// A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
         /// </summary>
-        /// <value>A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided.</value>
+        /// <value>A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RoleEnum
         {
@@ -68,9 +68,9 @@ namespace Dropbox.Sign.Model
 
 
         /// <summary>
-        /// A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided.
+        /// A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
         /// </summary>
-        /// <value>A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided.</value>
+        /// <value>A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public RoleEnum? Role { get; set; }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team..</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team..</param>
-        /// <param name="role">A role member will take in a new Team.  **Note**: This parameter is used only if &#x60;team_id&#x60; is provided..</param>
+        /// <param name="role">A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided..</param>
         public TeamAddMemberRequest(string accountId = default(string), string emailAddress = default(string), RoleEnum? role = default(RoleEnum?))
         {
             

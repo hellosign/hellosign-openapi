@@ -397,13 +397,13 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
    /**
-   * Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+   * Send with a value of &#x60;true&#x60; if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer&#39;s identity.&lt;br&gt; **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isQualifiedSignature
    * @deprecated
   **/
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **Note**: QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")
+  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [Qualified Electronic Signatures](https://www.hellosign.com/features/qualified-electronic-signatures) (QES), which requires a face-to-face call to verify the signer's identity.<br> **NOTE:** QES is only available on the Premium API plan as an add-on purchase. Cannot be used in `test_mode`. Only works on requests with one signer.")
   @JsonProperty(JSON_PROPERTY_IS_QUALIFIED_SIGNATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -425,11 +425,11 @@ public class SignatureRequestSendWithTemplateRequest {
   }
 
    /**
-   * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **Note**: eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
+   * Send with a value of &#x60;true&#x60; if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.&lt;br&gt; **NOTE:** eID is only available on the Premium API plan. Cannot be used in &#x60;test_mode&#x60;. Only works on requests with one signer.
    * @return isEid
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **Note**: eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")
+  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable [electronic identification (eID)](https://www.hellosign.com/features/electronic-id), which requires the signer to verify their identity with an eID provider to sign a document.<br> **NOTE:** eID is only available on the Premium API plan. Cannot be used in `test_mode`. Only works on requests with one signer.")
   @JsonProperty(JSON_PROPERTY_IS_EID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

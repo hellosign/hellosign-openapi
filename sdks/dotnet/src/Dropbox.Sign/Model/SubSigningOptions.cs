@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// This allows the requester to specify the types allowed for creating a signature.  **Note**: If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
+    /// This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
     /// </summary>
     [DataContract(Name = "SubSigningOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

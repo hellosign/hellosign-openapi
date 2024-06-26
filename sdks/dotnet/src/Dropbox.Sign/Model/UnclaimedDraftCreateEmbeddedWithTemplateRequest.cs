@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="UnclaimedDraftCreateEmbeddedWithTemplateRequest" /> class.
         /// </summary>
         /// <param name="allowDecline">Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
-        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher. (default to false).</param>
+        /// <param name="allowReassign">Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher. (default to false).</param>
         /// <param name="ccs">Add CC email recipients. Required when a CC role exists for the Template..</param>
         /// <param name="clientId">Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app. (required).</param>
         /// <param name="customFields">An array defining values and options for custom fields. Required when a custom field exists in the Template..</param>
@@ -56,7 +56,7 @@ namespace Dropbox.Sign.Model
         /// <param name="isForEmbeddedSigning">The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="message">The custom message in the email that will be sent to the signers..</param>
         /// <param name="metadata">Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long..</param>
-        /// <param name="previewOnly">This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set). (default to false).</param>
+        /// <param name="previewOnly">This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set). (default to false).</param>
         /// <param name="requesterEmailAddress">The email address of the user that should be designated as the requester of this draft. (required).</param>
         /// <param name="requestingRedirectUrl">The URL you want signers redirected to after they successfully request a signature..</param>
         /// <param name="showPreview">This allows the requester to enable the editor/preview experience.  - &#x60;show_preview&#x3D;true&#x60;: Allows requesters to enable the editor/preview experience. - &#x60;show_preview&#x3D;false&#x60;: Allows requesters to disable the editor/preview experience. (default to false).</param>
@@ -69,7 +69,7 @@ namespace Dropbox.Sign.Model
         /// <param name="templateIds">Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the templates will be used. (required).</param>
         /// <param name="testMode">Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
-        /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
+        /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
         /// <param name="allowCcs">This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft. (default to false).</param>
         public UnclaimedDraftCreateEmbeddedWithTemplateRequest(bool allowDecline = false, bool allowReassign = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), SubEditorOptions editorOptions = default(SubEditorOptions), SubFieldOptions fieldOptions = default(SubFieldOptions), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), bool forceSignerRoles = false, bool forceSubjectMessage = false, bool holdRequest = false, bool isForEmbeddedSigning = false, string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), bool previewOnly = false, string requesterEmailAddress = default(string), string requestingRedirectUrl = default(string), bool showPreview = false, bool showProgressStepper = true, List<SubUnclaimedDraftTemplateSigner> signers = default(List<SubUnclaimedDraftTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string signingRedirectUrl = default(string), bool skipMeNow = false, string subject = default(string), List<string> templateIds = default(List<string>), bool testMode = false, string title = default(string), bool populateAutoFillFields = false, bool allowCcs = false)
         {
@@ -166,9 +166,9 @@ namespace Dropbox.Sign.Model
         public bool AllowDecline { get; set; }
 
         /// <summary>
-        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.
+        /// Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.
         /// </summary>
-        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **Note**: Only available for Premium plan and higher.</value>
+        /// <value>Allows signers to reassign their signature requests to other signers if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.  **NOTE:** Only available for Premium plan and higher.</value>
         [DataMember(Name = "allow_reassign", EmitDefaultValue = true)]
         public bool AllowReassign { get; set; }
 
@@ -255,9 +255,9 @@ namespace Dropbox.Sign.Model
         public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
-        /// This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
+        /// This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).
         /// </summary>
-        /// <value>This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).</value>
+        /// <value>This allows the requester to enable the preview experience (i.e. does not allow the requester&#39;s end user to add any additional fields via the editor).  - &#x60;preview_only&#x3D;true&#x60;: Allows requesters to enable the preview only experience. - &#x60;preview_only&#x3D;false&#x60;: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites &#x60;show_preview&#x3D;1&#x60; (if set).</value>
         [DataMember(Name = "preview_only", EmitDefaultValue = true)]
         public bool PreviewOnly { get; set; }
 
@@ -331,9 +331,9 @@ namespace Dropbox.Sign.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+        /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
         /// </summary>
-        /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  ⚠️ **Note** ⚠️: Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
+        /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
 

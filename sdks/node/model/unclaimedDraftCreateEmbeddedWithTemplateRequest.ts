@@ -48,7 +48,7 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
    */
   "allowDecline"?: boolean = false;
   /**
-   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **Note**: Only available for Premium plan and higher.
+   * Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.
    */
   "allowReassign"?: boolean = false;
   /**
@@ -94,7 +94,7 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
    */
   "metadata"?: { [key: string]: any };
   /**
-   * This allows the requester to enable the preview experience (i.e. does not allow the requester\'s end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **Note**: This parameter overwrites `show_preview=1` (if set).
+   * This allows the requester to enable the preview experience (i.e. does not allow the requester\'s end user to add any additional fields via the editor).  - `preview_only=true`: Allows requesters to enable the preview only experience. - `preview_only=false`: Allows requesters to disable the preview only experience.  **NOTE:** This parameter overwrites `show_preview=1` (if set).
    */
   "previewOnly"?: boolean = false;
   /**
@@ -135,7 +135,7 @@ export class UnclaimedDraftCreateEmbeddedWithTemplateRequest {
    */
   "title"?: string;
   /**
-   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  ⚠️ **Note** ⚠️: Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
+   * Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer\'s information during signing.  **NOTE:** Keep your signer\'s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
    */
   "populateAutoFillFields"?: boolean = false;
   /**

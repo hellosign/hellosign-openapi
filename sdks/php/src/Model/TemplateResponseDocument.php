@@ -386,7 +386,7 @@ class TemplateResponseDocument implements ModelInterface, ArrayAccess, JsonSeria
     /**
      * Sets static_fields
      *
-     * @param TemplateResponseDocumentStaticFieldBase[]|null $static_fields An array describing static overlay fields. **Note** only available for certain subscriptions.
+     * @param TemplateResponseDocumentStaticFieldBase[]|null $static_fields An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
      *
      * @return self
      */

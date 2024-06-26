@@ -271,7 +271,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: To set the value of the field as the preparer you must set this to `me_now`  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             type (str):
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.
@@ -374,7 +374,7 @@ class SubFormFieldsPerDocumentBase(ModelNormal):
             api_id (str): An identifier for the field that is unique across all documents in the request.
             height (int): Size of the field in pixels.
             required (bool): Whether this field is required.
-            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE**: To set the value of the field as the preparer you must set this to `me_now`  **NOTE**: If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
+            signer (str|int): Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to `me_now`  **NOTE:** If type is `text-merge` or `checkbox-merge`, you must set this to sender in order to use pre-filled data.
             type (str):
             width (int): Size of the field in pixels.
             x (int): Location coordinates of the field in pixels.

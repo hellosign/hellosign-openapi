@@ -43,7 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="group">The name of the group. (required).</param>
         /// <param name="order">The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;..</param>
-        /// <param name="signers">Signers belonging to this Group.  **NOTE**: Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below. (required).</param>
+        /// <param name="signers">Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below. (required).</param>
         public SubSignatureRequestGroupedSigners(string group = default(string), int? order = default(int?), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>))
         {
             
@@ -86,9 +86,9 @@ namespace Dropbox.Sign.Model
         public string Group { get; set; }
 
         /// <summary>
-        /// Signers belonging to this Group.  **NOTE**: Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
+        /// Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
         /// </summary>
-        /// <value>Signers belonging to this Group.  **NOTE**: Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.</value>
+        /// <value>Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestSigner> Signers { get; set; }
 

@@ -28,7 +28,7 @@ using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 namespace Dropbox.Sign.Model
 {
     /// <summary>
-    /// An array describing static overlay fields. **Note** only available for certain subscriptions.
+    /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentStaticFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]

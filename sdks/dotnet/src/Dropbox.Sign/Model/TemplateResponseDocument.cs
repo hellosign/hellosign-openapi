@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="fieldGroups">An array of Form Field Group objects..</param>
         /// <param name="formFields">An array of Form Field objects containing the name and type of each named field..</param>
         /// <param name="customFields">An array of Form Field objects containing the name and type of each named field..</param>
-        /// <param name="staticFields">An array describing static overlay fields. **Note** only available for certain subscriptions..</param>
+        /// <param name="staticFields">An array describing static overlay fields. **NOTE:** Only available for certain subscriptions..</param>
         public TemplateResponseDocument(string name = default(string), int index = default(int), List<TemplateResponseDocumentFieldGroup> fieldGroups = default(List<TemplateResponseDocumentFieldGroup>), List<TemplateResponseDocumentFormFieldBase> formFields = default(List<TemplateResponseDocumentFormFieldBase>), List<TemplateResponseDocumentCustomFieldBase> customFields = default(List<TemplateResponseDocumentCustomFieldBase>), List<TemplateResponseDocumentStaticFieldBase> staticFields = default(List<TemplateResponseDocumentStaticFieldBase>))
         {
             
@@ -110,9 +110,9 @@ namespace Dropbox.Sign.Model
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
 
         /// <summary>
-        /// An array describing static overlay fields. **Note** only available for certain subscriptions.
+        /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
         /// </summary>
-        /// <value>An array describing static overlay fields. **Note** only available for certain subscriptions.</value>
+        /// <value>An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.</value>
         [DataMember(Name = "static_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
 

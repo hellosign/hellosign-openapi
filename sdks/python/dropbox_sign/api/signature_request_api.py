@@ -31,10 +31,6 @@ from dropbox_sign.model.signature_request_bulk_create_embedded_with_template_req
 from dropbox_sign.model.signature_request_bulk_send_with_template_request import SignatureRequestBulkSendWithTemplateRequest
 from dropbox_sign.model.signature_request_create_embedded_request import SignatureRequestCreateEmbeddedRequest
 from dropbox_sign.model.signature_request_create_embedded_with_template_request import SignatureRequestCreateEmbeddedWithTemplateRequest
-from dropbox_sign.model.signature_request_edit_embedded_request import SignatureRequestEditEmbeddedRequest
-from dropbox_sign.model.signature_request_edit_embedded_with_template_request import SignatureRequestEditEmbeddedWithTemplateRequest
-from dropbox_sign.model.signature_request_edit_request import SignatureRequestEditRequest
-from dropbox_sign.model.signature_request_edit_with_template_request import SignatureRequestEditWithTemplateRequest
 from dropbox_sign.model.signature_request_get_response import SignatureRequestGetResponse
 from dropbox_sign.model.signature_request_list_response import SignatureRequestListResponse
 from dropbox_sign.model.signature_request_remind_request import SignatureRequestRemindRequest
@@ -306,246 +302,6 @@ class SignatureRequestApi(object):
                 },
                 'location_map': {
                     'signature_request_create_embedded_with_template_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client
-        )
-        self.signature_request_edit_endpoint = _Endpoint(
-            settings={
-                'response_type': (SignatureRequestGetResponse,),
-                'auth': [
-                    'api_key',
-                    'oauth2'
-                ],
-                'endpoint_path': '/signature_request/edit/{signature_request_id}',
-                'operation_id': 'signature_request_edit',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'signature_request_id',
-                    'signature_request_edit_request',
-                ],
-                'required': [
-                    'signature_request_id',
-                    'signature_request_edit_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'signature_request_id':
-                        (str,),
-                    'signature_request_edit_request':
-                        (SignatureRequestEditRequest,),
-                },
-                'attribute_map': {
-                    'signature_request_id': 'signature_request_id',
-                },
-                'location_map': {
-                    'signature_request_id': 'path',
-                    'signature_request_edit_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client
-        )
-        self.signature_request_edit_embedded_endpoint = _Endpoint(
-            settings={
-                'response_type': (SignatureRequestGetResponse,),
-                'auth': [
-                    'api_key',
-                    'oauth2'
-                ],
-                'endpoint_path': '/signature_request/edit_embedded/{signature_request_id}',
-                'operation_id': 'signature_request_edit_embedded',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'signature_request_id',
-                    'signature_request_edit_embedded_request',
-                ],
-                'required': [
-                    'signature_request_id',
-                    'signature_request_edit_embedded_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'signature_request_id':
-                        (str,),
-                    'signature_request_edit_embedded_request':
-                        (SignatureRequestEditEmbeddedRequest,),
-                },
-                'attribute_map': {
-                    'signature_request_id': 'signature_request_id',
-                },
-                'location_map': {
-                    'signature_request_id': 'path',
-                    'signature_request_edit_embedded_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client
-        )
-        self.signature_request_edit_embedded_with_template_endpoint = _Endpoint(
-            settings={
-                'response_type': (SignatureRequestGetResponse,),
-                'auth': [
-                    'api_key',
-                    'oauth2'
-                ],
-                'endpoint_path': '/signature_request/edit_embedded_with_template/{signature_request_id}',
-                'operation_id': 'signature_request_edit_embedded_with_template',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'signature_request_id',
-                    'signature_request_edit_embedded_with_template_request',
-                ],
-                'required': [
-                    'signature_request_id',
-                    'signature_request_edit_embedded_with_template_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'signature_request_id':
-                        (str,),
-                    'signature_request_edit_embedded_with_template_request':
-                        (SignatureRequestEditEmbeddedWithTemplateRequest,),
-                },
-                'attribute_map': {
-                    'signature_request_id': 'signature_request_id',
-                },
-                'location_map': {
-                    'signature_request_id': 'path',
-                    'signature_request_edit_embedded_with_template_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json',
-                    'multipart/form-data'
-                ]
-            },
-            api_client=api_client
-        )
-        self.signature_request_edit_with_template_endpoint = _Endpoint(
-            settings={
-                'response_type': (SignatureRequestGetResponse,),
-                'auth': [
-                    'api_key',
-                    'oauth2'
-                ],
-                'endpoint_path': '/signature_request/edit_with_template/{signature_request_id}',
-                'operation_id': 'signature_request_edit_with_template',
-                'http_method': 'PUT',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'signature_request_id',
-                    'signature_request_edit_with_template_request',
-                ],
-                'required': [
-                    'signature_request_id',
-                    'signature_request_edit_with_template_request',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'signature_request_id':
-                        (str,),
-                    'signature_request_edit_with_template_request':
-                        (SignatureRequestEditWithTemplateRequest,),
-                },
-                'attribute_map': {
-                    'signature_request_id': 'signature_request_id',
-                },
-                'location_map': {
-                    'signature_request_id': 'path',
-                    'signature_request_edit_with_template_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1189,7 +945,7 @@ class SignatureRequestApi(object):
     ) -> BulkSendJobSendResponse:
         """Embedded Bulk Send with Template  # noqa: E501
 
-        Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE**: Only available for Standard plan and higher.  # noqa: E501
+        Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter to be signed in an embedded iFrame. These embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  **NOTE:** Only available for Standard plan and higher.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1289,7 +1045,7 @@ class SignatureRequestApi(object):
     ) -> BulkSendJobSendResponse:
         """Bulk Send with Template  # noqa: E501
 
-        Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.  **NOTE**: Only available for Standard plan and higher.  # noqa: E501
+        Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of the provided Template(s) specified with the `template_ids` parameter.  **NOTE:** Only available for Standard plan and higher.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1389,7 +1145,7 @@ class SignatureRequestApi(object):
     ) -> None:
         """Cancel Incomplete Signature Request  # noqa: E501
 
-        Cancels an incomplete signature request. This action is **not reversible**.  The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.  To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.  **NOTE**: To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.  # noqa: E501
+        Cancels an incomplete signature request. This action is **not reversible**.  The request will be canceled and signers will no longer be able to sign. If they try to access the signature request they will receive a HTTP 410 status code indicating that the resource has been deleted. Cancelation is asynchronous and a successful call to this endpoint will return an empty 200 OK response if the signature request is eligible to be canceled and has been successfully queued.  This 200 OK response does not indicate a successful cancelation of the signature request itself. The cancelation is confirmed via the `signature_request_canceled` event. It is recommended that a  [callback handler](/api/reference/tag/Callbacks-and-Events) be implemented to listen for the `signature_request_canceled` event. This callback will be sent only when the cancelation has completed successfully. If a callback handler has been configured and the event has not been received within 60 minutes of making the call, check the status of the request in the [API Dashboard](https://app.hellosign.com/apidashboard) and retry the cancelation if necessary.  To be eligible for cancelation, a signature request must have been sent successfully, must not yet have been signed by all signers, and you must either be the sender or own the API app under which it was sent. A partially signed signature request can be canceled.  **NOTE:** To remove your access to a completed signature request, use the endpoint: `POST /signature_request/remove/[:signature_request_id]`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1467,7 +1223,7 @@ class SignatureRequestApi(object):
     ) -> SignatureRequestGetResponse:
         """Create Embedded Signature Request  # noqa: E501
 
-        Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
+        Creates a new SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1567,7 +1323,7 @@ class SignatureRequestApi(object):
     ) -> SignatureRequestGetResponse:
         """Create Embedded Signature Request with Template  # noqa: E501
 
-        Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
+        Creates a new SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. Note that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1638,422 +1394,6 @@ class SignatureRequestApi(object):
             signature_request_create_embedded_with_template_request
         try:
             return self.signature_request_create_embedded_with_template_endpoint.call_with_http_info(**kwargs)
-        except ApiException as e:
-            if e.status == 200:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[SignatureRequestGetResponse],
-                    _check_type=True,
-                )
-
-                raise e
-            range_code = "4XX"[0]
-            range_code_left = int(f"{range_code}00")
-            range_code_right = int(f"{range_code}99")
-
-            if range_code_left <= e.status <= range_code_right:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[ErrorResponse],
-                    _check_type=True,
-                )
-
-                raise e
-
-    def signature_request_edit(
-        self,
-        signature_request_id,
-        signature_request_edit_request,
-        **kwargs
-    ) -> SignatureRequestGetResponse:
-        """Edit Signature Request  # noqa: E501
-
-        Edits and sends a SignatureRequest with the submitted documents. If `form_fields_per_document` is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.  **NOTE:** Edit and resend will not deduct your signature request quota.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.signature_request_edit(signature_request_id, signature_request_edit_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            signature_request_id (str): The id of the SignatureRequest to edit.
-            signature_request_edit_request (SignatureRequestEditRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            SignatureRequestGetResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['signature_request_id'] = \
-            signature_request_id
-        kwargs['signature_request_edit_request'] = \
-            signature_request_edit_request
-        try:
-            return self.signature_request_edit_endpoint.call_with_http_info(**kwargs)
-        except ApiException as e:
-            if e.status == 200:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[SignatureRequestGetResponse],
-                    _check_type=True,
-                )
-
-                raise e
-            range_code = "4XX"[0]
-            range_code_left = int(f"{range_code}00")
-            range_code_right = int(f"{range_code}99")
-
-            if range_code_left <= e.status <= range_code_right:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[ErrorResponse],
-                    _check_type=True,
-                )
-
-                raise e
-
-    def signature_request_edit_embedded(
-        self,
-        signature_request_id,
-        signature_request_edit_embedded_request,
-        **kwargs
-    ) -> SignatureRequestGetResponse:
-        """Edit Embedded Signature Request  # noqa: E501
-
-        Edits a SignatureRequest with the submitted documents to be signed in an embedded iFrame. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.signature_request_edit_embedded(signature_request_id, signature_request_edit_embedded_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            signature_request_id (str): The id of the SignatureRequest to edit.
-            signature_request_edit_embedded_request (SignatureRequestEditEmbeddedRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            SignatureRequestGetResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['signature_request_id'] = \
-            signature_request_id
-        kwargs['signature_request_edit_embedded_request'] = \
-            signature_request_edit_embedded_request
-        try:
-            return self.signature_request_edit_embedded_endpoint.call_with_http_info(**kwargs)
-        except ApiException as e:
-            if e.status == 200:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[SignatureRequestGetResponse],
-                    _check_type=True,
-                )
-
-                raise e
-            range_code = "4XX"[0]
-            range_code_left = int(f"{range_code}00")
-            range_code_right = int(f"{range_code}99")
-
-            if range_code_left <= e.status <= range_code_right:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[ErrorResponse],
-                    _check_type=True,
-                )
-
-                raise e
-
-    def signature_request_edit_embedded_with_template(
-        self,
-        signature_request_id,
-        signature_request_edit_embedded_with_template_request,
-        **kwargs
-    ) -> SignatureRequestGetResponse:
-        """Edit Embedded Signature Request with Template  # noqa: E501
-
-        Edits a SignatureRequest based on the given Template(s) to be signed in an embedded iFrame. <u>Note</u> that embedded signature requests can only be signed in embedded iFrames whereas normal signature requests can only be signed on Dropbox Sign.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.signature_request_edit_embedded_with_template(signature_request_id, signature_request_edit_embedded_with_template_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            signature_request_id (str): The id of the SignatureRequest to edit.
-            signature_request_edit_embedded_with_template_request (SignatureRequestEditEmbeddedWithTemplateRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            SignatureRequestGetResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['signature_request_id'] = \
-            signature_request_id
-        kwargs['signature_request_edit_embedded_with_template_request'] = \
-            signature_request_edit_embedded_with_template_request
-        try:
-            return self.signature_request_edit_embedded_with_template_endpoint.call_with_http_info(**kwargs)
-        except ApiException as e:
-            if e.status == 200:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[SignatureRequestGetResponse],
-                    _check_type=True,
-                )
-
-                raise e
-            range_code = "4XX"[0]
-            range_code_left = int(f"{range_code}00")
-            range_code_right = int(f"{range_code}99")
-
-            if range_code_left <= e.status <= range_code_right:
-                e.body = self.api_client.deserialize(
-                    response=type('obj_dict', (object,), {'data': e.body}),
-                    response_type=[ErrorResponse],
-                    _check_type=True,
-                )
-
-                raise e
-
-    def signature_request_edit_with_template(
-        self,
-        signature_request_id,
-        signature_request_edit_with_template_request,
-        **kwargs
-    ) -> SignatureRequestGetResponse:
-        """Edit Signature Request With Template  # noqa: E501
-
-        Edits and sends a SignatureRequest based off of the Template(s) specified with the template_ids parameter.  **NOTE:** Edit and resend will not deduct your signature request quota.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.signature_request_edit_with_template(signature_request_id, signature_request_edit_with_template_request, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            signature_request_id (str): The id of the SignatureRequest to edit.
-            signature_request_edit_with_template_request (SignatureRequestEditWithTemplateRequest):
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            SignatureRequestGetResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['signature_request_id'] = \
-            signature_request_id
-        kwargs['signature_request_edit_with_template_request'] = \
-            signature_request_edit_with_template_request
-        try:
-            return self.signature_request_edit_with_template_endpoint.call_with_http_info(**kwargs)
         except ApiException as e:
             if e.status == 200:
                 e.body = self.api_client.deserialize(
@@ -2685,7 +2025,7 @@ class SignatureRequestApi(object):
     ) -> SignatureRequestGetResponse:
         """Send Request Reminder  # noqa: E501
 
-        Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.  **NOTE**: This action can **not** be used with embedded signature requests.  # noqa: E501
+        Sends an email to the signer reminding them to sign the signature request. You cannot send a reminder within 1 hour of the last reminder that was sent. This includes manual AND automatic reminders.  **NOTE:** This action can **not** be used with embedded signature requests.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3067,7 +2407,7 @@ class SignatureRequestApi(object):
     ) -> SignatureRequestGetResponse:
         """Update Signature Request  # noqa: E501
 
-        Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new `signature_id` value.  **NOTE**: This action cannot be performed on a signature request with an appended signature page.  # noqa: E501
+        Updates the email address and/or the name for a given signer on a signature request. You can listen for the `signature_request_email_bounce` event on your app or account to detect bounced emails, and respond with this method.  Updating the email address of a signer will generate a new `signature_id` value.  **NOTE:** This action cannot be performed on a signature request with an appended signature page.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
