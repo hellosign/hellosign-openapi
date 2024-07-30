@@ -76,11 +76,13 @@ class TestSignatureRequestApi(unittest.TestCase):
     def test_init_allows_jsony_chars_in_strings(self):
         title = "테스트 - testing japanese characters in subject"
         subject = "[テスト]"
+        message = "{\"テスト - testing message\"}"
 
         request_data = {
             "test_mode": True,
             "title": title,
             "subject": subject,
+            "message": message,
             "signers": [
                 {
                     "email_address": "jill@example.com",
@@ -105,9 +107,11 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         title_result = fields[1]
         subject_result = fields[2]
+        message_result = fields[3]
 
         self.assertEqual(title_result[1], title)
         self.assertEqual(subject_result[1], subject)
+        self.assertEqual(message_result[1], message)
 
         obj.files[0].close()
 
