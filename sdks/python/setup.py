@@ -13,7 +13,7 @@ from setuptools import setup, find_packages  # noqa: H301
 from pathlib import Path
 
 NAME = "dropbox-sign"
-VERSION = "1.4-dev-dev"
+VERSION = "1.4-dev"
 # To install the library, run the following
 #
 # python setup.py install
