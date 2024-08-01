@@ -73,6 +73,48 @@ class TestSignatureRequestApi(unittest.TestCase):
 
         obj.files[0].close()
 
+    def test_init_allows_jsony_chars_in_strings(self):
+        title = "테스트 - testing japanese characters in subject"
+        subject = "[テスト]"
+        message = "{\"テスト - testing message\"}"
+
+        request_data = {
+            "test_mode": True,
+            "title": title,
+            "subject": subject,
+            "message": message,
+            "signers": [
+                {
+                    "email_address": "jill@example.com",
+                    "name": "Jill",
+                    "order": 1
+                }
+            ],
+            "files": [open(get_base_path() + "/../test_fixtures/pdf-sample.pdf", "rb")]
+        }
+
+        obj = m.SignatureRequestSendRequest.init(request_data)
+
+        self.mock_pool.expect_request(
+            content_type='multipart/form-data',
+            data=request_data,
+            response={}
+        )
+
+        self.api.signature_request_send(obj)
+
+        fields = self.mock_pool.get_fields()
+
+        title_result = fields[1]
+        subject_result = fields[2]
+        message_result = fields[3]
+
+        self.assertEqual(title_result[1], title)
+        self.assertEqual(subject_result[1], subject)
+        self.assertEqual(message_result[1], message)
+
+        obj.files[0].close()
+
     def test_signature_request_bulk_create_embedded_with_template(self):
         request_class = 'SignatureRequestBulkCreateEmbeddedWithTemplateRequest'
         request_data = get_fixture_data(request_class)['default']
