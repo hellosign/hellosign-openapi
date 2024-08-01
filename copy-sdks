@@ -6,6 +6,7 @@ DIR=$(cd `dirname $0` && pwd)
 SDKS=( dotnet java-v1 java-v2 node php python ruby )
 SHOW_HELP=0
 TARGET_SDK=
+TARGET_VERSION=
 
 REPO_DOTNET="https://github.com/hellosign/dropbox-sign-dotnet.git"
 REPO_JAVA_V1="--branch v1 https://github.com/hellosign/dropbox-sign-java.git"
@@ -15,9 +16,13 @@ REPO_PHP="https://github.com/hellosign/dropbox-sign-php.git"
 REPO_PYTHON="https://github.com/hellosign/dropbox-sign-python.git"
 REPO_RUBY="https://github.com/hellosign/dropbox-sign-ruby.git"
 
-while getopts ":t:h" opt; do
+REPO_MAIN_BRANCH="main"
+
+while getopts ":t:v:h" opt; do
   case $opt in
     t) TARGET_SDK="$OPTARG"
+    ;;
+    v) TARGET_VERSION="$OPTARG"
     ;;
     h) SHOW_HELP=1
     ;;
@@ -27,22 +32,14 @@ while getopts ":t:h" opt; do
 done
 
 function main() {
-  if [[ -z ${TARGET_SDK} ]]; then
+  if [[ -z ${TARGET_SDK} || -z ${TARGET_VERSION} ]]; then
     show_help
 
     exit 0
   fi
 
   validate_sdk_choice $TARGET_SDK
-
-  if [[ "${TARGET_SDK}" != "all" ]]; then
-    copy_files $TARGET_SDK
-  else
-    for SDK in "${SDKS[@]}"
-    do :
-      copy_files $SDK
-    done
-  fi
+  copy_files $TARGET_SDK $TARGET_VERSION
 
   printf "Success! Ready for git commit!\n"
   exit 0
@@ -56,9 +53,10 @@ Copies build files for a given SDK into the repos/[SDK] directory.
 **WARNING** All files and directories present in the repos/[SDK] directory will
             be DELETED, except for the .git directory!
 
--t          target SDK, "all", "dotnet", "java-v2", "java-v1", "node", "php", "python", "ruby"
+-t          target SDK, "dotnet", "java-v2", "java-v1", "node", "php", "python", "ruby"
+-v          version of the SDK, ex: 1.4.0
 -h          display this help and exit
-Example: copy-sdks -t php
+Example: copy-sdks -t php -v 1.4.0
 EOF
 
     exit 0
@@ -69,7 +67,6 @@ function validate_sdk_choice()
   SDK="$1"
 
   if [[
-    "${SDK}" != "all" &&
     "${SDK}" != "dotnet" &&
     "${SDK}" != "java-v1" &&
     "${SDK}" != "java-v2" &&
@@ -83,11 +80,16 @@ function validate_sdk_choice()
 
     exit 1
   fi
+
+  if [[ "${SDK}" == "java-v1" ]]; then
+    REPO_MAIN_BRANCH="v1"
+  fi
 }
 
 function copy_files()
 {
   SDK="$1"
+  VERSION="$2"
   SDK_DIR="${DIR}/repos/${SDK}"
 
   if [[ ! -d "${SDK_DIR}" ]] || [[ ! -d "${SDK_DIR}/.git" ]]; then
@@ -95,8 +97,16 @@ function copy_files()
   fi
 
   printf "Copying built files for the ${SDK} SDK to ${SDK_DIR}\n"
-  rm -rf "${SDK_DIR}/"*
+  pushd "${SDK_DIR}/"
+
+  git reset --hard origin/${REPO_MAIN_BRANCH}
+  git pull origin ${REPO_MAIN_BRANCH}
+  git checkout -b "release-${VERSION}"
   cp -r "${DIR}/sdks/${SDK}/." "${SDK_DIR}"
+
+  php "${DIR}/bin/update-sdk-version.php" ${SDK} ${VERSION}
+
+  popd
 }
 
 function repo_not_cloned()
