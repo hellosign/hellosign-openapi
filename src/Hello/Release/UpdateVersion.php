@@ -113,7 +113,22 @@ class UpdateVersion
                 throw new Exception("File {$filename} is empty");
             }
 
-            $contents = str_replace($this->current_version, $this->version, $contents);
+            /**
+             * ruby Gemfile.lock has different format
+             * 1.4-dev turns to 1.4.pre.dev
+             */
+            if ($this->sdk === 'ruby' && $filename === 'Gemfile.lock') {
+                $contents = preg_replace(
+                    pattern: '/dropbox-sign \((.*)\)/i',
+                    replacement: "dropbox-sign ({$this->version})",
+                    subject: $contents,
+                );
+
+                echo $contents;
+            } else {
+                $contents = str_replace($this->current_version, $this->version, $contents);
+            }
+
             file_put_contents($path, $contents);
 
             echo "{$filename} updated\n";
