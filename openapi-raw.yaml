@@ -8735,6 +8735,8 @@ components:
           description: '_t__Account::LOCALE'
           type: string
           nullable: true
+        usage:
+          $ref: '#/components/schemas/AccountResponseUsage'
       type: object
       x-internal: true
     OAuthTokenResponse:
@@ -8774,6 +8776,19 @@ components:
           nullable: true
         sms_verifications_left:
           description: '_t__AccountQuota::SMS_VERIFICATIONS_LEFT'
+          type: integer
+          nullable: true
+        num_fax_pages_left:
+          description: '_t__AccountQuota::NUM_FAX_PAGES_LEFT'
+          type: integer
+          nullable: true
+      type: object
+      x-internal: true
+    AccountResponseUsage:
+      description: '_t__Account::USAGE'
+      properties:
+        fax_pages_sent:
+          description: '_t__AccountUsage::FAX_PAGES_SENT'
           type: integer
           nullable: true
       type: object
