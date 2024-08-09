@@ -9343,6 +9343,8 @@ components:
           description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
           nullable: true
+        usage:
+          $ref: '#/components/schemas/AccountResponseUsage'
       type: object
       x-internal: true
     OAuthTokenResponse:
@@ -9382,6 +9384,19 @@ components:
           nullable: true
         sms_verifications_left:
           description: 'SMS verifications  remaining.'
+          type: integer
+          nullable: true
+        num_fax_pages_left:
+          description: 'Number of fax pages left'
+          type: integer
+          nullable: true
+      type: object
+      x-internal: true
+    AccountResponseUsage:
+      description: 'Details concerning monthly usage'
+      properties:
+        fax_pages_sent:
+          description: 'Number of fax pages sent'
           type: integer
           nullable: true
       type: object
