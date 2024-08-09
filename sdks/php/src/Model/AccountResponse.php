@@ -71,6 +71,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'role_code' => 'string',
         'team_id' => 'string',
         'locale' => 'string',
+        'usage' => '\Dropbox\Sign\Model\AccountResponseUsage',
     ];
 
     /**
@@ -91,6 +92,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'role_code' => null,
         'team_id' => null,
         'locale' => null,
+        'usage' => null,
     ];
 
     /**
@@ -130,6 +132,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'role_code' => 'role_code',
         'team_id' => 'team_id',
         'locale' => 'locale',
+        'usage' => 'usage',
     ];
 
     /**
@@ -148,6 +151,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'role_code' => 'setRoleCode',
         'team_id' => 'setTeamId',
         'locale' => 'setLocale',
+        'usage' => 'setUsage',
     ];
 
     /**
@@ -166,6 +170,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         'role_code' => 'getRoleCode',
         'team_id' => 'getTeamId',
         'locale' => 'getLocale',
+        'usage' => 'getUsage',
     ];
 
     /**
@@ -234,6 +239,7 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
         $this->container['role_code'] = $data['role_code'] ?? null;
         $this->container['team_id'] = $data['team_id'] ?? null;
         $this->container['locale'] = $data['locale'] ?? null;
+        $this->container['usage'] = $data['usage'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -513,6 +519,30 @@ class AccountResponse implements ModelInterface, ArrayAccess, JsonSerializable
     public function setLocale(?string $locale)
     {
         $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets usage
+     *
+     * @return AccountResponseUsage|null
+     */
+    public function getUsage()
+    {
+        return $this->container['usage'];
+    }
+
+    /**
+     * Sets usage
+     *
+     * @param AccountResponseUsage|null $usage usage
+     *
+     * @return self
+     */
+    public function setUsage(?AccountResponseUsage $usage)
+    {
+        $this->container['usage'] = $usage;
 
         return $this;
     }

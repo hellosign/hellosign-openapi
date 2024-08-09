@@ -12559,6 +12559,7 @@ __export(api_exports, {
   AccountGetResponse: () => AccountGetResponse,
   AccountResponse: () => AccountResponse,
   AccountResponseQuotas: () => AccountResponseQuotas,
+  AccountResponseUsage: () => AccountResponseUsage,
   AccountUpdateRequest: () => AccountUpdateRequest,
   AccountVerifyRequest: () => AccountVerifyRequest,
   AccountVerifyResponse: () => AccountVerifyResponse,
@@ -15781,6 +15782,11 @@ AccountResponse.attributeTypeMap = [
     name: "locale",
     baseName: "locale",
     type: "string"
+  },
+  {
+    name: "usage",
+    baseName: "usage",
+    type: "AccountResponseUsage"
   }
 ];
 
@@ -15819,6 +15825,30 @@ AccountResponseQuotas.attributeTypeMap = [
   {
     name: "smsVerificationsLeft",
     baseName: "sms_verifications_left",
+    type: "number"
+  },
+  {
+    name: "numFaxPagesLeft",
+    baseName: "num_fax_pages_left",
+    type: "number"
+  }
+];
+
+// model/accountResponseUsage.ts
+var _AccountResponseUsage = class {
+  static getAttributeTypeMap() {
+    return _AccountResponseUsage.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "AccountResponseUsage");
+  }
+};
+var AccountResponseUsage = _AccountResponseUsage;
+AccountResponseUsage.discriminator = void 0;
+AccountResponseUsage.attributeTypeMap = [
+  {
+    name: "faxPagesSent",
+    baseName: "fax_pages_sent",
     type: "number"
   }
 ];
@@ -23378,6 +23408,7 @@ var typeMap = {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,
@@ -30614,7 +30645,7 @@ var HttpError = class extends Error {
 var queryParamsSerializer = (params) => {
   return import_qs.default.stringify(params, { arrayFormat: "brackets" });
 };
-var USER_AGENT = "OpenAPI-Generator/1.4-dev/node";
+var USER_AGENT = "OpenAPI-Generator/1.5-dev/node";
 var generateFormData = (obj, typemap) => {
   const data = {};
   let localVarUseFormData = false;
@@ -30694,6 +30725,7 @@ var APIS = [
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,

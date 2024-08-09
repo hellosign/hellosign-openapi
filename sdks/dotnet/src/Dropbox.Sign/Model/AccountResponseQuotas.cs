@@ -46,7 +46,8 @@ namespace Dropbox.Sign.Model
         /// <param name="templatesTotal">Total API templates allowed..</param>
         /// <param name="templatesLeft">API templates remaining..</param>
         /// <param name="smsVerificationsLeft">SMS verifications  remaining..</param>
-        public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?))
+        /// <param name="numFaxPagesLeft">Number of fax pages left.</param>
+        public AccountResponseQuotas(int? apiSignatureRequestsLeft = default(int?), int? documentsLeft = default(int?), int? templatesTotal = default(int?), int? templatesLeft = default(int?), int? smsVerificationsLeft = default(int?), int? numFaxPagesLeft = default(int?))
         {
             
             this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
@@ -54,6 +55,7 @@ namespace Dropbox.Sign.Model
             this.TemplatesTotal = templatesTotal;
             this.TemplatesLeft = templatesLeft;
             this.SmsVerificationsLeft = smsVerificationsLeft;
+            this.NumFaxPagesLeft = numFaxPagesLeft;
         }
 
         /// <summary>
@@ -108,6 +110,13 @@ namespace Dropbox.Sign.Model
         public int? SmsVerificationsLeft { get; set; }
 
         /// <summary>
+        /// Number of fax pages left
+        /// </summary>
+        /// <value>Number of fax pages left</value>
+        [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
+        public int? NumFaxPagesLeft { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +129,7 @@ namespace Dropbox.Sign.Model
             sb.Append("  TemplatesTotal: ").Append(TemplatesTotal).Append("\n");
             sb.Append("  TemplatesLeft: ").Append(TemplatesLeft).Append("\n");
             sb.Append("  SmsVerificationsLeft: ").Append(SmsVerificationsLeft).Append("\n");
+            sb.Append("  NumFaxPagesLeft: ").Append(NumFaxPagesLeft).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,6 +189,11 @@ namespace Dropbox.Sign.Model
                     this.SmsVerificationsLeft == input.SmsVerificationsLeft ||
                     (this.SmsVerificationsLeft != null &&
                     this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft))
+                ) && 
+                (
+                    this.NumFaxPagesLeft == input.NumFaxPagesLeft ||
+                    (this.NumFaxPagesLeft != null &&
+                    this.NumFaxPagesLeft.Equals(input.NumFaxPagesLeft))
                 );
         }
 
@@ -210,6 +225,10 @@ namespace Dropbox.Sign.Model
                 if (this.SmsVerificationsLeft != null)
                 {
                     hashCode = (hashCode * 59) + this.SmsVerificationsLeft.GetHashCode();
+                }
+                if (this.NumFaxPagesLeft != null)
+                {
+                    hashCode = (hashCode * 59) + this.NumFaxPagesLeft.GetHashCode();
                 }
                 return hashCode;
             }
@@ -247,6 +266,12 @@ namespace Dropbox.Sign.Model
                 Property = "SmsVerificationsLeft",
                 Type = "int?",
                 Value = SmsVerificationsLeft,
+            });
+            types.Add(new OpenApiType(){
+                Name = "num_fax_pages_left",
+                Property = "NumFaxPagesLeft",
+                Type = "int?",
+                Value = NumFaxPagesLeft,
             });
 
             return types;

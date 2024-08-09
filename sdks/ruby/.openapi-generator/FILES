@@ -12,6 +12,7 @@ docs/AccountCreateResponse.md
 docs/AccountGetResponse.md
 docs/AccountResponse.md
 docs/AccountResponseQuotas.md
+docs/AccountResponseUsage.md
 docs/AccountUpdateRequest.md
 docs/AccountVerifyRequest.md
 docs/AccountVerifyResponse.md
@@ -208,6 +209,7 @@ lib/dropbox-sign/models/account_create_response.rb
 lib/dropbox-sign/models/account_get_response.rb
 lib/dropbox-sign/models/account_response.rb
 lib/dropbox-sign/models/account_response_quotas.rb
+lib/dropbox-sign/models/account_response_usage.rb
 lib/dropbox-sign/models/account_update_request.rb
 lib/dropbox-sign/models/account_verify_request.rb
 lib/dropbox-sign/models/account_verify_response.rb

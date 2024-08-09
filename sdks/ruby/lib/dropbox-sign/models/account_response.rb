@@ -57,6 +57,9 @@ module Dropbox::Sign
     # @return [String, nil]
     attr_accessor :locale
 
+    # @return [AccountResponseUsage]
+    attr_accessor :usage
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -69,7 +72,8 @@ module Dropbox::Sign
         :'callback_url' => :'callback_url',
         :'role_code' => :'role_code',
         :'team_id' => :'team_id',
-        :'locale' => :'locale'
+        :'locale' => :'locale',
+        :'usage' => :'usage'
       }
     end
 
@@ -95,7 +99,8 @@ module Dropbox::Sign
         :'callback_url' => :'String',
         :'role_code' => :'String',
         :'team_id' => :'String',
-        :'locale' => :'String'
+        :'locale' => :'String',
+        :'usage' => :'AccountResponseUsage'
       }
     end
 
@@ -110,7 +115,7 @@ module Dropbox::Sign
         :'callback_url',
         :'role_code',
         :'team_id',
-        :'locale'
+        :'locale',
       ])
     end
 
@@ -183,6 +188,10 @@ module Dropbox::Sign
       if attributes.key?(:'locale')
         self.locale = attributes[:'locale']
       end
+
+      if attributes.key?(:'usage')
+        self.usage = attributes[:'usage']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -212,7 +221,8 @@ module Dropbox::Sign
           callback_url == o.callback_url &&
           role_code == o.role_code &&
           team_id == o.team_id &&
-          locale == o.locale
+          locale == o.locale &&
+          usage == o.usage
     end
 
     # @see the `==` method
@@ -224,7 +234,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, email_address, is_locked, is_paid_hs, is_paid_hf, quotas, callback_url, role_code, team_id, locale].hash
+      [account_id, email_address, is_locked, is_paid_hs, is_paid_hf, quotas, callback_url, role_code, team_id, locale, usage].hash
     end
 
     # Builds the object from hash

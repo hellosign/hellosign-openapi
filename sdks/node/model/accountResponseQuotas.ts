@@ -48,6 +48,10 @@ export class AccountResponseQuotas {
    * SMS verifications  remaining.
    */
   "smsVerificationsLeft"?: number | null;
+  /**
+   * Number of fax pages left
+   */
+  "numFaxPagesLeft"?: number | null;
 
   static discriminator: string | undefined = undefined;
 
@@ -75,6 +79,11 @@ export class AccountResponseQuotas {
     {
       name: "smsVerificationsLeft",
       baseName: "sms_verifications_left",
+      type: "number",
+    },
+    {
+      name: "numFaxPagesLeft",
+      baseName: "num_fax_pages_left",
       type: "number",
     },
   ];

@@ -39,6 +39,10 @@ module Dropbox::Sign
     # @return [Integer, nil]
     attr_accessor :sms_verifications_left
 
+    # Number of fax pages left
+    # @return [Integer, nil]
+    attr_accessor :num_fax_pages_left
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -46,7 +50,8 @@ module Dropbox::Sign
         :'documents_left' => :'documents_left',
         :'templates_total' => :'templates_total',
         :'templates_left' => :'templates_left',
-        :'sms_verifications_left' => :'sms_verifications_left'
+        :'sms_verifications_left' => :'sms_verifications_left',
+        :'num_fax_pages_left' => :'num_fax_pages_left'
       }
     end
 
@@ -67,7 +72,8 @@ module Dropbox::Sign
         :'documents_left' => :'Integer',
         :'templates_total' => :'Integer',
         :'templates_left' => :'Integer',
-        :'sms_verifications_left' => :'Integer'
+        :'sms_verifications_left' => :'Integer',
+        :'num_fax_pages_left' => :'Integer'
       }
     end
 
@@ -83,7 +89,8 @@ module Dropbox::Sign
         :'documents_left',
         :'templates_total',
         :'templates_left',
-        :'sms_verifications_left'
+        :'sms_verifications_left',
+        :'num_fax_pages_left'
       ])
     end
 
@@ -136,6 +143,10 @@ module Dropbox::Sign
       if attributes.key?(:'sms_verifications_left')
         self.sms_verifications_left = attributes[:'sms_verifications_left']
       end
+
+      if attributes.key?(:'num_fax_pages_left')
+        self.num_fax_pages_left = attributes[:'num_fax_pages_left']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -160,7 +171,8 @@ module Dropbox::Sign
           documents_left == o.documents_left &&
           templates_total == o.templates_total &&
           templates_left == o.templates_left &&
-          sms_verifications_left == o.sms_verifications_left
+          sms_verifications_left == o.sms_verifications_left &&
+          num_fax_pages_left == o.num_fax_pages_left
     end
 
     # @see the `==` method
@@ -172,7 +184,7 @@ module Dropbox::Sign
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_signature_requests_left, documents_left, templates_total, templates_left, sms_verifications_left].hash
+      [api_signature_requests_left, documents_left, templates_total, templates_left, sms_verifications_left, num_fax_pages_left].hash
     end
 
     # Builds the object from hash
