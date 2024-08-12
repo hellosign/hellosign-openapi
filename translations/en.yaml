@@ -129,6 +129,41 @@
 "EmbeddedSignUrl::DESCRIPTION": Retrieves an embedded object containing a signature url that can be opened in an iFrame. Note that templates created via the embedded template process will only be accessible through the API.
 "EmbeddedSignUrl::SIGNATURE_ID": The id of the signature to get a signature url for.
 
+"FaxLineAddUser::SUMMARY": Add Fax Line User
+"FaxLineAddUser::DESCRIPTION": Grants a user access to the specified Fax Line.
+"FaxLineAreaCodeGet::SUMMARY": Get Available Fax Line Area Codes
+"FaxLineAreaCodeGet::DESCRIPTION": Returns a response with the area codes available for a given state/provice and city.
+"FaxLineAreaCodeGet::CITY": Filter area codes by city.
+"FaxLineAreaCodeGet::STATE": Filter area codes by state.
+"FaxLineAreaCodeGet::PROVINCE": Filter area codes by province.
+"FaxLineAreaCodeGet::COUNTRY": Filter area codes by country.
+"FaxLineCreate::SUMMARY": Purchase Fax Line
+"FaxLineCreate::DESCRIPTION": Purchases a new Fax Line.
+"FaxLineDelete::SUMMARY": Delete Fax Line
+"FaxLineDelete::DESCRIPTION": Deletes the specified Fax Line from the subscription.
+"FaxLineGet::SUMMARY": Get Fax Line
+"FaxLineGet::DESCRIPTION": Returns the properties and settings of a Fax Line.
+"FaxLineGet::NUMBER": The Fax Line number.
+"FaxLineList::SUMMARY": List Fax Lines
+"FaxLineList::DESCRIPTION": Returns the properties and settings of multiple Fax Lines.
+"FaxLineList::ACCOUNT_ID": Account ID
+"FaxLineList::PAGE": Page
+"FaxLineList::PAGE_SIZE": Page size
+"FaxLineList::SHOW_TEAM_LINES": Show team lines
+"FaxLineRemoveUser::SUMMARY": Remove Fax Line Access
+"FaxLineRemoveUser::DESCRIPTION": Removes a user's access to the specified Fax Line.
+"FaxLineAddUser::NUMBER": The Fax Line number.
+"FaxLineAddUser::ACCOUNT_ID": Account ID
+"FaxLineCreate::EMAIL_ADDRESS": Email address
+"FaxLineCreate::AREA_CODE": Area code
+"FaxLineCreate::CITY": City
+"FaxLineCreate::COUNTRY": Country
+"FaxLineCreate::ACCOUNT_ID": Account ID
+"FaxLineDelete::NUMBER": The Fax Line number.
+"FaxLineResponseExample::SUMMARY": Sample Fax Line Response
+"FaxLineAreaCodeGetResponseExample::SUMMARY": Sample Area Code Response
+"FaxLineListResponseExample::SUMMARY": Sample Fax Line List Response
+
 "OAuthTokenGenerate::SUMMARY": OAuth Token Generate
 "OAuthTokenGenerate::DESCRIPTION": Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
 "OAuthTokenGenerate::CLIENT_ID": The client id of the app requesting authorization.
@@ -1617,6 +1652,20 @@
 "EmbeddedEditUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a template url, click here."
 "EmbeddedSignUrl::SEO::TITLE": "Get Embedded Sign URL | iFrame | Dropbox Sign for Developers"
 "EmbeddedSignUrl::SEO::DESCRIPTION": "The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here."
+"FaxLineAddUser::SEO::TITLE": "Fax Line Add User | API Documentation | Dropbox Fax for Developers"
+"FaxLineAddUser::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to add a user to an existing fax line, click here."
+"FaxLineAreaCodeGet::SEO::TITLE": "Fax Line Get Area Codes | API Documentation | Dropbox Fax for Developers"
+"FaxLineAreaCodeGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here."
+"FaxLineCreate::SEO::TITLE": "Purchase Fax Line | API Documentation | Dropbox Fax for Developers"
+"FaxLineCreate::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to purchase a new fax line, click here."
+"FaxLineDelete::SEO::TITLE": "Delete Fax Line | API Documentation | Dropbox Fax for Developers"
+"FaxLineDelete::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to delete a fax line, click here."
+"FaxLineGet::SEO::TITLE": "Get Fax Line | API Documentation | Dropbox Fax for Developers"
+"FaxLineGet::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to retrieve a fax line, click here."
+"FaxLineList::SEO::TITLE": "List Fax Lines | API Documentation | Dropbox Fax for Developers"
+"FaxLineList::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to list your fax lines, click here."
+"FaxLineRemoveUser::SEO::TITLE": "Fax Line Remove User | API Documentation | Dropbox Fax for Developers"
+"FaxLineRemoveUser::SEO::DESCRIPTION": "The Dropbox Fax API allows you to build custom integrations. To find out how to remove a user from an existing fax line, click here."
 "OAuthTokenGenerate::SEO::TITLE": "Generate OAuth Token | Documentation | Dropbox Sign for Developers"
 "OAuthTokenGenerate::SEO::DESCRIPTION": "The RESTful Dropbox Sign API easily allows you to build custom eSign integrations. To find out how to generate a new OAuth token with the API, click here."
 "OAuthTokenRefresh::SEO::TITLE": "OAuth Token Refresh | Documentation | Dropbox Sign for Developers"
