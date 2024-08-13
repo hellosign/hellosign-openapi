@@ -7137,7 +7137,6 @@ components:
       required:
         - area_code
         - country
-        - city
       properties:
         area_code:
           description: '_t__FaxLineCreate::AREA_CODE'

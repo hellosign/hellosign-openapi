@@ -7231,7 +7231,6 @@ components:
       required:
         - area_code
         - country
-        - city
       properties:
         area_code:
           description: 'Area code'
