@@ -166,13 +166,12 @@ class FaxLineCreateRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, area_code, country, city, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, area_code, country, *args, **kwargs):  # noqa: E501
         """FaxLineCreateRequest - a model defined in OpenAPI
 
         Args:
             area_code (str): Area code
             country (FaxLineAreaCodeGetCountryEnum):
-            city (str): City
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -205,6 +204,7 @@ class FaxLineCreateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            city (str): City. [optional]  # noqa: E501
             account_id (str): Account ID. [optional]  # noqa: E501
         """
 
@@ -235,7 +235,6 @@ class FaxLineCreateRequest(ModelNormal):
 
         self.area_code = area_code
         self.country = country
-        self.city = city
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -256,13 +255,12 @@ class FaxLineCreateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, area_code, country, city, *args, **kwargs):  # noqa: E501
+    def __init__(self, area_code, country, *args, **kwargs):  # noqa: E501
         """FaxLineCreateRequest - a model defined in OpenAPI
 
         Args:
             area_code (str): Area code
             country (FaxLineAreaCodeGetCountryEnum):
-            city (str): City
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -295,6 +293,7 @@ class FaxLineCreateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            city (str): City. [optional]  # noqa: E501
             account_id (str): Account ID. [optional]  # noqa: E501
         """
 
@@ -323,7 +322,6 @@ class FaxLineCreateRequest(ModelNormal):
 
         self.area_code = area_code
         self.country = country
-        self.city = city
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

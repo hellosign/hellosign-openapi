@@ -34,7 +34,7 @@ export class FaxLineCreateRequest {
   /**
    * City
    */
-  "city": string;
+  "city"?: string;
   /**
    * Account ID
    */

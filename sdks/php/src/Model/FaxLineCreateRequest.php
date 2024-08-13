@@ -232,9 +232,6 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
         }
-        if ($this->container['city'] === null) {
-            $invalidProperties[] = "'city' can't be null";
-        }
 
         return $invalidProperties;
     }
@@ -301,7 +298,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets city
      *
-     * @return string
+     * @return string|null
      */
     public function getCity()
     {
@@ -311,11 +308,11 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets city
      *
-     * @param string $city City
+     * @param string|null $city City
      *
      * @return self
      */
-    public function setCity(string $city)
+    public function setCity(?string $city)
     {
         $this->container['city'] = $city;
 

@@ -22,6 +22,40 @@ Grants a user access to the specified Fax Line.
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        var data = new FaxLineAddUserRequest(
+            number: "[FAX_NUMBER]",
+            emailAddress: "member@dropboxsign.com"
+        );
+
+        try
+        {
+            var result = faxLineApi.FaxLineAddUser(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 
@@ -83,6 +117,35 @@ Returns a response with the area codes available for a given state/provice and c
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        try
+        {
+            var result = faxLineApi.FaxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum.US, FaxLineAreaCodeGetStateEnum.CA);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 
@@ -147,6 +210,40 @@ Purchases a new Fax Line.
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        var data = new FaxLineCreateRequest(
+            areaCode: "209",
+            country: "US"
+        );
+
+        try
+        {
+            var result = faxLineApi.FaxLineCreate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 
@@ -208,6 +305,39 @@ Deletes the specified Fax Line from the subscription.
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        var data = new FaxLineDeleteRequest(
+            number: "[FAX_NUMBER]",
+        );
+
+        try
+        {
+            var result = faxLineApi.FaxLineDelete(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 
@@ -266,6 +396,35 @@ Returns the properties and settings of a Fax Line.
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        try
+        {
+            var result = faxLineApi.FaxLineGet("[FAX_NUMBER]");
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 
@@ -327,6 +486,35 @@ Returns the properties and settings of multiple Fax Lines.
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        try
+        {
+            var result = faxLineApi.FaxLineList();
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 
@@ -391,6 +579,40 @@ Removes a user's access to the specified Fax Line.
 
 ### Example
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        config.Username = "YOUR_API_KEY";
+
+        var faxLineApi = new FaxLineApi(config);
+
+        var data = new FaxLineRemoveUserRequest(
+            number: "[FAX_NUMBER]",
+            emailAddress: "member@dropboxsign.com"
+        );
+
+        try
+        {
+            var result = faxLineApi.FaxLineRemoveUser(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
 
 ```
 

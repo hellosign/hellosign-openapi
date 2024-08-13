@@ -3,7 +3,7 @@ import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
 export declare class FaxLineCreateRequest {
     "areaCode": string;
     "country": FaxLineAreaCodeGetCountryEnum;
-    "city": string;
+    "city"?: string;
     "accountId"?: string;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

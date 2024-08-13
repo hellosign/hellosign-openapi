@@ -49,7 +49,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="areaCode">Area code (required).</param>
         /// <param name="country">country (required).</param>
-        /// <param name="city">City (required).</param>
+        /// <param name="city">City.</param>
         /// <param name="accountId">Account ID.</param>
         public FaxLineCreateRequest(string areaCode = default(string), FaxLineAreaCodeGetCountryEnum country = default(FaxLineAreaCodeGetCountryEnum), string city = default(string), string accountId = default(string))
         {
@@ -61,11 +61,6 @@ namespace Dropbox.Sign.Model
             }
             this.AreaCode = areaCode;
             this.Country = country;
-            // to ensure "city" is required (not null)
-            if (city == null)
-            {
-                throw new ArgumentNullException("city is a required property for FaxLineCreateRequest and cannot be null");
-            }
             this.City = city;
             this.AccountId = accountId;
         }
@@ -97,7 +92,7 @@ namespace Dropbox.Sign.Model
         /// City
         /// </summary>
         /// <value>City</value>
-        [DataMember(Name = "city", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
 
         /// <summary>

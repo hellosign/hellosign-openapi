@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AreaCode** | **string** |  Area code  | 
 **Country** | **FaxLineAreaCodeGetCountryEnum** |    | 
-**City** | **string** |  City  | 
+**City** | **string** |  City  | [optional] 
 **AccountId** | **string** |  Account ID  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -135,10 +135,10 @@ public class FaxLineCreateRequest {
    * City
    * @return city
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "City")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "City")
   @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCity() {
     return city;
@@ -146,7 +146,7 @@ public class FaxLineCreateRequest {
 
 
   @JsonProperty(JSON_PROPERTY_CITY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(String city) {
     this.city = city;
   }

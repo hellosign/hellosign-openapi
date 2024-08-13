@@ -133,10 +133,6 @@ module Dropbox::Sign
         invalid_properties.push('invalid value for "country", country cannot be nil.')
       end
 
-      if @city.nil?
-        invalid_properties.push('invalid value for "city", city cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -145,7 +141,6 @@ module Dropbox::Sign
     def valid?
       return false if @area_code.nil?
       return false if @country.nil?
-      return false if @city.nil?
       true
     end
 
