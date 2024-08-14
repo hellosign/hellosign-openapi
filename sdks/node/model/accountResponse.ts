@@ -24,6 +24,7 @@
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseUsage } from "./accountResponseUsage";
 
 export class AccountResponse {
   /**
@@ -63,6 +64,7 @@ export class AccountResponse {
    * The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
    */
   "locale"?: string | null;
+  "usage"?: AccountResponseUsage;
 
   static discriminator: string | undefined = undefined;
 
@@ -116,6 +118,11 @@ export class AccountResponse {
       name: "locale",
       baseName: "locale",
       type: "string",
+    },
+    {
+      name: "usage",
+      baseName: "usage",
+      type: "AccountResponseUsage",
     },
   ];
 

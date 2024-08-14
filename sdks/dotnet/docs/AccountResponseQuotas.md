@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **TemplatesTotal** | **int?** |  Total API templates allowed.  | [optional] 
 **TemplatesLeft** | **int?** |  API templates remaining.  | [optional] 
 **SmsVerificationsLeft** | **int?** |  SMS verifications  remaining.  | [optional] 
+**NumFaxPagesLeft** | **int?** |  Number of fax pages left  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -11,4 +11,5 @@ Details concerning remaining monthly quotas.
 | `templates_total` | ```Integer``` |  Total API templates allowed.  |  |
 | `templates_left` | ```Integer``` |  API templates remaining.  |  |
 | `sms_verifications_left` | ```Integer``` |  SMS verifications  remaining.  |  |
+| `num_fax_pages_left` | ```Integer``` |  Number of fax pages left  |  |
 

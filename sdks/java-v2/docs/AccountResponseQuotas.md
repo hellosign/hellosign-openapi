@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 | `templatesTotal` | ```Integer``` |  Total API templates allowed.  |  |
 | `templatesLeft` | ```Integer``` |  API templates remaining.  |  |
 | `smsVerificationsLeft` | ```Integer``` |  SMS verifications  remaining.  |  |
+| `numFaxPagesLeft` | ```Integer``` |  Number of fax pages left  |  |
 
 
 

@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.AccountResponseQuotas;
+import com.dropbox.sign.model.AccountResponseUsage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -45,7 +46,8 @@ import com.dropbox.sign.ApiException;
   AccountResponse.JSON_PROPERTY_CALLBACK_URL,
   AccountResponse.JSON_PROPERTY_ROLE_CODE,
   AccountResponse.JSON_PROPERTY_TEAM_ID,
-  AccountResponse.JSON_PROPERTY_LOCALE
+  AccountResponse.JSON_PROPERTY_LOCALE,
+  AccountResponse.JSON_PROPERTY_USAGE
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -79,6 +81,9 @@ public class AccountResponse {
 
   public static final String JSON_PROPERTY_LOCALE = "locale";
   private String locale;
+
+  public static final String JSON_PROPERTY_USAGE = "usage";
+  private AccountResponseUsage usage;
 
   public AccountResponse() { 
   }
@@ -358,6 +363,32 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse usage(AccountResponseUsage usage) {
+    this.usage = usage;
+    return this;
+  }
+
+   /**
+   * Get usage
+   * @return usage
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AccountResponseUsage getUsage() {
+    return usage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsage(AccountResponseUsage usage) {
+    this.usage = usage;
+  }
+
+
   /**
    * Return true if this AccountResponse object is equal to o.
    */
@@ -379,12 +410,13 @@ public class AccountResponse {
         Objects.equals(this.callbackUrl, accountResponse.callbackUrl) &&
         Objects.equals(this.roleCode, accountResponse.roleCode) &&
         Objects.equals(this.teamId, accountResponse.teamId) &&
-        Objects.equals(this.locale, accountResponse.locale);
+        Objects.equals(this.locale, accountResponse.locale) &&
+        Objects.equals(this.usage, accountResponse.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, emailAddress, isLocked, isPaidHs, isPaidHf, quotas, callbackUrl, roleCode, teamId, locale);
+    return Objects.hash(accountId, emailAddress, isLocked, isPaidHs, isPaidHf, quotas, callbackUrl, roleCode, teamId, locale, usage);
   }
 
   @Override
@@ -401,6 +433,7 @@ public class AccountResponse {
     sb.append("    roleCode: ").append(toIndentedString(roleCode)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -597,6 +630,25 @@ public class AccountResponse {
         }
         else {
             map.put("locale", JSON.getDefault().getMapper().writeValueAsString(locale));
+        }
+    }
+    if (usage != null) {
+        if (isFileTypeOrListOfFiles(usage)) {
+            fileTypeFound = true;
+        }
+
+        if (usage.getClass().equals(java.io.File.class) ||
+            usage.getClass().equals(Integer.class) ||
+            usage.getClass().equals(String.class) ||
+            usage.getClass().isEnum()) {
+            map.put("usage", usage);
+        } else if (isListOfFile(usage)) {
+            for(int i = 0; i< getListSize(usage); i++) {
+                map.put("usage[" + i + "]", getFromList(usage, i));
+            }
+        }
+        else {
+            map.put("usage", JSON.getDefault().getMapper().writeValueAsString(usage));
         }
     }
     } catch (Exception e) {

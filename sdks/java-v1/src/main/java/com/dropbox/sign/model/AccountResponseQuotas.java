@@ -40,7 +40,8 @@ import com.dropbox.sign.ApiException;
     AccountResponseQuotas.JSON_PROPERTY_DOCUMENTS_LEFT,
     AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_TOTAL,
     AccountResponseQuotas.JSON_PROPERTY_TEMPLATES_LEFT,
-    AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT
+    AccountResponseQuotas.JSON_PROPERTY_SMS_VERIFICATIONS_LEFT,
+    AccountResponseQuotas.JSON_PROPERTY_NUM_FAX_PAGES_LEFT
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -59,6 +60,9 @@ public class AccountResponseQuotas {
 
   public static final String JSON_PROPERTY_SMS_VERIFICATIONS_LEFT = "sms_verifications_left";
   private Integer smsVerificationsLeft;
+
+  public static final String JSON_PROPERTY_NUM_FAX_PAGES_LEFT = "num_fax_pages_left";
+  private Integer numFaxPagesLeft;
 
   public AccountResponseQuotas() { 
   }
@@ -208,6 +212,32 @@ public class AccountResponseQuotas {
   }
 
 
+  public AccountResponseQuotas numFaxPagesLeft(Integer numFaxPagesLeft) {
+    this.numFaxPagesLeft = numFaxPagesLeft;
+    return this;
+  }
+
+   /**
+   * Number of fax pages left
+   * @return numFaxPagesLeft
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of fax pages left")
+  @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getNumFaxPagesLeft() {
+    return numFaxPagesLeft;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NUM_FAX_PAGES_LEFT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNumFaxPagesLeft(Integer numFaxPagesLeft) {
+    this.numFaxPagesLeft = numFaxPagesLeft;
+  }
+
+
   /**
    * Return true if this AccountResponseQuotas object is equal to o.
    */
@@ -224,12 +254,13 @@ public class AccountResponseQuotas {
         Objects.equals(this.documentsLeft, accountResponseQuotas.documentsLeft) &&
         Objects.equals(this.templatesTotal, accountResponseQuotas.templatesTotal) &&
         Objects.equals(this.templatesLeft, accountResponseQuotas.templatesLeft) &&
-        Objects.equals(this.smsVerificationsLeft, accountResponseQuotas.smsVerificationsLeft);
+        Objects.equals(this.smsVerificationsLeft, accountResponseQuotas.smsVerificationsLeft) &&
+        Objects.equals(this.numFaxPagesLeft, accountResponseQuotas.numFaxPagesLeft);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiSignatureRequestsLeft, documentsLeft, templatesTotal, templatesLeft, smsVerificationsLeft);
+    return Objects.hash(apiSignatureRequestsLeft, documentsLeft, templatesTotal, templatesLeft, smsVerificationsLeft, numFaxPagesLeft);
   }
 
   @Override
@@ -241,6 +272,7 @@ public class AccountResponseQuotas {
     sb.append("    templatesTotal: ").append(toIndentedString(templatesTotal)).append("\n");
     sb.append("    templatesLeft: ").append(toIndentedString(templatesLeft)).append("\n");
     sb.append("    smsVerificationsLeft: ").append(toIndentedString(smsVerificationsLeft)).append("\n");
+    sb.append("    numFaxPagesLeft: ").append(toIndentedString(numFaxPagesLeft)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -342,6 +374,25 @@ public class AccountResponseQuotas {
         }
         else {
             map.put("sms_verifications_left", JSON.getDefault().getMapper().writeValueAsString(smsVerificationsLeft));
+        }
+    }
+    if (numFaxPagesLeft != null) {
+        if (isFileTypeOrListOfFiles(numFaxPagesLeft)) {
+            fileTypeFound = true;
+        }
+
+        if (numFaxPagesLeft.getClass().equals(java.io.File.class) ||
+            numFaxPagesLeft.getClass().equals(Integer.class) ||
+            numFaxPagesLeft.getClass().equals(String.class) ||
+            numFaxPagesLeft.getClass().isEnum()) {
+            map.put("num_fax_pages_left", numFaxPagesLeft);
+        } else if (isListOfFile(numFaxPagesLeft)) {
+            for(int i = 0; i< getListSize(numFaxPagesLeft); i++) {
+                map.put("num_fax_pages_left[" + i + "]", getFromList(numFaxPagesLeft, i));
+            }
+        }
+        else {
+            map.put("num_fax_pages_left", JSON.getDefault().getMapper().writeValueAsString(numFaxPagesLeft));
         }
     }
     } catch (Exception e) {

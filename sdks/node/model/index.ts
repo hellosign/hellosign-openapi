@@ -3,6 +3,7 @@ import { AccountCreateResponse } from "./accountCreateResponse";
 import { AccountGetResponse } from "./accountGetResponse";
 import { AccountResponse } from "./accountResponse";
 import { AccountResponseQuotas } from "./accountResponseQuotas";
+import { AccountResponseUsage } from "./accountResponseUsage";
 import { AccountUpdateRequest } from "./accountUpdateRequest";
 import { AccountVerifyRequest } from "./accountVerifyRequest";
 import { AccountVerifyResponse } from "./accountVerifyResponse";
@@ -233,6 +234,7 @@ export let typeMap: { [index: string]: any } = {
   AccountGetResponse: AccountGetResponse,
   AccountResponse: AccountResponse,
   AccountResponseQuotas: AccountResponseQuotas,
+  AccountResponseUsage: AccountResponseUsage,
   AccountUpdateRequest: AccountUpdateRequest,
   AccountVerifyRequest: AccountVerifyRequest,
   AccountVerifyResponse: AccountVerifyResponse,
@@ -441,6 +443,7 @@ export {
   AccountGetResponse,
   AccountResponse,
   AccountResponseQuotas,
+  AccountResponseUsage,
   AccountUpdateRequest,
   AccountVerifyRequest,
   AccountVerifyResponse,

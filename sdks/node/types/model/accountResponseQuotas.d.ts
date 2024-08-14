@@ -5,6 +5,7 @@ export declare class AccountResponseQuotas {
     "templatesTotal"?: number | null;
     "templatesLeft"?: number | null;
     "smsVerificationsLeft"?: number | null;
+    "numFaxPagesLeft"?: number | null;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;
     static getAttributeTypeMap(): AttributeTypeMap;
