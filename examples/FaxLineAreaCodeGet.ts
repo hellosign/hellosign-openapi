@@ -5,7 +5,7 @@ const faxLineApi = new DropboxSign.FaxLineApi();
 // Configure HTTP basic authorization: api_key
 faxLineApi.username = "YOUR_API_KEY";
 
-const result = faxLineApi.faxLineAreaCodeGet(DropboxSign.FaxLineAreaCodeGetCountryEnum.Us, DropboxSign.FaxLineAreaCodeGetStateEnum.Ca);
+const result = faxLineApi.faxLineAreaCodeGet("US", "CA");
 result.then(response => {
   console.log(response.body);
 }).catch(error => {

@@ -14,7 +14,7 @@ public class Example {
         var faxLineApi = new FaxLineApi(apiClient);
 
         try {
-            FaxLineAreaCodeGetResponse result = faxLineApi.faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum.US, FaxLineAreaCodeGetStateEnum.CA);
+            FaxLineAreaCodeGetResponse result = faxLineApi.faxLineAreaCodeGet("US", "CA");
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());

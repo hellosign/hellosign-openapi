@@ -10,11 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 $faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
 
 try {
-    $result = $faxLineApi->faxLineAreaCodeGet(
-        Dropbox\Sign\Model\FaxLineAreaCodeGetCountryEnum::US,
-        Dropbox\Sign\Model\FaxLineAreaCodeGetStateEnum::CA,
-    );
-
+    $result = $faxLineApi->faxLineAreaCodeGet("US", "CA");
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();

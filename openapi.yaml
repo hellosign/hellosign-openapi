@@ -1523,19 +1523,89 @@ paths:
           description: 'Filter area codes by country.'
           required: true
           schema:
-            $ref: '#/components/schemas/FaxLineAreaCodeGetCountryEnum'
+            type: string
+            enum:
+              - CA
+              - US
+              - UK
         -
           name: state
           in: query
           description: 'Filter area codes by state.'
           schema:
-            $ref: '#/components/schemas/FaxLineAreaCodeGetStateEnum'
+            type: string
+            enum:
+              - AK
+              - AL
+              - AR
+              - AZ
+              - CA
+              - CO
+              - CT
+              - DC
+              - DE
+              - FL
+              - GA
+              - HI
+              - IA
+              - ID
+              - IL
+              - IN
+              - KS
+              - KY
+              - LA
+              - MA
+              - MD
+              - ME
+              - MI
+              - MN
+              - MO
+              - MS
+              - MT
+              - NC
+              - ND
+              - NE
+              - NH
+              - NJ
+              - NM
+              - NV
+              - NY
+              - OH
+              - OK
+              - OR
+              - PA
+              - RI
+              - SC
+              - SD
+              - TN
+              - TX
+              - UT
+              - VA
+              - VT
+              - WA
+              - WI
+              - WV
+              - WY
         -
           name: province
           in: query
           description: 'Filter area codes by province.'
           schema:
-            $ref: '#/components/schemas/FaxLineAreaCodeGetProvinceEnum'
+            type: string
+            enum:
+              - AB
+              - BC
+              - MB
+              - NB
+              - NL
+              - NT
+              - NS
+              - NU
+              - 'ON'
+              - PE
+              - QC
+              - SK
+              - YT
         -
           name: city
           in: query
@@ -7236,7 +7306,12 @@ components:
           description: 'Area code'
           type: string
         country:
-          $ref: '#/components/schemas/FaxLineAreaCodeGetCountryEnum'
+          description: Country
+          type: string
+          enum:
+            - CA
+            - US
+            - UK
         city:
           description: City
           type: string
@@ -10094,7 +10169,7 @@ components:
     FaxLineResponse:
       properties:
         fax_line:
-          $ref: '#/components/schemas/FaxLineResponse'
+          $ref: '#/components/schemas/FaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
       type: object
@@ -10114,7 +10189,7 @@ components:
         fax_lines:
           type: array
           items:
-            $ref: '#/components/schemas/FaxLineResponse'
+            $ref: '#/components/schemas/FaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
       type: object
@@ -10449,6 +10524,22 @@ components:
         error_name:
           description: 'Name of the error.'
           type: string
+      type: object
+    FaxLine:
+      properties:
+        number:
+          description: Number
+          type: string
+        created_at:
+          description: 'Created at'
+          type: string
+        updated_at:
+          description: 'Updated at'
+          type: string
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountResponse'
       type: object
     ListInfoResponse:
       description: 'Contains pagination information about the data returned.'

@@ -8,7 +8,7 @@ end
 fax_line_api = Dropbox::Sign::FaxLineApi.new
 
 begin
-  result = fax_line_api.fax_line_area_code_get(Dropbox::Sign::FaxLineAreaCodeGetCountryEnum::US, Dropbox::Sign::FaxLineAreaCodeGetStateEnum::CA)
+  result = fax_line_api.fax_line_area_code_get("US", "CA")
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"

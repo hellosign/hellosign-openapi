@@ -16,7 +16,7 @@ public class Example
 
         try
         {
-            var result = faxLineApi.FaxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum.US, FaxLineAreaCodeGetStateEnum.CA);
+            var result = faxLineApi.FaxLineAreaCodeGet("US", "CA");
             Console.WriteLine(result);
         }
         catch (ApiException e)
