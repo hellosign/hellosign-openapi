@@ -45,6 +45,7 @@ docs/ErrorResponseError.md
 docs/EventCallbackRequest.md
 docs/EventCallbackRequestEvent.md
 docs/EventCallbackRequestEventMetadata.md
+docs/FaxLine.md
 docs/FaxLineAddUserRequest.md
 docs/FaxLineApi.md
 docs/FaxLineAreaCodeGetCountryEnum.md
@@ -251,6 +252,7 @@ lib/dropbox-sign/models/error_response_error.rb
 lib/dropbox-sign/models/event_callback_request.rb
 lib/dropbox-sign/models/event_callback_request_event.rb
 lib/dropbox-sign/models/event_callback_request_event_metadata.rb
+lib/dropbox-sign/models/fax_line.rb
 lib/dropbox-sign/models/fax_line_add_user_request.rb
 lib/dropbox-sign/models/fax_line_area_code_get_country_enum.rb
 lib/dropbox-sign/models/fax_line_area_code_get_province_enum.rb

@@ -33,16 +33,16 @@ from dropbox_sign.model_utils import (  # noqa: F401
 )
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
-    from dropbox_sign.model.fax_line_response import FaxLineResponse
+    from dropbox_sign.model.fax_line import FaxLine
     from dropbox_sign.model.list_info_response import ListInfoResponse
     from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
-    from dropbox_sign.model.fax_line_response import FaxLineResponse
+    from dropbox_sign.model.fax_line import FaxLine
     from dropbox_sign.model.list_info_response import ListInfoResponse
     from dropbox_sign.model.warning_response import WarningResponse
-    globals()['FaxLineResponse'] = FaxLineResponse
+    globals()['FaxLine'] = FaxLine
     globals()['ListInfoResponse'] = ListInfoResponse
     globals()['WarningResponse'] = WarningResponse
 
@@ -101,7 +101,7 @@ class FaxLineListResponse(ModelNormal):
         lazy_import()
         return {
             'list_info': (ListInfoResponse,),  # noqa: E501
-            'fax_lines': ([FaxLineResponse],),  # noqa: E501
+            'fax_lines': ([FaxLine],),  # noqa: E501
             'warnings': (WarningResponse,),  # noqa: E501
         }
 
@@ -145,11 +145,11 @@ class FaxLineListResponse(ModelNormal):
         setattr(self, "list_info", value)
 
     @property
-    def fax_lines(self) -> List[FaxLineResponse]:
+    def fax_lines(self) -> List[FaxLine]:
         return self.get("fax_lines")
 
     @fax_lines.setter
-    def fax_lines(self, value: List[FaxLineResponse]):
+    def fax_lines(self, value: List[FaxLine]):
         setattr(self, "fax_lines", value)
 
     @property
@@ -197,7 +197,7 @@ class FaxLineListResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             list_info (ListInfoResponse): [optional]  # noqa: E501
-            fax_lines ([FaxLineResponse]): [optional]  # noqa: E501
+            fax_lines ([FaxLine]): [optional]  # noqa: E501
             warnings (WarningResponse): [optional]  # noqa: E501
         """
 
@@ -281,7 +281,7 @@ class FaxLineListResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             list_info (ListInfoResponse): [optional]  # noqa: E501
-            fax_lines ([FaxLineResponse]): [optional]  # noqa: E501
+            fax_lines ([FaxLine]): [optional]  # noqa: E501
             warnings (WarningResponse): [optional]  # noqa: E501
         """
 

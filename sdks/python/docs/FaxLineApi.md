@@ -96,7 +96,7 @@ Returns a response with the area codes available for a given state/provice and c
 from pprint import pprint
 
 from dropbox_sign import \
-    ApiClient, ApiException, Configuration, apis, models
+    ApiClient, ApiException, Configuration, apis
 
 configuration = Configuration(
     # Configure HTTP basic authorization: api_key
@@ -107,7 +107,7 @@ with ApiClient(configuration) as api_client:
     fax_line_api = apis.FaxLineApi(api_client)
 
     try:
-        response = fax_line_api.fax_line_area_code_get(models.FaxLineAreaCodeGetCountryEnum("US"), models.FaxLineAreaCodeGetStateEnum("CA"))
+        response = fax_line_api.fax_line_area_code_get("US", "CA")
         pprint(response)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
@@ -119,9 +119,9 @@ with ApiClient(configuration) as api_client:
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `country` | [**FaxLineAreaCodeGetCountryEnum**](.md) | Filter area codes by country. |  |
-| `state` | [**FaxLineAreaCodeGetStateEnum**](.md) | Filter area codes by state. | [optional] |
-| `province` | [**FaxLineAreaCodeGetProvinceEnum**](.md) | Filter area codes by province. | [optional] |
+| `country` | **str** | Filter area codes by country. |  |
+| `state` | **str** | Filter area codes by state. | [optional] |
+| `province` | **str** | Filter area codes by province. | [optional] |
 | `city` | **str** | Filter area codes by city. | [optional] |
 
 ### Return type

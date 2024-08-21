@@ -133,10 +133,10 @@ module Dropbox::Sign
 
     # Get Available Fax Line Area Codes
     # Returns a response with the area codes available for a given state/provice and city.
-    # @param country [FaxLineAreaCodeGetCountryEnum] Filter area codes by country.
+    # @param country [String] Filter area codes by country.
     # @param [Hash] opts the optional parameters
-    # @option opts [FaxLineAreaCodeGetStateEnum] :state Filter area codes by state.
-    # @option opts [FaxLineAreaCodeGetProvinceEnum] :province Filter area codes by province.
+    # @option opts [String] :state Filter area codes by state.
+    # @option opts [String] :province Filter area codes by province.
     # @option opts [String] :city Filter area codes by city.
     # @return [FaxLineAreaCodeGetResponse]
     def fax_line_area_code_get(country, opts = {})
@@ -146,10 +146,10 @@ module Dropbox::Sign
 
     # Get Available Fax Line Area Codes
     # Returns a response with the area codes available for a given state/provice and city.
-    # @param country [FaxLineAreaCodeGetCountryEnum] Filter area codes by country.
+    # @param country [String] Filter area codes by country.
     # @param [Hash] opts the optional parameters
-    # @option opts [FaxLineAreaCodeGetStateEnum] :state Filter area codes by state.
-    # @option opts [FaxLineAreaCodeGetProvinceEnum] :province Filter area codes by province.
+    # @option opts [String] :state Filter area codes by state.
+    # @option opts [String] :province Filter area codes by province.
     # @option opts [String] :city Filter area codes by city.
     # @return [Array<(FaxLineAreaCodeGetResponse, Integer, Hash)>] FaxLineAreaCodeGetResponse data, response status code and response headers
     def fax_line_area_code_get_with_http_info(country, opts = {})
@@ -159,6 +159,19 @@ module Dropbox::Sign
       # verify the required parameter 'country' is set
       if @api_client.config.client_side_validation && country.nil?
         fail ArgumentError, "Missing the required parameter 'country' when calling FaxLineApi.fax_line_area_code_get"
+      end
+      # verify enum value
+      allowable_values = ["CA", "US", "UK"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(country)
+        fail ArgumentError, "invalid value for \"country\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]
+      if @api_client.config.client_side_validation && opts[:'state'] && !allowable_values.include?(opts[:'state'])
+        fail ArgumentError, "invalid value for \"state\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["AB", "BC", "MB", "NB", "NL", "NT", "NS", "NU", "ON", "PE", "QC", "SK", "YT"]
+      if @api_client.config.client_side_validation && opts[:'province'] && !allowable_values.include?(opts[:'province'])
+        fail ArgumentError, "invalid value for \"province\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/fax_line/area_codes'

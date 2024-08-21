@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AreaCode** | **string** |  Area code  | 
-**Country** | **FaxLineAreaCodeGetCountryEnum** |    | 
+**Country** | **string** |  Country  | 
 **City** | **string** |  City  | [optional] 
 **AccountId** | **string** |  Account ID  | [optional] 
 

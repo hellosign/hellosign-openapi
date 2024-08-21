@@ -23,14 +23,16 @@
  */
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
-import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
 
 export class FaxLineCreateRequest {
   /**
    * Area code
    */
   "areaCode": string;
-  "country": FaxLineAreaCodeGetCountryEnum;
+  /**
+   * Country
+   */
+  "country": FaxLineCreateRequest.CountryEnum;
   /**
    * City
    */
@@ -51,7 +53,7 @@ export class FaxLineCreateRequest {
     {
       name: "country",
       baseName: "country",
-      type: "FaxLineAreaCodeGetCountryEnum",
+      type: "FaxLineCreateRequest.CountryEnum",
     },
     {
       name: "city",
@@ -72,5 +74,13 @@ export class FaxLineCreateRequest {
   /** Attempt to instantiate and hydrate a new instance of this class */
   static init(data: any): FaxLineCreateRequest {
     return ObjectSerializer.deserialize(data, "FaxLineCreateRequest");
+  }
+}
+
+export namespace FaxLineCreateRequest {
+  export enum CountryEnum {
+    Ca = "CA",
+    Us = "US",
+    Uk = "UK",
   }
 }

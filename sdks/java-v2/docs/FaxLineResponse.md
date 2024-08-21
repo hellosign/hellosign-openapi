@@ -8,7 +8,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `faxLine` | [```FaxLineResponse```](FaxLineResponse.md) |    |  |
+| `faxLine` | [```FaxLine```](FaxLine.md) |    |  |
 | `warnings` | [```WarningResponse```](WarningResponse.md) |    |  |
 
 

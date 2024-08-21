@@ -448,16 +448,16 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param Model\FaxLineAreaCodeGetCountryEnum $country Filter area codes by country. (required)
-     * @param Model\FaxLineAreaCodeGetStateEnum $state Filter area codes by state. (optional)
-     * @param Model\FaxLineAreaCodeGetProvinceEnum $province Filter area codes by province. (optional)
+     * @param string $country Filter area codes by country. (required)
+     * @param string $state Filter area codes by state. (optional)
+     * @param string $province Filter area codes by province. (optional)
      * @param string $city Filter area codes by city. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return Model\FaxLineAreaCodeGetResponse
      */
-    public function faxLineAreaCodeGet(Model\FaxLineAreaCodeGetCountryEnum $country, Model\FaxLineAreaCodeGetStateEnum $state = null, Model\FaxLineAreaCodeGetProvinceEnum $province = null, string $city = null)
+    public function faxLineAreaCodeGet(string $country, string $state = null, string $province = null, string $city = null)
     {
         list($response) = $this->faxLineAreaCodeGetWithHttpInfo($country, $state, $province, $city);
 
@@ -469,16 +469,16 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param Model\FaxLineAreaCodeGetCountryEnum $country Filter area codes by country. (required)
-     * @param Model\FaxLineAreaCodeGetStateEnum $state Filter area codes by state. (optional)
-     * @param Model\FaxLineAreaCodeGetProvinceEnum $province Filter area codes by province. (optional)
+     * @param string $country Filter area codes by country. (required)
+     * @param string $state Filter area codes by state. (optional)
+     * @param string $province Filter area codes by province. (optional)
      * @param string $city Filter area codes by city. (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return array of Model\FaxLineAreaCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function faxLineAreaCodeGetWithHttpInfo(Model\FaxLineAreaCodeGetCountryEnum $country, Model\FaxLineAreaCodeGetStateEnum $state = null, Model\FaxLineAreaCodeGetProvinceEnum $province = null, string $city = null)
+    public function faxLineAreaCodeGetWithHttpInfo(string $country, string $state = null, string $province = null, string $city = null)
     {
         $request = $this->faxLineAreaCodeGetRequest($country, $state, $province, $city);
 
@@ -594,15 +594,15 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param Model\FaxLineAreaCodeGetCountryEnum $country Filter area codes by country. (required)
-     * @param Model\FaxLineAreaCodeGetStateEnum $state Filter area codes by state. (optional)
-     * @param Model\FaxLineAreaCodeGetProvinceEnum $province Filter area codes by province. (optional)
+     * @param string $country Filter area codes by country. (required)
+     * @param string $state Filter area codes by state. (optional)
+     * @param string $province Filter area codes by province. (optional)
      * @param string $city Filter area codes by city. (optional)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function faxLineAreaCodeGetAsync(Model\FaxLineAreaCodeGetCountryEnum $country, Model\FaxLineAreaCodeGetStateEnum $state = null, Model\FaxLineAreaCodeGetProvinceEnum $province = null, string $city = null)
+    public function faxLineAreaCodeGetAsync(string $country, string $state = null, string $province = null, string $city = null)
     {
         return $this->faxLineAreaCodeGetAsyncWithHttpInfo($country, $state, $province, $city)
             ->then(
@@ -617,15 +617,15 @@ class FaxLineApi
      *
      * Get Available Fax Line Area Codes
      *
-     * @param Model\FaxLineAreaCodeGetCountryEnum $country Filter area codes by country. (required)
-     * @param Model\FaxLineAreaCodeGetStateEnum $state Filter area codes by state. (optional)
-     * @param Model\FaxLineAreaCodeGetProvinceEnum $province Filter area codes by province. (optional)
+     * @param string $country Filter area codes by country. (required)
+     * @param string $state Filter area codes by state. (optional)
+     * @param string $province Filter area codes by province. (optional)
      * @param string $city Filter area codes by city. (optional)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function faxLineAreaCodeGetAsyncWithHttpInfo(Model\FaxLineAreaCodeGetCountryEnum $country, Model\FaxLineAreaCodeGetStateEnum $state = null, Model\FaxLineAreaCodeGetProvinceEnum $province = null, string $city = null)
+    public function faxLineAreaCodeGetAsyncWithHttpInfo(string $country, string $state = null, string $province = null, string $city = null)
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineAreaCodeGetResponse';
         $request = $this->faxLineAreaCodeGetRequest($country, $state, $province, $city);
@@ -666,15 +666,15 @@ class FaxLineApi
     /**
      * Create request for operation 'faxLineAreaCodeGet'
      *
-     * @param Model\FaxLineAreaCodeGetCountryEnum $country Filter area codes by country. (required)
-     * @param Model\FaxLineAreaCodeGetStateEnum $state Filter area codes by state. (optional)
-     * @param Model\FaxLineAreaCodeGetProvinceEnum $province Filter area codes by province. (optional)
+     * @param string $country Filter area codes by country. (required)
+     * @param string $state Filter area codes by state. (optional)
+     * @param string $province Filter area codes by province. (optional)
      * @param string $city Filter area codes by city. (optional)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function faxLineAreaCodeGetRequest(Model\FaxLineAreaCodeGetCountryEnum $country, Model\FaxLineAreaCodeGetStateEnum $state = null, Model\FaxLineAreaCodeGetProvinceEnum $province = null, string $city = null)
+    public function faxLineAreaCodeGetRequest(string $country, string $state = null, string $province = null, string $city = null)
     {
         // verify the required parameter 'country' is set
         if ($country === null || (is_array($country) && count($country) === 0)) {

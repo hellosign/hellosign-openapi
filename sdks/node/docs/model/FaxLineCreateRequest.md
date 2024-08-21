@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `areaCode`<sup>*_required_</sup> | ```string``` |  Area code  |  |
-| `country`<sup>*_required_</sup> | [```FaxLineAreaCodeGetCountryEnum```](FaxLineAreaCodeGetCountryEnum.md) |    |  |
+| `country`<sup>*_required_</sup> | ```string``` |  Country  |  |
 | `city` | ```string``` |  City  |  |
 | `accountId` | ```string``` |  Account ID  |  |
 

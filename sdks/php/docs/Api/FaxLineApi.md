@@ -100,11 +100,7 @@ $config->setUsername("YOUR_API_KEY");
 $faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
 
 try {
-    $result = $faxLineApi->faxLineAreaCodeGet(
-        Dropbox\Sign\Model\FaxLineAreaCodeGetCountryEnum::US,
-        Dropbox\Sign\Model\FaxLineAreaCodeGetStateEnum::CA,
-    );
-
+    $result = $faxLineApi->faxLineAreaCodeGet("US", "CA");
     print_r($result);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
@@ -118,9 +114,9 @@ try {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **country** | [**\Dropbox\Sign\Model\FaxLineAreaCodeGetCountryEnum**](../Model/.md)| Filter area codes by country. | |
-| **state** | [**\Dropbox\Sign\Model\FaxLineAreaCodeGetStateEnum**](../Model/.md)| Filter area codes by state. | [optional] |
-| **province** | [**\Dropbox\Sign\Model\FaxLineAreaCodeGetProvinceEnum**](../Model/.md)| Filter area codes by province. | [optional] |
+| **country** | **string**| Filter area codes by country. | |
+| **state** | **string**| Filter area codes by state. | [optional] |
+| **province** | **string**| Filter area codes by province. | [optional] |
 | **city** | **string**| Filter area codes by city. | [optional] |
 
 ### Return type

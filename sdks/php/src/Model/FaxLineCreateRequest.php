@@ -30,6 +30,7 @@ namespace Dropbox\Sign\Model;
 
 use ArrayAccess;
 use Dropbox\Sign\ObjectSerializer;
+use InvalidArgumentException;
 use JsonSerializable;
 use ReturnTypeWillChange;
 
@@ -61,7 +62,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      */
     protected static $openAPITypes = [
         'area_code' => 'string',
-        'country' => '\Dropbox\Sign\Model\FaxLineAreaCodeGetCountryEnum',
+        'country' => 'string',
         'city' => 'string',
         'account_id' => 'string',
     ];
@@ -178,6 +179,24 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const COUNTRY_CA = 'CA';
+    public const COUNTRY_US = 'US';
+    public const COUNTRY_UK = 'UK';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCountryAllowableValues()
+    {
+        return [
+            self::COUNTRY_CA,
+            self::COUNTRY_US,
+            self::COUNTRY_UK,
+        ];
+    }
+
     /**
      * Associative array for storing property values
      *
@@ -232,6 +251,14 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
         }
+        $allowedValues = $this->getCountryAllowableValues();
+        if (!is_null($this->container['country']) && !in_array($this->container['country'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'country', must be one of '%s'",
+                $this->container['country'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -274,7 +301,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets country
      *
-     * @return FaxLineAreaCodeGetCountryEnum
+     * @return string
      */
     public function getCountry()
     {
@@ -284,12 +311,22 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets country
      *
-     * @param FaxLineAreaCodeGetCountryEnum $country country
+     * @param string $country Country
      *
      * @return self
      */
-    public function setCountry(FaxLineAreaCodeGetCountryEnum $country)
+    public function setCountry(string $country)
     {
+        $allowedValues = $this->getCountryAllowableValues();
+        if (!in_array($country, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'country', must be one of '%s'",
+                    $country,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['country'] = $country;
 
         return $this;

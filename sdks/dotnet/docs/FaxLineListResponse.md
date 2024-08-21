@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ListInfo** | [**ListInfoResponse**](ListInfoResponse.md) |    | [optional] 
-**FaxLines** | [**List&lt;FaxLineResponse&gt;**](FaxLineResponse.md) |    | [optional] 
+**FaxLines** | [**List&lt;FaxLine&gt;**](FaxLine.md) |    | [optional] 
 **Warnings** | [**WarningResponse**](WarningResponse.md) |    | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

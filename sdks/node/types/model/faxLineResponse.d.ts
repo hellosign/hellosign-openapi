@@ -1,7 +1,8 @@
 import { AttributeTypeMap } from "./";
+import { FaxLine } from "./faxLine";
 import { WarningResponse } from "./warningResponse";
 export declare class FaxLineResponse {
-    "faxLine"?: FaxLineResponse;
+    "faxLine"?: FaxLine;
     "warnings"?: WarningResponse;
     static discriminator: string | undefined;
     static attributeTypeMap: AttributeTypeMap;

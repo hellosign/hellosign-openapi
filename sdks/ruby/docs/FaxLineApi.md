@@ -105,7 +105,7 @@ end
 fax_line_api = Dropbox::Sign::FaxLineApi.new
 
 begin
-  result = fax_line_api.fax_line_area_code_get(Dropbox::Sign::FaxLineAreaCodeGetCountryEnum::US, Dropbox::Sign::FaxLineAreaCodeGetStateEnum::CA)
+  result = fax_line_api.fax_line_area_code_get("US", "CA")
   p result
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
@@ -135,9 +135,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `country` | [**FaxLineAreaCodeGetCountryEnum**](.md) | Filter area codes by country. |  |
-| `state` | [**FaxLineAreaCodeGetStateEnum**](.md) | Filter area codes by state. | [optional] |
-| `province` | [**FaxLineAreaCodeGetProvinceEnum**](.md) | Filter area codes by province. | [optional] |
+| `country` | **String** | Filter area codes by country. |  |
+| `state` | **String** | Filter area codes by state. | [optional] |
+| `province` | **String** | Filter area codes by province. | [optional] |
 | `city` | **String** | Filter area codes by city. | [optional] |
 
 ### Return type

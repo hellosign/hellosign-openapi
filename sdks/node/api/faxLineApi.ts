@@ -36,10 +36,7 @@ import {
   OAuth,
   ErrorResponse,
   FaxLineAddUserRequest,
-  FaxLineAreaCodeGetCountryEnum,
-  FaxLineAreaCodeGetProvinceEnum,
   FaxLineAreaCodeGetResponse,
-  FaxLineAreaCodeGetStateEnum,
   FaxLineCreateRequest,
   FaxLineDeleteRequest,
   FaxLineListResponse,
@@ -299,9 +296,73 @@ export class FaxLineApi {
    * @param options
    */
   public async faxLineAreaCodeGet(
-    country: FaxLineAreaCodeGetCountryEnum,
-    state?: FaxLineAreaCodeGetStateEnum,
-    province?: FaxLineAreaCodeGetProvinceEnum,
+    country: "CA" | "US" | "UK",
+    state?:
+      | "AK"
+      | "AL"
+      | "AR"
+      | "AZ"
+      | "CA"
+      | "CO"
+      | "CT"
+      | "DC"
+      | "DE"
+      | "FL"
+      | "GA"
+      | "HI"
+      | "IA"
+      | "ID"
+      | "IL"
+      | "IN"
+      | "KS"
+      | "KY"
+      | "LA"
+      | "MA"
+      | "MD"
+      | "ME"
+      | "MI"
+      | "MN"
+      | "MO"
+      | "MS"
+      | "MT"
+      | "NC"
+      | "ND"
+      | "NE"
+      | "NH"
+      | "NJ"
+      | "NM"
+      | "NV"
+      | "NY"
+      | "OH"
+      | "OK"
+      | "OR"
+      | "PA"
+      | "RI"
+      | "SC"
+      | "SD"
+      | "TN"
+      | "TX"
+      | "UT"
+      | "VA"
+      | "VT"
+      | "WA"
+      | "WI"
+      | "WV"
+      | "WY",
+    province?:
+      | "AB"
+      | "BC"
+      | "MB"
+      | "NB"
+      | "NL"
+      | "NT"
+      | "NS"
+      | "NU"
+      | "ON"
+      | "PE"
+      | "QC"
+      | "SK"
+      | "YT",
     city?: string,
     options: optionsI = { headers: {} }
   ): Promise<returnTypeT<FaxLineAreaCodeGetResponse>> {
@@ -331,21 +392,21 @@ export class FaxLineApi {
     if (country !== undefined) {
       localVarQueryParameters["country"] = ObjectSerializer.serialize(
         country,
-        "FaxLineAreaCodeGetCountryEnum"
+        "'CA' | 'US' | 'UK'"
       );
     }
 
     if (state !== undefined) {
       localVarQueryParameters["state"] = ObjectSerializer.serialize(
         state,
-        "FaxLineAreaCodeGetStateEnum"
+        "'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'"
       );
     }
 
     if (province !== undefined) {
       localVarQueryParameters["province"] = ObjectSerializer.serialize(
         province,
-        "FaxLineAreaCodeGetProvinceEnum"
+        "'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'"
       );
     }
 

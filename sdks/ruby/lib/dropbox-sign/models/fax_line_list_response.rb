@@ -21,7 +21,7 @@ module Dropbox::Sign
     # @return [ListInfoResponse]
     attr_accessor :list_info
 
-    # @return [Array<FaxLineResponse>]
+    # @return [Array<FaxLine>]
     attr_accessor :fax_lines
 
     # @return [WarningResponse]
@@ -50,7 +50,7 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'list_info' => :'ListInfoResponse',
-        :'fax_lines' => :'Array<FaxLineResponse>',
+        :'fax_lines' => :'Array<FaxLine>',
         :'warnings' => :'WarningResponse'
       }
     end

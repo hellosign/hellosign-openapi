@@ -23,10 +23,11 @@
  */
 
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { FaxLine } from "./faxLine";
 import { WarningResponse } from "./warningResponse";
 
 export class FaxLineResponse {
-  "faxLine"?: FaxLineResponse;
+  "faxLine"?: FaxLine;
   "warnings"?: WarningResponse;
 
   static discriminator: string | undefined = undefined;
@@ -35,7 +36,7 @@ export class FaxLineResponse {
     {
       name: "faxLine",
       baseName: "fax_line",
-      type: "FaxLineResponse",
+      type: "FaxLine",
     },
     {
       name: "warnings",

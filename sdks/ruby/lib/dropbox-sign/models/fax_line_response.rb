@@ -18,7 +18,7 @@ end
 
 module Dropbox::Sign
   class FaxLineResponse
-    # @return [FaxLineResponse]
+    # @return [FaxLine]
     attr_accessor :fax_line
 
     # @return [WarningResponse]
@@ -45,7 +45,7 @@ module Dropbox::Sign
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'fax_line' => :'FaxLineResponse',
+        :'fax_line' => :'FaxLine',
         :'warnings' => :'WarningResponse'
       }
     end

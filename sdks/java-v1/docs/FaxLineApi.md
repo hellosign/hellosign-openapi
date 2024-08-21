@@ -112,7 +112,7 @@ public class Example {
         var faxLineApi = new FaxLineApi(apiClient);
 
         try {
-            FaxLineAreaCodeGetResponse result = faxLineApi.faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum.US, FaxLineAreaCodeGetStateEnum.CA);
+            FaxLineAreaCodeGetResponse result = faxLineApi.faxLineAreaCodeGet("US", "CA");
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Status code: " + e.getCode());
@@ -130,9 +130,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **country** | **FaxLineAreaCodeGetCountryEnum**| Filter area codes by country. | [enum: CA, US, UK]
- **state** | **FaxLineAreaCodeGetStateEnum**| Filter area codes by state. | [optional] [enum: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY]
- **province** | **FaxLineAreaCodeGetProvinceEnum**| Filter area codes by province. | [optional] [enum: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT]
+ **country** | **String**| Filter area codes by country. | [enum: CA, US, UK]
+ **state** | **String**| Filter area codes by state. | [optional] [enum: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY]
+ **province** | **String**| Filter area codes by province. | [optional] [enum: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT]
  **city** | **String**| Filter area codes by city. | [optional]
 
 ### Return type

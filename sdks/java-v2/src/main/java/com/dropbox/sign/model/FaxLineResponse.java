@@ -16,6 +16,7 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.dropbox.sign.model.FaxLine;
 import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,7 +44,7 @@ import com.dropbox.sign.ApiException;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineResponse {
   public static final String JSON_PROPERTY_FAX_LINE = "fax_line";
-  private FaxLineResponse faxLine;
+  private FaxLine faxLine;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private WarningResponse warnings;
@@ -66,7 +67,7 @@ public class FaxLineResponse {
     );
   }
 
-  public FaxLineResponse faxLine(FaxLineResponse faxLine) {
+  public FaxLineResponse faxLine(FaxLine faxLine) {
     this.faxLine = faxLine;
     return this;
   }
@@ -80,14 +81,14 @@ public class FaxLineResponse {
   @JsonProperty(JSON_PROPERTY_FAX_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public FaxLineResponse getFaxLine() {
+  public FaxLine getFaxLine() {
     return faxLine;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FAX_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFaxLine(FaxLineResponse faxLine) {
+  public void setFaxLine(FaxLine faxLine) {
     this.faxLine = faxLine;
   }
 

@@ -99,7 +99,7 @@ result.then(response => {
 ## `faxLineAreaCodeGet()`
 
 ```typescript
-faxLineAreaCodeGet(country: FaxLineAreaCodeGetCountryEnum, state: FaxLineAreaCodeGetStateEnum, province: FaxLineAreaCodeGetProvinceEnum, city: string): FaxLineAreaCodeGetResponse
+faxLineAreaCodeGet(country: 'CA' | 'US' | 'UK', state: 'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY', province: 'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT', city: string): FaxLineAreaCodeGetResponse
 ```
 
 Get Available Fax Line Area Codes
@@ -116,7 +116,7 @@ const faxLineApi = new DropboxSign.FaxLineApi();
 // Configure HTTP basic authorization: api_key
 faxLineApi.username = "YOUR_API_KEY";
 
-const result = faxLineApi.faxLineAreaCodeGet(DropboxSign.FaxLineAreaCodeGetCountryEnum.Us, DropboxSign.FaxLineAreaCodeGetStateEnum.Ca);
+const result = faxLineApi.faxLineAreaCodeGet("US", "CA");
 result.then(response => {
   console.log(response.body);
 }).catch(error => {
@@ -150,9 +150,9 @@ result.then(response => {
 
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **country** | [**FaxLineAreaCodeGetCountryEnum**](../model/.md)| Filter area codes by country. | |
-| **state** | [**FaxLineAreaCodeGetStateEnum**](../model/.md)| Filter area codes by state. | [optional] |
-| **province** | [**FaxLineAreaCodeGetProvinceEnum**](../model/.md)| Filter area codes by province. | [optional] |
+| **country** | **'CA' | 'US' | 'UK'**| Filter area codes by country. | |
+| **state** | **'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'**| Filter area codes by state. | [optional] |
+| **province** | **'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'**| Filter area codes by province. | [optional] |
 | **city** | **string**| Filter area codes by city. | [optional] |
 
 ### Return type

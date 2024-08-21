@@ -33,12 +33,40 @@ namespace Dropbox.Sign.Model
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class FaxLineCreateRequest : IOpenApiTyped, IEquatable<FaxLineCreateRequest>, IValidatableObject
     {
+        /// <summary>
+        /// Country
+        /// </summary>
+        /// <value>Country</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CountryEnum
+        {
+            /// <summary>
+            /// Enum CA for value: CA
+            /// </summary>
+            [EnumMember(Value = "CA")]
+            CA = 1,
+
+            /// <summary>
+            /// Enum US for value: US
+            /// </summary>
+            [EnumMember(Value = "US")]
+            US = 2,
+
+            /// <summary>
+            /// Enum UK for value: UK
+            /// </summary>
+            [EnumMember(Value = "UK")]
+            UK = 3
+
+        }
+
 
         /// <summary>
-        /// Gets or Sets Country
+        /// Country
         /// </summary>
+        /// <value>Country</value>
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
-        public FaxLineAreaCodeGetCountryEnum Country { get; set; }
+        public CountryEnum Country { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineCreateRequest" /> class.
         /// </summary>
@@ -48,10 +76,10 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="FaxLineCreateRequest" /> class.
         /// </summary>
         /// <param name="areaCode">Area code (required).</param>
-        /// <param name="country">country (required).</param>
+        /// <param name="country">Country (required).</param>
         /// <param name="city">City.</param>
         /// <param name="accountId">Account ID.</param>
-        public FaxLineCreateRequest(string areaCode = default(string), FaxLineAreaCodeGetCountryEnum country = default(FaxLineAreaCodeGetCountryEnum), string city = default(string), string accountId = default(string))
+        public FaxLineCreateRequest(string areaCode = default(string), CountryEnum country = default(CountryEnum), string city = default(string), string accountId = default(string))
         {
             
             // to ensure "areaCode" is required (not null)
@@ -208,7 +236,7 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "country",
                 Property = "Country",
-                Type = "FaxLineAreaCodeGetCountryEnum",
+                Type = "string",
                 Value = Country,
             });
             types.Add(new OpenApiType(){

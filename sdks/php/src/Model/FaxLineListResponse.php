@@ -62,7 +62,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static $openAPITypes = [
         'list_info' => '\Dropbox\Sign\Model\ListInfoResponse',
-        'fax_lines' => '\Dropbox\Sign\Model\FaxLineResponse[]',
+        'fax_lines' => '\Dropbox\Sign\Model\FaxLine[]',
         'warnings' => '\Dropbox\Sign\Model\WarningResponse',
     ];
 
@@ -262,7 +262,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets fax_lines
      *
-     * @return FaxLineResponse[]|null
+     * @return FaxLine[]|null
      */
     public function getFaxLines()
     {
@@ -272,7 +272,7 @@ class FaxLineListResponse implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets fax_lines
      *
-     * @param FaxLineResponse[]|null $fax_lines fax_lines
+     * @param FaxLine[]|null $fax_lines fax_lines
      *
      * @return self
      */

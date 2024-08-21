@@ -63,7 +63,7 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineAreaCodeGetResponse</returns>
-        FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0);
+        FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Available Fax Line Area Codes
@@ -78,7 +78,7 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineAreaCodeGetResponse</returns>
-        ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0);
+        ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0);
         /// <summary>
         /// Purchase Fax Line
         /// </summary>
@@ -248,7 +248,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
-        System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Available Fax Line Area Codes
@@ -264,7 +264,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Purchase Fax Line
         /// </summary>
@@ -696,7 +696,7 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineAreaCodeGetResponse</returns>
-        public FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0)
+        public FaxLineAreaCodeGetResponse FaxLineAreaCodeGet(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0)
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse = FaxLineAreaCodeGetWithHttpInfo(country, state, province, city);
             return localVarResponse.Data;
@@ -712,8 +712,14 @@ namespace Dropbox.Sign.Api
         /// <param name="city">Filter area codes by city. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineAreaCodeGetResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetWithHttpInfo(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0)
         {
+            // verify the required parameter 'country' is set
+            if (country == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'country' when calling FaxLineApi->FaxLineAreaCodeGet");
+            }
+
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -784,7 +790,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse = await FaxLineAreaCodeGetWithHttpInfoAsync(country, state, province, city, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -801,8 +807,14 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = default(FaxLineAreaCodeGetStateEnum?), FaxLineAreaCodeGetProvinceEnum? province = default(FaxLineAreaCodeGetProvinceEnum?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'country' is set
+            if (country == null)
+            {
+                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'country' when calling FaxLineApi->FaxLineAreaCodeGet");
+            }
+
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
 

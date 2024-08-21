@@ -12973,6 +12973,7 @@ __export(api_exports, {
   EventCallbackRequest: () => EventCallbackRequest,
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
+  FaxLine: () => FaxLine,
   FaxLineAddUserRequest: () => FaxLineAddUserRequest,
   FaxLineApi: () => FaxLineApi,
   FaxLineAreaCodeGetCountryEnum: () => FaxLineAreaCodeGetCountryEnum,
@@ -17663,6 +17664,40 @@ EventCallbackRequestEventMetadata.attributeTypeMap = [
   }
 ];
 
+// model/faxLine.ts
+var _FaxLine = class {
+  static getAttributeTypeMap() {
+    return _FaxLine.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLine");
+  }
+};
+var FaxLine = _FaxLine;
+FaxLine.discriminator = void 0;
+FaxLine.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "createdAt",
+    baseName: "created_at",
+    type: "string"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "string"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<AccountResponse>"
+  }
+];
+
 // model/faxLineAddUserRequest.ts
 var _FaxLineAddUserRequest = class {
   static getAttributeTypeMap() {
@@ -17693,29 +17728,29 @@ FaxLineAddUserRequest.attributeTypeMap = [
 ];
 
 // model/faxLineAreaCodeGetCountryEnum.ts
-var FaxLineAreaCodeGetCountryEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetCountryEnum3) => {
-  FaxLineAreaCodeGetCountryEnum3["Ca"] = "CA";
-  FaxLineAreaCodeGetCountryEnum3["Us"] = "US";
-  FaxLineAreaCodeGetCountryEnum3["Uk"] = "UK";
-  return FaxLineAreaCodeGetCountryEnum3;
+var FaxLineAreaCodeGetCountryEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetCountryEnum2) => {
+  FaxLineAreaCodeGetCountryEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetCountryEnum2["Us"] = "US";
+  FaxLineAreaCodeGetCountryEnum2["Uk"] = "UK";
+  return FaxLineAreaCodeGetCountryEnum2;
 })(FaxLineAreaCodeGetCountryEnum || {});
 
 // model/faxLineAreaCodeGetProvinceEnum.ts
-var FaxLineAreaCodeGetProvinceEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetProvinceEnum3) => {
-  FaxLineAreaCodeGetProvinceEnum3["Ab"] = "AB";
-  FaxLineAreaCodeGetProvinceEnum3["Bc"] = "BC";
-  FaxLineAreaCodeGetProvinceEnum3["Mb"] = "MB";
-  FaxLineAreaCodeGetProvinceEnum3["Nb"] = "NB";
-  FaxLineAreaCodeGetProvinceEnum3["Nl"] = "NL";
-  FaxLineAreaCodeGetProvinceEnum3["Nt"] = "NT";
-  FaxLineAreaCodeGetProvinceEnum3["Ns"] = "NS";
-  FaxLineAreaCodeGetProvinceEnum3["Nu"] = "NU";
-  FaxLineAreaCodeGetProvinceEnum3["On"] = "ON";
-  FaxLineAreaCodeGetProvinceEnum3["Pe"] = "PE";
-  FaxLineAreaCodeGetProvinceEnum3["Qc"] = "QC";
-  FaxLineAreaCodeGetProvinceEnum3["Sk"] = "SK";
-  FaxLineAreaCodeGetProvinceEnum3["Yt"] = "YT";
-  return FaxLineAreaCodeGetProvinceEnum3;
+var FaxLineAreaCodeGetProvinceEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetProvinceEnum2) => {
+  FaxLineAreaCodeGetProvinceEnum2["Ab"] = "AB";
+  FaxLineAreaCodeGetProvinceEnum2["Bc"] = "BC";
+  FaxLineAreaCodeGetProvinceEnum2["Mb"] = "MB";
+  FaxLineAreaCodeGetProvinceEnum2["Nb"] = "NB";
+  FaxLineAreaCodeGetProvinceEnum2["Nl"] = "NL";
+  FaxLineAreaCodeGetProvinceEnum2["Nt"] = "NT";
+  FaxLineAreaCodeGetProvinceEnum2["Ns"] = "NS";
+  FaxLineAreaCodeGetProvinceEnum2["Nu"] = "NU";
+  FaxLineAreaCodeGetProvinceEnum2["On"] = "ON";
+  FaxLineAreaCodeGetProvinceEnum2["Pe"] = "PE";
+  FaxLineAreaCodeGetProvinceEnum2["Qc"] = "QC";
+  FaxLineAreaCodeGetProvinceEnum2["Sk"] = "SK";
+  FaxLineAreaCodeGetProvinceEnum2["Yt"] = "YT";
+  return FaxLineAreaCodeGetProvinceEnum2;
 })(FaxLineAreaCodeGetProvinceEnum || {});
 
 // model/faxLineAreaCodeGetResponse.ts
@@ -17738,59 +17773,59 @@ FaxLineAreaCodeGetResponse.attributeTypeMap = [
 ];
 
 // model/faxLineAreaCodeGetStateEnum.ts
-var FaxLineAreaCodeGetStateEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetStateEnum3) => {
-  FaxLineAreaCodeGetStateEnum3["Ak"] = "AK";
-  FaxLineAreaCodeGetStateEnum3["Al"] = "AL";
-  FaxLineAreaCodeGetStateEnum3["Ar"] = "AR";
-  FaxLineAreaCodeGetStateEnum3["Az"] = "AZ";
-  FaxLineAreaCodeGetStateEnum3["Ca"] = "CA";
-  FaxLineAreaCodeGetStateEnum3["Co"] = "CO";
-  FaxLineAreaCodeGetStateEnum3["Ct"] = "CT";
-  FaxLineAreaCodeGetStateEnum3["Dc"] = "DC";
-  FaxLineAreaCodeGetStateEnum3["De"] = "DE";
-  FaxLineAreaCodeGetStateEnum3["Fl"] = "FL";
-  FaxLineAreaCodeGetStateEnum3["Ga"] = "GA";
-  FaxLineAreaCodeGetStateEnum3["Hi"] = "HI";
-  FaxLineAreaCodeGetStateEnum3["Ia"] = "IA";
-  FaxLineAreaCodeGetStateEnum3["Id"] = "ID";
-  FaxLineAreaCodeGetStateEnum3["Il"] = "IL";
-  FaxLineAreaCodeGetStateEnum3["In"] = "IN";
-  FaxLineAreaCodeGetStateEnum3["Ks"] = "KS";
-  FaxLineAreaCodeGetStateEnum3["Ky"] = "KY";
-  FaxLineAreaCodeGetStateEnum3["La"] = "LA";
-  FaxLineAreaCodeGetStateEnum3["Ma"] = "MA";
-  FaxLineAreaCodeGetStateEnum3["Md"] = "MD";
-  FaxLineAreaCodeGetStateEnum3["Me"] = "ME";
-  FaxLineAreaCodeGetStateEnum3["Mi"] = "MI";
-  FaxLineAreaCodeGetStateEnum3["Mn"] = "MN";
-  FaxLineAreaCodeGetStateEnum3["Mo"] = "MO";
-  FaxLineAreaCodeGetStateEnum3["Ms"] = "MS";
-  FaxLineAreaCodeGetStateEnum3["Mt"] = "MT";
-  FaxLineAreaCodeGetStateEnum3["Nc"] = "NC";
-  FaxLineAreaCodeGetStateEnum3["Nd"] = "ND";
-  FaxLineAreaCodeGetStateEnum3["Ne"] = "NE";
-  FaxLineAreaCodeGetStateEnum3["Nh"] = "NH";
-  FaxLineAreaCodeGetStateEnum3["Nj"] = "NJ";
-  FaxLineAreaCodeGetStateEnum3["Nm"] = "NM";
-  FaxLineAreaCodeGetStateEnum3["Nv"] = "NV";
-  FaxLineAreaCodeGetStateEnum3["Ny"] = "NY";
-  FaxLineAreaCodeGetStateEnum3["Oh"] = "OH";
-  FaxLineAreaCodeGetStateEnum3["Ok"] = "OK";
-  FaxLineAreaCodeGetStateEnum3["Or"] = "OR";
-  FaxLineAreaCodeGetStateEnum3["Pa"] = "PA";
-  FaxLineAreaCodeGetStateEnum3["Ri"] = "RI";
-  FaxLineAreaCodeGetStateEnum3["Sc"] = "SC";
-  FaxLineAreaCodeGetStateEnum3["Sd"] = "SD";
-  FaxLineAreaCodeGetStateEnum3["Tn"] = "TN";
-  FaxLineAreaCodeGetStateEnum3["Tx"] = "TX";
-  FaxLineAreaCodeGetStateEnum3["Ut"] = "UT";
-  FaxLineAreaCodeGetStateEnum3["Va"] = "VA";
-  FaxLineAreaCodeGetStateEnum3["Vt"] = "VT";
-  FaxLineAreaCodeGetStateEnum3["Wa"] = "WA";
-  FaxLineAreaCodeGetStateEnum3["Wi"] = "WI";
-  FaxLineAreaCodeGetStateEnum3["Wv"] = "WV";
-  FaxLineAreaCodeGetStateEnum3["Wy"] = "WY";
-  return FaxLineAreaCodeGetStateEnum3;
+var FaxLineAreaCodeGetStateEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetStateEnum2) => {
+  FaxLineAreaCodeGetStateEnum2["Ak"] = "AK";
+  FaxLineAreaCodeGetStateEnum2["Al"] = "AL";
+  FaxLineAreaCodeGetStateEnum2["Ar"] = "AR";
+  FaxLineAreaCodeGetStateEnum2["Az"] = "AZ";
+  FaxLineAreaCodeGetStateEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetStateEnum2["Co"] = "CO";
+  FaxLineAreaCodeGetStateEnum2["Ct"] = "CT";
+  FaxLineAreaCodeGetStateEnum2["Dc"] = "DC";
+  FaxLineAreaCodeGetStateEnum2["De"] = "DE";
+  FaxLineAreaCodeGetStateEnum2["Fl"] = "FL";
+  FaxLineAreaCodeGetStateEnum2["Ga"] = "GA";
+  FaxLineAreaCodeGetStateEnum2["Hi"] = "HI";
+  FaxLineAreaCodeGetStateEnum2["Ia"] = "IA";
+  FaxLineAreaCodeGetStateEnum2["Id"] = "ID";
+  FaxLineAreaCodeGetStateEnum2["Il"] = "IL";
+  FaxLineAreaCodeGetStateEnum2["In"] = "IN";
+  FaxLineAreaCodeGetStateEnum2["Ks"] = "KS";
+  FaxLineAreaCodeGetStateEnum2["Ky"] = "KY";
+  FaxLineAreaCodeGetStateEnum2["La"] = "LA";
+  FaxLineAreaCodeGetStateEnum2["Ma"] = "MA";
+  FaxLineAreaCodeGetStateEnum2["Md"] = "MD";
+  FaxLineAreaCodeGetStateEnum2["Me"] = "ME";
+  FaxLineAreaCodeGetStateEnum2["Mi"] = "MI";
+  FaxLineAreaCodeGetStateEnum2["Mn"] = "MN";
+  FaxLineAreaCodeGetStateEnum2["Mo"] = "MO";
+  FaxLineAreaCodeGetStateEnum2["Ms"] = "MS";
+  FaxLineAreaCodeGetStateEnum2["Mt"] = "MT";
+  FaxLineAreaCodeGetStateEnum2["Nc"] = "NC";
+  FaxLineAreaCodeGetStateEnum2["Nd"] = "ND";
+  FaxLineAreaCodeGetStateEnum2["Ne"] = "NE";
+  FaxLineAreaCodeGetStateEnum2["Nh"] = "NH";
+  FaxLineAreaCodeGetStateEnum2["Nj"] = "NJ";
+  FaxLineAreaCodeGetStateEnum2["Nm"] = "NM";
+  FaxLineAreaCodeGetStateEnum2["Nv"] = "NV";
+  FaxLineAreaCodeGetStateEnum2["Ny"] = "NY";
+  FaxLineAreaCodeGetStateEnum2["Oh"] = "OH";
+  FaxLineAreaCodeGetStateEnum2["Ok"] = "OK";
+  FaxLineAreaCodeGetStateEnum2["Or"] = "OR";
+  FaxLineAreaCodeGetStateEnum2["Pa"] = "PA";
+  FaxLineAreaCodeGetStateEnum2["Ri"] = "RI";
+  FaxLineAreaCodeGetStateEnum2["Sc"] = "SC";
+  FaxLineAreaCodeGetStateEnum2["Sd"] = "SD";
+  FaxLineAreaCodeGetStateEnum2["Tn"] = "TN";
+  FaxLineAreaCodeGetStateEnum2["Tx"] = "TX";
+  FaxLineAreaCodeGetStateEnum2["Ut"] = "UT";
+  FaxLineAreaCodeGetStateEnum2["Va"] = "VA";
+  FaxLineAreaCodeGetStateEnum2["Vt"] = "VT";
+  FaxLineAreaCodeGetStateEnum2["Wa"] = "WA";
+  FaxLineAreaCodeGetStateEnum2["Wi"] = "WI";
+  FaxLineAreaCodeGetStateEnum2["Wv"] = "WV";
+  FaxLineAreaCodeGetStateEnum2["Wy"] = "WY";
+  return FaxLineAreaCodeGetStateEnum2;
 })(FaxLineAreaCodeGetStateEnum || {});
 
 // model/faxLineCreateRequest.ts
@@ -17813,7 +17848,7 @@ FaxLineCreateRequest.attributeTypeMap = [
   {
     name: "country",
     baseName: "country",
-    type: "FaxLineAreaCodeGetCountryEnum"
+    type: "FaxLineCreateRequest.CountryEnum"
   },
   {
     name: "city",
@@ -17826,6 +17861,14 @@ FaxLineCreateRequest.attributeTypeMap = [
     type: "string"
   }
 ];
+((FaxLineCreateRequest2) => {
+  let CountryEnum;
+  ((CountryEnum2) => {
+    CountryEnum2["Ca"] = "CA";
+    CountryEnum2["Us"] = "US";
+    CountryEnum2["Uk"] = "UK";
+  })(CountryEnum = FaxLineCreateRequest2.CountryEnum || (FaxLineCreateRequest2.CountryEnum = {}));
+})(FaxLineCreateRequest || (FaxLineCreateRequest = {}));
 
 // model/faxLineDeleteRequest.ts
 var _FaxLineDeleteRequest = class {
@@ -17866,7 +17909,7 @@ FaxLineListResponse.attributeTypeMap = [
   {
     name: "faxLines",
     baseName: "fax_lines",
-    type: "Array<FaxLineResponse>"
+    type: "Array<FaxLine>"
   },
   {
     name: "warnings",
@@ -17919,7 +17962,7 @@ FaxLineResponse.attributeTypeMap = [
   {
     name: "faxLine",
     baseName: "fax_line",
-    type: "FaxLineResponse"
+    type: "FaxLine"
   },
   {
     name: "warnings",
@@ -24361,6 +24404,7 @@ var enumsMap = {
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,
   FaxLineAreaCodeGetStateEnum,
+  "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
@@ -24423,6 +24467,7 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLine,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest,
@@ -26454,19 +26499,19 @@ var FaxLineApi = class {
       if (country !== void 0) {
         localVarQueryParameters["country"] = ObjectSerializer.serialize(
           country,
-          "FaxLineAreaCodeGetCountryEnum"
+          "'CA' | 'US' | 'UK'"
         );
       }
       if (state !== void 0) {
         localVarQueryParameters["state"] = ObjectSerializer.serialize(
           state,
-          "FaxLineAreaCodeGetStateEnum"
+          "'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'"
         );
       }
       if (province !== void 0) {
         localVarQueryParameters["province"] = ObjectSerializer.serialize(
           province,
-          "FaxLineAreaCodeGetProvinceEnum"
+          "'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'"
         );
       }
       if (city !== void 0) {
@@ -32590,6 +32635,7 @@ var APIS = [
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLine,
   FaxLineAddUserRequest,
   FaxLineApi,
   FaxLineAreaCodeGetCountryEnum,

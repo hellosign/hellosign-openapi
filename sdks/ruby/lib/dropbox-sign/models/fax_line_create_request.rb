@@ -22,7 +22,8 @@ module Dropbox::Sign
     # @return [String]
     attr_accessor :area_code
 
-    # @return [FaxLineAreaCodeGetCountryEnum]
+    # Country
+    # @return [String]
     attr_accessor :country
 
     # City
@@ -32,6 +33,28 @@ module Dropbox::Sign
     # Account ID
     # @return [String]
     attr_accessor :account_id
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -57,7 +80,7 @@ module Dropbox::Sign
     def self.openapi_types
       {
         :'area_code' => :'String',
-        :'country' => :'FaxLineAreaCodeGetCountryEnum',
+        :'country' => :'String',
         :'city' => :'String',
         :'account_id' => :'String'
       }
@@ -141,7 +164,19 @@ module Dropbox::Sign
     def valid?
       return false if @area_code.nil?
       return false if @country.nil?
+      country_validator = EnumAttributeValidator.new('String', ["CA", "US", "UK"])
+      return false unless country_validator.valid?(@country)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] country Object to be assigned
+    def country=(country)
+      validator = EnumAttributeValidator.new('String', ["CA", "US", "UK"])
+      unless validator.valid?(country)
+        fail ArgumentError, "invalid value for \"country\", must be one of #{validator.allowable_values}."
+      end
+      @country = country
     end
 
     # Checks equality by comparing each attribute.

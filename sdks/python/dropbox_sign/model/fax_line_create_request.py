@@ -32,13 +32,7 @@ from dropbox_sign.model_utils import (  # noqa: F401
     OpenApiModel
 )
 from dropbox_sign.exceptions import ApiAttributeError
-if TYPE_CHECKING:
-    from dropbox_sign.model.fax_line_area_code_get_country_enum import FaxLineAreaCodeGetCountryEnum
 
-
-def lazy_import():
-    from dropbox_sign.model.fax_line_area_code_get_country_enum import FaxLineAreaCodeGetCountryEnum
-    globals()['FaxLineAreaCodeGetCountryEnum'] = FaxLineAreaCodeGetCountryEnum
 
 
 class FaxLineCreateRequest(ModelNormal):
@@ -66,6 +60,11 @@ class FaxLineCreateRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('country',): {
+            'CA': "CA",
+            'US': "US",
+            'UK': "UK",
+        },
     }
 
     validations = {
@@ -77,7 +76,6 @@ class FaxLineCreateRequest(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -92,10 +90,9 @@ class FaxLineCreateRequest(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'area_code': (str,),  # noqa: E501
-            'country': (FaxLineAreaCodeGetCountryEnum,),  # noqa: E501
+            'country': (str,),  # noqa: E501
             'city': (str,),  # noqa: E501
             'account_id': (str,),  # noqa: E501
         }
@@ -141,11 +138,11 @@ class FaxLineCreateRequest(ModelNormal):
         setattr(self, "area_code", value)
 
     @property
-    def country(self) -> FaxLineAreaCodeGetCountryEnum:
+    def country(self) -> str:
         return self.get("country")
 
     @country.setter
-    def country(self, value: FaxLineAreaCodeGetCountryEnum):
+    def country(self, value: str):
         setattr(self, "country", value)
 
     @property
@@ -171,7 +168,7 @@ class FaxLineCreateRequest(ModelNormal):
 
         Args:
             area_code (str): Area code
-            country (FaxLineAreaCodeGetCountryEnum):
+            country (str): Country
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,7 +257,7 @@ class FaxLineCreateRequest(ModelNormal):
 
         Args:
             area_code (str): Area code
-            country (FaxLineAreaCodeGetCountryEnum):
+            country (str): Country
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

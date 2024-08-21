@@ -16,7 +16,6 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.FaxLineAreaCodeGetCountryEnum;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -47,8 +46,45 @@ public class FaxLineCreateRequest {
   public static final String JSON_PROPERTY_AREA_CODE = "area_code";
   private String areaCode;
 
+  /**
+   * Country
+   */
+  public enum CountryEnum {
+    CA("CA"),
+    
+    US("US"),
+    
+    UK("UK");
+
+    private String value;
+
+    CountryEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CountryEnum fromValue(String value) {
+      for (CountryEnum b : CountryEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_COUNTRY = "country";
-  private FaxLineAreaCodeGetCountryEnum country;
+  private CountryEnum country;
 
   public static final String JSON_PROPERTY_CITY = "city";
   private String city;
@@ -100,28 +136,28 @@ public class FaxLineCreateRequest {
   }
 
 
-  public FaxLineCreateRequest country(FaxLineAreaCodeGetCountryEnum country) {
+  public FaxLineCreateRequest country(CountryEnum country) {
     this.country = country;
     return this;
   }
 
    /**
-   * Get country
+   * Country
    * @return country
   **/
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Country")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public FaxLineAreaCodeGetCountryEnum getCountry() {
+  public CountryEnum getCountry() {
     return country;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountry(FaxLineAreaCodeGetCountryEnum country) {
+  public void setCountry(CountryEnum country) {
     this.country = country;
   }
 

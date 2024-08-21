@@ -109,7 +109,7 @@ catch (ApiException e)
 
 <a name="faxlineareacodeget"></a>
 # **FaxLineAreaCodeGet**
-> FaxLineAreaCodeGetResponse FaxLineAreaCodeGet (FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum? state = null, FaxLineAreaCodeGetProvinceEnum? province = null, string? city = null)
+> FaxLineAreaCodeGetResponse FaxLineAreaCodeGet (string country, string? state = null, string? province = null, string? city = null)
 
 Get Available Fax Line Area Codes
 
@@ -135,7 +135,7 @@ public class Example
 
         try
         {
-            var result = faxLineApi.FaxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum.US, FaxLineAreaCodeGetStateEnum.CA);
+            var result = faxLineApi.FaxLineAreaCodeGet("US", "CA");
             Console.WriteLine(result);
         }
         catch (ApiException e)
@@ -173,9 +173,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **country** | **FaxLineAreaCodeGetCountryEnum** | Filter area codes by country. |  |
-| **state** | [**FaxLineAreaCodeGetStateEnum?**](FaxLineAreaCodeGetStateEnum?.md) | Filter area codes by state. | [optional]  |
-| **province** | [**FaxLineAreaCodeGetProvinceEnum?**](FaxLineAreaCodeGetProvinceEnum?.md) | Filter area codes by province. | [optional]  |
+| **country** | **string** | Filter area codes by country. |  |
+| **state** | **string?** | Filter area codes by state. | [optional]  |
+| **province** | **string?** | Filter area codes by province. | [optional]  |
 | **city** | **string?** | Filter area codes by city. | [optional]  |
 
 ### Return type

@@ -44,7 +44,7 @@ namespace Dropbox.Sign.Model
         /// <param name="listInfo">listInfo.</param>
         /// <param name="faxLines">faxLines.</param>
         /// <param name="warnings">warnings.</param>
-        public FaxLineListResponse(ListInfoResponse listInfo = default(ListInfoResponse), List<FaxLineResponse> faxLines = default(List<FaxLineResponse>), WarningResponse warnings = default(WarningResponse))
+        public FaxLineListResponse(ListInfoResponse listInfo = default(ListInfoResponse), List<FaxLine> faxLines = default(List<FaxLine>), WarningResponse warnings = default(WarningResponse))
         {
             
             this.ListInfo = listInfo;
@@ -78,7 +78,7 @@ namespace Dropbox.Sign.Model
         /// Gets or Sets FaxLines
         /// </summary>
         [DataMember(Name = "fax_lines", EmitDefaultValue = true)]
-        public List<FaxLineResponse> FaxLines { get; set; }
+        public List<FaxLine> FaxLines { get; set; }
 
         /// <summary>
         /// Gets or Sets Warnings
@@ -187,7 +187,7 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "fax_lines",
                 Property = "FaxLines",
-                Type = "List<FaxLineResponse>",
+                Type = "List<FaxLine>",
                 Value = FaxLines,
             });
             types.Add(new OpenApiType(){

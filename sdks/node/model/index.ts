@@ -32,6 +32,7 @@ import { ErrorResponseError } from "./errorResponseError";
 import { EventCallbackRequest } from "./eventCallbackRequest";
 import { EventCallbackRequestEvent } from "./eventCallbackRequestEvent";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
+import { FaxLine } from "./faxLine";
 import { FaxLineAddUserRequest } from "./faxLineAddUserRequest";
 import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
 import { FaxLineAreaCodeGetProvinceEnum } from "./faxLineAreaCodeGetProvinceEnum";
@@ -201,6 +202,7 @@ export let enumsMap: { [index: string]: any } = {
   FaxLineAreaCodeGetCountryEnum: FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum: FaxLineAreaCodeGetProvinceEnum,
   FaxLineAreaCodeGetStateEnum: FaxLineAreaCodeGetStateEnum,
+  "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum:
@@ -277,6 +279,7 @@ export let typeMap: { [index: string]: any } = {
   EventCallbackRequest: EventCallbackRequest,
   EventCallbackRequestEvent: EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: EventCallbackRequestEventMetadata,
+  FaxLine: FaxLine,
   FaxLineAddUserRequest: FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse: FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest: FaxLineCreateRequest,
@@ -492,6 +495,7 @@ export {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLine,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,

@@ -208,6 +208,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [EventCallbackRequest](./docs/model/EventCallbackRequest.md)
 - [EventCallbackRequestEvent](./docs/model/EventCallbackRequestEvent.md)
 - [EventCallbackRequestEventMetadata](./docs/model/EventCallbackRequestEventMetadata.md)
+- [FaxLine](./docs/model/FaxLine.md)
 - [FaxLineAddUserRequest](./docs/model/FaxLineAddUserRequest.md)
 - [FaxLineAreaCodeGetCountryEnum](./docs/model/FaxLineAreaCodeGetCountryEnum.md)
 - [FaxLineAreaCodeGetProvinceEnum](./docs/model/FaxLineAreaCodeGetProvinceEnum.md)

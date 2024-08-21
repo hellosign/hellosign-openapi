@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FaxLineAddUserRequest, FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetProvinceEnum, FaxLineAreaCodeGetResponse, FaxLineAreaCodeGetStateEnum, FaxLineCreateRequest, FaxLineDeleteRequest, FaxLineListResponse, FaxLineRemoveUserRequest, FaxLineResponse } from "../model";
+import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, FaxLineAddUserRequest, FaxLineAreaCodeGetResponse, FaxLineCreateRequest, FaxLineDeleteRequest, FaxLineListResponse, FaxLineRemoveUserRequest, FaxLineResponse } from "../model";
 import { optionsI, returnTypeT, returnTypeI } from "./";
 export declare enum FaxLineApiApiKeys {
 }
@@ -25,7 +25,7 @@ export declare class FaxLineApi {
     set accessToken(accessToken: string | (() => string));
     addInterceptor(interceptor: Interceptor): void;
     faxLineAddUser(faxLineAddUserRequest: FaxLineAddUserRequest, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
-    faxLineAreaCodeGet(country: FaxLineAreaCodeGetCountryEnum, state?: FaxLineAreaCodeGetStateEnum, province?: FaxLineAreaCodeGetProvinceEnum, city?: string, options?: optionsI): Promise<returnTypeT<FaxLineAreaCodeGetResponse>>;
+    faxLineAreaCodeGet(country: "CA" | "US" | "UK", state?: "AK" | "AL" | "AR" | "AZ" | "CA" | "CO" | "CT" | "DC" | "DE" | "FL" | "GA" | "HI" | "IA" | "ID" | "IL" | "IN" | "KS" | "KY" | "LA" | "MA" | "MD" | "ME" | "MI" | "MN" | "MO" | "MS" | "MT" | "NC" | "ND" | "NE" | "NH" | "NJ" | "NM" | "NV" | "NY" | "OH" | "OK" | "OR" | "PA" | "RI" | "SC" | "SD" | "TN" | "TX" | "UT" | "VA" | "VT" | "WA" | "WI" | "WV" | "WY", province?: "AB" | "BC" | "MB" | "NB" | "NL" | "NT" | "NS" | "NU" | "ON" | "PE" | "QC" | "SK" | "YT", city?: string, options?: optionsI): Promise<returnTypeT<FaxLineAreaCodeGetResponse>>;
     faxLineCreate(faxLineCreateRequest: FaxLineCreateRequest, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;
     faxLineDelete(faxLineDeleteRequest: FaxLineDeleteRequest, options?: optionsI): Promise<returnTypeI>;
     faxLineGet(number: string, options?: optionsI): Promise<returnTypeT<FaxLineResponse>>;

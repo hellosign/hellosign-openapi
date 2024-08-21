@@ -10,10 +10,7 @@ import jakarta.ws.rs.core.GenericType;
 
 import com.dropbox.sign.model.ErrorResponse;
 import com.dropbox.sign.model.FaxLineAddUserRequest;
-import com.dropbox.sign.model.FaxLineAreaCodeGetCountryEnum;
-import com.dropbox.sign.model.FaxLineAreaCodeGetProvinceEnum;
 import com.dropbox.sign.model.FaxLineAreaCodeGetResponse;
-import com.dropbox.sign.model.FaxLineAreaCodeGetStateEnum;
 import com.dropbox.sign.model.FaxLineCreateRequest;
 import com.dropbox.sign.model.FaxLineDeleteRequest;
 import com.dropbox.sign.model.FaxLineListResponse;
@@ -147,66 +144,66 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum state, FaxLineAreaCodeGetProvinceEnum province, String city) throws ApiException {
+  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(String country, String state, String province, String city) throws ApiException {
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city).getData();
   }
 
 
   /**
-   * @see FaxLineApi#faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetStateEnum, FaxLineAreaCodeGetProvinceEnum, String)
+   * @see FaxLineApi#faxLineAreaCodeGet(String, String, String, String)
    */
-  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum country) throws ApiException {
-    FaxLineAreaCodeGetStateEnum state = null;
-    FaxLineAreaCodeGetProvinceEnum province = null;
+  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(String country) throws ApiException {
+    String state = null;
+    String province = null;
     String city = null;
 
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city).getData();
   }
 
   /**
-   * @see FaxLineApi#faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetStateEnum, FaxLineAreaCodeGetProvinceEnum, String)
+   * @see FaxLineApi#faxLineAreaCodeGetWithHttpInfo(String, String, String, String)
    */
-  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum country) throws ApiException {
-    FaxLineAreaCodeGetStateEnum state = null;
-    FaxLineAreaCodeGetProvinceEnum province = null;
+  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(String country) throws ApiException {
+    String state = null;
+    String province = null;
     String city = null;
 
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city);
   }
 
   /**
-   * @see FaxLineApi#faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetStateEnum, FaxLineAreaCodeGetProvinceEnum, String)
+   * @see FaxLineApi#faxLineAreaCodeGet(String, String, String, String)
    */
-  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum state) throws ApiException {
-    FaxLineAreaCodeGetProvinceEnum province = null;
+  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(String country, String state) throws ApiException {
+    String province = null;
     String city = null;
 
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city).getData();
   }
 
   /**
-   * @see FaxLineApi#faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetStateEnum, FaxLineAreaCodeGetProvinceEnum, String)
+   * @see FaxLineApi#faxLineAreaCodeGetWithHttpInfo(String, String, String, String)
    */
-  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum state) throws ApiException {
-    FaxLineAreaCodeGetProvinceEnum province = null;
+  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(String country, String state) throws ApiException {
+    String province = null;
     String city = null;
 
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city);
   }
 
   /**
-   * @see FaxLineApi#faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetStateEnum, FaxLineAreaCodeGetProvinceEnum, String)
+   * @see FaxLineApi#faxLineAreaCodeGet(String, String, String, String)
    */
-  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum state, FaxLineAreaCodeGetProvinceEnum province) throws ApiException {
+  public FaxLineAreaCodeGetResponse faxLineAreaCodeGet(String country, String state, String province) throws ApiException {
     String city = null;
 
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city).getData();
   }
 
   /**
-   * @see FaxLineApi#faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum, FaxLineAreaCodeGetStateEnum, FaxLineAreaCodeGetProvinceEnum, String)
+   * @see FaxLineApi#faxLineAreaCodeGetWithHttpInfo(String, String, String, String)
    */
-  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum state, FaxLineAreaCodeGetProvinceEnum province) throws ApiException {
+  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(String country, String state, String province) throws ApiException {
     String city = null;
 
     return faxLineAreaCodeGetWithHttpInfo(country, state, province, city);
@@ -229,7 +226,7 @@ public class FaxLineApi {
        <tr><td> 4XX </td><td> failed_operation </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(FaxLineAreaCodeGetCountryEnum country, FaxLineAreaCodeGetStateEnum state, FaxLineAreaCodeGetProvinceEnum province, String city) throws ApiException {
+  public ApiResponse<FaxLineAreaCodeGetResponse> faxLineAreaCodeGetWithHttpInfo(String country, String state, String province, String city) throws ApiException {
     
     Object localVarPostBody = null;
     

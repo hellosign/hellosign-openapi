@@ -25,10 +25,7 @@ from dropbox_sign.model_utils import (  # noqa: F401
 )
 from dropbox_sign.model.error_response import ErrorResponse
 from dropbox_sign.model.fax_line_add_user_request import FaxLineAddUserRequest
-from dropbox_sign.model.fax_line_area_code_get_country_enum import FaxLineAreaCodeGetCountryEnum
-from dropbox_sign.model.fax_line_area_code_get_province_enum import FaxLineAreaCodeGetProvinceEnum
 from dropbox_sign.model.fax_line_area_code_get_response import FaxLineAreaCodeGetResponse
-from dropbox_sign.model.fax_line_area_code_get_state_enum import FaxLineAreaCodeGetStateEnum
 from dropbox_sign.model.fax_line_create_request import FaxLineCreateRequest
 from dropbox_sign.model.fax_line_delete_request import FaxLineDeleteRequest
 from dropbox_sign.model.fax_line_list_response import FaxLineListResponse
@@ -123,6 +120,9 @@ class FaxLineApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'country',
+                    'state',
+                    'province',
                 ],
                 'validation': [
                 ]
@@ -131,14 +131,90 @@ class FaxLineApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('country',): {
+
+                        "CA": "CA",
+                        "US": "US",
+                        "UK": "UK"
+                    },
+                    ('state',): {
+
+                        "AK": "AK",
+                        "AL": "AL",
+                        "AR": "AR",
+                        "AZ": "AZ",
+                        "CA": "CA",
+                        "CO": "CO",
+                        "CT": "CT",
+                        "DC": "DC",
+                        "DE": "DE",
+                        "FL": "FL",
+                        "GA": "GA",
+                        "HI": "HI",
+                        "IA": "IA",
+                        "ID": "ID",
+                        "IL": "IL",
+                        "IN": "IN",
+                        "KS": "KS",
+                        "KY": "KY",
+                        "LA": "LA",
+                        "MA": "MA",
+                        "MD": "MD",
+                        "ME": "ME",
+                        "MI": "MI",
+                        "MN": "MN",
+                        "MO": "MO",
+                        "MS": "MS",
+                        "MT": "MT",
+                        "NC": "NC",
+                        "ND": "ND",
+                        "NE": "NE",
+                        "NH": "NH",
+                        "NJ": "NJ",
+                        "NM": "NM",
+                        "NV": "NV",
+                        "NY": "NY",
+                        "OH": "OH",
+                        "OK": "OK",
+                        "OR": "OR",
+                        "PA": "PA",
+                        "RI": "RI",
+                        "SC": "SC",
+                        "SD": "SD",
+                        "TN": "TN",
+                        "TX": "TX",
+                        "UT": "UT",
+                        "VA": "VA",
+                        "VT": "VT",
+                        "WA": "WA",
+                        "WI": "WI",
+                        "WV": "WV",
+                        "WY": "WY"
+                    },
+                    ('province',): {
+
+                        "AB": "AB",
+                        "BC": "BC",
+                        "MB": "MB",
+                        "NB": "NB",
+                        "NL": "NL",
+                        "NT": "NT",
+                        "NS": "NS",
+                        "NU": "NU",
+                        "ON": "ON",
+                        "PE": "PE",
+                        "QC": "QC",
+                        "SK": "SK",
+                        "YT": "YT"
+                    },
                 },
                 'openapi_types': {
                     'country':
-                        (FaxLineAreaCodeGetCountryEnum,),
+                        (str,),
                     'state':
-                        (FaxLineAreaCodeGetStateEnum,),
+                        (str,),
                     'province':
-                        (FaxLineAreaCodeGetProvinceEnum,),
+                        (str,),
                     'city':
                         (str,),
                 },
@@ -552,11 +628,11 @@ class FaxLineApi(object):
         >>> result = thread.get()
 
         Args:
-            country (FaxLineAreaCodeGetCountryEnum): Filter area codes by country.
+            country (str): Filter area codes by country.
 
         Keyword Args:
-            state (FaxLineAreaCodeGetStateEnum): Filter area codes by state.. [optional]
-            province (FaxLineAreaCodeGetProvinceEnum): Filter area codes by province.. [optional]
+            state (str): Filter area codes by state.. [optional]
+            province (str): Filter area codes by province.. [optional]
             city (str): Filter area codes by city.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

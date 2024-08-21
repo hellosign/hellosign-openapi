@@ -41,6 +41,7 @@ docs/ErrorResponseError.md
 docs/EventCallbackRequest.md
 docs/EventCallbackRequestEvent.md
 docs/EventCallbackRequestEventMetadata.md
+docs/FaxLine.md
 docs/FaxLineAddUserRequest.md
 docs/FaxLineApi.md
 docs/FaxLineAreaCodeGetCountryEnum.md
@@ -249,6 +250,7 @@ dropbox_sign/model/error_response_error.py
 dropbox_sign/model/event_callback_request.py
 dropbox_sign/model/event_callback_request_event.py
 dropbox_sign/model/event_callback_request_event_metadata.py
+dropbox_sign/model/fax_line.py
 dropbox_sign/model/fax_line_add_user_request.py
 dropbox_sign/model/fax_line_area_code_get_country_enum.py
 dropbox_sign/model/fax_line_area_code_get_province_enum.py

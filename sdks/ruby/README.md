@@ -209,6 +209,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::EventCallbackRequest](docs/EventCallbackRequest.md)
  - [Dropbox::Sign::EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [Dropbox::Sign::EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [Dropbox::Sign::FaxLine](docs/FaxLine.md)
  - [Dropbox::Sign::FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [Dropbox::Sign::FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [Dropbox::Sign::FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)

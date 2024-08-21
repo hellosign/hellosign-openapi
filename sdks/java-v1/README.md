@@ -267,6 +267,7 @@ Class | Method | HTTP request | Description
  - [EventCallbackRequest](docs/EventCallbackRequest.md)
  - [EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [FaxLine](docs/FaxLine.md)
  - [FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
