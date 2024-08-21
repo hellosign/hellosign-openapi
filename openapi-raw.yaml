@@ -7527,7 +7527,7 @@ components:
           initials: '#/components/schemas/SubFormFieldsPerDocumentInitials'
           text-merge: '#/components/schemas/SubFormFieldsPerDocumentTextMerge'
           checkbox-merge: '#/components/schemas/SubFormFieldsPerDocumentCheckboxMerge'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     SubSignatureRequestGroupedSigners:
       required:
@@ -8521,7 +8521,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountGetResponse:
       properties:
         account:
@@ -8532,7 +8532,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountVerifyResponse:
       properties:
         account:
@@ -8543,7 +8543,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppGetResponse:
       properties:
         api_app:
@@ -8554,7 +8554,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppListResponse:
       properties:
         api_apps:
@@ -8570,7 +8570,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobGetResponse:
       properties:
         bulk_send_job:
@@ -8588,7 +8588,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobListResponse:
       properties:
         bulk_send_jobs:
@@ -8604,7 +8604,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobSendResponse:
       properties:
         bulk_send_job:
@@ -8615,7 +8615,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     EmbeddedEditUrlResponse:
       properties:
         embedded:
@@ -8626,7 +8626,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     EmbeddedSignUrlResponse:
       properties:
         embedded:
@@ -8637,7 +8637,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     ErrorResponse:
       required:
         - error
@@ -8654,14 +8654,14 @@ components:
           description: '_t__FileResponse::EXPIRES_AT'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     FileResponseDataUri:
       properties:
         data_uri:
           description: '_t__FileResponse::DATA_URI'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     ReportCreateResponse:
       properties:
         report:
@@ -8672,7 +8672,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestGetResponse:
       properties:
         signature_request:
@@ -8683,7 +8683,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestListResponse:
       properties:
         signature_requests:
@@ -8699,7 +8699,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountResponse:
       properties:
         account_id:
@@ -8738,7 +8738,7 @@ components:
         usage:
           $ref: '#/components/schemas/AccountResponseUsage'
       type: object
-      x-internal: true
+      x-internal-class: true
     OAuthTokenResponse:
       properties:
         access_token:
@@ -8754,7 +8754,7 @@ components:
           type: string
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountResponseQuotas:
       description: '_t__Account::QUOTA'
       properties:
@@ -8783,7 +8783,7 @@ components:
           type: integer
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountResponseUsage:
       description: '_t__Account::USAGE'
       properties:
@@ -8792,14 +8792,14 @@ components:
           type: integer
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountVerifyResponseAccount:
       properties:
         email_address:
           description: '_t__Account::EMAIL_ADDRESS'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppResponse:
       description: '_t__ApiAppResponse::DESCRIPTION'
       properties:
@@ -8833,7 +8833,7 @@ components:
         white_labeling_options:
           $ref: '#/components/schemas/ApiAppResponseWhiteLabelingOptions'
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseOAuth:
       description: '_t__ApiAppResponseOAuth::DESCRIPTION'
       properties:
@@ -8853,7 +8853,7 @@ components:
           type: boolean
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseOptions:
       description: '_t__ApiAppResponseOptions::DESCRIPTION'
       properties:
@@ -8862,7 +8862,7 @@ components:
           type: boolean
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseOwnerAccount:
       description: '_t__ApiAppResponseOwnerAccount::DESCRIPTION'
       properties:
@@ -8873,7 +8873,7 @@ components:
           description: '_t__ApiAppResponseOwnerAccount::EMAIL_ADDRESS'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseWhiteLabelingOptions:
       description: '_t__ApiAppResponseWhiteLabelingOptions::DESCRIPTION'
       properties:
@@ -8907,7 +8907,7 @@ components:
           type: string
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     BulkSendJobResponse:
       description: '_t__BulkSendJobResponse::DESCRIPTION'
       properties:
@@ -8925,7 +8925,7 @@ components:
           description: '_t__BulkSendJobResponse::CREATED_AT'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobGetResponseSignatureRequests:
       title: BulkSendJobGetResponseSignatureRequests
       type: object
@@ -8937,7 +8937,7 @@ components:
             bulk_send_job_id:
               description: '_t__BulkSendJobGetResponseSignatureRequests::BULK_SEND_JOB_ID'
               type: string
-      x-internal: true
+      x-internal-class: true
     EmbeddedEditUrlResponseEmbedded:
       description: '_t__EmbeddedEditUrlResponseEmbedded::DESCRIPTION'
       properties:
@@ -8948,7 +8948,7 @@ components:
           description: '_t__EmbeddedEditUrlResponseEmbedded::EXPIRES_AT'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     EmbeddedSignUrlResponseEmbedded:
       description: '_t__EmbeddedSignUrlResponseEmbedded::DESCRIPTION'
       properties:
@@ -8959,7 +8959,7 @@ components:
           description: '_t__EmbeddedSignUrlResponseEmbedded::EXPIRES_AT'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     ErrorResponseError:
       description: '_t__ErrorResponseError::DESCRIPTION'
       required:
@@ -8993,7 +8993,7 @@ components:
           description: '_t__ListInfoResponse::PAGE_SIZE'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     ReportResponse:
       description: '_t__ReportResponse::DESCRIPTION'
       properties:
@@ -9014,7 +9014,7 @@ components:
               - user_activity
               - document_status
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestResponse:
       description: '_t__SignatureRequestResponse::DESCRIPTION'
       properties:
@@ -9118,7 +9118,7 @@ components:
           type: string
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestResponseAttachment:
       description: '_t__SignatureRequestResponseAttachment::DESCRIPTION'
       required:
@@ -9148,7 +9148,7 @@ components:
           type: integer
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestResponseCustomFieldBase:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION'
       required:
@@ -9176,7 +9176,7 @@ components:
         mapping:
           text: '#/components/schemas/SignatureRequestResponseCustomFieldText'
           checkbox: '#/components/schemas/SignatureRequestResponseCustomFieldCheckbox'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: '_t__SignatureRequestResponseCustomField::DESCRIPTION_EXTENDS'
@@ -9249,7 +9249,7 @@ components:
           initials: '#/components/schemas/SignatureRequestResponseDataValueInitials'
           text-merge: '#/components/schemas/SignatureRequestResponseDataValueTextMerge'
           checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     SignatureRequestResponseDataTypeEnum:
       type: string
@@ -9465,7 +9465,7 @@ components:
           type: string
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamResponse:
       description: '_t__TeamResponse::DESCRIPTION'
       properties:
@@ -9487,7 +9487,7 @@ components:
           items:
             type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamInfoResponse:
       properties:
         team_id:
@@ -9505,7 +9505,7 @@ components:
           description: '_t__TeamGeneral::NUM_SUB_TEAMS'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamInviteResponse:
       properties:
         email_address:
@@ -9527,7 +9527,7 @@ components:
           description: '_t__TeamInviteResponse::EXPIRES_AT'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamMemberResponse:
       properties:
         account_id:
@@ -9540,7 +9540,7 @@ components:
           description: '_t__TeamMemberResponse::MEMBER_ROLE'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamParentResponse:
       description: '_t__TeamInfo::TEAM_PARENT'
       properties:
@@ -9552,7 +9552,7 @@ components:
           type: string
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     SubTeamResponse:
       properties:
         team_id:
@@ -9562,7 +9562,7 @@ components:
           description: '_t__TeamGeneral::NAME'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponse:
       description: '_t__TemplateResponse::DESCRIPTION'
       properties:
@@ -9633,7 +9633,7 @@ components:
             $ref: '#/components/schemas/TemplateResponseAccount'
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseAccount:
       properties:
         account_id:
@@ -9654,7 +9654,7 @@ components:
         quotas:
           $ref: '#/components/schemas/TemplateResponseAccountQuota'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseAccountQuota:
       description: '_t__TemplateResponseAccountQuota::DESCRIPTION'
       properties:
@@ -9671,14 +9671,14 @@ components:
           description: '_t__TemplateResponseAccountQuota::SMS_VERIFICATIONS_LEFT'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseCCRole:
       properties:
         name:
           description: '_t__TemplateResponseCCRole::TEMPLATES_LEFT'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateEmbeddedDraftResponseTemplate:
       description: '_t__TemplateCreateEmbeddedDraftResponseTemplate::DESCRIPTION'
       properties:
@@ -9698,7 +9698,7 @@ components:
             $ref: '#/components/schemas/WarningResponse'
           deprecated: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateResponseTemplate:
       description: '_t__TemplateCreateResponseTemplate::DESCRIPTION'
       properties:
@@ -9706,7 +9706,7 @@ components:
           description: '_t__TemplateResponse::TEMPLATE_ID'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocument:
       properties:
         name:
@@ -9737,7 +9737,7 @@ components:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocumentCustomFieldBase:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION'
       required:
@@ -9780,7 +9780,7 @@ components:
         mapping:
           text: '#/components/schemas/TemplateResponseDocumentCustomFieldText'
           checkbox: '#/components/schemas/TemplateResponseDocumentCustomFieldCheckbox'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     TemplateResponseDocumentCustomFieldCheckbox:
       description: '_t__TemplateResponseDocumentCustomField::DESCRIPTION_EXTENDS'
@@ -9829,7 +9829,7 @@ components:
         rule:
           $ref: '#/components/schemas/TemplateResponseDocumentFieldGroupRule'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocumentFieldGroupRule:
       description: '_t__TemplateResponseDocumentFieldGroup::RULE'
       properties:
@@ -9840,7 +9840,7 @@ components:
           description: '_t__TemplateResponseDocumentFieldGroupRule::GROUP_LABEL'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocumentFormFieldBase:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION'
       required:
@@ -9888,7 +9888,7 @@ components:
           signature: '#/components/schemas/TemplateResponseDocumentFormFieldSignature'
           date_signed: '#/components/schemas/TemplateResponseDocumentFormFieldDateSigned'
           initials: '#/components/schemas/TemplateResponseDocumentFormFieldInitials'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: '_t__TemplateResponseDocumentFormField::DESCRIPTION_EXTENDS'
@@ -10102,7 +10102,7 @@ components:
           signature: '#/components/schemas/TemplateResponseDocumentStaticFieldSignature'
           date_signed: '#/components/schemas/TemplateResponseDocumentStaticFieldDateSigned'
           initials: '#/components/schemas/TemplateResponseDocumentStaticFieldInitials'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     TemplateResponseDocumentStaticFieldCheckbox:
       description: '_t__TemplateResponseDocumentStaticField::DESCRIPTION_EXTENDS'
@@ -10242,7 +10242,7 @@ components:
           description: '_t__TemplateResponseFieldAvgTextLength::NUM_CHARS_PER_LINE'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseSignerRole:
       properties:
         name:
@@ -10252,7 +10252,7 @@ components:
           description: '_t__TemplateResponseSignerRole::ORDER'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateUpdateFilesResponseTemplate:
       description: '_t__TemplateUpdateFilesResponseTemplate::DESCRIPTION'
       properties:
@@ -10266,7 +10266,7 @@ components:
             $ref: '#/components/schemas/WarningResponse'
           deprecated: true
       type: object
-      x-internal: true
+      x-internal-class: true
     UnclaimedDraftResponse:
       description: '_t__UnclaimedDraftResponse::DESCRIPTION'
       properties:
@@ -10293,7 +10293,7 @@ components:
           description: '_t__UnclaimedDraft::TEST_MODE'
           type: boolean
       type: object
-      x-internal: true
+      x-internal-class: true
     WarningResponse:
       description: '_t__WarningResponse::LIST_DESCRIPTION'
       required:
@@ -10317,7 +10317,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamGetInfoResponse:
       properties:
         team:
@@ -10328,7 +10328,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamInvitesResponse:
       properties:
         team_invites:
@@ -10341,7 +10341,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamMembersResponse:
       properties:
         team_members:
@@ -10356,7 +10356,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamSubTeamsResponse:
       properties:
         sub_teams:
@@ -10371,7 +10371,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateResponse:
       properties:
         template:
@@ -10382,7 +10382,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateEmbeddedDraftResponse:
       properties:
         template:
@@ -10393,7 +10393,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateEditResponse:
       properties:
         template_id:
@@ -10410,7 +10410,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateListResponse:
       properties:
         templates:
@@ -10426,13 +10426,13 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateUpdateFilesResponse:
       properties:
         template:
           $ref: '#/components/schemas/TemplateUpdateFilesResponseTemplate'
       type: object
-      x-internal: true
+      x-internal-class: true
     UnclaimedDraftCreateResponse:
       properties:
         unclaimed_draft:
@@ -10443,7 +10443,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     EventCallbackRequest:
       title: EventCallbackRequest
       required:
