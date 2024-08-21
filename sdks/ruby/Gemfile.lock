@@ -13,7 +13,10 @@ GEM
     diff-lcs (1.5.1)
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    ffi (1.17.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     jaro_winkler (1.5.6)
     json_spec (1.1.5)
       multi_json (~> 1.0)
@@ -64,7 +67,10 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-21
   arm64-darwin-22
+  x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   dropbox-sign!
