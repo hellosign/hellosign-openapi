@@ -381,7 +381,7 @@ module Dropbox::Sign
         fail ArgumentError, "Missing the required parameter 'fax_line_delete_request' when calling FaxLineApi.fax_line_delete"
       end
       # resource path
-      local_var_path = '/fax_line/delete'
+      local_var_path = '/fax_line'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -463,10 +463,11 @@ module Dropbox::Sign
         fail ArgumentError, "Missing the required parameter 'number' when calling FaxLineApi.fax_line_get"
       end
       # resource path
-      local_var_path = '/fax_line/{number}'.sub('{' + 'number' + '}', CGI.escape(number.to_s))
+      local_var_path = '/fax_line'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'number'] = number
 
       # header parameters
       header_params = opts[:header_params] || {}

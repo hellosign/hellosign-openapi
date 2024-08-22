@@ -388,7 +388,7 @@ public class FaxLineApi {
     }
     
     // create path and map variables
-    String localVarPath = "/fax_line/delete";
+    String localVarPath = "/fax_line";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -461,8 +461,7 @@ public class FaxLineApi {
     }
     
     // create path and map variables
-    String localVarPath = "/fax_line/{number}"
-      .replaceAll("\\{" + "number" + "\\}", apiClient.escapeString(number.toString()));
+    String localVarPath = "/fax_line";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -470,6 +469,7 @@ public class FaxLineApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "number", number));
 
     
     

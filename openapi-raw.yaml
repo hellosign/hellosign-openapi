@@ -1788,7 +1788,105 @@ paths:
         seo:
           title: '_t__FaxLineCreate::SEO::TITLE'
           description: '_t__FaxLineCreate::SEO::DESCRIPTION'
-  /fax_line/delete:
+  /fax_line:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineGet::SUMMARY'
+      description: '_t__FaxLineGet::DESCRIPTION'
+      operationId: faxLineGet
+      parameters:
+        -
+          name: number
+          in: query
+          description: '_t__FaxLineGet::NUMBER'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineGet.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineGet.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineGet.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineGet.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineGet.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineGet.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineGet::SEO::TITLE'
+          description: '_t__FaxLineGet::SEO::DESCRIPTION'
     delete:
       tags:
         - 'Fax Line'
@@ -1883,105 +1981,6 @@ paths:
         seo:
           title: '_t__FaxLineDelete::SEO::TITLE'
           description: '_t__FaxLineDelete::SEO::DESCRIPTION'
-  '/fax_line/{number}':
-    get:
-      tags:
-        - 'Fax Line'
-      summary: '_t__FaxLineGet::SUMMARY'
-      description: '_t__FaxLineGet::DESCRIPTION'
-      operationId: faxLineGet
-      parameters:
-        -
-          name: number
-          in: path
-          description: '_t__FaxLineGet::NUMBER'
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: 'successful operation'
-          headers:
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/X-RateLimit-Limit'
-            X-RateLimit-Remaining:
-              $ref: '#/components/headers/X-RateLimit-Remaining'
-            X-Ratelimit-Reset:
-              $ref: '#/components/headers/X-Ratelimit-Reset'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FaxLineResponse'
-              examples:
-                default_example:
-                  $ref: '#/components/examples/FaxLineResponseExample'
-        4XX:
-          description: failed_operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              examples:
-                400_example:
-                  $ref: '#/components/examples/Error400ResponseExample'
-                401_example:
-                  $ref: '#/components/examples/Error401ResponseExample'
-                402_example:
-                  $ref: '#/components/examples/Error402ResponseExample'
-                403_example:
-                  $ref: '#/components/examples/Error403ResponseExample'
-                404_example:
-                  $ref: '#/components/examples/Error404ResponseExample'
-                4XX_example:
-                  $ref: '#/components/examples/Error4XXResponseExample'
-      security:
-        -
-          api_key: []
-      x-codeSamples:
-        -
-          lang: PHP
-          label: PHP
-          source:
-            $ref: examples/FaxLineGet.php
-        -
-          lang: 'C#'
-          label: 'C#'
-          source:
-            $ref: examples/FaxLineGet.cs
-        -
-          lang: JavaScript
-          label: JavaScript
-          source:
-            $ref: examples/FaxLineGet.js
-        -
-          lang: TypeScript
-          label: TypeScript
-          source:
-            $ref: examples/FaxLineGet.ts
-        -
-          lang: Java
-          label: Java
-          source:
-            $ref: examples/FaxLineGet.java
-        -
-          lang: Ruby
-          label: Ruby
-          source:
-            $ref: examples/FaxLineGet.rb
-        -
-          lang: Python
-          label: Python
-          source:
-            $ref: examples/FaxLineGet.py
-        -
-          lang: cURL
-          label: cURL
-          source:
-            $ref: examples/FaxLineGet.sh
-      x-meta:
-        seo:
-          title: '_t__FaxLineGet::SEO::TITLE'
-          description: '_t__FaxLineGet::SEO::DESCRIPTION'
   /fax_line/list:
     get:
       tags:

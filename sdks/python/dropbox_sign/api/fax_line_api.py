@@ -299,7 +299,7 @@ class FaxLineApi(object):
                 'auth': [
                     'api_key'
                 ],
-                'endpoint_path': '/fax_line/delete',
+                'endpoint_path': '/fax_line',
                 'operation_id': 'fax_line_delete',
                 'http_method': 'DELETE',
                 'servers': None,
@@ -351,7 +351,7 @@ class FaxLineApi(object):
                 'auth': [
                     'api_key'
                 ],
-                'endpoint_path': '/fax_line/{number}',
+                'endpoint_path': '/fax_line',
                 'operation_id': 'fax_line_get',
                 'http_method': 'GET',
                 'servers': None,
@@ -383,7 +383,7 @@ class FaxLineApi(object):
                     'number': 'number',
                 },
                 'location_map': {
-                    'number': 'path',
+                    'number': 'query',
                 },
                 'collection_format_map': {
                 }

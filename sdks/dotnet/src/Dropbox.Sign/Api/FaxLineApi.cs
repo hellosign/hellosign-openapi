@@ -1116,7 +1116,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/fax_line/delete", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/fax_line", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineDelete", localVarResponse);
@@ -1201,7 +1201,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/fax_line/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/fax_line", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1265,7 +1265,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("number", Dropbox.Sign.Client.ClientUtils.ParameterToString(number)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number));
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1277,7 +1277,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FaxLineResponse>("/fax_line/{number}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FaxLineResponse>("/fax_line", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineGet", localVarResponse);
@@ -1344,7 +1344,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("number", Dropbox.Sign.Client.ClientUtils.ParameterToString(number)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number));
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1356,7 +1356,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxLineResponse>("/fax_line/{number}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FaxLineResponse>("/fax_line", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

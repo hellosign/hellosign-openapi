@@ -182,8 +182,8 @@ Class | Method | HTTP request | Description
 *FaxLineApi* | [**faxLineAddUser**](docs/FaxLineApi.md#faxLineAddUser) | **POST** /fax_line/add_user | Add Fax Line User
 *FaxLineApi* | [**faxLineAreaCodeGet**](docs/FaxLineApi.md#faxLineAreaCodeGet) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
 *FaxLineApi* | [**faxLineCreate**](docs/FaxLineApi.md#faxLineCreate) | **POST** /fax_line/create | Purchase Fax Line
-*FaxLineApi* | [**faxLineDelete**](docs/FaxLineApi.md#faxLineDelete) | **DELETE** /fax_line/delete | Delete Fax Line
-*FaxLineApi* | [**faxLineGet**](docs/FaxLineApi.md#faxLineGet) | **GET** /fax_line/{number} | Get Fax Line
+*FaxLineApi* | [**faxLineDelete**](docs/FaxLineApi.md#faxLineDelete) | **DELETE** /fax_line | Delete Fax Line
+*FaxLineApi* | [**faxLineGet**](docs/FaxLineApi.md#faxLineGet) | **GET** /fax_line | Get Fax Line
 *FaxLineApi* | [**faxLineList**](docs/FaxLineApi.md#faxLineList) | **GET** /fax_line/list | List Fax Lines
 *FaxLineApi* | [**faxLineRemoveUser**](docs/FaxLineApi.md#faxLineRemoveUser) | **POST** /fax_line/remove_user | Remove Fax Line Access
 *OAuthApi* | [**oauthTokenGenerate**](docs/OAuthApi.md#oauthTokenGenerate) | **POST** /oauth/token | OAuth Token Generate

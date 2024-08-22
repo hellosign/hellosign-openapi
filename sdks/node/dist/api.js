@@ -26719,7 +26719,7 @@ var FaxLineApi = class {
           "FaxLineDeleteRequest"
         );
       }
-      const localVarPath = this.basePath + "/fax_line/delete";
+      const localVarPath = this.basePath + "/fax_line";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
         {},
@@ -26819,10 +26819,7 @@ var FaxLineApi = class {
   }
   faxLineGet(_0) {
     return __async(this, arguments, function* (number, options = { headers: {} }) {
-      const localVarPath = this.basePath + "/fax_line/{number}".replace(
-        "{number}",
-        encodeURIComponent(String(number))
-      );
+      const localVarPath = this.basePath + "/fax_line";
       let localVarQueryParameters = {};
       let localVarHeaderParams = Object.assign(
         {},
@@ -26839,6 +26836,12 @@ var FaxLineApi = class {
       if (number === null || number === void 0) {
         throw new Error(
           "Required parameter number was null or undefined when calling faxLineGet."
+        );
+      }
+      if (number !== void 0) {
+        localVarQueryParameters["number"] = ObjectSerializer.serialize(
+          number,
+          "string"
         );
       }
       Object.assign(localVarHeaderParams, options.headers);

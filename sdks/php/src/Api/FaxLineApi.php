@@ -1275,7 +1275,7 @@ class FaxLineApi
             );
         }
 
-        $resourcePath = '/fax_line/delete';
+        $resourcePath = '/fax_line';
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
@@ -1589,7 +1589,7 @@ class FaxLineApi
             );
         }
 
-        $resourcePath = '/fax_line/{number}';
+        $resourcePath = '/fax_line';
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
@@ -1597,13 +1597,15 @@ class FaxLineApi
         $formParams = [];
         $multipart = false;
 
-        // path params
+        // query params
         if ($number !== null) {
-            $resourcePath = str_replace(
-                '{' . 'number' . '}',
-                ObjectSerializer::toPathValue($number),
-                $resourcePath
-            );
+            if ('form' === 'form' && is_array($number)) {
+                foreach ($number as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            } else {
+                $queryParams['number'] = $number;
+            }
         }
 
         if ($multipart) {

@@ -7,8 +7,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**FaxLineAddUser**](FaxLineApi.md#faxlineadduser) | **POST** /fax_line/add_user | Add Fax Line User |
 | [**FaxLineAreaCodeGet**](FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 | [**FaxLineCreate**](FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line |
-| [**FaxLineDelete**](FaxLineApi.md#faxlinedelete) | **DELETE** /fax_line/delete | Delete Fax Line |
-| [**FaxLineGet**](FaxLineApi.md#faxlineget) | **GET** /fax_line/{number} | Get Fax Line |
+| [**FaxLineDelete**](FaxLineApi.md#faxlinedelete) | **DELETE** /fax_line | Delete Fax Line |
+| [**FaxLineGet**](FaxLineApi.md#faxlineget) | **GET** /fax_line | Get Fax Line |
 | [**FaxLineList**](FaxLineApi.md#faxlinelist) | **GET** /fax_line/list | List Fax Lines |
 | [**FaxLineRemoveUser**](FaxLineApi.md#faxlineremoveuser) | **POST** /fax_line/remove_user | Remove Fax Line Access |
 

@@ -123,8 +123,8 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_add_user**](docs/FaxLineApi.md#fax_line_add_user) | **POST** /fax_line/add_user | Add Fax Line User |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_area_code_get**](docs/FaxLineApi.md#fax_line_area_code_get) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_create**](docs/FaxLineApi.md#fax_line_create) | **POST** /fax_line/create | Purchase Fax Line |
-|*Dropbox::Sign::FaxLineApi* | [**fax_line_delete**](docs/FaxLineApi.md#fax_line_delete) | **DELETE** /fax_line/delete | Delete Fax Line |
-|*Dropbox::Sign::FaxLineApi* | [**fax_line_get**](docs/FaxLineApi.md#fax_line_get) | **GET** /fax_line/{number} | Get Fax Line |
+|*Dropbox::Sign::FaxLineApi* | [**fax_line_delete**](docs/FaxLineApi.md#fax_line_delete) | **DELETE** /fax_line | Delete Fax Line |
+|*Dropbox::Sign::FaxLineApi* | [**fax_line_get**](docs/FaxLineApi.md#fax_line_get) | **GET** /fax_line | Get Fax Line |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_list**](docs/FaxLineApi.md#fax_line_list) | **GET** /fax_line/list | List Fax Lines |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_remove_user**](docs/FaxLineApi.md#fax_line_remove_user) | **POST** /fax_line/remove_user | Remove Fax Line Access |
 |*Dropbox::Sign::OAuthApi* | [**oauth_token_generate**](docs/OAuthApi.md#oauth_token_generate) | **POST** /oauth/token | OAuth Token Generate |
