@@ -67,6 +67,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         'templates_total' => 'int',
         'templates_left' => 'int',
         'sms_verifications_left' => 'int',
+        'num_fax_pages_left' => 'int',
     ];
 
     /**
@@ -82,6 +83,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         'templates_total' => null,
         'templates_left' => null,
         'sms_verifications_left' => null,
+        'num_fax_pages_left' => null,
     ];
 
     /**
@@ -116,6 +118,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         'templates_total' => 'templates_total',
         'templates_left' => 'templates_left',
         'sms_verifications_left' => 'sms_verifications_left',
+        'num_fax_pages_left' => 'num_fax_pages_left',
     ];
 
     /**
@@ -129,6 +132,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         'templates_total' => 'setTemplatesTotal',
         'templates_left' => 'setTemplatesLeft',
         'sms_verifications_left' => 'setSmsVerificationsLeft',
+        'num_fax_pages_left' => 'setNumFaxPagesLeft',
     ];
 
     /**
@@ -142,6 +146,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         'templates_total' => 'getTemplatesTotal',
         'templates_left' => 'getTemplatesLeft',
         'sms_verifications_left' => 'getSmsVerificationsLeft',
+        'num_fax_pages_left' => 'getNumFaxPagesLeft',
     ];
 
     /**
@@ -205,6 +210,7 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
         $this->container['templates_total'] = $data['templates_total'] ?? null;
         $this->container['templates_left'] = $data['templates_left'] ?? null;
         $this->container['sms_verifications_left'] = $data['sms_verifications_left'] ?? null;
+        $this->container['num_fax_pages_left'] = $data['num_fax_pages_left'] ?? null;
     }
 
     /** @deprecated use ::init() */
@@ -364,6 +370,30 @@ class AccountResponseQuotas implements ModelInterface, ArrayAccess, JsonSerializ
     public function setSmsVerificationsLeft(?int $sms_verifications_left)
     {
         $this->container['sms_verifications_left'] = $sms_verifications_left;
+
+        return $this;
+    }
+
+    /**
+     * Gets num_fax_pages_left
+     *
+     * @return int|null
+     */
+    public function getNumFaxPagesLeft()
+    {
+        return $this->container['num_fax_pages_left'];
+    }
+
+    /**
+     * Sets num_fax_pages_left
+     *
+     * @param int|null $num_fax_pages_left Number of fax pages left
+     *
+     * @return self
+     */
+    public function setNumFaxPagesLeft(?int $num_fax_pages_left)
+    {
+        $this->container['num_fax_pages_left'] = $num_fax_pages_left;
 
         return $this;
     }

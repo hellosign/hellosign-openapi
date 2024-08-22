@@ -11,6 +11,7 @@ Details concerning remaining monthly quotas.
 | `templates_total` | ```int, none_type``` |  Total API templates allowed.  |  |
 | `templates_left` | ```int, none_type``` |  API templates remaining.  |  |
 | `sms_verifications_left` | ```int, none_type``` |  SMS verifications  remaining.  |  |
+| `num_fax_pages_left` | ```int, none_type``` |  Number of fax pages left  |  |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

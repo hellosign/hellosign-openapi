@@ -91,6 +91,7 @@ class AccountResponseQuotas(ModelNormal):
             'templates_total': (int, none_type,),  # noqa: E501
             'templates_left': (int, none_type,),  # noqa: E501
             'sms_verifications_left': (int, none_type,),  # noqa: E501
+            'num_fax_pages_left': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -119,6 +120,7 @@ class AccountResponseQuotas(ModelNormal):
         'templates_total': 'templates_total',  # noqa: E501
         'templates_left': 'templates_left',  # noqa: E501
         'sms_verifications_left': 'sms_verifications_left',  # noqa: E501
+        'num_fax_pages_left': 'num_fax_pages_left',  # noqa: E501
     }
 
     read_only_vars = {
@@ -166,6 +168,14 @@ class AccountResponseQuotas(ModelNormal):
     def sms_verifications_left(self, value: Optional[int]):
         setattr(self, "sms_verifications_left", value)
 
+    @property
+    def num_fax_pages_left(self) -> Optional[int]:
+        return self.get("num_fax_pages_left")
+
+    @num_fax_pages_left.setter
+    def num_fax_pages_left(self, value: Optional[int]):
+        setattr(self, "num_fax_pages_left", value)
+
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -207,6 +217,7 @@ class AccountResponseQuotas(ModelNormal):
             templates_total (int, none_type): Total API templates allowed.. [optional]  # noqa: E501
             templates_left (int, none_type): API templates remaining.. [optional]  # noqa: E501
             sms_verifications_left (int, none_type): SMS verifications  remaining.. [optional]  # noqa: E501
+            num_fax_pages_left (int, none_type): Number of fax pages left. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -293,6 +304,7 @@ class AccountResponseQuotas(ModelNormal):
             templates_total (int, none_type): Total API templates allowed.. [optional]  # noqa: E501
             templates_left (int, none_type): API templates remaining.. [optional]  # noqa: E501
             sms_verifications_left (int, none_type): SMS verifications  remaining.. [optional]  # noqa: E501
+            num_fax_pages_left (int, none_type): Number of fax pages left. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

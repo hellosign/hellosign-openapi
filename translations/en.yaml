@@ -1152,11 +1152,14 @@
 "Account::TEAM_ID": The id of the team account belongs to.
 "Account::LOCALE": The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
 "Account::QUOTA": Details concerning remaining monthly quotas.
+"Account::USAGE": Details concerning monthly usage
 "AccountQuota::TEMPLATES_LEFT": API templates remaining.
 "AccountQuota::TEMPLATES_TOTAL": Total API templates allowed.
 "AccountQuota::API_SIGNATURE_REQUESTS_LEFT": API signature requests remaining.
 "AccountQuota::DOCUMENTS_LEFT": Signature requests remaining.
 "AccountQuota::SMS_VERIFICATIONS_LEFT": SMS verifications  remaining.
+"AccountQuota::NUM_FAX_PAGES_LEFT": Number of fax pages left
+"AccountUsage::FAX_PAGES_SENT": Number of fax pages sent
 
 "ApiAppCreateResponseExample::SUMMARY": API App
 "ApiAppGetResponseExample::SUMMARY": API App

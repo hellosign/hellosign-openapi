@@ -172,6 +172,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 - [AccountGetResponse](./docs/model/AccountGetResponse.md)
 - [AccountResponse](./docs/model/AccountResponse.md)
 - [AccountResponseQuotas](./docs/model/AccountResponseQuotas.md)
+- [AccountResponseUsage](./docs/model/AccountResponseUsage.md)
 - [AccountUpdateRequest](./docs/model/AccountUpdateRequest.md)
 - [AccountVerifyRequest](./docs/model/AccountVerifyRequest.md)
 - [AccountVerifyResponse](./docs/model/AccountVerifyResponse.md)

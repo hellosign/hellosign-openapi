@@ -7918,7 +7918,7 @@ components:
           initials: '#/components/schemas/SubFormFieldsPerDocumentInitials'
           text-merge: '#/components/schemas/SubFormFieldsPerDocumentTextMerge'
           checkbox-merge: '#/components/schemas/SubFormFieldsPerDocumentCheckboxMerge'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     SubSignatureRequestGroupedSigners:
       required:
@@ -9129,7 +9129,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountGetResponse:
       properties:
         account:
@@ -9140,7 +9140,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountVerifyResponse:
       properties:
         account:
@@ -9151,7 +9151,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppGetResponse:
       properties:
         api_app:
@@ -9162,7 +9162,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppListResponse:
       properties:
         api_apps:
@@ -9178,7 +9178,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobGetResponse:
       properties:
         bulk_send_job:
@@ -9196,7 +9196,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobListResponse:
       properties:
         bulk_send_jobs:
@@ -9212,7 +9212,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobSendResponse:
       properties:
         bulk_send_job:
@@ -9223,7 +9223,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     EmbeddedEditUrlResponse:
       properties:
         embedded:
@@ -9234,7 +9234,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     EmbeddedSignUrlResponse:
       properties:
         embedded:
@@ -9245,7 +9245,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     ErrorResponse:
       required:
         - error
@@ -9262,14 +9262,14 @@ components:
           description: 'When the link expires.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     FileResponseDataUri:
       properties:
         data_uri:
           description: 'File as base64 encoded string.'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     ReportCreateResponse:
       properties:
         report:
@@ -9280,7 +9280,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestGetResponse:
       properties:
         signature_request:
@@ -9291,7 +9291,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestListResponse:
       properties:
         signature_requests:
@@ -9307,7 +9307,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountResponse:
       properties:
         account_id:
@@ -9343,8 +9343,10 @@ components:
           description: 'The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.'
           type: string
           nullable: true
+        usage:
+          $ref: '#/components/schemas/AccountResponseUsage'
       type: object
-      x-internal: true
+      x-internal-class: true
     OAuthTokenResponse:
       properties:
         access_token:
@@ -9360,7 +9362,7 @@ components:
           type: string
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     AccountResponseQuotas:
       description: 'Details concerning remaining monthly quotas.'
       properties:
@@ -9384,15 +9386,28 @@ components:
           description: 'SMS verifications  remaining.'
           type: integer
           nullable: true
+        num_fax_pages_left:
+          description: 'Number of fax pages left'
+          type: integer
+          nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
+    AccountResponseUsage:
+      description: 'Details concerning monthly usage'
+      properties:
+        fax_pages_sent:
+          description: 'Number of fax pages sent'
+          type: integer
+          nullable: true
+      type: object
+      x-internal-class: true
     AccountVerifyResponseAccount:
       properties:
         email_address:
           description: 'The email address associated with the Account.'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppResponse:
       description: 'Contains information about an API App.'
       properties:
@@ -9426,7 +9441,7 @@ components:
         white_labeling_options:
           $ref: '#/components/schemas/ApiAppResponseWhiteLabelingOptions'
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseOAuth:
       description: 'An object describing the app''s OAuth properties, or null if OAuth is not configured for the app.'
       properties:
@@ -9446,7 +9461,7 @@ components:
           type: boolean
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseOptions:
       description: 'An object with options that override account settings.'
       properties:
@@ -9455,7 +9470,7 @@ components:
           type: boolean
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseOwnerAccount:
       description: 'An object describing the app''s owner'
       properties:
@@ -9466,7 +9481,7 @@ components:
           description: 'The owner account''s email address'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     ApiAppResponseWhiteLabelingOptions:
       description: 'An object with options to customize the app''s signer page'
       properties:
@@ -9500,7 +9515,7 @@ components:
           type: string
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     BulkSendJobResponse:
       description: 'Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.'
       properties:
@@ -9518,7 +9533,7 @@ components:
           description: 'Time that the BulkSendJob was created.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     BulkSendJobGetResponseSignatureRequests:
       title: BulkSendJobGetResponseSignatureRequests
       type: object
@@ -9530,7 +9545,7 @@ components:
             bulk_send_job_id:
               description: 'The id of the BulkSendJob.'
               type: string
-      x-internal: true
+      x-internal-class: true
     EmbeddedEditUrlResponseEmbedded:
       description: 'An embedded template object.'
       properties:
@@ -9541,7 +9556,7 @@ components:
           description: 'The specific time that the the `edit_url` link expires, in epoch.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     EmbeddedSignUrlResponseEmbedded:
       description: 'An object that contains necessary information to set up embedded signing.'
       properties:
@@ -9552,7 +9567,7 @@ components:
           description: 'The specific time that the the `sign_url` link expires, in epoch.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     ErrorResponseError:
       description: 'Contains information about an error that occurred.'
       required:
@@ -9586,7 +9601,7 @@ components:
           description: 'Objects returned per page.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     ReportResponse:
       description: 'Contains information about the report request.'
       properties:
@@ -9607,7 +9622,7 @@ components:
               - user_activity
               - document_status
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestResponse:
       description: 'Contains information about a signature request.'
       properties:
@@ -9715,7 +9730,7 @@ components:
           type: string
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestResponseAttachment:
       description: 'Signer attachments.'
       required:
@@ -9745,7 +9760,7 @@ components:
           type: integer
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     SignatureRequestResponseCustomFieldBase:
       description: |-
         An array of Custom Field objects containing the name and type of each custom field.
@@ -9777,7 +9792,7 @@ components:
         mapping:
           text: '#/components/schemas/SignatureRequestResponseCustomFieldText'
           checkbox: '#/components/schemas/SignatureRequestResponseCustomFieldCheckbox'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     SignatureRequestResponseCustomFieldCheckbox:
       description: 'This class extends `SignatureRequestResponseCustomFieldBase`.'
@@ -9850,7 +9865,7 @@ components:
           initials: '#/components/schemas/SignatureRequestResponseDataValueInitials'
           text-merge: '#/components/schemas/SignatureRequestResponseDataValueTextMerge'
           checkbox-merge: '#/components/schemas/SignatureRequestResponseDataValueCheckboxMerge'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     SignatureRequestResponseDataTypeEnum:
       type: string
@@ -10066,7 +10081,7 @@ components:
           type: string
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamResponse:
       description: 'Contains information about your team and its members'
       properties:
@@ -10088,7 +10103,7 @@ components:
           items:
             type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamInfoResponse:
       properties:
         team_id:
@@ -10106,7 +10121,7 @@ components:
           description: 'Number of sub teams within a team'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamInviteResponse:
       properties:
         email_address:
@@ -10128,7 +10143,7 @@ components:
           description: 'Timestamp when the invitation is expiring.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamMemberResponse:
       properties:
         account_id:
@@ -10141,7 +10156,7 @@ components:
           description: 'The specific role a member has on the team.'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamParentResponse:
       description: 'Information about the parent team if a team has one, set to `null` otherwise.'
       properties:
@@ -10153,7 +10168,7 @@ components:
           type: string
       type: object
       nullable: true
-      x-internal: true
+      x-internal-class: true
     SubTeamResponse:
       properties:
         team_id:
@@ -10163,7 +10178,7 @@ components:
           description: 'The name of a team'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponse:
       description: 'Contains information about the templates you and your team have created.'
       properties:
@@ -10237,7 +10252,7 @@ components:
             $ref: '#/components/schemas/TemplateResponseAccount'
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseAccount:
       properties:
         account_id:
@@ -10258,7 +10273,7 @@ components:
         quotas:
           $ref: '#/components/schemas/TemplateResponseAccountQuota'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseAccountQuota:
       description: 'An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.'
       properties:
@@ -10275,14 +10290,14 @@ components:
           description: 'SMS verifications remaining.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseCCRole:
       properties:
         name:
           description: 'The name of the Role.'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateEmbeddedDraftResponseTemplate:
       description: 'Template object with parameters: `template_id`, `edit_url`, `expires_at`.'
       properties:
@@ -10302,7 +10317,7 @@ components:
             $ref: '#/components/schemas/WarningResponse'
           deprecated: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateResponseTemplate:
       description: 'Template object with parameters: `template_id`.'
       properties:
@@ -10310,7 +10325,7 @@ components:
           description: 'The id of the Template.'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocument:
       properties:
         name:
@@ -10341,7 +10356,7 @@ components:
             $ref: '#/components/schemas/TemplateResponseDocumentStaticFieldBase'
           nullable: true
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocumentCustomFieldBase:
       description: 'An array of Form Field objects containing the name and type of each named field.'
       required:
@@ -10384,7 +10399,7 @@ components:
         mapping:
           text: '#/components/schemas/TemplateResponseDocumentCustomFieldText'
           checkbox: '#/components/schemas/TemplateResponseDocumentCustomFieldCheckbox'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     TemplateResponseDocumentCustomFieldCheckbox:
       description: 'This class extends `TemplateResponseDocumentCustomFieldBase`'
@@ -10441,7 +10456,7 @@ components:
         rule:
           $ref: '#/components/schemas/TemplateResponseDocumentFieldGroupRule'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocumentFieldGroupRule:
       description: 'The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).'
       properties:
@@ -10457,7 +10472,7 @@ components:
           description: 'Name of the group'
           type: string
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseDocumentFormFieldBase:
       description: 'An array of Form Field objects containing the name and type of each named field.'
       required:
@@ -10505,7 +10520,7 @@ components:
           signature: '#/components/schemas/TemplateResponseDocumentFormFieldSignature'
           date_signed: '#/components/schemas/TemplateResponseDocumentFormFieldDateSigned'
           initials: '#/components/schemas/TemplateResponseDocumentFormFieldInitials'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     TemplateResponseDocumentFormFieldCheckbox:
       description: 'This class extends `TemplateResponseDocumentFormFieldBase`'
@@ -10799,7 +10814,7 @@ components:
           signature: '#/components/schemas/TemplateResponseDocumentStaticFieldSignature'
           date_signed: '#/components/schemas/TemplateResponseDocumentStaticFieldDateSigned'
           initials: '#/components/schemas/TemplateResponseDocumentStaticFieldInitials'
-      x-internal: true
+      x-internal-class: true
       x-base-class: true
     TemplateResponseDocumentStaticFieldCheckbox:
       description: 'This class extends `TemplateResponseDocumentStaticFieldBase`'
@@ -11019,7 +11034,7 @@ components:
           description: 'Number of characters per line.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateResponseSignerRole:
       properties:
         name:
@@ -11029,7 +11044,7 @@ components:
           description: 'If signer order is assigned this is the 0-based index for this role.'
           type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateUpdateFilesResponseTemplate:
       description: 'Contains template id'
       properties:
@@ -11043,7 +11058,7 @@ components:
             $ref: '#/components/schemas/WarningResponse'
           deprecated: true
       type: object
-      x-internal: true
+      x-internal-class: true
     UnclaimedDraftResponse:
       description: 'A group of documents that a user can take ownership of via the claim URL.'
       properties:
@@ -11070,7 +11085,7 @@ components:
           description: 'Whether this is a test draft. Signature requests made from test drafts have no legal value.'
           type: boolean
       type: object
-      x-internal: true
+      x-internal-class: true
     WarningResponse:
       description: 'A list of warnings.'
       required:
@@ -11094,7 +11109,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamGetInfoResponse:
       properties:
         team:
@@ -11105,7 +11120,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamInvitesResponse:
       properties:
         team_invites:
@@ -11118,7 +11133,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamMembersResponse:
       properties:
         team_members:
@@ -11133,7 +11148,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TeamSubTeamsResponse:
       properties:
         sub_teams:
@@ -11148,7 +11163,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateResponse:
       properties:
         template:
@@ -11159,7 +11174,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateCreateEmbeddedDraftResponse:
       properties:
         template:
@@ -11170,7 +11185,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateEditResponse:
       properties:
         template_id:
@@ -11187,7 +11202,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateListResponse:
       properties:
         templates:
@@ -11203,13 +11218,13 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     TemplateUpdateFilesResponse:
       properties:
         template:
           $ref: '#/components/schemas/TemplateUpdateFilesResponseTemplate'
       type: object
-      x-internal: true
+      x-internal-class: true
     UnclaimedDraftCreateResponse:
       properties:
         unclaimed_draft:
@@ -11220,7 +11235,7 @@ components:
           items:
             $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     EventCallbackRequest:
       title: EventCallbackRequest
       required:

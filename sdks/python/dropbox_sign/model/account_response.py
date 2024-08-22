@@ -34,11 +34,14 @@ from dropbox_sign.model_utils import (  # noqa: F401
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
     from dropbox_sign.model.account_response_quotas import AccountResponseQuotas
+    from dropbox_sign.model.account_response_usage import AccountResponseUsage
 
 
 def lazy_import():
     from dropbox_sign.model.account_response_quotas import AccountResponseQuotas
+    from dropbox_sign.model.account_response_usage import AccountResponseUsage
     globals()['AccountResponseQuotas'] = AccountResponseQuotas
+    globals()['AccountResponseUsage'] = AccountResponseUsage
 
 
 class AccountResponse(ModelNormal):
@@ -104,6 +107,7 @@ class AccountResponse(ModelNormal):
             'role_code': (str, none_type,),  # noqa: E501
             'team_id': (str, none_type,),  # noqa: E501
             'locale': (str, none_type,),  # noqa: E501
+            'usage': (AccountResponseUsage,),  # noqa: E501
         }
 
     @cached_property
@@ -137,6 +141,7 @@ class AccountResponse(ModelNormal):
         'role_code': 'role_code',  # noqa: E501
         'team_id': 'team_id',  # noqa: E501
         'locale': 'locale',  # noqa: E501
+        'usage': 'usage',  # noqa: E501
     }
 
     read_only_vars = {
@@ -224,6 +229,14 @@ class AccountResponse(ModelNormal):
     def locale(self, value: Optional[str]):
         setattr(self, "locale", value)
 
+    @property
+    def usage(self) -> AccountResponseUsage:
+        return self.get("usage")
+
+    @usage.setter
+    def usage(self, value: AccountResponseUsage):
+        setattr(self, "usage", value)
+
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
@@ -270,6 +283,7 @@ class AccountResponse(ModelNormal):
             role_code (str, none_type): The membership role for the team.. [optional]  # noqa: E501
             team_id (str, none_type): The id of the team account belongs to.. [optional]  # noqa: E501
             locale (str, none_type): The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.. [optional]  # noqa: E501
+            usage (AccountResponseUsage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -361,6 +375,7 @@ class AccountResponse(ModelNormal):
             role_code (str, none_type): The membership role for the team.. [optional]  # noqa: E501
             team_id (str, none_type): The id of the team account belongs to.. [optional]  # noqa: E501
             locale (str, none_type): The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.. [optional]  # noqa: E501
+            usage (AccountResponseUsage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

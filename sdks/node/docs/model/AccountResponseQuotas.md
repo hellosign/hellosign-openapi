@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 | `templatesTotal` | ```number``` |  Total API templates allowed.  |  |
 | `templatesLeft` | ```number``` |  API templates remaining.  |  |
 | `smsVerificationsLeft` | ```number``` |  SMS verifications  remaining.  |  |
+| `numFaxPagesLeft` | ```number``` |  Number of fax pages left  |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
