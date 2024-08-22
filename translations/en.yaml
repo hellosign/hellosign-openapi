@@ -163,9 +163,9 @@
 "FaxLineResponseExample::SUMMARY": Sample Fax Line Response
 "FaxLineAreaCodeGetResponseExample::SUMMARY": Sample Area Code Response
 "FaxLineListResponseExample::SUMMARY": Sample Fax Line List Response
-"FaxLine::NUMBER": Number
-"FaxLine::CREATED_AT": Created at
-"FaxLine::UPDATED_AT": Updated at
+"FaxLineResponseFaxLine::NUMBER": Number
+"FaxLineResponseFaxLine::CREATED_AT": Created at
+"FaxLineResponseFaxLine::UPDATED_AT": Updated at
 
 "OAuthTokenGenerate::SUMMARY": OAuth Token Generate
 "OAuthTokenGenerate::DESCRIPTION": Once you have retrieved the code from the user callback, you will need to exchange it for an access token via a backend call.
