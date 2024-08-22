@@ -131,6 +131,9 @@
 
 "FaxLineAddUser::SUMMARY": Add Fax Line User
 "FaxLineAddUser::DESCRIPTION": Grants a user access to the specified Fax Line.
+"FaxLineAddUser::NUMBER": The Fax Line number.
+"FaxLineAddUser::ACCOUNT_ID": Account ID
+"FaxLineAddUser::EMAIL_ADDRESS": Email address
 "FaxLineAreaCodeGet::SUMMARY": Get Available Fax Line Area Codes
 "FaxLineAreaCodeGet::DESCRIPTION": Returns a response with the area codes available for a given state/provice and city.
 "FaxLineAreaCodeGet::CITY": Filter area codes by city.
@@ -152,9 +155,9 @@
 "FaxLineList::SHOW_TEAM_LINES": Show team lines
 "FaxLineRemoveUser::SUMMARY": Remove Fax Line Access
 "FaxLineRemoveUser::DESCRIPTION": Removes a user's access to the specified Fax Line.
-"FaxLineAddUser::NUMBER": The Fax Line number.
-"FaxLineAddUser::ACCOUNT_ID": Account ID
-"FaxLineCreate::EMAIL_ADDRESS": Email address
+"FaxLineRemoveUser::NUMBER": The Fax Line number.
+"FaxLineRemoveUser::ACCOUNT_ID": Account ID
+"FaxLineRemoveUser::EMAIL_ADDRESS": Email address
 "FaxLineCreate::AREA_CODE": Area code
 "FaxLineCreate::CITY": City
 "FaxLineCreate::COUNTRY": Country
