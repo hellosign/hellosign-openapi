@@ -38,7 +38,7 @@ This returns an Array which contains the response data{{^returnType}} (`nil` in 
 ```ruby
 begin
   {{#summary}}# {{{.}}}{{/summary}}
-  data, status_code, headers = api_instance.{{{operationId}}}_with_http_info{{#hasParams}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}){{/hasParams}}
+  data, status_code, headers = api_instance.{{{operationId}}}_with_http_info{{#hasParams}}({{^vendorExtensions.x-group-parameters}}{{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}opts{{/vendorExtensions.x-group-parameters}}){{/hasParams}}
   p status_code # => 2xx
   p headers # => { ... }
   p data # => {{#returnType}}{{#returnTypeIsPrimitive}}{{returnType}}{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}<{{{returnType}}}>{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}nil{{/returnType}}
