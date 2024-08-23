@@ -79,14 +79,9 @@ namespace Dropbox.Sign.Model
         /// <param name="country">Country (required).</param>
         /// <param name="city">City.</param>
         /// <param name="accountId">Account ID.</param>
-        public FaxLineCreateRequest(string areaCode = default(string), CountryEnum country = default(CountryEnum), string city = default(string), string accountId = default(string))
+        public FaxLineCreateRequest(int areaCode = default(int), CountryEnum country = default(CountryEnum), string city = default(string), string accountId = default(string))
         {
             
-            // to ensure "areaCode" is required (not null)
-            if (areaCode == null)
-            {
-                throw new ArgumentNullException("areaCode is a required property for FaxLineCreateRequest and cannot be null");
-            }
             this.AreaCode = areaCode;
             this.Country = country;
             this.City = city;
@@ -114,7 +109,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <value>Area code</value>
         [DataMember(Name = "area_code", IsRequired = true, EmitDefaultValue = true)]
-        public string AreaCode { get; set; }
+        public int AreaCode { get; set; }
 
         /// <summary>
         /// City
@@ -179,8 +174,7 @@ namespace Dropbox.Sign.Model
             return 
                 (
                     this.AreaCode == input.AreaCode ||
-                    (this.AreaCode != null &&
-                    this.AreaCode.Equals(input.AreaCode))
+                    this.AreaCode.Equals(input.AreaCode)
                 ) && 
                 (
                     this.Country == input.Country ||
@@ -207,10 +201,7 @@ namespace Dropbox.Sign.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AreaCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.AreaCode.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.AreaCode.GetHashCode();
                 hashCode = (hashCode * 59) + this.Country.GetHashCode();
                 if (this.City != null)
                 {
@@ -230,7 +221,7 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "area_code",
                 Property = "AreaCode",
-                Type = "string",
+                Type = "int",
                 Value = AreaCode,
             });
             types.Add(new OpenApiType(){

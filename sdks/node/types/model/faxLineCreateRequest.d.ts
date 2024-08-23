@@ -1,6 +1,6 @@
 import { AttributeTypeMap } from "./";
 export declare class FaxLineCreateRequest {
-    "areaCode": string;
+    "areaCode": number;
     "country": FaxLineCreateRequest.CountryEnum;
     "city"?: string;
     "accountId"?: string;

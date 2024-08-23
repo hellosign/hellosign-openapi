@@ -15,7 +15,7 @@ public class Example
         var faxLineApi = new FaxLineApi(config);
 
         var data = new FaxLineCreateRequest(
-            areaCode: "209",
+            areaCode: 209,
             country: "US"
         );
 

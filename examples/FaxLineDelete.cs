@@ -20,8 +20,7 @@ public class Example
 
         try
         {
-            var result = faxLineApi.FaxLineDelete(data);
-            Console.WriteLine(result);
+            faxLineApi.FaxLineDelete(data);
         }
         catch (ApiException e)
         {

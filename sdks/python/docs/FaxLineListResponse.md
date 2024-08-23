@@ -7,7 +7,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `list_info` | [```ListInfoResponse```](ListInfoResponse.md) |    |  |
-| `fax_lines` | [```[FaxLine]```](FaxLine.md) |    |  |
+| `fax_lines` | [```[FaxLineResponseFaxLine]```](FaxLineResponseFaxLine.md) |    |  |
 | `warnings` | [```WarningResponse```](WarningResponse.md) |    |  |
 
 

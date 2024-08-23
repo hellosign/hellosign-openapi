@@ -6,7 +6,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `area_code`<sup>*_required_</sup> | ```str``` |  Area code  |  |
+| `area_code`<sup>*_required_</sup> | ```int``` |  Area code  |  |
 | `country`<sup>*_required_</sup> | ```str``` |  Country  |  |
 | `city` | ```str``` |  City  |  |
 | `account_id` | ```str``` |  Account ID  |  |

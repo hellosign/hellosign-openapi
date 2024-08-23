@@ -1404,7 +1404,7 @@ paths:
           title: '_t__EmbeddedSignUrl::SEO::TITLE'
           description: '_t__EmbeddedSignUrl::SEO::DESCRIPTION'
   /fax_line/add_user:
-    post:
+    put:
       tags:
         - 'Fax Line'
       summary: '_t__FaxLineAddUser::SUMMARY'
@@ -2002,6 +2002,7 @@ paths:
           description: '_t__FaxLineList::PAGE'
           schema:
             type: integer
+            default: 1
           example: 1
         -
           name: page_size
@@ -2009,6 +2010,7 @@ paths:
           description: '_t__FaxLineList::PAGE_SIZE'
           schema:
             type: integer
+            default: 20
           example: 20
         -
           name: show_team_lines
@@ -2016,6 +2018,7 @@ paths:
           description: '_t__FaxLineList::SHOW_TEAM_LINES'
           schema:
             type: boolean
+            default: 0
       responses:
         '200':
           description: 'successful operation'
@@ -2099,7 +2102,7 @@ paths:
           title: '_t__FaxLineList::SEO::TITLE'
           description: '_t__FaxLineList::SEO::DESCRIPTION'
   /fax_line/remove_user:
-    post:
+    put:
       tags:
         - 'Fax Line'
       summary: '_t__FaxLineRemoveUser::SUMMARY'
@@ -7122,7 +7125,7 @@ components:
           type: string
           example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
         email_address:
-          description: '_t__FaxLineCreate::EMAIL_ADDRESS'
+          description: '_t__FaxLineAddUser::EMAIL_ADDRESS'
           type: string
           format: email
       type: object
@@ -7209,7 +7212,7 @@ components:
       properties:
         area_code:
           description: '_t__FaxLineCreate::AREA_CODE'
-          type: string
+          type: integer
         country:
           description: '_t__FaxLineCreate::COUNTRY'
           type: string
@@ -7238,14 +7241,14 @@ components:
         - number
       properties:
         number:
-          description: '_t__FaxLineDelete::NUMBER'
+          description: '_t__FaxLineRemoveUser::NUMBER'
           type: string
         account_id:
-          description: '_t__FaxLineCreate::ACCOUNT_ID'
+          description: '_t__FaxLineRemoveUser::ACCOUNT_ID'
           type: string
           example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
         email_address:
-          description: '_t__FaxLineCreate::EMAIL_ADDRESS'
+          description: '_t__FaxLineRemoveUser::EMAIL_ADDRESS'
           type: string
           format: email
       type: object
@@ -9582,19 +9585,19 @@ components:
     FaxLineResponse:
       properties:
         fax_line:
-          $ref: '#/components/schemas/FaxLine'
+          $ref: '#/components/schemas/FaxLineResponseFaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     FaxLineAreaCodeGetResponse:
       properties:
         area_codes:
           type: array
           items:
-            type: string
+            type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     FaxLineListResponse:
       properties:
         list_info:
@@ -9602,11 +9605,11 @@ components:
         fax_lines:
           type: array
           items:
-            $ref: '#/components/schemas/FaxLine'
+            $ref: '#/components/schemas/FaxLineResponseFaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     FileResponse:
       properties:
         file_url:
@@ -9938,22 +9941,23 @@ components:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
       type: object
-    FaxLine:
+    FaxLineResponseFaxLine:
       properties:
         number:
-          description: '_t__FaxLine::NUMBER'
+          description: '_t__FaxLineResponseFaxLine::NUMBER'
           type: string
         created_at:
-          description: '_t__FaxLine::CREATED_AT'
-          type: string
+          description: '_t__FaxLineResponseFaxLine::CREATED_AT'
+          type: integer
         updated_at:
-          description: '_t__FaxLine::UPDATED_AT'
-          type: string
+          description: '_t__FaxLineResponseFaxLine::UPDATED_AT'
+          type: integer
         accounts:
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
       type: object
+      x-internal-class: true
     ListInfoResponse:
       description: '_t__ListInfoResponse::DESCRIPTION'
       properties:
@@ -12087,6 +12091,9 @@ tags:
   -
     name: 'Callbacks and Events'
     description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
+  -
+    name: 'Fax Line'
+    description: '_md__OpenApi::TAG::TAG_FAX_LINE::DESCRIPTION'
 externalDocs:
   description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'

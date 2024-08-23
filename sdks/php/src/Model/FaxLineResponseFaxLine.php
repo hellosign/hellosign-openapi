@@ -1,6 +1,6 @@
 <?php
 /**
- * FaxLine
+ * FaxLineResponseFaxLine
  *
  * PHP version 7.4
  *
@@ -34,7 +34,7 @@ use JsonSerializable;
 use ReturnTypeWillChange;
 
 /**
- * FaxLine Class Doc Comment
+ * FaxLineResponseFaxLine Class Doc Comment
  *
  * @category Class
  * @author   OpenAPI Generator team
@@ -42,8 +42,9 @@ use ReturnTypeWillChange;
  * @implements \ArrayAccess<TKey, TValue>
  * @template TKey int|null
  * @template TValue mixed|null
+ * @internal This class should not be instantiated directly
  */
-class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
+class FaxLineResponseFaxLine implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'FaxLine';
+    protected static $openAPIModelName = 'FaxLineResponseFaxLine';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +62,8 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
      */
     protected static $openAPITypes = [
         'number' => 'string',
-        'created_at' => 'string',
-        'updated_at' => 'string',
+        'created_at' => 'int',
+        'updated_at' => 'int',
         'accounts' => '\Dropbox\Sign\Model\AccountResponse[]',
     ];
 
@@ -200,18 +201,18 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /** @deprecated use ::init() */
-    public static function fromArray(array $data): FaxLine
+    public static function fromArray(array $data): FaxLineResponseFaxLine
     {
         return self::init($data);
     }
 
     /** Attempt to instantiate and hydrate a new instance of this class */
-    public static function init(array $data): FaxLine
+    public static function init(array $data): FaxLineResponseFaxLine
     {
-        /** @var FaxLine $obj */
+        /** @var FaxLineResponseFaxLine $obj */
         $obj = ObjectSerializer::deserialize(
             $data,
-            FaxLine::class,
+            FaxLineResponseFaxLine::class,
         );
 
         return $obj;
@@ -267,7 +268,7 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets created_at
      *
-     * @return string|null
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -277,11 +278,11 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets created_at
      *
-     * @param string|null $created_at Created at
+     * @param int|null $created_at Created at
      *
      * @return self
      */
-    public function setCreatedAt(?string $created_at)
+    public function setCreatedAt(?int $created_at)
     {
         $this->container['created_at'] = $created_at;
 
@@ -291,7 +292,7 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets updated_at
      *
-     * @return string|null
+     * @return int|null
      */
     public function getUpdatedAt()
     {
@@ -301,11 +302,11 @@ class FaxLine implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param string|null $updated_at Updated at
+     * @param int|null $updated_at Updated at
      *
      * @return self
      */
-    public function setUpdatedAt(?string $updated_at)
+    public function setUpdatedAt(?int $updated_at)
     {
         $this->container['updated_at'] = $updated_at;
 

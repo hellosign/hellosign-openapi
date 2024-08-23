@@ -137,13 +137,13 @@ Class | Method | HTTP request | Description
 *BulkSendJobApi* | [**BulkSendJobList**](docs/BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs
 *EmbeddedApi* | [**EmbeddedEditUrl**](docs/EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL
 *EmbeddedApi* | [**EmbeddedSignUrl**](docs/EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL
-*FaxLineApi* | [**FaxLineAddUser**](docs/FaxLineApi.md#faxlineadduser) | **POST** /fax_line/add_user | Add Fax Line User
+*FaxLineApi* | [**FaxLineAddUser**](docs/FaxLineApi.md#faxlineadduser) | **PUT** /fax_line/add_user | Add Fax Line User
 *FaxLineApi* | [**FaxLineAreaCodeGet**](docs/FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
 *FaxLineApi* | [**FaxLineCreate**](docs/FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line
 *FaxLineApi* | [**FaxLineDelete**](docs/FaxLineApi.md#faxlinedelete) | **DELETE** /fax_line | Delete Fax Line
 *FaxLineApi* | [**FaxLineGet**](docs/FaxLineApi.md#faxlineget) | **GET** /fax_line | Get Fax Line
 *FaxLineApi* | [**FaxLineList**](docs/FaxLineApi.md#faxlinelist) | **GET** /fax_line/list | List Fax Lines
-*FaxLineApi* | [**FaxLineRemoveUser**](docs/FaxLineApi.md#faxlineremoveuser) | **POST** /fax_line/remove_user | Remove Fax Line Access
+*FaxLineApi* | [**FaxLineRemoveUser**](docs/FaxLineApi.md#faxlineremoveuser) | **PUT** /fax_line/remove_user | Remove Fax Line Access
 *OAuthApi* | [**OauthTokenGenerate**](docs/OAuthApi.md#oauthtokengenerate) | **POST** /oauth/token | OAuth Token Generate
 *OAuthApi* | [**OauthTokenRefresh**](docs/OAuthApi.md#oauthtokenrefresh) | **POST** /oauth/token?refresh | OAuth Token Refresh
 *ReportApi* | [**ReportCreate**](docs/ReportApi.md#reportcreate) | **POST** /report/create | Create Report
@@ -227,7 +227,6 @@ Class | Method | HTTP request | Description
  - [Model.EventCallbackRequest](docs/EventCallbackRequest.md)
  - [Model.EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [Model.EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
- - [Model.FaxLine](docs/FaxLine.md)
  - [Model.FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [Model.FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [Model.FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
@@ -238,6 +237,7 @@ Class | Method | HTTP request | Description
  - [Model.FaxLineListResponse](docs/FaxLineListResponse.md)
  - [Model.FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
  - [Model.FaxLineResponse](docs/FaxLineResponse.md)
+ - [Model.FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
  - [Model.FileResponse](docs/FileResponse.md)
  - [Model.FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Model.ListInfoResponse](docs/ListInfoResponse.md)

@@ -4,13 +4,13 @@ All URIs are relative to https://api.hellosign.com/v3.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**faxLineAddUser()**](FaxLineApi.md#faxLineAddUser) | **POST** /fax_line/add_user | Add Fax Line User |
+| [**faxLineAddUser()**](FaxLineApi.md#faxLineAddUser) | **PUT** /fax_line/add_user | Add Fax Line User |
 | [**faxLineAreaCodeGet()**](FaxLineApi.md#faxLineAreaCodeGet) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 | [**faxLineCreate()**](FaxLineApi.md#faxLineCreate) | **POST** /fax_line/create | Purchase Fax Line |
 | [**faxLineDelete()**](FaxLineApi.md#faxLineDelete) | **DELETE** /fax_line | Delete Fax Line |
 | [**faxLineGet()**](FaxLineApi.md#faxLineGet) | **GET** /fax_line | Get Fax Line |
 | [**faxLineList()**](FaxLineApi.md#faxLineList) | **GET** /fax_line/list | List Fax Lines |
-| [**faxLineRemoveUser()**](FaxLineApi.md#faxLineRemoveUser) | **POST** /fax_line/remove_user | Remove Fax Line Access |
+| [**faxLineRemoveUser()**](FaxLineApi.md#faxLineRemoveUser) | **PUT** /fax_line/remove_user | Remove Fax Line Access |
 
 
 ## `faxLineAddUser()`
@@ -193,7 +193,7 @@ const faxLineApi = new DropboxSign.FaxLineApi();
 faxLineApi.username = "YOUR_API_KEY";
 
 const data: DropboxSign.FaxLineCreateRequest = {
-  areaCode: "209",
+  areaCode: 209,
   country: "US",
 };
 
@@ -218,7 +218,7 @@ const faxLineApi = new DropboxSign.FaxLineApi();
 faxLineApi.username = "YOUR_API_KEY";
 
 const data = {
-  areaCode: "209",
+  areaCode: 209,
   country: "US",
 };
 
@@ -280,9 +280,8 @@ const data: DropboxSign.FaxLineDeleteRequest = {
 };
 
 const result = faxLineApi.faxLineDelete(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
+
+result.catch(error => {
   console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
@@ -304,9 +303,8 @@ const data = {
 };
 
 const result = faxLineApi.faxLineDelete(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
+
+result.catch(error => {
   console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });
@@ -464,8 +462,8 @@ result.then(response => {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **accountId** | **string**| Account ID | [optional] |
-| **page** | **number**| Page | [optional] |
-| **pageSize** | **number**| Page size | [optional] |
+| **page** | **number**| Page | [optional] [default to 1] |
+| **pageSize** | **number**| Page size | [optional] [default to 20] |
 | **showTeamLines** | **boolean**| Show team lines | [optional] |
 
 ### Return type

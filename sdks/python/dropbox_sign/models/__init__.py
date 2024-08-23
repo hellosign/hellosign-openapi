@@ -43,7 +43,6 @@ from dropbox_sign.model.error_response_error import ErrorResponseError
 from dropbox_sign.model.event_callback_request import EventCallbackRequest
 from dropbox_sign.model.event_callback_request_event import EventCallbackRequestEvent
 from dropbox_sign.model.event_callback_request_event_metadata import EventCallbackRequestEventMetadata
-from dropbox_sign.model.fax_line import FaxLine
 from dropbox_sign.model.fax_line_add_user_request import FaxLineAddUserRequest
 from dropbox_sign.model.fax_line_area_code_get_country_enum import FaxLineAreaCodeGetCountryEnum
 from dropbox_sign.model.fax_line_area_code_get_province_enum import FaxLineAreaCodeGetProvinceEnum
@@ -54,6 +53,7 @@ from dropbox_sign.model.fax_line_delete_request import FaxLineDeleteRequest
 from dropbox_sign.model.fax_line_list_response import FaxLineListResponse
 from dropbox_sign.model.fax_line_remove_user_request import FaxLineRemoveUserRequest
 from dropbox_sign.model.fax_line_response import FaxLineResponse
+from dropbox_sign.model.fax_line_response_fax_line import FaxLineResponseFaxLine
 from dropbox_sign.model.file_response import FileResponse
 from dropbox_sign.model.file_response_data_uri import FileResponseDataUri
 from dropbox_sign.model.list_info_response import ListInfoResponse

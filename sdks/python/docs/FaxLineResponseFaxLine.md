@@ -1,4 +1,4 @@
-# FaxLine
+# FaxLineResponseFaxLine
 
 
 
@@ -7,8 +7,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `number` | ```str``` |  Number  |  |
-| `created_at` | ```str``` |  Created at  |  |
-| `updated_at` | ```str``` |  Updated at  |  |
+| `created_at` | ```int``` |  Created at  |  |
+| `updated_at` | ```int``` |  Updated at  |  |
 | `accounts` | [```[AccountResponse]```](AccountResponse.md) |    |  |
 
 

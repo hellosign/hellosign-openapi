@@ -25,7 +25,7 @@
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 
 export class FaxLineAreaCodeGetResponse {
-  "areaCodes"?: Array<string>;
+  "areaCodes"?: Array<number>;
 
   static discriminator: string | undefined = undefined;
 
@@ -33,7 +33,7 @@ export class FaxLineAreaCodeGetResponse {
     {
       name: "areaCodes",
       baseName: "area_codes",
-      type: "Array<string>",
+      type: "Array<number>",
     },
   ];
 

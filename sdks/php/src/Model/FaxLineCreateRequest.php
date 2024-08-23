@@ -61,7 +61,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'area_code' => 'string',
+        'area_code' => 'int',
         'country' => 'string',
         'city' => 'string',
         'account_id' => 'string',
@@ -277,7 +277,7 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets area_code
      *
-     * @return string
+     * @return int
      */
     public function getAreaCode()
     {
@@ -287,11 +287,11 @@ class FaxLineCreateRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets area_code
      *
-     * @param string $area_code Area code
+     * @param int $area_code Area code
      *
      * @return self
      */
-    public function setAreaCode(string $area_code)
+    public function setAreaCode(int $area_code)
     {
         $this->container['area_code'] = $area_code;
 

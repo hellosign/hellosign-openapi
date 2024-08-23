@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AreaCode** | **string** |  Area code  | 
+**AreaCode** | **int** |  Area code  | 
 **Country** | **string** |  Country  | 
 **City** | **string** |  City  | [optional] 
 **AccountId** | **string** |  Account ID  | [optional] 

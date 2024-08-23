@@ -124,7 +124,7 @@ public class FaxLineApi {
 
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
 
-    return apiClient.invokeAPI("FaxLineApi.faxLineAddUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("FaxLineApi.faxLineAddUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -501,8 +501,8 @@ public class FaxLineApi {
    * List Fax Lines
    * Returns the properties and settings of multiple Fax Lines.
    * @param accountId Account ID (optional)
-   * @param page Page (optional)
-   * @param pageSize Page size (optional)
+   * @param page Page (optional, default to 1)
+   * @param pageSize Page size (optional, default to 20)
    * @param showTeamLines Show team lines (optional)
    * @return FaxLineListResponse
    * @throws ApiException if fails to make API call
@@ -523,8 +523,8 @@ public class FaxLineApi {
    */
   public FaxLineListResponse faxLineList() throws ApiException {
     String accountId = null;
-    Integer page = null;
-    Integer pageSize = null;
+    Integer page = 1;
+    Integer pageSize = 20;
     Boolean showTeamLines = null;
 
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines).getData();
@@ -535,8 +535,8 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineListResponse> faxLineListWithHttpInfo() throws ApiException {
     String accountId = null;
-    Integer page = null;
-    Integer pageSize = null;
+    Integer page = 1;
+    Integer pageSize = 20;
     Boolean showTeamLines = null;
 
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines);
@@ -546,8 +546,8 @@ public class FaxLineApi {
    * @see FaxLineApi#faxLineList(String, Integer, Integer, Boolean)
    */
   public FaxLineListResponse faxLineList(String accountId) throws ApiException {
-    Integer page = null;
-    Integer pageSize = null;
+    Integer page = 1;
+    Integer pageSize = 20;
     Boolean showTeamLines = null;
 
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines).getData();
@@ -557,8 +557,8 @@ public class FaxLineApi {
    * @see FaxLineApi#faxLineListWithHttpInfo(String, Integer, Integer, Boolean)
    */
   public ApiResponse<FaxLineListResponse> faxLineListWithHttpInfo(String accountId) throws ApiException {
-    Integer page = null;
-    Integer pageSize = null;
+    Integer page = 1;
+    Integer pageSize = 20;
     Boolean showTeamLines = null;
 
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines);
@@ -568,7 +568,7 @@ public class FaxLineApi {
    * @see FaxLineApi#faxLineList(String, Integer, Integer, Boolean)
    */
   public FaxLineListResponse faxLineList(String accountId, Integer page) throws ApiException {
-    Integer pageSize = null;
+    Integer pageSize = 20;
     Boolean showTeamLines = null;
 
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines).getData();
@@ -578,7 +578,7 @@ public class FaxLineApi {
    * @see FaxLineApi#faxLineListWithHttpInfo(String, Integer, Integer, Boolean)
    */
   public ApiResponse<FaxLineListResponse> faxLineListWithHttpInfo(String accountId, Integer page) throws ApiException {
-    Integer pageSize = null;
+    Integer pageSize = 20;
     Boolean showTeamLines = null;
 
     return faxLineListWithHttpInfo(accountId, page, pageSize, showTeamLines);
@@ -607,8 +607,8 @@ public class FaxLineApi {
    * List Fax Lines
    * Returns the properties and settings of multiple Fax Lines.
    * @param accountId Account ID (optional)
-   * @param page Page (optional)
-   * @param pageSize Page size (optional)
+   * @param page Page (optional, default to 1)
+   * @param pageSize Page size (optional, default to 20)
    * @param showTeamLines Show team lines (optional)
    * @return ApiResponse&lt;FaxLineListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -621,6 +621,12 @@ public class FaxLineApi {
    */
   public ApiResponse<FaxLineListResponse> faxLineListWithHttpInfo(String accountId, Integer page, Integer pageSize, Boolean showTeamLines) throws ApiException {
     
+    if (page == null) {
+        page = 1;
+    }
+    if (pageSize == null) {
+        pageSize = 20;
+    }
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -733,7 +739,7 @@ public class FaxLineApi {
 
     GenericType<FaxLineResponse> localVarReturnType = new GenericType<FaxLineResponse>() {};
 
-    return apiClient.invokeAPI("FaxLineApi.faxLineRemoveUser", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    return apiClient.invokeAPI("FaxLineApi.faxLineRemoveUser", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

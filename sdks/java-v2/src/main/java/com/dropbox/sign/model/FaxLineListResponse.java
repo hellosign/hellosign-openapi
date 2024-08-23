@@ -16,7 +16,7 @@ package com.dropbox.sign.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.dropbox.sign.model.FaxLine;
+import com.dropbox.sign.model.FaxLineResponseFaxLine;
 import com.dropbox.sign.model.ListInfoResponse;
 import com.dropbox.sign.model.WarningResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -51,7 +51,7 @@ public class FaxLineListResponse {
   private ListInfoResponse listInfo;
 
   public static final String JSON_PROPERTY_FAX_LINES = "fax_lines";
-  private List<FaxLine> faxLines;
+  private List<FaxLineResponseFaxLine> faxLines;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private WarningResponse warnings;
@@ -100,12 +100,12 @@ public class FaxLineListResponse {
   }
 
 
-  public FaxLineListResponse faxLines(List<FaxLine> faxLines) {
+  public FaxLineListResponse faxLines(List<FaxLineResponseFaxLine> faxLines) {
     this.faxLines = faxLines;
     return this;
   }
 
-  public FaxLineListResponse addFaxLinesItem(FaxLine faxLinesItem) {
+  public FaxLineListResponse addFaxLinesItem(FaxLineResponseFaxLine faxLinesItem) {
     if (this.faxLines == null) {
       this.faxLines = new ArrayList<>();
     }
@@ -122,14 +122,14 @@ public class FaxLineListResponse {
   @JsonProperty(JSON_PROPERTY_FAX_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<FaxLine> getFaxLines() {
+  public List<FaxLineResponseFaxLine> getFaxLines() {
     return faxLines;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FAX_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFaxLines(List<FaxLine> faxLines) {
+  public void setFaxLines(List<FaxLineResponseFaxLine> faxLines) {
     this.faxLines = faxLines;
   }
 

@@ -156,8 +156,8 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineListResponse</returns>
@@ -171,8 +171,8 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineListResponse</returns>
@@ -348,8 +348,8 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -364,8 +364,8 @@ namespace Dropbox.Sign.Api
         /// </remarks>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -586,7 +586,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FaxLineResponse>("/fax_line/add_user", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<FaxLineResponse>("/fax_line/add_user", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineAddUser", localVarResponse);
@@ -672,7 +672,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FaxLineResponse>("/fax_line/add_user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<FaxLineResponse>("/fax_line/add_user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1375,8 +1375,8 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>FaxLineListResponse</returns>
@@ -1391,8 +1391,8 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of FaxLineListResponse</returns>
@@ -1465,8 +1465,8 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1482,8 +1482,8 @@ namespace Dropbox.Sign.Api
         /// </summary>
         /// <exception cref="Dropbox.Sign.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">Account ID (optional)</param>
-        /// <param name="page">Page (optional)</param>
-        /// <param name="pageSize">Page size (optional)</param>
+        /// <param name="page">Page (optional, default to 1)</param>
+        /// <param name="pageSize">Page size (optional, default to 20)</param>
         /// <param name="showTeamLines">Show team lines (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1625,7 +1625,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<FaxLineResponse>("/fax_line/remove_user", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<FaxLineResponse>("/fax_line/remove_user", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FaxLineRemoveUser", localVarResponse);
@@ -1711,7 +1711,7 @@ namespace Dropbox.Sign.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<FaxLineResponse>("/fax_line/remove_user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<FaxLineResponse>("/fax_line/remove_user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -16,7 +16,6 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = fax_line_api.fax_line_delete(data)
-        pprint(response)
+        fax_line_api.fax_line_delete(data)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)

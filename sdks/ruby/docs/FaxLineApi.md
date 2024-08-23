@@ -4,13 +4,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [`fax_line_add_user`](FaxLineApi.md#fax_line_add_user) | **POST** `/fax_line/add_user` | Add Fax Line User |
+| [`fax_line_add_user`](FaxLineApi.md#fax_line_add_user) | **PUT** `/fax_line/add_user` | Add Fax Line User |
 | [`fax_line_area_code_get`](FaxLineApi.md#fax_line_area_code_get) | **GET** `/fax_line/area_codes` | Get Available Fax Line Area Codes |
 | [`fax_line_create`](FaxLineApi.md#fax_line_create) | **POST** `/fax_line/create` | Purchase Fax Line |
 | [`fax_line_delete`](FaxLineApi.md#fax_line_delete) | **DELETE** `/fax_line` | Delete Fax Line |
 | [`fax_line_get`](FaxLineApi.md#fax_line_get) | **GET** `/fax_line` | Get Fax Line |
 | [`fax_line_list`](FaxLineApi.md#fax_line_list) | **GET** `/fax_line/list` | List Fax Lines |
-| [`fax_line_remove_user`](FaxLineApi.md#fax_line_remove_user) | **POST** `/fax_line/remove_user` | Remove Fax Line Access |
+| [`fax_line_remove_user`](FaxLineApi.md#fax_line_remove_user) | **PUT** `/fax_line/remove_user` | Remove Fax Line Access |
 
 
 ## `fax_line_add_user`
@@ -175,7 +175,7 @@ end
 fax_line_api = Dropbox::Sign::FaxLineApi.new
 
 data = Dropbox::Sign::FaxLineCreateRequest.new
-data.area_code = "209"
+data.area_code = 209
 data.country = "US"
 
 begin
@@ -249,8 +249,7 @@ data = Dropbox::Sign::FaxLineDeleteRequest.new
 data.number = "[FAX_NUMBER]"
 
 begin
-  result = fax_line_api.fax_line_delete(data)
-  p result
+  fax_line_api.fax_line_delete(data)
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end
@@ -414,8 +413,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **String** | Account ID | [optional] |
-| `page` | **Integer** | Page | [optional] |
-| `page_size` | **Integer** | Page size | [optional] |
+| `page` | **Integer** | Page | [optional][default to 1] |
+| `page_size` | **Integer** | Page size | [optional][default to 20] |
 | `show_team_lines` | **Boolean** | Show team lines | [optional] |
 
 ### Return type

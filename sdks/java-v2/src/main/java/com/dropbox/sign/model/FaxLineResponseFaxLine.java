@@ -14,7 +14,6 @@
 package com.dropbox.sign.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.dropbox.sign.model.AccountResponse;
@@ -23,10 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,48 +35,48 @@ import com.dropbox.sign.JSON;
 
 import com.dropbox.sign.ApiException;
 /**
- * FaxLine
+ * FaxLineResponseFaxLine
  */
 @JsonPropertyOrder({
-    FaxLine.JSON_PROPERTY_NUMBER,
-    FaxLine.JSON_PROPERTY_CREATED_AT,
-    FaxLine.JSON_PROPERTY_UPDATED_AT,
-    FaxLine.JSON_PROPERTY_ACCOUNTS
+  FaxLineResponseFaxLine.JSON_PROPERTY_NUMBER,
+  FaxLineResponseFaxLine.JSON_PROPERTY_CREATED_AT,
+  FaxLineResponseFaxLine.JSON_PROPERTY_UPDATED_AT,
+  FaxLineResponseFaxLine.JSON_PROPERTY_ACCOUNTS
 })
 @JsonIgnoreProperties(ignoreUnknown=true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FaxLine {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+public class FaxLineResponseFaxLine {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private String number;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private String createdAt;
+  private Integer createdAt;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
-  private String updatedAt;
+  private Integer updatedAt;
 
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-  private List<AccountResponse> accounts = null;
+  private List<AccountResponse> accounts;
 
-  public FaxLine() { 
+  public FaxLineResponseFaxLine() { 
   }
 
   /**
    * Attempt to instantiate and hydrate a new instance of this class
    * @param jsonData String of JSON data representing target object
    */
-  static public FaxLine init(String jsonData) throws Exception {
-    return new ObjectMapper().readValue(jsonData, FaxLine.class);
+  static public FaxLineResponseFaxLine init(String jsonData) throws Exception {
+    return new ObjectMapper().readValue(jsonData, FaxLineResponseFaxLine.class);
   }
 
-  static public FaxLine init(HashMap data) throws Exception {
+  static public FaxLineResponseFaxLine init(HashMap data) throws Exception {
     return new ObjectMapper().readValue(
       new ObjectMapper().writeValueAsString(data),
-      FaxLine.class
+      FaxLineResponseFaxLine.class
     );
   }
 
-  public FaxLine number(String number) {
+  public FaxLineResponseFaxLine number(String number) {
     this.number = number;
     return this;
   }
@@ -85,7 +85,7 @@ public class FaxLine {
    * Number
    * @return number
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +102,7 @@ public class FaxLine {
   }
 
 
-  public FaxLine createdAt(String createdAt) {
+  public FaxLineResponseFaxLine createdAt(Integer createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -111,24 +111,24 @@ public class FaxLine {
    * Created at
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Created at")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getCreatedAt() {
+  public Integer getCreatedAt() {
     return createdAt;
   }
 
 
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(String createdAt) {
+  public void setCreatedAt(Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
-  public FaxLine updatedAt(String updatedAt) {
+  public FaxLineResponseFaxLine updatedAt(Integer updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -137,29 +137,29 @@ public class FaxLine {
    * Updated at
    * @return updatedAt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Updated at")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getUpdatedAt() {
+  public Integer getUpdatedAt() {
     return updatedAt;
   }
 
 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUpdatedAt(String updatedAt) {
+  public void setUpdatedAt(Integer updatedAt) {
     this.updatedAt = updatedAt;
   }
 
 
-  public FaxLine accounts(List<AccountResponse> accounts) {
+  public FaxLineResponseFaxLine accounts(List<AccountResponse> accounts) {
     this.accounts = accounts;
     return this;
   }
 
-  public FaxLine addAccountsItem(AccountResponse accountsItem) {
+  public FaxLineResponseFaxLine addAccountsItem(AccountResponse accountsItem) {
     if (this.accounts == null) {
       this.accounts = new ArrayList<>();
     }
@@ -171,7 +171,7 @@ public class FaxLine {
    * Get accounts
    * @return accounts
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,7 +189,7 @@ public class FaxLine {
 
 
   /**
-   * Return true if this FaxLine object is equal to o.
+   * Return true if this FaxLineResponseFaxLine object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -199,11 +199,11 @@ public class FaxLine {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FaxLine faxLine = (FaxLine) o;
-    return Objects.equals(this.number, faxLine.number) &&
-        Objects.equals(this.createdAt, faxLine.createdAt) &&
-        Objects.equals(this.updatedAt, faxLine.updatedAt) &&
-        Objects.equals(this.accounts, faxLine.accounts);
+    FaxLineResponseFaxLine faxLineResponseFaxLine = (FaxLineResponseFaxLine) o;
+    return Objects.equals(this.number, faxLineResponseFaxLine.number) &&
+        Objects.equals(this.createdAt, faxLineResponseFaxLine.createdAt) &&
+        Objects.equals(this.updatedAt, faxLineResponseFaxLine.updatedAt) &&
+        Objects.equals(this.accounts, faxLineResponseFaxLine.accounts);
   }
 
   @Override
@@ -214,7 +214,7 @@ public class FaxLine {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FaxLine {\n");
+    sb.append("class FaxLineResponseFaxLine {\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

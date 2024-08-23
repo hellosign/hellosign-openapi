@@ -12973,7 +12973,6 @@ __export(api_exports, {
   EventCallbackRequest: () => EventCallbackRequest,
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
-  FaxLine: () => FaxLine,
   FaxLineAddUserRequest: () => FaxLineAddUserRequest,
   FaxLineApi: () => FaxLineApi,
   FaxLineAreaCodeGetCountryEnum: () => FaxLineAreaCodeGetCountryEnum,
@@ -12985,6 +12984,7 @@ __export(api_exports, {
   FaxLineListResponse: () => FaxLineListResponse,
   FaxLineRemoveUserRequest: () => FaxLineRemoveUserRequest,
   FaxLineResponse: () => FaxLineResponse,
+  FaxLineResponseFaxLine: () => FaxLineResponseFaxLine,
   FileResponse: () => FileResponse,
   FileResponseDataUri: () => FileResponseDataUri,
   HttpBasicAuth: () => HttpBasicAuth,
@@ -17664,40 +17664,6 @@ EventCallbackRequestEventMetadata.attributeTypeMap = [
   }
 ];
 
-// model/faxLine.ts
-var _FaxLine = class {
-  static getAttributeTypeMap() {
-    return _FaxLine.attributeTypeMap;
-  }
-  static init(data) {
-    return ObjectSerializer.deserialize(data, "FaxLine");
-  }
-};
-var FaxLine = _FaxLine;
-FaxLine.discriminator = void 0;
-FaxLine.attributeTypeMap = [
-  {
-    name: "number",
-    baseName: "number",
-    type: "string"
-  },
-  {
-    name: "createdAt",
-    baseName: "created_at",
-    type: "string"
-  },
-  {
-    name: "updatedAt",
-    baseName: "updated_at",
-    type: "string"
-  },
-  {
-    name: "accounts",
-    baseName: "accounts",
-    type: "Array<AccountResponse>"
-  }
-];
-
 // model/faxLineAddUserRequest.ts
 var _FaxLineAddUserRequest = class {
   static getAttributeTypeMap() {
@@ -17768,7 +17734,7 @@ FaxLineAreaCodeGetResponse.attributeTypeMap = [
   {
     name: "areaCodes",
     baseName: "area_codes",
-    type: "Array<string>"
+    type: "Array<number>"
   }
 ];
 
@@ -17843,7 +17809,7 @@ FaxLineCreateRequest.attributeTypeMap = [
   {
     name: "areaCode",
     baseName: "area_code",
-    type: "string"
+    type: "number"
   },
   {
     name: "country",
@@ -17909,7 +17875,7 @@ FaxLineListResponse.attributeTypeMap = [
   {
     name: "faxLines",
     baseName: "fax_lines",
-    type: "Array<FaxLine>"
+    type: "Array<FaxLineResponseFaxLine>"
   },
   {
     name: "warnings",
@@ -17962,12 +17928,46 @@ FaxLineResponse.attributeTypeMap = [
   {
     name: "faxLine",
     baseName: "fax_line",
-    type: "FaxLine"
+    type: "FaxLineResponseFaxLine"
   },
   {
     name: "warnings",
     baseName: "warnings",
     type: "WarningResponse"
+  }
+];
+
+// model/faxLineResponseFaxLine.ts
+var _FaxLineResponseFaxLine = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponseFaxLine.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponseFaxLine");
+  }
+};
+var FaxLineResponseFaxLine = _FaxLineResponseFaxLine;
+FaxLineResponseFaxLine.discriminator = void 0;
+FaxLineResponseFaxLine.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "createdAt",
+    baseName: "created_at",
+    type: "number"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<AccountResponse>"
   }
 ];
 
@@ -24467,7 +24467,6 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
-  FaxLine,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest,
@@ -24475,6 +24474,7 @@ var typeMap = {
   FaxLineListResponse,
   FaxLineRemoveUserRequest,
   FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   ListInfoResponse,
@@ -26406,7 +26406,7 @@ var FaxLineApi = class {
         );
       }
       let localVarRequestOptions = {
-        method: "POST",
+        method: "PUT",
         params: localVarQueryParameters,
         headers: localVarHeaderParams,
         url: localVarPath,
@@ -27077,7 +27077,7 @@ var FaxLineApi = class {
         );
       }
       let localVarRequestOptions = {
-        method: "POST",
+        method: "PUT",
         params: localVarQueryParameters,
         headers: localVarHeaderParams,
         url: localVarPath,
@@ -32638,7 +32638,6 @@ var APIS = [
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
-  FaxLine,
   FaxLineAddUserRequest,
   FaxLineApi,
   FaxLineAreaCodeGetCountryEnum,
@@ -32650,6 +32649,7 @@ var APIS = [
   FaxLineListResponse,
   FaxLineRemoveUserRequest,
   FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   HttpBasicAuth,

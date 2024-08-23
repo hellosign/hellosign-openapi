@@ -8,7 +8,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-| `areaCodes` | ```List<String>``` |    |  |
+| `areaCodes` | ```List<Integer>``` |    |  |
 
 
 

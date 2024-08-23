@@ -52,7 +52,7 @@ class FaxLineApi(object):
                 ],
                 'endpoint_path': '/fax_line/add_user',
                 'operation_id': 'fax_line_add_user',
-                'http_method': 'POST',
+                'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
@@ -468,7 +468,7 @@ class FaxLineApi(object):
                 ],
                 'endpoint_path': '/fax_line/remove_user',
                 'operation_id': 'fax_line_remove_user',
-                'http_method': 'POST',
+                'http_method': 'PUT',
                 'servers': None,
             },
             params_map={
@@ -1010,8 +1010,8 @@ class FaxLineApi(object):
 
         Keyword Args:
             account_id (str): Account ID. [optional]
-            page (int): Page. [optional]
-            page_size (int): Page size. [optional]
+            page (int): Page. [optional] if omitted the server will use the default value of 1
+            page_size (int): Page size. [optional] if omitted the server will use the default value of 20
             show_team_lines (bool): Show team lines. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

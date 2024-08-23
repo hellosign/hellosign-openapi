@@ -198,7 +198,7 @@ export class FaxLineApi {
     }
 
     let localVarRequestOptions: AxiosRequestConfig = {
-      method: "POST",
+      method: "PUT",
       params: localVarQueryParameters,
       headers: localVarHeaderParams,
       url: localVarPath,
@@ -1181,7 +1181,7 @@ export class FaxLineApi {
     }
 
     let localVarRequestOptions: AxiosRequestConfig = {
-      method: "POST",
+      method: "PUT",
       params: localVarQueryParameters,
       headers: localVarHeaderParams,
       url: localVarPath,

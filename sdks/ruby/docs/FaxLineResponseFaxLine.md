@@ -1,4 +1,4 @@
-# Dropbox::Sign::FaxLine
+# Dropbox::Sign::FaxLineResponseFaxLine
 
 
 
@@ -7,7 +7,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `number` | ```String``` |  Number  |  |
-| `created_at` | ```String``` |  Created at  |  |
-| `updated_at` | ```String``` |  Updated at  |  |
+| `created_at` | ```Integer``` |  Created at  |  |
+| `updated_at` | ```Integer``` |  Updated at  |  |
 | `accounts` | [```Array<AccountResponse>```](AccountResponse.md) |    |  |
 

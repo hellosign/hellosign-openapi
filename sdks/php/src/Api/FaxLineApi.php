@@ -436,7 +436,7 @@ class FaxLineApi
         $query = Psr7\Query::build($queryParams);
 
         return new Psr7\Request(
-            'POST',
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1682,15 +1682,15 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id Account ID (optional)
-     * @param int $page Page (optional)
-     * @param int $page_size Page size (optional)
+     * @param int $page Page (optional, default to 1)
+     * @param int $page_size Page size (optional, default to 20)
      * @param bool $show_team_lines Show team lines (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return Model\FaxLineListResponse
      */
-    public function faxLineList(string $account_id = null, int $page = null, int $page_size = null, bool $show_team_lines = null)
+    public function faxLineList(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null)
     {
         list($response) = $this->faxLineListWithHttpInfo($account_id, $page, $page_size, $show_team_lines);
 
@@ -1703,15 +1703,15 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id Account ID (optional)
-     * @param int $page Page (optional)
-     * @param int $page_size Page size (optional)
+     * @param int $page Page (optional, default to 1)
+     * @param int $page_size Page size (optional, default to 20)
      * @param bool $show_team_lines Show team lines (optional)
      *
      * @throws ApiException on non-2xx response
      * @throws InvalidArgumentException
      * @return array of Model\FaxLineListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function faxLineListWithHttpInfo(string $account_id = null, int $page = null, int $page_size = null, bool $show_team_lines = null)
+    public function faxLineListWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null)
     {
         $request = $this->faxLineListRequest($account_id, $page, $page_size, $show_team_lines);
 
@@ -1828,14 +1828,14 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id Account ID (optional)
-     * @param int $page Page (optional)
-     * @param int $page_size Page size (optional)
+     * @param int $page Page (optional, default to 1)
+     * @param int $page_size Page size (optional, default to 20)
      * @param bool $show_team_lines Show team lines (optional)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function faxLineListAsync(string $account_id = null, int $page = null, int $page_size = null, bool $show_team_lines = null)
+    public function faxLineListAsync(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null)
     {
         return $this->faxLineListAsyncWithHttpInfo($account_id, $page, $page_size, $show_team_lines)
             ->then(
@@ -1851,14 +1851,14 @@ class FaxLineApi
      * List Fax Lines
      *
      * @param string $account_id Account ID (optional)
-     * @param int $page Page (optional)
-     * @param int $page_size Page size (optional)
+     * @param int $page Page (optional, default to 1)
+     * @param int $page_size Page size (optional, default to 20)
      * @param bool $show_team_lines Show team lines (optional)
      *
      * @throws InvalidArgumentException
      * @return Promise\PromiseInterface
      */
-    public function faxLineListAsyncWithHttpInfo(string $account_id = null, int $page = null, int $page_size = null, bool $show_team_lines = null)
+    public function faxLineListAsyncWithHttpInfo(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null)
     {
         $returnType = '\Dropbox\Sign\Model\FaxLineListResponse';
         $request = $this->faxLineListRequest($account_id, $page, $page_size, $show_team_lines);
@@ -1900,14 +1900,14 @@ class FaxLineApi
      * Create request for operation 'faxLineList'
      *
      * @param string $account_id Account ID (optional)
-     * @param int $page Page (optional)
-     * @param int $page_size Page size (optional)
+     * @param int $page Page (optional, default to 1)
+     * @param int $page_size Page size (optional, default to 20)
      * @param bool $show_team_lines Show team lines (optional)
      *
      * @throws InvalidArgumentException
      * @return Psr7\Request
      */
-    public function faxLineListRequest(string $account_id = null, int $page = null, int $page_size = null, bool $show_team_lines = null)
+    public function faxLineListRequest(string $account_id = null, int $page = 1, int $page_size = 20, bool $show_team_lines = null)
     {
         $resourcePath = '/fax_line/list';
         $queryParams = [];
@@ -2333,7 +2333,7 @@ class FaxLineApi
         $query = Psr7\Query::build($queryParams);
 
         return new Psr7\Request(
-            'POST',
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

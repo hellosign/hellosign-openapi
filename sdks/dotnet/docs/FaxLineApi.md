@@ -4,13 +4,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**FaxLineAddUser**](FaxLineApi.md#faxlineadduser) | **POST** /fax_line/add_user | Add Fax Line User |
+| [**FaxLineAddUser**](FaxLineApi.md#faxlineadduser) | **PUT** /fax_line/add_user | Add Fax Line User |
 | [**FaxLineAreaCodeGet**](FaxLineApi.md#faxlineareacodeget) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 | [**FaxLineCreate**](FaxLineApi.md#faxlinecreate) | **POST** /fax_line/create | Purchase Fax Line |
 | [**FaxLineDelete**](FaxLineApi.md#faxlinedelete) | **DELETE** /fax_line | Delete Fax Line |
 | [**FaxLineGet**](FaxLineApi.md#faxlineget) | **GET** /fax_line | Get Fax Line |
 | [**FaxLineList**](FaxLineApi.md#faxlinelist) | **GET** /fax_line/list | List Fax Lines |
-| [**FaxLineRemoveUser**](FaxLineApi.md#faxlineremoveuser) | **POST** /fax_line/remove_user | Remove Fax Line Access |
+| [**FaxLineRemoveUser**](FaxLineApi.md#faxlineremoveuser) | **PUT** /fax_line/remove_user | Remove Fax Line Access |
 
 <a name="faxlineadduser"></a>
 # **FaxLineAddUser**
@@ -227,7 +227,7 @@ public class Example
         var faxLineApi = new FaxLineApi(config);
 
         var data = new FaxLineCreateRequest(
-            areaCode: "209",
+            areaCode: 209,
             country: "US"
         );
 
@@ -327,8 +327,7 @@ public class Example
 
         try
         {
-            var result = faxLineApi.FaxLineDelete(data);
-            Console.WriteLine(result);
+            faxLineApi.FaxLineDelete(data);
         }
         catch (ApiException e)
         {
@@ -543,8 +542,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **accountId** | **string?** | Account ID | [optional]  |
-| **page** | **int?** | Page | [optional]  |
-| **pageSize** | **int?** | Page size | [optional]  |
+| **page** | **int?** | Page | [optional] [default to 1] |
+| **pageSize** | **int?** | Page size | [optional] [default to 20] |
 | **showTeamLines** | **bool?** | Show team lines | [optional]  |
 
 ### Return type

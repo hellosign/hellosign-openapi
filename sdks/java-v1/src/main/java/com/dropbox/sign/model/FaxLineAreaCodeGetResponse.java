@@ -43,7 +43,7 @@ import com.dropbox.sign.ApiException;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineAreaCodeGetResponse {
   public static final String JSON_PROPERTY_AREA_CODES = "area_codes";
-  private List<String> areaCodes = null;
+  private List<Integer> areaCodes = null;
 
   public FaxLineAreaCodeGetResponse() { 
   }
@@ -63,12 +63,12 @@ public class FaxLineAreaCodeGetResponse {
     );
   }
 
-  public FaxLineAreaCodeGetResponse areaCodes(List<String> areaCodes) {
+  public FaxLineAreaCodeGetResponse areaCodes(List<Integer> areaCodes) {
     this.areaCodes = areaCodes;
     return this;
   }
 
-  public FaxLineAreaCodeGetResponse addAreaCodesItem(String areaCodesItem) {
+  public FaxLineAreaCodeGetResponse addAreaCodesItem(Integer areaCodesItem) {
     if (this.areaCodes == null) {
       this.areaCodes = new ArrayList<>();
     }
@@ -85,14 +85,14 @@ public class FaxLineAreaCodeGetResponse {
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getAreaCodes() {
+  public List<Integer> getAreaCodes() {
     return areaCodes;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAreaCodes(List<String> areaCodes) {
+  public void setAreaCodes(List<Integer> areaCodes) {
     this.areaCodes = areaCodes;
   }
 

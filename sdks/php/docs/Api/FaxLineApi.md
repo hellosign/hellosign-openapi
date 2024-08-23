@@ -4,13 +4,13 @@ All URIs are relative to https://api.hellosign.com/v3.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**faxLineAddUser()**](FaxLineApi.md#faxLineAddUser) | **POST** /fax_line/add_user | Add Fax Line User |
+| [**faxLineAddUser()**](FaxLineApi.md#faxLineAddUser) | **PUT** /fax_line/add_user | Add Fax Line User |
 | [**faxLineAreaCodeGet()**](FaxLineApi.md#faxLineAreaCodeGet) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 | [**faxLineCreate()**](FaxLineApi.md#faxLineCreate) | **POST** /fax_line/create | Purchase Fax Line |
 | [**faxLineDelete()**](FaxLineApi.md#faxLineDelete) | **DELETE** /fax_line | Delete Fax Line |
 | [**faxLineGet()**](FaxLineApi.md#faxLineGet) | **GET** /fax_line | Get Fax Line |
 | [**faxLineList()**](FaxLineApi.md#faxLineList) | **GET** /fax_line/list | List Fax Lines |
-| [**faxLineRemoveUser()**](FaxLineApi.md#faxLineRemoveUser) | **POST** /fax_line/remove_user | Remove Fax Line Access |
+| [**faxLineRemoveUser()**](FaxLineApi.md#faxLineRemoveUser) | **PUT** /fax_line/remove_user | Remove Fax Line Access |
 
 
 ## `faxLineAddUser()`
@@ -161,7 +161,7 @@ $config->setUsername("YOUR_API_KEY");
 $faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
 
 $data = new Dropbox\Sign\Model\FaxLineCreateRequest();
-$data->setAreaCode("209")
+$data->setAreaCode(209)
     ->setCountry("US");
 
 try {
@@ -226,8 +226,7 @@ $data = new Dropbox\Sign\Model\FaxLineDeleteRequest();
 $data->setNumber("[FAX_NUMBER]");
 
 try {
-    $result = $faxLineApi->faxLineDelete($data);
-    print_r($result);
+    $faxLineApi->faxLineDelete($data);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "
@@ -357,8 +356,8 @@ try {
 |Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **account_id** | **string**| Account ID | [optional] |
-| **page** | **int**| Page | [optional] |
-| **page_size** | **int**| Page size | [optional] |
+| **page** | **int**| Page | [optional] [default to 1] |
+| **page_size** | **int**| Page size | [optional] [default to 20] |
 | **show_team_lines** | **bool**| Show team lines | [optional] |
 
 ### Return type

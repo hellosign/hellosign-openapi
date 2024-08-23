@@ -86,7 +86,7 @@ class FaxLineAreaCodeGetResponse(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'area_codes': ([str],),  # noqa: E501
+            'area_codes': ([int],),  # noqa: E501
         }
 
     @cached_property
@@ -119,11 +119,11 @@ class FaxLineAreaCodeGetResponse(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def area_codes(self) -> List[str]:
+    def area_codes(self) -> List[int]:
         return self.get("area_codes")
 
     @area_codes.setter
-    def area_codes(self, value: List[str]):
+    def area_codes(self, value: List[int]):
         setattr(self, "area_codes", value)
 
     @classmethod
@@ -162,7 +162,7 @@ class FaxLineAreaCodeGetResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            area_codes ([str]): [optional]  # noqa: E501
+            area_codes ([int]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,7 +244,7 @@ class FaxLineAreaCodeGetResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            area_codes ([str]): [optional]  # noqa: E501
+            area_codes ([int]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

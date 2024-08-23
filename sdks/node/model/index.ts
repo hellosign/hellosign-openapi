@@ -32,7 +32,6 @@ import { ErrorResponseError } from "./errorResponseError";
 import { EventCallbackRequest } from "./eventCallbackRequest";
 import { EventCallbackRequestEvent } from "./eventCallbackRequestEvent";
 import { EventCallbackRequestEventMetadata } from "./eventCallbackRequestEventMetadata";
-import { FaxLine } from "./faxLine";
 import { FaxLineAddUserRequest } from "./faxLineAddUserRequest";
 import { FaxLineAreaCodeGetCountryEnum } from "./faxLineAreaCodeGetCountryEnum";
 import { FaxLineAreaCodeGetProvinceEnum } from "./faxLineAreaCodeGetProvinceEnum";
@@ -43,6 +42,7 @@ import { FaxLineDeleteRequest } from "./faxLineDeleteRequest";
 import { FaxLineListResponse } from "./faxLineListResponse";
 import { FaxLineRemoveUserRequest } from "./faxLineRemoveUserRequest";
 import { FaxLineResponse } from "./faxLineResponse";
+import { FaxLineResponseFaxLine } from "./faxLineResponseFaxLine";
 import { FileResponse } from "./fileResponse";
 import { FileResponseDataUri } from "./fileResponseDataUri";
 import { ListInfoResponse } from "./listInfoResponse";
@@ -279,7 +279,6 @@ export let typeMap: { [index: string]: any } = {
   EventCallbackRequest: EventCallbackRequest,
   EventCallbackRequestEvent: EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: EventCallbackRequestEventMetadata,
-  FaxLine: FaxLine,
   FaxLineAddUserRequest: FaxLineAddUserRequest,
   FaxLineAreaCodeGetResponse: FaxLineAreaCodeGetResponse,
   FaxLineCreateRequest: FaxLineCreateRequest,
@@ -287,6 +286,7 @@ export let typeMap: { [index: string]: any } = {
   FaxLineListResponse: FaxLineListResponse,
   FaxLineRemoveUserRequest: FaxLineRemoveUserRequest,
   FaxLineResponse: FaxLineResponse,
+  FaxLineResponseFaxLine: FaxLineResponseFaxLine,
   FileResponse: FileResponse,
   FileResponseDataUri: FileResponseDataUri,
   ListInfoResponse: ListInfoResponse,
@@ -495,7 +495,6 @@ export {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
-  FaxLine,
   FaxLineAddUserRequest,
   FaxLineAreaCodeGetCountryEnum,
   FaxLineAreaCodeGetProvinceEnum,
@@ -506,6 +505,7 @@ export {
   FaxLineListResponse,
   FaxLineRemoveUserRequest,
   FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   ListInfoResponse,

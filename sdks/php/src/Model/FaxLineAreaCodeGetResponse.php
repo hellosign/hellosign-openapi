@@ -61,7 +61,7 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
      * @var string[]
      */
     protected static $openAPITypes = [
-        'area_codes' => 'string[]',
+        'area_codes' => 'int[]',
     ];
 
     /**
@@ -226,7 +226,7 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Gets area_codes
      *
-     * @return string[]|null
+     * @return int[]|null
      */
     public function getAreaCodes()
     {
@@ -236,7 +236,7 @@ class FaxLineAreaCodeGetResponse implements ModelInterface, ArrayAccess, JsonSer
     /**
      * Sets area_codes
      *
-     * @param string[]|null $area_codes area_codes
+     * @param int[]|null $area_codes area_codes
      *
      * @return self
      */

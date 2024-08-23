@@ -4,13 +4,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**faxLineAddUser**](FaxLineApi.md#faxLineAddUser) | **POST** /fax_line/add_user | Add Fax Line User
+[**faxLineAddUser**](FaxLineApi.md#faxLineAddUser) | **PUT** /fax_line/add_user | Add Fax Line User
 [**faxLineAreaCodeGet**](FaxLineApi.md#faxLineAreaCodeGet) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes
 [**faxLineCreate**](FaxLineApi.md#faxLineCreate) | **POST** /fax_line/create | Purchase Fax Line
 [**faxLineDelete**](FaxLineApi.md#faxLineDelete) | **DELETE** /fax_line | Delete Fax Line
 [**faxLineGet**](FaxLineApi.md#faxLineGet) | **GET** /fax_line | Get Fax Line
 [**faxLineList**](FaxLineApi.md#faxLineList) | **GET** /fax_line/list | List Fax Lines
-[**faxLineRemoveUser**](FaxLineApi.md#faxLineRemoveUser) | **POST** /fax_line/remove_user | Remove Fax Line Access
+[**faxLineRemoveUser**](FaxLineApi.md#faxLineRemoveUser) | **PUT** /fax_line/remove_user | Remove Fax Line Access
 
 
 
@@ -182,7 +182,7 @@ public class Example {
         var faxLineApi = new FaxLineApi(apiClient);
 
         var data = new FaxLineCreateRequest()
-            .areaCode("209")
+            .areaCode(209)
             .country("US");
 
         try {
@@ -408,8 +408,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountId** | **String**| Account ID | [optional]
- **page** | **Integer**| Page | [optional]
- **pageSize** | **Integer**| Page size | [optional]
+ **page** | **Integer**| Page | [optional] [default to 1]
+ **pageSize** | **Integer**| Page size | [optional] [default to 20]
  **showTeamLines** | **Boolean**| Show team lines | [optional]
 
 ### Return type

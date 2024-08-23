@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="FaxLineAreaCodeGetResponse" /> class.
         /// </summary>
         /// <param name="areaCodes">areaCodes.</param>
-        public FaxLineAreaCodeGetResponse(List<string> areaCodes = default(List<string>))
+        public FaxLineAreaCodeGetResponse(List<int> areaCodes = default(List<int>))
         {
             
             this.AreaCodes = areaCodes;
@@ -68,7 +68,7 @@ namespace Dropbox.Sign.Model
         /// Gets or Sets AreaCodes
         /// </summary>
         [DataMember(Name = "area_codes", EmitDefaultValue = true)]
-        public List<string> AreaCodes { get; set; }
+        public List<int> AreaCodes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -145,7 +145,7 @@ namespace Dropbox.Sign.Model
             types.Add(new OpenApiType(){
                 Name = "area_codes",
                 Property = "AreaCodes",
-                Type = "List<string>",
+                Type = "List<int>",
                 Value = AreaCodes,
             });
 

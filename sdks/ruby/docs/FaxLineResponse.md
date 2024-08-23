@@ -6,6 +6,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `fax_line` | [```FaxLine```](FaxLine.md) |    |  |
+| `fax_line` | [```FaxLineResponseFaxLine```](FaxLineResponseFaxLine.md) |    |  |
 | `warnings` | [```WarningResponse```](WarningResponse.md) |    |  |
 

@@ -6,5 +6,5 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| `area_codes` | ```Array<String>``` |    |  |
+| `area_codes` | ```Array<Integer>``` |    |  |
 

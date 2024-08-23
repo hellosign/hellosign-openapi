@@ -8,7 +8,7 @@ end
 fax_line_api = Dropbox::Sign::FaxLineApi.new
 
 data = Dropbox::Sign::FaxLineCreateRequest.new
-data.area_code = "209"
+data.area_code = 209
 data.country = "US"
 
 begin

@@ -25,7 +25,7 @@
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
 import { AccountResponse } from "./accountResponse";
 
-export class FaxLine {
+export class FaxLineResponseFaxLine {
   /**
    * Number
    */
@@ -33,11 +33,11 @@ export class FaxLine {
   /**
    * Created at
    */
-  "createdAt"?: string;
+  "createdAt"?: number;
   /**
    * Updated at
    */
-  "updatedAt"?: string;
+  "updatedAt"?: number;
   "accounts"?: Array<AccountResponse>;
 
   static discriminator: string | undefined = undefined;
@@ -51,12 +51,12 @@ export class FaxLine {
     {
       name: "createdAt",
       baseName: "created_at",
-      type: "string",
+      type: "number",
     },
     {
       name: "updatedAt",
       baseName: "updated_at",
-      type: "string",
+      type: "number",
     },
     {
       name: "accounts",
@@ -66,11 +66,11 @@ export class FaxLine {
   ];
 
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FaxLine.attributeTypeMap;
+    return FaxLineResponseFaxLine.attributeTypeMap;
   }
 
   /** Attempt to instantiate and hydrate a new instance of this class */
-  static init(data: any): FaxLine {
-    return ObjectSerializer.deserialize(data, "FaxLine");
+  static init(data: any): FaxLineResponseFaxLine {
+    return ObjectSerializer.deserialize(data, "FaxLineResponseFaxLine");
   }
 }

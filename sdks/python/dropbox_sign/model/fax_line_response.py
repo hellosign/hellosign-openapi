@@ -33,14 +33,14 @@ from dropbox_sign.model_utils import (  # noqa: F401
 )
 from dropbox_sign.exceptions import ApiAttributeError
 if TYPE_CHECKING:
-    from dropbox_sign.model.fax_line import FaxLine
+    from dropbox_sign.model.fax_line_response_fax_line import FaxLineResponseFaxLine
     from dropbox_sign.model.warning_response import WarningResponse
 
 
 def lazy_import():
-    from dropbox_sign.model.fax_line import FaxLine
+    from dropbox_sign.model.fax_line_response_fax_line import FaxLineResponseFaxLine
     from dropbox_sign.model.warning_response import WarningResponse
-    globals()['FaxLine'] = FaxLine
+    globals()['FaxLineResponseFaxLine'] = FaxLineResponseFaxLine
     globals()['WarningResponse'] = WarningResponse
 
 
@@ -97,7 +97,7 @@ class FaxLineResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'fax_line': (FaxLine,),  # noqa: E501
+            'fax_line': (FaxLineResponseFaxLine,),  # noqa: E501
             'warnings': (WarningResponse,),  # noqa: E501
         }
 
@@ -132,11 +132,11 @@ class FaxLineResponse(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def fax_line(self) -> FaxLine:
+    def fax_line(self) -> FaxLineResponseFaxLine:
         return self.get("fax_line")
 
     @fax_line.setter
-    def fax_line(self, value: FaxLine):
+    def fax_line(self, value: FaxLineResponseFaxLine):
         setattr(self, "fax_line", value)
 
     @property
@@ -183,7 +183,7 @@ class FaxLineResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fax_line (FaxLine): [optional]  # noqa: E501
+            fax_line (FaxLineResponseFaxLine): [optional]  # noqa: E501
             warnings (WarningResponse): [optional]  # noqa: E501
         """
 
@@ -266,7 +266,7 @@ class FaxLineResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            fax_line (FaxLine): [optional]  # noqa: E501
+            fax_line (FaxLineResponseFaxLine): [optional]  # noqa: E501
             warnings (WarningResponse): [optional]  # noqa: E501
         """
 

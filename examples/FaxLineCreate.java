@@ -14,7 +14,7 @@ public class Example {
         var faxLineApi = new FaxLineApi(apiClient);
 
         var data = new FaxLineCreateRequest()
-            .areaCode("209")
+            .areaCode(209)
             .country("US");
 
         try {

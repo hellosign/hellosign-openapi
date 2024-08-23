@@ -12,7 +12,7 @@ with ApiClient(configuration) as api_client:
     fax_line_api = apis.FaxLineApi(api_client)
 
     data = models.FaxLineCreateRequest(
-        area_code="209",
+        area_code=209,
         country="US",
     )
 

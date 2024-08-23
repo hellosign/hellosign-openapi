@@ -11,8 +11,7 @@ data = Dropbox::Sign::FaxLineDeleteRequest.new
 data.number = "[FAX_NUMBER]"
 
 begin
-  result = fax_line_api.fax_line_delete(data)
-  p result
+  fax_line_api.fax_line_delete(data)
 rescue Dropbox::Sign::ApiError => e
   puts "Exception when calling Dropbox Sign API: #{e}"
 end

@@ -44,7 +44,7 @@ import com.dropbox.sign.ApiException;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FaxLineCreateRequest {
   public static final String JSON_PROPERTY_AREA_CODE = "area_code";
-  private String areaCode;
+  private Integer areaCode;
 
   /**
    * Country
@@ -110,7 +110,7 @@ public class FaxLineCreateRequest {
     );
   }
 
-  public FaxLineCreateRequest areaCode(String areaCode) {
+  public FaxLineCreateRequest areaCode(Integer areaCode) {
     this.areaCode = areaCode;
     return this;
   }
@@ -124,14 +124,14 @@ public class FaxLineCreateRequest {
   @JsonProperty(JSON_PROPERTY_AREA_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getAreaCode() {
+  public Integer getAreaCode() {
     return areaCode;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AREA_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAreaCode(String areaCode) {
+  public void setAreaCode(Integer areaCode) {
     this.areaCode = areaCode;
   }
 

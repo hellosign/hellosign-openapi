@@ -13,8 +13,7 @@ $data = new Dropbox\Sign\Model\FaxLineDeleteRequest();
 $data->setNumber("[FAX_NUMBER]");
 
 try {
-    $result = $faxLineApi->faxLineDelete($data);
-    print_r($result);
+    $faxLineApi->faxLineDelete($data);
 } catch (Dropbox\Sign\ApiException $e) {
     $error = $e->getResponseObject();
     echo "Exception when calling Dropbox Sign API: "

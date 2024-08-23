@@ -120,13 +120,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
 |*Dropbox::Sign::BulkSendJobApi* | [**bulk_send_job_list**](docs/BulkSendJobApi.md#bulk_send_job_list) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_edit_url**](docs/EmbeddedApi.md#embedded_edit_url) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 |*Dropbox::Sign::EmbeddedApi* | [**embedded_sign_url**](docs/EmbeddedApi.md#embedded_sign_url) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
-|*Dropbox::Sign::FaxLineApi* | [**fax_line_add_user**](docs/FaxLineApi.md#fax_line_add_user) | **POST** /fax_line/add_user | Add Fax Line User |
+|*Dropbox::Sign::FaxLineApi* | [**fax_line_add_user**](docs/FaxLineApi.md#fax_line_add_user) | **PUT** /fax_line/add_user | Add Fax Line User |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_area_code_get**](docs/FaxLineApi.md#fax_line_area_code_get) | **GET** /fax_line/area_codes | Get Available Fax Line Area Codes |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_create**](docs/FaxLineApi.md#fax_line_create) | **POST** /fax_line/create | Purchase Fax Line |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_delete**](docs/FaxLineApi.md#fax_line_delete) | **DELETE** /fax_line | Delete Fax Line |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_get**](docs/FaxLineApi.md#fax_line_get) | **GET** /fax_line | Get Fax Line |
 |*Dropbox::Sign::FaxLineApi* | [**fax_line_list**](docs/FaxLineApi.md#fax_line_list) | **GET** /fax_line/list | List Fax Lines |
-|*Dropbox::Sign::FaxLineApi* | [**fax_line_remove_user**](docs/FaxLineApi.md#fax_line_remove_user) | **POST** /fax_line/remove_user | Remove Fax Line Access |
+|*Dropbox::Sign::FaxLineApi* | [**fax_line_remove_user**](docs/FaxLineApi.md#fax_line_remove_user) | **PUT** /fax_line/remove_user | Remove Fax Line Access |
 |*Dropbox::Sign::OAuthApi* | [**oauth_token_generate**](docs/OAuthApi.md#oauth_token_generate) | **POST** /oauth/token | OAuth Token Generate |
 |*Dropbox::Sign::OAuthApi* | [**oauth_token_refresh**](docs/OAuthApi.md#oauth_token_refresh) | **POST** /oauth/token?refresh | OAuth Token Refresh |
 |*Dropbox::Sign::ReportApi* | [**report_create**](docs/ReportApi.md#report_create) | **POST** /report/create | Create Report |
@@ -209,7 +209,6 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::EventCallbackRequest](docs/EventCallbackRequest.md)
  - [Dropbox::Sign::EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [Dropbox::Sign::EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
- - [Dropbox::Sign::FaxLine](docs/FaxLine.md)
  - [Dropbox::Sign::FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
  - [Dropbox::Sign::FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
  - [Dropbox::Sign::FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
@@ -220,6 +219,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [Dropbox::Sign::FaxLineListResponse](docs/FaxLineListResponse.md)
  - [Dropbox::Sign::FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
  - [Dropbox::Sign::FaxLineResponse](docs/FaxLineResponse.md)
+ - [Dropbox::Sign::FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
  - [Dropbox::Sign::FileResponse](docs/FileResponse.md)
  - [Dropbox::Sign::FileResponseDataUri](docs/FileResponseDataUri.md)
  - [Dropbox::Sign::ListInfoResponse](docs/ListInfoResponse.md)

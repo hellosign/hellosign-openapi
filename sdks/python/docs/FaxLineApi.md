@@ -4,13 +4,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[```fax_line_add_user```](FaxLineApi.md#fax_line_add_user) | ```POST /fax_line/add_user``` | Add Fax Line User|
+|[```fax_line_add_user```](FaxLineApi.md#fax_line_add_user) | ```PUT /fax_line/add_user``` | Add Fax Line User|
 |[```fax_line_area_code_get```](FaxLineApi.md#fax_line_area_code_get) | ```GET /fax_line/area_codes``` | Get Available Fax Line Area Codes|
 |[```fax_line_create```](FaxLineApi.md#fax_line_create) | ```POST /fax_line/create``` | Purchase Fax Line|
 |[```fax_line_delete```](FaxLineApi.md#fax_line_delete) | ```DELETE /fax_line``` | Delete Fax Line|
 |[```fax_line_get```](FaxLineApi.md#fax_line_get) | ```GET /fax_line``` | Get Fax Line|
 |[```fax_line_list```](FaxLineApi.md#fax_line_list) | ```GET /fax_line/list``` | List Fax Lines|
-|[```fax_line_remove_user```](FaxLineApi.md#fax_line_remove_user) | ```POST /fax_line/remove_user``` | Remove Fax Line Access|
+|[```fax_line_remove_user```](FaxLineApi.md#fax_line_remove_user) | ```PUT /fax_line/remove_user``` | Remove Fax Line Access|
 
 
 # ```fax_line_add_user```
@@ -173,7 +173,7 @@ with ApiClient(configuration) as api_client:
     fax_line_api = apis.FaxLineApi(api_client)
 
     data = models.FaxLineCreateRequest(
-        area_code="209",
+        area_code=209,
         country="US",
     )
 
@@ -245,8 +245,7 @@ with ApiClient(configuration) as api_client:
     )
 
     try:
-        response = fax_line_api.fax_line_delete(data)
-        pprint(response)
+        fax_line_api.fax_line_delete(data)
     except ApiException as e:
         print("Exception when calling Dropbox Sign API: %s\n" % e)
 
@@ -384,8 +383,8 @@ with ApiClient(configuration) as api_client:
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | `account_id` | **str** | Account ID | [optional] |
-| `page` | **int** | Page | [optional] |
-| `page_size` | **int** | Page size | [optional] |
+| `page` | **int** | Page | [optional][default to 1] |
+| `page_size` | **int** | Page size | [optional][default to 20] |
 | `show_team_lines` | **bool** | Show team lines | [optional] |
 
 ### Return type

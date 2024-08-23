@@ -28,7 +28,7 @@ export class FaxLineCreateRequest {
   /**
    * Area code
    */
-  "areaCode": string;
+  "areaCode": number;
   /**
    * Country
    */
@@ -48,7 +48,7 @@ export class FaxLineCreateRequest {
     {
       name: "areaCode",
       baseName: "area_code",
-      type: "string",
+      type: "number",
     },
     {
       name: "country",

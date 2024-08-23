@@ -6,7 +6,7 @@ const faxLineApi = new DropboxSign.FaxLineApi();
 faxLineApi.username = "YOUR_API_KEY";
 
 const data = {
-  areaCode: "209",
+  areaCode: 209,
   country: "US",
 };
 

@@ -10,7 +10,7 @@ $config->setUsername("YOUR_API_KEY");
 $faxLineApi = new Dropbox\Sign\Api\FaxLineApi($config);
 
 $data = new Dropbox\Sign\Model\FaxLineCreateRequest();
-$data->setAreaCode("209")
+$data->setAreaCode(209)
     ->setCountry("US");
 
 try {

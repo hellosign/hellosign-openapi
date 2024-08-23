@@ -1410,7 +1410,7 @@ paths:
           title: 'Get Embedded Sign URL | iFrame | Dropbox Sign for Developers'
           description: 'The Dropbox Sign API allows you to build custom integrations. To find out how to retrieve an embedded iFrame object containing a signature url, click here.'
   /fax_line/add_user:
-    post:
+    put:
       tags:
         - 'Fax Line'
       summary: 'Add Fax Line User'
@@ -2008,6 +2008,7 @@ paths:
           description: Page
           schema:
             type: integer
+            default: 1
           example: 1
         -
           name: page_size
@@ -2015,6 +2016,7 @@ paths:
           description: 'Page size'
           schema:
             type: integer
+            default: 20
           example: 20
         -
           name: show_team_lines
@@ -2022,6 +2024,7 @@ paths:
           description: 'Show team lines'
           schema:
             type: boolean
+            default: 0
       responses:
         200:
           description: 'successful operation'
@@ -2105,7 +2108,7 @@ paths:
           title: 'List Fax Lines | API Documentation | Dropbox Fax for Developers'
           description: 'The Dropbox Fax API allows you to build custom integrations. To find out how to list your fax lines, click here.'
   /fax_line/remove_user:
-    post:
+    put:
       tags:
         - 'Fax Line'
       summary: 'Remove Fax Line Access'
@@ -7303,7 +7306,7 @@ components:
       properties:
         area_code:
           description: 'Area code'
-          type: string
+          type: integer
         country:
           description: Country
           type: string
@@ -10190,19 +10193,19 @@ components:
     FaxLineResponse:
       properties:
         fax_line:
-          $ref: '#/components/schemas/FaxLine'
+          $ref: '#/components/schemas/FaxLineResponseFaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     FaxLineAreaCodeGetResponse:
       properties:
         area_codes:
           type: array
           items:
-            type: string
+            type: integer
       type: object
-      x-internal: true
+      x-internal-class: true
     FaxLineListResponse:
       properties:
         list_info:
@@ -10210,11 +10213,11 @@ components:
         fax_lines:
           type: array
           items:
-            $ref: '#/components/schemas/FaxLine'
+            $ref: '#/components/schemas/FaxLineResponseFaxLine'
         warnings:
           $ref: '#/components/schemas/WarningResponse'
       type: object
-      x-internal: true
+      x-internal-class: true
     FileResponse:
       properties:
         file_url:
@@ -10546,22 +10549,23 @@ components:
           description: 'Name of the error.'
           type: string
       type: object
-    FaxLine:
+    FaxLineResponseFaxLine:
       properties:
         number:
           description: Number
           type: string
         created_at:
           description: 'Created at'
-          type: string
+          type: integer
         updated_at:
           description: 'Updated at'
-          type: string
+          type: integer
         accounts:
           type: array
           items:
             $ref: '#/components/schemas/AccountResponse'
       type: object
+      x-internal-class: true
     ListInfoResponse:
       description: 'Contains pagination information about the data returned.'
       properties:

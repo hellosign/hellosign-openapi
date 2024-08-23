@@ -10,9 +10,8 @@ const data: DropboxSign.FaxLineDeleteRequest = {
 };
 
 const result = faxLineApi.faxLineDelete(data);
-result.then(response => {
-  console.log(response.body);
-}).catch(error => {
+
+result.catch(error => {
   console.log("Exception when calling Dropbox Sign API:");
   console.log(error.body);
 });

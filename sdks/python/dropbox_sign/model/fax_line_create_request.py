@@ -91,7 +91,7 @@ class FaxLineCreateRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'area_code': (str,),  # noqa: E501
+            'area_code': (int,),  # noqa: E501
             'country': (str,),  # noqa: E501
             'city': (str,),  # noqa: E501
             'account_id': (str,),  # noqa: E501
@@ -130,11 +130,11 @@ class FaxLineCreateRequest(ModelNormal):
     _composed_schemas = {}
 
     @property
-    def area_code(self) -> str:
+    def area_code(self) -> int:
         return self.get("area_code")
 
     @area_code.setter
-    def area_code(self, value: str):
+    def area_code(self, value: int):
         setattr(self, "area_code", value)
 
     @property
@@ -167,7 +167,7 @@ class FaxLineCreateRequest(ModelNormal):
         """FaxLineCreateRequest - a model defined in OpenAPI
 
         Args:
-            area_code (str): Area code
+            area_code (int): Area code
             country (str): Country
 
         Keyword Args:
@@ -256,7 +256,7 @@ class FaxLineCreateRequest(ModelNormal):
         """FaxLineCreateRequest - a model defined in OpenAPI
 
         Args:
-            area_code (str): Area code
+            area_code (int): Area code
             country (str): Country
 
         Keyword Args:

@@ -21,6 +21,7 @@
 "OpenApi::TAG::UNCLAIMED_DRAFT::DESCRIPTION": ./markdown/en/tags/unclaimed-draft-tag-description.md
 "OpenApi::TAG::OAUTH::DESCRIPTION": ./markdown/en/tags/oauth-tag-description.md
 "OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION": ./markdown/en/tags/callbacks-tag-description.md
+"OpenApi::TAG::TAG_FAX_LINE::DESCRIPTION": ./markdown/en/tags/fax-lines-tag-description.md
 
 "OpenApi::ACCOUNT_CALLBACK::SUMMARY": Account Callbacks
 "OpenApi::ACCOUNT_CALLBACK::DESCRIPTION": ./markdown/en/descriptions/account-callback-description.md

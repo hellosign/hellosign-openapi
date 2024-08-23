@@ -61,7 +61,7 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'fax_line' => '\Dropbox\Sign\Model\FaxLine',
+        'fax_line' => '\Dropbox\Sign\Model\FaxLineResponseFaxLine',
         'warnings' => '\Dropbox\Sign\Model\WarningResponse',
     ];
 
@@ -232,7 +232,7 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets fax_line
      *
-     * @return FaxLine|null
+     * @return FaxLineResponseFaxLine|null
      */
     public function getFaxLine()
     {
@@ -242,11 +242,11 @@ class FaxLineResponse implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets fax_line
      *
-     * @param FaxLine|null $fax_line fax_line
+     * @param FaxLineResponseFaxLine|null $fax_line fax_line
      *
      * @return self
      */
-    public function setFaxLine(?FaxLine $fax_line)
+    public function setFaxLine(?FaxLineResponseFaxLine $fax_line)
     {
         $this->container['fax_line'] = $fax_line;
 
