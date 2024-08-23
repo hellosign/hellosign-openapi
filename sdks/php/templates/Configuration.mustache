@@ -140,7 +140,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setApiKey($apiKeyIdentifier, $key)
+    protected function setApiKey($apiKeyIdentifier, $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
@@ -153,7 +153,7 @@ class Configuration
      *
      * @return null|string API key or token
      */
-    public function getApiKey($apiKeyIdentifier)
+    protected function getApiKey($apiKeyIdentifier)
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
@@ -166,7 +166,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
+    protected function setApiKeyPrefix($apiKeyIdentifier, $prefix)
     {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
@@ -179,7 +179,7 @@ class Configuration
      *
      * @return null|string
      */
-    public function getApiKeyPrefix($apiKeyIdentifier)
+    protected function getApiKeyPrefix($apiKeyIdentifier)
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
@@ -214,7 +214,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setBooleanFormatForQueryString(string $booleanFormat)
+    protected function setBooleanFormatForQueryString(string $booleanFormat)
     {
         $this->booleanFormatForQueryString = $booleanFormat;
 
@@ -261,7 +261,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setPassword($password)
+    protected function setPassword($password)
     {
         $this->password = $password;
         return $this;
@@ -272,7 +272,7 @@ class Configuration
      *
      * @return string Password for HTTP basic authentication
      */
-    public function getPassword()
+    protected function getPassword()
     {
         return $this->password;
     }
@@ -449,7 +449,7 @@ class Configuration
      *
      * @return null|string API key with the prefix
      */
-    public function getApiKeyWithPrefix($apiKeyIdentifier)
+    protected function getApiKeyWithPrefix($apiKeyIdentifier)
     {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
         $apiKey = $this->getApiKey($apiKeyIdentifier);
@@ -554,6 +554,13 @@ class Configuration
     public function getHostFromSettings($index, $variables = null)
     {
         return self::getHostString($this->getHostSettings(), $index, $variables);
+    }
+
+    public function setOptions(array $options): self
+    {
+        $this->options = $options;
+
+        return $this;
     }
 
     /**
