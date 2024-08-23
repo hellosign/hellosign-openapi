@@ -145,7 +145,7 @@ class UnclaimedDraftApi
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
      *
-     * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -485,7 +485,7 @@ class UnclaimedDraftApi
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
      *
-     * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -825,7 +825,7 @@ class UnclaimedDraftApi
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
      *
-     * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1166,7 +1166,7 @@ class UnclaimedDraftApi
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
      *
-     * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
+     * @return Model\UnclaimedDraftCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

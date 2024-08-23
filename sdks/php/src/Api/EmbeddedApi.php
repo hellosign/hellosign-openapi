@@ -137,7 +137,7 @@ class EmbeddedApi
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
      *
-     * @return Model\EmbeddedEditUrlResponse|Model\ErrorResponse
+     * @return Model\EmbeddedEditUrlResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -497,7 +497,7 @@ class EmbeddedApi
      *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
      *
-     * @return Model\EmbeddedSignUrlResponse|Model\ErrorResponse
+     * @return Model\EmbeddedSignUrlResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

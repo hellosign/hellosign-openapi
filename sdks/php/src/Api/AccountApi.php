@@ -142,7 +142,7 @@ class AccountApi
      *
      * @param Model\AccountCreateRequest $account_create_request account_create_request (required)
      *
-     * @return Model\AccountCreateResponse|Model\ErrorResponse
+     * @return Model\AccountCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -483,7 +483,7 @@ class AccountApi
      * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
      * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
      *
-     * @return Model\AccountGetResponse|Model\ErrorResponse
+     * @return Model\AccountGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -822,7 +822,7 @@ class AccountApi
      *
      * @param Model\AccountUpdateRequest $account_update_request account_update_request (required)
      *
-     * @return Model\AccountGetResponse|Model\ErrorResponse
+     * @return Model\AccountGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1162,7 +1162,7 @@ class AccountApi
      *
      * @param Model\AccountVerifyRequest $account_verify_request account_verify_request (required)
      *
-     * @return Model\AccountVerifyResponse|Model\ErrorResponse
+     * @return Model\AccountVerifyResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

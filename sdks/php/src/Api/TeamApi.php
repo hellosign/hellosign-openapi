@@ -161,7 +161,7 @@ class TeamApi
      * @param Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
      * @param string                     $team_id                 The id of the team. (optional)
      *
-     * @return Model\TeamGetResponse|Model\ErrorResponse
+     * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -515,7 +515,7 @@ class TeamApi
      *
      * @param Model\TeamCreateRequest $team_create_request team_create_request (required)
      *
-     * @return Model\TeamGetResponse|Model\ErrorResponse
+     * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1075,7 +1075,7 @@ class TeamApi
      *
      * Get Team
      *
-     * @return Model\TeamGetResponse|Model\ErrorResponse
+     * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1387,7 +1387,7 @@ class TeamApi
      *
      * @param string $team_id The id of the team. (optional)
      *
-     * @return Model\TeamGetInfoResponse|Model\ErrorResponse
+     * @return Model\TeamGetInfoResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1713,7 +1713,7 @@ class TeamApi
      *
      * @param string $email_address The email address for which to display the team invites. (optional)
      *
-     * @return Model\TeamInvitesResponse|Model\ErrorResponse
+     * @return Model\TeamInvitesResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2041,7 +2041,7 @@ class TeamApi
      * @param int    $page      Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
-     * @return Model\TeamMembersResponse|Model\ErrorResponse
+     * @return Model\TeamMembersResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2407,7 +2407,7 @@ class TeamApi
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
      *
-     * @return Model\TeamGetResponse|Model\ErrorResponse
+     * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2749,7 +2749,7 @@ class TeamApi
      * @param int    $page      Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
-     * @return Model\TeamSubTeamsResponse|Model\ErrorResponse
+     * @return Model\TeamSubTeamsResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -3115,7 +3115,7 @@ class TeamApi
      *
      * @param Model\TeamUpdateRequest $team_update_request team_update_request (required)
      *
-     * @return Model\TeamGetResponse|Model\ErrorResponse
+     * @return Model\TeamGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

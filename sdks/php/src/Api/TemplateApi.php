@@ -168,7 +168,7 @@ class TemplateApi
      * @param string                       $template_id               The id of the Template to give the Account access to. (required)
      * @param Model\TemplateAddUserRequest $template_add_user_request template_add_user_request (required)
      *
-     * @return Model\TemplateGetResponse|Model\ErrorResponse
+     * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -528,7 +528,7 @@ class TemplateApi
      *
      * @param Model\TemplateCreateRequest $template_create_request template_create_request (required)
      *
-     * @return Model\TemplateCreateResponse|Model\ErrorResponse
+     * @return Model\TemplateCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -868,7 +868,7 @@ class TemplateApi
      *
      * @param Model\TemplateCreateEmbeddedDraftRequest $template_create_embedded_draft_request template_create_embedded_draft_request (required)
      *
-     * @return Model\TemplateCreateEmbeddedDraftResponse|Model\ErrorResponse
+     * @return Model\TemplateCreateEmbeddedDraftResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1453,7 +1453,7 @@ class TemplateApi
      * @param string $template_id The id of the template files to retrieve. (required)
      * @param string $file_type   Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional)
      *
-     * @return SplFileObject|Model\ErrorResponse
+     * @return SplFileObject
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1799,7 +1799,7 @@ class TemplateApi
      *
      * @param string $template_id The id of the template files to retrieve. (required)
      *
-     * @return Model\FileResponseDataUri|Model\ErrorResponse
+     * @return Model\FileResponseDataUri
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2132,7 +2132,7 @@ class TemplateApi
      * @param string $template_id    The id of the template files to retrieve. (required)
      * @param int    $force_download By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
-     * @return Model\FileResponse|Model\ErrorResponse
+     * @return Model\FileResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2478,7 +2478,7 @@ class TemplateApi
      *
      * @param string $template_id The id of the Template to retrieve. (required)
      *
-     * @return Model\TemplateGetResponse|Model\ErrorResponse
+     * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2813,7 +2813,7 @@ class TemplateApi
      * @param int    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string $query      String that includes search terms and/or fields to be used to filter the Template objects. (optional)
      *
-     * @return Model\TemplateListResponse|Model\ErrorResponse
+     * @return Model\TemplateListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -3186,7 +3186,7 @@ class TemplateApi
      * @param string                          $template_id                  The id of the Template to remove the Account&#39;s access to. (required)
      * @param Model\TemplateRemoveUserRequest $template_remove_user_request template_remove_user_request (required)
      *
-     * @return Model\TemplateGetResponse|Model\ErrorResponse
+     * @return Model\TemplateGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -3547,7 +3547,7 @@ class TemplateApi
      * @param string                           $template_id                   The ID of the template whose files to update. (required)
      * @param Model\TemplateUpdateFilesRequest $template_update_files_request template_update_files_request (required)
      *
-     * @return Model\TemplateUpdateFilesResponse|Model\ErrorResponse
+     * @return Model\TemplateUpdateFilesResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

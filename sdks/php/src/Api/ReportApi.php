@@ -133,7 +133,7 @@ class ReportApi
      *
      * @param Model\ReportCreateRequest $report_create_request report_create_request (required)
      *
-     * @return Model\ReportCreateResponse|Model\ErrorResponse
+     * @return Model\ReportCreateResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

@@ -138,7 +138,7 @@ class BulkSendJobApi
      * @param int    $page             Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int    $page_size        Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
-     * @return Model\BulkSendJobGetResponse|Model\ErrorResponse
+     * @return Model\BulkSendJobGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -498,7 +498,7 @@ class BulkSendJobApi
      * @param int $page      Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. (optional, default to 20)
      *
-     * @return Model\BulkSendJobListResponse|Model\ErrorResponse
+     * @return Model\BulkSendJobListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

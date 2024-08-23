@@ -185,7 +185,7 @@ class SignatureRequestApi
      *
      * @param Model\SignatureRequestBulkCreateEmbeddedWithTemplateRequest $signature_request_bulk_create_embedded_with_template_request signature_request_bulk_create_embedded_with_template_request (required)
      *
-     * @return Model\BulkSendJobSendResponse|Model\ErrorResponse
+     * @return Model\BulkSendJobSendResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -521,7 +521,7 @@ class SignatureRequestApi
      *
      * @param Model\SignatureRequestBulkSendWithTemplateRequest $signature_request_bulk_send_with_template_request signature_request_bulk_send_with_template_request (required)
      *
-     * @return Model\BulkSendJobSendResponse|Model\ErrorResponse
+     * @return Model\BulkSendJobSendResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1105,7 +1105,7 @@ class SignatureRequestApi
      *
      * @param Model\SignatureRequestCreateEmbeddedRequest $signature_request_create_embedded_request signature_request_create_embedded_request (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1445,7 +1445,7 @@ class SignatureRequestApi
      *
      * @param Model\SignatureRequestCreateEmbeddedWithTemplateRequest $signature_request_create_embedded_with_template_request signature_request_create_embedded_with_template_request (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1786,7 +1786,7 @@ class SignatureRequestApi
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param string $file_type            Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. (optional, default to 'pdf')
      *
-     * @return SplFileObject|Model\ErrorResponse
+     * @return SplFileObject
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2132,7 +2132,7 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      *
-     * @return Model\FileResponseDataUri|Model\ErrorResponse
+     * @return Model\FileResponseDataUri
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2465,7 +2465,7 @@ class SignatureRequestApi
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      * @param int    $force_download       By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. (optional, default to 1)
      *
-     * @return Model\FileResponse|Model\ErrorResponse
+     * @return Model\FileResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -2811,7 +2811,7 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to retrieve. (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -3146,7 +3146,7 @@ class SignatureRequestApi
      * @param int    $page_size  Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      * @param string $query      String that includes search terms and/or fields to be used to filter the SignatureRequest objects. (optional)
      *
-     * @return Model\SignatureRequestListResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -3511,7 +3511,7 @@ class SignatureRequestApi
      *
      * @param string $signature_request_id The id of the SignatureRequest to release. (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -3844,7 +3844,7 @@ class SignatureRequestApi
      * @param string                              $signature_request_id             The id of the SignatureRequest to send a reminder for. (required)
      * @param Model\SignatureRequestRemindRequest $signature_request_remind_request signature_request_remind_request (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -4444,7 +4444,7 @@ class SignatureRequestApi
      *
      * @param Model\SignatureRequestSendRequest $signature_request_send_request signature_request_send_request (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -4784,7 +4784,7 @@ class SignatureRequestApi
      *
      * @param Model\SignatureRequestSendWithTemplateRequest $signature_request_send_with_template_request signature_request_send_with_template_request (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -5125,7 +5125,7 @@ class SignatureRequestApi
      * @param string                              $signature_request_id             The id of the SignatureRequest to update. (required)
      * @param Model\SignatureRequestUpdateRequest $signature_request_update_request signature_request_update_request (required)
      *
-     * @return Model\SignatureRequestGetResponse|Model\ErrorResponse
+     * @return Model\SignatureRequestGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */

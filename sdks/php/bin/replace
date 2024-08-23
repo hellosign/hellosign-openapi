@@ -16,4 +16,8 @@ perl -pi -e 's#@return Model\\(.*)\|\\Dropbox\\Sign\\Model\\ErrorResponse#@retur
   "${ROOT_DIR}/src/Api/"*.php
 perl -pi -e 's#@return SplFileObject\|\\Dropbox\\Sign\\Model\\ErrorResponse#@return SplFileObject#g' \
   "${ROOT_DIR}/src/Api/"*.php
+perl -pi -e 's#@return Model\\(.*)\|Model\\ErrorResponse#@return Model\\$1#g' \
+  "${ROOT_DIR}/src/Api/"*.php
+perl -pi -e 's#@return SplFileObject\|Model\\ErrorResponse#@return SplFileObject#g' \
+  "${ROOT_DIR}/src/Api/"*.php
 printf "\n"

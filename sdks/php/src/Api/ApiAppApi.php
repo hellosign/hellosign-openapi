@@ -147,7 +147,7 @@ class ApiAppApi
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
      *
-     * @return Model\ApiAppGetResponse|Model\ErrorResponse
+     * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -731,7 +731,7 @@ class ApiAppApi
      *
      * @param string $client_id The client id of the API App to retrieve. (required)
      *
-     * @return Model\ApiAppGetResponse|Model\ErrorResponse
+     * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1064,7 +1064,7 @@ class ApiAppApi
      * @param int $page      Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
      * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
-     * @return Model\ApiAppListResponse|Model\ErrorResponse
+     * @return Model\ApiAppListResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
@@ -1404,7 +1404,7 @@ class ApiAppApi
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
      *
-     * @return Model\ApiAppGetResponse|Model\ErrorResponse
+     * @return Model\ApiAppGetResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
