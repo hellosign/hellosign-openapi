@@ -16,8 +16,6 @@ docker run --rm \
     -t "/local/templates" \
     -o "/local/"
 
-rm -rf "${DIR}/.openapi-generator"
-
 printf "\nInstalling composer dependencies ...\n"
 mkdir -p "${DIR}/vendor"
 bash "${DIR}/bin/php" composer install

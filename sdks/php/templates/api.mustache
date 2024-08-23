@@ -71,6 +71,11 @@ use {{invokerPackage}}\ObjectSerializer;
     ];
 
     /**
+     * @var ResponseInterface|null
+     */
+    protected $response;
+
+    /**
      * @param Configuration   $config
      * @param ClientInterface $client
      * @param HeaderSelector  $selector
@@ -114,6 +119,14 @@ use {{invokerPackage}}\ObjectSerializer;
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * @return ResponseInterface|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 
 {{#operation}}
@@ -237,6 +250,7 @@ use {{invokerPackage}}\ObjectSerializer;
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
