@@ -40,6 +40,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use InvalidArgumentException;
 use JsonException;
+use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
 /**
@@ -79,6 +80,9 @@ class AccountApi
             'application/json',
         ],
     ];
+
+    /** @var ResponseInterface|null */
+    protected $response;
 
     /**
      * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
@@ -124,6 +128,14 @@ class AccountApi
     }
 
     /**
+     * @return ResponseInterface|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Operation accountCreate
      *
      * Create Account
@@ -161,6 +173,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -499,6 +512,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -833,6 +847,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1169,6 +1184,7 @@ class AccountApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1490,9 +1506,9 @@ class AccountApi
      * @return object|array|null
      */
     private function handleRangeCodeResponse(
-        mixed $response,
+        ResponseInterface $response,
         string $rangeCode,
-        string $returnDataType,
+        string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
         $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
@@ -1524,7 +1540,7 @@ class AccountApi
     private function handleRangeCodeException(
         ApiException $e,
         string $rangeCode,
-        string $exceptionDataType,
+        string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
         $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');

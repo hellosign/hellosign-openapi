@@ -96,9 +96,9 @@ class ApiException extends Exception
     /**
      * Sets the deserialized response object (during deserialization)
      *
-     * @param mixed $obj Deserialized response object
+     * @param string|int|object|array|mixed $obj Deserialized response object
      */
-    public function setResponseObject(mixed $obj)
+    public function setResponseObject($obj)
     {
         $this->responseObject = $obj;
     }

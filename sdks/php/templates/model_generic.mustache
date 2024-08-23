@@ -260,7 +260,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     /** Attempt to instantiate and hydrate a new instance of this class */
     public static function init(array $data): {{classname}}
     {
-        /** @var {{classname}} $obj */
+        /** @var {{classname}} */
         $obj = ObjectSerializer::deserialize(
             $data,
             {{classname}}::class,
@@ -294,7 +294,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     *
     * @param string $variableName
     * @param array  $fields
-    * @param mixed  $defaultValue
+    * @param string|int|object|array|mixed  $defaultValue
     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
@@ -584,7 +584,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            JSON_UNESCAPED_SLASHES
         );
     }
 

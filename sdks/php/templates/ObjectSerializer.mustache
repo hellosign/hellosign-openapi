@@ -49,7 +49,7 @@ class ObjectSerializer
     /**
      * Serialize data
      *
-     * @param mixed  $data   the data to serialize
+     * @param string|int|object|array|mixed  $data   the data to serialize
      * @param string $type   the OpenAPIToolsType of the data
      * @param string $format the format of the OpenAPITools type of the data
      *
@@ -154,7 +154,7 @@ class ObjectSerializer
     /**
      * Checks if a value is empty, based on its OpenAPI type.
      *
-     * @param mixed  $value
+     * @param string|int|object|array|mixed  $value
      * @param string $openApiType
      *
      * @return bool true if $value is empty
@@ -198,7 +198,7 @@ class ObjectSerializer
      * Take query parameter properties and turn it into an array suitable for
      * native http_build_query or GuzzleHttp\Psr7\Query::build.
      *
-     * @param mixed  $value       Parameter value
+     * @param string|int|object|array|mixed  $value       Parameter value
      * @param string $paramName   Parameter name
      * @param string $openApiType OpenAPIType eg. array or object
      * @param string $style       Parameter serialization style
@@ -332,7 +332,7 @@ class ObjectSerializer
      * If it's a datetime object, format it in ISO8601
      * If it's a boolean, convert it to "true" or "false".
      *
-     * @param mixed $value the value of the parameter
+     * @param string|int|object|array|mixed $value the value of the parameter
      *
      * @return string the header string
      */
@@ -387,7 +387,7 @@ class ObjectSerializer
     /**
      * Deserialize a JSON string into an object
      *
-     * @param mixed    $data          object or primitive to be deserialized
+     * @param string|int|object|array|mixed    $data          object or primitive to be deserialized
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
      *

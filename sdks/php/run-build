@@ -22,10 +22,10 @@ bash "${DIR}/bin/php" composer install
 printf "\n"
 
 printf "Adding examples to Docs ...\n"
-bash "${DIR}/bin/php" ./bin/generate-examples.php
+bash "${DIR}/bin/php-8" ./bin/generate-examples.php
 
 printf "Running php-cs-fixer ...\n"
-bash "${DIR}/bin/php" ./vendor/bin/php-cs-fixer fix --verbose
+bash "${DIR}/bin/php-8" ./vendor/bin/php-cs-fixer fix --verbose
 
 printf "Replacing strings ...\n"
 docker run --rm \

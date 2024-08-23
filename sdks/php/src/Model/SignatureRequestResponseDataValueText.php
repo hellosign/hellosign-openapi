@@ -251,7 +251,7 @@ class SignatureRequestResponseDataValueText extends SignatureRequestResponseData
      */
     public static function init(array $data): SignatureRequestResponseDataValueText
     {
-        /** @var SignatureRequestResponseDataValueText $obj */
+        /** @var SignatureRequestResponseDataValueText */
         return ObjectSerializer::deserialize(
             $data,
             SignatureRequestResponseDataValueText::class,
@@ -262,8 +262,10 @@ class SignatureRequestResponseDataValueText extends SignatureRequestResponseData
      * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
      * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
      * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
      */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -420,7 +422,7 @@ class SignatureRequestResponseDataValueText extends SignatureRequestResponseData
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            JSON_UNESCAPED_SLASHES
         );
     }
 

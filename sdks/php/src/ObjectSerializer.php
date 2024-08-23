@@ -59,13 +59,13 @@ class ObjectSerializer
     /**
      * Serialize data
      *
-     * @param mixed  $data   the data to serialize
-     * @param string $type   the OpenAPIToolsType of the data
-     * @param string $format the format of the OpenAPITools type of the data
+     * @param string|int|object|array|mixed $data   the data to serialize
+     * @param string                        $type   the OpenAPIToolsType of the data
+     * @param string                        $format the format of the OpenAPITools type of the data
      *
      * @return scalar|object|array|null serialized form of $data
      */
-    public static function sanitizeForSerialization(mixed $data, string $type = null, string $format = null)
+    public static function sanitizeForSerialization($data, string $type = null, string $format = null)
     {
         if (is_scalar($data) || null === $data) {
             return $data;
@@ -164,9 +164,11 @@ class ObjectSerializer
     /**
      * Checks if a value is empty, based on its OpenAPI type.
      *
+     * @param string|int|object|array|mixed $value
+     *
      * @return bool true if $value is empty
      */
-    private static function isEmptyValue(mixed $value, string $openApiType): bool
+    private static function isEmptyValue($value, string $openApiType): bool
     {
         // If empty() returns false, it is not empty regardless of its type.
         if (!empty($value)) {
@@ -205,15 +207,15 @@ class ObjectSerializer
      * Take query parameter properties and turn it into an array suitable for
      * native http_build_query or GuzzleHttp\Psr7\Query::build.
      *
-     * @param mixed  $value       Parameter value
-     * @param string $paramName   Parameter name
-     * @param string $openApiType OpenAPIType eg. array or object
-     * @param string $style       Parameter serialization style
-     * @param bool   $explode     Parameter explode option
-     * @param bool   $required    Whether query param is required or not
+     * @param string|int|object|array|mixed $value       Parameter value
+     * @param string                        $paramName   Parameter name
+     * @param string                        $openApiType OpenAPIType eg. array or object
+     * @param string                        $style       Parameter serialization style
+     * @param bool                          $explode     Parameter explode option
+     * @param bool                          $required    Whether query param is required or not
      */
     public static function toQueryValue(
-        mixed $value,
+        $value,
         string $paramName,
         string $openApiType = 'string',
         string $style = 'form',
@@ -336,11 +338,11 @@ class ObjectSerializer
      * If it's a datetime object, format it in ISO8601
      * If it's a boolean, convert it to "true" or "false".
      *
-     * @param mixed $value the value of the parameter
+     * @param string|int|object|array|mixed $value the value of the parameter
      *
      * @return string the header string
      */
-    public static function toString(mixed $value)
+    public static function toString($value)
     {
         if ($value instanceof DateTime) { // datetime in ISO8601 format
             return $value->format(self::$dateTimeFormat);
@@ -391,13 +393,13 @@ class ObjectSerializer
     /**
      * Deserialize a JSON string into an object
      *
-     * @param mixed    $data        object or primitive to be deserialized
-     * @param string   $class       class name is passed as a string
-     * @param string[] $httpHeaders HTTP headers
+     * @param string|int|object|array|mixed $data        object or primitive to be deserialized
+     * @param string                        $class       class name is passed as a string
+     * @param string[]                      $httpHeaders HTTP headers
      *
      * @return object|array|null a single or an array of $class instances
      */
-    public static function deserialize(mixed $data, string $class, array $httpHeaders = null)
+    public static function deserialize($data, string $class, array $httpHeaders = null)
     {
         if (null === $data) {
             return null;

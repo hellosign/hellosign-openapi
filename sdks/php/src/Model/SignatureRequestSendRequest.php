@@ -427,7 +427,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      */
     public static function init(array $data): SignatureRequestSendRequest
     {
-        /** @var SignatureRequestSendRequest $obj */
+        /** @var SignatureRequestSendRequest */
         return ObjectSerializer::deserialize(
             $data,
             SignatureRequestSendRequest::class,
@@ -438,8 +438,10 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
      * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
      * is nullable and its value is set to null in the $fields array, then mark it as "set to null" in the
      * $this->openAPINullablesSetToNull array
+     *
+     * @param string|int|object|array|mixed $defaultValue
      */
-    private function setIfExists(string $variableName, array $fields, mixed $defaultValue): void
+    private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
         if (self::isNullable($variableName) && array_key_exists($variableName, $fields) && is_null($fields[$variableName])) {
             $this->openAPINullablesSetToNull[] = $variableName;
@@ -1280,7 +1282,7 @@ class SignatureRequestSendRequest implements ModelInterface, ArrayAccess, JsonSe
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            JSON_UNESCAPED_SLASHES
         );
     }
 

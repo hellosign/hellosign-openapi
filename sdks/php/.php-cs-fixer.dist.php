@@ -96,6 +96,9 @@ return $config->setRules([
         'elements' => ['method', 'property'],
     ],
     'yoda_style'                                       => false,
+    'trailing_comma_in_multiline'                      => [
+        'after_heredoc' => true,
+    ],
 ])
     ->setFinder($finder)
     ->setRiskyAllowed(true)

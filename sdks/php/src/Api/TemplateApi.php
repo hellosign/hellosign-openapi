@@ -40,6 +40,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use InvalidArgumentException;
 use JsonException;
+use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 use SplFileObject;
 
@@ -105,6 +106,9 @@ class TemplateApi
         ],
     ];
 
+    /** @var ResponseInterface|null */
+    protected $response;
+
     /**
      * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
@@ -149,6 +153,14 @@ class TemplateApi
     }
 
     /**
+     * @return ResponseInterface|null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Operation templateAddUser
      *
      * Add User to Template
@@ -188,6 +200,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -543,6 +556,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -879,6 +893,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1213,6 +1228,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1457,6 +1473,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -1798,6 +1815,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2128,6 +2146,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2469,6 +2488,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -2803,6 +2823,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3170,6 +3191,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3527,6 +3549,7 @@ class TemplateApi
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+                $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
@@ -3867,9 +3890,9 @@ class TemplateApi
      * @return object|array|null
      */
     private function handleRangeCodeResponse(
-        mixed $response,
+        ResponseInterface $response,
         string $rangeCode,
-        string $returnDataType,
+        string $returnDataType
     ) {
         $statusCode = $response->getStatusCode();
         $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
@@ -3901,7 +3924,7 @@ class TemplateApi
     private function handleRangeCodeException(
         ApiException $e,
         string $rangeCode,
-        string $exceptionDataType,
+        string $exceptionDataType
     ): bool {
         $statusCode = $e->getCode();
         $rangeCodeLeft = (int)(substr($rangeCode, 0, 1) . '00');
