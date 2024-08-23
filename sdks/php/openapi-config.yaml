@@ -9,6 +9,12 @@ additionalProperties:
   sortModelPropertiesByRequiredFlag: true
   srcBasePath: src
   phpVersion: 7.4
+  composerPackageName: "dropbox/sign"
+  artifactUrl: "https://hellosign.com"
+  licenseName: "MIT"
+  developerOrganization: "Dropbox Sign"
+  developerOrganizationUrl: "https://hellosign.com"
+  developerOrganizationEmail: "apisupport@hellosign.com"
 files:
   EventCallbackHelper.mustache:
     templateType: SupportingFiles
