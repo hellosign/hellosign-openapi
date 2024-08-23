@@ -121,6 +121,7 @@ class TeamApi
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
+     * @deprecated To be made private in the future
      */
     public function setHostIndex(int $hostIndex): void
     {
@@ -131,6 +132,7 @@ class TeamApi
      * Get the host index
      *
      * @return int Host index
+     * @deprecated To be made private in the future
      */
     public function getHostIndex()
     {
