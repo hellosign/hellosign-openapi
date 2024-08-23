@@ -139,17 +139,14 @@ class OAuthApi
      * URL: https://app.hellosign.com
      *
      * @param Model\OAuthTokenGenerateRequest $o_auth_token_generate_request o_auth_token_generate_request (required)
-     * @param int|null                        $hostIndex                     Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                           $variables                     Associative array of variables to pass to the host. Defaults to empty array.
-     * @param string                          $contentType                   The value for the Content-Type header. Check self::contentTypes['oauthTokenGenerate'] to see the possible values for this operation
      *
      * @return Model\OAuthTokenResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function oauthTokenGenerate(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
+    public function oauthTokenGenerate(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request)
     {
-        list($response) = $this->oauthTokenGenerateWithHttpInfo($o_auth_token_generate_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->oauthTokenGenerateWithHttpInfo($o_auth_token_generate_request);
         return $response;
     }
 
@@ -170,6 +167,7 @@ class OAuthApi
      * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -299,6 +297,7 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateAsync(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -326,6 +325,7 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateAsyncWithHttpInfo(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -382,6 +382,7 @@ class OAuthApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenGenerate. This method will eventually become unavailable
      */
     public function oauthTokenGenerateRequest(Model\OAuthTokenGenerateRequest $o_auth_token_generate_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenGenerate'][0])
     {
@@ -510,17 +511,14 @@ class OAuthApi
      * URL: https://app.hellosign.com
      *
      * @param Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request o_auth_token_refresh_request (required)
-     * @param int|null                       $hostIndex                    Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
-     * @param array                          $variables                    Associative array of variables to pass to the host. Defaults to empty array.
-     * @param string                         $contentType                  The value for the Content-Type header. Check self::contentTypes['oauthTokenRefresh'] to see the possible values for this operation
      *
      * @return Model\OAuthTokenResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function oauthTokenRefresh(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
+    public function oauthTokenRefresh(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request)
     {
-        list($response) = $this->oauthTokenRefreshWithHttpInfo($o_auth_token_refresh_request, $hostIndex, $variables, $contentType);
+        list($response) = $this->oauthTokenRefreshWithHttpInfo($o_auth_token_refresh_request);
         return $response;
     }
 
@@ -541,6 +539,7 @@ class OAuthApi
      * @return array of Model\OAuthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -670,6 +669,7 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshAsync(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -697,6 +697,7 @@ class OAuthApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshAsyncWithHttpInfo(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {
@@ -753,6 +754,7 @@ class OAuthApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::oauthTokenRefresh. This method will eventually become unavailable
      */
     public function oauthTokenRefreshRequest(Model\OAuthTokenRefreshRequest $o_auth_token_refresh_request, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['oauthTokenRefresh'][0])
     {

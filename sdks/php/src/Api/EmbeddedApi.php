@@ -136,15 +136,14 @@ class EmbeddedApi
      *
      * @param string                       $template_id               The id of the template to edit. (required)
      * @param Model\EmbeddedEditUrlRequest $embedded_edit_url_request embedded_edit_url_request (required)
-     * @param string                       $contentType               The value for the Content-Type header. Check self::contentTypes['embeddedEditUrl'] to see the possible values for this operation
      *
      * @return Model\EmbeddedEditUrlResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
+    public function embeddedEditUrl(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request)
     {
-        list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request, $contentType);
+        list($response) = $this->embeddedEditUrlWithHttpInfo($template_id, $embedded_edit_url_request);
         return $response;
     }
 
@@ -160,6 +159,7 @@ class EmbeddedApi
      * @return array of Model\EmbeddedEditUrlResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -296,6 +296,7 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlAsync(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -318,6 +319,7 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlAsyncWithHttpInfo(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -369,6 +371,7 @@ class EmbeddedApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedEditUrl. This method will eventually become unavailable
      */
     public function embeddedEditUrlRequest(string $template_id, Model\EmbeddedEditUrlRequest $embedded_edit_url_request, string $contentType = self::contentTypes['embeddedEditUrl'][0])
     {
@@ -493,15 +496,14 @@ class EmbeddedApi
      * Get Embedded Sign URL
      *
      * @param string $signature_id The id of the signature to get a signature url for. (required)
-     * @param string $contentType  The value for the Content-Type header. Check self::contentTypes['embeddedSignUrl'] to see the possible values for this operation
      *
      * @return Model\EmbeddedSignUrlResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function embeddedSignUrl(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
+    public function embeddedSignUrl(string $signature_id)
     {
-        list($response) = $this->embeddedSignUrlWithHttpInfo($signature_id, $contentType);
+        list($response) = $this->embeddedSignUrlWithHttpInfo($signature_id);
         return $response;
     }
 
@@ -516,6 +518,7 @@ class EmbeddedApi
      * @return array of Model\EmbeddedSignUrlResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlWithHttpInfo(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -651,6 +654,7 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlAsync(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -672,6 +676,7 @@ class EmbeddedApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlAsyncWithHttpInfo(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {
@@ -722,6 +727,7 @@ class EmbeddedApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::embeddedSignUrl. This method will eventually become unavailable
      */
     public function embeddedSignUrlRequest(string $signature_id, string $contentType = self::contentTypes['embeddedSignUrl'][0])
     {

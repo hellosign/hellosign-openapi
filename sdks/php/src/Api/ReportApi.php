@@ -132,15 +132,14 @@ class ReportApi
      * Create Report
      *
      * @param Model\ReportCreateRequest $report_create_request report_create_request (required)
-     * @param string                    $contentType           The value for the Content-Type header. Check self::contentTypes['reportCreate'] to see the possible values for this operation
      *
      * @return Model\ReportCreateResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function reportCreate(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
+    public function reportCreate(Model\ReportCreateRequest $report_create_request)
     {
-        list($response) = $this->reportCreateWithHttpInfo($report_create_request, $contentType);
+        list($response) = $this->reportCreateWithHttpInfo($report_create_request);
         return $response;
     }
 
@@ -155,6 +154,7 @@ class ReportApi
      * @return array of Model\ReportCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -290,6 +290,7 @@ class ReportApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateAsync(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -311,6 +312,7 @@ class ReportApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateAsyncWithHttpInfo(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {
@@ -361,6 +363,7 @@ class ReportApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::reportCreate. This method will eventually become unavailable
      */
     public function reportCreateRequest(Model\ReportCreateRequest $report_create_request, string $contentType = self::contentTypes['reportCreate'][0])
     {

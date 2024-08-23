@@ -144,15 +144,14 @@ class UnclaimedDraftApi
      * Create Unclaimed Draft
      *
      * @param Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request unclaimed_draft_create_request (required)
-     * @param string                            $contentType                    The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreate'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
+    public function unclaimedDraftCreate(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request)
     {
-        list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request, $contentType);
+        list($response) = $this->unclaimedDraftCreateWithHttpInfo($unclaimed_draft_create_request);
         return $response;
     }
 
@@ -167,6 +166,7 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -302,6 +302,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateAsync(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -323,6 +324,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateAsyncWithHttpInfo(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -373,6 +375,7 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateRequest(Model\UnclaimedDraftCreateRequest $unclaimed_draft_create_request, string $contentType = self::contentTypes['unclaimedDraftCreate'][0])
     {
@@ -481,15 +484,14 @@ class UnclaimedDraftApi
      * Create Embedded Unclaimed Draft
      *
      * @param Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request unclaimed_draft_create_embedded_request (required)
-     * @param string                                    $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbedded'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
+    public function unclaimedDraftCreateEmbedded(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request)
     {
-        list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request, $contentType);
+        list($response) = $this->unclaimedDraftCreateEmbeddedWithHttpInfo($unclaimed_draft_create_embedded_request);
         return $response;
     }
 
@@ -504,6 +506,7 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -639,6 +642,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedAsync(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -660,6 +664,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -710,6 +715,7 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbedded. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedRequest(Model\UnclaimedDraftCreateEmbeddedRequest $unclaimed_draft_create_embedded_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbedded'][0])
     {
@@ -818,15 +824,14 @@ class UnclaimedDraftApi
      * Create Embedded Unclaimed Draft with Template
      *
      * @param Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request unclaimed_draft_create_embedded_with_template_request (required)
-     * @param string                                                $contentType                                           The value for the Content-Type header. Check self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
+    public function unclaimedDraftCreateEmbeddedWithTemplate(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request)
     {
-        list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request, $contentType);
+        list($response) = $this->unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo($unclaimed_draft_create_embedded_with_template_request);
         return $response;
     }
 
@@ -841,6 +846,7 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -976,6 +982,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateAsync(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -997,6 +1004,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateAsyncWithHttpInfo(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -1047,6 +1055,7 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftCreateEmbeddedWithTemplate. This method will eventually become unavailable
      */
     public function unclaimedDraftCreateEmbeddedWithTemplateRequest(Model\UnclaimedDraftCreateEmbeddedWithTemplateRequest $unclaimed_draft_create_embedded_with_template_request, string $contentType = self::contentTypes['unclaimedDraftCreateEmbeddedWithTemplate'][0])
     {
@@ -1156,15 +1165,14 @@ class UnclaimedDraftApi
      *
      * @param string                                   $signature_request_id                    The ID of the signature request to edit and resend. (required)
      * @param Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request unclaimed_draft_edit_and_resend_request (required)
-     * @param string                                   $contentType                             The value for the Content-Type header. Check self::contentTypes['unclaimedDraftEditAndResend'] to see the possible values for this operation
      *
      * @return Model\UnclaimedDraftCreateResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
+    public function unclaimedDraftEditAndResend(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request)
     {
-        list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request, $contentType);
+        list($response) = $this->unclaimedDraftEditAndResendWithHttpInfo($signature_request_id, $unclaimed_draft_edit_and_resend_request);
         return $response;
     }
 
@@ -1180,6 +1188,7 @@ class UnclaimedDraftApi
      * @return array of Model\UnclaimedDraftCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1316,6 +1325,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendAsync(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1338,6 +1348,7 @@ class UnclaimedDraftApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendAsyncWithHttpInfo(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {
@@ -1389,6 +1400,7 @@ class UnclaimedDraftApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::unclaimedDraftEditAndResend. This method will eventually become unavailable
      */
     public function unclaimedDraftEditAndResendRequest(string $signature_request_id, Model\UnclaimedDraftEditAndResendRequest $unclaimed_draft_edit_and_resend_request, string $contentType = self::contentTypes['unclaimedDraftEditAndResend'][0])
     {

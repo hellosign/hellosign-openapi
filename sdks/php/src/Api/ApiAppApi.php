@@ -146,15 +146,14 @@ class ApiAppApi
      * Create API App
      *
      * @param Model\ApiAppCreateRequest $api_app_create_request api_app_create_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppCreate'] to see the possible values for this operation
      *
      * @return Model\ApiAppGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
+    public function apiAppCreate(Model\ApiAppCreateRequest $api_app_create_request)
     {
-        list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request, $contentType);
+        list($response) = $this->apiAppCreateWithHttpInfo($api_app_create_request);
         return $response;
     }
 
@@ -169,6 +168,7 @@ class ApiAppApi
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -304,6 +304,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateAsync(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -325,6 +326,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateAsyncWithHttpInfo(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -375,6 +377,7 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppCreate. This method will eventually become unavailable
      */
     public function apiAppCreateRequest(Model\ApiAppCreateRequest $api_app_create_request, string $contentType = self::contentTypes['apiAppCreate'][0])
     {
@@ -482,15 +485,14 @@ class ApiAppApi
      *
      * Delete API App
      *
-     * @param string $client_id   The client id of the API App to delete. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppDelete'] to see the possible values for this operation
+     * @param string $client_id The client id of the API App to delete. (required)
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppDelete(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
+    public function apiAppDelete(string $client_id)
     {
-        $this->apiAppDeleteWithHttpInfo($client_id, $contentType);
+        $this->apiAppDeleteWithHttpInfo($client_id);
     }
 
     /**
@@ -504,6 +506,7 @@ class ApiAppApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -566,6 +569,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteAsync(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -587,6 +591,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteAsyncWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -624,6 +629,7 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppDelete. This method will eventually become unavailable
      */
     public function apiAppDeleteRequest(string $client_id, string $contentType = self::contentTypes['apiAppDelete'][0])
     {
@@ -723,16 +729,15 @@ class ApiAppApi
      *
      * Get API App
      *
-     * @param string $client_id   The client id of the API App to retrieve. (required)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppGet'] to see the possible values for this operation
+     * @param string $client_id The client id of the API App to retrieve. (required)
      *
      * @return Model\ApiAppGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppGet(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
+    public function apiAppGet(string $client_id)
     {
-        list($response) = $this->apiAppGetWithHttpInfo($client_id, $contentType);
+        list($response) = $this->apiAppGetWithHttpInfo($client_id);
         return $response;
     }
 
@@ -747,6 +752,7 @@ class ApiAppApi
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -882,6 +888,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetAsync(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -903,6 +910,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetAsyncWithHttpInfo(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -953,6 +961,7 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppGet. This method will eventually become unavailable
      */
     public function apiAppGetRequest(string $client_id, string $contentType = self::contentTypes['apiAppGet'][0])
     {
@@ -1052,17 +1061,16 @@ class ApiAppApi
      *
      * List API Apps
      *
-     * @param int    $page        Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['apiAppList'] to see the possible values for this operation
+     * @param int $page      Which page number of the API App List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
      * @return Model\ApiAppListResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppList(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
+    public function apiAppList(int $page = 1, int $page_size = 20)
     {
-        list($response) = $this->apiAppListWithHttpInfo($page, $page_size, $contentType);
+        list($response) = $this->apiAppListWithHttpInfo($page, $page_size);
         return $response;
     }
 
@@ -1078,6 +1086,7 @@ class ApiAppApi
      * @return array of Model\ApiAppListResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1214,6 +1223,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListAsync(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1236,6 +1246,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListAsyncWithHttpInfo(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1287,6 +1298,7 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppList. This method will eventually become unavailable
      */
     public function apiAppListRequest(int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['apiAppList'][0])
     {
@@ -1391,15 +1403,14 @@ class ApiAppApi
      *
      * @param string                    $client_id              The client id of the API App to update. (required)
      * @param Model\ApiAppUpdateRequest $api_app_update_request api_app_update_request (required)
-     * @param string                    $contentType            The value for the Content-Type header. Check self::contentTypes['apiAppUpdate'] to see the possible values for this operation
      *
      * @return Model\ApiAppGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
+    public function apiAppUpdate(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request)
     {
-        list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request, $contentType);
+        list($response) = $this->apiAppUpdateWithHttpInfo($client_id, $api_app_update_request);
         return $response;
     }
 
@@ -1415,6 +1426,7 @@ class ApiAppApi
      * @return array of Model\ApiAppGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1551,6 +1563,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateAsync(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1573,6 +1586,7 @@ class ApiAppApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateAsyncWithHttpInfo(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {
@@ -1624,6 +1638,7 @@ class ApiAppApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::apiAppUpdate. This method will eventually become unavailable
      */
     public function apiAppUpdateRequest(string $client_id, Model\ApiAppUpdateRequest $api_app_update_request, string $contentType = self::contentTypes['apiAppUpdate'][0])
     {

@@ -141,15 +141,14 @@ class AccountApi
      * Create Account
      *
      * @param Model\AccountCreateRequest $account_create_request account_create_request (required)
-     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountCreate'] to see the possible values for this operation
      *
      * @return Model\AccountCreateResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountCreate(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
+    public function accountCreate(Model\AccountCreateRequest $account_create_request)
     {
-        list($response) = $this->accountCreateWithHttpInfo($account_create_request, $contentType);
+        list($response) = $this->accountCreateWithHttpInfo($account_create_request);
         return $response;
     }
 
@@ -164,6 +163,7 @@ class AccountApi
      * @return array of Model\AccountCreateResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
     public function accountCreateWithHttpInfo(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
@@ -299,6 +299,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
     public function accountCreateAsync(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
@@ -320,6 +321,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
     public function accountCreateAsyncWithHttpInfo(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
@@ -370,6 +372,7 @@ class AccountApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountCreate. This method will eventually become unavailable
      */
     public function accountCreateRequest(Model\AccountCreateRequest $account_create_request, string $contentType = self::contentTypes['accountCreate'][0])
     {
@@ -479,15 +482,14 @@ class AccountApi
      *
      * @param string $account_id    &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. (optional)
      * @param string $email_address &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. (optional)
-     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['accountGet'] to see the possible values for this operation
      *
      * @return Model\AccountGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountGet(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
+    public function accountGet(string $account_id = null, string $email_address = null)
     {
-        list($response) = $this->accountGetWithHttpInfo($account_id, $email_address, $contentType);
+        list($response) = $this->accountGetWithHttpInfo($account_id, $email_address);
         return $response;
     }
 
@@ -503,6 +505,7 @@ class AccountApi
      * @return array of Model\AccountGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
     public function accountGetWithHttpInfo(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
@@ -639,6 +642,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
     public function accountGetAsync(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
@@ -661,6 +665,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
     public function accountGetAsyncWithHttpInfo(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
@@ -712,6 +717,7 @@ class AccountApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountGet. This method will eventually become unavailable
      */
     public function accountGetRequest(string $account_id = null, string $email_address = null, string $contentType = self::contentTypes['accountGet'][0])
     {
@@ -815,15 +821,14 @@ class AccountApi
      * Update Account
      *
      * @param Model\AccountUpdateRequest $account_update_request account_update_request (required)
-     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountUpdate'] to see the possible values for this operation
      *
      * @return Model\AccountGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountUpdate(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
+    public function accountUpdate(Model\AccountUpdateRequest $account_update_request)
     {
-        list($response) = $this->accountUpdateWithHttpInfo($account_update_request, $contentType);
+        list($response) = $this->accountUpdateWithHttpInfo($account_update_request);
         return $response;
     }
 
@@ -838,6 +843,7 @@ class AccountApi
      * @return array of Model\AccountGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
     public function accountUpdateWithHttpInfo(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
@@ -973,6 +979,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
     public function accountUpdateAsync(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
@@ -994,6 +1001,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
     public function accountUpdateAsyncWithHttpInfo(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
@@ -1044,6 +1052,7 @@ class AccountApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountUpdate. This method will eventually become unavailable
      */
     public function accountUpdateRequest(Model\AccountUpdateRequest $account_update_request, string $contentType = self::contentTypes['accountUpdate'][0])
     {
@@ -1152,15 +1161,14 @@ class AccountApi
      * Verify Account
      *
      * @param Model\AccountVerifyRequest $account_verify_request account_verify_request (required)
-     * @param string                     $contentType            The value for the Content-Type header. Check self::contentTypes['accountVerify'] to see the possible values for this operation
      *
      * @return Model\AccountVerifyResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function accountVerify(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
+    public function accountVerify(Model\AccountVerifyRequest $account_verify_request)
     {
-        list($response) = $this->accountVerifyWithHttpInfo($account_verify_request, $contentType);
+        list($response) = $this->accountVerifyWithHttpInfo($account_verify_request);
         return $response;
     }
 
@@ -1175,6 +1183,7 @@ class AccountApi
      * @return array of Model\AccountVerifyResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
     public function accountVerifyWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
@@ -1310,6 +1319,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
     public function accountVerifyAsync(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
@@ -1331,6 +1341,7 @@ class AccountApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
     public function accountVerifyAsyncWithHttpInfo(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {
@@ -1381,6 +1392,7 @@ class AccountApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::accountVerify. This method will eventually become unavailable
      */
     public function accountVerifyRequest(Model\AccountVerifyRequest $account_verify_request, string $contentType = self::contentTypes['accountVerify'][0])
     {

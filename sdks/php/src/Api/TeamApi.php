@@ -160,15 +160,14 @@ class TeamApi
      *
      * @param Model\TeamAddMemberRequest $team_add_member_request team_add_member_request (required)
      * @param string                     $team_id                 The id of the team. (optional)
-     * @param string                     $contentType             The value for the Content-Type header. Check self::contentTypes['teamAddMember'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
+    public function teamAddMember(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null)
     {
-        list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id, $contentType);
+        list($response) = $this->teamAddMemberWithHttpInfo($team_add_member_request, $team_id);
         return $response;
     }
 
@@ -184,6 +183,7 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -320,6 +320,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberAsync(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -342,6 +343,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberAsyncWithHttpInfo(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -393,6 +395,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamAddMember. This method will eventually become unavailable
      */
     public function teamAddMemberRequest(Model\TeamAddMemberRequest $team_add_member_request, string $team_id = null, string $contentType = self::contentTypes['teamAddMember'][0])
     {
@@ -511,15 +514,14 @@ class TeamApi
      * Create Team
      *
      * @param Model\TeamCreateRequest $team_create_request team_create_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamCreate'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamCreate(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
+    public function teamCreate(Model\TeamCreateRequest $team_create_request)
     {
-        list($response) = $this->teamCreateWithHttpInfo($team_create_request, $contentType);
+        list($response) = $this->teamCreateWithHttpInfo($team_create_request);
         return $response;
     }
 
@@ -534,6 +536,7 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -669,6 +672,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateAsync(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -690,6 +694,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateAsyncWithHttpInfo(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -740,6 +745,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamCreate. This method will eventually become unavailable
      */
     public function teamCreateRequest(Model\TeamCreateRequest $team_create_request, string $contentType = self::contentTypes['teamCreate'][0])
     {
@@ -847,14 +853,12 @@ class TeamApi
      *
      * Delete Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamDelete'] to see the possible values for this operation
-     *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamDelete(string $contentType = self::contentTypes['teamDelete'][0])
+    public function teamDelete()
     {
-        $this->teamDeleteWithHttpInfo($contentType);
+        $this->teamDeleteWithHttpInfo();
     }
 
     /**
@@ -867,6 +871,7 @@ class TeamApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteWithHttpInfo(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -928,6 +933,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteAsync(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -948,6 +954,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -984,6 +991,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamDelete. This method will eventually become unavailable
      */
     public function teamDeleteRequest(string $contentType = self::contentTypes['teamDelete'][0])
     {
@@ -1067,15 +1075,13 @@ class TeamApi
      *
      * Get Team
      *
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamGet'] to see the possible values for this operation
-     *
      * @return Model\TeamGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamGet(string $contentType = self::contentTypes['teamGet'][0])
+    public function teamGet()
     {
-        list($response) = $this->teamGetWithHttpInfo($contentType);
+        list($response) = $this->teamGetWithHttpInfo();
         return $response;
     }
 
@@ -1089,6 +1095,7 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetWithHttpInfo(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1223,6 +1230,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetAsync(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1243,6 +1251,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetAsyncWithHttpInfo(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1292,6 +1301,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamGet. This method will eventually become unavailable
      */
     public function teamGetRequest(string $contentType = self::contentTypes['teamGet'][0])
     {
@@ -1375,16 +1385,15 @@ class TeamApi
      *
      * Get Team Info
      *
-     * @param string $team_id     The id of the team. (optional)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamInfo'] to see the possible values for this operation
+     * @param string $team_id The id of the team. (optional)
      *
      * @return Model\TeamGetInfoResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
+    public function teamInfo(string $team_id = null)
     {
-        list($response) = $this->teamInfoWithHttpInfo($team_id, $contentType);
+        list($response) = $this->teamInfoWithHttpInfo($team_id);
         return $response;
     }
 
@@ -1399,6 +1408,7 @@ class TeamApi
      * @return array of Model\TeamGetInfoResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoWithHttpInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1534,6 +1544,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoAsync(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1555,6 +1566,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoAsyncWithHttpInfo(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1605,6 +1617,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInfo. This method will eventually become unavailable
      */
     public function teamInfoRequest(string $team_id = null, string $contentType = self::contentTypes['teamInfo'][0])
     {
@@ -1699,15 +1712,14 @@ class TeamApi
      * List Team Invites
      *
      * @param string $email_address The email address for which to display the team invites. (optional)
-     * @param string $contentType   The value for the Content-Type header. Check self::contentTypes['teamInvites'] to see the possible values for this operation
      *
      * @return Model\TeamInvitesResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamInvites(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
+    public function teamInvites(string $email_address = null)
     {
-        list($response) = $this->teamInvitesWithHttpInfo($email_address, $contentType);
+        list($response) = $this->teamInvitesWithHttpInfo($email_address);
         return $response;
     }
 
@@ -1722,6 +1734,7 @@ class TeamApi
      * @return array of Model\TeamInvitesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesWithHttpInfo(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1857,6 +1870,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesAsync(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1878,6 +1892,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesAsyncWithHttpInfo(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -1928,6 +1943,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamInvites. This method will eventually become unavailable
      */
     public function teamInvitesRequest(string $email_address = null, string $contentType = self::contentTypes['teamInvites'][0])
     {
@@ -2021,18 +2037,17 @@ class TeamApi
      *
      * List Team Members
      *
-     * @param string $team_id     The id of the team that a member list is being requested from. (required)
-     * @param int    $page        Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamMembers'] to see the possible values for this operation
+     * @param string $team_id   The id of the team that a member list is being requested from. (required)
+     * @param int    $page      Which page number of the team member list to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
      * @return Model\TeamMembersResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamMembers(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
+    public function teamMembers(string $team_id, int $page = 1, int $page_size = 20)
     {
-        list($response) = $this->teamMembersWithHttpInfo($team_id, $page, $page_size, $contentType);
+        list($response) = $this->teamMembersWithHttpInfo($team_id, $page, $page_size);
         return $response;
     }
 
@@ -2049,6 +2064,7 @@ class TeamApi
      * @return array of Model\TeamMembersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2186,6 +2202,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersAsync(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2209,6 +2226,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersAsyncWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2261,6 +2279,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamMembers. This method will eventually become unavailable
      */
     public function teamMembersRequest(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamMembers'][0])
     {
@@ -2387,15 +2406,14 @@ class TeamApi
      * Remove User from Team
      *
      * @param Model\TeamRemoveMemberRequest $team_remove_member_request team_remove_member_request (required)
-     * @param string                        $contentType                The value for the Content-Type header. Check self::contentTypes['teamRemoveMember'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
+    public function teamRemoveMember(Model\TeamRemoveMemberRequest $team_remove_member_request)
     {
-        list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request, $contentType);
+        list($response) = $this->teamRemoveMemberWithHttpInfo($team_remove_member_request);
         return $response;
     }
 
@@ -2410,6 +2428,7 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2545,6 +2564,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberAsync(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2566,6 +2586,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberAsyncWithHttpInfo(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2616,6 +2637,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamRemoveMember. This method will eventually become unavailable
      */
     public function teamRemoveMemberRequest(Model\TeamRemoveMemberRequest $team_remove_member_request, string $contentType = self::contentTypes['teamRemoveMember'][0])
     {
@@ -2723,18 +2745,17 @@ class TeamApi
      *
      * List Sub Teams
      *
-     * @param string $team_id     The id of the parent Team. (required)
-     * @param int    $page        Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
-     * @param int    $page_size   Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
-     * @param string $contentType The value for the Content-Type header. Check self::contentTypes['teamSubTeams'] to see the possible values for this operation
+     * @param string $team_id   The id of the parent Team. (required)
+     * @param int    $page      Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. (optional, default to 1)
+     * @param int    $page_size Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. (optional, default to 20)
      *
      * @return Model\TeamSubTeamsResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamSubTeams(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
+    public function teamSubTeams(string $team_id, int $page = 1, int $page_size = 20)
     {
-        list($response) = $this->teamSubTeamsWithHttpInfo($team_id, $page, $page_size, $contentType);
+        list($response) = $this->teamSubTeamsWithHttpInfo($team_id, $page, $page_size);
         return $response;
     }
 
@@ -2751,6 +2772,7 @@ class TeamApi
      * @return array of Model\TeamSubTeamsResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -2888,6 +2910,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsAsync(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -2911,6 +2934,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsAsyncWithHttpInfo(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -2963,6 +2987,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamSubTeams. This method will eventually become unavailable
      */
     public function teamSubTeamsRequest(string $team_id, int $page = 1, int $page_size = 20, string $contentType = self::contentTypes['teamSubTeams'][0])
     {
@@ -3089,15 +3114,14 @@ class TeamApi
      * Update Team
      *
      * @param Model\TeamUpdateRequest $team_update_request team_update_request (required)
-     * @param string                  $contentType         The value for the Content-Type header. Check self::contentTypes['teamUpdate'] to see the possible values for this operation
      *
      * @return Model\TeamGetResponse|Model\ErrorResponse
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
      */
-    public function teamUpdate(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
+    public function teamUpdate(Model\TeamUpdateRequest $team_update_request)
     {
-        list($response) = $this->teamUpdateWithHttpInfo($team_update_request, $contentType);
+        list($response) = $this->teamUpdateWithHttpInfo($team_update_request);
         return $response;
     }
 
@@ -3112,6 +3136,7 @@ class TeamApi
      * @return array of Model\TeamGetResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3247,6 +3272,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateAsync(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3268,6 +3294,7 @@ class TeamApi
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateAsyncWithHttpInfo(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
@@ -3318,6 +3345,7 @@ class TeamApi
      *
      * @return Request
      * @throws InvalidArgumentException
+     * @deprecated Prefer to use ::teamUpdate. This method will eventually become unavailable
      */
     public function teamUpdateRequest(Model\TeamUpdateRequest $team_update_request, string $contentType = self::contentTypes['teamUpdate'][0])
     {
