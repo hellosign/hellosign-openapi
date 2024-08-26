@@ -428,6 +428,7 @@ export class {{classname}} {
 {{/operation}}
 }
 
+{{! CUSTOM - BEGIN }}
 function deserializeIfNeeded<T> (obj: T, classname: string): T {
   if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
@@ -507,4 +508,5 @@ function handleErrorRangeResponse(
 
     return false;
 }
+{{! CUSTOM - END }}
 {{/operations}}
