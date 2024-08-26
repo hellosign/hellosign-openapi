@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# see https://github.com/OpenAPITools/openapi-generator/tree/1314e229f58cf056850dc912bbf55e49bcda2db8/modules/openapi-generator/src/main/resources/typescript-node
+# see https://github.com/OpenAPITools/openapi-generator/tree/v7.7.0/modules/openapi-generator/src/main/resources/typescript-node
 
 set -e
 

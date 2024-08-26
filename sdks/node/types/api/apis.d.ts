@@ -1,12 +1,13 @@
-import { AxiosResponse } from "axios";
-import formData from "form-data";
-import { AttributeTypeMap } from "../model";
 export declare class HttpError extends Error {
     response: AxiosResponse;
     body: any;
     statusCode?: number | undefined;
     constructor(response: AxiosResponse, body: any, statusCode?: number | undefined);
 }
+export { RequestFile } from "../model";
+import { AxiosResponse } from "axios";
+import formData from "form-data";
+import { AttributeTypeMap } from "../model";
 export interface optionsI {
     headers: {
         [name: string]: string;
@@ -21,7 +22,6 @@ export interface returnTypeI {
     body?: any;
 }
 export declare const queryParamsSerializer: (params: any) => string;
-export { RequestFile } from "../model";
 export declare const USER_AGENT = "OpenAPI-Generator/1.5-dev/node";
 export declare const generateFormData: (obj: any, typemap: AttributeTypeMap) => {
     localVarUseFormData: boolean;

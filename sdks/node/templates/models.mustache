@@ -1,8 +1,29 @@
+{{#vendorExtensions.x-ignore-block}}
 {{#generateApis}}
-import { AxiosRequestConfig } from 'axios';
+import localVarRequest from 'request';
 {{/generateApis}}
+
+{{#models}}
+{{#model}}
+export * from '{{{ classFilename }}}';
+{{/model}}
+{{/models}}
+
 import * as fs from 'fs';
 
+export interface RequestDetailedFile {
+    value: Buffer;
+    options?: {
+        filename?: string;
+        contentType?: string;
+    }
+}
+
+export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
+import { AxiosRequestConfig } from 'axios';
+import * as fs from 'fs';
 import { enumsMap, typeMap } from "./";
 import { Headers } from "form-data";
 
@@ -17,8 +38,6 @@ export interface RequestDetailedFile {
   };
 }
 
-export type RequestFile = fs.ReadStream | RequestDetailedFile;
-
 interface AttributeType {
   name: string;
   baseName: string;
@@ -27,9 +46,20 @@ interface AttributeType {
 
 export interface AttributeTypeMap extends Array<AttributeType>{}
 
+export type RequestFile = fs.ReadStream | RequestDetailedFile;
+{{! CUSTOM - END }}
+
 {{! Object serialization only relevant if generating APIs, too }}
 {{#generateApis}}
 
+{{#vendorExtensions.x-ignore-block}}
+{{#models}}
+{{#model}}
+import { {{classname}} } from '{{{ classFilename }}}';
+{{/model}}
+{{/models}}
+
+{{/vendorExtensions.x-ignore-block}}
 /* tslint:disable:no-unused-variable */
 let primitives = [
                     "string",
@@ -42,6 +72,34 @@ let primitives = [
                     "any"
                  ];
 
+{{#vendorExtensions.x-ignore-block}}
+let enumsMap: {[index: string]: any} = {
+    {{#models}}
+        {{#model}}
+            {{#hasEnums}}
+                {{#vars}}
+                    {{#isEnum}}
+        {{#isContainer}}"{{classname}}.{{enumName}}": {{classname}}.{{enumName}}{{/isContainer}}{{^isContainer}}"{{datatypeWithEnum}}": {{datatypeWithEnum}}{{/isContainer}},
+                    {{/isEnum}}
+                {{/vars}}
+            {{/hasEnums}}
+            {{#isEnum}}
+        "{{classname}}": {{classname}},
+            {{/isEnum}}
+        {{/model}}
+    {{/models}}
+}
+
+let typeMap: {[index: string]: any} = {
+    {{#models}}
+        {{#model}}
+            {{^isEnum}}
+    "{{classname}}": {{classname}},
+            {{/isEnum}}
+        {{/model}}
+    {{/models}}
+}
+{{/vendorExtensions.x-ignore-block}}
 export class ObjectSerializer {
     public static findCorrectType(data: any, expectedType: string) {
         if (data == undefined) {
@@ -61,6 +119,7 @@ export class ObjectSerializer {
 
             // Check the discriminator
             let discriminatorProperty = typeMap[expectedType].discriminator;
+{{! CUSTOM - BEGIN }}
             let discriminatorValue = data[discriminatorProperty];
 
             if (typeMap[expectedType].hasOwnProperty('discriminatorClassName')) {
@@ -72,6 +131,7 @@ export class ObjectSerializer {
                 return discriminatorClass;
               }
             }
+{{! CUSTOM - END }}
 
             if (discriminatorProperty == null) {
                 return expectedType; // the type does not have a discriminator. use it.
@@ -122,12 +182,17 @@ export class ObjectSerializer {
             let instance: {[index: string]: any} = {};
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
+{{#vendorExtensions.x-ignore-block}}
+                instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
                 let value = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
 
                 // Only add property if not null
                 if (value !== undefined) {
                   instance[attributeType.baseName] = value;
                 }
+{{! CUSTOM - END }}
             }
             return instance;
         }
@@ -163,12 +228,16 @@ export class ObjectSerializer {
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
-
+{{#vendorExtensions.x-ignore-block}}
+                instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
                 const propertyKey = data[attributeType.baseName] !== undefined
                     ? attributeType.baseName
                     : attributeType.name;
 
                 instance[attributeType.name] = ObjectSerializer.deserialize(data[propertyKey], attributeType.type);
+{{! CUSTOM - END }}
             }
             return instance;
         }
@@ -179,6 +248,7 @@ export interface Authentication {
     /**
     * Apply authentication settings to header and query params.
     */
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
     applyToRequest(requestOptions: AxiosRequestConfig): Promise<void> | void;
 }
 
@@ -186,6 +256,7 @@ export class HttpBasicAuth implements Authentication {
     public username: string = '';
     public password: string = '';
 
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
         requestOptions.auth = {
             username: this.username, password: this.password
@@ -196,6 +267,7 @@ export class HttpBasicAuth implements Authentication {
 export class HttpBearerAuth implements Authentication {
     public accessToken: string | (() => string) = '';
 
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
         if (requestOptions && requestOptions.headers) {
             const accessToken = typeof this.accessToken === 'function'
@@ -212,8 +284,10 @@ export class ApiKeyAuth implements Authentication {
     constructor(private location: string, private paramName: string) {
     }
 
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
         if (this.location == "query") {
+{{! CUSTOM - requestOptions.qs -> requestOptions.params }}
             (<any>requestOptions.params)[this.paramName] = this.apiKey;
         } else if (this.location == "header" && requestOptions && requestOptions.headers) {
             requestOptions.headers[this.paramName] = this.apiKey;
@@ -231,6 +305,7 @@ export class ApiKeyAuth implements Authentication {
 export class OAuth implements Authentication {
     public accessToken: string = '';
 
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig.params }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
         if (requestOptions && requestOptions.headers) {
             requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
@@ -242,10 +317,12 @@ export class VoidAuth implements Authentication {
     public username: string = '';
     public password: string = '';
 
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig.params }}
     applyToRequest(_: AxiosRequestConfig): void {
         // Do nothing
     }
 }
 
+{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig.params }}
 export type Interceptor = (requestOptions: AxiosRequestConfig) => (Promise<void> | void);
 {{/generateApis}}

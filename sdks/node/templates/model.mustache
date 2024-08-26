@@ -1,6 +1,7 @@
 {{>licenseInfo}}
 {{#models}}
 {{#model}}
+{{! CUSTOM - Add AttributeTypeMap, ObjectSerializer, ./models -> ./ }}
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from './';
 {{#tsImports}}
 import { {{classname}} } from '{{filename}}';
@@ -12,6 +13,7 @@ import { {{classname}} } from '{{filename}}';
 */
 {{/description}}
 {{^isEnum}}
+{{! CUSTOM - add x-base-class check }}
 export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-class}}class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
 {{#vars}}
 {{#description}}
@@ -19,7 +21,12 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
     * {{{.}}}
     */
 {{/description}}
+{{#vendorExtensions.x-ignore-block}}
+    '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}}{{#defaultValue}} = {{#isEnum}}{{classname}}.{{/isEnum}}{{{.}}}{{/defaultValue}};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{#vendorExtensions.x-int-or-string}}number | string{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+{{! CUSTOM - END }}
 {{/vars}}
 
     {{#discriminator}}
@@ -30,6 +37,7 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
     {{/discriminator}}
 
     {{^isArray}}
+{{! CUSTOM - use AttributeTypeMap interface }}
     static attributeTypeMap: AttributeTypeMap = [
         {{#vars}}
         {
@@ -41,6 +49,7 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         {{/vars}}
     ];
 
+{{! CUSTOM - add AttributeTypeMap interface }}
     static getAttributeTypeMap(): AttributeTypeMap {
         {{#parent}}
         return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
@@ -50,6 +59,7 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         {{/parent}}
     }
 
+{{! CUSTOM - BEGIN }}
 {{#discriminator}}
     static discriminatorClassName(value: any): string | null {
         if ((value === undefined) || (value === null)) {
@@ -71,6 +81,7 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         return ObjectSerializer.deserialize(data, '{{classname}}');
     }
 {{/discriminator}}
+{{! CUSTOM - END }}
     {{/isArray}}
 }
 
@@ -81,6 +92,7 @@ export namespace {{classname}} {
     export enum {{enumName}} {
         {{#allowableValues}}
         {{#enumVars}}
+{{! CUSTOM - remove type of <any> }}
         {{name}} = {{{value}}}{{^-last}},{{/-last}}
         {{/enumVars}}
         {{/allowableValues}}
@@ -94,6 +106,7 @@ export namespace {{classname}} {
 export enum {{classname}} {
     {{#allowableValues}}
     {{#enumVars}}
+{{! CUSTOM - remove type of <any> }}
     {{name}} = {{{value}}}{{^-last}},{{/-last}}
     {{/enumVars}}
     {{/allowableValues}}

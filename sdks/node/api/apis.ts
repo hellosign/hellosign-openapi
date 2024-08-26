@@ -1,12 +1,3 @@
-import { AxiosResponse } from "axios";
-import formData from "form-data";
-import Qs from "qs";
-import {
-  AttributeTypeMap,
-  ObjectSerializer,
-  RequestDetailedFile,
-} from "../model";
-
 export class HttpError extends Error {
   constructor(
     public response: AxiosResponse,
@@ -18,15 +9,24 @@ export class HttpError extends Error {
   }
 }
 
+export { RequestFile } from "../model";
+
+import { AxiosResponse } from "axios";
+import formData from "form-data";
+import Qs from "qs";
+import {
+  AttributeTypeMap,
+  ObjectSerializer,
+  RequestDetailedFile,
+} from "../model";
+
 export interface optionsI {
   headers: { [name: string]: string };
 }
-
 export interface returnTypeT<T> {
   response: AxiosResponse;
   body: T;
 }
-
 export interface returnTypeI {
   response: AxiosResponse;
   body?: any;
@@ -35,8 +35,6 @@ export interface returnTypeI {
 export const queryParamsSerializer = (params) => {
   return Qs.stringify(params, { arrayFormat: "brackets" });
 };
-
-export { RequestFile } from "../model";
 
 export const USER_AGENT = "OpenAPI-Generator/1.5-dev/node";
 

@@ -1,3 +1,7 @@
 // This is the entrypoint for the package
+{{! CUSTOM - api/apis -> api/index }}
 export * from './api/index';
+{{#models.0}}
+{{! CUSTOM - model/models -> model/index }}
 export * from './model/index';
+{{/models.0}}
