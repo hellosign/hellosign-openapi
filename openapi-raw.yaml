@@ -2018,7 +2018,6 @@ paths:
           description: '_t__FaxLineList::SHOW_TEAM_LINES'
           schema:
             type: boolean
-            default: 0
       responses:
         '200':
           description: 'successful operation'

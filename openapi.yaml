@@ -2024,7 +2024,6 @@ paths:
           description: 'Show team lines'
           schema:
             type: boolean
-            default: 0
       responses:
         200:
           description: 'successful operation'
