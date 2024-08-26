@@ -12973,6 +12973,18 @@ __export(api_exports, {
   EventCallbackRequest: () => EventCallbackRequest,
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest: () => FaxLineAddUserRequest,
+  FaxLineApi: () => FaxLineApi,
+  FaxLineAreaCodeGetCountryEnum: () => FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum: () => FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse: () => FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum: () => FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest: () => FaxLineCreateRequest,
+  FaxLineDeleteRequest: () => FaxLineDeleteRequest,
+  FaxLineListResponse: () => FaxLineListResponse,
+  FaxLineRemoveUserRequest: () => FaxLineRemoveUserRequest,
+  FaxLineResponse: () => FaxLineResponse,
+  FaxLineResponseFaxLine: () => FaxLineResponseFaxLine,
   FileResponse: () => FileResponse,
   FileResponseDataUri: () => FileResponseDataUri,
   HttpBasicAuth: () => HttpBasicAuth,
@@ -17649,6 +17661,313 @@ EventCallbackRequestEventMetadata.attributeTypeMap = [
     name: "eventMessage",
     baseName: "event_message",
     type: "string"
+  }
+];
+
+// model/faxLineAddUserRequest.ts
+var _FaxLineAddUserRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineAddUserRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineAddUserRequest");
+  }
+};
+var FaxLineAddUserRequest = _FaxLineAddUserRequest;
+FaxLineAddUserRequest.discriminator = void 0;
+FaxLineAddUserRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  }
+];
+
+// model/faxLineAreaCodeGetCountryEnum.ts
+var FaxLineAreaCodeGetCountryEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetCountryEnum2) => {
+  FaxLineAreaCodeGetCountryEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetCountryEnum2["Us"] = "US";
+  FaxLineAreaCodeGetCountryEnum2["Uk"] = "UK";
+  return FaxLineAreaCodeGetCountryEnum2;
+})(FaxLineAreaCodeGetCountryEnum || {});
+
+// model/faxLineAreaCodeGetProvinceEnum.ts
+var FaxLineAreaCodeGetProvinceEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetProvinceEnum2) => {
+  FaxLineAreaCodeGetProvinceEnum2["Ab"] = "AB";
+  FaxLineAreaCodeGetProvinceEnum2["Bc"] = "BC";
+  FaxLineAreaCodeGetProvinceEnum2["Mb"] = "MB";
+  FaxLineAreaCodeGetProvinceEnum2["Nb"] = "NB";
+  FaxLineAreaCodeGetProvinceEnum2["Nl"] = "NL";
+  FaxLineAreaCodeGetProvinceEnum2["Nt"] = "NT";
+  FaxLineAreaCodeGetProvinceEnum2["Ns"] = "NS";
+  FaxLineAreaCodeGetProvinceEnum2["Nu"] = "NU";
+  FaxLineAreaCodeGetProvinceEnum2["On"] = "ON";
+  FaxLineAreaCodeGetProvinceEnum2["Pe"] = "PE";
+  FaxLineAreaCodeGetProvinceEnum2["Qc"] = "QC";
+  FaxLineAreaCodeGetProvinceEnum2["Sk"] = "SK";
+  FaxLineAreaCodeGetProvinceEnum2["Yt"] = "YT";
+  return FaxLineAreaCodeGetProvinceEnum2;
+})(FaxLineAreaCodeGetProvinceEnum || {});
+
+// model/faxLineAreaCodeGetResponse.ts
+var _FaxLineAreaCodeGetResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineAreaCodeGetResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineAreaCodeGetResponse");
+  }
+};
+var FaxLineAreaCodeGetResponse = _FaxLineAreaCodeGetResponse;
+FaxLineAreaCodeGetResponse.discriminator = void 0;
+FaxLineAreaCodeGetResponse.attributeTypeMap = [
+  {
+    name: "areaCodes",
+    baseName: "area_codes",
+    type: "Array<number>"
+  }
+];
+
+// model/faxLineAreaCodeGetStateEnum.ts
+var FaxLineAreaCodeGetStateEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetStateEnum2) => {
+  FaxLineAreaCodeGetStateEnum2["Ak"] = "AK";
+  FaxLineAreaCodeGetStateEnum2["Al"] = "AL";
+  FaxLineAreaCodeGetStateEnum2["Ar"] = "AR";
+  FaxLineAreaCodeGetStateEnum2["Az"] = "AZ";
+  FaxLineAreaCodeGetStateEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetStateEnum2["Co"] = "CO";
+  FaxLineAreaCodeGetStateEnum2["Ct"] = "CT";
+  FaxLineAreaCodeGetStateEnum2["Dc"] = "DC";
+  FaxLineAreaCodeGetStateEnum2["De"] = "DE";
+  FaxLineAreaCodeGetStateEnum2["Fl"] = "FL";
+  FaxLineAreaCodeGetStateEnum2["Ga"] = "GA";
+  FaxLineAreaCodeGetStateEnum2["Hi"] = "HI";
+  FaxLineAreaCodeGetStateEnum2["Ia"] = "IA";
+  FaxLineAreaCodeGetStateEnum2["Id"] = "ID";
+  FaxLineAreaCodeGetStateEnum2["Il"] = "IL";
+  FaxLineAreaCodeGetStateEnum2["In"] = "IN";
+  FaxLineAreaCodeGetStateEnum2["Ks"] = "KS";
+  FaxLineAreaCodeGetStateEnum2["Ky"] = "KY";
+  FaxLineAreaCodeGetStateEnum2["La"] = "LA";
+  FaxLineAreaCodeGetStateEnum2["Ma"] = "MA";
+  FaxLineAreaCodeGetStateEnum2["Md"] = "MD";
+  FaxLineAreaCodeGetStateEnum2["Me"] = "ME";
+  FaxLineAreaCodeGetStateEnum2["Mi"] = "MI";
+  FaxLineAreaCodeGetStateEnum2["Mn"] = "MN";
+  FaxLineAreaCodeGetStateEnum2["Mo"] = "MO";
+  FaxLineAreaCodeGetStateEnum2["Ms"] = "MS";
+  FaxLineAreaCodeGetStateEnum2["Mt"] = "MT";
+  FaxLineAreaCodeGetStateEnum2["Nc"] = "NC";
+  FaxLineAreaCodeGetStateEnum2["Nd"] = "ND";
+  FaxLineAreaCodeGetStateEnum2["Ne"] = "NE";
+  FaxLineAreaCodeGetStateEnum2["Nh"] = "NH";
+  FaxLineAreaCodeGetStateEnum2["Nj"] = "NJ";
+  FaxLineAreaCodeGetStateEnum2["Nm"] = "NM";
+  FaxLineAreaCodeGetStateEnum2["Nv"] = "NV";
+  FaxLineAreaCodeGetStateEnum2["Ny"] = "NY";
+  FaxLineAreaCodeGetStateEnum2["Oh"] = "OH";
+  FaxLineAreaCodeGetStateEnum2["Ok"] = "OK";
+  FaxLineAreaCodeGetStateEnum2["Or"] = "OR";
+  FaxLineAreaCodeGetStateEnum2["Pa"] = "PA";
+  FaxLineAreaCodeGetStateEnum2["Ri"] = "RI";
+  FaxLineAreaCodeGetStateEnum2["Sc"] = "SC";
+  FaxLineAreaCodeGetStateEnum2["Sd"] = "SD";
+  FaxLineAreaCodeGetStateEnum2["Tn"] = "TN";
+  FaxLineAreaCodeGetStateEnum2["Tx"] = "TX";
+  FaxLineAreaCodeGetStateEnum2["Ut"] = "UT";
+  FaxLineAreaCodeGetStateEnum2["Va"] = "VA";
+  FaxLineAreaCodeGetStateEnum2["Vt"] = "VT";
+  FaxLineAreaCodeGetStateEnum2["Wa"] = "WA";
+  FaxLineAreaCodeGetStateEnum2["Wi"] = "WI";
+  FaxLineAreaCodeGetStateEnum2["Wv"] = "WV";
+  FaxLineAreaCodeGetStateEnum2["Wy"] = "WY";
+  return FaxLineAreaCodeGetStateEnum2;
+})(FaxLineAreaCodeGetStateEnum || {});
+
+// model/faxLineCreateRequest.ts
+var _FaxLineCreateRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineCreateRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineCreateRequest");
+  }
+};
+var FaxLineCreateRequest = _FaxLineCreateRequest;
+FaxLineCreateRequest.discriminator = void 0;
+FaxLineCreateRequest.attributeTypeMap = [
+  {
+    name: "areaCode",
+    baseName: "area_code",
+    type: "number"
+  },
+  {
+    name: "country",
+    baseName: "country",
+    type: "FaxLineCreateRequest.CountryEnum"
+  },
+  {
+    name: "city",
+    baseName: "city",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  }
+];
+((FaxLineCreateRequest2) => {
+  let CountryEnum;
+  ((CountryEnum2) => {
+    CountryEnum2["Ca"] = "CA";
+    CountryEnum2["Us"] = "US";
+    CountryEnum2["Uk"] = "UK";
+  })(CountryEnum = FaxLineCreateRequest2.CountryEnum || (FaxLineCreateRequest2.CountryEnum = {}));
+})(FaxLineCreateRequest || (FaxLineCreateRequest = {}));
+
+// model/faxLineDeleteRequest.ts
+var _FaxLineDeleteRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineDeleteRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineDeleteRequest");
+  }
+};
+var FaxLineDeleteRequest = _FaxLineDeleteRequest;
+FaxLineDeleteRequest.discriminator = void 0;
+FaxLineDeleteRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  }
+];
+
+// model/faxLineListResponse.ts
+var _FaxLineListResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineListResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineListResponse");
+  }
+};
+var FaxLineListResponse = _FaxLineListResponse;
+FaxLineListResponse.discriminator = void 0;
+FaxLineListResponse.attributeTypeMap = [
+  {
+    name: "listInfo",
+    baseName: "list_info",
+    type: "ListInfoResponse"
+  },
+  {
+    name: "faxLines",
+    baseName: "fax_lines",
+    type: "Array<FaxLineResponseFaxLine>"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "WarningResponse"
+  }
+];
+
+// model/faxLineRemoveUserRequest.ts
+var _FaxLineRemoveUserRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineRemoveUserRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineRemoveUserRequest");
+  }
+};
+var FaxLineRemoveUserRequest = _FaxLineRemoveUserRequest;
+FaxLineRemoveUserRequest.discriminator = void 0;
+FaxLineRemoveUserRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  }
+];
+
+// model/faxLineResponse.ts
+var _FaxLineResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponse");
+  }
+};
+var FaxLineResponse = _FaxLineResponse;
+FaxLineResponse.discriminator = void 0;
+FaxLineResponse.attributeTypeMap = [
+  {
+    name: "faxLine",
+    baseName: "fax_line",
+    type: "FaxLineResponseFaxLine"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "WarningResponse"
+  }
+];
+
+// model/faxLineResponseFaxLine.ts
+var _FaxLineResponseFaxLine = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponseFaxLine.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponseFaxLine");
+  }
+};
+var FaxLineResponseFaxLine = _FaxLineResponseFaxLine;
+FaxLineResponseFaxLine.discriminator = void 0;
+FaxLineResponseFaxLine.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "createdAt",
+    baseName: "created_at",
+    type: "number"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<AccountResponse>"
   }
 ];
 
@@ -24082,6 +24401,10 @@ var VoidAuth = class {
 // model/index.ts
 var enumsMap = {
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetStateEnum,
+  "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
@@ -24144,6 +24467,14 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineAreaCodeGetResponse,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   ListInfoResponse,
@@ -25977,11 +26308,851 @@ var EmbeddedApi = class {
   }
 };
 
-// api/oAuthApi.ts
-var defaultBasePath5 = "https://app.hellosign.com";
-var OAuthApi = class {
+// api/faxLineApi.ts
+var defaultBasePath5 = "https://api.hellosign.com/v3";
+var FaxLineApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath5;
+    this._defaultHeaders = {
+      "User-Agent": USER_AGENT
+    };
+    this._useQuerystring = false;
+    this.authentications = {
+      default: new VoidAuth(),
+      api_key: new HttpBasicAuth(),
+      oauth2: new HttpBearerAuth()
+    };
+    this.interceptors = [];
+    if (basePath) {
+      this.basePath = basePath;
+    }
+  }
+  set useQuerystring(value) {
+    this._useQuerystring = value;
+  }
+  set basePath(basePath) {
+    this._basePath = basePath;
+  }
+  set defaultHeaders(defaultHeaders) {
+    this._defaultHeaders = defaultHeaders;
+  }
+  get defaultHeaders() {
+    return this._defaultHeaders;
+  }
+  get basePath() {
+    return this._basePath;
+  }
+  setDefaultAuthentication(auth) {
+    this.authentications.default = auth;
+  }
+  setApiKey(key) {
+    this.authentications.api_key.username = key;
+  }
+  set username(username) {
+    this.authentications.api_key.username = username;
+  }
+  set password(password) {
+    this.authentications.api_key.password = password;
+  }
+  set accessToken(accessToken) {
+    this.authentications.oauth2.accessToken = accessToken;
+  }
+  addInterceptor(interceptor) {
+    this.interceptors.push(interceptor);
+  }
+  faxLineAddUser(_0) {
+    return __async(this, arguments, function* (faxLineAddUserRequest, options = { headers: {} }) {
+      if (faxLineAddUserRequest !== null && faxLineAddUserRequest !== void 0 && faxLineAddUserRequest.constructor.name !== "FaxLineAddUserRequest") {
+        faxLineAddUserRequest = ObjectSerializer.deserialize(
+          faxLineAddUserRequest,
+          "FaxLineAddUserRequest"
+        );
+      }
+      const localVarPath = this.basePath + "/fax_line/add_user";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineAddUserRequest === null || faxLineAddUserRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineAddUserRequest was null or undefined when calling faxLineAddUser."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineAddUserRequest,
+        FaxLineAddUserRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineAddUserRequest,
+          "FaxLineAddUserRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+              if (response.status && response.status >= 200 && response.status <= 299) {
+                body = ObjectSerializer.deserialize(body, "FaxLineResponse");
+                resolve({ response, body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              const response = error.response;
+              let body;
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "FaxLineResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineAreaCodeGet(_0, _1, _2, _3) {
+    return __async(this, arguments, function* (country, state, province, city, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line/area_codes";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (country === null || country === void 0) {
+        throw new Error(
+          "Required parameter country was null or undefined when calling faxLineAreaCodeGet."
+        );
+      }
+      if (country !== void 0) {
+        localVarQueryParameters["country"] = ObjectSerializer.serialize(
+          country,
+          "'CA' | 'US' | 'UK'"
+        );
+      }
+      if (state !== void 0) {
+        localVarQueryParameters["state"] = ObjectSerializer.serialize(
+          state,
+          "'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'"
+        );
+      }
+      if (province !== void 0) {
+        localVarQueryParameters["province"] = ObjectSerializer.serialize(
+          province,
+          "'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'"
+        );
+      }
+      if (city !== void 0) {
+        localVarQueryParameters["city"] = ObjectSerializer.serialize(
+          city,
+          "string"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                let body = response.data;
+                if (response.status && response.status >= 200 && response.status <= 299) {
+                  body = ObjectSerializer.deserialize(
+                    body,
+                    "FaxLineAreaCodeGetResponse"
+                  );
+                  resolve({ response, body });
+                } else {
+                  reject(new HttpError(response, body, response.status));
+                }
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                const response = error.response;
+                let body;
+                if (response.status === 200) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "FaxLineAreaCodeGetResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                let rangeCodeLeft = Number("4XX"[0] + "00");
+                let rangeCodeRight = Number("4XX"[0] + "99");
+                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "ErrorResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  faxLineCreate(_0) {
+    return __async(this, arguments, function* (faxLineCreateRequest, options = { headers: {} }) {
+      if (faxLineCreateRequest !== null && faxLineCreateRequest !== void 0 && faxLineCreateRequest.constructor.name !== "FaxLineCreateRequest") {
+        faxLineCreateRequest = ObjectSerializer.deserialize(
+          faxLineCreateRequest,
+          "FaxLineCreateRequest"
+        );
+      }
+      const localVarPath = this.basePath + "/fax_line/create";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineCreateRequest === null || faxLineCreateRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineCreateRequest was null or undefined when calling faxLineCreate."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineCreateRequest,
+        FaxLineCreateRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineCreateRequest,
+          "FaxLineCreateRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "POST",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+              if (response.status && response.status >= 200 && response.status <= 299) {
+                body = ObjectSerializer.deserialize(body, "FaxLineResponse");
+                resolve({ response, body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              const response = error.response;
+              let body;
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "FaxLineResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineDelete(_0) {
+    return __async(this, arguments, function* (faxLineDeleteRequest, options = { headers: {} }) {
+      if (faxLineDeleteRequest !== null && faxLineDeleteRequest !== void 0 && faxLineDeleteRequest.constructor.name !== "FaxLineDeleteRequest") {
+        faxLineDeleteRequest = ObjectSerializer.deserialize(
+          faxLineDeleteRequest,
+          "FaxLineDeleteRequest"
+        );
+      }
+      const localVarPath = this.basePath + "/fax_line";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineDeleteRequest === null || faxLineDeleteRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineDeleteRequest was null or undefined when calling faxLineDelete."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineDeleteRequest,
+        FaxLineDeleteRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineDeleteRequest,
+          "FaxLineDeleteRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "DELETE",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+              if (response.status && response.status >= 200 && response.status <= 299) {
+                resolve({ response, body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              const response = error.response;
+              let body;
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineGet(_0) {
+    return __async(this, arguments, function* (number, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (number === null || number === void 0) {
+        throw new Error(
+          "Required parameter number was null or undefined when calling faxLineGet."
+        );
+      }
+      if (number !== void 0) {
+        localVarQueryParameters["number"] = ObjectSerializer.serialize(
+          number,
+          "string"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+              if (response.status && response.status >= 200 && response.status <= 299) {
+                body = ObjectSerializer.deserialize(body, "FaxLineResponse");
+                resolve({ response, body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              const response = error.response;
+              let body;
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "FaxLineResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineList(_0, _1, _2, _3) {
+    return __async(this, arguments, function* (accountId, page, pageSize, showTeamLines, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line/list";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (accountId !== void 0) {
+        localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+          accountId,
+          "string"
+        );
+      }
+      if (page !== void 0) {
+        localVarQueryParameters["page"] = ObjectSerializer.serialize(
+          page,
+          "number"
+        );
+      }
+      if (pageSize !== void 0) {
+        localVarQueryParameters["page_size"] = ObjectSerializer.serialize(
+          pageSize,
+          "number"
+        );
+      }
+      if (showTeamLines !== void 0) {
+        localVarQueryParameters["show_team_lines"] = ObjectSerializer.serialize(
+          showTeamLines,
+          "boolean"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                let body = response.data;
+                if (response.status && response.status >= 200 && response.status <= 299) {
+                  body = ObjectSerializer.deserialize(
+                    body,
+                    "FaxLineListResponse"
+                  );
+                  resolve({ response, body });
+                } else {
+                  reject(new HttpError(response, body, response.status));
+                }
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                const response = error.response;
+                let body;
+                if (response.status === 200) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "FaxLineListResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                let rangeCodeLeft = Number("4XX"[0] + "00");
+                let rangeCodeRight = Number("4XX"[0] + "99");
+                if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                  body = ObjectSerializer.deserialize(
+                    response.data,
+                    "ErrorResponse"
+                  );
+                  reject(new HttpError(response, body, response.status));
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  faxLineRemoveUser(_0) {
+    return __async(this, arguments, function* (faxLineRemoveUserRequest, options = { headers: {} }) {
+      if (faxLineRemoveUserRequest !== null && faxLineRemoveUserRequest !== void 0 && faxLineRemoveUserRequest.constructor.name !== "FaxLineRemoveUserRequest") {
+        faxLineRemoveUserRequest = ObjectSerializer.deserialize(
+          faxLineRemoveUserRequest,
+          "FaxLineRemoveUserRequest"
+        );
+      }
+      const localVarPath = this.basePath + "/fax_line/remove_user";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineRemoveUserRequest === null || faxLineRemoveUserRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineRemoveUserRequest was null or undefined when calling faxLineRemoveUser."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineRemoveUserRequest,
+        FaxLineRemoveUserRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineRemoveUserRequest,
+          "FaxLineRemoveUserRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              let body = response.data;
+              if (response.status && response.status >= 200 && response.status <= 299) {
+                body = ObjectSerializer.deserialize(body, "FaxLineResponse");
+                resolve({ response, body });
+              } else {
+                reject(new HttpError(response, body, response.status));
+              }
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              const response = error.response;
+              let body;
+              if (response.status === 200) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "FaxLineResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              let rangeCodeLeft = Number("4XX"[0] + "00");
+              let rangeCodeRight = Number("4XX"[0] + "99");
+              if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+                body = ObjectSerializer.deserialize(
+                  response.data,
+                  "ErrorResponse"
+                );
+                reject(new HttpError(response, body, response.status));
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+};
+
+// api/oAuthApi.ts
+var defaultBasePath6 = "https://app.hellosign.com";
+var OAuthApi = class {
+  constructor(basePath) {
+    this._basePath = defaultBasePath6;
     this._defaultHeaders = {
       "User-Agent": USER_AGENT
     };
@@ -26232,10 +27403,10 @@ var OAuthApi = class {
 };
 
 // api/reportApi.ts
-var defaultBasePath6 = "https://api.hellosign.com/v3";
+var defaultBasePath7 = "https://api.hellosign.com/v3";
 var ReportApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath6;
+    this._basePath = defaultBasePath7;
     this._defaultHeaders = {
       "User-Agent": USER_AGENT
     };
@@ -26406,10 +27577,10 @@ var ReportApi = class {
 };
 
 // api/signatureRequestApi.ts
-var defaultBasePath7 = "https://api.hellosign.com/v3";
+var defaultBasePath8 = "https://api.hellosign.com/v3";
 var SignatureRequestApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath7;
+    this._basePath = defaultBasePath8;
     this._defaultHeaders = {
       "User-Agent": USER_AGENT
     };
@@ -28293,10 +29464,10 @@ var SignatureRequestApi = class {
 };
 
 // api/teamApi.ts
-var defaultBasePath8 = "https://api.hellosign.com/v3";
+var defaultBasePath9 = "https://api.hellosign.com/v3";
 var TeamApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath8;
+    this._basePath = defaultBasePath9;
     this._defaultHeaders = {
       "User-Agent": USER_AGENT
     };
@@ -29442,10 +30613,10 @@ var TeamApi = class {
 };
 
 // api/templateApi.ts
-var defaultBasePath9 = "https://api.hellosign.com/v3";
+var defaultBasePath10 = "https://api.hellosign.com/v3";
 var TemplateApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath9;
+    this._basePath = defaultBasePath10;
     this._defaultHeaders = {
       "User-Agent": USER_AGENT
     };
@@ -30776,10 +31947,10 @@ var TemplateApi = class {
 };
 
 // api/unclaimedDraftApi.ts
-var defaultBasePath10 = "https://api.hellosign.com/v3";
+var defaultBasePath11 = "https://api.hellosign.com/v3";
 var UnclaimedDraftApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath10;
+    this._basePath = defaultBasePath11;
     this._defaultHeaders = {
       "User-Agent": USER_AGENT
     };
@@ -31416,6 +32587,7 @@ var APIS = [
   ApiAppApi,
   BulkSendJobApi,
   EmbeddedApi,
+  FaxLineApi,
   OAuthApi,
   ReportApi,
   SignatureRequestApi,
@@ -31466,6 +32638,18 @@ var APIS = [
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineApi,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   HttpBasicAuth,

@@ -1403,6 +1403,803 @@ paths:
         seo:
           title: '_t__EmbeddedSignUrl::SEO::TITLE'
           description: '_t__EmbeddedSignUrl::SEO::DESCRIPTION'
+  /fax_line/add_user:
+    put:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineAddUser::SUMMARY'
+      description: '_t__FaxLineAddUser::DESCRIPTION'
+      operationId: faxLineAddUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineAddUserRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineAddUserRequestExample'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineAddUser.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineAddUser.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineAddUser.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineAddUser.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineAddUser.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineAddUser.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineAddUser.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineAddUser.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineAddUser::SEO::TITLE'
+          description: '_t__FaxLineAddUser::SEO::DESCRIPTION'
+  /fax_line/area_codes:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineAreaCodeGet::SUMMARY'
+      description: '_t__FaxLineAreaCodeGet::DESCRIPTION'
+      operationId: faxLineAreaCodeGet
+      parameters:
+        -
+          name: country
+          in: query
+          description: '_t__FaxLineAreaCodeGet::COUNTRY'
+          required: true
+          schema:
+            type: string
+            enum:
+              - CA
+              - US
+              - UK
+        -
+          name: state
+          in: query
+          description: '_t__FaxLineAreaCodeGet::STATE'
+          schema:
+            type: string
+            enum:
+              - AK
+              - AL
+              - AR
+              - AZ
+              - CA
+              - CO
+              - CT
+              - DC
+              - DE
+              - FL
+              - GA
+              - HI
+              - IA
+              - ID
+              - IL
+              - IN
+              - KS
+              - KY
+              - LA
+              - MA
+              - MD
+              - ME
+              - MI
+              - MN
+              - MO
+              - MS
+              - MT
+              - NC
+              - ND
+              - NE
+              - NH
+              - NJ
+              - NM
+              - NV
+              - NY
+              - OH
+              - OK
+              - OR
+              - PA
+              - RI
+              - SC
+              - SD
+              - TN
+              - TX
+              - UT
+              - VA
+              - VT
+              - WA
+              - WI
+              - WV
+              - WY
+        -
+          name: province
+          in: query
+          description: '_t__FaxLineAreaCodeGet::PROVINCE'
+          schema:
+            type: string
+            enum:
+              - AB
+              - BC
+              - MB
+              - NB
+              - NL
+              - NT
+              - NS
+              - NU
+              - 'ON'
+              - PE
+              - QC
+              - SK
+              - YT
+        -
+          name: city
+          in: query
+          description: '_t__FaxLineAreaCodeGet::CITY'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineAreaCodeGetResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineAreaCodeGetResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineAreaCodeGet.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineAreaCodeGet.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineAreaCodeGet.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineAreaCodeGet.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineAreaCodeGet.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineAreaCodeGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineAreaCodeGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineAreaCodeGet.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineAreaCodeGet::SEO::TITLE'
+          description: '_t__FaxLineAreaCodeGet::SEO::DESCRIPTION'
+  /fax_line/create:
+    post:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineCreate::SUMMARY'
+      description: '_t__FaxLineCreate::DESCRIPTION'
+      operationId: faxLineCreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineCreateRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineCreateRequestExample'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineCreate.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineCreate.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineCreate.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineCreate.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineCreate.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineCreate.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineCreate.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineCreate.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineCreate::SEO::TITLE'
+          description: '_t__FaxLineCreate::SEO::DESCRIPTION'
+  /fax_line:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineGet::SUMMARY'
+      description: '_t__FaxLineGet::DESCRIPTION'
+      operationId: faxLineGet
+      parameters:
+        -
+          name: number
+          in: query
+          description: '_t__FaxLineGet::NUMBER'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineGet.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineGet.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineGet.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineGet.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineGet.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineGet.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineGet.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineGet.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineGet::SEO::TITLE'
+          description: '_t__FaxLineGet::SEO::DESCRIPTION'
+    delete:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineDelete::SUMMARY'
+      description: '_t__FaxLineDelete::DESCRIPTION'
+      operationId: faxLineDelete
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineDeleteRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineDeleteRequestExample'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json: {  }
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineDelete.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineDelete.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineDelete.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineDelete.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineDelete.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineDelete.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineDelete.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineDelete.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineDelete::SEO::TITLE'
+          description: '_t__FaxLineDelete::SEO::DESCRIPTION'
+  /fax_line/list:
+    get:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineList::SUMMARY'
+      description: '_t__FaxLineList::DESCRIPTION'
+      operationId: faxLineList
+      parameters:
+        -
+          name: account_id
+          in: query
+          description: '_t__FaxLineList::ACCOUNT_ID'
+          schema:
+            type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+        -
+          name: page
+          in: query
+          description: '_t__FaxLineList::PAGE'
+          schema:
+            type: integer
+            default: 1
+          example: 1
+        -
+          name: page_size
+          in: query
+          description: '_t__FaxLineList::PAGE_SIZE'
+          schema:
+            type: integer
+            default: 20
+          example: 20
+        -
+          name: show_team_lines
+          in: query
+          description: '_t__FaxLineList::SHOW_TEAM_LINES'
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineListResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineListResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineList.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineList.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineList.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineList.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineList.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineList.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineList.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineList.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineList::SEO::TITLE'
+          description: '_t__FaxLineList::SEO::DESCRIPTION'
+  /fax_line/remove_user:
+    put:
+      tags:
+        - 'Fax Line'
+      summary: '_t__FaxLineRemoveUser::SUMMARY'
+      description: '_t__FaxLineRemoveUser::DESCRIPTION'
+      operationId: faxLineRemoveUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FaxLineRemoveUserRequest'
+            examples:
+              default_example:
+                $ref: '#/components/examples/FaxLineRemoveUserRequestExample'
+      responses:
+        '200':
+          description: 'successful operation'
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/X-RateLimit-Limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/X-RateLimit-Remaining'
+            X-Ratelimit-Reset:
+              $ref: '#/components/headers/X-Ratelimit-Reset'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaxLineResponse'
+              examples:
+                default_example:
+                  $ref: '#/components/examples/FaxLineResponseExample'
+        4XX:
+          description: failed_operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                400_example:
+                  $ref: '#/components/examples/Error400ResponseExample'
+                401_example:
+                  $ref: '#/components/examples/Error401ResponseExample'
+                402_example:
+                  $ref: '#/components/examples/Error402ResponseExample'
+                403_example:
+                  $ref: '#/components/examples/Error403ResponseExample'
+                404_example:
+                  $ref: '#/components/examples/Error404ResponseExample'
+                4XX_example:
+                  $ref: '#/components/examples/Error4XXResponseExample'
+      security:
+        -
+          api_key: []
+      x-codeSamples:
+        -
+          lang: PHP
+          label: PHP
+          source:
+            $ref: examples/FaxLineRemoveUser.php
+        -
+          lang: 'C#'
+          label: 'C#'
+          source:
+            $ref: examples/FaxLineRemoveUser.cs
+        -
+          lang: JavaScript
+          label: JavaScript
+          source:
+            $ref: examples/FaxLineRemoveUser.js
+        -
+          lang: TypeScript
+          label: TypeScript
+          source:
+            $ref: examples/FaxLineRemoveUser.ts
+        -
+          lang: Java
+          label: Java
+          source:
+            $ref: examples/FaxLineRemoveUser.java
+        -
+          lang: Ruby
+          label: Ruby
+          source:
+            $ref: examples/FaxLineRemoveUser.rb
+        -
+          lang: Python
+          label: Python
+          source:
+            $ref: examples/FaxLineRemoveUser.py
+        -
+          lang: cURL
+          label: cURL
+          source:
+            $ref: examples/FaxLineRemoveUser.sh
+      x-meta:
+        seo:
+          title: '_t__FaxLineRemoveUser::SEO::TITLE'
+          description: '_t__FaxLineRemoveUser::SEO::DESCRIPTION'
   /oauth/token:
     post:
       tags:
@@ -6315,6 +7112,145 @@ components:
           type: boolean
           default: false
       type: object
+    FaxLineAddUserRequest:
+      required:
+        - number
+      properties:
+        number:
+          description: '_t__FaxLineAddUser::NUMBER'
+          type: string
+        account_id:
+          description: '_t__FaxLineAddUser::ACCOUNT_ID'
+          type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+        email_address:
+          description: '_t__FaxLineAddUser::EMAIL_ADDRESS'
+          type: string
+          format: email
+      type: object
+    FaxLineAreaCodeGetStateEnum:
+      type: string
+      enum:
+        - AK
+        - AL
+        - AR
+        - AZ
+        - CA
+        - CO
+        - CT
+        - DC
+        - DE
+        - FL
+        - GA
+        - HI
+        - IA
+        - ID
+        - IL
+        - IN
+        - KS
+        - KY
+        - LA
+        - MA
+        - MD
+        - ME
+        - MI
+        - MN
+        - MO
+        - MS
+        - MT
+        - NC
+        - ND
+        - NE
+        - NH
+        - NJ
+        - NM
+        - NV
+        - NY
+        - OH
+        - OK
+        - OR
+        - PA
+        - RI
+        - SC
+        - SD
+        - TN
+        - TX
+        - UT
+        - VA
+        - VT
+        - WA
+        - WI
+        - WV
+        - WY
+    FaxLineAreaCodeGetProvinceEnum:
+      type: string
+      enum:
+        - AB
+        - BC
+        - MB
+        - NB
+        - NL
+        - NT
+        - NS
+        - NU
+        - 'ON'
+        - PE
+        - QC
+        - SK
+        - YT
+    FaxLineAreaCodeGetCountryEnum:
+      type: string
+      enum:
+        - CA
+        - US
+        - UK
+    FaxLineCreateRequest:
+      required:
+        - area_code
+        - country
+      properties:
+        area_code:
+          description: '_t__FaxLineCreate::AREA_CODE'
+          type: integer
+        country:
+          description: '_t__FaxLineCreate::COUNTRY'
+          type: string
+          enum:
+            - CA
+            - US
+            - UK
+        city:
+          description: '_t__FaxLineCreate::CITY'
+          type: string
+        account_id:
+          description: '_t__FaxLineCreate::ACCOUNT_ID'
+          type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+      type: object
+    FaxLineDeleteRequest:
+      required:
+        - number
+      properties:
+        number:
+          description: '_t__FaxLineDelete::NUMBER'
+          type: string
+      type: object
+    FaxLineRemoveUserRequest:
+      required:
+        - number
+      properties:
+        number:
+          description: '_t__FaxLineRemoveUser::NUMBER'
+          type: string
+        account_id:
+          description: '_t__FaxLineRemoveUser::ACCOUNT_ID'
+          type: string
+          example: ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97
+        email_address:
+          description: '_t__FaxLineRemoveUser::EMAIL_ADDRESS'
+          type: string
+          format: email
+      type: object
     OAuthTokenGenerateRequest:
       required:
         - client_id
@@ -8645,6 +9581,34 @@ components:
         error:
           $ref: '#/components/schemas/ErrorResponseError'
       type: object
+    FaxLineResponse:
+      properties:
+        fax_line:
+          $ref: '#/components/schemas/FaxLineResponseFaxLine'
+        warnings:
+          $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
+    FaxLineAreaCodeGetResponse:
+      properties:
+        area_codes:
+          type: array
+          items:
+            type: integer
+      type: object
+      x-internal-class: true
+    FaxLineListResponse:
+      properties:
+        list_info:
+          $ref: '#/components/schemas/ListInfoResponse'
+        fax_lines:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaxLineResponseFaxLine'
+        warnings:
+          $ref: '#/components/schemas/WarningResponse'
+      type: object
+      x-internal-class: true
     FileResponse:
       properties:
         file_url:
@@ -8976,6 +9940,23 @@ components:
           description: '_t__ErrorResponseError::ERROR_NAME'
           type: string
       type: object
+    FaxLineResponseFaxLine:
+      properties:
+        number:
+          description: '_t__FaxLineResponseFaxLine::NUMBER'
+          type: string
+        created_at:
+          description: '_t__FaxLineResponseFaxLine::CREATED_AT'
+          type: integer
+        updated_at:
+          description: '_t__FaxLineResponseFaxLine::UPDATED_AT'
+          type: integer
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountResponse'
+      type: object
+      x-internal-class: true
     ListInfoResponse:
       description: '_t__ListInfoResponse::DESCRIPTION'
       properties:
@@ -10558,6 +11539,22 @@ components:
       summary: 'Default Example'
       value:
         $ref: examples/json/EmbeddedEditUrlRequestDefaultExample.json
+    FaxLineAddUserRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineAddUserRequestExample.json
+    FaxLineCreateRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineCreateRequestExample.json
+    FaxLineDeleteRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineDeleteRequestExample.json
+    FaxLineRemoveUserRequestExample:
+      summary: 'Default Example'
+      value:
+        $ref: examples/json/FaxLineRemoveUserRequestExample.json
     OAuthTokenGenerateRequestExample:
       summary: 'OAuth Token Generate Example'
       value:
@@ -10802,6 +11799,18 @@ components:
       summary: '_t__Error::4XX'
       value:
         $ref: examples/json/Error4XXResponseExample.json
+    FaxLineResponseExample:
+      summary: '_t__FaxLineResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxLineResponseExample.json
+    FaxLineAreaCodeGetResponseExample:
+      summary: '_t__FaxLineAreaCodeGetResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxLineAreaCodeGetResponseExample.json
+    FaxLineListResponseExample:
+      summary: '_t__FaxLineListResponseExample::SUMMARY'
+      value:
+        $ref: examples/json/FaxLineListResponseExample.json
     ReportCreateResponseExample:
       summary: '_t__ReportCreateResponseExample::SUMMARY'
       value:
@@ -11081,6 +12090,9 @@ tags:
   -
     name: 'Callbacks and Events'
     description: '_md__OpenApi::TAG::CALLBACKS_AND_EVENTS::DESCRIPTION'
+  -
+    name: 'Fax Line'
+    description: '_md__OpenApi::TAG::TAG_FAX_LINE::DESCRIPTION'
 externalDocs:
   description: 'Legacy API Reference'
   url: 'https://app.hellosign.com/api/reference'
