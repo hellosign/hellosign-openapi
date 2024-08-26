@@ -1,12 +1,11 @@
+import { AxiosResponse } from "axios";
+import formData from "form-data";
+import Qs from "qs";
 import {
   AttributeTypeMap,
   ObjectSerializer,
   RequestDetailedFile,
 } from "../model";
-import * as http from "http";
-import { AxiosResponse } from "axios";
-import formData from "form-data";
-import Qs from "qs";
 
 export class HttpError extends Error {
   constructor(

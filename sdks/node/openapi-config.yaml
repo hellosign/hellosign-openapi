@@ -32,6 +32,9 @@ files:
   model-index.mustache:
     templateType: SupportingFiles
     destinationFilename: model/index.ts
+  prettierrc.cjs:
+    templateType: SupportingFiles
+    destinationFilename: .prettierrc.cjs
 globalProperties:
   apiTests: false
   modelTests: false

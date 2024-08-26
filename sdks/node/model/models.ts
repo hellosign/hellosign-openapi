@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from "axios";
 import * as fs from "fs";
 
-import { enumsMap, typeMap } from "./";
 import { Headers } from "form-data";
+import { enumsMap, typeMap } from "./";
 
 export interface RequestDetailedFile {
   value: Buffer;

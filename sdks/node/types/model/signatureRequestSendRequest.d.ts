@@ -1,4 +1,4 @@
-import { RequestFile, AttributeTypeMap } from "./";
+import { AttributeTypeMap, RequestFile } from "./";
 import { SubAttachment } from "./subAttachment";
 import { SubCustomField } from "./subCustomField";
 import { SubFieldOptions } from "./subFieldOptions";

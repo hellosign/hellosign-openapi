@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
-
 export enum SubFormFieldsPerDocumentTypeEnum {
   Checkbox = "checkbox",
   CheckboxMerge = "checkbox-merge",

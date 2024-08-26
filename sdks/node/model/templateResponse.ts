@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TemplateResponseAccount } from "./templateResponseAccount";
 import { TemplateResponseCCRole } from "./templateResponseCCRole";
 import { TemplateResponseDocument } from "./templateResponseDocument";

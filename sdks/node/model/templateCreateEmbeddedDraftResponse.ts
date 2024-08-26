@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TemplateCreateEmbeddedDraftResponseTemplate } from "./templateCreateEmbeddedDraftResponseTemplate";
 import { WarningResponse } from "./warningResponse";
 

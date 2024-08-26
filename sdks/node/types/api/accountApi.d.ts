@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, AccountCreateRequest, AccountCreateResponse, AccountGetResponse, AccountUpdateRequest, AccountVerifyRequest, AccountVerifyResponse } from "../model";
+import { AccountCreateRequest, AccountCreateResponse, AccountGetResponse, AccountUpdateRequest, AccountVerifyRequest, AccountVerifyResponse, Authentication, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum AccountApiApiKeys {
 }

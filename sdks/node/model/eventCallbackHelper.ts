@@ -1,5 +1,5 @@
-import { EventCallbackRequest } from "./";
 import * as crypto from "crypto";
+import { EventCallbackRequest } from "./";
 
 export class EventCallbackHelper {
   static readonly EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";

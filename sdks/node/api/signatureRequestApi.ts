@@ -26,18 +26,14 @@ import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
   BulkSendJobSendResponse,
-  ErrorResponse,
   FileResponse,
   FileResponseDataUri,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
+  ObjectSerializer,
   SignatureRequestBulkCreateEmbeddedWithTemplateRequest,
   SignatureRequestBulkSendWithTemplateRequest,
   SignatureRequestCreateEmbeddedRequest,
@@ -48,16 +44,17 @@ import {
   SignatureRequestSendRequest,
   SignatureRequestSendWithTemplateRequest,
   SignatureRequestUpdateRequest,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeI,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 

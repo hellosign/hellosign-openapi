@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { ListInfoResponse } from "./listInfoResponse";
 import { SignatureRequestResponse } from "./signatureRequestResponse";
 import { WarningResponse } from "./warningResponse";

@@ -22,8 +22,6 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
-
 export enum SignatureRequestResponseDataTypeEnum {
   Text = "text",
   Checkbox = "checkbox",

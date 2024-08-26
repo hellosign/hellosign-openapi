@@ -1,6 +1,6 @@
-import { AttributeTypeMap } from "../model";
 import { AxiosResponse } from "axios";
 import formData from "form-data";
+import { AttributeTypeMap } from "../model";
 export declare class HttpError extends Error {
     response: AxiosResponse;
     body: any;
@@ -20,7 +20,7 @@ export interface returnTypeI {
     response: AxiosResponse;
     body?: any;
 }
-export declare const queryParamsSerializer: (params: any) => any;
+export declare const queryParamsSerializer: (params: any) => string;
 export { RequestFile } from "../model";
 export declare const USER_AGENT = "OpenAPI-Generator/1.5-dev/node";
 export declare const generateFormData: (obj: any, typemap: AttributeTypeMap) => {

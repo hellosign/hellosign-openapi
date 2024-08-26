@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { AxiosRequestConfig } from "axios";
 import * as fs from "fs";
 import { Headers } from "form-data";

@@ -9,7 +9,7 @@ Take a look at our [white labeling guide](https://developers.hellosign.com/api/r
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 | `headerBackgroundColor` | ```string``` |    |  [default to '#1A1A1A'] |
-| `legalVersion` | ```string``` |    |  [default to LegalVersionEnum_Terms1] |
+| `legalVersion` | ```string``` |    |  [default to LegalVersionEnum.Terms1] |
 | `linkColor` | ```string``` |    |  [default to '#00B3E6'] |
 | `pageBackgroundColor` | ```string``` |    |  [default to '#F7F8F9'] |
 | `primaryButtonColor` | ```string``` |    |  [default to '#00B3E6'] |

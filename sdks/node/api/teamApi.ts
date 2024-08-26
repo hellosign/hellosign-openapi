@@ -26,15 +26,11 @@ import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
   HttpBasicAuth,
   HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
-  ErrorResponse,
+  Interceptor,
+  ObjectSerializer,
   TeamAddMemberRequest,
   TeamCreateRequest,
   TeamGetInfoResponse,
@@ -44,16 +40,17 @@ import {
   TeamRemoveMemberRequest,
   TeamSubTeamsResponse,
   TeamUpdateRequest,
+  VoidAuth,
 } from "../model";
 
 import {
+  generateFormData,
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeI,
+  returnTypeT,
+  toFormData,
   USER_AGENT,
 } from "./";
 

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 import { TemplateResponseDocumentFormFieldBase } from "./templateResponseDocumentFormFieldBase";
 import { TemplateResponseFieldAvgTextLength } from "./templateResponseFieldAvgTextLength";
 

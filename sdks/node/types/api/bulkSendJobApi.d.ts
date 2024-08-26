@@ -1,4 +1,4 @@
-import { Authentication, Interceptor, HttpBasicAuth, HttpBearerAuth, BulkSendJobGetResponse, BulkSendJobListResponse } from "../model";
+import { Authentication, BulkSendJobGetResponse, BulkSendJobListResponse, HttpBasicAuth, HttpBearerAuth, Interceptor } from "../model";
 import { optionsI, returnTypeT } from "./";
 export declare enum BulkSendJobApiApiKeys {
 }

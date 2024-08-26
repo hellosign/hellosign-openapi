@@ -26,27 +26,21 @@ import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 /* tslint:disable:no-unused-locals */
 import {
-  ObjectSerializer,
   Authentication,
-  VoidAuth,
-  Interceptor,
-  HttpBasicAuth,
-  HttpBearerAuth,
-  ApiKeyAuth,
-  OAuth,
   BulkSendJobGetResponse,
   BulkSendJobListResponse,
-  ErrorResponse,
+  HttpBasicAuth,
+  HttpBearerAuth,
+  Interceptor,
+  ObjectSerializer,
+  VoidAuth,
 } from "../model";
 
 import {
   HttpError,
   optionsI,
-  returnTypeT,
-  returnTypeI,
-  generateFormData,
-  toFormData,
   queryParamsSerializer,
+  returnTypeT,
   USER_AGENT,
 } from "./";
 

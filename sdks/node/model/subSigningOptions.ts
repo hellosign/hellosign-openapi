@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { RequestFile, AttributeTypeMap, ObjectSerializer } from "./";
+import { AttributeTypeMap, ObjectSerializer } from "./";
 
 /**
  * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.

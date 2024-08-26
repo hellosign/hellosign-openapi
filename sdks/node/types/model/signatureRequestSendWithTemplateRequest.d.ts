@@ -1,4 +1,4 @@
-import { RequestFile, AttributeTypeMap } from "./";
+import { AttributeTypeMap, RequestFile } from "./";
 import { SubCC } from "./subCC";
 import { SubCustomField } from "./subCustomField";
 import { SubSignatureRequestTemplateSigner } from "./subSignatureRequestTemplateSigner";

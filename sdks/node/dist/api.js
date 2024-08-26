@@ -13535,7 +13535,10 @@ function AxiosError(message, code, config, request, response) {
   code && (this.code = code);
   config && (this.config = config);
   request && (this.request = request);
-  response && (this.response = response);
+  if (response) {
+    this.response = response;
+    this.status = response.status ? response.status : null;
+  }
 }
 utils_default.inherits(AxiosError, Error, {
   toJSON: function toJSON() {
@@ -13550,7 +13553,7 @@ utils_default.inherits(AxiosError, Error, {
       stack: this.stack,
       config: utils_default.toJSONObject(this.config),
       code: this.code,
-      status: this.response && this.response.status ? this.response.status : null
+      status: this.status
     };
   }
 });
@@ -13828,12 +13831,12 @@ __export(utils_exports, {
   hasBrowserEnv: () => hasBrowserEnv,
   hasStandardBrowserEnv: () => hasStandardBrowserEnv,
   hasStandardBrowserWebWorkerEnv: () => hasStandardBrowserWebWorkerEnv,
+  navigator: () => _navigator,
   origin: () => origin
 });
 var hasBrowserEnv = typeof window !== "undefined" && typeof document !== "undefined";
-var hasStandardBrowserEnv = ((product) => {
-  return hasBrowserEnv && ["ReactNative", "NativeScript", "NS"].indexOf(product) < 0;
-})(typeof navigator !== "undefined" && navigator.product);
+var _navigator = typeof navigator === "object" && navigator || void 0;
+var hasStandardBrowserEnv = hasBrowserEnv && (!_navigator || ["ReactNative", "NativeScript", "NS"].indexOf(_navigator.product) < 0);
 var hasStandardBrowserWebWorkerEnv = (() => {
   return typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope && typeof self.importScripts === "function";
 })();
@@ -14355,7 +14358,7 @@ var import_follow_redirects = __toESM(require_follow_redirects(), 1);
 var import_zlib = __toESM(require("zlib"), 1);
 
 // node_modules/axios/lib/env/data.js
-var VERSION = "1.7.4";
+var VERSION = "1.7.5";
 
 // node_modules/axios/lib/helpers/parseProtocol.js
 function parseProtocol(url2) {
@@ -14894,7 +14897,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
       }
     }
     const fullPath = buildFullPath(config.baseURL, config.url);
-    const parsed = new URL(fullPath, utils_default.hasBrowserEnv ? platform_default.origin : void 0);
+    const parsed = new URL(fullPath, platform_default.hasBrowserEnv ? platform_default.origin : void 0);
     const protocol = parsed.protocol || supportedProtocols[0];
     if (protocol === "data:") {
       let convertedData;
@@ -15260,7 +15263,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config) {
 
 // node_modules/axios/lib/helpers/isURLSameOrigin.js
 var isURLSameOrigin_default = platform_default.hasStandardBrowserEnv ? function standardBrowserEnv() {
-  const msie = /(msie|trident)/i.test(navigator.userAgent);
+  const msie = platform_default.navigator && /(msie|trident)/i.test(platform_default.navigator.userAgent);
   const urlParsingNode = document.createElement("a");
   let originURL;
   function resolveURL(url2) {
@@ -15759,6 +15762,7 @@ var fetch_default = isFetchSupported && (async (config) => {
     if (!utils_default.isString(withCredentials)) {
       withCredentials = withCredentials ? "include" : "omit";
     }
+    const isCredentialsSupported = "credentials" in Request.prototype;
     request = new Request(url2, {
       ...fetchOptions,
       signal: composedSignal,
@@ -15766,7 +15770,7 @@ var fetch_default = isFetchSupported && (async (config) => {
       headers: headers.normalize().toJSON(),
       body: data,
       duplex: "half",
-      credentials: withCredentials
+      credentials: isCredentialsSupported ? withCredentials : void 0
     });
     let response = await fetch(request);
     const isStreamResponse = supportsResponseStream && (responseType === "stream" || responseType === "response");
@@ -17519,6 +17523,27 @@ ErrorResponseError.attributeTypeMap = [
   }
 ];
 
+// model/eventCallbackHelper.ts
+var crypto = __toESM(require("crypto"));
+var _EventCallbackHelper = class {
+};
+var EventCallbackHelper = _EventCallbackHelper;
+EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
+EventCallbackHelper.EVENT_TYPE_APP_CALLBACK = "app_callback";
+EventCallbackHelper.isValid = (apiKey, eventCallback) => {
+  const hmac = crypto.createHmac("sha256", apiKey);
+  hmac.update(
+    `${eventCallback.event.eventTime}${eventCallback.event.eventType}`
+  );
+  return eventCallback.event.eventHash === hmac.digest("hex").toString();
+};
+EventCallbackHelper.getCallbackType = (eventCallback) => {
+  if (!eventCallback.event.eventMetadata || !eventCallback.event.eventMetadata.reportedForAppId) {
+    return _EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
+  }
+  return _EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;
+};
+
 // model/eventCallbackRequest.ts
 var _EventCallbackRequest = class {
   static getAttributeTypeMap() {
@@ -17728,6 +17753,195 @@ ListInfoResponse.attributeTypeMap = [
     type: "number"
   }
 ];
+
+// model/models.ts
+var primitives = [
+  "string",
+  "boolean",
+  "double",
+  "integer",
+  "long",
+  "float",
+  "number",
+  "any"
+];
+var ObjectSerializer = class {
+  static findCorrectType(data, expectedType) {
+    if (data == void 0) {
+      return expectedType;
+    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
+      return expectedType;
+    } else if (expectedType === "Date") {
+      return expectedType;
+    } else {
+      if (enumsMap[expectedType]) {
+        return expectedType;
+      }
+      if (!typeMap[expectedType]) {
+        return expectedType;
+      }
+      let discriminatorProperty = typeMap[expectedType].discriminator;
+      let discriminatorValue = data[discriminatorProperty];
+      if (typeMap[expectedType].hasOwnProperty("discriminatorClassName")) {
+        let discriminatorClass = typeMap[expectedType].discriminatorClassName(discriminatorValue);
+        if (discriminatorClass) {
+          return discriminatorClass;
+        }
+      }
+      if (discriminatorProperty == null) {
+        return expectedType;
+      } else {
+        if (data[discriminatorProperty]) {
+          var discriminatorType = data[discriminatorProperty];
+          if (typeMap[discriminatorType]) {
+            return discriminatorType;
+          } else {
+            return expectedType;
+          }
+        } else {
+          return expectedType;
+        }
+      }
+    }
+  }
+  static serialize(data, type) {
+    if (data == void 0) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) {
+      let subType = type.replace("Array<", "");
+      subType = subType.substring(0, subType.length - 1);
+      let transformedData = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.serialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return data.toISOString();
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) {
+        return data;
+      }
+      type = this.findCorrectType(data, type);
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      let instance = {};
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        let value = ObjectSerializer.serialize(
+          data[attributeType.name],
+          attributeType.type
+        );
+        if (value !== void 0) {
+          instance[attributeType.baseName] = value;
+        }
+      }
+      return instance;
+    }
+  }
+  static deserialize(data, type) {
+    type = ObjectSerializer.findCorrectType(data, type);
+    if (data == void 0) {
+      return data;
+    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+      return data;
+    } else if (type.lastIndexOf("Array<", 0) === 0) {
+      let subType = type.replace("Array<", "");
+      subType = subType.substring(0, subType.length - 1);
+      let transformedData = [];
+      for (let index = 0; index < data.length; index++) {
+        let datum = data[index];
+        transformedData.push(ObjectSerializer.deserialize(datum, subType));
+      }
+      return transformedData;
+    } else if (type === "Date") {
+      return new Date(data);
+    } else {
+      if (enumsMap[type]) {
+        return data;
+      }
+      if (!typeMap[type]) {
+        return data;
+      }
+      let instance = new typeMap[type]();
+      let attributeTypes = typeMap[type].getAttributeTypeMap();
+      for (let index = 0; index < attributeTypes.length; index++) {
+        let attributeType = attributeTypes[index];
+        const propertyKey = data[attributeType.baseName] !== void 0 ? attributeType.baseName : attributeType.name;
+        instance[attributeType.name] = ObjectSerializer.deserialize(
+          data[propertyKey],
+          attributeType.type
+        );
+      }
+      return instance;
+    }
+  }
+};
+var HttpBasicAuth = class {
+  constructor() {
+    this.username = "";
+    this.password = "";
+  }
+  applyToRequest(requestOptions) {
+    requestOptions.auth = {
+      username: this.username,
+      password: this.password
+    };
+  }
+};
+var HttpBearerAuth = class {
+  constructor() {
+    this.accessToken = "";
+  }
+  applyToRequest(requestOptions) {
+    if (requestOptions && requestOptions.headers) {
+      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
+      requestOptions.headers["Authorization"] = "Bearer " + accessToken;
+    }
+  }
+};
+var ApiKeyAuth = class {
+  constructor(location, paramName) {
+    this.location = location;
+    this.paramName = paramName;
+    this.apiKey = "";
+  }
+  applyToRequest(requestOptions) {
+    if (this.location == "query") {
+      requestOptions.params[this.paramName] = this.apiKey;
+    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
+      requestOptions.headers[this.paramName] = this.apiKey;
+    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
+      if (requestOptions.headers["Cookie"]) {
+        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
+      } else {
+        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
+      }
+    }
+  }
+};
+var OAuth = class {
+  constructor() {
+    this.accessToken = "";
+  }
+  applyToRequest(requestOptions) {
+    if (requestOptions && requestOptions.headers) {
+      requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
+    }
+  }
+};
+var VoidAuth = class {
+  constructor() {
+    this.username = "";
+    this.password = "";
+  }
+  applyToRequest(_) {
+  }
+};
 
 // model/oAuthTokenGenerateRequest.ts
 var _OAuthTokenGenerateRequest = class {
@@ -23868,216 +24082,6 @@ WarningResponse.attributeTypeMap = [
     type: "string"
   }
 ];
-
-// model/eventCallbackHelper.ts
-var crypto = __toESM(require("crypto"));
-var _EventCallbackHelper = class {
-};
-var EventCallbackHelper = _EventCallbackHelper;
-EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK = "account_callback";
-EventCallbackHelper.EVENT_TYPE_APP_CALLBACK = "app_callback";
-EventCallbackHelper.isValid = (apiKey, eventCallback) => {
-  const hmac = crypto.createHmac("sha256", apiKey);
-  hmac.update(
-    `${eventCallback.event.eventTime}${eventCallback.event.eventType}`
-  );
-  return eventCallback.event.eventHash === hmac.digest("hex").toString();
-};
-EventCallbackHelper.getCallbackType = (eventCallback) => {
-  if (!eventCallback.event.eventMetadata || !eventCallback.event.eventMetadata.reportedForAppId) {
-    return _EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK;
-  }
-  return _EventCallbackHelper.EVENT_TYPE_APP_CALLBACK;
-};
-
-// model/models.ts
-var primitives = [
-  "string",
-  "boolean",
-  "double",
-  "integer",
-  "long",
-  "float",
-  "number",
-  "any"
-];
-var ObjectSerializer = class {
-  static findCorrectType(data, expectedType) {
-    if (data == void 0) {
-      return expectedType;
-    } else if (primitives.indexOf(expectedType.toLowerCase()) !== -1) {
-      return expectedType;
-    } else if (expectedType === "Date") {
-      return expectedType;
-    } else {
-      if (enumsMap[expectedType]) {
-        return expectedType;
-      }
-      if (!typeMap[expectedType]) {
-        return expectedType;
-      }
-      let discriminatorProperty = typeMap[expectedType].discriminator;
-      let discriminatorValue = data[discriminatorProperty];
-      if (typeMap[expectedType].hasOwnProperty("discriminatorClassName")) {
-        let discriminatorClass = typeMap[expectedType].discriminatorClassName(discriminatorValue);
-        if (discriminatorClass) {
-          return discriminatorClass;
-        }
-      }
-      if (discriminatorProperty == null) {
-        return expectedType;
-      } else {
-        if (data[discriminatorProperty]) {
-          var discriminatorType = data[discriminatorProperty];
-          if (typeMap[discriminatorType]) {
-            return discriminatorType;
-          } else {
-            return expectedType;
-          }
-        } else {
-          return expectedType;
-        }
-      }
-    }
-  }
-  static serialize(data, type) {
-    if (data == void 0) {
-      return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-      return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
-      let transformedData = [];
-      for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
-        transformedData.push(ObjectSerializer.serialize(datum, subType));
-      }
-      return transformedData;
-    } else if (type === "Date") {
-      return data.toISOString();
-    } else {
-      if (enumsMap[type]) {
-        return data;
-      }
-      if (!typeMap[type]) {
-        return data;
-      }
-      type = this.findCorrectType(data, type);
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      let instance = {};
-      for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
-        let value = ObjectSerializer.serialize(
-          data[attributeType.name],
-          attributeType.type
-        );
-        if (value !== void 0) {
-          instance[attributeType.baseName] = value;
-        }
-      }
-      return instance;
-    }
-  }
-  static deserialize(data, type) {
-    type = ObjectSerializer.findCorrectType(data, type);
-    if (data == void 0) {
-      return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
-      return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      let subType = type.replace("Array<", "");
-      subType = subType.substring(0, subType.length - 1);
-      let transformedData = [];
-      for (let index = 0; index < data.length; index++) {
-        let datum = data[index];
-        transformedData.push(ObjectSerializer.deserialize(datum, subType));
-      }
-      return transformedData;
-    } else if (type === "Date") {
-      return new Date(data);
-    } else {
-      if (enumsMap[type]) {
-        return data;
-      }
-      if (!typeMap[type]) {
-        return data;
-      }
-      let instance = new typeMap[type]();
-      let attributeTypes = typeMap[type].getAttributeTypeMap();
-      for (let index = 0; index < attributeTypes.length; index++) {
-        let attributeType = attributeTypes[index];
-        const propertyKey = data[attributeType.baseName] !== void 0 ? attributeType.baseName : attributeType.name;
-        instance[attributeType.name] = ObjectSerializer.deserialize(
-          data[propertyKey],
-          attributeType.type
-        );
-      }
-      return instance;
-    }
-  }
-};
-var HttpBasicAuth = class {
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
-  applyToRequest(requestOptions) {
-    requestOptions.auth = {
-      username: this.username,
-      password: this.password
-    };
-  }
-};
-var HttpBearerAuth = class {
-  constructor() {
-    this.accessToken = "";
-  }
-  applyToRequest(requestOptions) {
-    if (requestOptions && requestOptions.headers) {
-      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
-      requestOptions.headers["Authorization"] = "Bearer " + accessToken;
-    }
-  }
-};
-var ApiKeyAuth = class {
-  constructor(location, paramName) {
-    this.location = location;
-    this.paramName = paramName;
-    this.apiKey = "";
-  }
-  applyToRequest(requestOptions) {
-    if (this.location == "query") {
-      requestOptions.params[this.paramName] = this.apiKey;
-    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
-      requestOptions.headers[this.paramName] = this.apiKey;
-    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
-      if (requestOptions.headers["Cookie"]) {
-        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
-      } else {
-        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
-      }
-    }
-  }
-};
-var OAuth = class {
-  constructor() {
-    this.accessToken = "";
-  }
-  applyToRequest(requestOptions) {
-    if (requestOptions && requestOptions.headers) {
-      requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
-    }
-  }
-};
-var VoidAuth = class {
-  constructor() {
-    this.username = "";
-    this.password = "";
-  }
-  applyToRequest(_) {
-  }
-};
 
 // model/index.ts
 var enumsMap = {
