@@ -12973,6 +12973,18 @@ __export(api_exports, {
   EventCallbackRequest: () => EventCallbackRequest,
   EventCallbackRequestEvent: () => EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata: () => EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest: () => FaxLineAddUserRequest,
+  FaxLineApi: () => FaxLineApi,
+  FaxLineAreaCodeGetCountryEnum: () => FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum: () => FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse: () => FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum: () => FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest: () => FaxLineCreateRequest,
+  FaxLineDeleteRequest: () => FaxLineDeleteRequest,
+  FaxLineListResponse: () => FaxLineListResponse,
+  FaxLineRemoveUserRequest: () => FaxLineRemoveUserRequest,
+  FaxLineResponse: () => FaxLineResponse,
+  FaxLineResponseFaxLine: () => FaxLineResponseFaxLine,
   FileResponse: () => FileResponse,
   FileResponseDataUri: () => FileResponseDataUri,
   HttpBasicAuth: () => HttpBasicAuth,
@@ -17674,6 +17686,313 @@ EventCallbackRequestEventMetadata.attributeTypeMap = [
     name: "eventMessage",
     baseName: "event_message",
     type: "string"
+  }
+];
+
+// model/faxLineAddUserRequest.ts
+var _FaxLineAddUserRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineAddUserRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineAddUserRequest");
+  }
+};
+var FaxLineAddUserRequest = _FaxLineAddUserRequest;
+FaxLineAddUserRequest.discriminator = void 0;
+FaxLineAddUserRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  }
+];
+
+// model/faxLineAreaCodeGetCountryEnum.ts
+var FaxLineAreaCodeGetCountryEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetCountryEnum2) => {
+  FaxLineAreaCodeGetCountryEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetCountryEnum2["Us"] = "US";
+  FaxLineAreaCodeGetCountryEnum2["Uk"] = "UK";
+  return FaxLineAreaCodeGetCountryEnum2;
+})(FaxLineAreaCodeGetCountryEnum || {});
+
+// model/faxLineAreaCodeGetProvinceEnum.ts
+var FaxLineAreaCodeGetProvinceEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetProvinceEnum2) => {
+  FaxLineAreaCodeGetProvinceEnum2["Ab"] = "AB";
+  FaxLineAreaCodeGetProvinceEnum2["Bc"] = "BC";
+  FaxLineAreaCodeGetProvinceEnum2["Mb"] = "MB";
+  FaxLineAreaCodeGetProvinceEnum2["Nb"] = "NB";
+  FaxLineAreaCodeGetProvinceEnum2["Nl"] = "NL";
+  FaxLineAreaCodeGetProvinceEnum2["Nt"] = "NT";
+  FaxLineAreaCodeGetProvinceEnum2["Ns"] = "NS";
+  FaxLineAreaCodeGetProvinceEnum2["Nu"] = "NU";
+  FaxLineAreaCodeGetProvinceEnum2["On"] = "ON";
+  FaxLineAreaCodeGetProvinceEnum2["Pe"] = "PE";
+  FaxLineAreaCodeGetProvinceEnum2["Qc"] = "QC";
+  FaxLineAreaCodeGetProvinceEnum2["Sk"] = "SK";
+  FaxLineAreaCodeGetProvinceEnum2["Yt"] = "YT";
+  return FaxLineAreaCodeGetProvinceEnum2;
+})(FaxLineAreaCodeGetProvinceEnum || {});
+
+// model/faxLineAreaCodeGetResponse.ts
+var _FaxLineAreaCodeGetResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineAreaCodeGetResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineAreaCodeGetResponse");
+  }
+};
+var FaxLineAreaCodeGetResponse = _FaxLineAreaCodeGetResponse;
+FaxLineAreaCodeGetResponse.discriminator = void 0;
+FaxLineAreaCodeGetResponse.attributeTypeMap = [
+  {
+    name: "areaCodes",
+    baseName: "area_codes",
+    type: "Array<number>"
+  }
+];
+
+// model/faxLineAreaCodeGetStateEnum.ts
+var FaxLineAreaCodeGetStateEnum = /* @__PURE__ */ ((FaxLineAreaCodeGetStateEnum2) => {
+  FaxLineAreaCodeGetStateEnum2["Ak"] = "AK";
+  FaxLineAreaCodeGetStateEnum2["Al"] = "AL";
+  FaxLineAreaCodeGetStateEnum2["Ar"] = "AR";
+  FaxLineAreaCodeGetStateEnum2["Az"] = "AZ";
+  FaxLineAreaCodeGetStateEnum2["Ca"] = "CA";
+  FaxLineAreaCodeGetStateEnum2["Co"] = "CO";
+  FaxLineAreaCodeGetStateEnum2["Ct"] = "CT";
+  FaxLineAreaCodeGetStateEnum2["Dc"] = "DC";
+  FaxLineAreaCodeGetStateEnum2["De"] = "DE";
+  FaxLineAreaCodeGetStateEnum2["Fl"] = "FL";
+  FaxLineAreaCodeGetStateEnum2["Ga"] = "GA";
+  FaxLineAreaCodeGetStateEnum2["Hi"] = "HI";
+  FaxLineAreaCodeGetStateEnum2["Ia"] = "IA";
+  FaxLineAreaCodeGetStateEnum2["Id"] = "ID";
+  FaxLineAreaCodeGetStateEnum2["Il"] = "IL";
+  FaxLineAreaCodeGetStateEnum2["In"] = "IN";
+  FaxLineAreaCodeGetStateEnum2["Ks"] = "KS";
+  FaxLineAreaCodeGetStateEnum2["Ky"] = "KY";
+  FaxLineAreaCodeGetStateEnum2["La"] = "LA";
+  FaxLineAreaCodeGetStateEnum2["Ma"] = "MA";
+  FaxLineAreaCodeGetStateEnum2["Md"] = "MD";
+  FaxLineAreaCodeGetStateEnum2["Me"] = "ME";
+  FaxLineAreaCodeGetStateEnum2["Mi"] = "MI";
+  FaxLineAreaCodeGetStateEnum2["Mn"] = "MN";
+  FaxLineAreaCodeGetStateEnum2["Mo"] = "MO";
+  FaxLineAreaCodeGetStateEnum2["Ms"] = "MS";
+  FaxLineAreaCodeGetStateEnum2["Mt"] = "MT";
+  FaxLineAreaCodeGetStateEnum2["Nc"] = "NC";
+  FaxLineAreaCodeGetStateEnum2["Nd"] = "ND";
+  FaxLineAreaCodeGetStateEnum2["Ne"] = "NE";
+  FaxLineAreaCodeGetStateEnum2["Nh"] = "NH";
+  FaxLineAreaCodeGetStateEnum2["Nj"] = "NJ";
+  FaxLineAreaCodeGetStateEnum2["Nm"] = "NM";
+  FaxLineAreaCodeGetStateEnum2["Nv"] = "NV";
+  FaxLineAreaCodeGetStateEnum2["Ny"] = "NY";
+  FaxLineAreaCodeGetStateEnum2["Oh"] = "OH";
+  FaxLineAreaCodeGetStateEnum2["Ok"] = "OK";
+  FaxLineAreaCodeGetStateEnum2["Or"] = "OR";
+  FaxLineAreaCodeGetStateEnum2["Pa"] = "PA";
+  FaxLineAreaCodeGetStateEnum2["Ri"] = "RI";
+  FaxLineAreaCodeGetStateEnum2["Sc"] = "SC";
+  FaxLineAreaCodeGetStateEnum2["Sd"] = "SD";
+  FaxLineAreaCodeGetStateEnum2["Tn"] = "TN";
+  FaxLineAreaCodeGetStateEnum2["Tx"] = "TX";
+  FaxLineAreaCodeGetStateEnum2["Ut"] = "UT";
+  FaxLineAreaCodeGetStateEnum2["Va"] = "VA";
+  FaxLineAreaCodeGetStateEnum2["Vt"] = "VT";
+  FaxLineAreaCodeGetStateEnum2["Wa"] = "WA";
+  FaxLineAreaCodeGetStateEnum2["Wi"] = "WI";
+  FaxLineAreaCodeGetStateEnum2["Wv"] = "WV";
+  FaxLineAreaCodeGetStateEnum2["Wy"] = "WY";
+  return FaxLineAreaCodeGetStateEnum2;
+})(FaxLineAreaCodeGetStateEnum || {});
+
+// model/faxLineCreateRequest.ts
+var _FaxLineCreateRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineCreateRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineCreateRequest");
+  }
+};
+var FaxLineCreateRequest = _FaxLineCreateRequest;
+FaxLineCreateRequest.discriminator = void 0;
+FaxLineCreateRequest.attributeTypeMap = [
+  {
+    name: "areaCode",
+    baseName: "area_code",
+    type: "number"
+  },
+  {
+    name: "country",
+    baseName: "country",
+    type: "FaxLineCreateRequest.CountryEnum"
+  },
+  {
+    name: "city",
+    baseName: "city",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  }
+];
+((FaxLineCreateRequest2) => {
+  let CountryEnum;
+  ((CountryEnum2) => {
+    CountryEnum2["Ca"] = "CA";
+    CountryEnum2["Us"] = "US";
+    CountryEnum2["Uk"] = "UK";
+  })(CountryEnum = FaxLineCreateRequest2.CountryEnum || (FaxLineCreateRequest2.CountryEnum = {}));
+})(FaxLineCreateRequest || (FaxLineCreateRequest = {}));
+
+// model/faxLineDeleteRequest.ts
+var _FaxLineDeleteRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineDeleteRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineDeleteRequest");
+  }
+};
+var FaxLineDeleteRequest = _FaxLineDeleteRequest;
+FaxLineDeleteRequest.discriminator = void 0;
+FaxLineDeleteRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  }
+];
+
+// model/faxLineListResponse.ts
+var _FaxLineListResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineListResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineListResponse");
+  }
+};
+var FaxLineListResponse = _FaxLineListResponse;
+FaxLineListResponse.discriminator = void 0;
+FaxLineListResponse.attributeTypeMap = [
+  {
+    name: "listInfo",
+    baseName: "list_info",
+    type: "ListInfoResponse"
+  },
+  {
+    name: "faxLines",
+    baseName: "fax_lines",
+    type: "Array<FaxLineResponseFaxLine>"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "WarningResponse"
+  }
+];
+
+// model/faxLineRemoveUserRequest.ts
+var _FaxLineRemoveUserRequest = class {
+  static getAttributeTypeMap() {
+    return _FaxLineRemoveUserRequest.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineRemoveUserRequest");
+  }
+};
+var FaxLineRemoveUserRequest = _FaxLineRemoveUserRequest;
+FaxLineRemoveUserRequest.discriminator = void 0;
+FaxLineRemoveUserRequest.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "accountId",
+    baseName: "account_id",
+    type: "string"
+  },
+  {
+    name: "emailAddress",
+    baseName: "email_address",
+    type: "string"
+  }
+];
+
+// model/faxLineResponse.ts
+var _FaxLineResponse = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponse.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponse");
+  }
+};
+var FaxLineResponse = _FaxLineResponse;
+FaxLineResponse.discriminator = void 0;
+FaxLineResponse.attributeTypeMap = [
+  {
+    name: "faxLine",
+    baseName: "fax_line",
+    type: "FaxLineResponseFaxLine"
+  },
+  {
+    name: "warnings",
+    baseName: "warnings",
+    type: "WarningResponse"
+  }
+];
+
+// model/faxLineResponseFaxLine.ts
+var _FaxLineResponseFaxLine = class {
+  static getAttributeTypeMap() {
+    return _FaxLineResponseFaxLine.attributeTypeMap;
+  }
+  static init(data) {
+    return ObjectSerializer.deserialize(data, "FaxLineResponseFaxLine");
+  }
+};
+var FaxLineResponseFaxLine = _FaxLineResponseFaxLine;
+FaxLineResponseFaxLine.discriminator = void 0;
+FaxLineResponseFaxLine.attributeTypeMap = [
+  {
+    name: "number",
+    baseName: "number",
+    type: "string"
+  },
+  {
+    name: "createdAt",
+    baseName: "created_at",
+    type: "number"
+  },
+  {
+    name: "updatedAt",
+    baseName: "updated_at",
+    type: "number"
+  },
+  {
+    name: "accounts",
+    baseName: "accounts",
+    type: "Array<AccountResponse>"
   }
 ];
 
@@ -24086,6 +24405,10 @@ WarningResponse.attributeTypeMap = [
 // model/index.ts
 var enumsMap = {
   "EventCallbackRequestEvent.EventTypeEnum": EventCallbackRequestEvent.EventTypeEnum,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetStateEnum,
+  "FaxLineCreateRequest.CountryEnum": FaxLineCreateRequest.CountryEnum,
   "ReportCreateRequest.ReportTypeEnum": ReportCreateRequest.ReportTypeEnum,
   "ReportResponse.ReportTypeEnum": ReportResponse.ReportTypeEnum,
   SignatureRequestResponseCustomFieldTypeEnum,
@@ -24148,6 +24471,14 @@ var typeMap = {
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineAreaCodeGetResponse,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   ListInfoResponse,
@@ -26008,9 +26339,9 @@ function handleErrorRangeResponse4(reject, response, code, returnType) {
   return false;
 }
 
-// api/oAuthApi.ts
-var defaultBasePath5 = "https://app.hellosign.com";
-var OAuthApi = class {
+// api/faxLineApi.ts
+var defaultBasePath5 = "https://api.hellosign.com/v3";
+var FaxLineApi = class {
   constructor(basePath) {
     this._basePath = defaultBasePath5;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
@@ -26058,9 +26389,829 @@ var OAuthApi = class {
   addInterceptor(interceptor) {
     this.interceptors.push(interceptor);
   }
+  faxLineAddUser(_0) {
+    return __async(this, arguments, function* (faxLineAddUserRequest, options = { headers: {} }) {
+      faxLineAddUserRequest = deserializeIfNeeded4(
+        faxLineAddUserRequest,
+        "FaxLineAddUserRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line/add_user";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineAddUserRequest === null || faxLineAddUserRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineAddUserRequest was null or undefined when calling faxLineAddUser."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineAddUserRequest,
+        FaxLineAddUserRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineAddUserRequest,
+          "FaxLineAddUserRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineAreaCodeGet(_0, _1, _2, _3) {
+    return __async(this, arguments, function* (country, state, province, city, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line/area_codes";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (country === null || country === void 0) {
+        throw new Error(
+          "Required parameter country was null or undefined when calling faxLineAreaCodeGet."
+        );
+      }
+      if (country !== void 0) {
+        localVarQueryParameters["country"] = ObjectSerializer.serialize(
+          country,
+          "'CA' | 'US' | 'UK'"
+        );
+      }
+      if (state !== void 0) {
+        localVarQueryParameters["state"] = ObjectSerializer.serialize(
+          state,
+          "'AK' | 'AL' | 'AR' | 'AZ' | 'CA' | 'CO' | 'CT' | 'DC' | 'DE' | 'FL' | 'GA' | 'HI' | 'IA' | 'ID' | 'IL' | 'IN' | 'KS' | 'KY' | 'LA' | 'MA' | 'MD' | 'ME' | 'MI' | 'MN' | 'MO' | 'MS' | 'MT' | 'NC' | 'ND' | 'NE' | 'NH' | 'NJ' | 'NM' | 'NV' | 'NY' | 'OH' | 'OK' | 'OR' | 'PA' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UT' | 'VA' | 'VT' | 'WA' | 'WI' | 'WV' | 'WY'"
+        );
+      }
+      if (province !== void 0) {
+        localVarQueryParameters["province"] = ObjectSerializer.serialize(
+          province,
+          "'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT'"
+        );
+      }
+      if (city !== void 0) {
+        localVarQueryParameters["city"] = ObjectSerializer.serialize(
+          city,
+          "string"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                handleSuccessfulResponse5(
+                  resolve,
+                  reject,
+                  response,
+                  "FaxLineAreaCodeGetResponse"
+                );
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                if (handleErrorCodeResponse5(
+                  reject,
+                  error.response,
+                  200,
+                  "FaxLineAreaCodeGetResponse"
+                )) {
+                  return;
+                }
+                if (handleErrorRangeResponse5(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  faxLineCreate(_0) {
+    return __async(this, arguments, function* (faxLineCreateRequest, options = { headers: {} }) {
+      faxLineCreateRequest = deserializeIfNeeded4(
+        faxLineCreateRequest,
+        "FaxLineCreateRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line/create";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineCreateRequest === null || faxLineCreateRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineCreateRequest was null or undefined when calling faxLineCreate."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineCreateRequest,
+        FaxLineCreateRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineCreateRequest,
+          "FaxLineCreateRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "POST",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineDelete(_0) {
+    return __async(this, arguments, function* (faxLineDeleteRequest, options = { headers: {} }) {
+      faxLineDeleteRequest = deserializeIfNeeded4(
+        faxLineDeleteRequest,
+        "FaxLineDeleteRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineDeleteRequest === null || faxLineDeleteRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineDeleteRequest was null or undefined when calling faxLineDelete."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineDeleteRequest,
+        FaxLineDeleteRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineDeleteRequest,
+          "FaxLineDeleteRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "DELETE",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(resolve, reject, response);
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineGet(_0) {
+    return __async(this, arguments, function* (number, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (number === null || number === void 0) {
+        throw new Error(
+          "Required parameter number was null or undefined when calling faxLineGet."
+        );
+      }
+      if (number !== void 0) {
+        localVarQueryParameters["number"] = ObjectSerializer.serialize(
+          number,
+          "string"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+  faxLineList(_0, _1, _2, _3) {
+    return __async(this, arguments, function* (accountId, page, pageSize, showTeamLines, options = { headers: {} }) {
+      const localVarPath = this.basePath + "/fax_line/list";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (accountId !== void 0) {
+        localVarQueryParameters["account_id"] = ObjectSerializer.serialize(
+          accountId,
+          "string"
+        );
+      }
+      if (page !== void 0) {
+        localVarQueryParameters["page"] = ObjectSerializer.serialize(
+          page,
+          "number"
+        );
+      }
+      if (pageSize !== void 0) {
+        localVarQueryParameters["page_size"] = ObjectSerializer.serialize(
+          pageSize,
+          "number"
+        );
+      }
+      if (showTeamLines !== void 0) {
+        localVarQueryParameters["show_team_lines"] = ObjectSerializer.serialize(
+          showTeamLines,
+          "boolean"
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      let localVarRequestOptions = {
+        method: "GET",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json"
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise(
+          (resolve, reject) => {
+            axios_default.request(localVarRequestOptions).then(
+              (response) => {
+                handleSuccessfulResponse5(
+                  resolve,
+                  reject,
+                  response,
+                  "FaxLineListResponse"
+                );
+              },
+              (error) => {
+                if (error.response == null) {
+                  reject(error);
+                  return;
+                }
+                if (handleErrorCodeResponse5(
+                  reject,
+                  error.response,
+                  200,
+                  "FaxLineListResponse"
+                )) {
+                  return;
+                }
+                if (handleErrorRangeResponse5(
+                  reject,
+                  error.response,
+                  "4XX",
+                  "ErrorResponse"
+                )) {
+                  return;
+                }
+                reject(error);
+              }
+            );
+          }
+        );
+      });
+    });
+  }
+  faxLineRemoveUser(_0) {
+    return __async(this, arguments, function* (faxLineRemoveUserRequest, options = { headers: {} }) {
+      faxLineRemoveUserRequest = deserializeIfNeeded4(
+        faxLineRemoveUserRequest,
+        "FaxLineRemoveUserRequest"
+      );
+      const localVarPath = this.basePath + "/fax_line/remove_user";
+      let localVarQueryParameters = {};
+      let localVarHeaderParams = Object.assign(
+        {},
+        this._defaultHeaders
+      );
+      const produces = ["application/json"];
+      if (produces.indexOf("application/json") >= 0) {
+        localVarHeaderParams["content-type"] = "application/json";
+      } else {
+        localVarHeaderParams["content-type"] = produces.join(",");
+      }
+      let localVarFormParams = {};
+      let localVarBodyParams = void 0;
+      if (faxLineRemoveUserRequest === null || faxLineRemoveUserRequest === void 0) {
+        throw new Error(
+          "Required parameter faxLineRemoveUserRequest was null or undefined when calling faxLineRemoveUser."
+        );
+      }
+      Object.assign(localVarHeaderParams, options.headers);
+      let localVarUseFormData = false;
+      const result = generateFormData(
+        faxLineRemoveUserRequest,
+        FaxLineRemoveUserRequest.attributeTypeMap
+      );
+      localVarUseFormData = result.localVarUseFormData;
+      let data = {};
+      if (localVarUseFormData) {
+        const formData2 = toFormData3(result.data);
+        data = formData2;
+        localVarHeaderParams = __spreadValues(__spreadValues({}, localVarHeaderParams), formData2.getHeaders());
+      } else {
+        data = ObjectSerializer.serialize(
+          faxLineRemoveUserRequest,
+          "FaxLineRemoveUserRequest"
+        );
+      }
+      let localVarRequestOptions = {
+        method: "PUT",
+        params: localVarQueryParameters,
+        headers: localVarHeaderParams,
+        url: localVarPath,
+        paramsSerializer: this._useQuerystring ? queryParamsSerializer : void 0,
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+        responseType: "json",
+        data
+      };
+      let authenticationPromise = Promise.resolve();
+      if (this.authentications.api_key.username) {
+        authenticationPromise = authenticationPromise.then(
+          () => this.authentications.api_key.applyToRequest(localVarRequestOptions)
+        );
+      }
+      authenticationPromise = authenticationPromise.then(
+        () => this.authentications.default.applyToRequest(localVarRequestOptions)
+      );
+      let interceptorPromise = authenticationPromise;
+      for (const interceptor of this.interceptors) {
+        interceptorPromise = interceptorPromise.then(
+          () => interceptor(localVarRequestOptions)
+        );
+      }
+      return interceptorPromise.then(() => {
+        return new Promise((resolve, reject) => {
+          axios_default.request(localVarRequestOptions).then(
+            (response) => {
+              handleSuccessfulResponse5(
+                resolve,
+                reject,
+                response,
+                "FaxLineResponse"
+              );
+            },
+            (error) => {
+              if (error.response == null) {
+                reject(error);
+                return;
+              }
+              if (handleErrorCodeResponse5(
+                reject,
+                error.response,
+                200,
+                "FaxLineResponse"
+              )) {
+                return;
+              }
+              if (handleErrorRangeResponse5(
+                reject,
+                error.response,
+                "4XX",
+                "ErrorResponse"
+              )) {
+                return;
+              }
+              reject(error);
+            }
+          );
+        });
+      });
+    });
+  }
+};
+function deserializeIfNeeded4(obj, classname) {
+  if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
+    return ObjectSerializer.deserialize(obj, classname);
+  }
+  return obj;
+}
+function handleSuccessfulResponse5(resolve, reject, response, returnType) {
+  let body = response.data;
+  if (response.status && response.status >= 200 && response.status <= 299) {
+    if (returnType) {
+      body = ObjectSerializer.deserialize(body, returnType);
+    }
+    resolve({ response, body });
+  } else {
+    reject(new HttpError(response, body, response.status));
+  }
+}
+function handleErrorCodeResponse5(reject, response, code, returnType) {
+  if (response.status !== code) {
+    return false;
+  }
+  const body = ObjectSerializer.deserialize(response.data, returnType);
+  reject(new HttpError(response, body, response.status));
+  return true;
+}
+function handleErrorRangeResponse5(reject, response, code, returnType) {
+  let rangeCodeLeft = Number(code[0] + "00");
+  let rangeCodeRight = Number(code[0] + "99");
+  if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
+    const body = ObjectSerializer.deserialize(response.data, returnType);
+    reject(new HttpError(response, body, response.status));
+    return true;
+  }
+  return false;
+}
+
+// api/oAuthApi.ts
+var defaultBasePath6 = "https://app.hellosign.com";
+var OAuthApi = class {
+  constructor(basePath) {
+    this._basePath = defaultBasePath6;
+    this._defaultHeaders = { "User-Agent": USER_AGENT };
+    this._useQuerystring = false;
+    this.authentications = {
+      default: new VoidAuth(),
+      api_key: new HttpBasicAuth(),
+      oauth2: new HttpBearerAuth()
+    };
+    this.interceptors = [];
+    if (basePath) {
+      this.basePath = basePath;
+    }
+  }
+  set useQuerystring(value) {
+    this._useQuerystring = value;
+  }
+  set basePath(basePath) {
+    this._basePath = basePath;
+  }
+  set defaultHeaders(defaultHeaders) {
+    this._defaultHeaders = defaultHeaders;
+  }
+  get defaultHeaders() {
+    return this._defaultHeaders;
+  }
+  get basePath() {
+    return this._basePath;
+  }
+  setDefaultAuthentication(auth) {
+    this.authentications.default = auth;
+  }
+  setApiKey(key) {
+    this.authentications.api_key.username = key;
+  }
+  set username(username) {
+    this.authentications.api_key.username = username;
+  }
+  set password(password) {
+    this.authentications.api_key.password = password;
+  }
+  set accessToken(accessToken) {
+    this.authentications.oauth2.accessToken = accessToken;
+  }
+  addInterceptor(interceptor) {
+    this.interceptors.push(interceptor);
+  }
   oauthTokenGenerate(_0) {
     return __async(this, arguments, function* (oAuthTokenGenerateRequest, options = { headers: {} }) {
-      oAuthTokenGenerateRequest = deserializeIfNeeded4(
+      oAuthTokenGenerateRequest = deserializeIfNeeded5(
         oAuthTokenGenerateRequest,
         "OAuthTokenGenerateRequest"
       );
@@ -26126,7 +27277,7 @@ var OAuthApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse5(
+              handleSuccessfulResponse6(
                 resolve,
                 reject,
                 response,
@@ -26138,7 +27289,7 @@ var OAuthApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse5(
+              if (handleErrorCodeResponse6(
                 reject,
                 error.response,
                 200,
@@ -26155,7 +27306,7 @@ var OAuthApi = class {
   }
   oauthTokenRefresh(_0) {
     return __async(this, arguments, function* (oAuthTokenRefreshRequest, options = { headers: {} }) {
-      oAuthTokenRefreshRequest = deserializeIfNeeded4(
+      oAuthTokenRefreshRequest = deserializeIfNeeded5(
         oAuthTokenRefreshRequest,
         "OAuthTokenRefreshRequest"
       );
@@ -26221,7 +27372,7 @@ var OAuthApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse5(
+              handleSuccessfulResponse6(
                 resolve,
                 reject,
                 response,
@@ -26233,7 +27384,7 @@ var OAuthApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse5(
+              if (handleErrorCodeResponse6(
                 reject,
                 error.response,
                 200,
@@ -26249,13 +27400,13 @@ var OAuthApi = class {
     });
   }
 };
-function deserializeIfNeeded4(obj, classname) {
+function deserializeIfNeeded5(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
   return obj;
 }
-function handleSuccessfulResponse5(resolve, reject, response, returnType) {
+function handleSuccessfulResponse6(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -26266,7 +27417,7 @@ function handleSuccessfulResponse5(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse5(reject, response, code, returnType) {
+function handleErrorCodeResponse6(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -26276,10 +27427,10 @@ function handleErrorCodeResponse5(reject, response, code, returnType) {
 }
 
 // api/reportApi.ts
-var defaultBasePath6 = "https://api.hellosign.com/v3";
+var defaultBasePath7 = "https://api.hellosign.com/v3";
 var ReportApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath6;
+    this._basePath = defaultBasePath7;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -26327,7 +27478,7 @@ var ReportApi = class {
   }
   reportCreate(_0) {
     return __async(this, arguments, function* (reportCreateRequest, options = { headers: {} }) {
-      reportCreateRequest = deserializeIfNeeded5(
+      reportCreateRequest = deserializeIfNeeded6(
         reportCreateRequest,
         "ReportCreateRequest"
       );
@@ -26399,7 +27550,7 @@ var ReportApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse6(
+                handleSuccessfulResponse7(
                   resolve,
                   reject,
                   response,
@@ -26411,7 +27562,7 @@ var ReportApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse6(
+                if (handleErrorCodeResponse7(
                   reject,
                   error.response,
                   200,
@@ -26419,7 +27570,7 @@ var ReportApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse5(
+                if (handleErrorRangeResponse6(
                   reject,
                   error.response,
                   "4XX",
@@ -26436,13 +27587,13 @@ var ReportApi = class {
     });
   }
 };
-function deserializeIfNeeded5(obj, classname) {
+function deserializeIfNeeded6(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
   return obj;
 }
-function handleSuccessfulResponse6(resolve, reject, response, returnType) {
+function handleSuccessfulResponse7(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -26453,7 +27604,7 @@ function handleSuccessfulResponse6(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse6(reject, response, code, returnType) {
+function handleErrorCodeResponse7(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -26461,7 +27612,7 @@ function handleErrorCodeResponse6(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse5(reject, response, code, returnType) {
+function handleErrorRangeResponse6(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -26473,10 +27624,10 @@ function handleErrorRangeResponse5(reject, response, code, returnType) {
 }
 
 // api/signatureRequestApi.ts
-var defaultBasePath7 = "https://api.hellosign.com/v3";
+var defaultBasePath8 = "https://api.hellosign.com/v3";
 var SignatureRequestApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath7;
+    this._basePath = defaultBasePath8;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -26524,7 +27675,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestBulkCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-      signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded6(
+      signatureRequestBulkCreateEmbeddedWithTemplateRequest = deserializeIfNeeded7(
         signatureRequestBulkCreateEmbeddedWithTemplateRequest,
         "SignatureRequestBulkCreateEmbeddedWithTemplateRequest"
       );
@@ -26596,7 +27747,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -26608,7 +27759,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -26616,7 +27767,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -26634,7 +27785,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestBulkSendWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestBulkSendWithTemplateRequest, options = { headers: {} }) {
-      signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded6(
+      signatureRequestBulkSendWithTemplateRequest = deserializeIfNeeded7(
         signatureRequestBulkSendWithTemplateRequest,
         "SignatureRequestBulkSendWithTemplateRequest"
       );
@@ -26711,7 +27862,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -26723,7 +27874,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -26731,7 +27882,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -26807,14 +27958,14 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse7(resolve, reject, response);
+              handleSuccessfulResponse8(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse6(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -26831,7 +27982,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestCreateEmbedded(_0) {
     return __async(this, arguments, function* (signatureRequestCreateEmbeddedRequest, options = { headers: {} }) {
-      signatureRequestCreateEmbeddedRequest = deserializeIfNeeded6(
+      signatureRequestCreateEmbeddedRequest = deserializeIfNeeded7(
         signatureRequestCreateEmbeddedRequest,
         "SignatureRequestCreateEmbeddedRequest"
       );
@@ -26908,7 +28059,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -26920,7 +28071,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -26928,7 +28079,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -26946,7 +28097,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-      signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded6(
+      signatureRequestCreateEmbeddedWithTemplateRequest = deserializeIfNeeded7(
         signatureRequestCreateEmbeddedWithTemplateRequest,
         "SignatureRequestCreateEmbeddedWithTemplateRequest"
       );
@@ -27023,7 +28174,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27035,7 +28186,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27043,7 +28194,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27125,7 +28276,7 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse7(
+              handleSuccessfulResponse8(
                 resolve,
                 reject,
                 response,
@@ -27137,7 +28288,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse7(
+              if (handleErrorCodeResponse8(
                 reject,
                 error.response,
                 200,
@@ -27145,7 +28296,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse6(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -27221,7 +28372,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27233,7 +28384,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27241,7 +28392,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27323,7 +28474,7 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse7(
+              handleSuccessfulResponse8(
                 resolve,
                 reject,
                 response,
@@ -27335,7 +28486,7 @@ var SignatureRequestApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse7(
+              if (handleErrorCodeResponse8(
                 reject,
                 error.response,
                 200,
@@ -27343,7 +28494,7 @@ var SignatureRequestApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse6(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -27419,7 +28570,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27431,7 +28582,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27439,7 +28590,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27532,7 +28683,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27544,7 +28695,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27552,7 +28703,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27629,7 +28780,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27641,7 +28792,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27649,7 +28800,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27667,7 +28818,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestRemind(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, signatureRequestRemindRequest, options = { headers: {} }) {
-      signatureRequestRemindRequest = deserializeIfNeeded6(
+      signatureRequestRemindRequest = deserializeIfNeeded7(
         signatureRequestRemindRequest,
         "SignatureRequestRemindRequest"
       );
@@ -27752,7 +28903,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27764,7 +28915,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27772,7 +28923,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27843,14 +28994,14 @@ var SignatureRequestApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse7(resolve, reject, response);
+              handleSuccessfulResponse8(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse6(
+              if (handleErrorRangeResponse7(
                 reject,
                 error.response,
                 "4XX",
@@ -27867,7 +29018,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestSend(_0) {
     return __async(this, arguments, function* (signatureRequestSendRequest, options = { headers: {} }) {
-      signatureRequestSendRequest = deserializeIfNeeded6(
+      signatureRequestSendRequest = deserializeIfNeeded7(
         signatureRequestSendRequest,
         "SignatureRequestSendRequest"
       );
@@ -27944,7 +29095,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -27956,7 +29107,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -27964,7 +29115,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -27982,7 +29133,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestSendWithTemplate(_0) {
     return __async(this, arguments, function* (signatureRequestSendWithTemplateRequest, options = { headers: {} }) {
-      signatureRequestSendWithTemplateRequest = deserializeIfNeeded6(
+      signatureRequestSendWithTemplateRequest = deserializeIfNeeded7(
         signatureRequestSendWithTemplateRequest,
         "SignatureRequestSendWithTemplateRequest"
       );
@@ -28059,7 +29210,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -28071,7 +29222,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -28079,7 +29230,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28097,7 +29248,7 @@ var SignatureRequestApi = class {
   }
   signatureRequestUpdate(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, signatureRequestUpdateRequest, options = { headers: {} }) {
-      signatureRequestUpdateRequest = deserializeIfNeeded6(
+      signatureRequestUpdateRequest = deserializeIfNeeded7(
         signatureRequestUpdateRequest,
         "SignatureRequestUpdateRequest"
       );
@@ -28182,7 +29333,7 @@ var SignatureRequestApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse7(
+                handleSuccessfulResponse8(
                   resolve,
                   reject,
                   response,
@@ -28194,7 +29345,7 @@ var SignatureRequestApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse7(
+                if (handleErrorCodeResponse8(
                   reject,
                   error.response,
                   200,
@@ -28202,7 +29353,7 @@ var SignatureRequestApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse6(
+                if (handleErrorRangeResponse7(
                   reject,
                   error.response,
                   "4XX",
@@ -28219,13 +29370,13 @@ var SignatureRequestApi = class {
     });
   }
 };
-function deserializeIfNeeded6(obj, classname) {
+function deserializeIfNeeded7(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
   return obj;
 }
-function handleSuccessfulResponse7(resolve, reject, response, returnType) {
+function handleSuccessfulResponse8(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -28236,7 +29387,7 @@ function handleSuccessfulResponse7(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse7(reject, response, code, returnType) {
+function handleErrorCodeResponse8(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -28244,7 +29395,7 @@ function handleErrorCodeResponse7(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse6(reject, response, code, returnType) {
+function handleErrorRangeResponse7(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -28256,10 +29407,10 @@ function handleErrorRangeResponse6(reject, response, code, returnType) {
 }
 
 // api/teamApi.ts
-var defaultBasePath8 = "https://api.hellosign.com/v3";
+var defaultBasePath9 = "https://api.hellosign.com/v3";
 var TeamApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath8;
+    this._basePath = defaultBasePath9;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -28307,7 +29458,7 @@ var TeamApi = class {
   }
   teamAddMember(_0, _1) {
     return __async(this, arguments, function* (teamAddMemberRequest, teamId, options = { headers: {} }) {
-      teamAddMemberRequest = deserializeIfNeeded7(
+      teamAddMemberRequest = deserializeIfNeeded8(
         teamAddMemberRequest,
         "TeamAddMemberRequest"
       );
@@ -28389,7 +29540,7 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(
+              handleSuccessfulResponse9(
                 resolve,
                 reject,
                 response,
@@ -28401,7 +29552,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse8(
+              if (handleErrorCodeResponse9(
                 reject,
                 error.response,
                 200,
@@ -28409,7 +29560,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28426,7 +29577,7 @@ var TeamApi = class {
   }
   teamCreate(_0) {
     return __async(this, arguments, function* (teamCreateRequest, options = { headers: {} }) {
-      teamCreateRequest = deserializeIfNeeded7(
+      teamCreateRequest = deserializeIfNeeded8(
         teamCreateRequest,
         "TeamCreateRequest"
       );
@@ -28499,7 +29650,7 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(
+              handleSuccessfulResponse9(
                 resolve,
                 reject,
                 response,
@@ -28511,7 +29662,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse8(
+              if (handleErrorCodeResponse9(
                 reject,
                 error.response,
                 200,
@@ -28519,7 +29670,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28586,14 +29737,14 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(resolve, reject, response);
+              handleSuccessfulResponse9(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28660,7 +29811,7 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(
+              handleSuccessfulResponse9(
                 resolve,
                 reject,
                 response,
@@ -28672,7 +29823,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse8(
+              if (handleErrorCodeResponse9(
                 reject,
                 error.response,
                 200,
@@ -28680,7 +29831,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -28754,7 +29905,7 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse8(
+                handleSuccessfulResponse9(
                   resolve,
                   reject,
                   response,
@@ -28766,7 +29917,7 @@ var TeamApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse8(
+                if (handleErrorCodeResponse9(
                   reject,
                   error.response,
                   200,
@@ -28774,7 +29925,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28849,7 +30000,7 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse8(
+                handleSuccessfulResponse9(
                   resolve,
                   reject,
                   response,
@@ -28861,7 +30012,7 @@ var TeamApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse8(
+                if (handleErrorCodeResponse9(
                   reject,
                   error.response,
                   200,
@@ -28869,7 +30020,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28958,7 +30109,7 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse8(
+                handleSuccessfulResponse9(
                   resolve,
                   reject,
                   response,
@@ -28970,7 +30121,7 @@ var TeamApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse8(
+                if (handleErrorCodeResponse9(
                   reject,
                   error.response,
                   200,
@@ -28978,7 +30129,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -28996,7 +30147,7 @@ var TeamApi = class {
   }
   teamRemoveMember(_0) {
     return __async(this, arguments, function* (teamRemoveMemberRequest, options = { headers: {} }) {
-      teamRemoveMemberRequest = deserializeIfNeeded7(
+      teamRemoveMemberRequest = deserializeIfNeeded8(
         teamRemoveMemberRequest,
         "TeamRemoveMemberRequest"
       );
@@ -29072,7 +30223,7 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(
+              handleSuccessfulResponse9(
                 resolve,
                 reject,
                 response,
@@ -29084,7 +30235,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse8(
+              if (handleErrorCodeResponse9(
                 reject,
                 error.response,
                 201,
@@ -29092,7 +30243,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29180,7 +30331,7 @@ var TeamApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse8(
+                handleSuccessfulResponse9(
                   resolve,
                   reject,
                   response,
@@ -29192,7 +30343,7 @@ var TeamApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse8(
+                if (handleErrorCodeResponse9(
                   reject,
                   error.response,
                   200,
@@ -29200,7 +30351,7 @@ var TeamApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse7(
+                if (handleErrorRangeResponse8(
                   reject,
                   error.response,
                   "4XX",
@@ -29218,7 +30369,7 @@ var TeamApi = class {
   }
   teamUpdate(_0) {
     return __async(this, arguments, function* (teamUpdateRequest, options = { headers: {} }) {
-      teamUpdateRequest = deserializeIfNeeded7(
+      teamUpdateRequest = deserializeIfNeeded8(
         teamUpdateRequest,
         "TeamUpdateRequest"
       );
@@ -29291,7 +30442,7 @@ var TeamApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse8(
+              handleSuccessfulResponse9(
                 resolve,
                 reject,
                 response,
@@ -29303,7 +30454,7 @@ var TeamApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse8(
+              if (handleErrorCodeResponse9(
                 reject,
                 error.response,
                 200,
@@ -29311,7 +30462,7 @@ var TeamApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse7(
+              if (handleErrorRangeResponse8(
                 reject,
                 error.response,
                 "4XX",
@@ -29327,13 +30478,13 @@ var TeamApi = class {
     });
   }
 };
-function deserializeIfNeeded7(obj, classname) {
+function deserializeIfNeeded8(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
   return obj;
 }
-function handleSuccessfulResponse8(resolve, reject, response, returnType) {
+function handleSuccessfulResponse9(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -29344,7 +30495,7 @@ function handleSuccessfulResponse8(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse8(reject, response, code, returnType) {
+function handleErrorCodeResponse9(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -29352,7 +30503,7 @@ function handleErrorCodeResponse8(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse7(reject, response, code, returnType) {
+function handleErrorRangeResponse8(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -29364,10 +30515,10 @@ function handleErrorRangeResponse7(reject, response, code, returnType) {
 }
 
 // api/templateApi.ts
-var defaultBasePath9 = "https://api.hellosign.com/v3";
+var defaultBasePath10 = "https://api.hellosign.com/v3";
 var TemplateApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath9;
+    this._basePath = defaultBasePath10;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -29415,7 +30566,7 @@ var TemplateApi = class {
   }
   templateAddUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateAddUserRequest, options = { headers: {} }) {
-      templateAddUserRequest = deserializeIfNeeded8(
+      templateAddUserRequest = deserializeIfNeeded9(
         templateAddUserRequest,
         "TemplateAddUserRequest"
       );
@@ -29500,7 +30651,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -29512,7 +30663,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -29520,7 +30671,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -29538,7 +30689,7 @@ var TemplateApi = class {
   }
   templateCreate(_0) {
     return __async(this, arguments, function* (templateCreateRequest, options = { headers: {} }) {
-      templateCreateRequest = deserializeIfNeeded8(
+      templateCreateRequest = deserializeIfNeeded9(
         templateCreateRequest,
         "TemplateCreateRequest"
       );
@@ -29615,7 +30766,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -29627,7 +30778,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -29635,7 +30786,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -29653,7 +30804,7 @@ var TemplateApi = class {
   }
   templateCreateEmbeddedDraft(_0) {
     return __async(this, arguments, function* (templateCreateEmbeddedDraftRequest, options = { headers: {} }) {
-      templateCreateEmbeddedDraftRequest = deserializeIfNeeded8(
+      templateCreateEmbeddedDraftRequest = deserializeIfNeeded9(
         templateCreateEmbeddedDraftRequest,
         "TemplateCreateEmbeddedDraftRequest"
       );
@@ -29730,7 +30881,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -29742,7 +30893,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -29750,7 +30901,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -29826,14 +30977,14 @@ var TemplateApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(resolve, reject, response);
+              handleSuccessfulResponse10(resolve, reject, response);
             },
             (error) => {
               if (error.response == null) {
                 reject(error);
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -29914,7 +31065,7 @@ var TemplateApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -29926,7 +31077,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -29934,7 +31085,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -30010,7 +31161,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -30022,7 +31173,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -30030,7 +31181,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30112,7 +31263,7 @@ var TemplateApi = class {
         return new Promise((resolve, reject) => {
           axios_default.request(localVarRequestOptions).then(
             (response) => {
-              handleSuccessfulResponse9(
+              handleSuccessfulResponse10(
                 resolve,
                 reject,
                 response,
@@ -30124,7 +31275,7 @@ var TemplateApi = class {
                 reject(error);
                 return;
               }
-              if (handleErrorCodeResponse9(
+              if (handleErrorCodeResponse10(
                 reject,
                 error.response,
                 200,
@@ -30132,7 +31283,7 @@ var TemplateApi = class {
               )) {
                 return;
               }
-              if (handleErrorRangeResponse8(
+              if (handleErrorRangeResponse9(
                 reject,
                 error.response,
                 "4XX",
@@ -30208,7 +31359,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -30220,7 +31371,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -30228,7 +31379,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30321,7 +31472,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -30333,7 +31484,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -30341,7 +31492,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30359,7 +31510,7 @@ var TemplateApi = class {
   }
   templateRemoveUser(_0, _1) {
     return __async(this, arguments, function* (templateId, templateRemoveUserRequest, options = { headers: {} }) {
-      templateRemoveUserRequest = deserializeIfNeeded8(
+      templateRemoveUserRequest = deserializeIfNeeded9(
         templateRemoveUserRequest,
         "TemplateRemoveUserRequest"
       );
@@ -30444,7 +31595,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -30456,7 +31607,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -30464,7 +31615,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30482,7 +31633,7 @@ var TemplateApi = class {
   }
   templateUpdateFiles(_0, _1) {
     return __async(this, arguments, function* (templateId, templateUpdateFilesRequest, options = { headers: {} }) {
-      templateUpdateFilesRequest = deserializeIfNeeded8(
+      templateUpdateFilesRequest = deserializeIfNeeded9(
         templateUpdateFilesRequest,
         "TemplateUpdateFilesRequest"
       );
@@ -30567,7 +31718,7 @@ var TemplateApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse9(
+                handleSuccessfulResponse10(
                   resolve,
                   reject,
                   response,
@@ -30579,7 +31730,7 @@ var TemplateApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse9(
+                if (handleErrorCodeResponse10(
                   reject,
                   error.response,
                   200,
@@ -30587,7 +31738,7 @@ var TemplateApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse8(
+                if (handleErrorRangeResponse9(
                   reject,
                   error.response,
                   "4XX",
@@ -30604,13 +31755,13 @@ var TemplateApi = class {
     });
   }
 };
-function deserializeIfNeeded8(obj, classname) {
+function deserializeIfNeeded9(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
   return obj;
 }
-function handleSuccessfulResponse9(resolve, reject, response, returnType) {
+function handleSuccessfulResponse10(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -30621,7 +31772,7 @@ function handleSuccessfulResponse9(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse9(reject, response, code, returnType) {
+function handleErrorCodeResponse10(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -30629,7 +31780,7 @@ function handleErrorCodeResponse9(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse8(reject, response, code, returnType) {
+function handleErrorRangeResponse9(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -30641,10 +31792,10 @@ function handleErrorRangeResponse8(reject, response, code, returnType) {
 }
 
 // api/unclaimedDraftApi.ts
-var defaultBasePath10 = "https://api.hellosign.com/v3";
+var defaultBasePath11 = "https://api.hellosign.com/v3";
 var UnclaimedDraftApi = class {
   constructor(basePath) {
-    this._basePath = defaultBasePath10;
+    this._basePath = defaultBasePath11;
     this._defaultHeaders = { "User-Agent": USER_AGENT };
     this._useQuerystring = false;
     this.authentications = {
@@ -30692,7 +31843,7 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateRequest, options = { headers: {} }) {
-      unclaimedDraftCreateRequest = deserializeIfNeeded9(
+      unclaimedDraftCreateRequest = deserializeIfNeeded10(
         unclaimedDraftCreateRequest,
         "UnclaimedDraftCreateRequest"
       );
@@ -30769,7 +31920,7 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse10(
+                handleSuccessfulResponse11(
                   resolve,
                   reject,
                   response,
@@ -30781,7 +31932,7 @@ var UnclaimedDraftApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse10(
+                if (handleErrorCodeResponse11(
                   reject,
                   error.response,
                   200,
@@ -30789,7 +31940,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -30807,7 +31958,7 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreateEmbedded(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateEmbeddedRequest, options = { headers: {} }) {
-      unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded9(
+      unclaimedDraftCreateEmbeddedRequest = deserializeIfNeeded10(
         unclaimedDraftCreateEmbeddedRequest,
         "UnclaimedDraftCreateEmbeddedRequest"
       );
@@ -30884,7 +32035,7 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse10(
+                handleSuccessfulResponse11(
                   resolve,
                   reject,
                   response,
@@ -30896,7 +32047,7 @@ var UnclaimedDraftApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse10(
+                if (handleErrorCodeResponse11(
                   reject,
                   error.response,
                   200,
@@ -30904,7 +32055,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -30922,7 +32073,7 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftCreateEmbeddedWithTemplate(_0) {
     return __async(this, arguments, function* (unclaimedDraftCreateEmbeddedWithTemplateRequest, options = { headers: {} }) {
-      unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded9(
+      unclaimedDraftCreateEmbeddedWithTemplateRequest = deserializeIfNeeded10(
         unclaimedDraftCreateEmbeddedWithTemplateRequest,
         "UnclaimedDraftCreateEmbeddedWithTemplateRequest"
       );
@@ -30999,7 +32150,7 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse10(
+                handleSuccessfulResponse11(
                   resolve,
                   reject,
                   response,
@@ -31011,7 +32162,7 @@ var UnclaimedDraftApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse10(
+                if (handleErrorCodeResponse11(
                   reject,
                   error.response,
                   200,
@@ -31019,7 +32170,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31037,7 +32188,7 @@ var UnclaimedDraftApi = class {
   }
   unclaimedDraftEditAndResend(_0, _1) {
     return __async(this, arguments, function* (signatureRequestId, unclaimedDraftEditAndResendRequest, options = { headers: {} }) {
-      unclaimedDraftEditAndResendRequest = deserializeIfNeeded9(
+      unclaimedDraftEditAndResendRequest = deserializeIfNeeded10(
         unclaimedDraftEditAndResendRequest,
         "UnclaimedDraftEditAndResendRequest"
       );
@@ -31122,7 +32273,7 @@ var UnclaimedDraftApi = class {
           (resolve, reject) => {
             axios_default.request(localVarRequestOptions).then(
               (response) => {
-                handleSuccessfulResponse10(
+                handleSuccessfulResponse11(
                   resolve,
                   reject,
                   response,
@@ -31134,7 +32285,7 @@ var UnclaimedDraftApi = class {
                   reject(error);
                   return;
                 }
-                if (handleErrorCodeResponse10(
+                if (handleErrorCodeResponse11(
                   reject,
                   error.response,
                   200,
@@ -31142,7 +32293,7 @@ var UnclaimedDraftApi = class {
                 )) {
                   return;
                 }
-                if (handleErrorRangeResponse9(
+                if (handleErrorRangeResponse10(
                   reject,
                   error.response,
                   "4XX",
@@ -31159,13 +32310,13 @@ var UnclaimedDraftApi = class {
     });
   }
 };
-function deserializeIfNeeded9(obj, classname) {
+function deserializeIfNeeded10(obj, classname) {
   if (obj !== null && obj !== void 0 && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);
   }
   return obj;
 }
-function handleSuccessfulResponse10(resolve, reject, response, returnType) {
+function handleSuccessfulResponse11(resolve, reject, response, returnType) {
   let body = response.data;
   if (response.status && response.status >= 200 && response.status <= 299) {
     if (returnType) {
@@ -31176,7 +32327,7 @@ function handleSuccessfulResponse10(resolve, reject, response, returnType) {
     reject(new HttpError(response, body, response.status));
   }
 }
-function handleErrorCodeResponse10(reject, response, code, returnType) {
+function handleErrorCodeResponse11(reject, response, code, returnType) {
   if (response.status !== code) {
     return false;
   }
@@ -31184,7 +32335,7 @@ function handleErrorCodeResponse10(reject, response, code, returnType) {
   reject(new HttpError(response, body, response.status));
   return true;
 }
-function handleErrorRangeResponse9(reject, response, code, returnType) {
+function handleErrorRangeResponse10(reject, response, code, returnType) {
   let rangeCodeLeft = Number(code[0] + "00");
   let rangeCodeRight = Number(code[0] + "99");
   if (response.status >= rangeCodeLeft && response.status <= rangeCodeRight) {
@@ -31274,6 +32425,7 @@ var APIS = [
   ApiAppApi,
   BulkSendJobApi,
   EmbeddedApi,
+  FaxLineApi,
   OAuthApi,
   ReportApi,
   SignatureRequestApi,
@@ -31324,6 +32476,18 @@ var APIS = [
   EventCallbackRequest,
   EventCallbackRequestEvent,
   EventCallbackRequestEventMetadata,
+  FaxLineAddUserRequest,
+  FaxLineApi,
+  FaxLineAreaCodeGetCountryEnum,
+  FaxLineAreaCodeGetProvinceEnum,
+  FaxLineAreaCodeGetResponse,
+  FaxLineAreaCodeGetStateEnum,
+  FaxLineCreateRequest,
+  FaxLineDeleteRequest,
+  FaxLineListResponse,
+  FaxLineRemoveUserRequest,
+  FaxLineResponse,
+  FaxLineResponseFaxLine,
   FileResponse,
   FileResponseDataUri,
   HttpBasicAuth,

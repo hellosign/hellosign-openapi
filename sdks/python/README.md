@@ -118,6 +118,13 @@ All URIs are relative to *https://api.hellosign.com/v3*
 ```BulkSendJobApi``` | [```bulk_send_job_list```](docs/BulkSendJobApi.md#bulk_send_job_list) | ```GET /bulk_send_job/list``` | List Bulk Send Jobs|
 |```EmbeddedApi``` | [```embedded_edit_url```](docs/EmbeddedApi.md#embedded_edit_url) | ```POST /embedded/edit_url/{template_id}``` | Get Embedded Template Edit URL|
 ```EmbeddedApi``` | [```embedded_sign_url```](docs/EmbeddedApi.md#embedded_sign_url) | ```GET /embedded/sign_url/{signature_id}``` | Get Embedded Sign URL|
+|```FaxLineApi``` | [```fax_line_add_user```](docs/FaxLineApi.md#fax_line_add_user) | ```PUT /fax_line/add_user``` | Add Fax Line User|
+```FaxLineApi``` | [```fax_line_area_code_get```](docs/FaxLineApi.md#fax_line_area_code_get) | ```GET /fax_line/area_codes``` | Get Available Fax Line Area Codes|
+```FaxLineApi``` | [```fax_line_create```](docs/FaxLineApi.md#fax_line_create) | ```POST /fax_line/create``` | Purchase Fax Line|
+```FaxLineApi``` | [```fax_line_delete```](docs/FaxLineApi.md#fax_line_delete) | ```DELETE /fax_line``` | Delete Fax Line|
+```FaxLineApi``` | [```fax_line_get```](docs/FaxLineApi.md#fax_line_get) | ```GET /fax_line``` | Get Fax Line|
+```FaxLineApi``` | [```fax_line_list```](docs/FaxLineApi.md#fax_line_list) | ```GET /fax_line/list``` | List Fax Lines|
+```FaxLineApi``` | [```fax_line_remove_user```](docs/FaxLineApi.md#fax_line_remove_user) | ```PUT /fax_line/remove_user``` | Remove Fax Line Access|
 |```OAuthApi``` | [```oauth_token_generate```](docs/OAuthApi.md#oauth_token_generate) | ```POST /oauth/token``` | OAuth Token Generate|
 ```OAuthApi``` | [```oauth_token_refresh```](docs/OAuthApi.md#oauth_token_refresh) | ```POST /oauth/token?refresh``` | OAuth Token Refresh|
 |```ReportApi``` | [```report_create```](docs/ReportApi.md#report_create) | ```POST /report/create``` | Create Report|
@@ -200,6 +207,17 @@ All URIs are relative to *https://api.hellosign.com/v3*
  - [EventCallbackRequest](docs/EventCallbackRequest.md)
  - [EventCallbackRequestEvent](docs/EventCallbackRequestEvent.md)
  - [EventCallbackRequestEventMetadata](docs/EventCallbackRequestEventMetadata.md)
+ - [FaxLineAddUserRequest](docs/FaxLineAddUserRequest.md)
+ - [FaxLineAreaCodeGetCountryEnum](docs/FaxLineAreaCodeGetCountryEnum.md)
+ - [FaxLineAreaCodeGetProvinceEnum](docs/FaxLineAreaCodeGetProvinceEnum.md)
+ - [FaxLineAreaCodeGetResponse](docs/FaxLineAreaCodeGetResponse.md)
+ - [FaxLineAreaCodeGetStateEnum](docs/FaxLineAreaCodeGetStateEnum.md)
+ - [FaxLineCreateRequest](docs/FaxLineCreateRequest.md)
+ - [FaxLineDeleteRequest](docs/FaxLineDeleteRequest.md)
+ - [FaxLineListResponse](docs/FaxLineListResponse.md)
+ - [FaxLineRemoveUserRequest](docs/FaxLineRemoveUserRequest.md)
+ - [FaxLineResponse](docs/FaxLineResponse.md)
+ - [FaxLineResponseFaxLine](docs/FaxLineResponseFaxLine.md)
  - [FileResponse](docs/FileResponse.md)
  - [FileResponseDataUri](docs/FileResponseDataUri.md)
  - [ListInfoResponse](docs/ListInfoResponse.md)
