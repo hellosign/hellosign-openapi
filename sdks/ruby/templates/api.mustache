@@ -4,8 +4,10 @@
 
 require 'cgi'
 
+{{! CUSTOM - BEGIN }}
 module Dropbox
 end
+{{! CUSTOM - END }}
 
 module {{moduleName}}
 {{#operations}}
@@ -202,7 +204,7 @@ module {{moduleName}}
       {{/hasConsumes}}
       {{#headerParams}}
       {{#required}}
-      header_params[:'{{{baseName}}}'] = {{#collectionFormat}}@api_client.build_collection_param({{{paramName}}}, :{{{collectionFormat}}}){{/collectionFormat}}{{^collectionFormat}}{{{paramName}}}{{/collectionFormat}}
+      header_params[{{#lambdaFixHeaderKey}}:'{{{baseName}}}'{{/lambdaFixHeaderKey}}] = {{#collectionFormat}}@api_client.build_collection_param({{{paramName}}}, :{{{collectionFormat}}}){{/collectionFormat}}{{^collectionFormat}}{{{paramName}}}{{/collectionFormat}}
       {{/required}}
       {{/headerParams}}
       {{#headerParams}}
@@ -211,6 +213,24 @@ module {{moduleName}}
       {{/required}}
       {{/headerParams}}
 
+{{#vendorExtensions.x-ignore-block}}
+      # form parameters
+      form_params = opts[:form_params] || {}
+      {{#formParams}}
+      {{#required}}
+      form_params['{{baseName}}'] = {{#collectionFormat}}@api_client.build_collection_param({{{paramName}}}, :{{{collectionFormat}}}){{/collectionFormat}}{{^collectionFormat}}{{{paramName}}}{{/collectionFormat}}
+      {{/required}}
+      {{/formParams}}
+      {{#formParams}}
+      {{^required}}
+      form_params['{{baseName}}'] = {{#collectionFormat}}@api_client.build_collection_param(opts[:'{{{paramName}}}'], :{{{collectionFormat}}}){{/collectionFormat}}{{^collectionFormat}}opts[:'{{{paramName}}}']{{/collectionFormat}} if !opts[:'{{paramName}}'].nil?
+      {{/required}}
+      {{/formParams}}
+
+      # http body (model)
+      post_body = opts[:debug_body]{{#bodyParam}} || @api_client.object_to_http_body({{#required}}{{{paramName}}}{{/required}}{{^required}}opts[:'{{{paramName}}}']{{/required}}){{/bodyParam}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
       post_body = {}
       form_params = opts[:form_params] || {}
       {{#bodyParam}}
@@ -233,6 +253,7 @@ module {{moduleName}}
       # http body (model)
       post_body = opts[:debug_body]{{#bodyParam}} || @api_client.object_to_http_body({{#required}}{{{paramName}}}{{/required}}{{^required}}opts[:'{{{paramName}}}']{{/required}}){{/bodyParam}}
       {{/bodyParam}}
+{{! CUSTOM - END }}
 
       # return_type
       return_type = opts[:debug_return_type]{{#returnType}} || '{{{.}}}'{{/returnType}}
@@ -250,6 +271,10 @@ module {{moduleName}}
         :return_type => return_type
       )
 
+{{#vendorExtensions.x-ignore-block}}
+      data, status_code, headers = @api_client.call_api(:{{httpMethod}}, local_var_path, new_options)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
       begin
         data, status_code, headers = @api_client.call_api(:{{httpMethod}}, local_var_path, new_options)
       rescue Dropbox::Sign::ApiError => e
@@ -315,6 +340,7 @@ module {{moduleName}}
         {{/returnType}}
       end
 
+{{! CUSTOM - END }}
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: {{classname}}#{{operationId}}\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

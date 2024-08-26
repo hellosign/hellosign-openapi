@@ -1,6 +1,31 @@
     # Builds the object from hash
     # @param [Hash] attributes Model attributes in the form of hash
     # @return [Object] Returns the model itself
+{{#vendorExtensions.x-ignore-block}}
+    def self.build_from_hash(attributes)
+      return nil unless attributes.is_a?(Hash)
+      {{#parent}}
+      super(attributes)
+      {{/parent}}
+      attributes = attributes.transform_keys(&:to_sym)
+      transformed_hash = {}
+      openapi_types.each_pair do |key, type|
+        if attributes.key?(attribute_map[key]) && attributes[attribute_map[key]].nil?
+          transformed_hash["#{key}"] = nil
+        elsif type =~ /\AArray<(.*)>/i
+          # check to ensure the input is an array given that the attribute
+          # is documented as an array but the input is not
+          if attributes[attribute_map[key]].is_a?(Array)
+            transformed_hash["#{key}"] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
+          end
+        elsif !attributes[attribute_map[key]].nil?
+          transformed_hash["#{key}"] = _deserialize(type, attributes[attribute_map[key]])
+        end
+      end
+      new(transformed_hash)
+    end
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     def self.build_from_hash(attributes)
 {{#discriminator}}
       if !attributes[self.openapi_discriminator_name].nil?
@@ -38,11 +63,13 @@
 
       self
     end
+{{! CUSTOM - END }}
 
     # Deserializes the data based on type
     # @param string type Data type
     # @param string value Value to be deserialized
     # @return [Object] Deserialized data
+{{! CUSTOM - self._deserialize -> _deserialize }}
     def _deserialize(type, value)
       case type.to_sym
       when :Time
@@ -76,6 +103,7 @@
           end
         end
       else # model
+{{! CUSTOM - Remove "or oneOf }}
         # models (e.g. Pet)
         klass = {{moduleName}}.const_get(type)
         klass.respond_to?(:openapi_any_of) || klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
@@ -96,16 +124,21 @@
 
     # Returns the object in the form of hash
     # @return [Hash] Returns the object in the form of hash
+{{! CUSTOM - to_hash -> to_hash(include_nil = true) }}
     def to_hash(include_nil = true)
       hash = {{^parent}}{}{{/parent}}{{#parent}}super{{/parent}}
+{{! CUSTOM - attribute_map -> merged_attributes }}
       self.class.merged_attributes.each_pair do |attr, param|
         value = self.send(attr)
         if value.nil?
+{{! CUSTOM - add "next unless include_nil" }}
           next unless include_nil
+{{! CUSTOM - openapi_nullable -> merged_nullable }}
           is_nullable = self.class.merged_nullable.include?(attr)
           next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
         end
 
+{{! CUSTOM - _to_hash(value) -> _to_hash(value, include_nil) }}
         hash[param] = _to_hash(value, include_nil)
       end
       hash
@@ -115,14 +148,18 @@
     # For object, use to_hash. Otherwise, just return the value
     # @param [Object] value Any valid value
     # @return [Hash] Returns the value in the form of hash
+{{! CUSTOM - _to_hash(value) -> _to_hash(value, include_nil = true) }}
     def _to_hash(value, include_nil = true)
       if value.is_a?(Array)
+{{! CUSTOM - _to_hash(v) -> _to_hash(v, include_nil) }}
         value.compact.map { |v| _to_hash(v, include_nil) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
+{{! CUSTOM - _to_hash(v) -> _to_hash(v, include_nil) }}
           value.each { |k, v| hash[k] = _to_hash(v, include_nil) }
         end
       elsif value.respond_to? :to_hash
+{{! CUSTOM - value.to_hash -> value.to_hash(include_nil) }}
         value.to_hash(include_nil)
       else
         value

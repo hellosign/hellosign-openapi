@@ -154,11 +154,6 @@ module Dropbox::Sign
       attribute_map.values
     end
 
-    # Returns attribute map of this model + parent
-    def self.merged_attributes
-      self.attribute_map
-    end
-
     # Attribute type mapping.
     def self.openapi_types
       {
@@ -190,11 +185,6 @@ module Dropbox::Sign
       }
     end
 
-    # Attribute type mapping of this model + parent
-    def self.merged_types
-      self.openapi_types
-    end
-
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
@@ -209,6 +199,16 @@ module Dropbox::Sign
         :'attachments',
         :'response_data',
       ])
+    end
+
+    # Returns attribute map of this model + parent
+    def self.merged_attributes
+      self.attribute_map
+    end
+
+    # Attribute type mapping of this model + parent
+    def self.merged_types
+      self.openapi_types
     end
 
     # Returns list of attributes with nullable: true of this model + parent

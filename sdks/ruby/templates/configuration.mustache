@@ -2,8 +2,10 @@
 {{> api_info}}
 =end
 
+{{! CUSTOM - BEGIN }}
 module Dropbox
 end
+{{! CUSTOM - END }}
 
 module {{moduleName}}
   class Configuration
@@ -225,6 +227,56 @@ module {{moduleName}}
     end
 
     # Returns Auth Settings hash for api client.
+{{#vendorExtensions.x-ignore-block}}
+    def auth_settings
+      {
+{{#authMethods}}
+{{#isApiKey}}
+        '{{name}}' =>
+          {
+            type: 'api_key',
+            in: {{#isKeyInHeader}}'header'{{/isKeyInHeader}}{{#isKeyInQuery}}'query'{{/isKeyInQuery}},
+            key: '{{keyParamName}}',
+            value: api_key_with_prefix('{{name}}'{{#vendorExtensions.x-auth-id-alias}}, '{{.}}'{{/vendorExtensions.x-auth-id-alias}})
+          },
+{{/isApiKey}}
+{{#isBasic}}
+{{#isBasicBasic}}
+        '{{name}}' =>
+          {
+            type: 'basic',
+            in: 'header',
+            key: 'Authorization',
+            value: basic_auth_token
+          },
+{{/isBasicBasic}}
+{{#isBasicBearer}}
+        '{{name}}' =>
+          {
+            type: 'bearer',
+            in: 'header',
+            {{#bearerFormat}}
+            format: '{{{.}}}',
+            {{/bearerFormat}}
+            key: 'Authorization',
+            value: "Bearer #{access_token_with_refresh}"
+          },
+{{/isBasicBearer}}
+{{/isBasic}}
+{{#isOAuth}}
+        '{{name}}' =>
+          {
+            type: 'oauth2',
+            in: 'header',
+            key: 'Authorization',
+            value: "Bearer #{access_token_with_refresh}"
+          },
+{{/isOAuth}}
+{{/authMethods}}
+      }
+    end
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     def auth_settings()
       result = {}
 {{#authMethods}}
@@ -256,12 +308,14 @@ module {{moduleName}}
 {{/authMethods}}
       return result
     end
+{{! CUSTOM - END }}
 
     # Returns an array of Server setting
     def server_settings
       [
       {{#servers}}
         {
+{{! CUSTOM - Change URL to use gsub/sub }}
           url: "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, ''),
           description: "{{{description}}}{{^description}}No description provided{{/description}}",
           {{#variables}}

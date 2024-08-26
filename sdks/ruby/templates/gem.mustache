@@ -45,10 +45,12 @@ require '{{importPath}}'
 {{/apis}}
 {{/apiInfo}}
 
+{{! CUSTOM - BEGIN }}
 require '{{gemName}}/event_callback_helper'
 
 module Dropbox
 end
+{{! CUSTOM - END }}
 
 module {{moduleName}}
   class << self

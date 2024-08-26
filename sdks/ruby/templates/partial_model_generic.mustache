@@ -6,6 +6,7 @@
     {{#description}}
     # {{{.}}}
     {{/description}}
+{{! CUSTOM - Add Integer/String return type }}
     # @return [{{#vendorExtensions.x-int-or-string}}Integer, String{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{#isNullable}}, nil{{/isNullable}}]
     attr_accessor :{{{name}}}
 
@@ -53,16 +54,6 @@
       {{/parent}}
     end
 
-    # Returns attribute map of this model + parent
-    def self.merged_attributes
-      {{#parent}}
-      self.superclass.attribute_map.merge(self.attribute_map)
-      {{/parent}}
-      {{^parent}}
-      self.attribute_map
-      {{/parent}}
-    end
-
     # Attribute type mapping.
     def self.openapi_types
       {
@@ -70,16 +61,6 @@
         :'{{{name}}}' => :'{{{dataType}}}'{{^-last}},{{/-last}}
         {{/vars}}
       }
-    end
-
-    # Attribute type mapping of this model + parent
-    def self.merged_types
-      {{#parent}}
-      self.superclass.openapi_types.merge(self.openapi_types)
-      {{/parent}}
-      {{^parent}}
-      self.openapi_types
-      {{/parent}}
     end
 
     # List of attributes with nullable: true
@@ -93,6 +74,27 @@
       ])
     end
 
+{{! CUSTOM - BEGIN }}
+    # Returns attribute map of this model + parent
+    def self.merged_attributes
+      {{#parent}}
+      self.superclass.attribute_map.merge(self.attribute_map)
+      {{/parent}}
+      {{^parent}}
+      self.attribute_map
+      {{/parent}}
+    end
+
+    # Attribute type mapping of this model + parent
+    def self.merged_types
+      {{#parent}}
+      self.superclass.openapi_types.merge(self.openapi_types)
+      {{/parent}}
+      {{^parent}}
+      self.openapi_types
+      {{/parent}}
+    end
+
     # Returns list of attributes with nullable: true of this model + parent
     def self.merged_nullable
       {{#parent}}
@@ -102,6 +104,7 @@
       self.openapi_nullable
       {{/parent}}
     end
+{{! CUSTOM - END }}
 
     {{#anyOf}}
     {{#-first}}
@@ -116,6 +119,21 @@
 
     {{/-last}}
     {{/anyOf}}
+{{#vendorExtensions.x-ignore-block}}
+    {{#allOf}}
+    {{#-first}}
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+    {{/-first}}
+      :'{{{.}}}'{{^-last}},{{/-last}}
+    {{#-last}}
+      ]
+    end
+
+    {{/-last}}
+    {{/allOf}}
+{{/vendorExtensions.x-ignore-block}}
     {{#discriminator}}
     {{#propertyName}}
     # discriminator's property name in OpenAPI v3
@@ -123,6 +141,7 @@
       :'{{{.}}}'
     end
 
+{{! CUSTOM - BEGIN }}
 {{#discriminator}}
     def self.discriminator_class_name(value)
       return nil unless value.is_a?(String)
@@ -136,9 +155,11 @@
       return nil
     end
 {{/discriminator}}
+{{! CUSTOM - END }}
 
     {{/propertyName}}
     {{/discriminator}}
+{{! CUSTOM - BEGIN }}
 {{^discriminator}}
     # Attempt to instantiate and hydrate a new instance of this class
     # @param [Object] data Data to be converted
@@ -151,6 +172,7 @@
     end
 
 {{/discriminator}}
+{{! CUSTOM - END }}
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
@@ -160,6 +182,7 @@
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
+{{! CUSTOM - attribute_map -> merged_attributes }}
         if (!self.class.merged_attributes.key?(k.to_sym))
           fail ArgumentError, "`#{k}` is not a valid attribute in `{{{moduleName}}}::{{{classname}}}`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
@@ -190,6 +213,14 @@
       else
         self.{{{name}}} = {{{defaultValue}}}
       {{/defaultValue}}
+{{#vendorExtensions.x-ignore-block}}
+      {{^defaultValue}}
+      {{#required}}
+      else
+        self.{{{name}}} = nil
+      {{/required}}
+      {{/defaultValue}}
+{{/vendorExtensions.x-ignore-block}}
       end
       {{/vars}}
     end
@@ -197,6 +228,9 @@
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
+{{#vendorExtensions.x-ignore-block}}
+      warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
+{{/vendorExtensions.x-ignore-block}}
       invalid_properties = {{^parent}}Array.new{{/parent}}{{#parent}}super{{/parent}}
       {{#vars}}
       {{^isNullable}}
@@ -259,6 +293,9 @@
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+{{#vendorExtensions.x-ignore-block}}
+      warn '[DEPRECATED] the `valid?` method is obsolete'
+{{/vendorExtensions.x-ignore-block}}
       {{#vars}}
       {{^isNullable}}
       {{#required}}
@@ -335,11 +372,13 @@
     # @param [Object] {{{name}}} Value to be assigned
     def {{{name}}}=({{{name}}})
       {{^isNullable}}
+{{! CUSTOM - add #required }}
       {{#required}}
       if {{{name}}}.nil?
         fail ArgumentError, '{{{name}}} cannot be nil'
       end
 
+{{! CUSTOM - add /required }}
       {{/required}}
       {{/isNullable}}
       {{#maxLength}}
