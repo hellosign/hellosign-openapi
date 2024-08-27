@@ -19,7 +19,43 @@ Creates a new Dropbox Sign Account that is associated with the specified `email_
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__AccountCreate_C#_CODE
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var accountApi = new AccountApi(config);
+
+        var data = new AccountCreateRequest(
+            emailAddress: "newuser@dropboxsign.com"
+        );
+
+        try
+        {
+            var result = accountApi.AccountCreate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the AccountCreateWithHttpInfo variant
@@ -80,7 +116,39 @@ Returns the properties and settings of your Account.
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__AccountGet_C#_CODE
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var accountApi = new AccountApi(config);
+
+        try
+        {
+            var result = accountApi.AccountGet(null, "jack@example.com");
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the AccountGetWithHttpInfo variant
@@ -107,8 +175,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **string?** | &#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  The ID of the Account. | [optional]  |
-| **emailAddress** | **string?** | &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  The email address of the Account. | [optional]  |
+| **accountId** | **string?** | `account_id` or `email_address` is required. If both are provided, the account id prevails.  The ID of the Account. | [optional]  |
+| **emailAddress** | **string?** | `account_id` or `email_address` is required, If both are provided, the account id prevails.  The email address of the Account. | [optional]  |
 
 ### Return type
 
@@ -142,7 +210,43 @@ Updates the properties and settings of your Account. Currently only allows for u
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__AccountUpdate_C#_CODE
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var accountApi = new AccountApi(config);
+
+        var data = new AccountUpdateRequest(
+            callbackUrl: "https://www.example.com/callback"
+        );
+
+        try
+        {
+            var result = accountApi.AccountUpdate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the AccountUpdateWithHttpInfo variant
@@ -203,7 +307,43 @@ Verifies whether an Dropbox Sign Account exists for the given email address.
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__AccountVerify_C#_CODE
+using System;
+
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var accountApi = new AccountApi(config);
+
+        var data = new AccountVerifyRequest(
+            emailAddress: "some_user@dropboxsign.com"
+        );
+
+        try
+        {
+            var result = accountApi.AccountVerify(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the AccountVerifyWithHttpInfo variant

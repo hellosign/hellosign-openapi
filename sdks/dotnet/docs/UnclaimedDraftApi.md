@@ -19,7 +19,92 @@ Creates a new Draft that can be claimed using the claim URL. The first authentic
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__UnclaimedDraftCreate_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var unclaimedDraftApi = new UnclaimedDraftApi(config);
+
+        var signer1 = new SubUnclaimedDraftSigner(
+            emailAddress: "jack@example.com",
+            name: "Jack",
+            order: 0
+        );
+
+        var signer2 = new SubUnclaimedDraftSigner(
+            emailAddress: "jill@example.com",
+            name: "Jill",
+            order: 1
+        );
+
+        var subSigningOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: false,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var subFieldOptions = new SubFieldOptions(
+            dateFormat: SubFieldOptions.DateFormatEnum.DD_MM_YYYY
+        );
+
+        var metadata = new Dictionary<string, object>()
+        {
+            ["custom_id"] = 1234,
+            ["custom_text"] = "NDA #9"
+        };
+
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_signature_request.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new UnclaimedDraftCreateRequest(
+            subject: "The NDA we talked about",
+            type: UnclaimedDraftCreateRequest.TypeEnum.RequestSignature,
+            message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+            signers: new List<SubUnclaimedDraftSigner>(){signer1, signer2},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
+            files: files,
+            metadata: metadata,
+            signingOptions: subSigningOptions,
+            fieldOptions: subFieldOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var result = unclaimedDraftApi.UnclaimedDraftCreate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the UnclaimedDraftCreateWithHttpInfo variant
@@ -80,7 +165,56 @@ Creates a new Draft that can be claimed and used in an embedded iFrame. The firs
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__UnclaimedDraftCreateEmbedded_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var unclaimedDraftApi = new UnclaimedDraftApi(config);
+
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_signature_request.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new UnclaimedDraftCreateEmbeddedRequest(
+            clientId: "ec64a202072370a737edf4a0eb7f4437",
+            files: files,
+            requesterEmailAddress: "jack@dropboxsign.com",
+            testMode: true
+        );
+
+        try
+        {
+            var result = unclaimedDraftApi.UnclaimedDraftCreateEmbedded(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the UnclaimedDraftCreateEmbeddedWithHttpInfo variant
@@ -141,7 +275,59 @@ Creates a new Draft with a previously saved template(s) that can be claimed and 
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__UnclaimedDraftCreateEmbeddedWithTemplate_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var unclaimedDraftApi = new UnclaimedDraftApi(config);
+
+        var signer = new SubUnclaimedDraftTemplateSigner(
+            role: "Client",
+            name: "George",
+            emailAddress: "george@example.com"
+        );
+
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@email.com"
+        );
+
+        var data = new UnclaimedDraftCreateEmbeddedWithTemplateRequest(
+            clientId: "1a659d9ad95bccd307ecad78d72192f8",
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            requesterEmailAddress: "jack@dropboxsign.com",
+            signers: new List<SubUnclaimedDraftTemplateSigner>(){signer},
+            ccs: new List<SubCC>(){cc1},
+            testMode: true
+        );
+
+        try
+        {
+            var result = unclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo variant
@@ -202,7 +388,46 @@ Creates a new signature request from an embedded request that can be edited prio
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__UnclaimedDraftEditAndResend_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var unclaimedDraftApi = new UnclaimedDraftApi(config);
+
+        var data = new UnclaimedDraftEditAndResendRequest(
+            clientId: "1a659d9ad95bccd307ecad78d72192f8",
+            testMode: true
+        );
+
+        var signatureRequestId = "2f9781e1a83jdja934d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            var result = unclaimedDraftApi.UnclaimedDraftEditAndResend(signatureRequestId, data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the UnclaimedDraftEditAndResendWithHttpInfo variant

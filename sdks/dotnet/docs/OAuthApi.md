@@ -17,7 +17,42 @@ Once you have retrieved the code from the user callback, you will need to exchan
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__OauthTokenGenerate_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+
+        var oAuthApi = new OAuthApi(config);
+
+        var data = new OAuthTokenGenerateRequest(
+            state: "900e06e2",
+            code: "1b0d28d90c86c141",
+            clientId: "cc91c61d00f8bb2ece1428035716b",
+            clientSecret: "1d14434088507ffa390e6f5528465"
+        );
+
+        try
+        {
+            var result = oAuthApi.OauthTokenGenerate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the OauthTokenGenerateWithHttpInfo variant
@@ -77,7 +112,39 @@ Access tokens are only valid for a given period of time (typically one hour) for
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__OauthTokenRefresh_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+
+        var oAuthApi = new OAuthApi(config);
+
+        var data = new OAuthTokenRefreshRequest(
+            refreshToken: "hNTI2MTFmM2VmZDQxZTZjOWRmZmFjZmVmMGMyNGFjMzI2MGI5YzgzNmE3"
+        );
+
+        try
+        {
+            var result = oAuthApi.OauthTokenRefresh(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the OauthTokenRefreshWithHttpInfo variant

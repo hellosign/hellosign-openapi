@@ -5,7 +5,7 @@ Template object with parameters: `template_id`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplateId** | **string** | REPLACE_ME_WITH_DESCRIPTION_BEGIN The id of the Template. REPLACE_ME_WITH_DESCRIPTION_END | [optional] 
+**TemplateId** | **string** |  The id of the Template.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

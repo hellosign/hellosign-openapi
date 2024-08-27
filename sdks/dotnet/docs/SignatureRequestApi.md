@@ -31,7 +31,89 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestBulkCreateEmbeddedWithTemplate_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signerList1Signer = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            name: "George",
+            emailAddress: "george@example.com",
+            pin: "d79a3td"
+        );
+
+        var signerList1CustomFields = new SubBulkSignerListCustomField(
+            name: "company",
+            value: "ABC Corp"
+        );
+
+        var signerList1 = new SubBulkSignerList(
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList1Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList1CustomFields}
+        );
+
+        var signerList2Signer = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            name: "Mary",
+            emailAddress: "mary@example.com",
+            pin: "gd9as5b"
+        );
+
+        var signerList2CustomFields = new SubBulkSignerListCustomField(
+            name: "company",
+            value: "123 Corp"
+        );
+
+        var signerList2 = new SubBulkSignerList(
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList2Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList2CustomFields}
+        );
+
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@email.com"
+        );
+
+        var data = new SignatureRequestBulkCreateEmbeddedWithTemplateRequest(
+            clientId: "1a659d9ad95bccd307ecad78d72192f8",
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            subject: "Purchase Order",
+            message: "Glad we could come to an agreement.",
+            signerList: new List<SubBulkSignerList>(){signerList1, signerList2},
+            ccs: new List<SubCC>(){cc1},
+            testMode: true
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestBulkCreateEmbeddedWithTemplate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfo variant
@@ -92,7 +174,88 @@ Creates BulkSendJob which sends up to 250 SignatureRequests in bulk based off of
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestBulkSendWithTemplate_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signerList1Signer = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            name: "George",
+            emailAddress: "george@example.com",
+            pin: "d79a3td"
+        );
+
+        var signerList1CustomFields = new SubBulkSignerListCustomField(
+            name: "company",
+            value: "ABC Corp"
+        );
+
+        var signerList1 = new SubBulkSignerList(
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList1Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList1CustomFields}
+        );
+
+        var signerList2Signer = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            name: "Mary",
+            emailAddress: "mary@example.com",
+            pin: "gd9as5b"
+        );
+
+        var signerList2CustomFields = new SubBulkSignerListCustomField(
+            name: "company",
+            value: "123 Corp"
+        );
+
+        var signerList2 = new SubBulkSignerList(
+            signers: new List<SubSignatureRequestTemplateSigner>(){signerList2Signer},
+            customFields: new List<SubBulkSignerListCustomField>(){signerList2CustomFields}
+        );
+
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@email.com"
+        );
+
+        var data = new SignatureRequestBulkSendWithTemplateRequest(
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            subject: "Purchase Order",
+            message: "Glad we could come to an agreement.",
+            signerList: new List<SubBulkSignerList>(){signerList1, signerList2},
+            ccs: new List<SubCC>(){cc1},
+            testMode: true
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestBulkSendWithTemplate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestBulkSendWithTemplateWithHttpInfo variant
@@ -153,7 +316,41 @@ Cancels an incomplete signature request. This action is **not reversible**.  The
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestCancel_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            signatureRequestApi.SignatureRequestCancel(signatureRequestId);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestCancelWithHttpInfo variant
@@ -211,7 +408,81 @@ Creates a new SignatureRequest with the submitted documents to be signed in an e
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestCreateEmbedded_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestSigner(
+            emailAddress: "jack@example.com",
+            name: "Jack",
+            order: 0
+        );
+
+        var signer2 = new SubSignatureRequestSigner(
+            emailAddress: "jill@example.com",
+            name: "Jill",
+            order: 1
+        );
+
+        var signingOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: true,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_signature_request.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new SignatureRequestCreateEmbeddedRequest(
+            clientId: "ec64a202072370a737edf4a0eb7f4437",
+            title: "NDA with Acme Co.",
+            subject: "The NDA we talked about",
+            message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+            signers: new List<SubSignatureRequestSigner>(){signer1, signer2},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
+            files: files,
+            signingOptions: signingOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestCreateEmbedded(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestCreateEmbeddedWithHttpInfo variant
@@ -272,7 +543,62 @@ Creates a new SignatureRequest based on the given Template(s) to be signed in an
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestCreateEmbeddedWithTemplate_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            name: "George"
+        );
+
+        var subSigningOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: false,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var data = new SignatureRequestCreateEmbeddedWithTemplateRequest(
+            clientId: "ec64a202072370a737edf4a0eb7f4437",
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            subject: "Purchase Order",
+            message: "Glad we could come to an agreement.",
+            signers: new List<SubSignatureRequestTemplateSigner>(){signer1},
+            signingOptions: subSigningOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestCreateEmbeddedWithTemplate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestCreateEmbeddedWithTemplateWithHttpInfo variant
@@ -333,7 +659,45 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestFiles_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestFiles(signatureRequestId, "pdf");
+
+            var fileStream = File.Create("file_response.pdf");
+            result.Seek(0, SeekOrigin.Begin);
+            result.CopyTo(fileStream);
+            fileStream.Close();
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestFilesWithHttpInfo variant
@@ -361,7 +725,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
-| **fileType** | **string?** | Set to &#x60;pdf&#x60; for a single merged document or &#x60;zip&#x60; for a collection of individual documents. | [optional] [default to pdf] |
+| **fileType** | **string?** | Set to `pdf` for a single merged document or `zip` for a collection of individual documents. | [optional] [default to pdf] |
 
 ### Return type
 
@@ -395,7 +759,41 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestFilesAsDataUri_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestFilesAsDataUri(signatureRequestId);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestFilesAsDataUriWithHttpInfo variant
@@ -456,7 +854,41 @@ Obtain a copy of the current documents specified by the `signature_request_id` p
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestFilesAsFileUrl_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestFilesAsFileUrl(signatureRequestId);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestFilesAsFileUrlWithHttpInfo variant
@@ -484,7 +916,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **signatureRequestId** | **string** | The id of the SignatureRequest to retrieve. |  |
-| **forceDownload** | **int?** | By default when opening the &#x60;file_url&#x60; a browser will download the PDF and save it locally. When set to &#x60;0&#x60; the PDF file will be displayed in the browser. | [optional] [default to 1] |
+| **forceDownload** | **int?** | By default when opening the `file_url` a browser will download the PDF and save it locally. When set to `0` the PDF file will be displayed in the browser. | [optional] [default to 1] |
 
 ### Return type
 
@@ -518,7 +950,41 @@ Returns the status of the SignatureRequest specified by the `signature_request_i
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestGet_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "fa5c8a0b0f492d768749333ad6fcc214c111e967";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestGet(signatureRequestId);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestGetWithHttpInfo variant
@@ -579,7 +1045,41 @@ Returns a list of SignatureRequests that you can access. This includes Signature
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestList_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var accountId = "accountId";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestList(accountId);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestListWithHttpInfo variant
@@ -606,9 +1106,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountId** | **string?** | Which account to return SignatureRequests for. Must be a team member. Use &#x60;all&#x60; to indicate all team members. Defaults to your account. | [optional]  |
-| **page** | **int?** | Which page number of the SignatureRequest List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
-| **pageSize** | **int?** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
+| **accountId** | **string?** | Which account to return SignatureRequests for. Must be a team member. Use `all` to indicate all team members. Defaults to your account. | [optional]  |
+| **page** | **int?** | Which page number of the SignatureRequest List to return. Defaults to `1`. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
 | **query** | **string?** | String that includes search terms and/or fields to be used to filter the SignatureRequest objects. | [optional]  |
 
 ### Return type
@@ -643,7 +1143,41 @@ Releases a held SignatureRequest that was claimed and prepared from an [Unclaime
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestReleaseHold_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestReleaseHold(signatureRequestId);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestReleaseHoldWithHttpInfo variant
@@ -704,7 +1238,45 @@ Sends an email to the signer reminding them to sign the signature request. You c
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestRemind_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var data = new SignatureRequestRemindRequest(
+            emailAddress: "john@example.com"
+        );
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestRemind(signatureRequestId, data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestRemindWithHttpInfo variant
@@ -766,7 +1338,40 @@ Removes your access to a completed signature request. This action is **not rever
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestRemove_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        try
+        {
+            signatureRequestApi.SignatureRequestRemove(signatureRequestId);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestRemoveWithHttpInfo variant
@@ -824,7 +1429,92 @@ Creates and sends a new SignatureRequest with the submitted documents. If `form_
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestSend_C#_CODE
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestSigner(
+            emailAddress: "jack@example.com",
+            name: "Jack",
+            order: 0
+        );
+
+        var signer2 = new SubSignatureRequestSigner(
+            emailAddress: "jill@example.com",
+            name: "Jill",
+            order: 1
+        );
+
+        var signingOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: true,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var subFieldOptions = new SubFieldOptions(
+            dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
+        );
+
+        var metadata = new Dictionary<string, object>()
+        {
+            ["custom_id"] = 1234,
+            ["custom_text"] = "NDA #9"
+        };
+
+        var files = new List<Stream> {
+            new FileStream(
+                "./example_signature_request.pdf",
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.Read
+            )
+        };
+
+        var data = new SignatureRequestSendRequest(
+            title: "NDA with Acme Co.",
+            subject: "The NDA we talked about",
+            message: "Please sign this NDA and then we can discuss more. Let me know if you have any questions.",
+            signers: new List<SubSignatureRequestSigner>(){signer1, signer2},
+            ccEmailAddresses: new List<string>(){"lawyer1@dropboxsign.com", "lawyer2@dropboxsign.com"},
+            files: files,
+            metadata: metadata,
+            signingOptions: signingOptions,
+            fieldOptions: subFieldOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestSend(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestSendWithHttpInfo variant
@@ -885,7 +1575,76 @@ Creates and sends a new SignatureRequest based off of the Template(s) specified 
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestSendWithTemplate_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signer1 = new SubSignatureRequestTemplateSigner(
+            role: "Client",
+            emailAddress: "george@example.com",
+            name: "George"
+        );
+
+        var cc1 = new SubCC(
+            role: "Accounting",
+            emailAddress: "accouting@emaple.com"
+        );
+
+        var customField1 = new SubCustomField(
+            name: "Cost",
+            value: "$20,000",
+            editor: "Client",
+            required: true
+        );
+
+        var signingOptions = new SubSigningOptions(
+            draw: true,
+            type: true,
+            upload: true,
+            phone: false,
+            defaultType: SubSigningOptions.DefaultTypeEnum.Draw
+        );
+
+        var data = new SignatureRequestSendWithTemplateRequest(
+            templateIds: new List<string>(){"c26b8a16784a872da37ea946b9ddec7c1e11dff6"},
+            subject: "Purchase Order",
+            message: "Glad we could come to an agreement.",
+            signers: new List<SubSignatureRequestTemplateSigner>(){signer1},
+            ccs: new List<SubCC>(){cc1},
+            customFields: new List<SubCustomField>(){customField1},
+            signingOptions: signingOptions,
+            testMode: true
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestSendWithTemplate(data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestSendWithTemplateWithHttpInfo variant
@@ -946,7 +1705,46 @@ Updates the email address and/or the name for a given signer on a signature requ
 
 ### Example
 ```csharp
-REPLACE_ME_WITH_EXAMPLE_FOR__SignatureRequestUpdate_C#_CODE
+using System;
+using System.Collections.Generic;
+using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
+using Dropbox.Sign.Model;
+
+public class Example
+{
+    public static void Main()
+    {
+        var config = new Configuration();
+        // Configure HTTP basic authorization: api_key
+        config.Username = "YOUR_API_KEY";
+
+        // or, configure Bearer (JWT) authorization: oauth2
+        // config.AccessToken = "YOUR_BEARER_TOKEN";
+
+        var signatureRequestApi = new SignatureRequestApi(config);
+
+        var signatureRequestId = "2f9781e1a8e2045224d808c153c2e1d3df6f8f2f";
+
+        var data = new SignatureRequestUpdateRequest(
+            emailAddress: "john@example.com",
+            signatureId: "78caf2a1d01cd39cea2bc1cbb340dac3"
+        );
+
+        try
+        {
+            var result = signatureRequestApi.SignatureRequestUpdate(signatureRequestId, data);
+            Console.WriteLine(result);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
+            Console.WriteLine("Status Code: " + e.ErrorCode);
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+}
+
 ```
 
 #### Using the SignatureRequestUpdateWithHttpInfo variant

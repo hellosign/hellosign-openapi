@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FaxLine** | [**FaxLineResponseFaxLine**](FaxLineResponseFaxLine.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END | [optional] **Warnings** | [**WarningResponse**](WarningResponse.md) | REPLACE_ME_WITH_DESCRIPTION_BEGIN  REPLACE_ME_WITH_DESCRIPTION_END | [optional] 
+**FaxLine** | [**FaxLineResponseFaxLine**](FaxLineResponseFaxLine.md) |    | [optional] **Warnings** | [**WarningResponse**](WarningResponse.md) |    | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

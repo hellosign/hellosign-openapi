@@ -14,3 +14,38 @@ docker run --rm \
     -c "/local/openapi-config.yaml" \
     -t "/local/templates" \
     -o "/local/"
+
+printf "\nInstalling composer dependencies ...\n"
+mkdir -p "${DIR}/vendor"
+bash "${DIR}/bin/php" composer install
+printf "\n"
+
+printf "Adding examples to Docs ...\n"
+bash "${DIR}/bin/php" ./bin/generate-examples.php
+
+printf "Replacing strings ...\n"
+docker run --rm \
+  -v "${DIR}:${WORKING_DIR}" \
+  -w "${WORKING_DIR}" \
+  perl bash ./bin/replace
+
+printf "Scanning for prohibited keywords ...\n"
+docker run --rm \
+  -v "${DIR}:${WORKING_DIR}" \
+  -w "${WORKING_DIR}" \
+  perl bash ./bin/scan_for
+
+# avoid docker messing with permissions
+if [[ -z "$GITHUB_ACTIONS" ]]; then
+  chmod 644 "${DIR}/README.md"
+  find "${DIR}/docs/" -type f -exec chmod 644 {} \;
+  find "${DIR}/examples/" -type f -exec chmod 644 {} \;
+  find "${DIR}/test_fixtures/" -type f -exec chmod 644 {} \;
+  find "${DIR}/src/" -type f -exec chmod 644 {} \;
+fi
+
+printf "Running tests ...\n"
+bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/
+
+printf "Success!\n"
+
