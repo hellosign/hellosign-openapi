@@ -19,6 +19,7 @@
 
 namespace {{invokerPackage}};
 
+{{! CUSTOM - add \GuzzleHttp }}
 use GuzzleHttp;
 use GuzzleHttp\Psr7\Utils;
 use {{modelPackage}}\ModelInterface;
@@ -49,6 +50,7 @@ class ObjectSerializer
     /**
      * Serialize data
      *
+{{! CUSTOM - mixed to string|int|object|array|mixed }}
      * @param string|int|object|array|mixed  $data   the data to serialize
      * @param string $type   the OpenAPIToolsType of the data
      * @param string $format the format of the OpenAPITools type of the data
@@ -90,12 +92,19 @@ class ObjectSerializer
                             }
                         }
                     }
+{{#vendorExtensions.x-ignore-block}}
+                    if (($data::isNullable($property) && $data->isNullableSetToNull($property)) || $value !== null) {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
                     if ($value !== null) {
+{{! CUSTOM - END }}
                         $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $openAPIType, $formats[$property]);
                     }
                 }
+{{! CUSTOM - BEGIN }}
             } else if ($data instanceof \SplFileObject) {
                 return (string) $data;
+{{! CUSTOM - END }}
             } else {
                 foreach($data as $property => $value) {
                     $values[$property] = self::sanitizeForSerialization($value);
@@ -154,6 +163,7 @@ class ObjectSerializer
     /**
      * Checks if a value is empty, based on its OpenAPI type.
      *
+{{! CUSTOM - mixed to string|int|object|array|mixed }}
      * @param string|int|object|array|mixed  $value
      * @param string $openApiType
      *
@@ -198,6 +208,7 @@ class ObjectSerializer
      * Take query parameter properties and turn it into an array suitable for
      * native http_build_query or GuzzleHttp\Psr7\Query::build.
      *
+{{! CUSTOM - mixed to string|int|object|array|mixed }}
      * @param string|int|object|array|mixed  $value       Parameter value
      * @param string $paramName   Parameter name
      * @param string $openApiType OpenAPIType eg. array or object
@@ -332,6 +343,7 @@ class ObjectSerializer
      * If it's a datetime object, format it in ISO8601
      * If it's a boolean, convert it to "true" or "false".
      *
+{{! CUSTOM - float|int|bool|\DateTime to string|int|object|array|mixed }}
      * @param string|int|object|array|mixed $value the value of the parameter
      *
      * @return string the header string
@@ -387,6 +399,7 @@ class ObjectSerializer
     /**
      * Deserialize a JSON string into an object
      *
+{{! CUSTOM - mixed to string|int|object|array|mixed }}
      * @param string|int|object|array|mixed    $data          object or primitive to be deserialized
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
@@ -506,6 +519,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
 
+{{! CUSTOM - BEGIN }}
             $discriminatorValue = null;
             if (is_object($data)) {
                 $discriminatorValue = $data->{$discriminator} ?? null;
@@ -514,14 +528,18 @@ class ObjectSerializer
             }
 
             $discrimnatorSubclassFound = false;
+{{! CUSTOM - END }}
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
                 $subclass = '\{{invokerPackage}}\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
+{{! CUSTOM - BEGIN }}
                     $discrimnatorSubclassFound = true;
+{{! CUSTOM - END }}
                 }
             }
 
+{{! CUSTOM - BEGIN }}
             if (
                 !$discrimnatorSubclassFound
                 && !empty($discriminator)
@@ -539,6 +557,7 @@ class ObjectSerializer
                 $class = $subclass;
                 $discrimnatorSubclassFound = true;
             }
+{{! CUSTOM - END }}
 
             /** @var ModelInterface $instance */
             $instance = new $class();
@@ -628,6 +647,7 @@ class ObjectSerializer
         return $qs ? (string) substr($qs, 0, -1) : '';
     }
 
+{{! CUSTOM - BEGIN }}
     /**
      * Allows a multipart/form-data request to grab data from the typed
      * class created by OpenAPI.
@@ -698,4 +718,5 @@ class ObjectSerializer
 
         return $hasFile ? $formParams : [];
     }
+{{! CUSTOM - END }}
 }

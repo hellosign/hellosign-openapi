@@ -14,7 +14,9 @@ composer.phar
 # PHPUnit cache
 .phpunit.result.cache
 
+# CUSTOM - BEGIN
 .composer
 .openapi-generator
 git_push.sh
 composer.lock
+# CUSTOM - END

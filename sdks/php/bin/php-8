@@ -13,8 +13,6 @@ docker run --rm \
   -v "dropbox-sign-sdk-composer-cache:/.composer" \
   -w "${WORKING_DIR}" \
   -u root:root \
-  -e PHP.display_errors=1 \
-  -e PHP.error_reporting=-1 \
   jtreminio/php:8.1 "$@"
 
   exit 0

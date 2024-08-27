@@ -250,6 +250,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
         {{/discriminator}}
     }
 
+{{! CUSTOM - BEGIN }}
 {{^discriminator}}
     /** @deprecated use ::init() */
     public static function fromArray(array $data): {{classname}}
@@ -286,6 +287,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
         return null;
     }
 {{/discriminator}}
+{{! CUSTOM - END }}
 
     /**
     * Sets $this->container[$variableName] to the given data or to the given default Value; if $variableName
@@ -294,6 +296,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     *
     * @param string $variableName
     * @param array  $fields
+{{! CUSTOM - mixed to string|int|object|array|mixed }}
     * @param string|int|object|array|mixed  $defaultValue
     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
@@ -512,6 +515,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return boolean
      */
+{{! CUSTOM - add #[\ReturnTypeWillChange] }}
     #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
@@ -539,6 +543,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return void
      */
+{{! CUSTOM - add #[\ReturnTypeWillChange] }}
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
@@ -556,6 +561,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return void
      */
+{{! CUSTOM - add #[\ReturnTypeWillChange] }}
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
@@ -584,6 +590,7 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
+{{! CUSTOM - JSON_PRETTY_PRINT to JSON_UNESCAPED_SLASHES }}
             JSON_UNESCAPED_SLASHES
         );
     }

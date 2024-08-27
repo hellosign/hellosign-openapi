@@ -114,6 +114,7 @@ class Configuration
      */
     protected $tempFolderPath;
 
+{{! CUSTOM - BEGIN }}
     /**
      * Holds any extra request options you want to send
      *
@@ -123,6 +124,7 @@ class Configuration
 
     /** @var ?callable */
     protected $payloadHook = null;
+{{! CUSTOM - END }}
 
     /**
      * Constructor
@@ -140,6 +142,7 @@ class Configuration
      *
      * @return $this
      */
+{{! CUSTOM - public to protected }}
     protected function setApiKey($apiKeyIdentifier, $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
@@ -153,6 +156,7 @@ class Configuration
      *
      * @return null|string API key or token
      */
+{{! CUSTOM - public to protected }}
     protected function getApiKey($apiKeyIdentifier)
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
@@ -166,6 +170,7 @@ class Configuration
      *
      * @return $this
      */
+{{! CUSTOM - public to protected }}
     protected function setApiKeyPrefix($apiKeyIdentifier, $prefix)
     {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
@@ -179,6 +184,7 @@ class Configuration
      *
      * @return null|string
      */
+{{! CUSTOM - public to protected }}
     protected function getApiKeyPrefix($apiKeyIdentifier)
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
@@ -214,6 +220,7 @@ class Configuration
      *
      * @return $this
      */
+{{! CUSTOM - public to protected }}
     protected function setBooleanFormatForQueryString(string $booleanFormat)
     {
         $this->booleanFormatForQueryString = $booleanFormat;
@@ -261,6 +268,7 @@ class Configuration
      *
      * @return $this
      */
+{{! CUSTOM - public to protected }}
     protected function setPassword($password)
     {
         $this->password = $password;
@@ -272,6 +280,7 @@ class Configuration
      *
      * @return string Password for HTTP basic authentication
      */
+{{! CUSTOM - public to protected }}
     protected function getPassword()
     {
         return $this->password;
@@ -449,6 +458,7 @@ class Configuration
      *
      * @return null|string API key with the prefix
      */
+{{! CUSTOM - public to protected }}
     protected function getApiKeyWithPrefix($apiKeyIdentifier)
     {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
@@ -556,6 +566,7 @@ class Configuration
         return self::getHostString($this->getHostSettings(), $index, $variables);
     }
 
+{{! CUSTOM - BEGIN }}
     public function setOptions(array $options): self
     {
         $this->options = $options;
@@ -584,4 +595,5 @@ class Configuration
     {
         return $this->payloadHook;
     }
+{{! CUSTOM - END }}
 }

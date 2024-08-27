@@ -25,12 +25,14 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Psr\Http\Message\ResponseInterface;
 use {{invokerPackage}}\ApiException;
 use {{invokerPackage}}\Configuration;
 use {{invokerPackage}}\HeaderSelector;
-use {{invokerPackage}}\Model;
 use {{invokerPackage}}\ObjectSerializer;
+{{! CUSTOM - BEGIN }}
+use {{invokerPackage}}\Model;
+use Psr\Http\Message\ResponseInterface;
+{{! CUSTOM - END }}
 
 /**
  * {{classname}} Class Doc Comment
@@ -71,11 +73,25 @@ use {{invokerPackage}}\ObjectSerializer;
 {{/consumes}}        ],{{/operation}}
     ];
 
-    /**
-     * @var ResponseInterface|null
-     */
+{{! CUSTOM - BEGIN }}
+    /** @var ResponseInterface|null */
     protected $response;
+{{! CUSTOM - END }}
 
+{{#vendorExtensions.x-ignore-block}}
+    /**
+     * @param ClientInterface $client
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
+     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     */
+    public function __construct(
+        ClientInterface $client = null,
+        Configuration $config = null,
+        HeaderSelector $selector = null,
+        $hostIndex = 0
+    ) {
+{{/vendorExtensions.x-ignore-block}}
     /**
      * @param Configuration   $config
      * @param ClientInterface $client
@@ -98,6 +114,7 @@ use {{invokerPackage}}\ObjectSerializer;
      * Set the host index
      *
      * @param int $hostIndex Host index (required)
+{{! CUSTOM - Add @deprecated }}
      * @deprecated To be made private in the future
      */
     public function setHostIndex($hostIndex): void
@@ -109,6 +126,7 @@ use {{invokerPackage}}\ObjectSerializer;
      * Get the host index
      *
      * @return int Host index
+{{! CUSTOM - Add @deprecated }}
      * @deprecated To be made private in the future
      */
     public function getHostIndex()
@@ -124,6 +142,7 @@ use {{invokerPackage}}\ObjectSerializer;
         return $this->config;
     }
 
+{{! CUSTOM - BEGIN }}
     /**
      * @return ResponseInterface|null
      */
@@ -131,6 +150,7 @@ use {{invokerPackage}}\ObjectSerializer;
     {
         return $this->response;
     }
+{{! CUSTOM - END }}
 
 {{#operation}}
     /**
@@ -171,6 +191,15 @@ use {{invokerPackage}}\ObjectSerializer;
 {{#allParams}}
      * @param  {{{dataType}}} ${{paramName}}{{#description}} {{.}}{{/description}}{{^description}} {{paramName}}{{/description}} {{#required}}(required){{/required}}{{^required}}(optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}{{#isDeprecated}} (deprecated){{/isDeprecated}}
 {{/allParams}}
+{{#vendorExtensions.x-ignore-block}}
+{{#servers}}
+{{#-first}}
+     * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
+     * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
+{{/-first}}
+{{/servers}}
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['{{{operationId}}}'] to see the possible values for this operation
+{{/vendorExtensions.x-ignore-block}}
      *
      * @throws \{{invokerPackage}}\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
@@ -179,10 +208,18 @@ use {{invokerPackage}}\ObjectSerializer;
      * @deprecated
     {{/isDeprecated}}
      */
+{{#vendorExtensions.x-ignore-block}}
+    public function {{operationId}}({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}{{^required}} = {{#defaultValue}}{{{.}}}{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}, {{/allParams}}{{#servers}}{{#-first}}?int $hostIndex = null, array $variables = [], {{/-first}}{{/servers}}string $contentType = self::contentTypes['{{{operationId}}}'][0]{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}})
+    {
+        {{#returnType}}list($response) = {{/returnType}}$this->{{operationId}}WithHttpInfo({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}, {{/allParams}}{{#servers}}{{#-first}}$hostIndex, $variables, {{/-first}}{{/servers}}$contentType{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}});{{#returnType}}
+        return $response;{{/returnType}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     public function {{operationId}}({{^vendorExtensions.x-group-parameters}}{{#allParams}}${{paramName}}{{^required}} = {{{defaultValue}}}{{^defaultValue}}null{{/defaultValue}}{{/required}}{{^-last}}, {{/-last}}{{/allParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}$associative_array{{/vendorExtensions.x-group-parameters}})
     {
         {{#returnType}}list($response) = {{/returnType}}$this->{{operationId}}WithHttpInfo({{#allParams}}${{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
         return $response;{{/returnType}}
+{{! CUSTOM - END }}
     }
 
     /**
@@ -234,6 +271,7 @@ use {{invokerPackage}}\ObjectSerializer;
      * @throws \{{invokerPackage}}\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of {{#returnType}}{{#responses}}{{#dataType}}{{^-first}}|{{/-first}}{{/dataType}}{{{dataType}}}{{/responses}}{{/returnType}}{{^returnType}}null{{/returnType}}, HTTP status code, HTTP response headers (array of strings)
+{{! CUSTOM - Add @deprecated }}
      * @deprecated Prefer to use ::{{operationId}}. This method will eventually become unavailable
     {{#isDeprecated}}
      * @deprecated
@@ -247,6 +285,7 @@ use {{invokerPackage}}\ObjectSerializer;
             $options = $this->createHttpClientOption();
             try {
                 $response = $this->client->send($request, $options);
+{{! CUSTOM - Set $this->response }}
                 $this->response = $response;
             } catch (RequestException $e) {
                 throw new ApiException(
@@ -279,6 +318,7 @@ use {{invokerPackage}}\ObjectSerializer;
                 );
             }
             {{#returnType}}
+{{! CUSTOM - BEGIN }}
             {{#responses}}{{#dataType}}{{#isRange}}
             $result = $this->handleRangeCodeResponse(
                 $response,
@@ -289,6 +329,7 @@ use {{invokerPackage}}\ObjectSerializer;
                 return $result;
             }
             {{/isRange}}{{/dataType}}{{/responses}}
+{{! CUSTOM - END }}
             {{#responses}}
             {{#-first}}
 
@@ -362,10 +403,12 @@ use {{invokerPackage}}\ObjectSerializer;
             {{/returnType}}
 
         } catch (ApiException $e) {
+{{! CUSTOM - BEGIN }}
             {{#responses}}{{#dataType}}{{#isRange}}
             if ($this->handleRangeCodeException($e, '{{code}}', '{{{dataType}}}')) {
                 throw $e;
             }{{/isRange}}{{/dataType}}{{/responses}}
+{{! CUSTOM - END }}
             switch ($e->getCode()) {
         {{#responses}}
             {{#dataType}}
@@ -432,6 +475,7 @@ use {{invokerPackage}}\ObjectSerializer;
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+{{! CUSTOM - add @deprecated }}
      * @deprecated Prefer to use ::{{operationId}}. This method will eventually become unavailable
     {{#isDeprecated}}
      * @deprecated
@@ -495,6 +539,7 @@ use {{invokerPackage}}\ObjectSerializer;
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+{{! CUSTOM - add @deprecated }}
      * @deprecated Prefer to use ::{{operationId}}. This method will eventually become unavailable
     {{#isDeprecated}}
      * @deprecated
@@ -586,6 +631,7 @@ use {{invokerPackage}}\ObjectSerializer;
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+{{! CUSTOM - add @deprecated }}
      * @deprecated Prefer to use ::{{operationId}}. This method will eventually become unavailable
     {{#isDeprecated}}
      * @deprecated
@@ -656,6 +702,7 @@ use {{invokerPackage}}\ObjectSerializer;
         $httpBody = '';
         $multipart = false;
 
+{{! CUSTOM - BEGIN }}
         {{#bodyParam}}
         $formParams = ObjectSerializer::getFormParams(
             ${{paramName}}
@@ -663,6 +710,7 @@ use {{invokerPackage}}\ObjectSerializer;
 
         $multipart = !empty($formParams);
         {{/bodyParam}}
+{{! CUSTOM - END }}
 
         {{#queryParams}}
         // query params
@@ -725,6 +773,7 @@ use {{invokerPackage}}\ObjectSerializer;
         {{/formParams}}
 
         $headers = $this->headerSelector->selectHeaders(
+{{! CUSTOM - ternary on $multipart }}
             $multipart ? ['multipart/form-data'] : [{{#produces}}'{{{mediaType}}}', {{/produces}}],
             $contentType,
             $multipart
@@ -732,6 +781,7 @@ use {{invokerPackage}}\ObjectSerializer;
 
         // for model (json/xml)
         {{#bodyParams}}
+{{! CUSTOM - count on $formParam instead of check on $paramName }}
         if (count($formParams) === 0) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
@@ -756,6 +806,7 @@ use {{invokerPackage}}\ObjectSerializer;
                     }
                 }
                 // for HTTP post (form)
+{{! CUSTOM - BEGIN }}
                 if (!empty($body)) {
                     $multipartContents[] = [
                         'name'     => 'body',
@@ -769,6 +820,7 @@ use {{invokerPackage}}\ObjectSerializer;
                     $payloadHook('multipart', $multipartContents, ${{paramName}});
                 }
                 {{/bodyParam}}
+{{! CUSTOM - END }}
 
                 $httpBody = new MultipartStream($multipartContents);
 
@@ -792,8 +844,14 @@ use {{invokerPackage}}\ObjectSerializer;
         {{#isBasic}}
         {{#isBasicBasic}}
         // this endpoint requires HTTP basic authentication
+{{#vendorExtensions.x-ignore-block}}
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         if (!empty($this->config->getUsername())) {
             $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ':');
+{{! CUSTOM - END }}
         }
         {{/isBasicBasic}}
         {{#isBasicBearer}}
@@ -907,6 +965,7 @@ use {{invokerPackage}}\ObjectSerializer;
         return $options;
     }
 
+{{! CUSTOM - BEGIN }}
     /**
      * @return object|array|null
      */
@@ -968,5 +1027,6 @@ use {{invokerPackage}}\ObjectSerializer;
 
         return true;
     }
+{{! CUSTOM - END }}
 }
 {{/operations}}

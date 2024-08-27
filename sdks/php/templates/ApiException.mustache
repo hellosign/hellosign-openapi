@@ -47,6 +47,7 @@ class ApiException extends Exception
     /**
      * The deserialized response object
      *
+{{! CUSTOM - \stdClass to Model\ErrorResponse }}
      * @var Model\ErrorResponse|string|null
      */
     protected $responseObject;
@@ -89,6 +90,7 @@ class ApiException extends Exception
     /**
      * Sets the deserialized response object (during deserialization)
      *
+{{! CUSTOM - mixed to string|int|object|array|mixed }}
      * @param string|int|object|array|mixed $obj Deserialized response object
      *
      * @return void
@@ -101,6 +103,7 @@ class ApiException extends Exception
     /**
      * Gets the deserialized response object (during deserialization)
      *
+{{! CUSTOM - mixed to Model\ErrorResponse }}
      * @return Model\ErrorResponse the deserialized response object
      */
     public function getResponseObject()
