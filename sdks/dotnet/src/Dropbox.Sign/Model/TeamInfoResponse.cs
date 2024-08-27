@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamInfoResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamInfoResponse : IOpenApiTyped, IEquatable<TeamInfoResponse>, IValidatableObject
+    public partial class TeamInfoResponse : IEquatable<TeamInfoResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamInfoResponse" /> class.
@@ -78,12 +78,14 @@ namespace Dropbox.Sign.Model
         /// <value>The id of a team</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets TeamParent
         /// </summary>
         [DataMember(Name = "team_parent", EmitDefaultValue = true)]
         public TeamParentResponse TeamParent { get; set; }
+        
 
         /// <summary>
         /// The name of a team
@@ -91,6 +93,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of a team</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Number of members within a team
@@ -98,6 +101,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of members within a team</value>
         [DataMember(Name = "num_members", EmitDefaultValue = true)]
         public int NumMembers { get; set; }
+        
 
         /// <summary>
         /// Number of sub teams within a team
@@ -105,6 +109,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of sub teams within a team</value>
         [DataMember(Name = "num_sub_teams", EmitDefaultValue = true)]
         public int NumSubTeams { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -205,12 +210,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

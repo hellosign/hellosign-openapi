@@ -7,7 +7,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**EmbeddedEditUrl**](EmbeddedApi.md#embeddedediturl) | **POST** /embedded/edit_url/{template_id} | Get Embedded Template Edit URL |
 | [**EmbeddedSignUrl**](EmbeddedApi.md#embeddedsignurl) | **GET** /embedded/sign_url/{signature_id} | Get Embedded Sign URL |
 
-<a name="embeddedediturl"></a>
+<a id="embeddedediturl"></a>
 # **EmbeddedEditUrl**
 > EmbeddedEditUrlResponse EmbeddedEditUrl (string templateId, EmbeddedEditUrlRequest embeddedEditUrlRequest)
 
@@ -17,47 +17,7 @@ Retrieves an embedded object containing a template url that can be opened in an 
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var embeddedApi = new EmbeddedApi(config);
-
-        var data = new EmbeddedEditUrlRequest(
-            ccRoles: new List<string>(){""},
-            mergeFields: new List<SubMergeField>()
-        );
-
-        var templateId = "5de8179668f2033afac48da1868d0093bf133266";
-
-        try
-        {
-            var result = embeddedApi.EmbeddedEditUrl(templateId, data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__EmbeddedEditUrl_C#_CODE
 ```
 
 #### Using the EmbeddedEditUrlWithHttpInfo variant
@@ -109,7 +69,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="embeddedsignurl"></a>
+<a id="embeddedsignurl"></a>
 # **EmbeddedSignUrl**
 > EmbeddedSignUrlResponse EmbeddedSignUrl (string signatureId)
 
@@ -119,42 +79,7 @@ Retrieves an embedded object containing a signature url that can be opened in an
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var embeddedApi = new EmbeddedApi(config);
-
-        var signatureId = "50e3542f738adfa7ddd4cbd4c00d2a8ab6e4194b";
-
-        try
-        {
-            var result = embeddedApi.EmbeddedSignUrl(signatureId);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__EmbeddedSignUrl_C#_CODE
 ```
 
 #### Using the EmbeddedSignUrlWithHttpInfo variant

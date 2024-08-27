@@ -324,6 +324,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -425,6 +426,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedEditUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -507,6 +509,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedSignUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -572,7 +575,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -592,6 +594,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureId)); // path parameter
+
             localVarRequestOptions.Operation = "EmbeddedApi.EmbeddedSignUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 

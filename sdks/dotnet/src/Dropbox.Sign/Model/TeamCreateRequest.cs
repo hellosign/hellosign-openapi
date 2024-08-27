@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamCreateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamCreateRequest : IOpenApiTyped, IEquatable<TeamCreateRequest>, IValidatableObject
+    public partial class TeamCreateRequest : IEquatable<TeamCreateRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamCreateRequest" /> class.
@@ -42,7 +42,7 @@ namespace Dropbox.Sign.Model
         /// Initializes a new instance of the <see cref="TeamCreateRequest" /> class.
         /// </summary>
         /// <param name="name">The name of your Team. (default to &quot;Untitled Team&quot;).</param>
-        public TeamCreateRequest(string name = "Untitled Team")
+        public TeamCreateRequest(string name = @"Untitled Team")
         {
             
             // use default value if no "name" provided
@@ -71,6 +71,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of your Team.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -139,12 +140,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

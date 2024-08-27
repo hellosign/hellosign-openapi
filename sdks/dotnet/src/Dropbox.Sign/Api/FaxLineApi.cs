@@ -575,6 +575,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -660,6 +661,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -755,6 +757,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "city", city));
             }
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAreaCodeGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -820,7 +823,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -852,6 +854,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "city", city));
             }
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineAreaCodeGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -935,6 +938,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1022,6 +1026,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1104,6 +1109,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1190,6 +1196,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1266,6 +1273,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number));
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1325,7 +1333,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1345,6 +1352,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "number", number));
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1436,6 +1444,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "show_team_lines", showTeamLines));
             }
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1495,7 +1504,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1530,6 +1538,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "show_team_lines", showTeamLines));
             }
+
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1613,6 +1622,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1699,6 +1709,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "FaxLineApi.FaxLineRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -7,7 +7,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**BulkSendJobGet**](BulkSendJobApi.md#bulksendjobget) | **GET** /bulk_send_job/{bulk_send_job_id} | Get Bulk Send Job |
 | [**BulkSendJobList**](BulkSendJobApi.md#bulksendjoblist) | **GET** /bulk_send_job/list | List Bulk Send Jobs |
 
-<a name="bulksendjobget"></a>
+<a id="bulksendjobget"></a>
 # **BulkSendJobGet**
 > BulkSendJobGetResponse BulkSendJobGet (string bulkSendJobId, int? page = null, int? pageSize = null)
 
@@ -17,42 +17,7 @@ Returns the status of the BulkSendJob and its SignatureRequests specified by the
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var bulkSendJobApi = new BulkSendJobApi(config);
-
-        var bulkSendJobId = "6e683bc0369ba3d5b6f43c2c22a8031dbf6bd174";
-
-        try
-        {
-            var result = bulkSendJobApi.BulkSendJobGet(bulkSendJobId);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__BulkSendJobGet_C#_CODE
 ```
 
 #### Using the BulkSendJobGetWithHttpInfo variant
@@ -80,8 +45,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **bulkSendJobId** | **string** | The id of the BulkSendJob to retrieve. |  |
-| **page** | **int?** | Which page number of the BulkSendJob list to return. Defaults to `1`. | [optional] [default to 1] |
-| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
+| **page** | **int?** | Which page number of the BulkSendJob list to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 
@@ -105,7 +70,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bulksendjoblist"></a>
+<a id="bulksendjoblist"></a>
 # **BulkSendJobList**
 > BulkSendJobListResponse BulkSendJobList (int? page = null, int? pageSize = null)
 
@@ -115,43 +80,7 @@ Returns a list of BulkSendJob that you can access.
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var bulkSendJobApi = new BulkSendJobApi(config);
-
-        var page = 1;
-        var pageSize = 20;
-
-        try
-        {
-            var result = bulkSendJobApi.BulkSendJobList(page, pageSize);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__BulkSendJobList_C#_CODE
 ```
 
 #### Using the BulkSendJobListWithHttpInfo variant
@@ -178,8 +107,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **page** | **int?** | Which page number of the BulkSendJob List to return. Defaults to `1`. | [optional] [default to 1] |
-| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is 20. | [optional] [default to 20] |
+| **page** | **int?** | Which page number of the BulkSendJob List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is 20. | [optional] [default to 20] |
 
 ### Return type
 

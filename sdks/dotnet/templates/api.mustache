@@ -356,7 +356,7 @@ namespace {{packageName}}.{{apiPackage}}
                 {{#items.vars}}
                 if ({{paramName}}.{{name}} != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("{{collectionFormat}}", "{{baseName}}", {{paramName}}.{{name}}));
+                    localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("{{collectionFormat}}", "{{paramName}}[{{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}}]", {{paramName}}.{{name}}));
                 }
                 {{/items.vars}}
                 {{^items}}
@@ -384,13 +384,17 @@ namespace {{packageName}}.{{apiPackage}}
             {{#required}}
             {{#isFile}}
             {{#isArray}}
+            {{#supportsFileParameters}}
             foreach (var file in {{paramName}})
             {
                 localVarRequestOptions.FileParameters.Add("{{baseName}}", file);
             }
+            {{/supportsFileParameters}}
             {{/isArray}}
             {{^isArray}}
+            {{#supportsFileParameters}}
             localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+            {{/supportsFileParameters}}
             {{/isArray}}
             {{/isFile}}
             {{^isFile}}
@@ -402,17 +406,21 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 {{#isFile}}
                 {{#isArray}}
+                {{#supportsFileParameters}}
                 foreach (var file in {{paramName}})
                 {
                     localVarRequestOptions.FileParameters.Add("{{baseName}}", file);
                 }
+                {{/supportsFileParameters}}
                 {{/isArray}}
                 {{^isArray}}
+                {{#supportsFileParameters}}
                 localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+                {{/supportsFileParameters}}
                 {{/isArray}}
                 {{/isFile}}
                 {{^isFile}}
-                localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
+                localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.{{#isPrimitiveType}}ParameterToString{{/isPrimitiveType}}{{^isPrimitiveType}}Serialize{{/isPrimitiveType}}({{paramName}})); // form parameter
                 {{/isFile}}
             }
             {{/required}}
@@ -422,6 +430,7 @@ namespace {{packageName}}.{{apiPackage}}
             localVarRequestOptions.Data = {{paramName}};
             {{/bodyParam}}
 {{/vendorExtensions.x-ignore-block}}
+
             localVarRequestOptions.Operation = "{{classname}}.{{operationId}}";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -586,7 +595,6 @@ namespace {{packageName}}.{{apiPackage}}
                 "{{{mediaType}}}"{{^-last}}, {{/-last}}
                 {{/consumes}}
             };
-
 {{! CUSTOM - BEGIN }}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             {{/bodyParam}}
@@ -613,6 +621,12 @@ namespace {{packageName}}.{{apiPackage}}
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            {{#constantParams}}
+            {{#isPathParam}}
+            // Set client side default value of Path Param "{{baseName}}".
+            localVarRequestOptions.PathParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{#_enum}}"{{{.}}}"{{/_enum}})); // Constant path parameter
+            {{/isPathParam}}
+            {{/constantParams}}
             {{#pathParams}}
             {{#required}}
             localVarRequestOptions.PathParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // path parameter
@@ -624,17 +638,52 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/required}}
             {{/pathParams}}
+            {{#constantParams}}
+            {{#isQueryParam}}
+            // Set client side default value of Query Param "{{baseName}}".
+            localVarRequestOptions.QueryParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{#_enum}}"{{{.}}}"{{/_enum}})); // Constant query parameter
+            {{/isQueryParam}}
+            {{/constantParams}}
             {{#queryParams}}
             {{#required}}
+            {{#isDeepObject}}
+            {{#items.vars}}
+            localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("{{collectionFormat}}", "{{baseName}}", {{paramName}}.{{name}}));
+            {{/items.vars}}
+            {{^items}}
+            localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("deepObject", "{{baseName}}", {{paramName}}));
+            {{/items}}
+            {{/isDeepObject}}
+            {{^isDeepObject}}
             localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("{{collectionFormat}}", "{{baseName}}", {{paramName}}));
+            {{/isDeepObject}}
             {{/required}}
             {{^required}}
             if ({{paramName}} != null)
             {
+                {{#isDeepObject}}
+                {{#items.vars}}
+                if ({{paramName}}.{{name}} != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("{{collectionFormat}}", "{{paramName}}[{{#lambda.camelcase_sanitize_param}}{{name}}{{/lambda.camelcase_sanitize_param}}]", {{paramName}}.{{name}}));
+                }
+                {{/items.vars}}
+                {{^items}}
+                localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("deepObject", "{{baseName}}", {{paramName}}));
+                {{/items}}
+                {{/isDeepObject}}
+                {{^isDeepObject}}
                 localVarRequestOptions.QueryParameters.Add({{packageName}}.Client.ClientUtils.ParameterToMultiMap("{{collectionFormat}}", "{{baseName}}", {{paramName}}));
+                {{/isDeepObject}}
             }
             {{/required}}
             {{/queryParams}}
+            {{#constantParams}}
+            {{#isHeaderParam}}
+            // Set client side default value of Header Param "{{baseName}}".
+            localVarRequestOptions.HeaderParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{#_enum}}"{{{.}}}"{{/_enum}})); // Constant header parameter
+            {{/isHeaderParam}}
+            {{/constantParams}}
             {{#headerParams}}
             {{#required}}
             localVarRequestOptions.HeaderParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // header parameter
@@ -650,17 +699,21 @@ namespace {{packageName}}.{{apiPackage}}
             {{#required}}
             {{#isFile}}
             {{#isArray}}
+            {{#supportsFileParameters}}
             foreach (var file in {{paramName}})
             {
                 localVarRequestOptions.FileParameters.Add("{{baseName}}", file);
             }
+            {{/supportsFileParameters}}
             {{/isArray}}
             {{^isArray}}
+            {{#supportsFileParameters}}
             localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+            {{/supportsFileParameters}}
             {{/isArray}}
             {{/isFile}}
             {{^isFile}}
-            localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
+            localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.{{#isPrimitiveType}}ParameterToString{{/isPrimitiveType}}{{^isPrimitiveType}}Serialize{{/isPrimitiveType}}({{paramName}})); // form parameter
             {{/isFile}}
             {{/required}}
             {{^required}}
@@ -668,17 +721,21 @@ namespace {{packageName}}.{{apiPackage}}
             {
                 {{#isFile}}
                 {{#isArray}}
+                {{#supportsFileParameters}}
                 foreach (var file in {{paramName}})
                 {
                     localVarRequestOptions.FileParameters.Add("{{baseName}}", file);
                 }
+                {{/supportsFileParameters}}
                 {{/isArray}}
                 {{^isArray}}
+                {{#supportsFileParameters}}
                 localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+                {{/supportsFileParameters}}
                 {{/isArray}}
                 {{/isFile}}
                 {{^isFile}}
-                localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
+                localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.{{#isPrimitiveType}}ParameterToString{{/isPrimitiveType}}{{^isPrimitiveType}}Serialize{{/isPrimitiveType}}({{paramName}})); // form parameter
                 {{/isFile}}
             }
             {{/required}}
@@ -688,6 +745,7 @@ namespace {{packageName}}.{{apiPackage}}
             localVarRequestOptions.Data = {{paramName}};
             {{/bodyParam}}
 {{/vendorExtensions.x-ignore-block}}
+
             localVarRequestOptions.Operation = "{{classname}}.{{operationId}}";
             localVarRequestOptions.OperationIndex = operationIndex;
 

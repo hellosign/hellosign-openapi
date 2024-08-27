@@ -463,6 +463,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -555,6 +556,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -636,6 +638,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -700,7 +703,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -720,6 +722,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -802,6 +805,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -867,7 +871,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -887,6 +890,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -972,6 +976,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1033,7 +1038,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1060,6 +1064,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1159,6 +1164,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1260,6 +1266,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("client_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(clientId)); // path parameter
+
             localVarRequestOptions.Operation = "ApiAppApi.ApiAppUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
 

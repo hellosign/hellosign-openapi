@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubSignatureRequestGroupedSigners")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubSignatureRequestGroupedSigners : IOpenApiTyped, IEquatable<SubSignatureRequestGroupedSigners>, IValidatableObject
+    public partial class SubSignatureRequestGroupedSigners : IEquatable<SubSignatureRequestGroupedSigners>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSignatureRequestGroupedSigners" /> class.
@@ -84,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the group.</value>
         [DataMember(Name = "group", IsRequired = true, EmitDefaultValue = true)]
         public string Group { get; set; }
+        
 
         /// <summary>
         /// Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
@@ -91,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestSigner> Signers { get; set; }
+        
 
         /// <summary>
         /// The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.
@@ -98,6 +100,7 @@ namespace Dropbox.Sign.Model
         /// <value>The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -187,12 +190,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

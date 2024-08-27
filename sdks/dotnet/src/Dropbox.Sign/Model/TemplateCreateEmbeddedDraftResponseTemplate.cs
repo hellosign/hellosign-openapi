@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateCreateEmbeddedDraftResponseTemplate")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateCreateEmbeddedDraftResponseTemplate : IOpenApiTyped, IEquatable<TemplateCreateEmbeddedDraftResponseTemplate>, IValidatableObject
+    public partial class TemplateCreateEmbeddedDraftResponseTemplate : IEquatable<TemplateCreateEmbeddedDraftResponseTemplate>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateEmbeddedDraftResponseTemplate" /> class.
@@ -76,6 +76,7 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the Template.</value>
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
+        
 
         /// <summary>
         /// Link to edit the template.
@@ -83,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>Link to edit the template.</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
+        
 
         /// <summary>
         /// When the link expires.
@@ -90,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
+        
 
         /// <summary>
         /// A list of warnings.
@@ -98,6 +101,7 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -193,12 +197,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

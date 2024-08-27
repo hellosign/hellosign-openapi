@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "OAuthTokenGenerateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class OAuthTokenGenerateRequest : IOpenApiTyped, IEquatable<OAuthTokenGenerateRequest>, IValidatableObject
+    public partial class OAuthTokenGenerateRequest : IEquatable<OAuthTokenGenerateRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenGenerateRequest" /> class.
@@ -46,7 +46,7 @@ namespace Dropbox.Sign.Model
         /// <param name="code">The code passed to your callback when the user granted access. (required).</param>
         /// <param name="grantType">When generating a new token use &#x60;authorization_code&#x60;. (required) (default to &quot;authorization_code&quot;).</param>
         /// <param name="state">Same as the state you specified earlier. (required).</param>
-        public OAuthTokenGenerateRequest(string clientId = default(string), string clientSecret = default(string), string code = default(string), string grantType = "authorization_code", string state = default(string))
+        public OAuthTokenGenerateRequest(string clientId = default(string), string clientSecret = default(string), string code = default(string), string grantType = @"authorization_code", string state = default(string))
         {
             
             // to ensure "clientId" is required (not null)
@@ -103,6 +103,7 @@ namespace Dropbox.Sign.Model
         /// <value>The client id of the app requesting authorization.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
+        
 
         /// <summary>
         /// The secret token of your app.
@@ -110,6 +111,7 @@ namespace Dropbox.Sign.Model
         /// <value>The secret token of your app.</value>
         [DataMember(Name = "client_secret", IsRequired = true, EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
+        
 
         /// <summary>
         /// The code passed to your callback when the user granted access.
@@ -117,6 +119,7 @@ namespace Dropbox.Sign.Model
         /// <value>The code passed to your callback when the user granted access.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
+        
 
         /// <summary>
         /// When generating a new token use &#x60;authorization_code&#x60;.
@@ -124,6 +127,7 @@ namespace Dropbox.Sign.Model
         /// <value>When generating a new token use &#x60;authorization_code&#x60;.</value>
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
+        
 
         /// <summary>
         /// Same as the state you specified earlier.
@@ -131,6 +135,7 @@ namespace Dropbox.Sign.Model
         /// <value>Same as the state you specified earlier.</value>
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public string State { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -239,12 +244,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

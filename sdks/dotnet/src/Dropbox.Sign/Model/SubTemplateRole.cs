@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubTemplateRole")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubTemplateRole : IOpenApiTyped, IEquatable<SubTemplateRole>, IValidatableObject
+    public partial class SubTemplateRole : IEquatable<SubTemplateRole>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubTemplateRole" /> class.
@@ -72,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>The role name of the signer that will be displayed when the template is used to create a signature request.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// The order in which this signer role is required to sign.
@@ -79,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>The order in which this signer role is required to sign.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -157,12 +159,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

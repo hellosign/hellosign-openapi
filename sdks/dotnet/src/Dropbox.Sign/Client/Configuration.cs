@@ -19,6 +19,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Net.Http;
+using System.Net.Security;
 using Newtonsoft.Json;
 using Dropbox.Sign.Model;
 
@@ -77,6 +78,8 @@ namespace Dropbox.Sign.Client
         /// Example: http://localhost:3000/v1/
         /// </summary>
         private string _basePath;
+
+        private bool _useDefaultCredentials = false;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
@@ -207,9 +210,19 @@ namespace Dropbox.Sign.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath {
+        public virtual string BasePath 
+        {
             get { return _basePath; }
             set { _basePath = value; }
+        }
+
+        /// <summary>
+        /// Determine whether or not the "default credentials" (e.g. the user account under which the current process is running) will be sent along to the server. The default is false.
+        /// </summary>
+        public virtual bool UseDefaultCredentials
+        {
+            get { return _useDefaultCredentials; }
+            set { _useDefaultCredentials = value; }
         }
 
         /// <summary>
@@ -476,7 +489,7 @@ namespace Dropbox.Sign.Client
         /// <return>The operation server URL.</return>
         public string GetOperationServerUrl(string operation, int index, Dictionary<string, string> inputVariables)
         {
-            if (OperationServers.TryGetValue(operation, out var operationServer))
+            if (operation != null && OperationServers.TryGetValue(operation, out var operationServer))
             {
                 return GetServerUrl(operationServer, index, inputVariables);
             }
@@ -535,6 +548,11 @@ namespace Dropbox.Sign.Client
 
             return url;
         }
+        
+        /// <summary>
+        /// Gets and Sets the RemoteCertificateValidationCallback
+        /// </summary>
+        public RemoteCertificateValidationCallback RemoteCertificateValidationCallback { get; set; }
 
         #endregion Properties
 
@@ -611,6 +629,8 @@ namespace Dropbox.Sign.Client
                 TempFolderPath = second.TempFolderPath ?? first.TempFolderPath,
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
+                UseDefaultCredentials = second.UseDefaultCredentials,
+                RemoteCertificateValidationCallback = second.RemoteCertificateValidationCallback ?? first.RemoteCertificateValidationCallback,
             };
             return config;
         }

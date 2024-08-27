@@ -43,7 +43,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [EnumMember(Value = "checkbox")]
         Checkbox = 2
-
     }
 
 }

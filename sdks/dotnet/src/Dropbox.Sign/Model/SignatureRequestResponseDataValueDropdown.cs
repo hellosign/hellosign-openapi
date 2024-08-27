@@ -21,7 +21,6 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
@@ -31,16 +30,6 @@ namespace Dropbox.Sign.Model
     /// SignatureRequestResponseDataValueDropdown
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseDataValueDropdown")]
-    [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckbox), "checkbox")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckboxMerge), "checkbox-merge")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDateSigned), "date_signed")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDropdown), "dropdown")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueInitials), "initials")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueRadio), "radio")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueSignature), "signature")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueText), "text")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueTextMerge), "text-merge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public partial class SignatureRequestResponseDataValueDropdown : SignatureRequestResponseDataBase, IOpenApiTyped, IEquatable<SignatureRequestResponseDataValueDropdown>, IValidatableObject
     {
@@ -58,7 +47,7 @@ namespace Dropbox.Sign.Model
         /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="required">A boolean value denoting if this field is required..</param>
-        public SignatureRequestResponseDataValueDropdown(string type = "dropdown", string value = default(string), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
+        public SignatureRequestResponseDataValueDropdown(string type = @"dropdown", string value = default(string), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
         {
             this.ApiId = apiId;
             this.SignatureId = signatureId;
@@ -92,6 +81,7 @@ namespace Dropbox.Sign.Model
         /// <value>An input field for dropdowns</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// The value of the form field.
@@ -99,6 +89,7 @@ namespace Dropbox.Sign.Model
         /// <value>The value of the form field.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -178,12 +169,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -193,7 +185,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             foreach (var x in BaseValidate(validationContext))
             {

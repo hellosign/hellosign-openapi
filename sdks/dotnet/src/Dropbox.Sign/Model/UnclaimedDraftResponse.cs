@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "UnclaimedDraftResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class UnclaimedDraftResponse : IOpenApiTyped, IEquatable<UnclaimedDraftResponse>, IValidatableObject
+    public partial class UnclaimedDraftResponse : IEquatable<UnclaimedDraftResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftResponse" /> class.
@@ -80,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the signature request that is represented by this UnclaimedDraft.</value>
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
+        
 
         /// <summary>
         /// The URL to be used to claim this UnclaimedDraft.
@@ -87,6 +88,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL to be used to claim this UnclaimedDraft.</value>
         [DataMember(Name = "claim_url", EmitDefaultValue = true)]
         public string ClaimUrl { get; set; }
+        
 
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
@@ -94,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
+        
 
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
@@ -101,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
+        
 
         /// <summary>
         /// When the link expires.
@@ -108,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
+        
 
         /// <summary>
         /// Whether this is a test draft. Signature requests made from test drafts have no legal value.
@@ -115,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>Whether this is a test draft. Signature requests made from test drafts have no legal value.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -229,12 +235,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

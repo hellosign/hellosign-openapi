@@ -713,6 +713,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamAddMember";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -811,6 +812,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamAddMember";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -900,6 +902,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -993,6 +996,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1065,6 +1069,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1121,7 +1126,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1139,6 +1143,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1213,6 +1218,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TeamApi.TeamGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1270,7 +1276,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1288,6 +1293,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamGet";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1368,6 +1374,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1427,7 +1434,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1450,6 +1456,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "team_id", teamId));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInfo";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1529,6 +1536,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInvites";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1588,7 +1596,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1611,6 +1618,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamInvites";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1705,6 +1713,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamMembers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1774,7 +1783,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1802,6 +1810,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamMembers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1891,6 +1900,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamRemoveMember";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1983,6 +1993,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamRemoveMember";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2078,6 +2089,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamSubTeams";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2147,7 +2159,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -2175,6 +2186,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
             }
+
             localVarRequestOptions.Operation = "TeamApi.TeamSubTeams";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2264,6 +2276,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2356,6 +2369,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TeamApi.TeamUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;

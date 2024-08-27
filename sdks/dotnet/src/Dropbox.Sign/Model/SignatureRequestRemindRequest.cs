@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestRemindRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestRemindRequest : IOpenApiTyped, IEquatable<SignatureRequestRemindRequest>, IValidatableObject
+    public partial class SignatureRequestRemindRequest : IEquatable<SignatureRequestRemindRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestRemindRequest" /> class.
@@ -77,6 +77,7 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer to send a reminder to.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// The name of the signer to send a reminder to. Include if two or more signers share an email address.
@@ -84,6 +85,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the signer to send a reminder to. Include if two or more signers share an email address.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -162,12 +164,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

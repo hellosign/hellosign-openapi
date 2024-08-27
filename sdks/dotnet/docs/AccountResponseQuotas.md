@@ -5,12 +5,7 @@ Details concerning remaining monthly quotas.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApiSignatureRequestsLeft** | **int?** |  API signature requests remaining.  | [optional] 
-**DocumentsLeft** | **int?** |  Signature requests remaining.  | [optional] 
-**TemplatesTotal** | **int?** |  Total API templates allowed.  | [optional] 
-**TemplatesLeft** | **int?** |  API templates remaining.  | [optional] 
-**SmsVerificationsLeft** | **int?** |  SMS verifications  remaining.  | [optional] 
-**NumFaxPagesLeft** | **int?** |  Number of fax pages left  | [optional] 
+**ApiSignatureRequestsLeft** | **int?** | REPLACE_ME_WITH_DESCRIPTION_BEGIN API signature requests remaining. REPLACE_ME_WITH_DESCRIPTION_END | [optional] **DocumentsLeft** | **int?** | REPLACE_ME_WITH_DESCRIPTION_BEGIN Signature requests remaining. REPLACE_ME_WITH_DESCRIPTION_END | [optional] **TemplatesTotal** | **int?** | REPLACE_ME_WITH_DESCRIPTION_BEGIN Total API templates allowed. REPLACE_ME_WITH_DESCRIPTION_END | [optional] **TemplatesLeft** | **int?** | REPLACE_ME_WITH_DESCRIPTION_BEGIN API templates remaining. REPLACE_ME_WITH_DESCRIPTION_END | [optional] **SmsVerificationsLeft** | **int?** | REPLACE_ME_WITH_DESCRIPTION_BEGIN SMS verifications  remaining. REPLACE_ME_WITH_DESCRIPTION_END | [optional] **NumFaxPagesLeft** | **int?** | REPLACE_ME_WITH_DESCRIPTION_BEGIN Number of fax pages left REPLACE_ME_WITH_DESCRIPTION_END | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubEditorOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubEditorOptions : IOpenApiTyped, IEquatable<SubEditorOptions>, IValidatableObject
+    public partial class SubEditorOptions : IEquatable<SubEditorOptions>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubEditorOptions" /> class.
@@ -72,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows requesters to edit the list of signers</value>
         [DataMember(Name = "allow_edit_signers", EmitDefaultValue = true)]
         public bool AllowEditSigners { get; set; }
+        
 
         /// <summary>
         /// Allows requesters to edit documents, including delete and add
@@ -79,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows requesters to edit documents, including delete and add</value>
         [DataMember(Name = "allow_edit_documents", EmitDefaultValue = true)]
         public bool AllowEditDocuments { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,12 +151,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

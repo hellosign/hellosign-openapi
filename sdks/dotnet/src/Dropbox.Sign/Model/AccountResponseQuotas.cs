@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "AccountResponseQuotas")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class AccountResponseQuotas : IOpenApiTyped, IEquatable<AccountResponseQuotas>, IValidatableObject
+    public partial class AccountResponseQuotas : IEquatable<AccountResponseQuotas>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountResponseQuotas" /> class.
@@ -80,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>API signature requests remaining.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
+        
 
         /// <summary>
         /// Signature requests remaining.
@@ -87,6 +88,7 @@ namespace Dropbox.Sign.Model
         /// <value>Signature requests remaining.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
+        
 
         /// <summary>
         /// Total API templates allowed.
@@ -94,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// <value>Total API templates allowed.</value>
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
+        
 
         /// <summary>
         /// API templates remaining.
@@ -101,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>API templates remaining.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
+        
 
         /// <summary>
         /// SMS verifications  remaining.
@@ -108,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>SMS verifications  remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
+        
 
         /// <summary>
         /// Number of fax pages left
@@ -115,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of fax pages left</value>
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -233,12 +239,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

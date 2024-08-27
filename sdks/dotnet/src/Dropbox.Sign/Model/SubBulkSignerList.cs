@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubBulkSignerList")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubBulkSignerList : IOpenApiTyped, IEquatable<SubBulkSignerList>, IValidatableObject
+    public partial class SubBulkSignerList : IEquatable<SubBulkSignerList>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubBulkSignerList" /> class.
@@ -72,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>An array of custom field values.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubBulkSignerListCustomField> CustomFields { get; set; }
+        
 
         /// <summary>
         /// Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.
@@ -79,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.</value>
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -159,12 +161,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

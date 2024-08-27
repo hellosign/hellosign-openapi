@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubSigningOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubSigningOptions : IOpenApiTyped, IEquatable<SubSigningOptions>, IValidatableObject
+    public partial class SubSigningOptions : IEquatable<SubSigningOptions>, IValidatableObject
     {
         /// <summary>
         /// The default type shown (limited to the listed types)
@@ -63,7 +63,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "upload")]
             Upload = 4
-
         }
 
 
@@ -118,6 +117,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows drawing the signature</value>
         [DataMember(Name = "draw", EmitDefaultValue = true)]
         public bool Draw { get; set; }
+        
 
         /// <summary>
         /// Allows using a smartphone to email the signature
@@ -125,6 +125,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows using a smartphone to email the signature</value>
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public bool Phone { get; set; }
+        
 
         /// <summary>
         /// Allows typing the signature
@@ -132,6 +133,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows typing the signature</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public bool Type { get; set; }
+        
 
         /// <summary>
         /// Allows uploading the signature
@@ -139,6 +141,7 @@ namespace Dropbox.Sign.Model
         /// <value>Allows uploading the signature</value>
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -227,12 +230,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

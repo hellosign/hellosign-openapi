@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestGetResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestGetResponse : IOpenApiTyped, IEquatable<SignatureRequestGetResponse>, IValidatableObject
+    public partial class SignatureRequestGetResponse : IEquatable<SignatureRequestGetResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestGetResponse" /> class.
@@ -71,6 +71,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "signature_request", EmitDefaultValue = true)]
         public SignatureRequestResponse SignatureRequest { get; set; }
+        
 
         /// <summary>
         /// A list of warnings.
@@ -78,6 +79,7 @@ namespace Dropbox.Sign.Model
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -157,12 +159,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

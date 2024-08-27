@@ -263,6 +263,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "ReportApi.ReportCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -348,6 +349,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "ReportApi.ReportCreate";
             localVarRequestOptions.OperationIndex = operationIndex;

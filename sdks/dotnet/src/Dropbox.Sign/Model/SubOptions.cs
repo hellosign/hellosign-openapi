@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubOptions")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubOptions : IOpenApiTyped, IEquatable<SubOptions>, IValidatableObject
+    public partial class SubOptions : IEquatable<SubOptions>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubOptions" /> class.
@@ -70,6 +70,7 @@ namespace Dropbox.Sign.Model
         /// <value>Determines if signers can use \&quot;Insert Everywhere\&quot; when signing a document.</value>
         [DataMember(Name = "can_insert_everywhere", EmitDefaultValue = true)]
         public bool CanInsertEverywhere { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -134,12 +135,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

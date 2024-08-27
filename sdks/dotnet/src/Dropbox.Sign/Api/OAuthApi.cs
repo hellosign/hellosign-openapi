@@ -311,6 +311,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenGenerate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -391,6 +392,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenGenerate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -468,6 +470,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenRefresh";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -548,6 +551,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenRefresh";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -3,14 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Microsoft.Extensions.Hosting;
-using {{packageName}}.Client;{{#hasImport}}
+using {{packageName}}.{{clientPackage}};{{#hasImport}}
 using {{packageName}}.{{modelPackage}};{{/hasImport}}
+using {{packageName}}.Extensions;
 
 
-{{{testInstructions}}}
+{{>testInstructions}}
 
 
-namespace {{packageName}}.Test.Api
+namespace {{packageName}}.Test.{{apiPackage}}
 {
     /// <summary>
     ///  Base class for API tests
@@ -25,23 +26,40 @@ namespace {{packageName}}.Test.Api
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) => Host.CreateDefaultBuilder(args)
-            .Configure{{apiName}}((context, options) =>
+            .Configure{{apiName}}((context, services, options) =>
             {
-                {{#hasApiKeyMethods}}ApiKeyToken apiKeyToken = new ApiKeyToken(context.Configuration["<token>"], timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(apiKeyToken);
-                {{/hasApiKeyMethods}}{{#hasHttpBearerMethods}}
-                BearerToken bearerToken = new BearerToken(context.Configuration["<token>"], timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken);
-                {{/hasHttpBearerMethods}}{{#hasHttpBasicMethods}}
-                BasicToken basicToken = new BasicToken(context.Configuration["<username>"], context.Configuration["<password>"], timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(basicToken);
-                {{/hasHttpBasicMethods}}{{#hasHttpSignatureMethods}}
-                HttpSigningConfiguration config = new HttpSigningConfiguration("<keyId>", "<keyFilePath>", null, new List<string>(), HashAlgorithmName.SHA256, "<signingAlgorithm>", 0);
-                HttpSignatureToken httpSignatureToken = new HttpSignatureToken(config, timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(httpSignatureToken);
-                {{/hasHttpSignatureMethods}}{{#hasOAuthMethods}}
-                OAuthToken oauthToken = new OAuthToken(context.Configuration["<token>"], timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(oauthToken);{{/hasOAuthMethods}}
+                {{#lambda.trimTrailingWithNewLine}}
+                {{#apiKeyMethods}}
+                string apiKeyTokenValue{{-index}} = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
+                ApiKeyToken apiKeyToken{{-index}} = new{{^net70OrLater}} ApiKeyToken{{/net70OrLater}}(apiKeyTokenValue{{-index}}, ClientUtils.ApiKeyHeader.{{#lambda.titlecase}}{{keyParamName}}{{/lambda.titlecase}}, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(apiKeyToken{{-index}});
+
+                {{/apiKeyMethods}}
+                {{#httpBearerMethods}}
+                string bearerTokenValue{{-index}} = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
+                BearerToken bearerToken{{-index}} = new{{^net70OrLater}} BearerToken{{/net70OrLater}}(bearerTokenValue{{-index}}, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(bearerToken{{-index}});
+
+                {{/httpBearerMethods}}
+                {{#httpBasicMethods}}
+                string basicTokenUsername{{-index}} = context.Configuration["<username>"] ?? throw new Exception("Username not found.");
+                string basicTokenPassword{{-index}} = context.Configuration["<password>"] ?? throw new Exception("Password not found.");
+                BasicToken basicToken{{-index}} = new{{^net70OrLater}} BasicToken{{/net70OrLater}}(basicTokenUsername{{-index}}, basicTokenPassword{{-index}}, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(basicToken{{-index}});
+
+                {{/httpBasicMethods}}
+                {{#httpSignatureMethods}}
+                HttpSigningConfiguration config{{-index}} = new{{^net70OrLater}} HttpSigningConfiguration{{/net70OrLater}}("<keyId>", "<keyFilePath>", null, new List<string>(), HashAlgorithmName.SHA256, "<signingAlgorithm>", 0);
+                HttpSignatureToken httpSignatureToken{{-index}} = new{{^net70OrLater}} HttpSignatureToken{{/net70OrLater}}(config{{-index}}, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(httpSignatureToken{{-index}});
+
+                {{/httpSignatureMethods}}
+                {{#oauthMethods}}
+                string oauthTokenValue{{-index}} = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
+                OAuthToken oauthToken{{-index}} = new{{^net70OrLater}} OAuthToken{{/net70OrLater}}(oauthTokenValue{{-index}}, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken{{-index}});
+                {{/oauthMethods}}
+                {{/lambda.trimTrailingWithNewLine}}
             });
     }
 }

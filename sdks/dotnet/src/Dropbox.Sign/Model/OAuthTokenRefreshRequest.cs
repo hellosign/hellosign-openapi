@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "OAuthTokenRefreshRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class OAuthTokenRefreshRequest : IOpenApiTyped, IEquatable<OAuthTokenRefreshRequest>, IValidatableObject
+    public partial class OAuthTokenRefreshRequest : IEquatable<OAuthTokenRefreshRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenRefreshRequest" /> class.
@@ -43,7 +43,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="grantType">When refreshing an existing token use &#x60;refresh_token&#x60;. (required) (default to &quot;refresh_token&quot;).</param>
         /// <param name="refreshToken">The token provided when you got the expired access token. (required).</param>
-        public OAuthTokenRefreshRequest(string grantType = "refresh_token", string refreshToken = default(string))
+        public OAuthTokenRefreshRequest(string grantType = @"refresh_token", string refreshToken = default(string))
         {
             
             // to ensure "grantType" is required (not null)
@@ -82,6 +82,7 @@ namespace Dropbox.Sign.Model
         /// <value>When refreshing an existing token use &#x60;refresh_token&#x60;.</value>
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
+        
 
         /// <summary>
         /// The token provided when you got the expired access token.
@@ -89,6 +90,7 @@ namespace Dropbox.Sign.Model
         /// <value>The token provided when you got the expired access token.</value>
         [DataMember(Name = "refresh_token", IsRequired = true, EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -167,12 +169,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

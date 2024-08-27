@@ -2,17 +2,17 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 {{#useCompareNetObjects}}
 using KellermanSoftware.CompareNetObjects;
 {{/useCompareNetObjects}}
 {{! CUSTOM - BEGIN }}
-using System.Collections.Generic;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using {{packageName}}.Model;
 {{! CUSTOM - END }}
@@ -35,7 +35,11 @@ namespace {{packageName}}.Client
         /// </summary>
         static ClientUtils()
         {
-            compareLogic = new CompareLogic();
+            {{#equatable}}
+            ComparisonConfig comparisonConfig = new{{^net70OrLater}} ComparisonConfig{{/net70OrLater}}();
+            comparisonConfig.UseHashCodeIdentifier = true;
+            {{/equatable}}
+            compareLogic = new{{^net70OrLater}} CompareLogic{{/net70OrLater}}({{#equatable}}comparisonConfig{{/equatable}});
         }
 
         {{/useCompareNetObjects}}
@@ -116,12 +120,14 @@ namespace {{packageName}}.Client
                 return dateTimeOffset.ToString((configuration ?? GlobalConfiguration.Instance).DateTimeFormat);
             if (obj is bool boolean)
                 return boolean ? "true" : "false";
-            if (obj is ICollection collection)
-                return string.Join(",", collection.Cast<object>());
-{{! CUSTOM - BEGIN }}
+            if (obj is ICollection collection) {
+                List<string> entries = new List<string>();
+                foreach (var entry in collection)
+                    entries.Add(ParameterToString(entry, configuration));
+                return string.Join(",", entries);
+            }
             if (obj is Enum && HasEnumMemberAttrValue(obj))
                 return GetEnumMemberAttrValue(obj);
-{{! CUSTOM - END }}
 
             return Convert.ToString(obj, CultureInfo.InvariantCulture);
         }
@@ -220,7 +226,6 @@ namespace {{packageName}}.Client
 
             return JsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json");
         }
-{{! CUSTOM - BEGIN }}
 
         /// <summary>
         /// Is the Enum decorated with EnumMember Attribute
@@ -243,7 +248,12 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="enumVal"></param>
         /// <returns>EnumMember value as string otherwise null</returns>
+{{#vendorExtensions.x-ignore-block}}
+        private static string GetEnumMemberAttrValue(object enumVal)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         public static string GetEnumMemberAttrValue(object enumVal)
+{{! CUSTOM - END }}
         {
             if (enumVal == null)
                 throw new ArgumentNullException(nameof(enumVal));
@@ -256,6 +266,7 @@ namespace {{packageName}}.Client
             }
             return null;
         }
+{{! CUSTOM - BEGIN }}
 
         /// <summary>
         /// Tests if value is a System.IO.Stream or list of System.IO.Stream
@@ -307,7 +318,7 @@ namespace {{packageName}}.Client
                         item.Value.ToString()
                     );
 
-                    continue; 
+                    continue;
                 }
 
                 if (item.Value is Enum)

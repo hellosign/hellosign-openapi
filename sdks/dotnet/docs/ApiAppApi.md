@@ -10,7 +10,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**ApiAppList**](ApiAppApi.md#apiapplist) | **GET** /api_app/list | List API Apps |
 | [**ApiAppUpdate**](ApiAppApi.md#apiappupdate) | **PUT** /api_app/{client_id} | Update API App |
 
-<a name="apiappcreate"></a>
+<a id="apiappcreate"></a>
 # **ApiAppCreate**
 > ApiAppGetResponse ApiAppCreate (ApiAppCreateRequest apiAppCreateRequest)
 
@@ -20,66 +20,7 @@ Creates a new API App.
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var oauth = new SubOAuth(
-            callbackUrl: "https://example.com/oauth",
-            scopes: new List<SubOAuth.ScopesEnum>() {
-                SubOAuth.ScopesEnum.BasicAccountInfo,
-                SubOAuth.ScopesEnum.RequestSignature
-            }
-        );
-
-        var whiteLabelingOptions = new SubWhiteLabelingOptions(
-            primaryButtonColor: "#00b3e6",
-            primaryButtonTextColor: "#ffffff"
-        );
-
-        var customLogoFile = new FileStream(
-            "CustomLogoFile.png",
-            FileMode.Open
-        );
-
-        var data = new ApiAppCreateRequest(
-            name: "My Production App",
-            domains: new List<string>(){"example.com"},
-            oauth: oauth,
-            whiteLabelingOptions: whiteLabelingOptions,
-            customLogoFile: customLogoFile
-        );
-
-        try
-        {
-            var result = apiAppApi.ApiAppCreate(data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__ApiAppCreate_C#_CODE
 ```
 
 #### Using the ApiAppCreateWithHttpInfo variant
@@ -130,7 +71,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiappdelete"></a>
+<a id="apiappdelete"></a>
 # **ApiAppDelete**
 > void ApiAppDelete (string clientId)
 
@@ -140,41 +81,7 @@ Deletes an API App. Can only be invoked for apps you own.
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-        try
-        {
-            apiAppApi.ApiAppDelete(clientId);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__ApiAppDelete_C#_CODE
 ```
 
 #### Using the ApiAppDeleteWithHttpInfo variant
@@ -222,7 +129,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiappget"></a>
+<a id="apiappget"></a>
 # **ApiAppGet**
 > ApiAppGetResponse ApiAppGet (string clientId)
 
@@ -232,41 +139,7 @@ Returns an object with information about an API App.
 
 ### Example
 ```csharp
-using System;
-
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-        try
-        {
-            var result = apiAppApi.ApiAppGet(clientId);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__ApiAppGet_C#_CODE
 ```
 
 #### Using the ApiAppGetWithHttpInfo variant
@@ -317,7 +190,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiapplist"></a>
+<a id="apiapplist"></a>
 # **ApiAppList**
 > ApiAppListResponse ApiAppList (int? page = null, int? pageSize = null)
 
@@ -327,42 +200,7 @@ Returns a list of API Apps that are accessible by you. If you are on a team with
 
 ### Example
 ```csharp
-using System;
-
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var page = 1;
-        var pageSize = 2;
-
-        try
-        {
-            var result = apiAppApi.ApiAppList(page, pageSize);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__ApiAppList_C#_CODE
 ```
 
 #### Using the ApiAppListWithHttpInfo variant
@@ -389,8 +227,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **page** | **int?** | Which page number of the API App List to return. Defaults to `1`. | [optional] [default to 1] |
-| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **page** | **int?** | Which page number of the API App List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
 
 ### Return type
 
@@ -414,7 +252,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apiappupdate"></a>
+<a id="apiappupdate"></a>
 # **ApiAppUpdate**
 > ApiAppGetResponse ApiAppUpdate (string clientId, ApiAppUpdateRequest apiAppUpdateRequest)
 
@@ -424,68 +262,7 @@ Updates an existing API App. Can only be invoked for apps you own. Only the fiel
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var apiAppApi = new ApiAppApi(config);
-
-        var oauth = new SubOAuth(
-            callbackUrl: "https://example.com/oauth",
-            scopes: new List<SubOAuth.ScopesEnum>() {
-                SubOAuth.ScopesEnum.BasicAccountInfo,
-                SubOAuth.ScopesEnum.RequestSignature
-            }
-        );
-
-        var whiteLabelingOptions = new SubWhiteLabelingOptions(
-            primaryButtonColor: "#00b3e6",
-            primaryButtonTextColor: "#ffffff"
-        );
-
-        var customLogoFile = new FileStream(
-            "CustomLogoFile.png",
-            FileMode.Open
-        );
-
-        var data = new ApiAppUpdateRequest(
-            name: "My Production App",
-            domains: new List<string>(){"example.com"},
-            oauth: oauth,
-            whiteLabelingOptions: whiteLabelingOptions,
-            customLogoFile: customLogoFile
-        );
-
-        var clientId = "0dd3b823a682527788c4e40cb7b6f7e9";
-
-        try
-        {
-            var result = apiAppApi.ApiAppUpdate(clientId, data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__ApiAppUpdate_C#_CODE
 ```
 
 #### Using the ApiAppUpdateWithHttpInfo variant

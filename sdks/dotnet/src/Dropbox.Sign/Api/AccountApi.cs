@@ -411,6 +411,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -503,6 +504,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -588,6 +590,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
+
             localVarRequestOptions.Operation = "AccountApi.AccountGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -649,7 +652,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -676,6 +678,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "email_address", emailAddress));
             }
+
             localVarRequestOptions.Operation = "AccountApi.AccountGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -765,6 +768,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "AccountApi.AccountUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -858,6 +862,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "AccountApi.AccountUpdate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -947,6 +952,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "AccountApi.AccountVerify";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1039,6 +1045,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "AccountApi.AccountVerify";
             localVarRequestOptions.OperationIndex = operationIndex;

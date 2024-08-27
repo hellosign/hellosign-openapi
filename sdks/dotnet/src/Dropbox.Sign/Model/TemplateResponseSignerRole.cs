@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseSignerRole")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseSignerRole : IOpenApiTyped, IEquatable<TemplateResponseSignerRole>, IValidatableObject
+    public partial class TemplateResponseSignerRole : IEquatable<TemplateResponseSignerRole>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseSignerRole" /> class.
@@ -72,6 +72,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the Role.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// If signer order is assigned this is the 0-based index for this role.
@@ -79,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>If signer order is assigned this is the 0-based index for this role.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int Order { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -153,12 +155,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

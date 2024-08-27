@@ -1,6 +1,6 @@
-generatorName: csharp-netcore
+generatorName: csharp
 additionalProperties:
-  clientPackage: Dropbox.Sign.Api
+  clientPackage: Client
   packageName: Dropbox.Sign
   packageAuthors: Dropbox Sign API Team
   packageCompany: Dropbox Sign API Team
@@ -12,6 +12,7 @@ additionalProperties:
   optionalEmitDefaultValues: true
   targetFramework: net6.0
   packageGuid: "{F8C8232D-7020-4603-8E04-18D060AE530B}"
+  legacyDiscriminatorBehavior: true
 files:
   EventCallbackHelper.cs:
     templateType: SupportingFiles

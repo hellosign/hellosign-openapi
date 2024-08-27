@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseSignatures")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseSignatures : IOpenApiTyped, IEquatable<SignatureRequestResponseSignatures>, IValidatableObject
+    public partial class SignatureRequestResponseSignatures : IEquatable<SignatureRequestResponseSignatures>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseSignatures" /> class.
@@ -106,6 +106,7 @@ namespace Dropbox.Sign.Model
         /// <value>Signature identifier.</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
+        
 
         /// <summary>
         /// Signer Group GUID
@@ -113,6 +114,7 @@ namespace Dropbox.Sign.Model
         /// <value>Signer Group GUID</value>
         [DataMember(Name = "signer_group_guid", EmitDefaultValue = true)]
         public string SignerGroupGuid { get; set; }
+        
 
         /// <summary>
         /// The email address of the signer.
@@ -120,6 +122,7 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "signer_email_address", EmitDefaultValue = true)]
         public string SignerEmailAddress { get; set; }
+        
 
         /// <summary>
         /// The name of the signer.
@@ -127,6 +130,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the signer.</value>
         [DataMember(Name = "signer_name", EmitDefaultValue = true)]
         public string SignerName { get; set; }
+        
 
         /// <summary>
         /// The role of the signer.
@@ -134,6 +138,7 @@ namespace Dropbox.Sign.Model
         /// <value>The role of the signer.</value>
         [DataMember(Name = "signer_role", EmitDefaultValue = true)]
         public string SignerRole { get; set; }
+        
 
         /// <summary>
         /// If signer order is assigned this is the 0-based index for this signer.
@@ -141,6 +146,7 @@ namespace Dropbox.Sign.Model
         /// <value>If signer order is assigned this is the 0-based index for this signer.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
+        
 
         /// <summary>
         /// The current status of the signature. eg: awaiting_signature, signed, declined.
@@ -148,6 +154,7 @@ namespace Dropbox.Sign.Model
         /// <value>The current status of the signature. eg: awaiting_signature, signed, declined.</value>
         [DataMember(Name = "status_code", EmitDefaultValue = true)]
         public string StatusCode { get; set; }
+        
 
         /// <summary>
         /// The reason provided by the signer for declining the request.
@@ -155,6 +162,7 @@ namespace Dropbox.Sign.Model
         /// <value>The reason provided by the signer for declining the request.</value>
         [DataMember(Name = "decline_reason", EmitDefaultValue = true)]
         public string DeclineReason { get; set; }
+        
 
         /// <summary>
         /// Time that the document was signed or null.
@@ -162,6 +170,7 @@ namespace Dropbox.Sign.Model
         /// <value>Time that the document was signed or null.</value>
         [DataMember(Name = "signed_at", EmitDefaultValue = true)]
         public int? SignedAt { get; set; }
+        
 
         /// <summary>
         /// The time that the document was last viewed by this signer or null.
@@ -169,6 +178,7 @@ namespace Dropbox.Sign.Model
         /// <value>The time that the document was last viewed by this signer or null.</value>
         [DataMember(Name = "last_viewed_at", EmitDefaultValue = true)]
         public int? LastViewedAt { get; set; }
+        
 
         /// <summary>
         /// The time the last reminder email was sent to the signer or null.
@@ -176,6 +186,7 @@ namespace Dropbox.Sign.Model
         /// <value>The time the last reminder email was sent to the signer or null.</value>
         [DataMember(Name = "last_reminded_at", EmitDefaultValue = true)]
         public int? LastRemindedAt { get; set; }
+        
 
         /// <summary>
         /// Boolean to indicate whether this signature requires a PIN to access.
@@ -183,6 +194,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean to indicate whether this signature requires a PIN to access.</value>
         [DataMember(Name = "has_pin", EmitDefaultValue = true)]
         public bool HasPin { get; set; }
+        
 
         /// <summary>
         /// Boolean to indicate whether this signature has SMS authentication enabled.
@@ -190,6 +202,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean to indicate whether this signature has SMS authentication enabled.</value>
         [DataMember(Name = "has_sms_auth", EmitDefaultValue = true)]
         public bool? HasSmsAuth { get; set; }
+        
 
         /// <summary>
         /// Boolean to indicate whether this signature has SMS delivery enabled.
@@ -197,6 +210,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean to indicate whether this signature has SMS delivery enabled.</value>
         [DataMember(Name = "has_sms_delivery", EmitDefaultValue = true)]
         public bool? HasSmsDelivery { get; set; }
+        
 
         /// <summary>
         /// The SMS phone number used for authentication or signature request delivery.
@@ -204,6 +218,7 @@ namespace Dropbox.Sign.Model
         /// <value>The SMS phone number used for authentication or signature request delivery.</value>
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
+        
 
         /// <summary>
         /// Email address of original signer who reassigned to this signer.
@@ -211,6 +226,7 @@ namespace Dropbox.Sign.Model
         /// <value>Email address of original signer who reassigned to this signer.</value>
         [DataMember(Name = "reassigned_by", EmitDefaultValue = true)]
         public string ReassignedBy { get; set; }
+        
 
         /// <summary>
         /// Reason provided by original signer who reassigned to this signer.
@@ -218,6 +234,7 @@ namespace Dropbox.Sign.Model
         /// <value>Reason provided by original signer who reassigned to this signer.</value>
         [DataMember(Name = "reassignment_reason", EmitDefaultValue = true)]
         public string ReassignmentReason { get; set; }
+        
 
         /// <summary>
         /// Previous signature identifier.
@@ -225,6 +242,7 @@ namespace Dropbox.Sign.Model
         /// <value>Previous signature identifier.</value>
         [DataMember(Name = "reassigned_from", EmitDefaultValue = true)]
         public string ReassignedFrom { get; set; }
+        
 
         /// <summary>
         /// Error message pertaining to this signer, or null.
@@ -232,6 +250,7 @@ namespace Dropbox.Sign.Model
         /// <value>Error message pertaining to this signer, or null.</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -476,12 +495,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

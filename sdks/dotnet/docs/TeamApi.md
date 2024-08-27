@@ -15,7 +15,7 @@ All URIs are relative to *https://api.hellosign.com/v3*
 | [**TeamSubTeams**](TeamApi.md#teamsubteams) | **GET** /team/sub_teams/{team_id} | List Sub Teams |
 | [**TeamUpdate**](TeamApi.md#teamupdate) | **PUT** /team | Update Team |
 
-<a name="teamaddmember"></a>
+<a id="teamaddmember"></a>
 # **TeamAddMember**
 > TeamGetResponse TeamAddMember (TeamAddMemberRequest teamAddMemberRequest, string? teamId = null)
 
@@ -25,43 +25,7 @@ Invites a user (specified using the `email_address` parameter) to your Team. If 
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamAddMemberRequest(
-            emailAddress: "george@example.com"
-        );
-
-        try
-        {
-            var result = teamApi.TeamAddMember(data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamAddMember_C#_CODE
 ```
 
 #### Using the TeamAddMemberWithHttpInfo variant
@@ -113,7 +77,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamcreate"></a>
+<a id="teamcreate"></a>
 # **TeamCreate**
 > TeamGetResponse TeamCreate (TeamCreateRequest teamCreateRequest)
 
@@ -123,43 +87,7 @@ Creates a new Team and makes you a member. You must not currently belong to a Te
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamCreateRequest(
-            name: "New Team Name"
-        );
-
-        try
-        {
-            var result = teamApi.TeamCreate(data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamCreate_C#_CODE
 ```
 
 #### Using the TeamCreateWithHttpInfo variant
@@ -210,7 +138,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamdelete"></a>
+<a id="teamdelete"></a>
 # **TeamDelete**
 > void TeamDelete ()
 
@@ -220,38 +148,7 @@ Deletes your Team. Can only be invoked when you have a Team with only one member
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        try
-        {
-            teamApi.TeamDelete();
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamDelete_C#_CODE
 ```
 
 #### Using the TeamDeleteWithHttpInfo variant
@@ -295,7 +192,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamget"></a>
+<a id="teamget"></a>
 # **TeamGet**
 > TeamGetResponse TeamGet ()
 
@@ -305,39 +202,7 @@ Returns information about your Team as well as a list of its members. If you do 
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        try
-        {
-            var result = teamApi.TeamGet();
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamGet_C#_CODE
 ```
 
 #### Using the TeamGetWithHttpInfo variant
@@ -384,7 +249,7 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teaminfo"></a>
+<a id="teaminfo"></a>
 # **TeamInfo**
 > TeamGetInfoResponse TeamInfo (string? teamId = null)
 
@@ -394,39 +259,7 @@ Provides information about a team.
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        try
-        {
-            var result = teamApi.TeamInfo();
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamInfo_C#_CODE
 ```
 
 #### Using the TeamInfoWithHttpInfo variant
@@ -477,7 +310,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teaminvites"></a>
+<a id="teaminvites"></a>
 # **TeamInvites**
 > TeamInvitesResponse TeamInvites (string? emailAddress = null)
 
@@ -487,40 +320,7 @@ Provides a list of team invites (and their roles).
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-        var emailAddress = "user@dropboxsign.com";
-
-        try
-        {
-            var result = teamApi.TeamInvites(emailAddress);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamInvites_C#_CODE
 ```
 
 #### Using the TeamInvitesWithHttpInfo variant
@@ -571,7 +371,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teammembers"></a>
+<a id="teammembers"></a>
 # **TeamMembers**
 > TeamMembersResponse TeamMembers (string teamId, int? page = null, int? pageSize = null)
 
@@ -581,40 +381,7 @@ Provides a paginated list of members (and their roles) that belong to a given te
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-        var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
-        try
-        {
-            var result = teamApi.TeamMembers(teamId);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamMembers_C#_CODE
 ```
 
 #### Using the TeamMembersWithHttpInfo variant
@@ -642,8 +409,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **teamId** | **string** | The id of the team that a member list is being requested from. |  |
-| **page** | **int?** | Which page number of the team member list to return. Defaults to `1`. | [optional] [default to 1] |
-| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **page** | **int?** | Which page number of the team member list to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
 
 ### Return type
 
@@ -667,7 +434,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamremovemember"></a>
+<a id="teamremovemember"></a>
 # **TeamRemoveMember**
 > TeamGetResponse TeamRemoveMember (TeamRemoveMemberRequest teamRemoveMemberRequest)
 
@@ -677,44 +444,7 @@ Removes the provided user Account from your Team. If the Account had an outstand
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamRemoveMemberRequest(
-            emailAddress: "teammate@dropboxsign.com",
-            newOwnerEmailAddress: "new_teammate@dropboxsign.com"
-        );
-
-        try
-        {
-            var result = teamApi.TeamRemoveMember(data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamRemoveMember_C#_CODE
 ```
 
 #### Using the TeamRemoveMemberWithHttpInfo variant
@@ -765,7 +495,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamsubteams"></a>
+<a id="teamsubteams"></a>
 # **TeamSubTeams**
 > TeamSubTeamsResponse TeamSubTeams (string teamId, int? page = null, int? pageSize = null)
 
@@ -775,40 +505,7 @@ Provides a paginated list of sub teams that belong to a given team.
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-        var teamId = "4fea99bfcf2b26bfccf6cea3e127fb8bb74d8d9c";
-
-        try
-        {
-            var result = teamApi.TeamSubTeams(teamId);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamSubTeams_C#_CODE
 ```
 
 #### Using the TeamSubTeamsWithHttpInfo variant
@@ -836,8 +533,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **teamId** | **string** | The id of the parent Team. |  |
-| **page** | **int?** | Which page number of the SubTeam List to return. Defaults to `1`. | [optional] [default to 1] |
-| **pageSize** | **int?** | Number of objects to be returned per page. Must be between `1` and `100`. Default is `20`. | [optional] [default to 20] |
+| **page** | **int?** | Which page number of the SubTeam List to return. Defaults to &#x60;1&#x60;. | [optional] [default to 1] |
+| **pageSize** | **int?** | Number of objects to be returned per page. Must be between &#x60;1&#x60; and &#x60;100&#x60;. Default is &#x60;20&#x60;. | [optional] [default to 20] |
 
 ### Return type
 
@@ -861,7 +558,7 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="teamupdate"></a>
+<a id="teamupdate"></a>
 # **TeamUpdate**
 > TeamGetResponse TeamUpdate (TeamUpdateRequest teamUpdateRequest)
 
@@ -871,43 +568,7 @@ Updates the name of your Team.
 
 ### Example
 ```csharp
-using System;
-using System.Collections.Generic;
-using Dropbox.Sign.Api;
-using Dropbox.Sign.Client;
-using Dropbox.Sign.Model;
-
-public class Example
-{
-    public static void Main()
-    {
-        var config = new Configuration();
-        // Configure HTTP basic authorization: api_key
-        config.Username = "YOUR_API_KEY";
-
-        // or, configure Bearer (JWT) authorization: oauth2
-        // config.AccessToken = "YOUR_BEARER_TOKEN";
-
-        var teamApi = new TeamApi(config);
-
-        var data = new TeamUpdateRequest(
-            name: "New Team Name"
-        );
-
-        try
-        {
-            var result = teamApi.TeamUpdate(data);
-            Console.WriteLine(result);
-        }
-        catch (ApiException e)
-        {
-            Console.WriteLine("Exception when calling Dropbox Sign API: " + e.Message);
-            Console.WriteLine("Status Code: " + e.ErrorCode);
-            Console.WriteLine(e.StackTrace);
-        }
-    }
-}
-
+REPLACE_ME_WITH_EXAMPLE_FOR__TeamUpdate_C#_CODE
 ```
 
 #### Using the TeamUpdateWithHttpInfo variant

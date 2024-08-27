@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubUnclaimedDraftTemplateSigner")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubUnclaimedDraftTemplateSigner : IOpenApiTyped, IEquatable<SubUnclaimedDraftTemplateSigner>, IValidatableObject
+    public partial class SubUnclaimedDraftTemplateSigner : IEquatable<SubUnclaimedDraftTemplateSigner>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUnclaimedDraftTemplateSigner" /> class.
@@ -89,6 +89,7 @@ namespace Dropbox.Sign.Model
         /// <value>Must match an existing role in chosen Template(s).</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
+        
 
         /// <summary>
         /// The name of the signer filling the role of &#x60;role&#x60;.
@@ -96,6 +97,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the signer filling the role of &#x60;role&#x60;.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// The email address of the signer filling the role of &#x60;role&#x60;.
@@ -103,6 +105,7 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer filling the role of &#x60;role&#x60;.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -191,12 +194,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -32,14 +32,6 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentStaticFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldCheckbox), "TemplateResponseDocumentStaticFieldCheckbox")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldDateSigned), "TemplateResponseDocumentStaticFieldDateSigned")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldDropdown), "TemplateResponseDocumentStaticFieldDropdown")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldHyperlink), "TemplateResponseDocumentStaticFieldHyperlink")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldInitials), "TemplateResponseDocumentStaticFieldInitials")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldRadio), "TemplateResponseDocumentStaticFieldRadio")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldSignature), "TemplateResponseDocumentStaticFieldSignature")]
-    [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldText), "TemplateResponseDocumentStaticFieldText")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldCheckbox), "checkbox")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldDateSigned), "date_signed")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldDropdown), "dropdown")]
@@ -49,7 +41,7 @@ namespace Dropbox.Sign.Model
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldSignature), "signature")]
     [JsonSubtypes.KnownSubType(typeof(TemplateResponseDocumentStaticFieldText), "text")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseDocumentStaticFieldBase : IOpenApiTyped, IEquatable<TemplateResponseDocumentStaticFieldBase>, IValidatableObject
+    public partial class TemplateResponseDocumentStaticFieldBase : IEquatable<TemplateResponseDocumentStaticFieldBase>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentStaticFieldBase" /> class.
@@ -69,7 +61,7 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this static field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;..</param>
-        public TemplateResponseDocumentStaticFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = "me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentStaticFieldBase(string apiId = default(string), string name = default(string), string type = default(string), string signer = @"me_now", int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
         {
             
             // to ensure "type" is required (not null)
@@ -111,6 +103,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// A unique id for the static field.
@@ -118,6 +111,7 @@ namespace Dropbox.Sign.Model
         /// <value>A unique id for the static field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
+        
 
         /// <summary>
         /// The name of the static field.
@@ -125,6 +119,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the static field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// The signer of the Static Field.
@@ -132,6 +127,7 @@ namespace Dropbox.Sign.Model
         /// <value>The signer of the Static Field.</value>
         [DataMember(Name = "signer", EmitDefaultValue = true)]
         public string Signer { get; set; }
+        
 
         /// <summary>
         /// The horizontal offset in pixels for this static field.
@@ -139,6 +135,7 @@ namespace Dropbox.Sign.Model
         /// <value>The horizontal offset in pixels for this static field.</value>
         [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
+        
 
         /// <summary>
         /// The vertical offset in pixels for this static field.
@@ -146,6 +143,7 @@ namespace Dropbox.Sign.Model
         /// <value>The vertical offset in pixels for this static field.</value>
         [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
+        
 
         /// <summary>
         /// The width in pixels of this static field.
@@ -153,6 +151,7 @@ namespace Dropbox.Sign.Model
         /// <value>The width in pixels of this static field.</value>
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
+        
 
         /// <summary>
         /// The height in pixels of this static field.
@@ -160,6 +159,7 @@ namespace Dropbox.Sign.Model
         /// <value>The height in pixels of this static field.</value>
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
+        
 
         /// <summary>
         /// Boolean showing whether or not this field is required.
@@ -167,6 +167,7 @@ namespace Dropbox.Sign.Model
         /// <value>Boolean showing whether or not this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
+        
 
         /// <summary>
         /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
@@ -174,6 +175,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.</value>
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -312,12 +314,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -327,7 +330,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             yield break;
         }

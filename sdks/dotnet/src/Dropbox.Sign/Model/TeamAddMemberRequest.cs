@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamAddMemberRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamAddMemberRequest : IOpenApiTyped, IEquatable<TeamAddMemberRequest>, IValidatableObject
+    public partial class TeamAddMemberRequest : IEquatable<TeamAddMemberRequest>, IValidatableObject
     {
         /// <summary>
         /// A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
@@ -63,7 +63,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "Admin")]
             Admin = 4
-
         }
 
 
@@ -114,6 +113,7 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
+        
 
         /// <summary>
         /// &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
@@ -121,6 +121,7 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -205,12 +206,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

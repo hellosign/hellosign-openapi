@@ -411,6 +411,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -503,6 +504,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -592,6 +594,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -685,6 +688,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -774,6 +778,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -866,6 +871,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -966,6 +972,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftEditAndResend";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1067,6 +1074,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftEditAndResend";
             localVarRequestOptions.OperationIndex = operationIndex;
 

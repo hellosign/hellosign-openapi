@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamSubTeamsResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamSubTeamsResponse : IOpenApiTyped, IEquatable<TeamSubTeamsResponse>, IValidatableObject
+    public partial class TeamSubTeamsResponse : IEquatable<TeamSubTeamsResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamSubTeamsResponse" /> class.
@@ -74,18 +74,21 @@ namespace Dropbox.Sign.Model
         /// <value>Contains a list with sub teams.</value>
         [DataMember(Name = "sub_teams", EmitDefaultValue = true)]
         public List<SubTeamResponse> SubTeams { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -176,12 +179,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamResponse : IOpenApiTyped, IEquatable<TeamResponse>, IValidatableObject
+    public partial class TeamResponse : IEquatable<TeamResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamResponse" /> class.
@@ -76,12 +76,14 @@ namespace Dropbox.Sign.Model
         /// <value>The name of your Team</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
+        
 
         /// <summary>
         /// A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
@@ -89,6 +91,7 @@ namespace Dropbox.Sign.Model
         /// <value>A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.</value>
         [DataMember(Name = "invited_accounts", EmitDefaultValue = true)]
         public List<AccountResponse> InvitedAccounts { get; set; }
+        
 
         /// <summary>
         /// A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
@@ -96,6 +99,7 @@ namespace Dropbox.Sign.Model
         /// <value>A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.</value>
         [DataMember(Name = "invited_emails", EmitDefaultValue = true)]
         public List<string> InvitedEmails { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -197,12 +201,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "UnclaimedDraftEditAndResendRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class UnclaimedDraftEditAndResendRequest : IOpenApiTyped, IEquatable<UnclaimedDraftEditAndResendRequest>, IValidatableObject
+    public partial class UnclaimedDraftEditAndResendRequest : IEquatable<UnclaimedDraftEditAndResendRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftEditAndResendRequest" /> class.
@@ -89,12 +89,14 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets EditorOptions
         /// </summary>
         [DataMember(Name = "editor_options", EmitDefaultValue = true)]
         public SubEditorOptions EditorOptions { get; set; }
+        
 
         /// <summary>
         /// The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;.
@@ -102,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>The request created from this draft will also be signable in embedded mode if set to &#x60;true&#x60;.</value>
         [DataMember(Name = "is_for_embedded_signing", EmitDefaultValue = true)]
         public bool IsForEmbeddedSigning { get; set; }
+        
 
         /// <summary>
         /// The email address of the user that should be designated as the requester of this draft. If not set, original requester&#39;s email address will be used.
@@ -109,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the user that should be designated as the requester of this draft. If not set, original requester&#39;s email address will be used.</value>
         [DataMember(Name = "requester_email_address", EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
+        
 
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature.
@@ -116,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL you want signers redirected to after they successfully request a signature.</value>
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
+        
 
         /// <summary>
         /// When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.
@@ -123,6 +128,7 @@ namespace Dropbox.Sign.Model
         /// <value>When only one step remains in the signature request process and this parameter is set to &#x60;false&#x60; then the progress stepper will be hidden.</value>
         [DataMember(Name = "show_progress_stepper", EmitDefaultValue = true)]
         public bool ShowProgressStepper { get; set; }
+        
 
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
@@ -130,6 +136,7 @@ namespace Dropbox.Sign.Model
         /// <value>The URL you want signers redirected to after they successfully sign.</value>
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
+        
 
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
@@ -137,6 +144,7 @@ namespace Dropbox.Sign.Model
         /// <value>Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -263,12 +271,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamMemberResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamMemberResponse : IOpenApiTyped, IEquatable<TeamMemberResponse>, IValidatableObject
+    public partial class TeamMemberResponse : IEquatable<TeamMemberResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamMemberResponse" /> class.
@@ -74,6 +74,7 @@ namespace Dropbox.Sign.Model
         /// <value>Account id of the team member.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
+        
 
         /// <summary>
         /// Email address of the team member.
@@ -81,6 +82,7 @@ namespace Dropbox.Sign.Model
         /// <value>Email address of the team member.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// The specific role a member has on the team.
@@ -88,6 +90,7 @@ namespace Dropbox.Sign.Model
         /// <value>The specific role a member has on the team.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -176,12 +179,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

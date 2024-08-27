@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateUpdateFilesResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateUpdateFilesResponse : IOpenApiTyped, IEquatable<TemplateUpdateFilesResponse>, IValidatableObject
+    public partial class TemplateUpdateFilesResponse : IEquatable<TemplateUpdateFilesResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateUpdateFilesResponse" /> class.
@@ -69,6 +69,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = true)]
         public TemplateUpdateFilesResponseTemplate Template { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -137,12 +138,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

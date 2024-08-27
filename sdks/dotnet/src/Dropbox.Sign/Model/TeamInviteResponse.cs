@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamInviteResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamInviteResponse : IOpenApiTyped, IEquatable<TeamInviteResponse>, IValidatableObject
+    public partial class TeamInviteResponse : IEquatable<TeamInviteResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamInviteResponse" /> class.
@@ -80,6 +80,7 @@ namespace Dropbox.Sign.Model
         /// <value>Email address of the user invited to this team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
+        
 
         /// <summary>
         /// Id of the team.
@@ -87,6 +88,7 @@ namespace Dropbox.Sign.Model
         /// <value>Id of the team.</value>
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
+        
 
         /// <summary>
         /// Role of the user invited to this team.
@@ -94,6 +96,7 @@ namespace Dropbox.Sign.Model
         /// <value>Role of the user invited to this team.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
+        
 
         /// <summary>
         /// Timestamp when the invitation was sent.
@@ -101,6 +104,7 @@ namespace Dropbox.Sign.Model
         /// <value>Timestamp when the invitation was sent.</value>
         [DataMember(Name = "sent_at", EmitDefaultValue = true)]
         public int SentAt { get; set; }
+        
 
         /// <summary>
         /// Timestamp when the invitation was redeemed.
@@ -108,6 +112,7 @@ namespace Dropbox.Sign.Model
         /// <value>Timestamp when the invitation was redeemed.</value>
         [DataMember(Name = "redeemed_at", EmitDefaultValue = true)]
         public int RedeemedAt { get; set; }
+        
 
         /// <summary>
         /// Timestamp when the invitation is expiring.
@@ -115,6 +120,7 @@ namespace Dropbox.Sign.Model
         /// <value>Timestamp when the invitation is expiring.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -221,12 +227,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

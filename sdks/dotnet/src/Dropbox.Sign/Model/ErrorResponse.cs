@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ErrorResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ErrorResponse : IOpenApiTyped, IEquatable<ErrorResponse>, IValidatableObject
+    public partial class ErrorResponse : IEquatable<ErrorResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
@@ -74,6 +74,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public ErrorResponseError Error { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -142,12 +143,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "FaxLineResponseFaxLine")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class FaxLineResponseFaxLine : IOpenApiTyped, IEquatable<FaxLineResponseFaxLine>, IValidatableObject
+    public partial class FaxLineResponseFaxLine : IEquatable<FaxLineResponseFaxLine>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineResponseFaxLine" /> class.
@@ -76,6 +76,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number</value>
         [DataMember(Name = "number", EmitDefaultValue = true)]
         public string Number { get; set; }
+        
 
         /// <summary>
         /// Created at
@@ -83,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>Created at</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
+        
 
         /// <summary>
         /// Updated at
@@ -90,12 +92,14 @@ namespace Dropbox.Sign.Model
         /// <value>Updated at</value>
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
+        
 
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -187,12 +191,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

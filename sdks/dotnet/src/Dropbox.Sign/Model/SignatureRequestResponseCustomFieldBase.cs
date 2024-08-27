@@ -32,12 +32,10 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseCustomFieldBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldCheckbox), "SignatureRequestResponseCustomFieldCheckbox")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldText), "SignatureRequestResponseCustomFieldText")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldCheckbox), "checkbox")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseCustomFieldText), "text")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseCustomFieldBase : IOpenApiTyped, IEquatable<SignatureRequestResponseCustomFieldBase>, IValidatableObject
+    public partial class SignatureRequestResponseCustomFieldBase : IEquatable<SignatureRequestResponseCustomFieldBase>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseCustomFieldBase" /> class.
@@ -94,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this Custom Field. Only &#39;text&#39; and &#39;checkbox&#39; are currently supported.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
+        
 
         /// <summary>
         /// The name of the Custom Field.
@@ -101,6 +100,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the Custom Field.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
+        
 
         /// <summary>
         /// A boolean value denoting if this field is required.
@@ -108,6 +108,7 @@ namespace Dropbox.Sign.Model
         /// <value>A boolean value denoting if this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
+        
 
         /// <summary>
         /// The unique ID for this field.
@@ -115,6 +116,7 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
+        
 
         /// <summary>
         /// The name of the Role that is able to edit this field.
@@ -122,6 +124,7 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the Role that is able to edit this field.</value>
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -226,12 +229,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             return this.BaseValidate(validationContext);
         }
@@ -241,7 +245,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             yield break;
         }

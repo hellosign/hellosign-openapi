@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "FaxLineCreateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class FaxLineCreateRequest : IOpenApiTyped, IEquatable<FaxLineCreateRequest>, IValidatableObject
+    public partial class FaxLineCreateRequest : IEquatable<FaxLineCreateRequest>, IValidatableObject
     {
         /// <summary>
         /// Country
@@ -57,7 +57,6 @@ namespace Dropbox.Sign.Model
             /// </summary>
             [EnumMember(Value = "UK")]
             UK = 3
-
         }
 
 
@@ -110,6 +109,7 @@ namespace Dropbox.Sign.Model
         /// <value>Area code</value>
         [DataMember(Name = "area_code", IsRequired = true, EmitDefaultValue = true)]
         public int AreaCode { get; set; }
+        
 
         /// <summary>
         /// City
@@ -117,13 +117,16 @@ namespace Dropbox.Sign.Model
         /// <value>City</value>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
+        
 
         /// <summary>
         /// Account ID
         /// </summary>
         /// <value>Account ID</value>
+        /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -214,12 +217,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

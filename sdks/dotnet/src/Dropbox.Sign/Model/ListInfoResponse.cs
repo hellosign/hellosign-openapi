@@ -31,7 +31,7 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "ListInfoResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class ListInfoResponse : IOpenApiTyped, IEquatable<ListInfoResponse>, IValidatableObject
+    public partial class ListInfoResponse : IEquatable<ListInfoResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ListInfoResponse" /> class.
@@ -76,6 +76,7 @@ namespace Dropbox.Sign.Model
         /// <value>Total number of pages available.</value>
         [DataMember(Name = "num_pages", EmitDefaultValue = true)]
         public int NumPages { get; set; }
+        
 
         /// <summary>
         /// Total number of objects available.
@@ -83,6 +84,7 @@ namespace Dropbox.Sign.Model
         /// <value>Total number of objects available.</value>
         [DataMember(Name = "num_results", EmitDefaultValue = true)]
         public int? NumResults { get; set; }
+        
 
         /// <summary>
         /// Number of the page being returned.
@@ -90,6 +92,7 @@ namespace Dropbox.Sign.Model
         /// <value>Number of the page being returned.</value>
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int Page { get; set; }
+        
 
         /// <summary>
         /// Objects returned per page.
@@ -97,6 +100,7 @@ namespace Dropbox.Sign.Model
         /// <value>Objects returned per page.</value>
         [DataMember(Name = "page_size", EmitDefaultValue = true)]
         public int PageSize { get; set; }
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -183,12 +187,13 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

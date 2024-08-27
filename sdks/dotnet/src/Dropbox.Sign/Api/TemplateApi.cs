@@ -784,6 +784,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -885,6 +886,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateAddUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -974,6 +976,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1067,6 +1070,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1156,6 +1160,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
+
 
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1249,6 +1254,7 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateCreateEmbeddedDraft";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1330,6 +1336,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1394,7 +1401,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1414,6 +1420,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateDelete";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1504,6 +1511,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1571,7 +1579,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1597,6 +1604,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "file_type", fileType));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1679,6 +1687,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsDataUri";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1744,7 +1753,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1764,6 +1772,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsDataUri";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1852,6 +1861,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsFileUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -1919,7 +1929,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -1943,6 +1952,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "force_download", forceDownload));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateFilesAsFileUrl";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2025,6 +2035,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2090,7 +2101,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -2110,6 +2120,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateGet";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2207,6 +2218,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2272,7 +2284,6 @@ namespace Dropbox.Sign.Api
 
             string[] _contentTypes = new string[] {
             };
-
             var localVarContentType = Dropbox.Sign.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
 
             // to determine the Accept header
@@ -2307,6 +2318,7 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Dropbox.Sign.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateList";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2406,6 +2418,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2507,6 +2520,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateRemoveUser";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2606,6 +2620,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
@@ -2707,6 +2722,7 @@ namespace Dropbox.Sign.Api
             }
 
             localVarRequestOptions.PathParameters.Add("template_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(templateId)); // path parameter
+
             localVarRequestOptions.Operation = "TemplateApi.TemplateUpdateFiles";
             localVarRequestOptions.OperationIndex = operationIndex;
 
