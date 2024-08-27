@@ -260,6 +260,27 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // Pin (string) maxLength
+            if (this.Pin != null && this.Pin.Length > 12)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pin, length must be less than 12.", new [] { "Pin" });
+            }
+
+            // Pin (string) minLength
+            if (this.Pin != null && this.Pin.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pin, length must be greater than 4.", new [] { "Pin" });
+            }
+
+            yield break;
+        }
 
         public List<OpenApiType> GetOpenApiTypes()
         {
@@ -302,28 +323,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Pin (string) maxLength
-            if (this.Pin != null && this.Pin.Length > 12)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pin, length must be less than 12.", new [] { "Pin" });
-            }
-
-            // Pin (string) minLength
-            if (this.Pin != null && this.Pin.Length < 4)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pin, length must be greater than 4.", new [] { "Pin" });
-            }
-
-            yield break;
         }
     }
 

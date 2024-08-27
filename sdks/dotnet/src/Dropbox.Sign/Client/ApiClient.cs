@@ -176,8 +176,7 @@ namespace Dropbox.Sign.Client
 
         private readonly RestClient _restClient;
 
-
-    /// <summary>
+        /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
         /// </summary>

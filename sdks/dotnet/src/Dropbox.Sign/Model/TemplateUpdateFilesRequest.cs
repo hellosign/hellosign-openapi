@@ -231,6 +231,27 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 5000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+            }
+
+            // Subject (string) maxLength
+            if (this.Subject != null && this.Subject.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 100.", new [] { "Subject" });
+            }
+
+            yield break;
+        }
 
         public List<OpenApiType> GetOpenApiTypes()
         {
@@ -273,28 +294,6 @@ namespace Dropbox.Sign.Model
             });
 
             return types;
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
-        {
-            // Message (string) maxLength
-            if (this.Message != null && this.Message.Length > 5000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
-            }
-
-            // Subject (string) maxLength
-            if (this.Subject != null && this.Subject.Length > 100)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Subject, length must be less than 100.", new [] { "Subject" });
-            }
-
-            yield break;
         }
     }
 

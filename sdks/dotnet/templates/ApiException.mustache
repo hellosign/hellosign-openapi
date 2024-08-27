@@ -1,7 +1,9 @@
 {{>partial_header}}
 
 using System;
+{{! CUSTOM - BEGIN }}
 using Dropbox.Sign.Model;
+{{! CUSTOM - END }}
 
 namespace {{packageName}}.Client
 {
@@ -20,7 +22,12 @@ namespace {{packageName}}.Client
         /// Gets or sets the error content (body json object)
         /// </summary>
         /// <value>The error content (Http response body).</value>
+{{#vendorExtensions.x-ignore-block}}
+        public object ErrorContent { get; private set; }
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         public ErrorResponse ErrorContent { get; private set; }
+{{! CUSTOM - END }}
 
         /// <summary>
         /// Gets or sets the HTTP headers
@@ -50,7 +57,12 @@ namespace {{packageName}}.Client
         /// <param name="message">Error message.</param>
         /// <param name="errorContent">Error content.</param>
         /// <param name="headers">HTTP Headers.</param>
+{{#vendorExtensions.x-ignore-block}}
+        public ApiException(int errorCode, string message, object errorContent = null, Multimap<string, string> headers = null) : base(message)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         public ApiException(int errorCode, string message, ErrorResponse errorContent = null, Multimap<string, string> headers = null) : base(message)
+{{! CUSTOM - END }}
         {
             this.ErrorCode = errorCode;
             this.ErrorContent = errorContent;

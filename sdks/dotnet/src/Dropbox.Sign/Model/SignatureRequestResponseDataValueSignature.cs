@@ -178,26 +178,6 @@ namespace Dropbox.Sign.Model
                 return hashCode;
             }
         }
-
-        public List<OpenApiType> GetOpenApiTypes()
-        {
-            var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
-            });
-            types.Add(new OpenApiType(){
-                Name = "value",
-                Property = "Value",
-                Type = "string",
-                Value = Value,
-            });
-
-            return types;
-        }
-
         /// <summary>
         /// To validate all properties of the instance
         /// </summary>
@@ -220,6 +200,25 @@ namespace Dropbox.Sign.Model
                 yield return x;
             }
             yield break;
+        }
+
+        public List<OpenApiType> GetOpenApiTypes()
+        {
+            var types = new List<OpenApiType>();
+            types.Add(new OpenApiType(){
+                Name = "type",
+                Property = "Type",
+                Type = "string",
+                Value = Type,
+            });
+            types.Add(new OpenApiType(){
+                Name = "value",
+                Property = "Value",
+                Type = "string",
+                Value = Value,
+            });
+
+            return types;
         }
     }
 

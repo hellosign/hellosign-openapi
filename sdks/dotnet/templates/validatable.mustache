@@ -29,7 +29,12 @@
             {{#parent}}
             {{^isArray}}
             {{^isMap}}
+{{#vendorExtensions.x-ignore-block}}
+            foreach (var x in {{#discriminator}}base.{{/discriminator}}BaseValidate(validationContext))
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             foreach (var x in BaseValidate(validationContext))
+{{! CUSTOM - END }}
             {
                 yield return x;
             }

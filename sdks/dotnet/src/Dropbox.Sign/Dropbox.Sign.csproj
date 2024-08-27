@@ -10,6 +10,7 @@
     <Company>Dropbox Sign API Team</Company>
     <AssemblyTitle>Dropbox Sign .Net SDK</AssemblyTitle>
     <Description>Client library for using the Dropbox Sign API</Description>
+    <Copyright>Dropbox 2024</Copyright>
     <RootNamespace>Dropbox.Sign</RootNamespace>
     <Version>1.5-dev</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Dropbox.Sign.xml</DocumentationFile>

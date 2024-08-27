@@ -14,8 +14,13 @@
     [JsonSubtypes.KnownSubType(typeof({{{modelName}}}), "{{^vendorExtensions.x-discriminator-value}}{{{mappingName}}}{{/vendorExtensions.x-discriminator-value}}{{#vendorExtensions.x-discriminator-value}}{{{.}}}{{/vendorExtensions.x-discriminator-value}}")]
     {{/mappedModels}}
     {{/discriminator}}
+{{#vendorExtensions.x-ignore-block}}
+    {{>visibility}} partial class {{classname}} : {{#parent}}{{{.}}}, {{/parent}}IEquatable<{{classname}}>{{#validatable}}, IValidatableObject{{/validatable}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     {{>visibility}} partial class {{classname}} : {{#parent}}{{{.}}}, {{/parent}}IOpenApiTyped, IEquatable<{{classname}}>{{#validatable}}, IValidatableObject{{/validatable}}
+{{! CUSTOM - END }}
     {
         {{#vars}}
         {{#items.isEnum}}
@@ -104,6 +109,9 @@
         {{/conditionalSerialization}}
         {{/isEnum}}
         {{/vars}}
+{{#vendorExtensions.x-ignore-block}}
+    {{#hasRequired}}
+    {{^hasOnlyReadOnly}}
         /// <summary>
         /// Initializes a new instance of the <see cref="{{classname}}" /> class.
         /// </summary>
@@ -117,6 +125,24 @@
             this.AdditionalProperties = new Dictionary<string, object>();
         }
         {{/isAdditionalPropertiesTrue}}
+    {{/hasOnlyReadOnly}}
+    {{/hasRequired}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="{{classname}}" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        {{^isAdditionalPropertiesTrue}}
+        protected {{classname}}() { }
+        {{/isAdditionalPropertiesTrue}}
+        {{#isAdditionalPropertiesTrue}}
+        protected {{classname}}()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
+        {{/isAdditionalPropertiesTrue}}
+{{! CUSTOM - END }}
         /// <summary>
         /// Initializes a new instance of the <see cref="{{classname}}" /> class.
         /// </summary>
@@ -126,10 +152,16 @@
     {{#hasOnlyReadOnly}}
         [JsonConstructorAttribute]
     {{/hasOnlyReadOnly}}
+{{#vendorExtensions.x-ignore-block}}
+        public {{classname}}({{#readWriteVars}}{{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}} {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} = {{#defaultValue}}{{^isDateTime}}{{{defaultValue}}}{{/isDateTime}}{{#isDateTime}}default({{{datatypeWithEnum}}}){{/isDateTime}}{{/defaultValue}}{{^defaultValue}}default({{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}}){{/defaultValue}}{{^-last}}, {{/-last}}{{/readWriteVars}}){{#parent}} : base({{#parentVars}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{^-last}}, {{/-last}}{{/parentVars}}){{/parent}}
+        {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         public {{classname}}({{#readWriteVars}}{{#vendorExtensions.x-int-or-string}}Object{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-int-or-string}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}} {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} = {{#vendorExtensions.x-int-or-string}}null{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#defaultValue}}{{^isDateTime}}{{{defaultValue}}}{{/isDateTime}}{{#isDateTime}}default({{{datatypeWithEnum}}}){{/isDateTime}}{{/defaultValue}}{{^defaultValue}}default({{{datatypeWithEnum}}}{{#isEnum}}{{^isContainer}}{{^required}}?{{/required}}{{/isContainer}}{{/isEnum}}){{/defaultValue}}{{/vendorExtensions.x-int-or-string}}{{^-last}}, {{/-last}}{{/readWriteVars}})
         {
             {{#parent}}{{#parentVars}}this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
             {{/parentVars}}{{/parent}}
+{{! CUSTOM - END }}
             {{#vars}}
             {{^isInherited}}
             {{^isReadOnly}}
@@ -141,10 +173,20 @@
             {
                 throw new ArgumentNullException("{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} is a required property for {{classname}} and cannot be null");
             }
+{{#vendorExtensions.x-ignore-block}}
+            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
+{{! CUSTOM - END }}
             {{/vendorExtensions.x-csharp-value-type}}
             {{#vendorExtensions.x-csharp-value-type}}
+{{#vendorExtensions.x-ignore-block}}
+            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
+{{! CUSTOM - END }}
             {{/vendorExtensions.x-csharp-value-type}}
             {{/conditionalSerialization}}
             {{#conditionalSerialization}}
@@ -172,16 +214,31 @@
             {{^conditionalSerialization}}
             {{^vendorExtensions.x-csharp-value-type}}
             // use default value if no "{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}" provided
+{{#vendorExtensions.x-ignore-block}}
+            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} ?? {{{defaultValue}}};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} ?? {{{defaultValue}}}{{/vendorExtensions.x-int-or-string}};
+{{! CUSTOM - END }}
             {{/vendorExtensions.x-csharp-value-type}}
             {{#vendorExtensions.x-csharp-value-type}}
+{{#vendorExtensions.x-ignore-block}}
+            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
+{{! CUSTOM - END }}
             {{/vendorExtensions.x-csharp-value-type}}
             {{/conditionalSerialization}}
             {{/defaultValue}}
             {{^defaultValue}}
             {{^conditionalSerialization}}
+{{#vendorExtensions.x-ignore-block}}
+            this.{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             this.{{name}} = {{#vendorExtensions.x-int-or-string}}Convert.ToString({{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}){{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}}{{/vendorExtensions.x-int-or-string}};
+{{! CUSTOM - END }}
             {{/conditionalSerialization}}
             {{#conditionalSerialization}}
             this._{{name}} = {{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
@@ -199,6 +256,7 @@
             this.AdditionalProperties = new Dictionary<string, object>();
             {{/isAdditionalPropertiesTrue}}
         }
+{{! CUSTOM - BEGIN }}
         {{^mappedModels}}
 
         /// <summary>
@@ -217,6 +275,7 @@
             return obj;
         }
         {{/mappedModels}}
+{{! CUSTOM - END }}
 
         {{#vars}}
         {{^isInherited}}
@@ -233,12 +292,17 @@
         {{#deprecated}}
         [Obsolete]
         {{/deprecated}}
+{{#vendorExtensions.x-ignore-block}}
+        public {{{dataType}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         {{^vendorExtensions.x-int-or-string}}public {{{dataType}}} {{name}} { get; {{#isReadOnly}}private {{/isReadOnly}}set; }{{/vendorExtensions.x-int-or-string}}{{#vendorExtensions.x-int-or-string}}public object {{name}} {
             get => this._{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};
             set => this._{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}} = Convert.ToString(value);
         }
 
         private string _{{#lambda.camelcase_param}}{{name}}{{/lambda.camelcase_param}};{{/vendorExtensions.x-int-or-string}}
+{{! CUSTOM - END }}
 
         {{#isReadOnly}}
         /// <summary>
@@ -429,7 +493,10 @@
                 return hashCode;
             }
         }
-
+{{#validatable}}
+{{>validatable}}
+{{/validatable}}
+{{! CUSTOM - BEGIN }}
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
@@ -444,8 +511,5 @@
 
             return types;
         }
-
-{{#validatable}}
-{{>validatable}}
-{{/validatable}}
+{{! CUSTOM - END }}
     }

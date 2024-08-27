@@ -18,10 +18,9 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using Newtonsoft.Json;
 using System.Net.Http;
+using Newtonsoft.Json;
 using Dropbox.Sign.Model;
-
 
 namespace Dropbox.Sign.Client
 {

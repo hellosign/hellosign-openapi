@@ -4,6 +4,7 @@ additionalProperties:
   packageName: Dropbox.Sign
   packageAuthors: Dropbox Sign API Team
   packageCompany: Dropbox Sign API Team
+  packageCopyright: Dropbox 2024
   packageDescription: Client library for using the Dropbox Sign API
   packageVersion: 1.5-dev
   packageTitle: Dropbox Sign .Net SDK

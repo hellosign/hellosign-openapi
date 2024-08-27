@@ -11,14 +11,15 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using Newtonsoft.Json;
 using System.Net.Http;
 {{#useRestSharp}}
 {{#hasOAuthMethods}}using {{packageName}}.Client.Auth;
 {{/hasOAuthMethods}}
 {{/useRestSharp}}
+{{! CUSTOM - BEGIN }}
+using Newtonsoft.Json;
 using Dropbox.Sign.Model;
-
+{{! CUSTOM - END }}
 
 namespace {{packageName}}.Client
 {
@@ -56,13 +57,23 @@ namespace {{packageName}}.Client
             {
                 return new ApiException(status,
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
+{{#vendorExtensions.x-ignore-block}}
+                    response.RawContent, response.Headers);
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
                     JsonConvert.DeserializeObject<ErrorResponse>(response.RawContent), response.Headers);
+{{! CUSTOM - END }}
             }
             {{^netStandard}}
             if (status == 0)
             {
                 return new ApiException(status,
+{{#vendorExtensions.x-ignore-block}}
+                    string.Format("Error calling {0}: {1}", methodName, response.ErrorText), response.ErrorText);
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
                     string.Format("Error calling {0}: {1}", methodName, response.ErrorText), JsonConvert.DeserializeObject<ErrorResponse>(response.ErrorText));
+{{! CUSTOM - END }}
             }
             {{/netStandard}}
             return null;

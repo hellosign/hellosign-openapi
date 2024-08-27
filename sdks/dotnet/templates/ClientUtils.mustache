@@ -2,18 +2,20 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using {{packageName}}.Model;
 {{#useCompareNetObjects}}
 using KellermanSoftware.CompareNetObjects;
 {{/useCompareNetObjects}}
+{{! CUSTOM - BEGIN }}
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using {{packageName}}.Model;
+{{! CUSTOM - END }}
 
 namespace {{packageName}}.Client
 {
@@ -116,8 +118,10 @@ namespace {{packageName}}.Client
                 return boolean ? "true" : "false";
             if (obj is ICollection collection)
                 return string.Join(",", collection.Cast<object>());
+{{! CUSTOM - BEGIN }}
             if (obj is Enum && HasEnumMemberAttrValue(obj))
                 return GetEnumMemberAttrValue(obj);
+{{! CUSTOM - END }}
 
             return Convert.ToString(obj, CultureInfo.InvariantCulture);
         }
@@ -216,6 +220,7 @@ namespace {{packageName}}.Client
 
             return JsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json");
         }
+{{! CUSTOM - BEGIN }}
 
         /// <summary>
         /// Is the Enum decorated with EnumMember Attribute
@@ -333,5 +338,6 @@ namespace {{packageName}}.Client
                 );
             }
         }
+{{! CUSTOM - END }}
     }
 }

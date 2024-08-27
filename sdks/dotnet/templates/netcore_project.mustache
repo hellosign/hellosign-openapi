@@ -11,11 +11,17 @@
     <Company>{{packageCompany}}</Company>
     <AssemblyTitle>{{packageTitle}}</AssemblyTitle>
     <Description>{{packageDescription}}</Description>
+    <Copyright>{{packageCopyright}}</Copyright>
     <RootNamespace>{{packageName}}</RootNamespace>
     <Version>{{packageVersion}}</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\{{packageName}}.xml</DocumentationFile>{{#licenseId}}
     <PackageLicenseExpression>{{.}}</PackageLicenseExpression>{{/licenseId}}
+{{#vendorExtensions.x-ignore-block}}
+    <RepositoryUrl>https://{{{gitHost}}}/{{{gitUserId}}}/{{{gitRepoId}}}.git</RepositoryUrl>
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     <RepositoryUrl>https://github.com/hellosign/dropbox-sign-dotnet.git</RepositoryUrl>
+{{! CUSTOM - END }}
     <RepositoryType>git</RepositoryType>{{#releaseNote}}
     <PackageReleaseNotes>{{.}}</PackageReleaseNotes>{{/releaseNote}}{{#packageTags}}
     <PackageTags>{{{.}}}</PackageTags>{{/packageTags}}{{#nrt}}
@@ -48,4 +54,12 @@
     {{/validatable}}
   </ItemGroup>
 
+{{#vendorExtensions.x-ignore-block}}
+  <ItemGroup>
+    <None Remove="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+{{/vendorExtensions.x-ignore-block}}
 </Project>

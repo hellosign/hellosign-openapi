@@ -173,10 +173,11 @@ namespace {{packageName}}.Client
     {
         private readonly string _baseUrl;
 
+{{! CUSTOM - BEGIN }}
         private readonly RestClient _restClient;
 
-
-    /// <summary>
+{{! CUSTOM - END }}
+        /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
         /// </summary>
@@ -227,6 +228,7 @@ namespace {{packageName}}.Client
             _baseUrl = basePath;
         }
 
+{{! CUSTOM - BEGIN }}
         /// <summary>
             /// Initializes a new instance of the <see cref="ApiClient" />. This should be used in unit tests only
             /// </summary>
@@ -242,6 +244,7 @@ namespace {{packageName}}.Client
             _restClient = mockClient;
         }
 
+{{! CUSTOM - END }}
         /// <summary>
         /// Constructs the RestSharp version of an http method
         /// </summary>
@@ -475,6 +478,11 @@ namespace {{packageName}}.Client
                 UserAgent = configuration.UserAgent
             };
 
+{{#vendorExtensions.x-ignore-block}}
+            RestClient client = new RestClient(clientOptions)
+                .UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             RestClient client = _restClient;
             if (client == null)
             {
@@ -482,6 +490,7 @@ namespace {{packageName}}.Client
             }
 
             client.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration));
+{{! CUSTOM - END }}
 
             {{#hasOAuthMethods}}
             if (!string.IsNullOrEmpty(configuration.OAuthTokenUrl) &&

@@ -1,12 +1,15 @@
 {{>partial_header}}
 
 using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+{{! CUSTOM - BEGIN }}
+using System.Collections.Generic;
+{{! CUSTOM - END }}
 
 namespace {{packageName}}.{{modelPackage}}
 {
+{{! CUSTOM - BEGIN }}
     public struct OpenApiType
     {
         public string Name { set; get; }
@@ -20,6 +23,7 @@ namespace {{packageName}}.{{modelPackage}}
         List<OpenApiType> GetOpenApiTypes();
     }
 
+{{! CUSTOM - END }}
     /// <summary>
     ///  Abstract base class for oneOf, anyOf schemas in the OpenAPI specification
     /// </summary>
