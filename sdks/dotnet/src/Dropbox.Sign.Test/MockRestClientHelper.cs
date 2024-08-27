@@ -7,10 +7,10 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
-using RestSharp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
+using RestSharp;
 using RestSharp.Serializers;
 using RichardSzalay.MockHttp;
 using FileIO = System.IO.File;
@@ -19,54 +19,67 @@ namespace Dropbox.Sign.Test
 {
     public class MockRestClientHelper
     {
-        public static T CreateApi<T>(JObject data,
+        public static T CreateApi<T>(
+            JObject data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
-            string contentType = "application/json")
+            string contentType = "application/json"
+        )
         {
             var mockHttp = new MockHttpMessageHandler();
 
-            mockHttp.Expect("https://api.hellosign.com/*")
+            mockHttp
+                .Expect("https://api.hellosign.com/*")
                 .Respond(statusCode, contentType, JsonConvert.SerializeObject(data));
 
             return CreateApiInternal<T>(mockHttp);
         }
 
-        public static T CreateApiExpectMultiFormRequest<S, T>(S data,
+        public static T CreateApiExpectMultiFormRequest<S, T>(
+            S data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
-            string contentType = "application/json")
+            string contentType = "application/json"
+        )
         {
             var mockHttp = new MockHttpMessageHandler();
 
-            mockHttp.Expect("https://api.hellosign.com/*")
+            mockHttp
+                .Expect("https://api.hellosign.com/*")
                 .With(request => request.Content.GetType() == typeof(MultipartFormDataContent))
                 .Respond(statusCode, contentType, JsonConvert.SerializeObject(data));
 
             return CreateApiInternal<T>(mockHttp);
         }
 
-        public static T CreateApiExpectJsonRequest<S, T>(S data,
+        public static T CreateApiExpectJsonRequest<S, T>(
+            S data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
-            string contentType = "application/json")
+            string contentType = "application/json"
+        )
         {
             var mockHttp = new MockHttpMessageHandler();
 
-            mockHttp.Expect("https://api.hellosign.com/*")
+            mockHttp
+                .Expect("https://api.hellosign.com/*")
                 .With(request => request.Content.GetType() == typeof(StringContent))
                 .Respond(statusCode, contentType, JsonConvert.SerializeObject(data));
 
             return CreateApiInternal<T>(mockHttp);
         }
 
-        public static T CreateApiExpectContentContains<S, T>(S data,
+        public static T CreateApiExpectContentContains<S, T>(
+            S data,
             HttpStatusCode statusCode = HttpStatusCode.Accepted,
-            string contentType = "application/json", params string[] values)
+            string contentType = "application/json",
+            params string[] values
+        )
         {
             var mockHttp = new MockHttpMessageHandler();
-            mockHttp.Expect("https://api.hellosign.com/*")
+            mockHttp
+                .Expect("https://api.hellosign.com/*")
                 .With(request =>
                 {
                     var stream = request.Content.ReadAsStream();
-                    var streamReader = new StreamReader( stream );
+                    var streamReader = new StreamReader(stream);
                     var content = streamReader.ReadToEnd();
                     return values.All(value => content.Contains(value));
                 })
@@ -80,36 +93,38 @@ namespace Dropbox.Sign.Test
             var options = new RestClientOptions
             {
                 ConfigureMessageHandler = _ => handler,
-                BaseUrl = new Uri("https://api.hellosign.com")
+                BaseUrl = new Uri("https://api.hellosign.com"),
             };
-            var mockRestClient = new RestClient(options,
-                configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, GlobalConfiguration.Instance))
+            var mockRestClient = new RestClient(
+                options,
+                configureSerialization: serializerConfig =>
+                    serializerConfig.UseSerializer(
+                        () => new CustomJsonCodec(SerializerSettings, GlobalConfiguration.Instance)
+                    )
             );
-            
+
             Configuration config = new Configuration();
             config.Username = "YOUR_API_KEY";
             var client = new ApiClient(config.BasePath, mockRestClient);
             return (T)Activator.CreateInstance(typeof(T), client, client, config);
         }
-        
+
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
         /// </summary>
-        private static JsonSerializerSettings SerializerSettings { get; set; } = new JsonSerializerSettings
-        {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            ContractResolver = new DefaultContractResolver
+        private static JsonSerializerSettings SerializerSettings { get; set; } =
+            new JsonSerializerSettings
             {
-                NamingStrategy = new CamelCaseNamingStrategy
+                // OpenAPI generated types generally hide default constructors.
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                ContractResolver = new DefaultContractResolver
                 {
-                    OverrideSpecifiedNames = false
-                }
-            }
-        };
+                    NamingStrategy = new CamelCaseNamingStrategy { OverrideSpecifiedNames = false },
+                },
+            };
     }
-    
+
     // see ApiClient::CustomJsonCodec
     internal class CustomJsonCodec : IRestSerializer, ISerializer, IDeserializer
     {
@@ -120,11 +135,8 @@ namespace Dropbox.Sign.Test
             ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
             ContractResolver = new DefaultContractResolver
             {
-                NamingStrategy = new CamelCaseNamingStrategy
-                {
-                    OverrideSpecifiedNames = false
-                }
-            }
+                NamingStrategy = new CamelCaseNamingStrategy { OverrideSpecifiedNames = false },
+            },
         };
 
         public CustomJsonCodec(IReadableConfiguration configuration)
@@ -132,7 +144,10 @@ namespace Dropbox.Sign.Test
             _configuration = configuration;
         }
 
-        public CustomJsonCodec(JsonSerializerSettings serializerSettings, IReadableConfiguration configuration)
+        public CustomJsonCodec(
+            JsonSerializerSettings serializerSettings,
+            IReadableConfiguration configuration
+        )
         {
             _serializerSettings = serializerSettings;
             _configuration = configuration;
@@ -186,13 +201,19 @@ namespace Dropbox.Sign.Test
                     var filePath = string.IsNullOrEmpty(_configuration.TempFolderPath)
                         ? Path.GetTempPath()
                         : _configuration.TempFolderPath;
-                    var regex = new Regex(@"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$");
+                    var regex = new Regex(
+                        @"Content-Disposition=.*filename=['""]?([^'""\s]+)['""]?$"
+                    );
                     foreach (var header in response.Headers)
                     {
                         var match = regex.Match(header.ToString());
                         if (match.Success)
                         {
-                            string fileName = filePath + ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                            string fileName =
+                                filePath
+                                + ClientUtils.SanitizeFilename(
+                                    match.Groups[1].Value.Replace("\"", "").Replace("'", "")
+                                );
                             FileIO.WriteAllBytes(fileName, bytes);
                             return new FileStream(fileName, FileMode.Open);
                         }
@@ -228,9 +249,13 @@ namespace Dropbox.Sign.Test
 
         public string[] AcceptedContentTypes => ContentType.JsonAccept;
 
-        public SupportsContentType SupportsContentType => contentType =>
-            contentType.Value.EndsWith("json", StringComparison.InvariantCultureIgnoreCase) ||
-            contentType.Value.EndsWith("javascript", StringComparison.InvariantCultureIgnoreCase);
+        public SupportsContentType SupportsContentType =>
+            contentType =>
+                contentType.Value.EndsWith("json", StringComparison.InvariantCultureIgnoreCase)
+                || contentType.Value.EndsWith(
+                    "javascript",
+                    StringComparison.InvariantCultureIgnoreCase
+                );
 
         public ContentType ContentType { get; set; } = ContentType.Json;
 

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected BulkSendJobResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BulkSendJobResponse" /> class.
         /// </summary>
@@ -45,9 +46,13 @@ namespace Dropbox.Sign.Model
         /// <param name="total">The total amount of Signature Requests queued for sending..</param>
         /// <param name="isCreator">True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member..</param>
         /// <param name="createdAt">Time that the BulkSendJob was created..</param>
-        public BulkSendJobResponse(string bulkSendJobId = default(string), int total = default(int), bool isCreator = default(bool), int createdAt = default(int))
+        public BulkSendJobResponse(
+            string bulkSendJobId = default(string),
+            int total = default(int),
+            bool isCreator = default(bool),
+            int createdAt = default(int)
+        )
         {
-            
             this.BulkSendJobId = bulkSendJobId;
             this.Total = total;
             this.IsCreator = isCreator;
@@ -64,7 +69,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of BulkSendJobResponse");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of BulkSendJobResponse"
+                );
             }
 
             return obj;
@@ -76,7 +83,6 @@ namespace Dropbox.Sign.Model
         /// <value>The id of the BulkSendJob.</value>
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
-        
 
         /// <summary>
         /// The total amount of Signature Requests queued for sending.
@@ -84,7 +90,6 @@ namespace Dropbox.Sign.Model
         /// <value>The total amount of Signature Requests queued for sending.</value>
         [DataMember(Name = "total", EmitDefaultValue = true)]
         public int Total { get; set; }
-        
 
         /// <summary>
         /// True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
@@ -92,7 +97,6 @@ namespace Dropbox.Sign.Model
         /// <value>True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.</value>
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool IsCreator { get; set; }
-        
 
         /// <summary>
         /// Time that the BulkSendJob was created.
@@ -100,7 +104,6 @@ namespace Dropbox.Sign.Model
         /// <value>Time that the BulkSendJob was created.</value>
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,7 +127,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -148,24 +154,15 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.BulkSendJobId == input.BulkSendJobId ||
-                    (this.BulkSendJobId != null &&
-                    this.BulkSendJobId.Equals(input.BulkSendJobId))
-                ) && 
-                (
-                    this.Total == input.Total ||
-                    this.Total.Equals(input.Total)
-                ) && 
-                (
-                    this.IsCreator == input.IsCreator ||
-                    this.IsCreator.Equals(input.IsCreator)
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    this.CreatedAt.Equals(input.CreatedAt)
-                );
+            return (
+                    this.BulkSendJobId == input.BulkSendJobId
+                    || (
+                        this.BulkSendJobId != null && this.BulkSendJobId.Equals(input.BulkSendJobId)
+                    )
+                )
+                && (this.Total == input.Total || this.Total.Equals(input.Total))
+                && (this.IsCreator == input.IsCreator || this.IsCreator.Equals(input.IsCreator))
+                && (this.CreatedAt == input.CreatedAt || this.CreatedAt.Equals(input.CreatedAt));
         }
 
         /// <summary>
@@ -193,7 +190,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -201,33 +200,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "bulk_send_job_id",
-                Property = "BulkSendJobId",
-                Type = "string",
-                Value = BulkSendJobId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "total",
-                Property = "Total",
-                Type = "int",
-                Value = Total,
-            });
-            types.Add(new OpenApiType(){
-                Name = "is_creator",
-                Property = "IsCreator",
-                Type = "bool",
-                Value = IsCreator,
-            });
-            types.Add(new OpenApiType(){
-                Name = "created_at",
-                Property = "CreatedAt",
-                Type = "int",
-                Value = CreatedAt,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "bulk_send_job_id",
+                    Property = "BulkSendJobId",
+                    Type = "string",
+                    Value = BulkSendJobId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "total",
+                    Property = "Total",
+                    Type = "int",
+                    Value = Total,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "is_creator",
+                    Property = "IsCreator",
+                    Type = "bool",
+                    Value = IsCreator,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "created_at",
+                    Property = "CreatedAt",
+                    Type = "int",
+                    Value = CreatedAt,
+                }
+            );
 
             return types;
         }
     }
-
 }

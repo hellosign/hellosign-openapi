@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -336,7 +336,6 @@ namespace Dropbox.Sign.Model
         /// Enum WY for value: WY
         /// </summary>
         [EnumMember(Value = "WY")]
-        WY = 51
+        WY = 51,
     }
-
 }

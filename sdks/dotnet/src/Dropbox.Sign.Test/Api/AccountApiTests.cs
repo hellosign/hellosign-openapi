@@ -1,9 +1,8 @@
 using System.Net;
-using Xunit;
-
-using Dropbox.Sign.Client;
 using Dropbox.Sign.Api;
+using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
+using Xunit;
 
 namespace Dropbox.Sign.Test.Api
 {
@@ -17,11 +16,12 @@ namespace Dropbox.Sign.Test.Api
 
             var obj = AccountVerifyRequest.Init(requestData.ToString());
 
-            var api = MockRestClientHelper.CreateApi<AccountApi>(errorData, HttpStatusCode.BadRequest);
-
-            var ex = Assert.Throws<ApiException>(() =>
-                api.AccountVerify(obj)
+            var api = MockRestClientHelper.CreateApi<AccountApi>(
+                errorData,
+                HttpStatusCode.BadRequest
             );
+
+            var ex = Assert.Throws<ApiException>(() => api.AccountVerify(obj));
 
             TestHelper.AssertJsonSame(errorData.ToString(), ex.ErrorContent.ToJson());
         }

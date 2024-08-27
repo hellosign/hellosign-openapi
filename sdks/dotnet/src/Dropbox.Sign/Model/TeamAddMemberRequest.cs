@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -62,9 +62,8 @@ namespace Dropbox.Sign.Model
             /// Enum Admin for value: Admin
             /// </summary>
             [EnumMember(Value = "Admin")]
-            Admin = 4
+            Admin = 4,
         }
-
 
         /// <summary>
         /// A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.
@@ -72,20 +71,25 @@ namespace Dropbox.Sign.Model
         /// <value>A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public RoleEnum? Role { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamAddMemberRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TeamAddMemberRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamAddMemberRequest" /> class.
         /// </summary>
         /// <param name="accountId">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team..</param>
         /// <param name="emailAddress">&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team..</param>
         /// <param name="role">A role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;team_id&#x60; is provided..</param>
-        public TeamAddMemberRequest(string accountId = default(string), string emailAddress = default(string), RoleEnum? role = default(RoleEnum?))
+        public TeamAddMemberRequest(
+            string accountId = default(string),
+            string emailAddress = default(string),
+            RoleEnum? role = default(RoleEnum?)
+        )
         {
-            
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.Role = role;
@@ -101,7 +105,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TeamAddMemberRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TeamAddMemberRequest"
+                );
             }
 
             return obj;
@@ -113,7 +119,6 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;account_id&#x60; or &#x60;email_address&#x60; is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
@@ -121,7 +126,6 @@ namespace Dropbox.Sign.Model
         /// <value>&#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,7 +148,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -168,21 +175,15 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    this.Role.Equals(input.Role)
-                );
+            return (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
+                )
+                && (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
+                )
+                && (this.Role == input.Role || this.Role.Equals(input.Role));
         }
 
         /// <summary>
@@ -212,7 +213,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -220,27 +223,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
-            types.Add(new OpenApiType(){
-                Name = "role",
-                Property = "Role",
-                Type = "string",
-                Value = Role,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "role",
+                    Property = "Role",
+                    Type = "string",
+                    Value = Role,
+                }
+            );
 
             return types;
         }
     }
-
 }

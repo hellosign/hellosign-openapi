@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,13 +31,18 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestResponseDataValueSignature")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseDataValueSignature : SignatureRequestResponseDataBase, IOpenApiTyped, IEquatable<SignatureRequestResponseDataValueSignature>, IValidatableObject
+    public partial class SignatureRequestResponseDataValueSignature
+        : SignatureRequestResponseDataBase,
+            IOpenApiTyped,
+            IEquatable<SignatureRequestResponseDataValueSignature>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataValueSignature" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SignatureRequestResponseDataValueSignature() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataValueSignature" /> class.
         /// </summary>
@@ -47,13 +52,20 @@ namespace Dropbox.Sign.Model
         /// <param name="signatureId">The ID of the signature to which this response is linked..</param>
         /// <param name="name">The name of the form field..</param>
         /// <param name="required">A boolean value denoting if this field is required..</param>
-        public SignatureRequestResponseDataValueSignature(string type = @"signature", string value = default(string), string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool))
+        public SignatureRequestResponseDataValueSignature(
+            string type = @"signature",
+            string value = default(string),
+            string apiId = default(string),
+            string signatureId = default(string),
+            string name = default(string),
+            bool required = default(bool)
+        )
         {
             this.ApiId = apiId;
             this.SignatureId = signatureId;
             this.Name = name;
             this.Required = required;
-            
+
             // use default value if no "type" provided
             this.Type = type ?? "signature";
             this.Value = value;
@@ -65,11 +77,15 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static SignatureRequestResponseDataValueSignature Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseDataValueSignature>(jsonData);
+            var obj = JsonConvert.DeserializeObject<SignatureRequestResponseDataValueSignature>(
+                jsonData
+            );
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestResponseDataValueSignature");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of SignatureRequestResponseDataValueSignature"
+                );
             }
 
             return obj;
@@ -81,7 +97,6 @@ namespace Dropbox.Sign.Model
         /// <value>A signature input field</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
-        
 
         /// <summary>
         /// The value of the form field.
@@ -89,7 +104,6 @@ namespace Dropbox.Sign.Model
         /// <value>The value of the form field.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,7 +126,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -136,16 +153,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+            return base.Equals(input)
+                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)))
+                && base.Equals(input)
+                && (
+                    this.Value == input.Value
+                    || (this.Value != null && this.Value.Equals(input.Value))
                 );
         }
 
@@ -175,7 +188,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             return this.BaseValidate(validationContext);
         }
@@ -197,21 +212,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
-            });
-            types.Add(new OpenApiType(){
-                Name = "value",
-                Property = "Value",
-                Type = "string",
-                Value = Value,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "type",
+                    Property = "Type",
+                    Type = "string",
+                    Value = Type,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "value",
+                    Property = "Value",
+                    Type = "string",
+                    Value = Value,
+                }
+            );
 
             return types;
         }
     }
-
 }

@@ -45,7 +45,8 @@ if [[ -z "$GITHUB_ACTIONS" ]]; then
 fi
 
 printf "Running tests ...\n"
-bash "${DIR}/bin/dotnet" dotnet test src/Dropbox.Sign.Test/
+bash "${DIR}/bin/dotnet" "dotnet test src/Dropbox.Sign.Test/"
+bash "${DIR}/bin/dotnet" "dotnet tool install csharpier --global && /root/.dotnet/tools/dotnet-csharpier src/"
 
 printf "Success!\n"
 

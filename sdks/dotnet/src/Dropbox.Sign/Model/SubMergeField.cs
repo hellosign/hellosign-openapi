@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -50,9 +50,8 @@ namespace Dropbox.Sign.Model
             /// Enum Checkbox for value: checkbox
             /// </summary>
             [EnumMember(Value = "checkbox")]
-            Checkbox = 2
+            Checkbox = 2,
         }
-
 
         /// <summary>
         /// The type of merge field.
@@ -60,11 +59,13 @@ namespace Dropbox.Sign.Model
         /// <value>The type of merge field.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubMergeField" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubMergeField() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubMergeField" /> class.
         /// </summary>
@@ -72,11 +73,12 @@ namespace Dropbox.Sign.Model
         /// <param name="type">The type of merge field. (required).</param>
         public SubMergeField(string name = default(string), TypeEnum type = default(TypeEnum))
         {
-            
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException("name is a required property for SubMergeField and cannot be null");
+                throw new ArgumentNullException(
+                    "name is a required property for SubMergeField and cannot be null"
+                );
             }
             this.Name = name;
             this.Type = type;
@@ -104,7 +106,6 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the merge field. Must be unique.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -126,7 +127,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -150,16 +154,8 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
+            return (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
+                && (this.Type == input.Type || this.Type.Equals(input.Type));
         }
 
         /// <summary>
@@ -185,7 +181,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -193,21 +191,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "name",
-                Property = "Name",
-                Type = "string",
-                Value = Name,
-            });
-            types.Add(new OpenApiType(){
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "name",
+                    Property = "Name",
+                    Type = "string",
+                    Value = Name,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "type",
+                    Property = "Type",
+                    Type = "string",
+                    Value = Type,
+                }
+            );
 
             return types;
         }
     }
-
 }

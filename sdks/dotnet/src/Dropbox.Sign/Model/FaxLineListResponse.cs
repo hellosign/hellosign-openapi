@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,15 +38,19 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected FaxLineListResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineListResponse" /> class.
         /// </summary>
         /// <param name="listInfo">listInfo.</param>
         /// <param name="faxLines">faxLines.</param>
         /// <param name="warnings">warnings.</param>
-        public FaxLineListResponse(ListInfoResponse listInfo = default(ListInfoResponse), List<FaxLineResponseFaxLine> faxLines = default(List<FaxLineResponseFaxLine>), WarningResponse warnings = default(WarningResponse))
+        public FaxLineListResponse(
+            ListInfoResponse listInfo = default(ListInfoResponse),
+            List<FaxLineResponseFaxLine> faxLines = default(List<FaxLineResponseFaxLine>),
+            WarningResponse warnings = default(WarningResponse)
+        )
         {
-            
             this.ListInfo = listInfo;
             this.FaxLines = faxLines;
             this.Warnings = warnings;
@@ -62,7 +66,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of FaxLineListResponse");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of FaxLineListResponse"
+                );
             }
 
             return obj;
@@ -73,21 +79,18 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets FaxLines
         /// </summary>
         [DataMember(Name = "fax_lines", EmitDefaultValue = true)]
         public List<FaxLineResponseFaxLine> FaxLines { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public WarningResponse Warnings { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -110,7 +113,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -134,22 +140,19 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.ListInfo == input.ListInfo ||
-                    (this.ListInfo != null &&
-                    this.ListInfo.Equals(input.ListInfo))
-                ) && 
-                (
-                    this.FaxLines == input.FaxLines ||
-                    this.FaxLines != null &&
-                    input.FaxLines != null &&
-                    this.FaxLines.SequenceEqual(input.FaxLines)
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    (this.Warnings != null &&
-                    this.Warnings.Equals(input.Warnings))
+            return (
+                    this.ListInfo == input.ListInfo
+                    || (this.ListInfo != null && this.ListInfo.Equals(input.ListInfo))
+                )
+                && (
+                    this.FaxLines == input.FaxLines
+                    || this.FaxLines != null
+                        && input.FaxLines != null
+                        && this.FaxLines.SequenceEqual(input.FaxLines)
+                )
+                && (
+                    this.Warnings == input.Warnings
+                    || (this.Warnings != null && this.Warnings.Equals(input.Warnings))
                 );
         }
 
@@ -183,7 +186,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -191,27 +196,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "list_info",
-                Property = "ListInfo",
-                Type = "ListInfoResponse",
-                Value = ListInfo,
-            });
-            types.Add(new OpenApiType(){
-                Name = "fax_lines",
-                Property = "FaxLines",
-                Type = "List<FaxLineResponseFaxLine>",
-                Value = FaxLines,
-            });
-            types.Add(new OpenApiType(){
-                Name = "warnings",
-                Property = "Warnings",
-                Type = "WarningResponse",
-                Value = Warnings,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "list_info",
+                    Property = "ListInfo",
+                    Type = "ListInfoResponse",
+                    Value = ListInfo,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "fax_lines",
+                    Property = "FaxLines",
+                    Type = "List<FaxLineResponseFaxLine>",
+                    Value = FaxLines,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "warnings",
+                    Property = "Warnings",
+                    Type = "WarningResponse",
+                    Value = Warnings,
+                }
+            );
 
             return types;
         }
     }
-
 }

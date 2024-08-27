@@ -1,7 +1,6 @@
-using Xunit;
-
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Model;
+using Xunit;
 
 namespace Dropbox.Sign.Test.Api
 {

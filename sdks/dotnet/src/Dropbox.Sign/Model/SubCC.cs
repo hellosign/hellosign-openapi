@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubCC() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubCC" /> class.
         /// </summary>
@@ -45,17 +46,20 @@ namespace Dropbox.Sign.Model
         /// <param name="emailAddress">The email address of the CC recipient. (required).</param>
         public SubCC(string role = default(string), string emailAddress = default(string))
         {
-            
             // to ensure "role" is required (not null)
             if (role == null)
             {
-                throw new ArgumentNullException("role is a required property for SubCC and cannot be null");
+                throw new ArgumentNullException(
+                    "role is a required property for SubCC and cannot be null"
+                );
             }
             this.Role = role;
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
-                throw new ArgumentNullException("emailAddress is a required property for SubCC and cannot be null");
+                throw new ArgumentNullException(
+                    "emailAddress is a required property for SubCC and cannot be null"
+                );
             }
             this.EmailAddress = emailAddress;
         }
@@ -82,7 +86,6 @@ namespace Dropbox.Sign.Model
         /// <value>Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.</value>
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
-        
 
         /// <summary>
         /// The email address of the CC recipient.
@@ -90,7 +93,6 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the CC recipient.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,7 +114,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -136,16 +141,10 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
+            return (this.Role == input.Role || (this.Role != null && this.Role.Equals(input.Role)))
+                && (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
                 );
         }
 
@@ -175,7 +174,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -183,21 +184,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "role",
-                Property = "Role",
-                Type = "string",
-                Value = Role,
-            });
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "role",
+                    Property = "Role",
+                    Type = "string",
+                    Value = Role,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
 
             return types;
         }
     }
-
 }

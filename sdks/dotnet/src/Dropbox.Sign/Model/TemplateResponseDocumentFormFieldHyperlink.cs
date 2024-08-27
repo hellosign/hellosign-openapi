@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,13 +31,18 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentFormFieldHyperlink")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseDocumentFormFieldHyperlink : TemplateResponseDocumentFormFieldBase, IOpenApiTyped, IEquatable<TemplateResponseDocumentFormFieldHyperlink>, IValidatableObject
+    public partial class TemplateResponseDocumentFormFieldHyperlink
+        : TemplateResponseDocumentFormFieldBase,
+            IOpenApiTyped,
+            IEquatable<TemplateResponseDocumentFormFieldHyperlink>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldHyperlink" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateResponseDocumentFormFieldHyperlink() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFormFieldHyperlink" /> class.
         /// </summary>
@@ -55,7 +60,23 @@ namespace Dropbox.Sign.Model
         /// <param name="height">The height in pixels of this form field..</param>
         /// <param name="required">Boolean showing whether or not this field is required..</param>
         /// <param name="group">The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60; except for Radio fields..</param>
-        public TemplateResponseDocumentFormFieldHyperlink(string type = @"hyperlink", TemplateResponseFieldAvgTextLength avgTextLength = default(TemplateResponseFieldAvgTextLength), bool isMultiline = default(bool), int originalFontSize = default(int), string fontFamily = default(string), string apiId = default(string), string name = default(string), string signer = default(string), int x = default(int), int y = default(int), int width = default(int), int height = default(int), bool required = default(bool), string group = default(string))
+        public TemplateResponseDocumentFormFieldHyperlink(
+            string type = @"hyperlink",
+            TemplateResponseFieldAvgTextLength avgTextLength =
+                default(TemplateResponseFieldAvgTextLength),
+            bool isMultiline = default(bool),
+            int originalFontSize = default(int),
+            string fontFamily = default(string),
+            string apiId = default(string),
+            string name = default(string),
+            string signer = default(string),
+            int x = default(int),
+            int y = default(int),
+            int width = default(int),
+            int height = default(int),
+            bool required = default(bool),
+            string group = default(string)
+        )
         {
             this.ApiId = apiId;
             this.Name = name;
@@ -66,11 +87,13 @@ namespace Dropbox.Sign.Model
             this.Height = height;
             this.Required = required;
             this.Group = group;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException("type is a required property for TemplateResponseDocumentFormFieldHyperlink and cannot be null");
+                throw new ArgumentNullException(
+                    "type is a required property for TemplateResponseDocumentFormFieldHyperlink and cannot be null"
+                );
             }
             this.Type = type;
             this.AvgTextLength = avgTextLength;
@@ -85,11 +108,15 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static TemplateResponseDocumentFormFieldHyperlink Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<TemplateResponseDocumentFormFieldHyperlink>(jsonData);
+            var obj = JsonConvert.DeserializeObject<TemplateResponseDocumentFormFieldHyperlink>(
+                jsonData
+            );
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseDocumentFormFieldHyperlink");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TemplateResponseDocumentFormFieldHyperlink"
+                );
             }
 
             return obj;
@@ -101,14 +128,12 @@ namespace Dropbox.Sign.Model
         /// <value>The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses &#x60;TemplateResponseDocumentFormFieldText&#x60; * Dropdown Field uses &#x60;TemplateResponseDocumentFormFieldDropdown&#x60; * Hyperlink Field uses &#x60;TemplateResponseDocumentFormFieldHyperlink&#x60; * Checkbox Field uses &#x60;TemplateResponseDocumentFormFieldCheckbox&#x60; * Radio Field uses &#x60;TemplateResponseDocumentFormFieldRadio&#x60; * Signature Field uses &#x60;TemplateResponseDocumentFormFieldSignature&#x60; * Date Signed Field uses &#x60;TemplateResponseDocumentFormFieldDateSigned&#x60; * Initials Field uses &#x60;TemplateResponseDocumentFormFieldInitials&#x60;</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets AvgTextLength
         /// </summary>
         [DataMember(Name = "avg_text_length", EmitDefaultValue = true)]
         public TemplateResponseFieldAvgTextLength AvgTextLength { get; set; }
-        
 
         /// <summary>
         /// Whether this form field is multiline text.
@@ -116,7 +141,6 @@ namespace Dropbox.Sign.Model
         /// <value>Whether this form field is multiline text.</value>
         [DataMember(Name = "isMultiline", EmitDefaultValue = true)]
         public bool IsMultiline { get; set; }
-        
 
         /// <summary>
         /// Original font size used in this form field&#39;s text.
@@ -124,7 +148,6 @@ namespace Dropbox.Sign.Model
         /// <value>Original font size used in this form field&#39;s text.</value>
         [DataMember(Name = "originalFontSize", EmitDefaultValue = true)]
         public int OriginalFontSize { get; set; }
-        
 
         /// <summary>
         /// Font family used in this form field&#39;s text.
@@ -132,7 +155,6 @@ namespace Dropbox.Sign.Model
         /// <value>Font family used in this form field&#39;s text.</value>
         [DataMember(Name = "fontFamily", EmitDefaultValue = true)]
         public string FontFamily { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -158,7 +180,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -182,29 +207,29 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && base.Equals(input) && 
-                (
-                    this.AvgTextLength == input.AvgTextLength ||
-                    (this.AvgTextLength != null &&
-                    this.AvgTextLength.Equals(input.AvgTextLength))
-                ) && base.Equals(input) && 
-                (
-                    this.IsMultiline == input.IsMultiline ||
-                    this.IsMultiline.Equals(input.IsMultiline)
-                ) && base.Equals(input) && 
-                (
-                    this.OriginalFontSize == input.OriginalFontSize ||
-                    this.OriginalFontSize.Equals(input.OriginalFontSize)
-                ) && base.Equals(input) && 
-                (
-                    this.FontFamily == input.FontFamily ||
-                    (this.FontFamily != null &&
-                    this.FontFamily.Equals(input.FontFamily))
+            return base.Equals(input)
+                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)))
+                && base.Equals(input)
+                && (
+                    this.AvgTextLength == input.AvgTextLength
+                    || (
+                        this.AvgTextLength != null && this.AvgTextLength.Equals(input.AvgTextLength)
+                    )
+                )
+                && base.Equals(input)
+                && (
+                    this.IsMultiline == input.IsMultiline
+                    || this.IsMultiline.Equals(input.IsMultiline)
+                )
+                && base.Equals(input)
+                && (
+                    this.OriginalFontSize == input.OriginalFontSize
+                    || this.OriginalFontSize.Equals(input.OriginalFontSize)
+                )
+                && base.Equals(input)
+                && (
+                    this.FontFamily == input.FontFamily
+                    || (this.FontFamily != null && this.FontFamily.Equals(input.FontFamily))
                 );
         }
 
@@ -240,7 +265,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             return this.BaseValidate(validationContext);
         }
@@ -262,39 +289,53 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
-            });
-            types.Add(new OpenApiType(){
-                Name = "avg_text_length",
-                Property = "AvgTextLength",
-                Type = "TemplateResponseFieldAvgTextLength",
-                Value = AvgTextLength,
-            });
-            types.Add(new OpenApiType(){
-                Name = "isMultiline",
-                Property = "IsMultiline",
-                Type = "bool",
-                Value = IsMultiline,
-            });
-            types.Add(new OpenApiType(){
-                Name = "originalFontSize",
-                Property = "OriginalFontSize",
-                Type = "int",
-                Value = OriginalFontSize,
-            });
-            types.Add(new OpenApiType(){
-                Name = "fontFamily",
-                Property = "FontFamily",
-                Type = "string",
-                Value = FontFamily,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "type",
+                    Property = "Type",
+                    Type = "string",
+                    Value = Type,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "avg_text_length",
+                    Property = "AvgTextLength",
+                    Type = "TemplateResponseFieldAvgTextLength",
+                    Value = AvgTextLength,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "isMultiline",
+                    Property = "IsMultiline",
+                    Type = "bool",
+                    Value = IsMultiline,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "originalFontSize",
+                    Property = "OriginalFontSize",
+                    Type = "int",
+                    Value = OriginalFontSize,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "fontFamily",
+                    Property = "FontFamily",
+                    Type = "string",
+                    Value = FontFamily,
+                }
+            );
 
             return types;
         }
     }
-
 }

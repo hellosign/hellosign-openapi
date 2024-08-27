@@ -12,7 +12,7 @@ namespace Dropbox.Sign
 
         public const string EVENT_TYPE_APP_CALLBACK = "app_callback";
 
-        private EventCallbackHelper() {}
+        private EventCallbackHelper() { }
 
         /// <summary>
         /// Verify that a callback came from HelloSign.com
@@ -53,9 +53,7 @@ namespace Dropbox.Sign
             var hash = new HMACSHA256(keyBytes);
             var hashBytes = hash.ComputeHash(textBytes);
 
-            return BitConverter.ToString(hashBytes)
-                .Replace("-", "")
-                .ToLower();
+            return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
         }
     }
 }

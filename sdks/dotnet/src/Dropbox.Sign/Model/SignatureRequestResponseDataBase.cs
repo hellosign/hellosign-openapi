@@ -13,16 +13,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
+using JsonSubTypes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using JsonSubTypes;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -33,7 +33,10 @@ namespace Dropbox.Sign.Model
     [DataContract(Name = "SignatureRequestResponseDataBase")]
     [JsonConverter(typeof(JsonSubtypes), "Type")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckbox), "checkbox")]
-    [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueCheckboxMerge), "checkbox-merge")]
+    [JsonSubtypes.KnownSubType(
+        typeof(SignatureRequestResponseDataValueCheckboxMerge),
+        "checkbox-merge"
+    )]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDateSigned), "date_signed")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueDropdown), "dropdown")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueInitials), "initials")]
@@ -42,13 +45,16 @@ namespace Dropbox.Sign.Model
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueText), "text")]
     [JsonSubtypes.KnownSubType(typeof(SignatureRequestResponseDataValueTextMerge), "text-merge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestResponseDataBase : IEquatable<SignatureRequestResponseDataBase>, IValidatableObject
+    public partial class SignatureRequestResponseDataBase
+        : IEquatable<SignatureRequestResponseDataBase>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataBase" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SignatureRequestResponseDataBase() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestResponseDataBase" /> class.
         /// </summary>
@@ -57,9 +63,14 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of the form field..</param>
         /// <param name="required">A boolean value denoting if this field is required..</param>
         /// <param name="type">type.</param>
-        public SignatureRequestResponseDataBase(string apiId = default(string), string signatureId = default(string), string name = default(string), bool required = default(bool), string type = default(string))
+        public SignatureRequestResponseDataBase(
+            string apiId = default(string),
+            string signatureId = default(string),
+            string name = default(string),
+            bool required = default(bool),
+            string type = default(string)
+        )
         {
-            
             this.ApiId = apiId;
             this.SignatureId = signatureId;
             this.Name = name;
@@ -77,7 +88,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestResponseDataBase");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of SignatureRequestResponseDataBase"
+                );
             }
 
             return obj;
@@ -89,7 +102,6 @@ namespace Dropbox.Sign.Model
         /// <value>The unique ID for this field.</value>
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
-        
 
         /// <summary>
         /// The ID of the signature to which this response is linked.
@@ -97,7 +109,6 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the signature to which this response is linked.</value>
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
-        
 
         /// <summary>
         /// The name of the form field.
@@ -105,7 +116,6 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the form field.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
 
         /// <summary>
         /// A boolean value denoting if this field is required.
@@ -113,14 +123,12 @@ namespace Dropbox.Sign.Model
         /// <value>A boolean value denoting if this field is required.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -145,7 +153,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -169,31 +180,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.ApiId == input.ApiId ||
-                    (this.ApiId != null &&
-                    this.ApiId.Equals(input.ApiId))
-                ) && 
-                (
-                    this.SignatureId == input.SignatureId ||
-                    (this.SignatureId != null &&
-                    this.SignatureId.Equals(input.SignatureId))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Required == input.Required ||
-                    this.Required.Equals(input.Required)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                );
+            return (
+                    this.ApiId == input.ApiId
+                    || (this.ApiId != null && this.ApiId.Equals(input.ApiId))
+                )
+                && (
+                    this.SignatureId == input.SignatureId
+                    || (this.SignatureId != null && this.SignatureId.Equals(input.SignatureId))
+                )
+                && (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
+                && (this.Required == input.Required || this.Required.Equals(input.Required))
+                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)));
         }
 
         /// <summary>
@@ -231,7 +228,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             return this.BaseValidate(validationContext);
         }
@@ -249,39 +248,53 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "api_id",
-                Property = "ApiId",
-                Type = "string",
-                Value = ApiId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "signature_id",
-                Property = "SignatureId",
-                Type = "string",
-                Value = SignatureId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "name",
-                Property = "Name",
-                Type = "string",
-                Value = Name,
-            });
-            types.Add(new OpenApiType(){
-                Name = "required",
-                Property = "Required",
-                Type = "bool",
-                Value = Required,
-            });
-            types.Add(new OpenApiType(){
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "api_id",
+                    Property = "ApiId",
+                    Type = "string",
+                    Value = ApiId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "signature_id",
+                    Property = "SignatureId",
+                    Type = "string",
+                    Value = SignatureId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "name",
+                    Property = "Name",
+                    Type = "string",
+                    Value = Name,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "required",
+                    Property = "Required",
+                    Type = "bool",
+                    Value = Required,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "type",
+                    Property = "Type",
+                    Type = "string",
+                    Value = Type,
+                }
+            );
 
             return types;
         }
     }
-
 }

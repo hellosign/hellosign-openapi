@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,15 +38,19 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected TeamMemberResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamMemberResponse" /> class.
         /// </summary>
         /// <param name="accountId">Account id of the team member..</param>
         /// <param name="emailAddress">Email address of the team member..</param>
         /// <param name="role">The specific role a member has on the team..</param>
-        public TeamMemberResponse(string accountId = default(string), string emailAddress = default(string), string role = default(string))
+        public TeamMemberResponse(
+            string accountId = default(string),
+            string emailAddress = default(string),
+            string role = default(string)
+        )
         {
-            
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.Role = role;
@@ -74,7 +78,6 @@ namespace Dropbox.Sign.Model
         /// <value>Account id of the team member.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// Email address of the team member.
@@ -82,7 +85,6 @@ namespace Dropbox.Sign.Model
         /// <value>Email address of the team member.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// The specific role a member has on the team.
@@ -90,7 +92,6 @@ namespace Dropbox.Sign.Model
         /// <value>The specific role a member has on the team.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,7 +114,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -137,22 +141,15 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
-                (
-                    this.Role == input.Role ||
-                    (this.Role != null &&
-                    this.Role.Equals(input.Role))
-                );
+            return (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
+                )
+                && (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
+                )
+                && (this.Role == input.Role || (this.Role != null && this.Role.Equals(input.Role)));
         }
 
         /// <summary>
@@ -185,7 +182,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -193,27 +192,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
-            types.Add(new OpenApiType(){
-                Name = "role",
-                Property = "Role",
-                Type = "string",
-                Value = Role,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "role",
+                    Property = "Role",
+                    Type = "string",
+                    Value = Role,
+                }
+            );
 
             return types;
         }
     }
-
 }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,21 +31,26 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateRemoveUserRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateRemoveUserRequest : IEquatable<TemplateRemoveUserRequest>, IValidatableObject
+    public partial class TemplateRemoveUserRequest
+        : IEquatable<TemplateRemoveUserRequest>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateRemoveUserRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateRemoveUserRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateRemoveUserRequest" /> class.
         /// </summary>
         /// <param name="accountId">The id or email address of the Account to remove access to the Template. The account id prevails if both are provided..</param>
         /// <param name="emailAddress">The id or email address of the Account to remove access to the Template. The account id prevails if both are provided..</param>
-        public TemplateRemoveUserRequest(string accountId = default(string), string emailAddress = default(string))
+        public TemplateRemoveUserRequest(
+            string accountId = default(string),
+            string emailAddress = default(string)
+        )
         {
-            
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
         }
@@ -60,7 +65,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TemplateRemoveUserRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TemplateRemoveUserRequest"
+                );
             }
 
             return obj;
@@ -72,7 +79,6 @@ namespace Dropbox.Sign.Model
         /// <value>The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
@@ -80,7 +86,6 @@ namespace Dropbox.Sign.Model
         /// <value>The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,7 +107,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -126,16 +134,13 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
+            return (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
+                )
+                && (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
                 );
         }
 
@@ -165,7 +170,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -173,21 +180,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
 
             return types;
         }
     }
-
 }

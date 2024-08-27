@@ -15,13 +15,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Security;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Net.Http;
-using System.Net.Security;
-using Newtonsoft.Json;
 using Dropbox.Sign.Model;
+using Newtonsoft.Json;
 
 namespace Dropbox.Sign.Client
 {
@@ -57,14 +57,20 @@ namespace Dropbox.Sign.Client
             var status = (int)response.StatusCode;
             if (status >= 400)
             {
-                return new ApiException(status,
+                return new ApiException(
+                    status,
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
-                    JsonConvert.DeserializeObject<ErrorResponse>(response.RawContent), response.Headers);
+                    JsonConvert.DeserializeObject<ErrorResponse>(response.RawContent),
+                    response.Headers
+                );
             }
             if (status == 0)
             {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.ErrorText), JsonConvert.DeserializeObject<ErrorResponse>(response.ErrorText));
+                return new ApiException(
+                    status,
+                    string.Format("Error calling {0}: {1}", methodName, response.ErrorText),
+                    JsonConvert.DeserializeObject<ErrorResponse>(response.ErrorText)
+                );
             }
             return null;
         };
@@ -107,7 +113,10 @@ namespace Dropbox.Sign.Client
         /// Gets or sets the operation servers defined in the OpenAPI spec.
         /// </summary>
         /// <value>The operation servers</value>
-        private IReadOnlyDictionary<string, List<IReadOnlyDictionary<string, object>>> _operationServers;
+        private IReadOnlyDictionary<
+            string,
+            List<IReadOnlyDictionary<string, object>>
+        > _operationServers;
 
         #endregion Private Members
 
@@ -116,7 +125,10 @@ namespace Dropbox.Sign.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="Configuration" /> class
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "ReSharper",
+            "VirtualMemberCallInConstructor"
+        )]
         public Configuration()
         {
             Proxy = null;
@@ -128,34 +140,37 @@ namespace Dropbox.Sign.Client
             Servers = new List<IReadOnlyDictionary<string, object>>()
             {
                 {
-                    new Dictionary<string, object> {
-                        {"url", "https://api.hellosign.com/v3"},
-                        {"description", "No description provided"},
+                    new Dictionary<string, object>
+                    {
+                        { "url", "https://api.hellosign.com/v3" },
+                        { "description", "No description provided" },
                     }
-                }
+                },
             };
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
                 {
-                    "OAuthApi.OauthTokenGenerate", new List<IReadOnlyDictionary<string, object>>
+                    "OAuthApi.OauthTokenGenerate",
+                    new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
                             {
-                                {"url", "https://app.hellosign.com"},
-                                {"description", "No description provided"}
+                                { "url", "https://app.hellosign.com" },
+                                { "description", "No description provided" },
                             }
                         },
                     }
                 },
                 {
-                    "OAuthApi.OauthTokenRefresh", new List<IReadOnlyDictionary<string, object>>
+                    "OAuthApi.OauthTokenRefresh",
+                    new List<IReadOnlyDictionary<string, object>>
                     {
                         {
                             new Dictionary<string, object>
                             {
-                                {"url", "https://app.hellosign.com"},
-                                {"description", "No description provided"}
+                                { "url", "https://app.hellosign.com" },
+                                { "description", "No description provided" },
                             }
                         },
                     }
@@ -169,12 +184,17 @@ namespace Dropbox.Sign.Client
         /// <summary>
         /// Initializes a new instance of the <see cref="Configuration" /> class
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "ReSharper",
+            "VirtualMemberCallInConstructor"
+        )]
         public Configuration(
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api.hellosign.com/v3") : this()
+            string basePath = "https://api.hellosign.com/v3"
+        )
+            : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -210,7 +230,7 @@ namespace Dropbox.Sign.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath 
+        public virtual string BasePath
         {
             get { return _basePath; }
             set { _basePath = value; }
@@ -231,14 +251,8 @@ namespace Dropbox.Sign.Client
         [Obsolete("Use DefaultHeaders instead.")]
         public virtual IDictionary<string, string> DefaultHeader
         {
-            get
-            {
-                return DefaultHeaders;
-            }
-            set
-            {
-                DefaultHeaders = value;
-            }
+            get { return DefaultHeaders; }
+            set { DefaultHeaders = value; }
         }
 
         /// <summary>
@@ -314,7 +328,6 @@ namespace Dropbox.Sign.Client
         public virtual string TempFolderPath
         {
             get { return _tempFolderPath; }
-
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -434,7 +447,10 @@ namespace Dropbox.Sign.Client
         /// Gets or sets the operation servers.
         /// </summary>
         /// <value>The operation servers.</value>
-        public virtual IReadOnlyDictionary<string, List<IReadOnlyDictionary<string, object>>> OperationServers
+        public virtual IReadOnlyDictionary<
+            string,
+            List<IReadOnlyDictionary<string, object>>
+        > OperationServers
         {
             get { return _operationServers; }
             set
@@ -487,9 +503,16 @@ namespace Dropbox.Sign.Client
         /// <param name="index">Array index of the server settings.</param>
         /// <param name="inputVariables">Dictionary of the variables and the corresponding values.</param>
         /// <return>The operation server URL.</return>
-        public string GetOperationServerUrl(string operation, int index, Dictionary<string, string> inputVariables)
+        public string GetOperationServerUrl(
+            string operation,
+            int index,
+            Dictionary<string, string> inputVariables
+        )
         {
-            if (operation != null && OperationServers.TryGetValue(operation, out var operationServer))
+            if (
+                operation != null
+                && OperationServers.TryGetValue(operation, out var operationServer)
+            )
             {
                 return GetServerUrl(operationServer, index, inputVariables);
             }
@@ -504,11 +527,17 @@ namespace Dropbox.Sign.Client
         /// <param name="index">Array index of the server settings.</param>
         /// <param name="inputVariables">Dictionary of the variables and the corresponding values.</param>
         /// <return>The server URL.</return>
-        private string GetServerUrl(IList<IReadOnlyDictionary<string, object>> servers, int index, Dictionary<string, string> inputVariables)
+        private string GetServerUrl(
+            IList<IReadOnlyDictionary<string, object>> servers,
+            int index,
+            Dictionary<string, string> inputVariables
+        )
         {
             if (index < 0 || index >= servers.Count)
             {
-                throw new InvalidOperationException($"Invalid index {index} when selecting the server. Must be less than {servers.Count}.");
+                throw new InvalidOperationException(
+                    $"Invalid index {index} when selecting the server. Must be less than {servers.Count}."
+                );
             }
 
             if (inputVariables == null)
@@ -522,33 +551,48 @@ namespace Dropbox.Sign.Client
             if (server.ContainsKey("variables"))
             {
                 // go through each variable and assign a value
-                foreach (KeyValuePair<string, object> variable in (IReadOnlyDictionary<string, object>)server["variables"])
+                foreach (
+                    KeyValuePair<string, object> variable in (IReadOnlyDictionary<string, object>)
+                        server["variables"]
+                )
                 {
-
-                    IReadOnlyDictionary<string, object> serverVariables = (IReadOnlyDictionary<string, object>)(variable.Value);
+                    IReadOnlyDictionary<string, object> serverVariables =
+                        (IReadOnlyDictionary<string, object>)(variable.Value);
 
                     if (inputVariables.ContainsKey(variable.Key))
                     {
-                        if (((List<string>)serverVariables["enum_values"]).Contains(inputVariables[variable.Key]))
+                        if (
+                            ((List<string>)serverVariables["enum_values"]).Contains(
+                                inputVariables[variable.Key]
+                            )
+                        )
                         {
-                            url = url.Replace("{" + variable.Key + "}", inputVariables[variable.Key]);
+                            url = url.Replace(
+                                "{" + variable.Key + "}",
+                                inputVariables[variable.Key]
+                            );
                         }
                         else
                         {
-                            throw new InvalidOperationException($"The variable `{variable.Key}` in the server URL has invalid value #{inputVariables[variable.Key]}. Must be {(List<string>)serverVariables["enum_values"]}");
+                            throw new InvalidOperationException(
+                                $"The variable `{variable.Key}` in the server URL has invalid value #{inputVariables[variable.Key]}. Must be {(List<string>)serverVariables["enum_values"]}"
+                            );
                         }
                     }
                     else
                     {
                         // use default value
-                        url = url.Replace("{" + variable.Key + "}", (string)serverVariables["default_value"]);
+                        url = url.Replace(
+                            "{" + variable.Key + "}",
+                            (string)serverVariables["default_value"]
+                        );
                     }
                 }
             }
 
             return url;
         }
-        
+
         /// <summary>
         /// Gets and Sets the RemoteCertificateValidationCallback
         /// </summary>
@@ -565,7 +609,7 @@ namespace Dropbox.Sign.Client
         {
             string report = "C# SDK (Dropbox.Sign) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version + "\n";
             report += "    Version of the API: 3.0.0\n";
             report += "    SDK Package Version: 1.5-dev\n";
 
@@ -602,17 +646,33 @@ namespace Dropbox.Sign.Client
         /// <param name="first">First configuration.</param>
         /// <param name="second">Second configuration.</param>
         /// <return>Merged configuration.</return>
-        public static IReadableConfiguration MergeConfigurations(IReadableConfiguration first, IReadableConfiguration second)
+        public static IReadableConfiguration MergeConfigurations(
+            IReadableConfiguration first,
+            IReadableConfiguration second
+        )
         {
-            if (second == null) return first ?? GlobalConfiguration.Instance;
+            if (second == null)
+                return first ?? GlobalConfiguration.Instance;
 
-            Dictionary<string, string> apiKey = first.ApiKey.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            Dictionary<string, string> apiKeyPrefix = first.ApiKeyPrefix.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            Dictionary<string, string> defaultHeaders = first.DefaultHeaders.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            Dictionary<string, string> apiKey = first.ApiKey.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value
+            );
+            Dictionary<string, string> apiKeyPrefix = first.ApiKeyPrefix.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value
+            );
+            Dictionary<string, string> defaultHeaders = first.DefaultHeaders.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value
+            );
 
-            foreach (var kvp in second.ApiKey) apiKey[kvp.Key] = kvp.Value;
-            foreach (var kvp in second.ApiKeyPrefix) apiKeyPrefix[kvp.Key] = kvp.Value;
-            foreach (var kvp in second.DefaultHeaders) defaultHeaders[kvp.Key] = kvp.Value;
+            foreach (var kvp in second.ApiKey)
+                apiKey[kvp.Key] = kvp.Value;
+            foreach (var kvp in second.ApiKeyPrefix)
+                apiKeyPrefix[kvp.Key] = kvp.Value;
+            foreach (var kvp in second.DefaultHeaders)
+                defaultHeaders[kvp.Key] = kvp.Value;
 
             var config = new Configuration
             {
@@ -630,7 +690,9 @@ namespace Dropbox.Sign.Client
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
                 UseDefaultCredentials = second.UseDefaultCredentials,
-                RemoteCertificateValidationCallback = second.RemoteCertificateValidationCallback ?? first.RemoteCertificateValidationCallback,
+                RemoteCertificateValidationCallback =
+                    second.RemoteCertificateValidationCallback
+                    ?? first.RemoteCertificateValidationCallback,
             };
             return config;
         }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubCustomField() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubCustomField" /> class.
         /// </summary>
@@ -45,13 +46,19 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of a custom field. When working with pre-filled data, the custom field&#39;s name must have a matching merge field name or the field will remain empty on the document during signing. (required).</param>
         /// <param name="required">Used to set an editable merge field when working with pre-filled data. When &#x60;true&#x60;, the custom field must specify a signer role in &#x60;editor&#x60;. (default to false).</param>
         /// <param name="value">The string that resolves (aka \&quot;pre-fills\&quot;) to the merge field on the final document(s) used for signing..</param>
-        public SubCustomField(string editor = default(string), string name = default(string), bool required = false, string value = default(string))
+        public SubCustomField(
+            string editor = default(string),
+            string name = default(string),
+            bool required = false,
+            string value = default(string)
+        )
         {
-            
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException("name is a required property for SubCustomField and cannot be null");
+                throw new ArgumentNullException(
+                    "name is a required property for SubCustomField and cannot be null"
+                );
             }
             this.Name = name;
             this.Editor = editor;
@@ -81,7 +88,6 @@ namespace Dropbox.Sign.Model
         /// <value>The name of a custom field. When working with pre-filled data, the custom field&#39;s name must have a matching merge field name or the field will remain empty on the document during signing.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
 
         /// <summary>
         /// Used to create editable merge fields. When the value matches a role passed in with &#x60;signers&#x60;, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to &#x60;required &#x3D; true&#x60;.  **NOTE:** Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won&#39;t be editable.
@@ -89,7 +95,6 @@ namespace Dropbox.Sign.Model
         /// <value>Used to create editable merge fields. When the value matches a role passed in with &#x60;signers&#x60;, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to &#x60;required &#x3D; true&#x60;.  **NOTE:** Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won&#39;t be editable.</value>
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
-        
 
         /// <summary>
         /// Used to set an editable merge field when working with pre-filled data. When &#x60;true&#x60;, the custom field must specify a signer role in &#x60;editor&#x60;.
@@ -97,7 +102,6 @@ namespace Dropbox.Sign.Model
         /// <value>Used to set an editable merge field when working with pre-filled data. When &#x60;true&#x60;, the custom field must specify a signer role in &#x60;editor&#x60;.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
 
         /// <summary>
         /// The string that resolves (aka \&quot;pre-fills\&quot;) to the merge field on the final document(s) used for signing.
@@ -105,7 +109,6 @@ namespace Dropbox.Sign.Model
         /// <value>The string that resolves (aka \&quot;pre-fills\&quot;) to the merge field on the final document(s) used for signing.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,7 +132,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -153,25 +159,15 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Editor == input.Editor ||
-                    (this.Editor != null &&
-                    this.Editor.Equals(input.Editor))
-                ) && 
-                (
-                    this.Required == input.Required ||
-                    this.Required.Equals(input.Required)
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+            return (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
+                && (
+                    this.Editor == input.Editor
+                    || (this.Editor != null && this.Editor.Equals(input.Editor))
+                )
+                && (this.Required == input.Required || this.Required.Equals(input.Required))
+                && (
+                    this.Value == input.Value
+                    || (this.Value != null && this.Value.Equals(input.Value))
                 );
         }
 
@@ -206,7 +202,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -214,33 +212,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "name",
-                Property = "Name",
-                Type = "string",
-                Value = Name,
-            });
-            types.Add(new OpenApiType(){
-                Name = "editor",
-                Property = "Editor",
-                Type = "string",
-                Value = Editor,
-            });
-            types.Add(new OpenApiType(){
-                Name = "required",
-                Property = "Required",
-                Type = "bool",
-                Value = Required,
-            });
-            types.Add(new OpenApiType(){
-                Name = "value",
-                Property = "Value",
-                Type = "string",
-                Value = Value,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "name",
+                    Property = "Name",
+                    Type = "string",
+                    Value = Name,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "editor",
+                    Property = "Editor",
+                    Type = "string",
+                    Value = Editor,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "required",
+                    Property = "Required",
+                    Type = "bool",
+                    Value = Required,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "value",
+                    Property = "Value",
+                    Type = "string",
+                    Value = Value,
+                }
+            );
 
             return types;
         }
     }
-
 }

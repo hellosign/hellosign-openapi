@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using Xunit;
-
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Model;
+using Xunit;
 
 namespace Dropbox.Sign.Test.Api
 {
@@ -12,7 +11,9 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void SignatureRequestBulkCreateEmbeddedWithTemplateTest()
         {
-            var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestBulkCreateEmbeddedWithTemplateRequest));
+            var requestData = TestHelper.GetJsonContents(
+                nameof(SignatureRequestBulkCreateEmbeddedWithTemplateRequest)
+            );
             var responseData = TestHelper.GetJsonContents(nameof(BulkSendJobSendResponse));
 
             var obj = SignatureRequestBulkCreateEmbeddedWithTemplateRequest.Init(
@@ -34,12 +35,12 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void SignatureRequestBulkSendWithTemplateTest()
         {
-            var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestBulkSendWithTemplateRequest));
+            var requestData = TestHelper.GetJsonContents(
+                nameof(SignatureRequestBulkSendWithTemplateRequest)
+            );
             var responseData = TestHelper.GetJsonContents(nameof(BulkSendJobSendResponse));
 
-            var obj = SignatureRequestBulkSendWithTemplateRequest.Init(
-                requestData.ToString()
-            );
+            var obj = SignatureRequestBulkSendWithTemplateRequest.Init(requestData.ToString());
             obj.SignerFile = new FileStream(
                 TestHelper.RootPath + "/bulk-send-sample.csv",
                 FileMode.Open,
@@ -53,27 +54,26 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="POST /signature_request/cancel/{signature_request_id} skipped")]
-        public void SignatureRequestCancelTest()
-        {
-        }
+        [Fact(Skip = "POST /signature_request/cancel/{signature_request_id} skipped")]
+        public void SignatureRequestCancelTest() { }
 
         [Fact]
         public void SignatureRequestCreateEmbeddedTest()
         {
-            var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestCreateEmbeddedRequest));
+            var requestData = TestHelper.GetJsonContents(
+                nameof(SignatureRequestCreateEmbeddedRequest)
+            );
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestCreateEmbeddedRequest.Init(
-                requestData.ToString()
-            );
-            obj.Files = new List<Stream> {
+            var obj = SignatureRequestCreateEmbeddedRequest.Init(requestData.ToString());
+            obj.Files = new List<Stream>
+            {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
                     FileAccess.Read,
                     FileShare.Read
-                )
+                ),
             };
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestApi>(responseData);
@@ -85,19 +85,22 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void SignatureRequestCreateEmbeddedWithTemplateTest()
         {
-            var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestCreateEmbeddedWithTemplateRequest));
+            var requestData = TestHelper.GetJsonContents(
+                nameof(SignatureRequestCreateEmbeddedWithTemplateRequest)
+            );
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
             var obj = SignatureRequestCreateEmbeddedWithTemplateRequest.Init(
                 requestData.ToString()
             );
-            obj.Files = new List<Stream> {
+            obj.Files = new List<Stream>
+            {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
                     FileAccess.Read,
                     FileShare.Read
-                )
+                ),
             };
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestApi>(responseData);
@@ -106,10 +109,8 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="GET /signature_request/files/{signature_request_id} skipped")]
-        public void SignatureRequestFilesTest()
-        {
-        }
+        [Fact(Skip = "GET /signature_request/files/{signature_request_id} skipped")]
+        public void SignatureRequestFilesTest() { }
 
         [Fact]
         public void SignatureRequestGetTest()
@@ -158,9 +159,7 @@ namespace Dropbox.Sign.Test.Api
             var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestRemindRequest));
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestRemindRequest.Init(
-                requestData.ToString()
-            );
+            var obj = SignatureRequestRemindRequest.Init(requestData.ToString());
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestApi>(responseData);
             var response = api.SignatureRequestRemind(signatureRequestId, obj);
@@ -168,10 +167,8 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="POST /signature_request/remove/{signature_request_id} skipped")]
-        public void SignatureRequestRemoveTest()
-        {
-        }
+        [Fact(Skip = "POST /signature_request/remove/{signature_request_id} skipped")]
+        public void SignatureRequestRemoveTest() { }
 
         [Fact]
         public void SignatureRequestSendTest()
@@ -179,16 +176,15 @@ namespace Dropbox.Sign.Test.Api
             var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestSendRequest));
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestSendRequest.Init(
-                requestData.ToString()
-            );
-            obj.Files = new List<Stream> {
+            var obj = SignatureRequestSendRequest.Init(requestData.ToString());
+            obj.Files = new List<Stream>
+            {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
                     FileAccess.Read,
                     FileShare.Read
-                )
+                ),
             };
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestApi>(responseData);
@@ -200,12 +196,12 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void SignatureRequestSendWithTemplateTest()
         {
-            var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestSendWithTemplateRequest));
+            var requestData = TestHelper.GetJsonContents(
+                nameof(SignatureRequestSendWithTemplateRequest)
+            );
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestSendWithTemplateRequest.Init(
-                requestData.ToString()
-            );
+            var obj = SignatureRequestSendWithTemplateRequest.Init(requestData.ToString());
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestApi>(responseData);
             var response = api.SignatureRequestSendWithTemplate(obj);
@@ -221,9 +217,7 @@ namespace Dropbox.Sign.Test.Api
             var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestUpdateRequest));
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestUpdateRequest.Init(
-                requestData.ToString()
-            );
+            var obj = SignatureRequestUpdateRequest.Init(requestData.ToString());
 
             var api = MockRestClientHelper.CreateApi<SignatureRequestApi>(responseData);
             var response = api.SignatureRequestUpdate(signatureRequestId, obj);
@@ -237,21 +231,23 @@ namespace Dropbox.Sign.Test.Api
             var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestSendRequest));
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestSendRequest.Init(
-                requestData.ToString()
-            );
-            obj.Files = new List<Stream> {
+            var obj = SignatureRequestSendRequest.Init(requestData.ToString());
+            obj.Files = new List<Stream>
+            {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
                     FileAccess.Read,
                     FileShare.Read
-                )
+                ),
             };
 
             var responseObj = SignatureRequestGetResponse.Init(responseData.ToString());
 
-            var api = MockRestClientHelper.CreateApiExpectMultiFormRequest<SignatureRequestGetResponse, SignatureRequestApi>(responseObj);
+            var api = MockRestClientHelper.CreateApiExpectMultiFormRequest<
+                SignatureRequestGetResponse,
+                SignatureRequestApi
+            >(responseObj);
             var response = api.SignatureRequestSend(obj);
 
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
@@ -263,13 +259,14 @@ namespace Dropbox.Sign.Test.Api
             var requestData = TestHelper.GetJsonContents(nameof(SignatureRequestSendRequest));
             var responseData = TestHelper.GetJsonContents(nameof(SignatureRequestGetResponse));
 
-            var obj = SignatureRequestSendRequest.Init(
-                requestData.ToString()
-            );
+            var obj = SignatureRequestSendRequest.Init(requestData.ToString());
 
             var responseObj = SignatureRequestGetResponse.Init(responseData.ToString());
 
-            var api = MockRestClientHelper.CreateApiExpectJsonRequest<SignatureRequestGetResponse, SignatureRequestApi>(responseObj);
+            var api = MockRestClientHelper.CreateApiExpectJsonRequest<
+                SignatureRequestGetResponse,
+                SignatureRequestApi
+            >(responseObj);
             var response = api.SignatureRequestSend(obj);
 
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());

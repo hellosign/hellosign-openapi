@@ -20,7 +20,6 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -37,7 +36,10 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftCreate(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0
+        );
 
         /// <summary>
         /// Create Unclaimed Draft
@@ -49,7 +51,11 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0
+        );
+
         /// <summary>
         /// Create Embedded Unclaimed Draft
         /// </summary>
@@ -60,7 +66,10 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0
+        );
 
         /// <summary>
         /// Create Embedded Unclaimed Draft
@@ -72,7 +81,11 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0
+        );
+
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
         /// </summary>
@@ -83,7 +96,10 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0
+        );
 
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
@@ -95,7 +111,11 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0
+        );
+
         /// <summary>
         /// Edit and Resend Unclaimed Draft
         /// </summary>
@@ -107,7 +127,11 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0);
+        UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0
+        );
 
         /// <summary>
         /// Edit and Resend Unclaimed Draft
@@ -120,7 +144,11 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0);
+        ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0
+        );
         #endregion Synchronous Operations
     }
 
@@ -141,7 +169,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
 
         /// <summary>
         /// Create Unclaimed Draft
@@ -154,7 +187,15 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<
+            ApiResponse<UnclaimedDraftCreateResponse>
+        > UnclaimedDraftCreateWithHttpInfoAsync(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
+
         /// <summary>
         /// Create Embedded Unclaimed Draft
         /// </summary>
@@ -166,7 +207,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
 
         /// <summary>
         /// Create Embedded Unclaimed Draft
@@ -179,7 +225,15 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<
+            ApiResponse<UnclaimedDraftCreateResponse>
+        > UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
+
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
         /// </summary>
@@ -191,7 +245,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
 
         /// <summary>
         /// Create Embedded Unclaimed Draft with Template
@@ -204,7 +263,15 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<
+            ApiResponse<UnclaimedDraftCreateResponse>
+        > UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
+
         /// <summary>
         /// Edit and Resend Unclaimed Draft
         /// </summary>
@@ -217,7 +284,13 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
 
         /// <summary>
         /// Edit and Resend Unclaimed Draft
@@ -231,17 +304,22 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<
+            ApiResponse<UnclaimedDraftCreateResponse>
+        > UnclaimedDraftEditAndResendWithHttpInfoAsync(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IUnclaimedDraftApi : IUnclaimedDraftApiSync, IUnclaimedDraftApiAsync
-    {
-
-    }
+    public interface IUnclaimedDraftApi : IUnclaimedDraftApiSync, IUnclaimedDraftApiAsync { }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -254,9 +332,8 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="UnclaimedDraftApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public UnclaimedDraftApi() : this((string)null)
-        {
-        }
+        public UnclaimedDraftApi()
+            : this((string)null) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UnclaimedDraftApi"/> class.
@@ -269,7 +346,9 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
+                this.Configuration.BasePath
+            );
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -281,14 +360,17 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public UnclaimedDraftApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (configuration == null)
+                throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
+                this.Configuration.BasePath
+            );
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -299,11 +381,18 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public UnclaimedDraftApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
+        public UnclaimedDraftApi(
+            Dropbox.Sign.Client.ISynchronousClient client,
+            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
+            Dropbox.Sign.Client.IReadableConfiguration configuration
+        )
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null)
+                throw new ArgumentNullException("client");
+            if (asyncClient == null)
+                throw new ArgumentNullException("asyncClient");
+            if (configuration == null)
+                throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -345,7 +434,9 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                    throw new InvalidOperationException(
+                        "Multicast delegate for ExceptionFactory is unsupported."
+                    );
                 }
                 return _exceptionFactory;
             }
@@ -359,9 +450,13 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftCreate(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftCreate(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                UnclaimedDraftCreateWithHttpInfo(unclaimedDraftCreateRequest);
             return localVarResponse.Data;
         }
 
@@ -372,15 +467,22 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateWithHttpInfo(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0
+        )
         {
             // verify the required parameter 'unclaimedDraftCreateRequest' is set
             if (unclaimedDraftCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftCreateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreate");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftCreateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreate"
+                );
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftCreateRequest.GetOpenApiTypes();
@@ -396,9 +498,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -411,28 +511,50 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>("/unclaimed_draft/create", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>(
+                "/unclaimed_draft/create",
+                localVarRequestOptions,
+                this.Configuration
+            );
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftCreate", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftCreate",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -450,9 +572,20 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateAsync(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateWithHttpInfoAsync(unclaimedDraftCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                await UnclaimedDraftCreateWithHttpInfoAsync(
+                        unclaimedDraftCreateRequest,
+                        operationIndex,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -464,16 +597,24 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(UnclaimedDraftCreateRequest unclaimedDraftCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateWithHttpInfoAsync(
+            UnclaimedDraftCreateRequest unclaimedDraftCreateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
             // verify the required parameter 'unclaimedDraftCreateRequest' is set
             if (unclaimedDraftCreateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftCreateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreate");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftCreateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreate"
+                );
             }
 
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftCreateRequest.GetOpenApiTypes();
@@ -489,9 +630,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -503,30 +642,55 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
-
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>("/unclaimed_draft/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this
+                .AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>(
+                    "/unclaimed_draft/create",
+                    localVarRequestOptions,
+                    this.Configuration,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftCreate", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftCreate",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -543,9 +707,13 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbedded(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                UnclaimedDraftCreateEmbeddedWithHttpInfo(unclaimedDraftCreateEmbeddedRequest);
             return localVarResponse.Data;
         }
 
@@ -556,15 +724,22 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithHttpInfo(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0
+        )
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedRequest' is set
             if (unclaimedDraftCreateEmbeddedRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftCreateEmbeddedRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbedded");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftCreateEmbeddedRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbedded"
+                );
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftCreateEmbeddedRequest.GetOpenApiTypes();
@@ -580,9 +755,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -595,28 +768,50 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>("/unclaimed_draft/create_embedded", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>(
+                "/unclaimed_draft/create_embedded",
+                localVarRequestOptions,
+                this.Configuration
+            );
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftCreateEmbedded", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftCreateEmbedded",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -634,9 +829,20 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedAsync(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(unclaimedDraftCreateEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                await UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(
+                        unclaimedDraftCreateEmbeddedRequest,
+                        operationIndex,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -648,16 +854,24 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithHttpInfoAsync(
+            UnclaimedDraftCreateEmbeddedRequest unclaimedDraftCreateEmbeddedRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedRequest' is set
             if (unclaimedDraftCreateEmbeddedRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftCreateEmbeddedRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbedded");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftCreateEmbeddedRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbedded"
+                );
             }
 
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftCreateEmbeddedRequest.GetOpenApiTypes();
@@ -673,9 +887,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -687,30 +899,55 @@ namespace Dropbox.Sign.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
-
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbedded";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>("/unclaimed_draft/create_embedded", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this
+                .AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>(
+                    "/unclaimed_draft/create_embedded",
+                    localVarRequestOptions,
+                    this.Configuration,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftCreateEmbedded", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftCreateEmbedded",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -727,9 +964,15 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftCreateEmbeddedWithTemplate(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(unclaimedDraftCreateEmbeddedWithTemplateRequest);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
+                    unclaimedDraftCreateEmbeddedWithTemplateRequest
+                );
             return localVarResponse.Data;
         }
 
@@ -740,15 +983,22 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftCreateEmbeddedWithTemplateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfo(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0
+        )
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' is set
             if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbeddedWithTemplate");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbeddedWithTemplate"
+                );
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftCreateEmbeddedWithTemplateRequest.GetOpenApiTypes();
@@ -764,9 +1014,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -779,28 +1027,51 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
-            localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
+            localVarRequestOptions.Operation =
+                "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>("/unclaimed_draft/create_embedded_with_template", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>(
+                "/unclaimed_draft/create_embedded_with_template",
+                localVarRequestOptions,
+                this.Configuration
+            );
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftCreateEmbeddedWithTemplate", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftCreateEmbeddedWithTemplate",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -818,9 +1089,20 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftCreateEmbeddedWithTemplateAsync(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(unclaimedDraftCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                await UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(
+                        unclaimedDraftCreateEmbeddedWithTemplateRequest,
+                        operationIndex,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -832,16 +1114,24 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftCreateEmbeddedWithTemplateWithHttpInfoAsync(
+            UnclaimedDraftCreateEmbeddedWithTemplateRequest unclaimedDraftCreateEmbeddedWithTemplateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
             // verify the required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' is set
             if (unclaimedDraftCreateEmbeddedWithTemplateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbeddedWithTemplate");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftCreateEmbeddedWithTemplateRequest' when calling UnclaimedDraftApi->UnclaimedDraftCreateEmbeddedWithTemplate"
+                );
             }
 
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftCreateEmbeddedWithTemplateRequest.GetOpenApiTypes();
@@ -857,9 +1147,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -872,29 +1160,55 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
-            localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
+            localVarRequestOptions.Operation =
+                "UnclaimedDraftApi.UnclaimedDraftCreateEmbeddedWithTemplate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>("/unclaimed_draft/create_embedded_with_template", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this
+                .AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>(
+                    "/unclaimed_draft/create_embedded_with_template",
+                    localVarRequestOptions,
+                    this.Configuration,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftCreateEmbeddedWithTemplate", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftCreateEmbeddedWithTemplate",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -912,9 +1226,17 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>UnclaimedDraftCreateResponse</returns>
-        public UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0)
+        public UnclaimedDraftCreateResponse UnclaimedDraftEditAndResend(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = UnclaimedDraftEditAndResendWithHttpInfo(signatureRequestId, unclaimedDraftEditAndResendRequest);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                UnclaimedDraftEditAndResendWithHttpInfo(
+                    signatureRequestId,
+                    unclaimedDraftEditAndResendRequest
+                );
             return localVarResponse.Data;
         }
 
@@ -926,21 +1248,32 @@ namespace Dropbox.Sign.Api
         /// <param name="unclaimedDraftEditAndResendRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of UnclaimedDraftCreateResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendWithHttpInfo(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0
+        )
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestId' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'signatureRequestId' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend"
+                );
             }
 
             // verify the required parameter 'unclaimedDraftEditAndResendRequest' is set
             if (unclaimedDraftEditAndResendRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftEditAndResendRequest' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftEditAndResendRequest' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend"
+                );
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftEditAndResendRequest.GetOpenApiTypes();
@@ -956,9 +1289,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -971,29 +1302,55 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            localVarRequestOptions.PathParameters.Add(
+                "signature_request_id",
+                Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)
+            ); // path parameter
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftEditAndResend";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>("/unclaimed_draft/edit_and_resend/{signature_request_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UnclaimedDraftCreateResponse>(
+                "/unclaimed_draft/edit_and_resend/{signature_request_id}",
+                localVarRequestOptions,
+                this.Configuration
+            );
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftEditAndResend", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftEditAndResend",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1012,9 +1369,22 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UnclaimedDraftCreateResponse</returns>
-        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UnclaimedDraftCreateResponse> UnclaimedDraftEditAndResendAsync(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse = await UnclaimedDraftEditAndResendWithHttpInfoAsync(signatureRequestId, unclaimedDraftEditAndResendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse> localVarResponse =
+                await UnclaimedDraftEditAndResendWithHttpInfoAsync(
+                        signatureRequestId,
+                        unclaimedDraftEditAndResendRequest,
+                        operationIndex,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1027,22 +1397,34 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UnclaimedDraftCreateResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(string signatureRequestId, UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<UnclaimedDraftCreateResponse>> UnclaimedDraftEditAndResendWithHttpInfoAsync(
+            string signatureRequestId,
+            UnclaimedDraftEditAndResendRequest unclaimedDraftEditAndResendRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'signatureRequestId' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'signatureRequestId' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend"
+                );
             }
 
             // verify the required parameter 'unclaimedDraftEditAndResendRequest' is set
             if (unclaimedDraftEditAndResendRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'unclaimedDraftEditAndResendRequest' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'unclaimedDraftEditAndResendRequest' when calling UnclaimedDraftApi->UnclaimedDraftEditAndResend"
+                );
             }
 
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = unclaimedDraftEditAndResendRequest.GetOpenApiTypes();
@@ -1058,9 +1440,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -1073,30 +1453,59 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("signature_request_id", Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)); // path parameter
+            localVarRequestOptions.PathParameters.Add(
+                "signature_request_id",
+                Dropbox.Sign.Client.ClientUtils.ParameterToString(signatureRequestId)
+            ); // path parameter
 
             localVarRequestOptions.Operation = "UnclaimedDraftApi.UnclaimedDraftEditAndResend";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (api_key) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.Username)
+                || !string.IsNullOrEmpty(this.Configuration.Password)
+                    && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Dropbox.Sign.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Basic "
+                        + Dropbox.Sign.Client.ClientUtils.Base64Encode(
+                            this.Configuration.Username + ":" + this.Configuration.Password
+                        )
+                );
             }
             // authentication (oauth2) required
             // bearer authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            if (
+                !string.IsNullOrEmpty(this.Configuration.AccessToken)
+                && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization")
+            )
             {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                localVarRequestOptions.HeaderParameters.Add(
+                    "Authorization",
+                    "Bearer " + this.Configuration.AccessToken
+                );
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>("/unclaimed_draft/edit_and_resend/{signature_request_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this
+                .AsynchronousClient.PostAsync<UnclaimedDraftCreateResponse>(
+                    "/unclaimed_draft/edit_and_resend/{signature_request_id}",
+                    localVarRequestOptions,
+                    this.Configuration,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UnclaimedDraftEditAndResend", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "UnclaimedDraftEditAndResend",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1105,6 +1514,5 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
-
     }
 }

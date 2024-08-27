@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldRule() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldRule" /> class.
         /// </summary>
@@ -45,31 +46,43 @@ namespace Dropbox.Sign.Model
         /// <param name="triggerOperator">Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on. (required) (default to &quot;AND&quot;).</param>
         /// <param name="triggers">An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed. (required).</param>
         /// <param name="actions">An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule. (required).</param>
-        public SubFormFieldRule(string id = default(string), string triggerOperator = @"AND", List<SubFormFieldRuleTrigger> triggers = default(List<SubFormFieldRuleTrigger>), List<SubFormFieldRuleAction> actions = default(List<SubFormFieldRuleAction>))
+        public SubFormFieldRule(
+            string id = default(string),
+            string triggerOperator = @"AND",
+            List<SubFormFieldRuleTrigger> triggers = default(List<SubFormFieldRuleTrigger>),
+            List<SubFormFieldRuleAction> actions = default(List<SubFormFieldRuleAction>)
+        )
         {
-            
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for SubFormFieldRule and cannot be null");
+                throw new ArgumentNullException(
+                    "id is a required property for SubFormFieldRule and cannot be null"
+                );
             }
             this.Id = id;
             // to ensure "triggerOperator" is required (not null)
             if (triggerOperator == null)
             {
-                throw new ArgumentNullException("triggerOperator is a required property for SubFormFieldRule and cannot be null");
+                throw new ArgumentNullException(
+                    "triggerOperator is a required property for SubFormFieldRule and cannot be null"
+                );
             }
             this.TriggerOperator = triggerOperator;
             // to ensure "triggers" is required (not null)
             if (triggers == null)
             {
-                throw new ArgumentNullException("triggers is a required property for SubFormFieldRule and cannot be null");
+                throw new ArgumentNullException(
+                    "triggers is a required property for SubFormFieldRule and cannot be null"
+                );
             }
             this.Triggers = triggers;
             // to ensure "actions" is required (not null)
             if (actions == null)
             {
-                throw new ArgumentNullException("actions is a required property for SubFormFieldRule and cannot be null");
+                throw new ArgumentNullException(
+                    "actions is a required property for SubFormFieldRule and cannot be null"
+                );
             }
             this.Actions = actions;
         }
@@ -96,7 +109,6 @@ namespace Dropbox.Sign.Model
         /// <value>Must be unique across all defined rules.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
-        
 
         /// <summary>
         /// Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.
@@ -104,7 +116,6 @@ namespace Dropbox.Sign.Model
         /// <value>Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.</value>
         [DataMember(Name = "trigger_operator", IsRequired = true, EmitDefaultValue = true)]
         public string TriggerOperator { get; set; }
-        
 
         /// <summary>
         /// An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.
@@ -112,7 +123,6 @@ namespace Dropbox.Sign.Model
         /// <value>An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.</value>
         [DataMember(Name = "triggers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleTrigger> Triggers { get; set; }
-        
 
         /// <summary>
         /// An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.
@@ -120,7 +130,6 @@ namespace Dropbox.Sign.Model
         /// <value>An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.</value>
         [DataMember(Name = "actions", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleAction> Actions { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,7 +153,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -168,28 +180,25 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.TriggerOperator == input.TriggerOperator ||
-                    (this.TriggerOperator != null &&
-                    this.TriggerOperator.Equals(input.TriggerOperator))
-                ) && 
-                (
-                    this.Triggers == input.Triggers ||
-                    this.Triggers != null &&
-                    input.Triggers != null &&
-                    this.Triggers.SequenceEqual(input.Triggers)
-                ) && 
-                (
-                    this.Actions == input.Actions ||
-                    this.Actions != null &&
-                    input.Actions != null &&
-                    this.Actions.SequenceEqual(input.Actions)
+            return (this.Id == input.Id || (this.Id != null && this.Id.Equals(input.Id)))
+                && (
+                    this.TriggerOperator == input.TriggerOperator
+                    || (
+                        this.TriggerOperator != null
+                        && this.TriggerOperator.Equals(input.TriggerOperator)
+                    )
+                )
+                && (
+                    this.Triggers == input.Triggers
+                    || this.Triggers != null
+                        && input.Triggers != null
+                        && this.Triggers.SequenceEqual(input.Triggers)
+                )
+                && (
+                    this.Actions == input.Actions
+                    || this.Actions != null
+                        && input.Actions != null
+                        && this.Actions.SequenceEqual(input.Actions)
                 );
         }
 
@@ -227,7 +236,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -235,33 +246,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "id",
-                Property = "Id",
-                Type = "string",
-                Value = Id,
-            });
-            types.Add(new OpenApiType(){
-                Name = "trigger_operator",
-                Property = "TriggerOperator",
-                Type = "string",
-                Value = TriggerOperator,
-            });
-            types.Add(new OpenApiType(){
-                Name = "triggers",
-                Property = "Triggers",
-                Type = "List<SubFormFieldRuleTrigger>",
-                Value = Triggers,
-            });
-            types.Add(new OpenApiType(){
-                Name = "actions",
-                Property = "Actions",
-                Type = "List<SubFormFieldRuleAction>",
-                Value = Actions,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "id",
+                    Property = "Id",
+                    Type = "string",
+                    Value = Id,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "trigger_operator",
+                    Property = "TriggerOperator",
+                    Type = "string",
+                    Value = TriggerOperator,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "triggers",
+                    Property = "Triggers",
+                    Type = "List<SubFormFieldRuleTrigger>",
+                    Value = Triggers,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "actions",
+                    Property = "Actions",
+                    Type = "List<SubFormFieldRuleAction>",
+                    Value = Actions,
+                }
+            );
 
             return types;
         }
     }
-
 }

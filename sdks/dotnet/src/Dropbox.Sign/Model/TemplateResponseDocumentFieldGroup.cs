@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,21 +31,27 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseDocumentFieldGroup")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseDocumentFieldGroup : IEquatable<TemplateResponseDocumentFieldGroup>, IValidatableObject
+    public partial class TemplateResponseDocumentFieldGroup
+        : IEquatable<TemplateResponseDocumentFieldGroup>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroup" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateResponseDocumentFieldGroup() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseDocumentFieldGroup" /> class.
         /// </summary>
         /// <param name="name">The name of the form field group..</param>
         /// <param name="rule">rule.</param>
-        public TemplateResponseDocumentFieldGroup(string name = default(string), TemplateResponseDocumentFieldGroupRule rule = default(TemplateResponseDocumentFieldGroupRule))
+        public TemplateResponseDocumentFieldGroup(
+            string name = default(string),
+            TemplateResponseDocumentFieldGroupRule rule =
+                default(TemplateResponseDocumentFieldGroupRule)
+        )
         {
-            
             this.Name = name;
             this.Rule = rule;
         }
@@ -60,7 +66,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseDocumentFieldGroup");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TemplateResponseDocumentFieldGroup"
+                );
             }
 
             return obj;
@@ -72,14 +80,12 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the form field group.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets Rule
         /// </summary>
         [DataMember(Name = "rule", EmitDefaultValue = true)]
         public TemplateResponseDocumentFieldGroupRule Rule { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,7 +107,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -125,17 +134,8 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Rule == input.Rule ||
-                    (this.Rule != null &&
-                    this.Rule.Equals(input.Rule))
-                );
+            return (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
+                && (this.Rule == input.Rule || (this.Rule != null && this.Rule.Equals(input.Rule)));
         }
 
         /// <summary>
@@ -164,7 +164,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -172,21 +174,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "name",
-                Property = "Name",
-                Type = "string",
-                Value = Name,
-            });
-            types.Add(new OpenApiType(){
-                Name = "rule",
-                Property = "Rule",
-                Type = "TemplateResponseDocumentFieldGroupRule",
-                Value = Rule,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "name",
+                    Property = "Name",
+                    Type = "string",
+                    Value = Name,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "rule",
+                    Property = "Rule",
+                    Type = "TemplateResponseDocumentFieldGroupRule",
+                    Value = Rule,
+                }
+            );
 
             return types;
         }
     }
-
 }

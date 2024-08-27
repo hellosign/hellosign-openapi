@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,13 +31,16 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateResponseAccountQuota")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateResponseAccountQuota : IEquatable<TemplateResponseAccountQuota>, IValidatableObject
+    public partial class TemplateResponseAccountQuota
+        : IEquatable<TemplateResponseAccountQuota>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccountQuota" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateResponseAccountQuota() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateResponseAccountQuota" /> class.
         /// </summary>
@@ -45,9 +48,13 @@ namespace Dropbox.Sign.Model
         /// <param name="apiSignatureRequestsLeft">API signature requests remaining..</param>
         /// <param name="documentsLeft">Signature requests remaining..</param>
         /// <param name="smsVerificationsLeft">SMS verifications remaining..</param>
-        public TemplateResponseAccountQuota(int templatesLeft = default(int), int apiSignatureRequestsLeft = default(int), int documentsLeft = default(int), int smsVerificationsLeft = default(int))
+        public TemplateResponseAccountQuota(
+            int templatesLeft = default(int),
+            int apiSignatureRequestsLeft = default(int),
+            int documentsLeft = default(int),
+            int smsVerificationsLeft = default(int)
+        )
         {
-            
             this.TemplatesLeft = templatesLeft;
             this.ApiSignatureRequestsLeft = apiSignatureRequestsLeft;
             this.DocumentsLeft = documentsLeft;
@@ -64,7 +71,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TemplateResponseAccountQuota");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TemplateResponseAccountQuota"
+                );
             }
 
             return obj;
@@ -76,7 +85,6 @@ namespace Dropbox.Sign.Model
         /// <value>API templates remaining.</value>
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int TemplatesLeft { get; set; }
-        
 
         /// <summary>
         /// API signature requests remaining.
@@ -84,7 +92,6 @@ namespace Dropbox.Sign.Model
         /// <value>API signature requests remaining.</value>
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int ApiSignatureRequestsLeft { get; set; }
-        
 
         /// <summary>
         /// Signature requests remaining.
@@ -92,7 +99,6 @@ namespace Dropbox.Sign.Model
         /// <value>Signature requests remaining.</value>
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int DocumentsLeft { get; set; }
-        
 
         /// <summary>
         /// SMS verifications remaining.
@@ -100,7 +106,6 @@ namespace Dropbox.Sign.Model
         /// <value>SMS verifications remaining.</value>
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int SmsVerificationsLeft { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,7 +129,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -148,22 +156,21 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.TemplatesLeft == input.TemplatesLeft ||
-                    this.TemplatesLeft.Equals(input.TemplatesLeft)
-                ) && 
-                (
-                    this.ApiSignatureRequestsLeft == input.ApiSignatureRequestsLeft ||
-                    this.ApiSignatureRequestsLeft.Equals(input.ApiSignatureRequestsLeft)
-                ) && 
-                (
-                    this.DocumentsLeft == input.DocumentsLeft ||
-                    this.DocumentsLeft.Equals(input.DocumentsLeft)
-                ) && 
-                (
-                    this.SmsVerificationsLeft == input.SmsVerificationsLeft ||
-                    this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft)
+            return (
+                    this.TemplatesLeft == input.TemplatesLeft
+                    || this.TemplatesLeft.Equals(input.TemplatesLeft)
+                )
+                && (
+                    this.ApiSignatureRequestsLeft == input.ApiSignatureRequestsLeft
+                    || this.ApiSignatureRequestsLeft.Equals(input.ApiSignatureRequestsLeft)
+                )
+                && (
+                    this.DocumentsLeft == input.DocumentsLeft
+                    || this.DocumentsLeft.Equals(input.DocumentsLeft)
+                )
+                && (
+                    this.SmsVerificationsLeft == input.SmsVerificationsLeft
+                    || this.SmsVerificationsLeft.Equals(input.SmsVerificationsLeft)
                 );
         }
 
@@ -189,7 +196,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -197,33 +206,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "templates_left",
-                Property = "TemplatesLeft",
-                Type = "int",
-                Value = TemplatesLeft,
-            });
-            types.Add(new OpenApiType(){
-                Name = "api_signature_requests_left",
-                Property = "ApiSignatureRequestsLeft",
-                Type = "int",
-                Value = ApiSignatureRequestsLeft,
-            });
-            types.Add(new OpenApiType(){
-                Name = "documents_left",
-                Property = "DocumentsLeft",
-                Type = "int",
-                Value = DocumentsLeft,
-            });
-            types.Add(new OpenApiType(){
-                Name = "sms_verifications_left",
-                Property = "SmsVerificationsLeft",
-                Type = "int",
-                Value = SmsVerificationsLeft,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "templates_left",
+                    Property = "TemplatesLeft",
+                    Type = "int",
+                    Value = TemplatesLeft,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "api_signature_requests_left",
+                    Property = "ApiSignatureRequestsLeft",
+                    Type = "int",
+                    Value = ApiSignatureRequestsLeft,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "documents_left",
+                    Property = "DocumentsLeft",
+                    Type = "int",
+                    Value = DocumentsLeft,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "sms_verifications_left",
+                    Property = "SmsVerificationsLeft",
+                    Type = "int",
+                    Value = SmsVerificationsLeft,
+                }
+            );
 
             return types;
         }
     }
-
 }

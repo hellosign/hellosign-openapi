@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,22 +31,28 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "AccountCreateResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class AccountCreateResponse : IEquatable<AccountCreateResponse>, IValidatableObject
+    public partial class AccountCreateResponse
+        : IEquatable<AccountCreateResponse>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountCreateResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected AccountCreateResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountCreateResponse" /> class.
         /// </summary>
         /// <param name="account">account.</param>
         /// <param name="oauthData">oauthData.</param>
         /// <param name="warnings">A list of warnings..</param>
-        public AccountCreateResponse(AccountResponse account = default(AccountResponse), OAuthTokenResponse oauthData = default(OAuthTokenResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
+        public AccountCreateResponse(
+            AccountResponse account = default(AccountResponse),
+            OAuthTokenResponse oauthData = default(OAuthTokenResponse),
+            List<WarningResponse> warnings = default(List<WarningResponse>)
+        )
         {
-            
             this.Account = account;
             this.OauthData = oauthData;
             this.Warnings = warnings;
@@ -62,7 +68,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of AccountCreateResponse");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of AccountCreateResponse"
+                );
             }
 
             return obj;
@@ -73,14 +81,12 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "account", EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets OauthData
         /// </summary>
         [DataMember(Name = "oauth_data", EmitDefaultValue = true)]
         public OAuthTokenResponse OauthData { get; set; }
-        
 
         /// <summary>
         /// A list of warnings.
@@ -88,7 +94,6 @@ namespace Dropbox.Sign.Model
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -111,7 +116,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -135,22 +143,19 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
-                ) && 
-                (
-                    this.OauthData == input.OauthData ||
-                    (this.OauthData != null &&
-                    this.OauthData.Equals(input.OauthData))
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
+            return (
+                    this.Account == input.Account
+                    || (this.Account != null && this.Account.Equals(input.Account))
+                )
+                && (
+                    this.OauthData == input.OauthData
+                    || (this.OauthData != null && this.OauthData.Equals(input.OauthData))
+                )
+                && (
+                    this.Warnings == input.Warnings
+                    || this.Warnings != null
+                        && input.Warnings != null
+                        && this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -184,7 +189,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -192,27 +199,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "account",
-                Property = "Account",
-                Type = "AccountResponse",
-                Value = Account,
-            });
-            types.Add(new OpenApiType(){
-                Name = "oauth_data",
-                Property = "OauthData",
-                Type = "OAuthTokenResponse",
-                Value = OauthData,
-            });
-            types.Add(new OpenApiType(){
-                Name = "warnings",
-                Property = "Warnings",
-                Type = "List<WarningResponse>",
-                Value = Warnings,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account",
+                    Property = "Account",
+                    Type = "AccountResponse",
+                    Value = Account,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "oauth_data",
+                    Property = "OauthData",
+                    Type = "OAuthTokenResponse",
+                    Value = OauthData,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "warnings",
+                    Property = "Warnings",
+                    Type = "List<WarningResponse>",
+                    Value = Warnings,
+                }
+            );
 
             return types;
         }
     }
-
 }

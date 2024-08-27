@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,21 +31,26 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TemplateCreateResponse")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TemplateCreateResponse : IEquatable<TemplateCreateResponse>, IValidatableObject
+    public partial class TemplateCreateResponse
+        : IEquatable<TemplateCreateResponse>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TemplateCreateResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateCreateResponse" /> class.
         /// </summary>
         /// <param name="template">template.</param>
         /// <param name="warnings">A list of warnings..</param>
-        public TemplateCreateResponse(TemplateCreateResponseTemplate template = default(TemplateCreateResponseTemplate), List<WarningResponse> warnings = default(List<WarningResponse>))
+        public TemplateCreateResponse(
+            TemplateCreateResponseTemplate template = default(TemplateCreateResponseTemplate),
+            List<WarningResponse> warnings = default(List<WarningResponse>)
+        )
         {
-            
             this.Template = template;
             this.Warnings = warnings;
         }
@@ -60,7 +65,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TemplateCreateResponse");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TemplateCreateResponse"
+                );
             }
 
             return obj;
@@ -71,7 +78,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = true)]
         public TemplateCreateResponseTemplate Template { get; set; }
-        
 
         /// <summary>
         /// A list of warnings.
@@ -79,7 +85,6 @@ namespace Dropbox.Sign.Model
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,7 +106,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -125,17 +133,15 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Template == input.Template ||
-                    (this.Template != null &&
-                    this.Template.Equals(input.Template))
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
+            return (
+                    this.Template == input.Template
+                    || (this.Template != null && this.Template.Equals(input.Template))
+                )
+                && (
+                    this.Warnings == input.Warnings
+                    || this.Warnings != null
+                        && input.Warnings != null
+                        && this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -165,7 +171,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -173,21 +181,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "template",
-                Property = "Template",
-                Type = "TemplateCreateResponseTemplate",
-                Value = Template,
-            });
-            types.Add(new OpenApiType(){
-                Name = "warnings",
-                Property = "Warnings",
-                Type = "List<WarningResponse>",
-                Value = Warnings,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "template",
+                    Property = "Template",
+                    Type = "TemplateCreateResponseTemplate",
+                    Value = Template,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "warnings",
+                    Property = "Warnings",
+                    Type = "List<WarningResponse>",
+                    Value = Warnings,
+                }
+            );
 
             return types;
         }
     }
-
 }

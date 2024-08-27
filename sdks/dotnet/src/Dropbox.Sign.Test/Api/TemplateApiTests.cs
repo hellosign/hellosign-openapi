@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using Xunit;
-
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Model;
+using Xunit;
 
 namespace Dropbox.Sign.Test.Api
 {
@@ -28,17 +27,22 @@ namespace Dropbox.Sign.Test.Api
         [Fact]
         public void TemplateCreateEmbeddedDraftTest()
         {
-            var requestData = TestHelper.GetJsonContents(nameof(TemplateCreateEmbeddedDraftRequest));
-            var responseData = TestHelper.GetJsonContents(nameof(TemplateCreateEmbeddedDraftResponse));
+            var requestData = TestHelper.GetJsonContents(
+                nameof(TemplateCreateEmbeddedDraftRequest)
+            );
+            var responseData = TestHelper.GetJsonContents(
+                nameof(TemplateCreateEmbeddedDraftResponse)
+            );
 
             var obj = TemplateCreateEmbeddedDraftRequest.Init(requestData.ToString());
-            obj.Files = new List<Stream> {
+            obj.Files = new List<Stream>
+            {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
                     FileAccess.Read,
                     FileShare.Read
-                )
+                ),
             };
 
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);
@@ -47,15 +51,11 @@ namespace Dropbox.Sign.Test.Api
             TestHelper.AssertJsonSame(responseData.ToString(), response.ToJson());
         }
 
-        [Fact(Skip="POST /template/delete/{template_id} skipped")]
-        public void TemplateDeleteTest()
-        {
-        }
+        [Fact(Skip = "POST /template/delete/{template_id} skipped")]
+        public void TemplateDeleteTest() { }
 
-        [Fact(Skip="GET /template/files/{signature_request_id} skipped")]
-        public void TemplateFilesTest()
-        {
-        }
+        [Fact(Skip = "GET /template/files/{signature_request_id} skipped")]
+        public void TemplateFilesTest() { }
 
         [Fact]
         public void TemplateGetTest()
@@ -108,13 +108,14 @@ namespace Dropbox.Sign.Test.Api
             var responseData = TestHelper.GetJsonContents(nameof(TemplateUpdateFilesResponse));
 
             var obj = TemplateUpdateFilesRequest.Init(requestData.ToString());
-            obj.Files = new List<Stream> {
+            obj.Files = new List<Stream>
+            {
                 new FileStream(
                     TestHelper.RootPath + "/pdf-sample.pdf",
                     FileMode.Open,
                     FileAccess.Read,
                     FileShare.Read
-                )
+                ),
             };
 
             var api = MockRestClientHelper.CreateApi<TemplateApi>(responseData);

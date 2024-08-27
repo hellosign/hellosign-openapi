@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,13 +31,16 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "OAuthTokenGenerateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class OAuthTokenGenerateRequest : IEquatable<OAuthTokenGenerateRequest>, IValidatableObject
+    public partial class OAuthTokenGenerateRequest
+        : IEquatable<OAuthTokenGenerateRequest>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenGenerateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected OAuthTokenGenerateRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthTokenGenerateRequest" /> class.
         /// </summary>
@@ -46,37 +49,52 @@ namespace Dropbox.Sign.Model
         /// <param name="code">The code passed to your callback when the user granted access. (required).</param>
         /// <param name="grantType">When generating a new token use &#x60;authorization_code&#x60;. (required) (default to &quot;authorization_code&quot;).</param>
         /// <param name="state">Same as the state you specified earlier. (required).</param>
-        public OAuthTokenGenerateRequest(string clientId = default(string), string clientSecret = default(string), string code = default(string), string grantType = @"authorization_code", string state = default(string))
+        public OAuthTokenGenerateRequest(
+            string clientId = default(string),
+            string clientSecret = default(string),
+            string code = default(string),
+            string grantType = @"authorization_code",
+            string state = default(string)
+        )
         {
-            
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
-                throw new ArgumentNullException("clientId is a required property for OAuthTokenGenerateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "clientId is a required property for OAuthTokenGenerateRequest and cannot be null"
+                );
             }
             this.ClientId = clientId;
             // to ensure "clientSecret" is required (not null)
             if (clientSecret == null)
             {
-                throw new ArgumentNullException("clientSecret is a required property for OAuthTokenGenerateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "clientSecret is a required property for OAuthTokenGenerateRequest and cannot be null"
+                );
             }
             this.ClientSecret = clientSecret;
             // to ensure "code" is required (not null)
             if (code == null)
             {
-                throw new ArgumentNullException("code is a required property for OAuthTokenGenerateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "code is a required property for OAuthTokenGenerateRequest and cannot be null"
+                );
             }
             this.Code = code;
             // to ensure "grantType" is required (not null)
             if (grantType == null)
             {
-                throw new ArgumentNullException("grantType is a required property for OAuthTokenGenerateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "grantType is a required property for OAuthTokenGenerateRequest and cannot be null"
+                );
             }
             this.GrantType = grantType;
             // to ensure "state" is required (not null)
             if (state == null)
             {
-                throw new ArgumentNullException("state is a required property for OAuthTokenGenerateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "state is a required property for OAuthTokenGenerateRequest and cannot be null"
+                );
             }
             this.State = state;
         }
@@ -91,7 +109,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of OAuthTokenGenerateRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of OAuthTokenGenerateRequest"
+                );
             }
 
             return obj;
@@ -103,7 +123,6 @@ namespace Dropbox.Sign.Model
         /// <value>The client id of the app requesting authorization.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
 
         /// <summary>
         /// The secret token of your app.
@@ -111,7 +130,6 @@ namespace Dropbox.Sign.Model
         /// <value>The secret token of your app.</value>
         [DataMember(Name = "client_secret", IsRequired = true, EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
-        
 
         /// <summary>
         /// The code passed to your callback when the user granted access.
@@ -119,7 +137,6 @@ namespace Dropbox.Sign.Model
         /// <value>The code passed to your callback when the user granted access.</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
-        
 
         /// <summary>
         /// When generating a new token use &#x60;authorization_code&#x60;.
@@ -127,7 +144,6 @@ namespace Dropbox.Sign.Model
         /// <value>When generating a new token use &#x60;authorization_code&#x60;.</value>
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
-        
 
         /// <summary>
         /// Same as the state you specified earlier.
@@ -135,7 +151,6 @@ namespace Dropbox.Sign.Model
         /// <value>Same as the state you specified earlier.</value>
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public string State { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -160,7 +175,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -184,31 +202,22 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
-                ) && 
-                (
-                    this.ClientSecret == input.ClientSecret ||
-                    (this.ClientSecret != null &&
-                    this.ClientSecret.Equals(input.ClientSecret))
-                ) && 
-                (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
-                (
-                    this.GrantType == input.GrantType ||
-                    (this.GrantType != null &&
-                    this.GrantType.Equals(input.GrantType))
-                ) && 
-                (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
+            return (
+                    this.ClientId == input.ClientId
+                    || (this.ClientId != null && this.ClientId.Equals(input.ClientId))
+                )
+                && (
+                    this.ClientSecret == input.ClientSecret
+                    || (this.ClientSecret != null && this.ClientSecret.Equals(input.ClientSecret))
+                )
+                && (this.Code == input.Code || (this.Code != null && this.Code.Equals(input.Code)))
+                && (
+                    this.GrantType == input.GrantType
+                    || (this.GrantType != null && this.GrantType.Equals(input.GrantType))
+                )
+                && (
+                    this.State == input.State
+                    || (this.State != null && this.State.Equals(input.State))
                 );
         }
 
@@ -250,7 +259,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -258,39 +269,53 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "client_id",
-                Property = "ClientId",
-                Type = "string",
-                Value = ClientId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "client_secret",
-                Property = "ClientSecret",
-                Type = "string",
-                Value = ClientSecret,
-            });
-            types.Add(new OpenApiType(){
-                Name = "code",
-                Property = "Code",
-                Type = "string",
-                Value = Code,
-            });
-            types.Add(new OpenApiType(){
-                Name = "grant_type",
-                Property = "GrantType",
-                Type = "string",
-                Value = GrantType,
-            });
-            types.Add(new OpenApiType(){
-                Name = "state",
-                Property = "State",
-                Type = "string",
-                Value = State,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "client_id",
+                    Property = "ClientId",
+                    Type = "string",
+                    Value = ClientId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "client_secret",
+                    Property = "ClientSecret",
+                    Type = "string",
+                    Value = ClientSecret,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "code",
+                    Property = "Code",
+                    Type = "string",
+                    Value = Code,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "grant_type",
+                    Property = "GrantType",
+                    Type = "string",
+                    Value = GrantType,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "state",
+                    Property = "State",
+                    Type = "string",
+                    Value = State,
+                }
+            );
 
             return types;
         }
     }
-
 }

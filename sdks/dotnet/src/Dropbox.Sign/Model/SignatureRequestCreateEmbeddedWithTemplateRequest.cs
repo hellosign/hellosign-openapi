@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,13 +31,16 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SignatureRequestCreateEmbeddedWithTemplateRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SignatureRequestCreateEmbeddedWithTemplateRequest : IEquatable<SignatureRequestCreateEmbeddedWithTemplateRequest>, IValidatableObject
+    public partial class SignatureRequestCreateEmbeddedWithTemplateRequest
+        : IEquatable<SignatureRequestCreateEmbeddedWithTemplateRequest>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestCreateEmbeddedWithTemplateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SignatureRequestCreateEmbeddedWithTemplateRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SignatureRequestCreateEmbeddedWithTemplateRequest" /> class.
         /// </summary>
@@ -56,25 +59,47 @@ namespace Dropbox.Sign.Model
         /// <param name="testMode">Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;. (default to false).</param>
         /// <param name="title">The title you want to assign to the SignatureRequest..</param>
         /// <param name="populateAutoFillFields">Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature. (default to false).</param>
-        public SignatureRequestCreateEmbeddedWithTemplateRequest(List<string> templateIds = default(List<string>), bool allowDecline = false, List<SubCC> ccs = default(List<SubCC>), string clientId = default(string), List<SubCustomField> customFields = default(List<SubCustomField>), List<System.IO.Stream> files = default(List<System.IO.Stream>), List<string> fileUrls = default(List<string>), string message = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), List<SubSignatureRequestTemplateSigner> signers = default(List<SubSignatureRequestTemplateSigner>), SubSigningOptions signingOptions = default(SubSigningOptions), string subject = default(string), bool testMode = false, string title = default(string), bool populateAutoFillFields = false)
+        public SignatureRequestCreateEmbeddedWithTemplateRequest(
+            List<string> templateIds = default(List<string>),
+            bool allowDecline = false,
+            List<SubCC> ccs = default(List<SubCC>),
+            string clientId = default(string),
+            List<SubCustomField> customFields = default(List<SubCustomField>),
+            List<System.IO.Stream> files = default(List<System.IO.Stream>),
+            List<string> fileUrls = default(List<string>),
+            string message = default(string),
+            Dictionary<string, Object> metadata = default(Dictionary<string, Object>),
+            List<SubSignatureRequestTemplateSigner> signers =
+                default(List<SubSignatureRequestTemplateSigner>),
+            SubSigningOptions signingOptions = default(SubSigningOptions),
+            string subject = default(string),
+            bool testMode = false,
+            string title = default(string),
+            bool populateAutoFillFields = false
+        )
         {
-            
             // to ensure "templateIds" is required (not null)
             if (templateIds == null)
             {
-                throw new ArgumentNullException("templateIds is a required property for SignatureRequestCreateEmbeddedWithTemplateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "templateIds is a required property for SignatureRequestCreateEmbeddedWithTemplateRequest and cannot be null"
+                );
             }
             this.TemplateIds = templateIds;
             // to ensure "clientId" is required (not null)
             if (clientId == null)
             {
-                throw new ArgumentNullException("clientId is a required property for SignatureRequestCreateEmbeddedWithTemplateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "clientId is a required property for SignatureRequestCreateEmbeddedWithTemplateRequest and cannot be null"
+                );
             }
             this.ClientId = clientId;
             // to ensure "signers" is required (not null)
             if (signers == null)
             {
-                throw new ArgumentNullException("signers is a required property for SignatureRequestCreateEmbeddedWithTemplateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "signers is a required property for SignatureRequestCreateEmbeddedWithTemplateRequest and cannot be null"
+                );
             }
             this.Signers = signers;
             this.AllowDecline = allowDecline;
@@ -97,11 +122,16 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static SignatureRequestCreateEmbeddedWithTemplateRequest Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<SignatureRequestCreateEmbeddedWithTemplateRequest>(jsonData);
+            var obj =
+                JsonConvert.DeserializeObject<SignatureRequestCreateEmbeddedWithTemplateRequest>(
+                    jsonData
+                );
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of SignatureRequestCreateEmbeddedWithTemplateRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of SignatureRequestCreateEmbeddedWithTemplateRequest"
+                );
             }
 
             return obj;
@@ -113,7 +143,6 @@ namespace Dropbox.Sign.Model
         /// <value>Use &#x60;template_ids&#x60; to create a SignatureRequest from one or more templates, in the order in which the template will be used.</value>
         [DataMember(Name = "template_ids", IsRequired = true, EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
-        
 
         /// <summary>
         /// Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.
@@ -121,7 +150,6 @@ namespace Dropbox.Sign.Model
         /// <value>Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.</value>
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
 
         /// <summary>
         /// Add Signers to your Templated-based Signature Request.
@@ -129,7 +157,6 @@ namespace Dropbox.Sign.Model
         /// <value>Add Signers to your Templated-based Signature Request.</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
-        
 
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
@@ -137,7 +164,6 @@ namespace Dropbox.Sign.Model
         /// <value>Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
-        
 
         /// <summary>
         /// Add CC email recipients. Required when a CC role exists for the Template.
@@ -145,7 +171,6 @@ namespace Dropbox.Sign.Model
         /// <value>Add CC email recipients. Required when a CC role exists for the Template.</value>
         [DataMember(Name = "ccs", EmitDefaultValue = true)]
         public List<SubCC> Ccs { get; set; }
-        
 
         /// <summary>
         /// An array defining values and options for custom fields. Required when a custom field exists in the Template.
@@ -153,7 +178,6 @@ namespace Dropbox.Sign.Model
         /// <value>An array defining values and options for custom fields. Required when a custom field exists in the Template.</value>
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubCustomField> CustomFields { get; set; }
-        
 
         /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
@@ -161,7 +185,6 @@ namespace Dropbox.Sign.Model
         /// <value>Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
-        
 
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
@@ -169,7 +192,6 @@ namespace Dropbox.Sign.Model
         /// <value>Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.</value>
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
-        
 
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
@@ -177,7 +199,6 @@ namespace Dropbox.Sign.Model
         /// <value>The custom message in the email that will be sent to the signers.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
-        
 
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
@@ -185,14 +206,12 @@ namespace Dropbox.Sign.Model
         /// <value>Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.</value>
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets SigningOptions
         /// </summary>
         [DataMember(Name = "signing_options", EmitDefaultValue = true)]
         public SubSigningOptions SigningOptions { get; set; }
-        
 
         /// <summary>
         /// The subject in the email that will be sent to the signers.
@@ -200,7 +219,6 @@ namespace Dropbox.Sign.Model
         /// <value>The subject in the email that will be sent to the signers.</value>
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
-        
 
         /// <summary>
         /// Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
@@ -208,7 +226,6 @@ namespace Dropbox.Sign.Model
         /// <value>Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.</value>
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
-        
 
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
@@ -216,7 +233,6 @@ namespace Dropbox.Sign.Model
         /// <value>The title you want to assign to the SignatureRequest.</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
-        
 
         /// <summary>
         /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
@@ -224,7 +240,6 @@ namespace Dropbox.Sign.Model
         /// <value>Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.</value>
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -259,7 +274,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -283,85 +301,77 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.TemplateIds == input.TemplateIds ||
-                    this.TemplateIds != null &&
-                    input.TemplateIds != null &&
-                    this.TemplateIds.SequenceEqual(input.TemplateIds)
-                ) && 
-                (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
-                ) && 
-                (
-                    this.Signers == input.Signers ||
-                    this.Signers != null &&
-                    input.Signers != null &&
-                    this.Signers.SequenceEqual(input.Signers)
-                ) && 
-                (
-                    this.AllowDecline == input.AllowDecline ||
-                    this.AllowDecline.Equals(input.AllowDecline)
-                ) && 
-                (
-                    this.Ccs == input.Ccs ||
-                    this.Ccs != null &&
-                    input.Ccs != null &&
-                    this.Ccs.SequenceEqual(input.Ccs)
-                ) && 
-                (
-                    this.CustomFields == input.CustomFields ||
-                    this.CustomFields != null &&
-                    input.CustomFields != null &&
-                    this.CustomFields.SequenceEqual(input.CustomFields)
-                ) && 
-                (
-                    this.Files == input.Files ||
-                    this.Files != null &&
-                    input.Files != null &&
-                    this.Files.SequenceEqual(input.Files)
-                ) && 
-                (
-                    this.FileUrls == input.FileUrls ||
-                    this.FileUrls != null &&
-                    input.FileUrls != null &&
-                    this.FileUrls.SequenceEqual(input.FileUrls)
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.Metadata == input.Metadata ||
-                    this.Metadata != null &&
-                    input.Metadata != null &&
-                    this.Metadata.SequenceEqual(input.Metadata)
-                ) && 
-                (
-                    this.SigningOptions == input.SigningOptions ||
-                    (this.SigningOptions != null &&
-                    this.SigningOptions.Equals(input.SigningOptions))
-                ) && 
-                (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
-                ) && 
-                (
-                    this.TestMode == input.TestMode ||
-                    this.TestMode.Equals(input.TestMode)
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.PopulateAutoFillFields == input.PopulateAutoFillFields ||
-                    this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
+            return (
+                    this.TemplateIds == input.TemplateIds
+                    || this.TemplateIds != null
+                        && input.TemplateIds != null
+                        && this.TemplateIds.SequenceEqual(input.TemplateIds)
+                )
+                && (
+                    this.ClientId == input.ClientId
+                    || (this.ClientId != null && this.ClientId.Equals(input.ClientId))
+                )
+                && (
+                    this.Signers == input.Signers
+                    || this.Signers != null
+                        && input.Signers != null
+                        && this.Signers.SequenceEqual(input.Signers)
+                )
+                && (
+                    this.AllowDecline == input.AllowDecline
+                    || this.AllowDecline.Equals(input.AllowDecline)
+                )
+                && (
+                    this.Ccs == input.Ccs
+                    || this.Ccs != null && input.Ccs != null && this.Ccs.SequenceEqual(input.Ccs)
+                )
+                && (
+                    this.CustomFields == input.CustomFields
+                    || this.CustomFields != null
+                        && input.CustomFields != null
+                        && this.CustomFields.SequenceEqual(input.CustomFields)
+                )
+                && (
+                    this.Files == input.Files
+                    || this.Files != null
+                        && input.Files != null
+                        && this.Files.SequenceEqual(input.Files)
+                )
+                && (
+                    this.FileUrls == input.FileUrls
+                    || this.FileUrls != null
+                        && input.FileUrls != null
+                        && this.FileUrls.SequenceEqual(input.FileUrls)
+                )
+                && (
+                    this.Message == input.Message
+                    || (this.Message != null && this.Message.Equals(input.Message))
+                )
+                && (
+                    this.Metadata == input.Metadata
+                    || this.Metadata != null
+                        && input.Metadata != null
+                        && this.Metadata.SequenceEqual(input.Metadata)
+                )
+                && (
+                    this.SigningOptions == input.SigningOptions
+                    || (
+                        this.SigningOptions != null
+                        && this.SigningOptions.Equals(input.SigningOptions)
+                    )
+                )
+                && (
+                    this.Subject == input.Subject
+                    || (this.Subject != null && this.Subject.Equals(input.Subject))
+                )
+                && (this.TestMode == input.TestMode || this.TestMode.Equals(input.TestMode))
+                && (
+                    this.Title == input.Title
+                    || (this.Title != null && this.Title.Equals(input.Title))
+                )
+                && (
+                    this.PopulateAutoFillFields == input.PopulateAutoFillFields
+                    || this.PopulateAutoFillFields.Equals(input.PopulateAutoFillFields)
                 );
         }
 
@@ -434,24 +444,35 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             // Message (string) maxLength
             if (this.Message != null && this.Message.Length > 5000)
             {
-                yield return new ValidationResult("Invalid value for Message, length must be less than 5000.", new [] { "Message" });
+                yield return new ValidationResult(
+                    "Invalid value for Message, length must be less than 5000.",
+                    new[] { "Message" }
+                );
             }
 
             // Subject (string) maxLength
             if (this.Subject != null && this.Subject.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for Subject, length must be less than 255.", new [] { "Subject" });
+                yield return new ValidationResult(
+                    "Invalid value for Subject, length must be less than 255.",
+                    new[] { "Subject" }
+                );
             }
 
             // Title (string) maxLength
             if (this.Title != null && this.Title.Length > 255)
             {
-                yield return new ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
+                yield return new ValidationResult(
+                    "Invalid value for Title, length must be less than 255.",
+                    new[] { "Title" }
+                );
             }
 
             yield break;
@@ -460,99 +481,143 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "template_ids",
-                Property = "TemplateIds",
-                Type = "List<string>",
-                Value = TemplateIds,
-            });
-            types.Add(new OpenApiType(){
-                Name = "client_id",
-                Property = "ClientId",
-                Type = "string",
-                Value = ClientId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "signers",
-                Property = "Signers",
-                Type = "List<SubSignatureRequestTemplateSigner>",
-                Value = Signers,
-            });
-            types.Add(new OpenApiType(){
-                Name = "allow_decline",
-                Property = "AllowDecline",
-                Type = "bool",
-                Value = AllowDecline,
-            });
-            types.Add(new OpenApiType(){
-                Name = "ccs",
-                Property = "Ccs",
-                Type = "List<SubCC>",
-                Value = Ccs,
-            });
-            types.Add(new OpenApiType(){
-                Name = "custom_fields",
-                Property = "CustomFields",
-                Type = "List<SubCustomField>",
-                Value = CustomFields,
-            });
-            types.Add(new OpenApiType(){
-                Name = "files",
-                Property = "Files",
-                Type = "List<System.IO.Stream>",
-                Value = Files,
-            });
-            types.Add(new OpenApiType(){
-                Name = "file_urls",
-                Property = "FileUrls",
-                Type = "List<string>",
-                Value = FileUrls,
-            });
-            types.Add(new OpenApiType(){
-                Name = "message",
-                Property = "Message",
-                Type = "string",
-                Value = Message,
-            });
-            types.Add(new OpenApiType(){
-                Name = "metadata",
-                Property = "Metadata",
-                Type = "Dictionary<string, Object>",
-                Value = Metadata,
-            });
-            types.Add(new OpenApiType(){
-                Name = "signing_options",
-                Property = "SigningOptions",
-                Type = "SubSigningOptions",
-                Value = SigningOptions,
-            });
-            types.Add(new OpenApiType(){
-                Name = "subject",
-                Property = "Subject",
-                Type = "string",
-                Value = Subject,
-            });
-            types.Add(new OpenApiType(){
-                Name = "test_mode",
-                Property = "TestMode",
-                Type = "bool",
-                Value = TestMode,
-            });
-            types.Add(new OpenApiType(){
-                Name = "title",
-                Property = "Title",
-                Type = "string",
-                Value = Title,
-            });
-            types.Add(new OpenApiType(){
-                Name = "populate_auto_fill_fields",
-                Property = "PopulateAutoFillFields",
-                Type = "bool",
-                Value = PopulateAutoFillFields,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "template_ids",
+                    Property = "TemplateIds",
+                    Type = "List<string>",
+                    Value = TemplateIds,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "client_id",
+                    Property = "ClientId",
+                    Type = "string",
+                    Value = ClientId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "signers",
+                    Property = "Signers",
+                    Type = "List<SubSignatureRequestTemplateSigner>",
+                    Value = Signers,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "allow_decline",
+                    Property = "AllowDecline",
+                    Type = "bool",
+                    Value = AllowDecline,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "ccs",
+                    Property = "Ccs",
+                    Type = "List<SubCC>",
+                    Value = Ccs,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "custom_fields",
+                    Property = "CustomFields",
+                    Type = "List<SubCustomField>",
+                    Value = CustomFields,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "files",
+                    Property = "Files",
+                    Type = "List<System.IO.Stream>",
+                    Value = Files,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "file_urls",
+                    Property = "FileUrls",
+                    Type = "List<string>",
+                    Value = FileUrls,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "message",
+                    Property = "Message",
+                    Type = "string",
+                    Value = Message,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "metadata",
+                    Property = "Metadata",
+                    Type = "Dictionary<string, Object>",
+                    Value = Metadata,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "signing_options",
+                    Property = "SigningOptions",
+                    Type = "SubSigningOptions",
+                    Value = SigningOptions,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "subject",
+                    Property = "Subject",
+                    Type = "string",
+                    Value = Subject,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "test_mode",
+                    Property = "TestMode",
+                    Type = "bool",
+                    Value = TestMode,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "title",
+                    Property = "Title",
+                    Type = "string",
+                    Value = Title,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "populate_auto_fill_fields",
+                    Property = "PopulateAutoFillFields",
+                    Type = "bool",
+                    Value = PopulateAutoFillFields,
+                }
+            );
 
             return types;
         }
     }
-
 }

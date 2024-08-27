@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,32 +31,42 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubUnclaimedDraftSigner")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubUnclaimedDraftSigner : IEquatable<SubUnclaimedDraftSigner>, IValidatableObject
+    public partial class SubUnclaimedDraftSigner
+        : IEquatable<SubUnclaimedDraftSigner>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUnclaimedDraftSigner" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubUnclaimedDraftSigner() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubUnclaimedDraftSigner" /> class.
         /// </summary>
         /// <param name="emailAddress">The email address of the signer. (required).</param>
         /// <param name="name">The name of the signer. (required).</param>
         /// <param name="order">The order the signer is required to sign in..</param>
-        public SubUnclaimedDraftSigner(string emailAddress = default(string), string name = default(string), int? order = default(int?))
+        public SubUnclaimedDraftSigner(
+            string emailAddress = default(string),
+            string name = default(string),
+            int? order = default(int?)
+        )
         {
-            
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
-                throw new ArgumentNullException("emailAddress is a required property for SubUnclaimedDraftSigner and cannot be null");
+                throw new ArgumentNullException(
+                    "emailAddress is a required property for SubUnclaimedDraftSigner and cannot be null"
+                );
             }
             this.EmailAddress = emailAddress;
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException("name is a required property for SubUnclaimedDraftSigner and cannot be null");
+                throw new ArgumentNullException(
+                    "name is a required property for SubUnclaimedDraftSigner and cannot be null"
+                );
             }
             this.Name = name;
             this.Order = order;
@@ -72,7 +82,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of SubUnclaimedDraftSigner");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of SubUnclaimedDraftSigner"
+                );
             }
 
             return obj;
@@ -84,7 +96,6 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of the signer.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// The name of the signer.
@@ -92,7 +103,6 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the signer.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
 
         /// <summary>
         /// The order the signer is required to sign in.
@@ -100,7 +110,6 @@ namespace Dropbox.Sign.Model
         /// <value>The order the signer is required to sign in.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,7 +132,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -147,21 +159,14 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Order == input.Order ||
-                    (this.Order != null &&
-                    this.Order.Equals(input.Order))
+            return (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
+                )
+                && (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
+                && (
+                    this.Order == input.Order
+                    || (this.Order != null && this.Order.Equals(input.Order))
                 );
         }
 
@@ -195,7 +200,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -203,27 +210,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
-            types.Add(new OpenApiType(){
-                Name = "name",
-                Property = "Name",
-                Type = "string",
-                Value = Name,
-            });
-            types.Add(new OpenApiType(){
-                Name = "order",
-                Property = "Order",
-                Type = "int?",
-                Value = Order,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "name",
+                    Property = "Name",
+                    Type = "string",
+                    Value = Name,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "order",
+                    Property = "Order",
+                    Type = "int?",
+                    Value = Order,
+                }
+            );
 
             return types;
         }
     }
-
 }

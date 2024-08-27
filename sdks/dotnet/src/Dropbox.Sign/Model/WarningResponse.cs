@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,24 +38,31 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected WarningResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="WarningResponse" /> class.
         /// </summary>
         /// <param name="warningMsg">Warning message (required).</param>
         /// <param name="warningName">Warning name (required).</param>
-        public WarningResponse(string warningMsg = default(string), string warningName = default(string))
+        public WarningResponse(
+            string warningMsg = default(string),
+            string warningName = default(string)
+        )
         {
-            
             // to ensure "warningMsg" is required (not null)
             if (warningMsg == null)
             {
-                throw new ArgumentNullException("warningMsg is a required property for WarningResponse and cannot be null");
+                throw new ArgumentNullException(
+                    "warningMsg is a required property for WarningResponse and cannot be null"
+                );
             }
             this.WarningMsg = warningMsg;
             // to ensure "warningName" is required (not null)
             if (warningName == null)
             {
-                throw new ArgumentNullException("warningName is a required property for WarningResponse and cannot be null");
+                throw new ArgumentNullException(
+                    "warningName is a required property for WarningResponse and cannot be null"
+                );
             }
             this.WarningName = warningName;
         }
@@ -82,7 +89,6 @@ namespace Dropbox.Sign.Model
         /// <value>Warning message</value>
         [DataMember(Name = "warning_msg", IsRequired = true, EmitDefaultValue = true)]
         public string WarningMsg { get; set; }
-        
 
         /// <summary>
         /// Warning name
@@ -90,7 +96,6 @@ namespace Dropbox.Sign.Model
         /// <value>Warning name</value>
         [DataMember(Name = "warning_name", IsRequired = true, EmitDefaultValue = true)]
         public string WarningName { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,7 +117,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -136,16 +144,13 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.WarningMsg == input.WarningMsg ||
-                    (this.WarningMsg != null &&
-                    this.WarningMsg.Equals(input.WarningMsg))
-                ) && 
-                (
-                    this.WarningName == input.WarningName ||
-                    (this.WarningName != null &&
-                    this.WarningName.Equals(input.WarningName))
+            return (
+                    this.WarningMsg == input.WarningMsg
+                    || (this.WarningMsg != null && this.WarningMsg.Equals(input.WarningMsg))
+                )
+                && (
+                    this.WarningName == input.WarningName
+                    || (this.WarningName != null && this.WarningName.Equals(input.WarningName))
                 );
         }
 
@@ -175,7 +180,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -183,21 +190,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "warning_msg",
-                Property = "WarningMsg",
-                Type = "string",
-                Value = WarningMsg,
-            });
-            types.Add(new OpenApiType(){
-                Name = "warning_name",
-                Property = "WarningName",
-                Type = "string",
-                Value = WarningName,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "warning_msg",
+                    Property = "WarningMsg",
+                    Type = "string",
+                    Value = WarningMsg,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "warning_name",
+                    Property = "WarningName",
+                    Type = "string",
+                    Value = WarningName,
+                }
+            );
 
             return types;
         }
     }
-
 }

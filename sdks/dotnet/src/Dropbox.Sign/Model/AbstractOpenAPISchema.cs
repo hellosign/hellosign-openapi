@@ -10,16 +10,16 @@
 
 
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System.Collections.Generic;
 
 namespace Dropbox.Sign.Model
 {
     public struct OpenApiType
     {
         public string Name { set; get; }
-        public string Property { set; get;  }
+        public string Property { set; get; }
         public string Type { set; get; }
         public object Value { set; get; }
     }
@@ -37,36 +37,32 @@ namespace Dropbox.Sign.Model
         /// <summary>
         ///  Custom JSON serializer
         /// </summary>
-        static public readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
-        {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            MissingMemberHandling = MissingMemberHandling.Error,
-            ContractResolver = new DefaultContractResolver
+        static public readonly JsonSerializerSettings SerializerSettings =
+            new JsonSerializerSettings
             {
-                NamingStrategy = new CamelCaseNamingStrategy
+                // OpenAPI generated types generally hide default constructors.
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                MissingMemberHandling = MissingMemberHandling.Error,
+                ContractResolver = new DefaultContractResolver
                 {
-                    OverrideSpecifiedNames = false
-                }
-            }
-        };
+                    NamingStrategy = new CamelCaseNamingStrategy { OverrideSpecifiedNames = false },
+                },
+            };
 
         /// <summary>
         ///  Custom JSON serializer for objects with additional properties
         /// </summary>
-        static public readonly JsonSerializerSettings AdditionalPropertiesSerializerSettings = new JsonSerializerSettings
-        {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            MissingMemberHandling = MissingMemberHandling.Ignore,
-            ContractResolver = new DefaultContractResolver
+        static public readonly JsonSerializerSettings AdditionalPropertiesSerializerSettings =
+            new JsonSerializerSettings
             {
-                NamingStrategy = new CamelCaseNamingStrategy
+                // OpenAPI generated types generally hide default constructors.
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                ContractResolver = new DefaultContractResolver
                 {
-                    OverrideSpecifiedNames = false
-                }
-            }
-        };
+                    NamingStrategy = new CamelCaseNamingStrategy { OverrideSpecifiedNames = false },
+                },
+            };
 
         /// <summary>
         /// Gets or Sets the actual instance

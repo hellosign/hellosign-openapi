@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,32 +31,42 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubSignatureRequestGroupedSigners")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubSignatureRequestGroupedSigners : IEquatable<SubSignatureRequestGroupedSigners>, IValidatableObject
+    public partial class SubSignatureRequestGroupedSigners
+        : IEquatable<SubSignatureRequestGroupedSigners>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSignatureRequestGroupedSigners" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubSignatureRequestGroupedSigners() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubSignatureRequestGroupedSigners" /> class.
         /// </summary>
         /// <param name="group">The name of the group. (required).</param>
         /// <param name="order">The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;..</param>
         /// <param name="signers">Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below. (required).</param>
-        public SubSignatureRequestGroupedSigners(string group = default(string), int? order = default(int?), List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>))
+        public SubSignatureRequestGroupedSigners(
+            string group = default(string),
+            int? order = default(int?),
+            List<SubSignatureRequestSigner> signers = default(List<SubSignatureRequestSigner>)
+        )
         {
-            
             // to ensure "group" is required (not null)
             if (group == null)
             {
-                throw new ArgumentNullException("group is a required property for SubSignatureRequestGroupedSigners and cannot be null");
+                throw new ArgumentNullException(
+                    "group is a required property for SubSignatureRequestGroupedSigners and cannot be null"
+                );
             }
             this.Group = group;
             // to ensure "signers" is required (not null)
             if (signers == null)
             {
-                throw new ArgumentNullException("signers is a required property for SubSignatureRequestGroupedSigners and cannot be null");
+                throw new ArgumentNullException(
+                    "signers is a required property for SubSignatureRequestGroupedSigners and cannot be null"
+                );
             }
             this.Signers = signers;
             this.Order = order;
@@ -72,7 +82,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of SubSignatureRequestGroupedSigners");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of SubSignatureRequestGroupedSigners"
+                );
             }
 
             return obj;
@@ -84,7 +96,6 @@ namespace Dropbox.Sign.Model
         /// <value>The name of the group.</value>
         [DataMember(Name = "group", IsRequired = true, EmitDefaultValue = true)]
         public string Group { get; set; }
-        
 
         /// <summary>
         /// Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.
@@ -92,7 +103,6 @@ namespace Dropbox.Sign.Model
         /// <value>Signers belonging to this Group.  **NOTE:** Only &#x60;name&#x60;, &#x60;email_address&#x60;, and &#x60;pin&#x60; are available to Grouped Signers. We will ignore all other properties, even though they are listed below.</value>
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestSigner> Signers { get; set; }
-        
 
         /// <summary>
         /// The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.
@@ -100,7 +110,6 @@ namespace Dropbox.Sign.Model
         /// <value>The order the group is required to sign in. Use this instead of Signer-level &#x60;order&#x60;.</value>
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -123,7 +132,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -147,22 +159,19 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Group == input.Group ||
-                    (this.Group != null &&
-                    this.Group.Equals(input.Group))
-                ) && 
-                (
-                    this.Signers == input.Signers ||
-                    this.Signers != null &&
-                    input.Signers != null &&
-                    this.Signers.SequenceEqual(input.Signers)
-                ) && 
-                (
-                    this.Order == input.Order ||
-                    (this.Order != null &&
-                    this.Order.Equals(input.Order))
+            return (
+                    this.Group == input.Group
+                    || (this.Group != null && this.Group.Equals(input.Group))
+                )
+                && (
+                    this.Signers == input.Signers
+                    || this.Signers != null
+                        && input.Signers != null
+                        && this.Signers.SequenceEqual(input.Signers)
+                )
+                && (
+                    this.Order == input.Order
+                    || (this.Order != null && this.Order.Equals(input.Order))
                 );
         }
 
@@ -196,7 +205,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -204,27 +215,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "group",
-                Property = "Group",
-                Type = "string",
-                Value = Group,
-            });
-            types.Add(new OpenApiType(){
-                Name = "signers",
-                Property = "Signers",
-                Type = "List<SubSignatureRequestSigner>",
-                Value = Signers,
-            });
-            types.Add(new OpenApiType(){
-                Name = "order",
-                Property = "Order",
-                Type = "int?",
-                Value = Order,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "group",
+                    Property = "Group",
+                    Type = "string",
+                    Value = Group,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "signers",
+                    Property = "Signers",
+                    Type = "List<SubSignatureRequestSigner>",
+                    Value = Signers,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "order",
+                    Property = "Order",
+                    Type = "int?",
+                    Value = Order,
+                }
+            );
 
             return types;
         }
     }
-
 }

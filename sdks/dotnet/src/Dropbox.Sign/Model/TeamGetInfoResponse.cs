@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,14 +38,17 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected TeamGetInfoResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamGetInfoResponse" /> class.
         /// </summary>
         /// <param name="team">team.</param>
         /// <param name="warnings">A list of warnings..</param>
-        public TeamGetInfoResponse(TeamInfoResponse team = default(TeamInfoResponse), List<WarningResponse> warnings = default(List<WarningResponse>))
+        public TeamGetInfoResponse(
+            TeamInfoResponse team = default(TeamInfoResponse),
+            List<WarningResponse> warnings = default(List<WarningResponse>)
+        )
         {
-            
             this.Team = team;
             this.Warnings = warnings;
         }
@@ -60,7 +63,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TeamGetInfoResponse");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TeamGetInfoResponse"
+                );
             }
 
             return obj;
@@ -71,7 +76,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "team", EmitDefaultValue = true)]
         public TeamInfoResponse Team { get; set; }
-        
 
         /// <summary>
         /// A list of warnings.
@@ -79,7 +83,6 @@ namespace Dropbox.Sign.Model
         /// <value>A list of warnings.</value>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,7 +104,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -125,17 +131,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Team == input.Team ||
-                    (this.Team != null &&
-                    this.Team.Equals(input.Team))
-                ) && 
-                (
-                    this.Warnings == input.Warnings ||
-                    this.Warnings != null &&
-                    input.Warnings != null &&
-                    this.Warnings.SequenceEqual(input.Warnings)
+            return (this.Team == input.Team || (this.Team != null && this.Team.Equals(input.Team)))
+                && (
+                    this.Warnings == input.Warnings
+                    || this.Warnings != null
+                        && input.Warnings != null
+                        && this.Warnings.SequenceEqual(input.Warnings)
                 );
         }
 
@@ -165,7 +166,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -173,21 +176,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "team",
-                Property = "Team",
-                Type = "TeamInfoResponse",
-                Value = Team,
-            });
-            types.Add(new OpenApiType(){
-                Name = "warnings",
-                Property = "Warnings",
-                Type = "List<WarningResponse>",
-                Value = Warnings,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "team",
+                    Property = "Team",
+                    Type = "TeamInfoResponse",
+                    Value = Team,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "warnings",
+                    Property = "Warnings",
+                    Type = "List<WarningResponse>",
+                    Value = Warnings,
+                }
+            );
 
             return types;
         }
     }
-
 }

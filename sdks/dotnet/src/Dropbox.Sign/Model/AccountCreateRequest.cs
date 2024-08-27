@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected AccountCreateRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountCreateRequest" /> class.
         /// </summary>
@@ -45,13 +46,19 @@ namespace Dropbox.Sign.Model
         /// <param name="clientSecret">Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization).</param>
         /// <param name="emailAddress">The email address which will be associated with the new Account. (required).</param>
         /// <param name="locale">The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values..</param>
-        public AccountCreateRequest(string clientId = default(string), string clientSecret = default(string), string emailAddress = default(string), string locale = default(string))
+        public AccountCreateRequest(
+            string clientId = default(string),
+            string clientSecret = default(string),
+            string emailAddress = default(string),
+            string locale = default(string)
+        )
         {
-            
             // to ensure "emailAddress" is required (not null)
             if (emailAddress == null)
             {
-                throw new ArgumentNullException("emailAddress is a required property for AccountCreateRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "emailAddress is a required property for AccountCreateRequest and cannot be null"
+                );
             }
             this.EmailAddress = emailAddress;
             this.ClientId = clientId;
@@ -69,7 +76,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of AccountCreateRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of AccountCreateRequest"
+                );
             }
 
             return obj;
@@ -81,7 +90,6 @@ namespace Dropbox.Sign.Model
         /// <value>The email address which will be associated with the new Account.</value>
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
@@ -89,7 +97,6 @@ namespace Dropbox.Sign.Model
         /// <value>Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)</value>
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
-        
 
         /// <summary>
         /// Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
@@ -97,7 +104,6 @@ namespace Dropbox.Sign.Model
         /// <value>Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)</value>
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
-        
 
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
@@ -105,7 +111,6 @@ namespace Dropbox.Sign.Model
         /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,7 +134,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -153,26 +161,21 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
-                (
-                    this.ClientId == input.ClientId ||
-                    (this.ClientId != null &&
-                    this.ClientId.Equals(input.ClientId))
-                ) && 
-                (
-                    this.ClientSecret == input.ClientSecret ||
-                    (this.ClientSecret != null &&
-                    this.ClientSecret.Equals(input.ClientSecret))
-                ) && 
-                (
-                    this.Locale == input.Locale ||
-                    (this.Locale != null &&
-                    this.Locale.Equals(input.Locale))
+            return (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
+                )
+                && (
+                    this.ClientId == input.ClientId
+                    || (this.ClientId != null && this.ClientId.Equals(input.ClientId))
+                )
+                && (
+                    this.ClientSecret == input.ClientSecret
+                    || (this.ClientSecret != null && this.ClientSecret.Equals(input.ClientSecret))
+                )
+                && (
+                    this.Locale == input.Locale
+                    || (this.Locale != null && this.Locale.Equals(input.Locale))
                 );
         }
 
@@ -210,7 +213,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -218,33 +223,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
-            types.Add(new OpenApiType(){
-                Name = "client_id",
-                Property = "ClientId",
-                Type = "string",
-                Value = ClientId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "client_secret",
-                Property = "ClientSecret",
-                Type = "string",
-                Value = ClientSecret,
-            });
-            types.Add(new OpenApiType(){
-                Name = "locale",
-                Property = "Locale",
-                Type = "string",
-                Value = Locale,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "client_id",
+                    Property = "ClientId",
+                    Type = "string",
+                    Value = ClientId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "client_secret",
+                    Property = "ClientSecret",
+                    Type = "string",
+                    Value = ClientSecret,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "locale",
+                    Property = "Locale",
+                    Type = "string",
+                    Value = Locale,
+                }
+            );
 
             return types;
         }
     }
-
 }

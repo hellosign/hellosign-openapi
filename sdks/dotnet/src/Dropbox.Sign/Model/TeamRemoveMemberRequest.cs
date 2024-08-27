@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,7 +31,9 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "TeamRemoveMemberRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class TeamRemoveMemberRequest : IEquatable<TeamRemoveMemberRequest>, IValidatableObject
+    public partial class TeamRemoveMemberRequest
+        : IEquatable<TeamRemoveMemberRequest>,
+            IValidatableObject
     {
         /// <summary>
         /// A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
@@ -62,9 +64,8 @@ namespace Dropbox.Sign.Model
             /// Enum Admin for value: Admin
             /// </summary>
             [EnumMember(Value = "Admin")]
-            Admin = 4
+            Admin = 4,
         }
-
 
         /// <summary>
         /// A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.
@@ -72,11 +73,13 @@ namespace Dropbox.Sign.Model
         /// <value>A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided.</value>
         [DataMember(Name = "new_role", EmitDefaultValue = true)]
         public NewRoleEnum? NewRole { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamRemoveMemberRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected TeamRemoveMemberRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamRemoveMemberRequest" /> class.
         /// </summary>
@@ -85,9 +88,14 @@ namespace Dropbox.Sign.Model
         /// <param name="newOwnerEmailAddress">The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans..</param>
         /// <param name="newTeamId">Id of the new Team..</param>
         /// <param name="newRole">A new role member will take in a new Team.  **NOTE:** This parameter is used only if &#x60;new_team_id&#x60; is provided..</param>
-        public TeamRemoveMemberRequest(string accountId = default(string), string emailAddress = default(string), string newOwnerEmailAddress = default(string), string newTeamId = default(string), NewRoleEnum? newRole = default(NewRoleEnum?))
+        public TeamRemoveMemberRequest(
+            string accountId = default(string),
+            string emailAddress = default(string),
+            string newOwnerEmailAddress = default(string),
+            string newTeamId = default(string),
+            NewRoleEnum? newRole = default(NewRoleEnum?)
+        )
         {
-            
             this.AccountId = accountId;
             this.EmailAddress = emailAddress;
             this.NewOwnerEmailAddress = newOwnerEmailAddress;
@@ -105,7 +113,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of TeamRemoveMemberRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of TeamRemoveMemberRequest"
+                );
             }
 
             return obj;
@@ -117,7 +127,6 @@ namespace Dropbox.Sign.Model
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
@@ -125,7 +134,6 @@ namespace Dropbox.Sign.Model
         /// <value>**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
@@ -133,7 +141,6 @@ namespace Dropbox.Sign.Model
         /// <value>The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.</value>
         [DataMember(Name = "new_owner_email_address", EmitDefaultValue = true)]
         public string NewOwnerEmailAddress { get; set; }
-        
 
         /// <summary>
         /// Id of the new Team.
@@ -141,7 +148,6 @@ namespace Dropbox.Sign.Model
         /// <value>Id of the new Team.</value>
         [DataMember(Name = "new_team_id", EmitDefaultValue = true)]
         public string NewTeamId { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -166,7 +172,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -190,31 +199,26 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
-                ) && 
-                (
-                    this.NewOwnerEmailAddress == input.NewOwnerEmailAddress ||
-                    (this.NewOwnerEmailAddress != null &&
-                    this.NewOwnerEmailAddress.Equals(input.NewOwnerEmailAddress))
-                ) && 
-                (
-                    this.NewTeamId == input.NewTeamId ||
-                    (this.NewTeamId != null &&
-                    this.NewTeamId.Equals(input.NewTeamId))
-                ) && 
-                (
-                    this.NewRole == input.NewRole ||
-                    this.NewRole.Equals(input.NewRole)
-                );
+            return (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
+                )
+                && (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
+                )
+                && (
+                    this.NewOwnerEmailAddress == input.NewOwnerEmailAddress
+                    || (
+                        this.NewOwnerEmailAddress != null
+                        && this.NewOwnerEmailAddress.Equals(input.NewOwnerEmailAddress)
+                    )
+                )
+                && (
+                    this.NewTeamId == input.NewTeamId
+                    || (this.NewTeamId != null && this.NewTeamId.Equals(input.NewTeamId))
+                )
+                && (this.NewRole == input.NewRole || this.NewRole.Equals(input.NewRole));
         }
 
         /// <summary>
@@ -252,7 +256,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -260,39 +266,53 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
-            types.Add(new OpenApiType(){
-                Name = "new_owner_email_address",
-                Property = "NewOwnerEmailAddress",
-                Type = "string",
-                Value = NewOwnerEmailAddress,
-            });
-            types.Add(new OpenApiType(){
-                Name = "new_team_id",
-                Property = "NewTeamId",
-                Type = "string",
-                Value = NewTeamId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "new_role",
-                Property = "NewRole",
-                Type = "string",
-                Value = NewRole,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "new_owner_email_address",
+                    Property = "NewOwnerEmailAddress",
+                    Type = "string",
+                    Value = NewOwnerEmailAddress,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "new_team_id",
+                    Property = "NewTeamId",
+                    Type = "string",
+                    Value = NewTeamId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "new_role",
+                    Property = "NewRole",
+                    Type = "string",
+                    Value = NewRole,
+                }
+            );
 
             return types;
         }
     }
-
 }

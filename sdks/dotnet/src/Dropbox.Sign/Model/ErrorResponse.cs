@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,17 +38,19 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected ErrorResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
         /// </summary>
         /// <param name="error">error (required).</param>
         public ErrorResponse(ErrorResponseError error = default(ErrorResponseError))
         {
-            
             // to ensure "error" is required (not null)
             if (error == null)
             {
-                throw new ArgumentNullException("error is a required property for ErrorResponse and cannot be null");
+                throw new ArgumentNullException(
+                    "error is a required property for ErrorResponse and cannot be null"
+                );
             }
             this.Error = error;
         }
@@ -74,7 +76,6 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public ErrorResponseError Error { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -95,7 +96,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -119,12 +123,9 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Error == input.Error ||
-                    (this.Error != null &&
-                    this.Error.Equals(input.Error))
-                );
+            return (
+                this.Error == input.Error || (this.Error != null && this.Error.Equals(input.Error))
+            );
         }
 
         /// <summary>
@@ -149,7 +150,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -157,15 +160,17 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "error",
-                Property = "Error",
-                Type = "ErrorResponseError",
-                Value = Error,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "error",
+                    Property = "Error",
+                    Type = "ErrorResponseError",
+                    Value = Error,
+                }
+            );
 
             return types;
         }
     }
-
 }

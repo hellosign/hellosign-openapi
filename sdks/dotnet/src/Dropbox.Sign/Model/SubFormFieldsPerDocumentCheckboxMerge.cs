@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,13 +31,18 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "SubFormFieldsPerDocumentCheckboxMerge")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class SubFormFieldsPerDocumentCheckboxMerge : SubFormFieldsPerDocumentBase, IOpenApiTyped, IEquatable<SubFormFieldsPerDocumentCheckboxMerge>, IValidatableObject
+    public partial class SubFormFieldsPerDocumentCheckboxMerge
+        : SubFormFieldsPerDocumentBase,
+            IOpenApiTyped,
+            IEquatable<SubFormFieldsPerDocumentCheckboxMerge>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentCheckboxMerge" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected SubFormFieldsPerDocumentCheckboxMerge() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubFormFieldsPerDocumentCheckboxMerge" /> class.
         /// </summary>
@@ -52,7 +57,19 @@ namespace Dropbox.Sign.Model
         /// <param name="width">Size of the field in pixels. (required).</param>
         /// <param name="x">Location coordinates of the field in pixels. (required).</param>
         /// <param name="y">Location coordinates of the field in pixels. (required).</param>
-        public SubFormFieldsPerDocumentCheckboxMerge(string type = @"checkbox-merge", int documentIndex = default(int), string apiId = default(string), int height = default(int), string name = default(string), int? page = default(int?), bool required = default(bool), Object signer = null, int width = default(int), int x = default(int), int y = default(int))
+        public SubFormFieldsPerDocumentCheckboxMerge(
+            string type = @"checkbox-merge",
+            int documentIndex = default(int),
+            string apiId = default(string),
+            int height = default(int),
+            string name = default(string),
+            int? page = default(int?),
+            bool required = default(bool),
+            Object signer = null,
+            int width = default(int),
+            int x = default(int),
+            int y = default(int)
+        )
         {
             this.DocumentIndex = documentIndex;
             this.ApiId = apiId;
@@ -64,11 +81,13 @@ namespace Dropbox.Sign.Model
             this.Y = y;
             this.Name = name;
             this.Page = page;
-            
+
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new ArgumentNullException("type is a required property for SubFormFieldsPerDocumentCheckboxMerge and cannot be null");
+                throw new ArgumentNullException(
+                    "type is a required property for SubFormFieldsPerDocumentCheckboxMerge and cannot be null"
+                );
             }
             this.Type = type;
         }
@@ -79,11 +98,15 @@ namespace Dropbox.Sign.Model
         /// <param name="jsonData">String of JSON data representing target object</param>
         public static SubFormFieldsPerDocumentCheckboxMerge Init(string jsonData)
         {
-            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentCheckboxMerge>(jsonData);
+            var obj = JsonConvert.DeserializeObject<SubFormFieldsPerDocumentCheckboxMerge>(
+                jsonData
+            );
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of SubFormFieldsPerDocumentCheckboxMerge");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of SubFormFieldsPerDocumentCheckboxMerge"
+                );
             }
 
             return obj;
@@ -95,7 +118,6 @@ namespace Dropbox.Sign.Model
         /// <value>A checkbox field that has default value set using pre-filled data. Use the &#x60;SubFormFieldsPerDocumentCheckboxMerge&#x60; class.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,7 +139,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -141,12 +166,8 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return base.Equals(input) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                );
+            return base.Equals(input)
+                && (this.Type == input.Type || (this.Type != null && this.Type.Equals(input.Type)));
         }
 
         /// <summary>
@@ -171,7 +192,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             return this.BaseValidate(validationContext);
         }
@@ -193,15 +216,17 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "type",
-                Property = "Type",
-                Type = "string",
-                Value = Type,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "type",
+                    Property = "Type",
+                    Type = "string",
+                    Value = Type,
+                }
+            );
 
             return types;
         }
     }
-
 }

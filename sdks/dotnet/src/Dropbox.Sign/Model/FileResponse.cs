@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected FileResponse() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FileResponse" /> class.
         /// </summary>
@@ -45,7 +46,6 @@ namespace Dropbox.Sign.Model
         /// <param name="expiresAt">When the link expires..</param>
         public FileResponse(string fileUrl = default(string), int expiresAt = default(int))
         {
-            
             this.FileUrl = fileUrl;
             this.ExpiresAt = expiresAt;
         }
@@ -72,7 +72,6 @@ namespace Dropbox.Sign.Model
         /// <value>URL to the file.</value>
         [DataMember(Name = "file_url", EmitDefaultValue = true)]
         public string FileUrl { get; set; }
-        
 
         /// <summary>
         /// When the link expires.
@@ -80,7 +79,6 @@ namespace Dropbox.Sign.Model
         /// <value>When the link expires.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,7 +100,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -126,16 +127,10 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.FileUrl == input.FileUrl ||
-                    (this.FileUrl != null &&
-                    this.FileUrl.Equals(input.FileUrl))
-                ) && 
-                (
-                    this.ExpiresAt == input.ExpiresAt ||
-                    this.ExpiresAt.Equals(input.ExpiresAt)
-                );
+            return (
+                    this.FileUrl == input.FileUrl
+                    || (this.FileUrl != null && this.FileUrl.Equals(input.FileUrl))
+                ) && (this.ExpiresAt == input.ExpiresAt || this.ExpiresAt.Equals(input.ExpiresAt));
         }
 
         /// <summary>
@@ -161,7 +156,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -169,21 +166,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "file_url",
-                Property = "FileUrl",
-                Type = "string",
-                Value = FileUrl,
-            });
-            types.Add(new OpenApiType(){
-                Name = "expires_at",
-                Property = "ExpiresAt",
-                Type = "int",
-                Value = ExpiresAt,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "file_url",
+                    Property = "FileUrl",
+                    Type = "string",
+                    Value = FileUrl,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "expires_at",
+                    Property = "ExpiresAt",
+                    Type = "int",
+                    Value = ExpiresAt,
+                }
+            );
 
             return types;
         }
     }
-
 }

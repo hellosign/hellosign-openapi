@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,6 +38,7 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected SubAttachment() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAttachment" /> class.
         /// </summary>
@@ -45,13 +46,19 @@ namespace Dropbox.Sign.Model
         /// <param name="name">The name of attachment. (required).</param>
         /// <param name="required">Determines if the attachment must be uploaded. (default to false).</param>
         /// <param name="signerIndex">The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment. (required).</param>
-        public SubAttachment(string instructions = default(string), string name = default(string), bool required = false, int signerIndex = default(int))
+        public SubAttachment(
+            string instructions = default(string),
+            string name = default(string),
+            bool required = false,
+            int signerIndex = default(int)
+        )
         {
-            
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new ArgumentNullException("name is a required property for SubAttachment and cannot be null");
+                throw new ArgumentNullException(
+                    "name is a required property for SubAttachment and cannot be null"
+                );
             }
             this.Name = name;
             this.SignerIndex = signerIndex;
@@ -81,7 +88,6 @@ namespace Dropbox.Sign.Model
         /// <value>The name of attachment.</value>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
-        
 
         /// <summary>
         /// The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
@@ -89,7 +95,6 @@ namespace Dropbox.Sign.Model
         /// <value>The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.</value>
         [DataMember(Name = "signer_index", IsRequired = true, EmitDefaultValue = true)]
         public int SignerIndex { get; set; }
-        
 
         /// <summary>
         /// The instructions for uploading the attachment.
@@ -97,7 +102,6 @@ namespace Dropbox.Sign.Model
         /// <value>The instructions for uploading the attachment.</value>
         [DataMember(Name = "instructions", EmitDefaultValue = true)]
         public string Instructions { get; set; }
-        
 
         /// <summary>
         /// Determines if the attachment must be uploaded.
@@ -105,7 +109,6 @@ namespace Dropbox.Sign.Model
         /// <value>Determines if the attachment must be uploaded.</value>
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,7 +132,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -153,25 +159,16 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.SignerIndex == input.SignerIndex ||
-                    this.SignerIndex.Equals(input.SignerIndex)
-                ) && 
-                (
-                    this.Instructions == input.Instructions ||
-                    (this.Instructions != null &&
-                    this.Instructions.Equals(input.Instructions))
-                ) && 
-                (
-                    this.Required == input.Required ||
-                    this.Required.Equals(input.Required)
-                );
+            return (this.Name == input.Name || (this.Name != null && this.Name.Equals(input.Name)))
+                && (
+                    this.SignerIndex == input.SignerIndex
+                    || this.SignerIndex.Equals(input.SignerIndex)
+                )
+                && (
+                    this.Instructions == input.Instructions
+                    || (this.Instructions != null && this.Instructions.Equals(input.Instructions))
+                )
+                && (this.Required == input.Required || this.Required.Equals(input.Required));
         }
 
         /// <summary>
@@ -202,7 +199,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -210,33 +209,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "name",
-                Property = "Name",
-                Type = "string",
-                Value = Name,
-            });
-            types.Add(new OpenApiType(){
-                Name = "signer_index",
-                Property = "SignerIndex",
-                Type = "int",
-                Value = SignerIndex,
-            });
-            types.Add(new OpenApiType(){
-                Name = "instructions",
-                Property = "Instructions",
-                Type = "string",
-                Value = Instructions,
-            });
-            types.Add(new OpenApiType(){
-                Name = "required",
-                Property = "Required",
-                Type = "bool",
-                Value = Required,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "name",
+                    Property = "Name",
+                    Type = "string",
+                    Value = Name,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "signer_index",
+                    Property = "SignerIndex",
+                    Type = "int",
+                    Value = SignerIndex,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "instructions",
+                    Property = "Instructions",
+                    Type = "string",
+                    Value = Instructions,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "required",
+                    Property = "Required",
+                    Type = "bool",
+                    Value = Required,
+                }
+            );
 
             return types;
         }
     }
-
 }

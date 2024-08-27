@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,26 +31,34 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "FaxLineRemoveUserRequest")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class FaxLineRemoveUserRequest : IEquatable<FaxLineRemoveUserRequest>, IValidatableObject
+    public partial class FaxLineRemoveUserRequest
+        : IEquatable<FaxLineRemoveUserRequest>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineRemoveUserRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected FaxLineRemoveUserRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineRemoveUserRequest" /> class.
         /// </summary>
         /// <param name="number">The Fax Line number. (required).</param>
         /// <param name="accountId">Account ID.</param>
         /// <param name="emailAddress">Email address.</param>
-        public FaxLineRemoveUserRequest(string number = default(string), string accountId = default(string), string emailAddress = default(string))
+        public FaxLineRemoveUserRequest(
+            string number = default(string),
+            string accountId = default(string),
+            string emailAddress = default(string)
+        )
         {
-            
             // to ensure "number" is required (not null)
             if (number == null)
             {
-                throw new ArgumentNullException("number is a required property for FaxLineRemoveUserRequest and cannot be null");
+                throw new ArgumentNullException(
+                    "number is a required property for FaxLineRemoveUserRequest and cannot be null"
+                );
             }
             this.Number = number;
             this.AccountId = accountId;
@@ -67,7 +75,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of FaxLineRemoveUserRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of FaxLineRemoveUserRequest"
+                );
             }
 
             return obj;
@@ -79,7 +89,6 @@ namespace Dropbox.Sign.Model
         /// <value>The Fax Line number.</value>
         [DataMember(Name = "number", IsRequired = true, EmitDefaultValue = true)]
         public string Number { get; set; }
-        
 
         /// <summary>
         /// Account ID
@@ -88,7 +97,6 @@ namespace Dropbox.Sign.Model
         /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// Email address
@@ -96,7 +104,6 @@ namespace Dropbox.Sign.Model
         /// <value>Email address</value>
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,7 +126,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -143,21 +153,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.Number == input.Number ||
-                    (this.Number != null &&
-                    this.Number.Equals(input.Number))
-                ) && 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
-                (
-                    this.EmailAddress == input.EmailAddress ||
-                    (this.EmailAddress != null &&
-                    this.EmailAddress.Equals(input.EmailAddress))
+            return (
+                    this.Number == input.Number
+                    || (this.Number != null && this.Number.Equals(input.Number))
+                )
+                && (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
+                )
+                && (
+                    this.EmailAddress == input.EmailAddress
+                    || (this.EmailAddress != null && this.EmailAddress.Equals(input.EmailAddress))
                 );
         }
 
@@ -191,7 +197,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -199,27 +207,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "number",
-                Property = "Number",
-                Type = "string",
-                Value = Number,
-            });
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "email_address",
-                Property = "EmailAddress",
-                Type = "string",
-                Value = EmailAddress,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "number",
+                    Property = "Number",
+                    Type = "string",
+                    Value = Number,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "email_address",
+                    Property = "EmailAddress",
+                    Type = "string",
+                    Value = EmailAddress,
+                }
+            );
 
             return types;
         }
     }
-
 }

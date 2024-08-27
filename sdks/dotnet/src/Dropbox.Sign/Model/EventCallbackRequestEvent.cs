@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,7 +31,9 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EventCallbackRequestEvent")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EventCallbackRequestEvent : IEquatable<EventCallbackRequestEvent>, IValidatableObject
+    public partial class EventCallbackRequestEvent
+        : IEquatable<EventCallbackRequestEvent>,
+            IValidatableObject
     {
         /// <summary>
         /// Type of callback event that was triggered.
@@ -176,9 +178,8 @@ namespace Dropbox.Sign.Model
             /// Enum SignatureRequestSignerRemoved for value: signature_request_signer_removed
             /// </summary>
             [EnumMember(Value = "signature_request_signer_removed")]
-            SignatureRequestSignerRemoved = 23
+            SignatureRequestSignerRemoved = 23,
         }
-
 
         /// <summary>
         /// Type of callback event that was triggered.
@@ -186,11 +187,13 @@ namespace Dropbox.Sign.Model
         /// <value>Type of callback event that was triggered.</value>
         [DataMember(Name = "event_type", IsRequired = true, EmitDefaultValue = true)]
         public EventTypeEnum EventType { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequestEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected EventCallbackRequestEvent() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EventCallbackRequestEvent" /> class.
         /// </summary>
@@ -198,20 +201,29 @@ namespace Dropbox.Sign.Model
         /// <param name="eventType">Type of callback event that was triggered. (required).</param>
         /// <param name="eventHash">Generated hash used to verify source of event data. (required).</param>
         /// <param name="eventMetadata">eventMetadata.</param>
-        public EventCallbackRequestEvent(string eventTime = default(string), EventTypeEnum eventType = default(EventTypeEnum), string eventHash = default(string), EventCallbackRequestEventMetadata eventMetadata = default(EventCallbackRequestEventMetadata))
+        public EventCallbackRequestEvent(
+            string eventTime = default(string),
+            EventTypeEnum eventType = default(EventTypeEnum),
+            string eventHash = default(string),
+            EventCallbackRequestEventMetadata eventMetadata =
+                default(EventCallbackRequestEventMetadata)
+        )
         {
-            
             // to ensure "eventTime" is required (not null)
             if (eventTime == null)
             {
-                throw new ArgumentNullException("eventTime is a required property for EventCallbackRequestEvent and cannot be null");
+                throw new ArgumentNullException(
+                    "eventTime is a required property for EventCallbackRequestEvent and cannot be null"
+                );
             }
             this.EventTime = eventTime;
             this.EventType = eventType;
             // to ensure "eventHash" is required (not null)
             if (eventHash == null)
             {
-                throw new ArgumentNullException("eventHash is a required property for EventCallbackRequestEvent and cannot be null");
+                throw new ArgumentNullException(
+                    "eventHash is a required property for EventCallbackRequestEvent and cannot be null"
+                );
             }
             this.EventHash = eventHash;
             this.EventMetadata = eventMetadata;
@@ -227,7 +239,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of EventCallbackRequestEvent");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of EventCallbackRequestEvent"
+                );
             }
 
             return obj;
@@ -239,7 +253,6 @@ namespace Dropbox.Sign.Model
         /// <value>Time the event was created (using Unix time).</value>
         [DataMember(Name = "event_time", IsRequired = true, EmitDefaultValue = true)]
         public string EventTime { get; set; }
-        
 
         /// <summary>
         /// Generated hash used to verify source of event data.
@@ -247,14 +260,12 @@ namespace Dropbox.Sign.Model
         /// <value>Generated hash used to verify source of event data.</value>
         [DataMember(Name = "event_hash", IsRequired = true, EmitDefaultValue = true)]
         public string EventHash { get; set; }
-        
 
         /// <summary>
         /// Gets or Sets EventMetadata
         /// </summary>
         [DataMember(Name = "event_metadata", EmitDefaultValue = true)]
         public EventCallbackRequestEventMetadata EventMetadata { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -278,7 +289,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -302,25 +316,20 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.EventTime == input.EventTime ||
-                    (this.EventTime != null &&
-                    this.EventTime.Equals(input.EventTime))
-                ) && 
-                (
-                    this.EventType == input.EventType ||
-                    this.EventType.Equals(input.EventType)
-                ) && 
-                (
-                    this.EventHash == input.EventHash ||
-                    (this.EventHash != null &&
-                    this.EventHash.Equals(input.EventHash))
-                ) && 
-                (
-                    this.EventMetadata == input.EventMetadata ||
-                    (this.EventMetadata != null &&
-                    this.EventMetadata.Equals(input.EventMetadata))
+            return (
+                    this.EventTime == input.EventTime
+                    || (this.EventTime != null && this.EventTime.Equals(input.EventTime))
+                )
+                && (this.EventType == input.EventType || this.EventType.Equals(input.EventType))
+                && (
+                    this.EventHash == input.EventHash
+                    || (this.EventHash != null && this.EventHash.Equals(input.EventHash))
+                )
+                && (
+                    this.EventMetadata == input.EventMetadata
+                    || (
+                        this.EventMetadata != null && this.EventMetadata.Equals(input.EventMetadata)
+                    )
                 );
         }
 
@@ -355,7 +364,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -363,33 +374,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "event_time",
-                Property = "EventTime",
-                Type = "string",
-                Value = EventTime,
-            });
-            types.Add(new OpenApiType(){
-                Name = "event_type",
-                Property = "EventType",
-                Type = "string",
-                Value = EventType,
-            });
-            types.Add(new OpenApiType(){
-                Name = "event_hash",
-                Property = "EventHash",
-                Type = "string",
-                Value = EventHash,
-            });
-            types.Add(new OpenApiType(){
-                Name = "event_metadata",
-                Property = "EventMetadata",
-                Type = "EventCallbackRequestEventMetadata",
-                Value = EventMetadata,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "event_time",
+                    Property = "EventTime",
+                    Type = "string",
+                    Value = EventTime,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "event_type",
+                    Property = "EventType",
+                    Type = "string",
+                    Value = EventType,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "event_hash",
+                    Property = "EventHash",
+                    Type = "string",
+                    Value = EventHash,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "event_metadata",
+                    Property = "EventMetadata",
+                    Type = "EventCallbackRequestEventMetadata",
+                    Value = EventMetadata,
+                }
+            );
 
             return types;
         }
     }
-
 }

@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -56,9 +56,8 @@ namespace Dropbox.Sign.Model
             /// Enum UK for value: UK
             /// </summary>
             [EnumMember(Value = "UK")]
-            UK = 3
+            UK = 3,
         }
-
 
         /// <summary>
         /// Country
@@ -66,11 +65,13 @@ namespace Dropbox.Sign.Model
         /// <value>Country</value>
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public CountryEnum Country { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineCreateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected FaxLineCreateRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FaxLineCreateRequest" /> class.
         /// </summary>
@@ -78,9 +79,13 @@ namespace Dropbox.Sign.Model
         /// <param name="country">Country (required).</param>
         /// <param name="city">City.</param>
         /// <param name="accountId">Account ID.</param>
-        public FaxLineCreateRequest(int areaCode = default(int), CountryEnum country = default(CountryEnum), string city = default(string), string accountId = default(string))
+        public FaxLineCreateRequest(
+            int areaCode = default(int),
+            CountryEnum country = default(CountryEnum),
+            string city = default(string),
+            string accountId = default(string)
+        )
         {
-            
             this.AreaCode = areaCode;
             this.Country = country;
             this.City = city;
@@ -97,7 +102,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of FaxLineCreateRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of FaxLineCreateRequest"
+                );
             }
 
             return obj;
@@ -109,7 +116,6 @@ namespace Dropbox.Sign.Model
         /// <value>Area code</value>
         [DataMember(Name = "area_code", IsRequired = true, EmitDefaultValue = true)]
         public int AreaCode { get; set; }
-        
 
         /// <summary>
         /// City
@@ -117,7 +123,6 @@ namespace Dropbox.Sign.Model
         /// <value>City</value>
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
-        
 
         /// <summary>
         /// Account ID
@@ -126,7 +131,6 @@ namespace Dropbox.Sign.Model
         /// <example>ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97</example>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -150,7 +154,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -174,24 +181,12 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AreaCode == input.AreaCode ||
-                    this.AreaCode.Equals(input.AreaCode)
-                ) && 
-                (
-                    this.Country == input.Country ||
-                    this.Country.Equals(input.Country)
-                ) && 
-                (
-                    this.City == input.City ||
-                    (this.City != null &&
-                    this.City.Equals(input.City))
-                ) && 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
+            return (this.AreaCode == input.AreaCode || this.AreaCode.Equals(input.AreaCode))
+                && (this.Country == input.Country || this.Country.Equals(input.Country))
+                && (this.City == input.City || (this.City != null && this.City.Equals(input.City)))
+                && (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
                 );
         }
 
@@ -223,7 +218,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -231,33 +228,44 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "area_code",
-                Property = "AreaCode",
-                Type = "int",
-                Value = AreaCode,
-            });
-            types.Add(new OpenApiType(){
-                Name = "country",
-                Property = "Country",
-                Type = "string",
-                Value = Country,
-            });
-            types.Add(new OpenApiType(){
-                Name = "city",
-                Property = "City",
-                Type = "string",
-                Value = City,
-            });
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "area_code",
+                    Property = "AreaCode",
+                    Type = "int",
+                    Value = AreaCode,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "country",
+                    Property = "Country",
+                    Type = "string",
+                    Value = Country,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "city",
+                    Property = "City",
+                    Type = "string",
+                    Value = City,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
 
             return types;
         }
     }
-
 }

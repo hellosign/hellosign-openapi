@@ -20,7 +20,6 @@ using Dropbox.Sign.Model;
 
 namespace Dropbox.Sign.Api
 {
-
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
@@ -37,7 +36,10 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OAuthTokenResponse</returns>
-        OAuthTokenResponse OauthTokenGenerate(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0);
+        OAuthTokenResponse OauthTokenGenerate(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0
+        );
 
         /// <summary>
         /// OAuth Token Generate
@@ -49,7 +51,11 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OAuthTokenResponse</returns>
-        ApiResponse<OAuthTokenResponse> OauthTokenGenerateWithHttpInfo(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0);
+        ApiResponse<OAuthTokenResponse> OauthTokenGenerateWithHttpInfo(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0
+        );
+
         /// <summary>
         /// OAuth Token Refresh
         /// </summary>
@@ -60,7 +66,10 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OAuthTokenResponse</returns>
-        OAuthTokenResponse OauthTokenRefresh(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0);
+        OAuthTokenResponse OauthTokenRefresh(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0
+        );
 
         /// <summary>
         /// OAuth Token Refresh
@@ -72,7 +81,10 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OAuthTokenResponse</returns>
-        ApiResponse<OAuthTokenResponse> OauthTokenRefreshWithHttpInfo(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0);
+        ApiResponse<OAuthTokenResponse> OauthTokenRefreshWithHttpInfo(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0
+        );
         #endregion Synchronous Operations
     }
 
@@ -93,7 +105,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
 
         /// <summary>
         /// OAuth Token Generate
@@ -106,7 +123,15 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<
+            ApiResponse<OAuthTokenResponse>
+        > OauthTokenGenerateWithHttpInfoAsync(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
+
         /// <summary>
         /// OAuth Token Refresh
         /// </summary>
@@ -118,7 +143,12 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
 
         /// <summary>
         /// OAuth Token Refresh
@@ -131,17 +161,21 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<
+            ApiResponse<OAuthTokenResponse>
+        > OauthTokenRefreshWithHttpInfoAsync(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        );
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IOAuthApi : IOAuthApiSync, IOAuthApiAsync
-    {
-
-    }
+    public interface IOAuthApi : IOAuthApiSync, IOAuthApiAsync { }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -154,9 +188,8 @@ namespace Dropbox.Sign.Api
         /// Initializes a new instance of the <see cref="OAuthApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public OAuthApi() : this((string)null)
-        {
-        }
+        public OAuthApi()
+            : this((string)null) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OAuthApi"/> class.
@@ -169,7 +202,9 @@ namespace Dropbox.Sign.Api
                 new Dropbox.Sign.Client.Configuration { BasePath = basePath }
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
+                this.Configuration.BasePath
+            );
             this.ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -181,14 +216,17 @@ namespace Dropbox.Sign.Api
         /// <returns></returns>
         public OAuthApi(Dropbox.Sign.Client.Configuration configuration)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (configuration == null)
+                throw new ArgumentNullException("configuration");
 
             this.Configuration = Dropbox.Sign.Client.Configuration.MergeConfigurations(
                 Dropbox.Sign.Client.GlobalConfiguration.Instance,
                 configuration
             );
             this.Client = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(this.Configuration.BasePath);
+            this.AsynchronousClient = new Dropbox.Sign.Client.ApiClient(
+                this.Configuration.BasePath
+            );
             ExceptionFactory = Dropbox.Sign.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -199,11 +237,18 @@ namespace Dropbox.Sign.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public OAuthApi(Dropbox.Sign.Client.ISynchronousClient client, Dropbox.Sign.Client.IAsynchronousClient asyncClient, Dropbox.Sign.Client.IReadableConfiguration configuration)
+        public OAuthApi(
+            Dropbox.Sign.Client.ISynchronousClient client,
+            Dropbox.Sign.Client.IAsynchronousClient asyncClient,
+            Dropbox.Sign.Client.IReadableConfiguration configuration
+        )
         {
-            if (client == null) throw new ArgumentNullException("client");
-            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null)
+                throw new ArgumentNullException("client");
+            if (asyncClient == null)
+                throw new ArgumentNullException("asyncClient");
+            if (configuration == null)
+                throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -245,7 +290,9 @@ namespace Dropbox.Sign.Api
             {
                 if (_exceptionFactory != null && _exceptionFactory.GetInvocationList().Length > 1)
                 {
-                    throw new InvalidOperationException("Multicast delegate for ExceptionFactory is unsupported.");
+                    throw new InvalidOperationException(
+                        "Multicast delegate for ExceptionFactory is unsupported."
+                    );
                 }
                 return _exceptionFactory;
             }
@@ -259,9 +306,13 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OAuthTokenResponse</returns>
-        public OAuthTokenResponse OauthTokenGenerate(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0)
+        public OAuthTokenResponse OauthTokenGenerate(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse = OauthTokenGenerateWithHttpInfo(oAuthTokenGenerateRequest);
+            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse =
+                OauthTokenGenerateWithHttpInfo(oAuthTokenGenerateRequest);
             return localVarResponse.Data;
         }
 
@@ -272,15 +323,22 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenGenerateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OAuthTokenResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> OauthTokenGenerateWithHttpInfo(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> OauthTokenGenerateWithHttpInfo(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0
+        )
         {
             // verify the required parameter 'oAuthTokenGenerateRequest' is set
             if (oAuthTokenGenerateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'oAuthTokenGenerateRequest' when calling OAuthApi->OauthTokenGenerate");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'oAuthTokenGenerateRequest' when calling OAuthApi->OauthTokenGenerate"
+                );
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = oAuthTokenGenerateRequest.GetOpenApiTypes();
@@ -296,9 +354,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -311,16 +367,21 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenGenerate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
-
             // make the HTTP request
-            var localVarResponse = this.Client.Post<OAuthTokenResponse>("/oauth/token", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<OAuthTokenResponse>(
+                "/oauth/token",
+                localVarRequestOptions,
+                this.Configuration
+            );
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("OauthTokenGenerate", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "OauthTokenGenerate",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -338,9 +399,20 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse = await OauthTokenGenerateWithHttpInfoAsync(oAuthTokenGenerateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse =
+                await OauthTokenGenerateWithHttpInfoAsync(
+                        oAuthTokenGenerateRequest,
+                        operationIndex,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -352,16 +424,24 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(
+            OAuthTokenGenerateRequest oAuthTokenGenerateRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
             // verify the required parameter 'oAuthTokenGenerateRequest' is set
             if (oAuthTokenGenerateRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'oAuthTokenGenerateRequest' when calling OAuthApi->OauthTokenGenerate");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'oAuthTokenGenerateRequest' when calling OAuthApi->OauthTokenGenerate"
+                );
             }
 
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = oAuthTokenGenerateRequest.GetOpenApiTypes();
@@ -377,9 +457,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -392,17 +470,25 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenGenerate";
             localVarRequestOptions.OperationIndex = operationIndex;
 
-
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>("/oauth/token", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this
+                .AsynchronousClient.PostAsync<OAuthTokenResponse>(
+                    "/oauth/token",
+                    localVarRequestOptions,
+                    this.Configuration,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("OauthTokenGenerate", localVarResponse);
+                Exception _exception = this.ExceptionFactory(
+                    "OauthTokenGenerate",
+                    localVarResponse
+                );
                 if (_exception != null)
                 {
                     throw _exception;
@@ -419,9 +505,13 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OAuthTokenResponse</returns>
-        public OAuthTokenResponse OauthTokenRefresh(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0)
+        public OAuthTokenResponse OauthTokenRefresh(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse = OauthTokenRefreshWithHttpInfo(oAuthTokenRefreshRequest);
+            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse =
+                OauthTokenRefreshWithHttpInfo(oAuthTokenRefreshRequest);
             return localVarResponse.Data;
         }
 
@@ -432,15 +522,22 @@ namespace Dropbox.Sign.Api
         /// <param name="oAuthTokenRefreshRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OAuthTokenResponse</returns>
-        public Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> OauthTokenRefreshWithHttpInfo(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0)
+        public Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> OauthTokenRefreshWithHttpInfo(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0
+        )
         {
             // verify the required parameter 'oAuthTokenRefreshRequest' is set
             if (oAuthTokenRefreshRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'oAuthTokenRefreshRequest' when calling OAuthApi->OauthTokenRefresh");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'oAuthTokenRefreshRequest' when calling OAuthApi->OauthTokenRefresh"
+                );
             }
 
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = oAuthTokenRefreshRequest.GetOpenApiTypes();
@@ -456,9 +553,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -471,13 +566,15 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenRefresh";
             localVarRequestOptions.OperationIndex = operationIndex;
 
-
             // make the HTTP request
-            var localVarResponse = this.Client.Post<OAuthTokenResponse>("/oauth/token?refresh", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<OAuthTokenResponse>(
+                "/oauth/token?refresh",
+                localVarRequestOptions,
+                this.Configuration
+            );
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("OauthTokenRefresh", localVarResponse);
@@ -498,9 +595,20 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
-            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse = await OauthTokenRefreshWithHttpInfoAsync(oAuthTokenRefreshRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse =
+                await OauthTokenRefreshWithHttpInfoAsync(
+                        oAuthTokenRefreshRequest,
+                        operationIndex,
+                        cancellationToken
+                    )
+                    .ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -512,16 +620,24 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(
+            OAuthTokenRefreshRequest oAuthTokenRefreshRequest,
+            int operationIndex = 0,
+            System.Threading.CancellationToken cancellationToken =
+                default(System.Threading.CancellationToken)
+        )
         {
             // verify the required parameter 'oAuthTokenRefreshRequest' is set
             if (oAuthTokenRefreshRequest == null)
             {
-                throw new Dropbox.Sign.Client.ApiException(400, "Missing required parameter 'oAuthTokenRefreshRequest' when calling OAuthApi->OauthTokenRefresh");
+                throw new Dropbox.Sign.Client.ApiException(
+                    400,
+                    "Missing required parameter 'oAuthTokenRefreshRequest' when calling OAuthApi->OauthTokenRefresh"
+                );
             }
 
-
-            Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
+            Dropbox.Sign.Client.RequestOptions localVarRequestOptions =
+                new Dropbox.Sign.Client.RequestOptions();
 
             var localVarContentType = "";
             var openApiTypes = oAuthTokenRefreshRequest.GetOpenApiTypes();
@@ -537,9 +653,7 @@ namespace Dropbox.Sign.Api
             }
 
             // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
+            string[] _accepts = new string[] { "application/json" };
 
             if (localVarContentType != null)
             {
@@ -552,13 +666,18 @@ namespace Dropbox.Sign.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-
             localVarRequestOptions.Operation = "OAuthApi.OauthTokenRefresh";
             localVarRequestOptions.OperationIndex = operationIndex;
 
-
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<OAuthTokenResponse>("/oauth/token?refresh", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this
+                .AsynchronousClient.PostAsync<OAuthTokenResponse>(
+                    "/oauth/token?refresh",
+                    localVarRequestOptions,
+                    this.Configuration,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -571,6 +690,5 @@ namespace Dropbox.Sign.Api
 
             return localVarResponse;
         }
-
     }
 }

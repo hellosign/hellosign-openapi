@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -38,15 +38,19 @@ namespace Dropbox.Sign.Model
         /// </summary>
         [JsonConstructorAttribute]
         protected AccountUpdateRequest() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountUpdateRequest" /> class.
         /// </summary>
         /// <param name="accountId">The ID of the Account.</param>
         /// <param name="callbackUrl">The URL that Dropbox Sign should POST events to..</param>
         /// <param name="locale">The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values..</param>
-        public AccountUpdateRequest(string accountId = default(string), string callbackUrl = default(string), string locale = default(string))
+        public AccountUpdateRequest(
+            string accountId = default(string),
+            string callbackUrl = default(string),
+            string locale = default(string)
+        )
         {
-            
             this.AccountId = accountId;
             this.CallbackUrl = callbackUrl;
             this.Locale = locale;
@@ -62,7 +66,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of AccountUpdateRequest");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of AccountUpdateRequest"
+                );
             }
 
             return obj;
@@ -74,7 +80,6 @@ namespace Dropbox.Sign.Model
         /// <value>The ID of the Account</value>
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
-        
 
         /// <summary>
         /// The URL that Dropbox Sign should POST events to.
@@ -82,7 +87,6 @@ namespace Dropbox.Sign.Model
         /// <value>The URL that Dropbox Sign should POST events to.</value>
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
-        
 
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
@@ -90,7 +94,6 @@ namespace Dropbox.Sign.Model
         /// <value>The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.</value>
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -113,7 +116,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -137,21 +143,17 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
-                (
-                    this.CallbackUrl == input.CallbackUrl ||
-                    (this.CallbackUrl != null &&
-                    this.CallbackUrl.Equals(input.CallbackUrl))
-                ) && 
-                (
-                    this.Locale == input.Locale ||
-                    (this.Locale != null &&
-                    this.Locale.Equals(input.Locale))
+            return (
+                    this.AccountId == input.AccountId
+                    || (this.AccountId != null && this.AccountId.Equals(input.AccountId))
+                )
+                && (
+                    this.CallbackUrl == input.CallbackUrl
+                    || (this.CallbackUrl != null && this.CallbackUrl.Equals(input.CallbackUrl))
+                )
+                && (
+                    this.Locale == input.Locale
+                    || (this.Locale != null && this.Locale.Equals(input.Locale))
                 );
         }
 
@@ -185,7 +187,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -193,27 +197,35 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "account_id",
-                Property = "AccountId",
-                Type = "string",
-                Value = AccountId,
-            });
-            types.Add(new OpenApiType(){
-                Name = "callback_url",
-                Property = "CallbackUrl",
-                Type = "string",
-                Value = CallbackUrl,
-            });
-            types.Add(new OpenApiType(){
-                Name = "locale",
-                Property = "Locale",
-                Type = "string",
-                Value = Locale,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "account_id",
+                    Property = "AccountId",
+                    Type = "string",
+                    Value = AccountId,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "callback_url",
+                    Property = "CallbackUrl",
+                    Type = "string",
+                    Value = CallbackUrl,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "locale",
+                    Property = "Locale",
+                    Type = "string",
+                    Value = Locale,
+                }
+            );
 
             return types;
         }
     }
-
 }

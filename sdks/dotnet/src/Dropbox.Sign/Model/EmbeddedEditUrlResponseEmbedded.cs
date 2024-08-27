@@ -13,15 +13,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Dropbox.Sign.Client.OpenAPIDateConverter;
 
 namespace Dropbox.Sign.Model
@@ -31,21 +31,26 @@ namespace Dropbox.Sign.Model
     /// </summary>
     [DataContract(Name = "EmbeddedEditUrlResponseEmbedded")]
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
-    public partial class EmbeddedEditUrlResponseEmbedded : IEquatable<EmbeddedEditUrlResponseEmbedded>, IValidatableObject
+    public partial class EmbeddedEditUrlResponseEmbedded
+        : IEquatable<EmbeddedEditUrlResponseEmbedded>,
+            IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedEditUrlResponseEmbedded" /> class.
         /// </summary>
         [JsonConstructorAttribute]
         protected EmbeddedEditUrlResponseEmbedded() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EmbeddedEditUrlResponseEmbedded" /> class.
         /// </summary>
         /// <param name="editUrl">A template url that can be opened in an iFrame..</param>
         /// <param name="expiresAt">The specific time that the the &#x60;edit_url&#x60; link expires, in epoch..</param>
-        public EmbeddedEditUrlResponseEmbedded(string editUrl = default(string), int expiresAt = default(int))
+        public EmbeddedEditUrlResponseEmbedded(
+            string editUrl = default(string),
+            int expiresAt = default(int)
+        )
         {
-            
             this.EditUrl = editUrl;
             this.ExpiresAt = expiresAt;
         }
@@ -60,7 +65,9 @@ namespace Dropbox.Sign.Model
 
             if (obj == null)
             {
-                throw new Exception("Unable to deserialize JSON to instance of EmbeddedEditUrlResponseEmbedded");
+                throw new Exception(
+                    "Unable to deserialize JSON to instance of EmbeddedEditUrlResponseEmbedded"
+                );
             }
 
             return obj;
@@ -72,7 +79,6 @@ namespace Dropbox.Sign.Model
         /// <value>A template url that can be opened in an iFrame.</value>
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
-        
 
         /// <summary>
         /// The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.
@@ -80,7 +86,6 @@ namespace Dropbox.Sign.Model
         /// <value>The specific time that the the &#x60;edit_url&#x60; link expires, in epoch.</value>
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
-        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -102,7 +107,10 @@ namespace Dropbox.Sign.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(
+                this,
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         /// <summary>
@@ -126,16 +134,10 @@ namespace Dropbox.Sign.Model
             {
                 return false;
             }
-            return 
-                (
-                    this.EditUrl == input.EditUrl ||
-                    (this.EditUrl != null &&
-                    this.EditUrl.Equals(input.EditUrl))
-                ) && 
-                (
-                    this.ExpiresAt == input.ExpiresAt ||
-                    this.ExpiresAt.Equals(input.ExpiresAt)
-                );
+            return (
+                    this.EditUrl == input.EditUrl
+                    || (this.EditUrl != null && this.EditUrl.Equals(input.EditUrl))
+                ) && (this.ExpiresAt == input.ExpiresAt || this.ExpiresAt.Equals(input.ExpiresAt));
         }
 
         /// <summary>
@@ -161,7 +163,9 @@ namespace Dropbox.Sign.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(
+            ValidationContext validationContext
+        )
         {
             yield break;
         }
@@ -169,21 +173,26 @@ namespace Dropbox.Sign.Model
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
-            types.Add(new OpenApiType(){
-                Name = "edit_url",
-                Property = "EditUrl",
-                Type = "string",
-                Value = EditUrl,
-            });
-            types.Add(new OpenApiType(){
-                Name = "expires_at",
-                Property = "ExpiresAt",
-                Type = "int",
-                Value = ExpiresAt,
-            });
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "edit_url",
+                    Property = "EditUrl",
+                    Type = "string",
+                    Value = EditUrl,
+                }
+            );
+            types.Add(
+                new OpenApiType()
+                {
+                    Name = "expires_at",
+                    Property = "ExpiresAt",
+                    Type = "int",
+                    Value = ExpiresAt,
+                }
+            );
 
             return types;
         }
     }
-
 }
