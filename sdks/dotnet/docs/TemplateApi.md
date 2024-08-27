@@ -47,7 +47,9 @@ public class Example
 
         var templateId = "f57db65d3f933b5316d398057a36176831451a35";
 
-        var data = new TemplateAddUserRequest(emailAddress: "george@dropboxsign.com");
+        var data = new TemplateAddUserRequest(
+            emailAddress: "george@dropboxsign.com"
+        );
 
         try
         {
@@ -144,11 +146,20 @@ public class Example
 
         var templateApi = new TemplateApi(config);
 
-        var role1 = new SubTemplateRole(name: "Client", order: 0);
+        var role1 = new SubTemplateRole(
+            name: "Client",
+            order: 0
+        );
 
-        var role2 = new SubTemplateRole(name: "Witness", order: 1);
+        var role2 = new SubTemplateRole(
+            name: "Witness",
+            order: 1
+        );
 
-        var mergeField1 = new SubMergeField(name: "Full Name", type: SubMergeField.TypeEnum.Text);
+        var mergeField1 = new SubMergeField(
+            name: "Full Name",
+            type: SubMergeField.TypeEnum.Text
+        );
 
         var mergeField2 = new SubMergeField(
             name: "Is Registered?",
@@ -159,14 +170,13 @@ public class Example
             dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
         );
 
-        var files = new List<Stream>
-        {
+        var files = new List<Stream> {
             new FileStream(
                 "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
-            ),
+            )
         };
 
         var data = new TemplateCreateRequest(
@@ -175,9 +185,9 @@ public class Example
             title: "Test Template",
             subject: "Please sign this document",
             message: "For your approval",
-            signerRoles: new List<SubTemplateRole>() { role1, role2 },
-            ccRoles: new List<string>() { "Manager" },
-            mergeFields: new List<SubMergeField>() { mergeField1, mergeField2 },
+            signerRoles: new List<SubTemplateRole>(){role1, role2},
+            ccRoles: new List<string>(){"Manager"},
+            mergeFields: new List<SubMergeField>(){mergeField1, mergeField2},
             fieldOptions: subFieldOptions,
             testMode: true
         );
@@ -276,11 +286,20 @@ public class Example
 
         var templateApi = new TemplateApi(config);
 
-        var role1 = new SubTemplateRole(name: "Client", order: 0);
+        var role1 = new SubTemplateRole(
+            name: "Client",
+            order: 0
+        );
 
-        var role2 = new SubTemplateRole(name: "Witness", order: 1);
+        var role2 = new SubTemplateRole(
+            name: "Witness",
+            order: 1
+        );
 
-        var mergeField1 = new SubMergeField(name: "Full Name", type: SubMergeField.TypeEnum.Text);
+        var mergeField1 = new SubMergeField(
+            name: "Full Name",
+            type: SubMergeField.TypeEnum.Text
+        );
 
         var mergeField2 = new SubMergeField(
             name: "Is Registered?",
@@ -291,14 +310,13 @@ public class Example
             dateFormat: SubFieldOptions.DateFormatEnum.DDMMYYYY
         );
 
-        var files = new List<Stream>
-        {
+        var files = new List<Stream> {
             new FileStream(
                 "./example_signature_request.pdf",
                 FileMode.Open,
                 FileAccess.Read,
                 FileShare.Read
-            ),
+            )
         };
 
         var data = new TemplateCreateEmbeddedDraftRequest(
@@ -307,9 +325,9 @@ public class Example
             title: "Test Template",
             subject: "Please sign this document",
             message: "For your approval",
-            signerRoles: new List<SubTemplateRole>() { role1, role2 },
-            ccRoles: new List<string>() { "Manager" },
-            mergeFields: new List<SubMergeField>() { mergeField1, mergeField2 },
+            signerRoles: new List<SubTemplateRole>(){role1, role2},
+            ccRoles: new List<string>(){"Manager"},
+            mergeFields: new List<SubMergeField>(){mergeField1, mergeField2},
             fieldOptions: subFieldOptions,
             testMode: true
         );
@@ -982,7 +1000,9 @@ public class Example
 
         var templateApi = new TemplateApi(config);
 
-        var data = new TemplateRemoveUserRequest(emailAddress: "george@dropboxsign.com");
+        var data = new TemplateRemoveUserRequest(
+            emailAddress: "george@dropboxsign.com"
+        );
 
         var templateId = "21f920ec2b7f4b6bb64d3ed79f26303843046536";
 

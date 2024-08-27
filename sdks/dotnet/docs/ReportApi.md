@@ -39,8 +39,7 @@ public class Example
         var data = new ReportCreateRequest(
             startDate: "09/01/2020",
             endDate: "09/01/2020",
-            reportType: new List<ReportCreateRequest.ReportTypeEnum>()
-            {
+            reportType: new List<ReportCreateRequest.ReportTypeEnum>() {
                 ReportCreateRequest.ReportTypeEnum.UserActivity,
                 ReportCreateRequest.ReportTypeEnum.DocumentStatus,
             }

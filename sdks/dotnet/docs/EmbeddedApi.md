@@ -38,7 +38,7 @@ public class Example
         var embeddedApi = new EmbeddedApi(config);
 
         var data = new EmbeddedEditUrlRequest(
-            ccRoles: new List<string>() { "" },
+            ccRoles: new List<string>(){""},
             mergeFields: new List<SubMergeField>()
         );
 

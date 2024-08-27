@@ -226,7 +226,10 @@ public class Example
 
         var faxLineApi = new FaxLineApi(config);
 
-        var data = new FaxLineCreateRequest(areaCode: 209, country: "US");
+        var data = new FaxLineCreateRequest(
+            areaCode: 209,
+            country: "US"
+        );
 
         try
         {

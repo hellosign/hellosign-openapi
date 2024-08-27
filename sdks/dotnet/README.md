@@ -82,6 +82,7 @@ c.Proxy = webProxy;
 
 ```csharp
 using System;
+
 using Dropbox.Sign.Api;
 using Dropbox.Sign.Client;
 using Dropbox.Sign.Model;
@@ -99,7 +100,9 @@ public class Example
 
         var accountApi = new AccountApi(config);
 
-        var data = new AccountCreateRequest(emailAddress: "newuser@dropboxsign.com");
+        var data = new AccountCreateRequest(
+            emailAddress: "newuser@dropboxsign.com"
+        );
 
         try
         {
