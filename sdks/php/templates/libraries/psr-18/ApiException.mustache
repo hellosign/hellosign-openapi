@@ -92,8 +92,13 @@ class ApiException extends RequestException
     /**
      * Sets the deseralized response object (during deserialization)
      *
-{{! CUSTOM - mixed to string|int|object|array|mixed }}
+{{#vendorExtensions.x-ignore-block}}
+     * @param mixed $obj Deserialized response object
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
      * @param string|int|object|array|mixed $obj Deserialized response object
+{{! CUSTOM - END }}
+
      *
      * @return void
      */

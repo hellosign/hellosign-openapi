@@ -482,7 +482,6 @@ class TemplateApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_add_user_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -822,7 +821,6 @@ class TemplateApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_create_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1162,7 +1160,6 @@ class TemplateApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_create_embedded_draft_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3500,7 +3497,6 @@ class TemplateApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_remove_user_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -3861,7 +3857,6 @@ class TemplateApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $template_update_files_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

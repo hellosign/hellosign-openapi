@@ -451,7 +451,6 @@ class EmbeddedApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $embedded_edit_url_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

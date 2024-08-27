@@ -296,8 +296,12 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     *
     * @param string $variableName
     * @param array  $fields
-{{! CUSTOM - mixed to string|int|object|array|mixed }}
-    * @param string|int|object|array|mixed  $defaultValue
+{{#vendorExtensions.x-ignore-block}}
+    * @param mixed  $defaultValue
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
+* @param string|int|object|array|mixed  $defaultValue
+{{! CUSTOM - END }}
     */
     private function setIfExists(string $variableName, array $fields, $defaultValue): void
     {
@@ -515,8 +519,9 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return boolean
      */
-{{! CUSTOM - add #[\ReturnTypeWillChange] }}
+{{! CUSTOM - BEGIN }}
     #[\ReturnTypeWillChange]
+{{! CUSTOM - END }}
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
@@ -543,8 +548,9 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return void
      */
-{{! CUSTOM - add #[\ReturnTypeWillChange] }}
+{{! CUSTOM - BEGIN }}
     #[\ReturnTypeWillChange]
+{{! CUSTOM - END }}
     public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
@@ -561,8 +567,9 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
      *
      * @return void
      */
-{{! CUSTOM - add #[\ReturnTypeWillChange] }}
+{{! CUSTOM - BEGIN }}
     #[\ReturnTypeWillChange]
+{{! CUSTOM - END }}
     public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
@@ -590,8 +597,12 @@ class {{classname}} {{#parentSchema}}extends {{{parent}}}{{/parentSchema}}{{^par
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-{{! CUSTOM - JSON_PRETTY_PRINT to JSON_UNESCAPED_SLASHES }}
+{{#vendorExtensions.x-ignore-block}}
+            JSON_PRETTY_PRINT
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             JSON_UNESCAPED_SLASHES
+{{! CUSTOM - END }}
         );
     }
 

@@ -113,8 +113,8 @@ class Configuration
      * @var string
      */
     protected $tempFolderPath;
-
 {{! CUSTOM - BEGIN }}
+
     /**
      * Holds any extra request options you want to send
      *
@@ -142,8 +142,12 @@ class Configuration
      *
      * @return $this
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function setApiKey($apiKeyIdentifier, $key)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function setApiKey($apiKeyIdentifier, $key)
+{{! CUSTOM - END }}
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
@@ -156,8 +160,12 @@ class Configuration
      *
      * @return null|string API key or token
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function getApiKey($apiKeyIdentifier)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function getApiKey($apiKeyIdentifier)
+{{! CUSTOM - END }}
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
@@ -170,8 +178,12 @@ class Configuration
      *
      * @return $this
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function setApiKeyPrefix($apiKeyIdentifier, $prefix)
+{{! CUSTOM - END }}
     {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
@@ -184,8 +196,12 @@ class Configuration
      *
      * @return null|string
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function getApiKeyPrefix($apiKeyIdentifier)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function getApiKeyPrefix($apiKeyIdentifier)
+{{! CUSTOM - END }}
     {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
@@ -220,8 +236,12 @@ class Configuration
      *
      * @return $this
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function setBooleanFormatForQueryString(string $booleanFormat)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function setBooleanFormatForQueryString(string $booleanFormat)
+{{! CUSTOM - END }}
     {
         $this->booleanFormatForQueryString = $booleanFormat;
 
@@ -268,8 +288,12 @@ class Configuration
      *
      * @return $this
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function setPassword($password)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function setPassword($password)
+{{! CUSTOM - END }}
     {
         $this->password = $password;
         return $this;
@@ -280,8 +304,12 @@ class Configuration
      *
      * @return string Password for HTTP basic authentication
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function getPassword()
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function getPassword()
+{{! CUSTOM - END }}
     {
         return $this->password;
     }
@@ -458,8 +486,12 @@ class Configuration
      *
      * @return null|string API key with the prefix
      */
-{{! CUSTOM - public to protected }}
+{{#vendorExtensions.x-ignore-block}}
+    public function getApiKeyWithPrefix($apiKeyIdentifier)
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected function getApiKeyWithPrefix($apiKeyIdentifier)
+{{! CUSTOM - END }}
     {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
         $apiKey = $this->getApiKey($apiKeyIdentifier);
@@ -565,8 +597,8 @@ class Configuration
     {
         return self::getHostString($this->getHostSettings(), $index, $variables);
     }
-
 {{! CUSTOM - BEGIN }}
+
     public function setOptions(array $options): self
     {
         $this->options = $options;

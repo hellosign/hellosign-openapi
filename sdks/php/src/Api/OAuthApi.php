@@ -446,7 +446,6 @@ class OAuthApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $o_auth_token_generate_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -818,7 +817,6 @@ class OAuthApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $o_auth_token_refresh_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

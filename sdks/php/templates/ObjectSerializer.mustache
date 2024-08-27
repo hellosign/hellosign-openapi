@@ -19,10 +19,11 @@
 
 namespace {{invokerPackage}};
 
-{{! CUSTOM - add \GuzzleHttp }}
-use GuzzleHttp;
 use GuzzleHttp\Psr7\Utils;
 use {{modelPackage}}\ModelInterface;
+{{! CUSTOM - BEGIN }}
+use GuzzleHttp;
+{{! CUSTOM - END }}
 
 /**
  * ObjectSerializer Class Doc Comment
@@ -50,8 +51,12 @@ class ObjectSerializer
     /**
      * Serialize data
      *
-{{! CUSTOM - mixed to string|int|object|array|mixed }}
+{{#vendorExtensions.x-ignore-block}}
+     * @param mixed  $data   the data to serialize
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
      * @param string|int|object|array|mixed  $data   the data to serialize
+{{! CUSTOM - END }}
      * @param string $type   the OpenAPIToolsType of the data
      * @param string $format the format of the OpenAPITools type of the data
      *
@@ -163,8 +168,12 @@ class ObjectSerializer
     /**
      * Checks if a value is empty, based on its OpenAPI type.
      *
-{{! CUSTOM - mixed to string|int|object|array|mixed }}
+{{#vendorExtensions.x-ignore-block}}
+     * @param mixed  $value
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
      * @param string|int|object|array|mixed  $value
+{{! CUSTOM - END }}
      * @param string $openApiType
      *
      * @return bool true if $value is empty
@@ -208,8 +217,12 @@ class ObjectSerializer
      * Take query parameter properties and turn it into an array suitable for
      * native http_build_query or GuzzleHttp\Psr7\Query::build.
      *
-{{! CUSTOM - mixed to string|int|object|array|mixed }}
+{{#vendorExtensions.x-ignore-block}}
+     * @param mixed  $value       Parameter value
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
      * @param string|int|object|array|mixed  $value       Parameter value
+{{! CUSTOM - END }}
      * @param string $paramName   Parameter name
      * @param string $openApiType OpenAPIType eg. array or object
      * @param string $style       Parameter serialization style
@@ -343,8 +356,12 @@ class ObjectSerializer
      * If it's a datetime object, format it in ISO8601
      * If it's a boolean, convert it to "true" or "false".
      *
-{{! CUSTOM - float|int|bool|\DateTime to string|int|object|array|mixed }}
+{{#vendorExtensions.x-ignore-block}}
+     * @param float|int|bool|\DateTime $value the value of the parameter
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
      * @param string|int|object|array|mixed $value the value of the parameter
+{{! CUSTOM - END }}
      *
      * @return string the header string
      */
@@ -399,8 +416,12 @@ class ObjectSerializer
     /**
      * Deserialize a JSON string into an object
      *
-{{! CUSTOM - mixed to string|int|object|array|mixed }}
+{{#vendorExtensions.x-ignore-block}}
+     * @param mixed    $data          object or primitive to be deserialized
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
      * @param string|int|object|array|mixed    $data          object or primitive to be deserialized
+{{! CUSTOM - END }}
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
      *

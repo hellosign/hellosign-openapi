@@ -445,7 +445,6 @@ class FaxLineApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_add_user_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1152,7 +1151,6 @@ class FaxLineApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_create_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1400,7 +1398,6 @@ class FaxLineApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_delete_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -2429,7 +2426,6 @@ class FaxLineApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $fax_line_remove_user_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

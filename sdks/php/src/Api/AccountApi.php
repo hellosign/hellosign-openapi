@@ -436,7 +436,6 @@ class AccountApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $account_create_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1116,7 +1115,6 @@ class AccountApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $account_update_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters
@@ -1456,7 +1454,6 @@ class AccountApi
                 if ($payloadHook = $this->config->getPayloadHook()) {
                     $payloadHook('multipart', $multipartContents, $account_verify_request);
                 }
-
                 $httpBody = new MultipartStream($multipartContents);
             } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
                 // if Content-Type contains "application/json", json_encode the form parameters

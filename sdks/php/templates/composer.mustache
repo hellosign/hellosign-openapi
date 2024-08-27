@@ -27,8 +27,9 @@
         {
             "name": "{{{developerOrganization}}}",
             "homepage": "{{{developerOrganizationUrl}}}",
-{{! CUSTOM - add email }}
+{{! CUSTOM - BEGIN }}
             "email": "{{{developerOrganizationEmail}}}"
+{{! CUSTOM - END }}
         }
     ],
     "require": {
@@ -42,8 +43,9 @@
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
         "friendsofphp/php-cs-fixer": "^3.5",
-{{! CUSTOM - add symfony/yaml }}
+{{! CUSTOM - BEGIN }}
         "symfony/yaml": "^5.4"
+{{! CUSTOM - END }}
     },
     "autoload": {
         "psr-4": { "{{{escapedInvokerPackage}}}\\" : "{{{srcBasePath}}}/" }
