@@ -37,7 +37,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentCustomFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentCustomFieldBase`")
 @JsonPropertyOrder({
   TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_TYPE,
   TemplateResponseDocumentCustomFieldText.JSON_PROPERTY_AVG_TEXT_LENGTH,
@@ -96,7 +95,6 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -122,7 +120,6 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return avgTextLength
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,7 +145,6 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return isMultiline
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this form field is multiline text.")
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,7 +170,6 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return originalFontSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Original font size used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -200,7 +195,6 @@ public class TemplateResponseDocumentCustomFieldText extends TemplateResponseDoc
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Font family used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

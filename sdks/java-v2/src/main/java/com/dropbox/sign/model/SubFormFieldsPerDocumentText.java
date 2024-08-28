@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentText.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentText.JSON_PROPERTY_PLACEHOLDER,
@@ -233,7 +232,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A text input field. Use the `SubFormFieldsPerDocumentText` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -259,7 +257,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return placeholder
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Placeholder value for text field.")
   @JsonProperty(JSON_PROPERTY_PLACEHOLDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -285,7 +282,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return autoFillType
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_AUTO_FILL_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -311,7 +307,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return linkId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.")
   @JsonProperty(JSON_PROPERTY_LINK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -337,7 +332,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return masked
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). `true` for masking the data in a text field, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_MASKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -363,7 +357,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return validationType
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Each text field may contain a `validation_type` parameter. Check out the list of [validation types](https://faq.hellosign.com/hc/en-us/articles/217115577) to learn more about the possible values.  **NOTE:** When using `custom_regex` you are required to pass a second parameter `validation_custom_regex` and you can optionally provide `validation_custom_regex_format_label` for the error message the user will see in case of an invalid value.")
   @JsonProperty(JSON_PROPERTY_VALIDATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -389,7 +382,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return validationCustomRegex
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -415,7 +407,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return validationCustomRegexFormatLabel
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_VALIDATION_CUSTOM_REGEX_FORMAT_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -441,7 +432,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return content
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Content of a `me_now` text field")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -467,7 +457,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -493,7 +482,6 @@ public class SubFormFieldsPerDocumentText extends SubFormFieldsPerDocumentBase {
    * @return fontSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

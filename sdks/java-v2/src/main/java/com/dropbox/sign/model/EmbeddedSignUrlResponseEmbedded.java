@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An object that contains necessary information to set up embedded signing.
  */
-@ApiModel(description = "An object that contains necessary information to set up embedded signing.")
 @JsonPropertyOrder({
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_SIGN_URL,
   EmbeddedSignUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
@@ -74,7 +73,6 @@ public class EmbeddedSignUrlResponseEmbedded {
    * @return signUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A signature url that can be opened in an iFrame.")
   @JsonProperty(JSON_PROPERTY_SIGN_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class EmbeddedSignUrlResponseEmbedded {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The specific time that the the `sign_url` link expires, in epoch.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

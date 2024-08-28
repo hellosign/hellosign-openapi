@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentCustomFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentCustomFieldBase`")
 @JsonPropertyOrder({
   TemplateResponseDocumentCustomFieldCheckbox.JSON_PROPERTY_TYPE
 })
@@ -79,7 +78,6 @@ public class TemplateResponseDocumentCustomFieldCheckbox extends TemplateRespons
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this Custom Field. Only `text` and `checkbox` are currently supported.  * Text uses `TemplateResponseDocumentCustomFieldText` * Checkbox uses `TemplateResponseDocumentCustomFieldCheckbox`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

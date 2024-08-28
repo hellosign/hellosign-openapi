@@ -111,7 +111,6 @@ public class AccountResponse {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the Account")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -137,7 +136,6 @@ public class AccountResponse {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email address associated with the Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -163,7 +161,6 @@ public class AccountResponse {
    * @return isLocked
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Returns `true` if the user has been locked out of their account by a team admin.")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,7 +186,6 @@ public class AccountResponse {
    * @return isPaidHs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Returns `true` if the user has a paid Dropbox Sign account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -215,7 +211,6 @@ public class AccountResponse {
    * @return isPaidHf
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Returns `true` if the user has a paid HelloFax account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -241,7 +236,6 @@ public class AccountResponse {
    * @return quotas
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUOTAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -267,7 +261,6 @@ public class AccountResponse {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL that Dropbox Sign events will `POST` to.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -293,7 +286,6 @@ public class AccountResponse {
    * @return roleCode
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The membership role for the team.")
   @JsonProperty(JSON_PROPERTY_ROLE_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -319,7 +311,6 @@ public class AccountResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the team account belongs to.")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -345,7 +336,6 @@ public class AccountResponse {
    * @return locale
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.")
   @JsonProperty(JSON_PROPERTY_LOCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -371,7 +361,6 @@ public class AccountResponse {
    * @return usage
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

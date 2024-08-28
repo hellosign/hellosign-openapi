@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An object describing the app&#39;s owner
  */
-@ApiModel(description = "An object describing the app's owner")
 @JsonPropertyOrder({
   ApiAppResponseOwnerAccount.JSON_PROPERTY_ACCOUNT_ID,
   ApiAppResponseOwnerAccount.JSON_PROPERTY_EMAIL_ADDRESS
@@ -74,7 +73,6 @@ public class ApiAppResponseOwnerAccount {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The owner account's ID")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class ApiAppResponseOwnerAccount {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The owner account's email address")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

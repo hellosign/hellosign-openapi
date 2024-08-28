@@ -38,7 +38,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains information about an API App.
  */
-@ApiModel(description = "Contains information about an API App.")
 @JsonPropertyOrder({
   ApiAppResponse.JSON_PROPERTY_CALLBACK_URL,
   ApiAppResponse.JSON_PROPERTY_CLIENT_ID,
@@ -112,7 +111,6 @@ public class ApiAppResponse {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The app's callback URL (for events)")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,7 +136,6 @@ public class ApiAppResponse {
    * @return clientId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The app's client id")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,7 +161,6 @@ public class ApiAppResponse {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The time that the app was created")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -198,7 +194,6 @@ public class ApiAppResponse {
    * @return domains
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The domain name(s) associated with the app")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -224,7 +219,6 @@ public class ApiAppResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the app")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -250,7 +244,6 @@ public class ApiAppResponse {
    * @return isApproved
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Boolean to indicate if the app has been approved")
   @JsonProperty(JSON_PROPERTY_IS_APPROVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -276,7 +269,6 @@ public class ApiAppResponse {
    * @return oauth
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OAUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -302,7 +294,6 @@ public class ApiAppResponse {
    * @return options
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -328,7 +319,6 @@ public class ApiAppResponse {
    * @return ownerAccount
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OWNER_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -354,7 +344,6 @@ public class ApiAppResponse {
    * @return whiteLabelingOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

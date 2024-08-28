@@ -34,7 +34,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An object describing the app&#39;s OAuth properties, or null if OAuth is not configured for the app.
  */
-@ApiModel(description = "An object describing the app's OAuth properties, or null if OAuth is not configured for the app.")
 @JsonPropertyOrder({
   ApiAppResponseOAuth.JSON_PROPERTY_CALLBACK_URL,
   ApiAppResponseOAuth.JSON_PROPERTY_SECRET,
@@ -84,7 +83,6 @@ public class ApiAppResponseOAuth {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The app's OAuth callback URL.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,7 +108,6 @@ public class ApiAppResponseOAuth {
    * @return secret
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The app's OAuth secret, or null if the app does not belong to user.")
   @JsonProperty(JSON_PROPERTY_SECRET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -144,7 +141,6 @@ public class ApiAppResponseOAuth {
    * @return scopes
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Array of OAuth scopes used by the app.")
   @JsonProperty(JSON_PROPERTY_SCOPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -170,7 +166,6 @@ public class ApiAppResponseOAuth {
    * @return chargesUsers
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.")
   @JsonProperty(JSON_PROPERTY_CHARGES_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

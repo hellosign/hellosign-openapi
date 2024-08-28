@@ -34,7 +34,6 @@ import com.dropbox.sign.ApiException;
 /**
  * OAuth related parameters.
  */
-@ApiModel(description = "OAuth related parameters.")
 @JsonPropertyOrder({
   SubOAuth.JSON_PROPERTY_CALLBACK_URL,
   SubOAuth.JSON_PROPERTY_SCOPES
@@ -123,7 +122,6 @@ public class SubOAuth {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The callback URL to be used for OAuth flows. (Required if `oauth[scopes]` is provided)")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,7 +155,6 @@ public class SubOAuth {
    * @return scopes
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if `oauth[callback_url]` is provided).")
   @JsonProperty(JSON_PROPERTY_SCOPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

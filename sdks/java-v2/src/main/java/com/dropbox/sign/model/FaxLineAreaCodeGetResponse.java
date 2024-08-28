@@ -79,7 +79,6 @@ public class FaxLineAreaCodeGetResponse {
    * @return areaCodes
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AREA_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

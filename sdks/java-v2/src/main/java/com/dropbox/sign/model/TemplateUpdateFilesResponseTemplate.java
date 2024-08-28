@@ -35,7 +35,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains template id
  */
-@ApiModel(description = "Contains template id")
 @JsonPropertyOrder({
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
   TemplateUpdateFilesResponseTemplate.JSON_PROPERTY_WARNINGS
@@ -78,7 +77,6 @@ public class TemplateUpdateFilesResponseTemplate {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,7 +113,6 @@ public class TemplateUpdateFilesResponseTemplate {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

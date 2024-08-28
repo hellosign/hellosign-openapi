@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Details concerning monthly usage
  */
-@ApiModel(description = "Details concerning monthly usage")
 @JsonPropertyOrder({
   AccountResponseUsage.JSON_PROPERTY_FAX_PAGES_SENT
 })
@@ -70,7 +69,6 @@ public class AccountResponseUsage {
    * @return faxPagesSent
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of fax pages sent")
   @JsonProperty(JSON_PROPERTY_FAX_PAGES_SENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

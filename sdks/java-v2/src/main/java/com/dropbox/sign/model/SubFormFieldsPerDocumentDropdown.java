@@ -38,7 +38,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentDropdown.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentDropdown.JSON_PROPERTY_OPTIONS,
@@ -160,7 +159,6 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An input field for dropdowns. Use the `SubFormFieldsPerDocumentDropdown` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -194,7 +192,6 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
    * @return options
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Array of string values representing dropdown values.")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -220,7 +217,6 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
    * @return content
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Selected value in `options` array. Value must exist in array.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -246,7 +242,6 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -272,7 +267,6 @@ public class SubFormFieldsPerDocumentDropdown extends SubFormFieldsPerDocumentBa
    * @return fontSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

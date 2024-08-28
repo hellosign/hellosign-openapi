@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * A list of warnings.
  */
-@ApiModel(description = "A list of warnings.")
 @JsonPropertyOrder({
   WarningResponse.JSON_PROPERTY_WARNING_MSG,
   WarningResponse.JSON_PROPERTY_WARNING_NAME
@@ -74,7 +73,6 @@ public class WarningResponse {
    * @return warningMsg
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Warning message")
   @JsonProperty(JSON_PROPERTY_WARNING_MSG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -100,7 +98,6 @@ public class WarningResponse {
    * @return warningName
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Warning name")
   @JsonProperty(JSON_PROPERTY_WARNING_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

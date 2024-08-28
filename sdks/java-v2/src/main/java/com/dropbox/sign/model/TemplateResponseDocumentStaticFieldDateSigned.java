@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentStaticFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentStaticFieldBase`")
 @JsonPropertyOrder({
   TemplateResponseDocumentStaticFieldDateSigned.JSON_PROPERTY_TYPE
 })
@@ -79,7 +78,6 @@ public class TemplateResponseDocumentStaticFieldDateSigned extends TemplateRespo
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this static field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentStaticFieldText` * Dropdown Field uses `TemplateResponseDocumentStaticFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentStaticFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentStaticFieldCheckbox` * Radio Field uses `TemplateResponseDocumentStaticFieldRadio` * Signature Field uses `TemplateResponseDocumentStaticFieldSignature` * Date Signed Field uses `TemplateResponseDocumentStaticFieldDateSigned` * Initials Field uses `TemplateResponseDocumentStaticFieldInitials`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

@@ -85,7 +85,6 @@ public class TeamInvitesResponse {
    * @return teamInvites
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Contains a list of team invites and their roles.")
   @JsonProperty(JSON_PROPERTY_TEAM_INVITES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -119,7 +118,6 @@ public class TeamInvitesResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

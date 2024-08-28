@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SignatureRequestResponseCustomFieldBase&#x60;.
  */
-@ApiModel(description = "This class extends `SignatureRequestResponseCustomFieldBase`.")
 @JsonPropertyOrder({
   SignatureRequestResponseCustomFieldText.JSON_PROPERTY_TYPE,
   SignatureRequestResponseCustomFieldText.JSON_PROPERTY_VALUE
@@ -83,7 +82,6 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -109,7 +107,6 @@ public class SignatureRequestResponseCustomFieldText extends SignatureRequestRes
    * @return value
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A text string for text fields")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

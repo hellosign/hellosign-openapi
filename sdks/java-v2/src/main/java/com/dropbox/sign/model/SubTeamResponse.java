@@ -73,7 +73,6 @@ public class SubTeamResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,7 +98,6 @@ public class SubTeamResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

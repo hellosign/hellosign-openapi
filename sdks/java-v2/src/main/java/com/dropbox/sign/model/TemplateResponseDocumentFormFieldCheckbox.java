@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentFormFieldBase`")
 @JsonPropertyOrder({
   TemplateResponseDocumentFormFieldCheckbox.JSON_PROPERTY_TYPE
 })
@@ -79,7 +78,6 @@ public class TemplateResponseDocumentFormFieldCheckbox extends TemplateResponseD
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

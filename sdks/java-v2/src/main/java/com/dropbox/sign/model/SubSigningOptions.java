@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If &#x60;signing_options&#x60; are not defined in the request, the allowed types will default to those specified in the account settings.
  */
-@ApiModel(description = "This allows the requester to specify the types allowed for creating a signature.  **NOTE:** If `signing_options` are not defined in the request, the allowed types will default to those specified in the account settings.")
 @JsonPropertyOrder({
   SubSigningOptions.JSON_PROPERTY_DEFAULT_TYPE,
   SubSigningOptions.JSON_PROPERTY_DRAW,
@@ -125,7 +124,6 @@ public class SubSigningOptions {
    * @return defaultType
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The default type shown (limited to the listed types)")
   @JsonProperty(JSON_PROPERTY_DEFAULT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -151,7 +149,6 @@ public class SubSigningOptions {
    * @return draw
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows drawing the signature")
   @JsonProperty(JSON_PROPERTY_DRAW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -177,7 +174,6 @@ public class SubSigningOptions {
    * @return phone
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows using a smartphone to email the signature")
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -203,7 +199,6 @@ public class SubSigningOptions {
    * @return type
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows typing the signature")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -229,7 +224,6 @@ public class SubSigningOptions {
    * @return upload
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows uploading the signature")
   @JsonProperty(JSON_PROPERTY_UPLOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

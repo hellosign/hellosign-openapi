@@ -82,7 +82,6 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
    * @return type
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A yes/no checkbox")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +107,6 @@ public class SignatureRequestResponseDataValueCheckbox extends SignatureRequestR
    * @return value
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The value of the form field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

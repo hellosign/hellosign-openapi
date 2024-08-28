@@ -77,7 +77,6 @@ public class SubUnclaimedDraftTemplateSigner {
    * @return role
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Must match an existing role in chosen Template(s).")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -103,7 +102,6 @@ public class SubUnclaimedDraftTemplateSigner {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the signer filling the role of `role`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -129,7 +127,6 @@ public class SubUnclaimedDraftTemplateSigner {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the signer filling the role of `role`.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

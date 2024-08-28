@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).
  */
-@ApiModel(description = "The rule used to validate checkboxes in the form field group. See [checkbox field grouping](/api/reference/constants/#checkbox-field-grouping).")
 @JsonPropertyOrder({
   TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_REQUIREMENT,
   TemplateResponseDocumentFieldGroupRule.JSON_PROPERTY_GROUP_LABEL
@@ -74,7 +73,6 @@ public class TemplateResponseDocumentFieldGroupRule {
    * @return requirement
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class TemplateResponseDocumentFieldGroupRule {
    * @return groupLabel
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Name of the group")
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

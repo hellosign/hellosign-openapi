@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Average text length in this field.
  */
-@ApiModel(description = "Average text length in this field.")
 @JsonPropertyOrder({
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_LINES,
   TemplateResponseFieldAvgTextLength.JSON_PROPERTY_NUM_CHARS_PER_LINE
@@ -74,7 +73,6 @@ public class TemplateResponseFieldAvgTextLength {
    * @return numLines
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of lines.")
   @JsonProperty(JSON_PROPERTY_NUM_LINES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class TemplateResponseFieldAvgTextLength {
    * @return numCharsPerLine
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of characters per line.")
   @JsonProperty(JSON_PROPERTY_NUM_CHARS_PER_LINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

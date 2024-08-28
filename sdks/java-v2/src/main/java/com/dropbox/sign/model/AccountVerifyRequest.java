@@ -69,7 +69,6 @@ public class AccountVerifyRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Email address to run the verification for.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

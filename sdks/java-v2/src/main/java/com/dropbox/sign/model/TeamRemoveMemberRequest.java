@@ -124,7 +124,6 @@ public class TeamRemoveMemberRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.  Account id to remove from your Team.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,7 +149,6 @@ public class TeamRemoveMemberRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "**account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -176,7 +174,6 @@ public class TeamRemoveMemberRequest {
    * @return newOwnerEmailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.")
   @JsonProperty(JSON_PROPERTY_NEW_OWNER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -202,7 +199,6 @@ public class TeamRemoveMemberRequest {
    * @return newTeamId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Id of the new Team.")
   @JsonProperty(JSON_PROPERTY_NEW_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -228,7 +224,6 @@ public class TeamRemoveMemberRequest {
    * @return newRole
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A new role member will take in a new Team.  **NOTE:** This parameter is used only if `new_team_id` is provided.")
   @JsonProperty(JSON_PROPERTY_NEW_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

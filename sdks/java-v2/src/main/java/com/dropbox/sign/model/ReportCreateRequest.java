@@ -114,7 +114,6 @@ public class ReportCreateRequest {
    * @return endDate
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The (inclusive) end date for the report data in `MM/DD/YYYY` format.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -148,7 +147,6 @@ public class ReportCreateRequest {
    * @return reportType
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type(s) of the report you are requesting. Allowed values are `user_activity` and `document_status`. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).")
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -174,7 +172,6 @@ public class ReportCreateRequest {
    * @return startDate
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The (inclusive) start date for the report data in `MM/DD/YYYY` format.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

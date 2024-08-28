@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentRadio.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentRadio.JSON_PROPERTY_GROUP,
@@ -87,7 +86,6 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An input field for radios. Use the `SubFormFieldsPerDocumentRadio` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -113,7 +111,6 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
    * @return group
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "String referencing group defined in `form_field_groups` parameter.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -139,7 +136,6 @@ public class SubFormFieldsPerDocumentRadio extends SubFormFieldsPerDocumentBase 
    * @return isChecked
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`true` for checking the radio field by default, otherwise `false`. Only one radio field per group can be `true`.")
   @JsonProperty(JSON_PROPERTY_IS_CHECKED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

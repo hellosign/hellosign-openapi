@@ -118,7 +118,6 @@ public class FaxLineCreateRequest {
    * @return areaCode
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Area code")
   @JsonProperty(JSON_PROPERTY_AREA_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -144,7 +143,6 @@ public class FaxLineCreateRequest {
    * @return country
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Country")
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -170,7 +168,6 @@ public class FaxLineCreateRequest {
    * @return city
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "City")
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -196,7 +193,6 @@ public class FaxLineCreateRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", value = "Account ID")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

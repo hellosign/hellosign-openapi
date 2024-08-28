@@ -46,7 +46,6 @@ import com.dropbox.sign.ApiException;
 /**
  * 
  */
-@ApiModel(description = "")
 @JsonPropertyOrder({
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_CLIENT_ID,
   UnclaimedDraftCreateEmbeddedRequest.JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS,
@@ -259,7 +258,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Client id of the app used to create the draft. Used to apply the branding and callback url defined for the app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -285,7 +283,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return requesterEmailAddress
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the user that should be designated as the requester of this draft, if the draft type is `request_signature`.")
   @JsonProperty(JSON_PROPERTY_REQUESTER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -319,7 +316,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -353,7 +349,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -379,7 +374,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return allowCcs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to specify whether the user is allowed to provide email addresses to CC when claiming the draft.")
   @JsonProperty(JSON_PROPERTY_ALLOW_CCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -405,7 +399,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return allowDecline
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to decline to sign a document if `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -431,7 +424,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return allowReassign
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to reassign their signature requests to other signers if set to `true`. Defaults to `false`.  **NOTE:** Only available for Premium plan and higher.")
   @JsonProperty(JSON_PROPERTY_ALLOW_REASSIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -465,7 +457,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return attachments
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list describing the attachments")
   @JsonProperty(JSON_PROPERTY_ATTACHMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -499,7 +490,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return ccEmailAddresses
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email addresses that should be CCed.")
   @JsonProperty(JSON_PROPERTY_CC_EMAIL_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -533,7 +523,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When used together with merge fields, `custom_fields` allows users to add pre-filled data to their signature requests.  Pre-filled data can be used with \"send-once\" signature requests by adding merge fields with `form_fields_per_document` or [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) while passing values back with `custom_fields` together in one API call.  For using pre-filled on repeatable signature requests, merge fields are added to templates in the Dropbox Sign UI or by calling [/template/create_embedded_draft](/api/reference/operation/templateCreateEmbeddedDraft) and then passing `custom_fields` on subsequent signature requests referencing that template.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -559,7 +548,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return editorOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -585,7 +573,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return fieldOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FIELD_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -611,7 +598,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return forceSignerPage
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the signers.")
   @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -637,7 +623,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return forceSubjectMessage
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the subject and message.")
   @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -671,7 +656,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return formFieldGroups
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Group information for fields defined in `form_fields_per_document`. String-indexed JSON array with `group_label` and `requirement` keys. `form_fields_per_document` must contain fields referencing a group defined in `form_field_groups`.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -705,7 +689,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return formFieldRules
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Conditional Logic rules for fields defined in `form_fields_per_document`.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELD_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -739,7 +722,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return formFieldsPerDocument
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The fields that should appear on the document, expressed as an array of objects. (For more details you can read about it here: [Using Form Fields per Document](/docs/openapi/form-fields-per-document).)  **NOTE:** Fields like **text**, **dropdown**, **checkbox**, **radio**, and **hyperlink** have additional required and optional parameters. Check out the list of [additional parameters](/api/reference/constants/#form-fields-per-document) for these field types.  * Text Field use `SubFormFieldsPerDocumentText` * Dropdown Field use `SubFormFieldsPerDocumentDropdown` * Hyperlink Field use `SubFormFieldsPerDocumentHyperlink` * Checkbox Field use `SubFormFieldsPerDocumentCheckbox` * Radio Field use `SubFormFieldsPerDocumentRadio` * Signature Field use `SubFormFieldsPerDocumentSignature` * Date Signed Field use `SubFormFieldsPerDocumentDateSigned` * Initials Field use `SubFormFieldsPerDocumentInitials` * Text Merge Field use `SubFormFieldsPerDocumentTextMerge` * Checkbox Merge Field use `SubFormFieldsPerDocumentCheckboxMerge`")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS_PER_DOCUMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -765,7 +747,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return hideTextTags
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Send with a value of `true` if you wish to enable automatic Text Tag removal. Defaults to `false`. When using Text Tags it is preferred that you set this to `false` and hide your tags with white text or something similar because the automatic removal system can cause unwanted clipping. See the [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) walkthrough for more details.")
   @JsonProperty(JSON_PROPERTY_HIDE_TEXT_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -791,7 +772,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return holdRequest
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The request from this draft will not automatically send to signers post-claim if set to `true`. Requester must [release](/api/reference/operation/signatureRequestReleaseHold/) the request from hold when ready to send. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_HOLD_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -817,7 +797,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return isForEmbeddedSigning
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The request created from this draft will also be signable in embedded mode if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_IS_FOR_EMBEDDED_SIGNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -843,7 +822,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The custom message in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -877,7 +855,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -903,7 +880,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return requestingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL you want signers redirected to after they successfully request a signature.")
   @JsonProperty(JSON_PROPERTY_REQUESTING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -929,7 +905,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return showPreview
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the editor/preview experience.  - `show_preview=true`: Allows requesters to enable the editor/preview experience. - `show_preview=false`: Allows requesters to disable the editor/preview experience.")
   @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -955,7 +930,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return showProgressStepper
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
   @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -989,7 +963,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return signers
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add Signers to your Unclaimed Draft Signature Request.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1015,7 +988,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return signingOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1041,7 +1013,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return signingRedirectUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL you want signers redirected to after they successfully sign.")
   @JsonProperty(JSON_PROPERTY_SIGNING_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1067,7 +1038,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return skipMeNow
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Disables the \"Me (Now)\" option for the person preparing the document. Does not work with type `send_document`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_SKIP_ME_NOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1093,7 +1063,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The subject in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1119,7 +1088,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, the signature request created from this draft will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1145,7 +1113,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return type
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The type of the draft. By default this is `request_signature`, but you can set it to `send_document` if you want to self sign a document and download it.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1171,7 +1138,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return usePreexistingFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.")
   @JsonProperty(JSON_PROPERTY_USE_PREEXISTING_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1197,7 +1163,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return useTextTags
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Set `use_text_tags` to `true` to enable [Text Tags](https://app.hellosign.com/api/textTagsWalkthrough#TextTagIntro) parsing in your document (defaults to disabled, or `false`). Alternatively, if your PDF contains pre-defined fields, enable the detection of these fields by setting the `use_preexisting_fields` to `true` (defaults to disabled, or `false`). Currently we only support use of either `use_text_tags` or `use_preexisting_fields` parameter, not both.")
   @JsonProperty(JSON_PROPERTY_USE_TEXT_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1223,7 +1188,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return populateAutoFillFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
   @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -1249,7 +1213,6 @@ public class UnclaimedDraftCreateEmbeddedRequest {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the signature request will expire. Unsigned signatures will be moved to the expired status, and no longer signable. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.  **NOTE:** This does not correspond to the **expires_at** returned in the response.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

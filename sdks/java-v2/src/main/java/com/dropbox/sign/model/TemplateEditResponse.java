@@ -69,7 +69,6 @@ public class TemplateEditResponse {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

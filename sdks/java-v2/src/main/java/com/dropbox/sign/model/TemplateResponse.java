@@ -40,7 +40,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains information about the templates you and your team have created.
  */
-@ApiModel(description = "Contains information about the templates you and your team have created.")
 @JsonPropertyOrder({
   TemplateResponse.JSON_PROPERTY_TEMPLATE_ID,
   TemplateResponse.JSON_PROPERTY_TITLE,
@@ -136,7 +135,6 @@ public class TemplateResponse {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -162,7 +160,6 @@ public class TemplateResponse {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -188,7 +185,6 @@ public class TemplateResponse {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -214,7 +210,6 @@ public class TemplateResponse {
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Time the template was last updated.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -240,7 +235,6 @@ public class TemplateResponse {
    * @return isEmbedded
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`true` if this template was created using an embedded flow, `false` if it was created on our website.")
   @JsonProperty(JSON_PROPERTY_IS_EMBEDDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -266,7 +260,6 @@ public class TemplateResponse {
    * @return isCreator
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`true` if you are the owner of this template, `false` if it's been shared with you by a team member.")
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -292,7 +285,6 @@ public class TemplateResponse {
    * @return canEdit
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether edit rights have been granted to you by the owner (always `true` if that's you).")
   @JsonProperty(JSON_PROPERTY_CAN_EDIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -318,7 +310,6 @@ public class TemplateResponse {
    * @return isLocked
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the template is locked. If `true`, then the template was created outside your quota and can only be used in `test_mode`. If `false`, then the template is within your quota and can be used to create signature requests.")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -344,7 +335,6 @@ public class TemplateResponse {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The metadata attached to the template.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -378,7 +368,6 @@ public class TemplateResponse {
    * @return signerRoles
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.")
   @JsonProperty(JSON_PROPERTY_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -412,7 +401,6 @@ public class TemplateResponse {
    * @return ccRoles
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.")
   @JsonProperty(JSON_PROPERTY_CC_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -446,7 +434,6 @@ public class TemplateResponse {
    * @return documents
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array describing each document associated with this Template. Includes form field data for each document.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -483,7 +470,6 @@ public class TemplateResponse {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated. Use `custom_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -521,7 +507,6 @@ public class TemplateResponse {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Deprecated. Use `form_fields` inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c=200&path=template/documents&t=response) array instead.")
   @JsonProperty(JSON_PROPERTY_NAMED_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -556,7 +541,6 @@ public class TemplateResponse {
    * @return accounts
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of the Accounts that can use this Template.")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

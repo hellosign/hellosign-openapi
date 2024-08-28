@@ -90,7 +90,6 @@ public class TemplateResponseAccount {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Account.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,7 +115,6 @@ public class TemplateResponseAccount {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email address associated with the Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,7 +140,6 @@ public class TemplateResponseAccount {
    * @return isLocked
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Returns `true` if the user has been locked out of their account by a team admin.")
   @JsonProperty(JSON_PROPERTY_IS_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -168,7 +165,6 @@ public class TemplateResponseAccount {
    * @return isPaidHs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Returns `true` if the user has a paid Dropbox Sign account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -194,7 +190,6 @@ public class TemplateResponseAccount {
    * @return isPaidHf
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Returns `true` if the user has a paid HelloFax account.")
   @JsonProperty(JSON_PROPERTY_IS_PAID_HF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -220,7 +215,6 @@ public class TemplateResponseAccount {
    * @return quotas
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUOTAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

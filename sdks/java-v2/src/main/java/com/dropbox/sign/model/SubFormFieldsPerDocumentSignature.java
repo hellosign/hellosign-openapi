@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentSignature.JSON_PROPERTY_TYPE
 })
@@ -79,7 +78,6 @@ public class SubFormFieldsPerDocumentSignature extends SubFormFieldsPerDocumentB
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A signature input field. Use the `SubFormFieldsPerDocumentSignature` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

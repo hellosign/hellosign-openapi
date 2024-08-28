@@ -85,7 +85,6 @@ public class SubBulkSignerList {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of custom field values.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -119,7 +118,6 @@ public class SubBulkSignerList {
    * @return signers
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same `role` value.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

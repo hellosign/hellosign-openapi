@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Information about the parent team if a team has one, set to &#x60;null&#x60; otherwise.
  */
-@ApiModel(description = "Information about the parent team if a team has one, set to `null` otherwise.")
 @JsonPropertyOrder({
   TeamParentResponse.JSON_PROPERTY_TEAM_ID,
   TeamParentResponse.JSON_PROPERTY_NAME
@@ -74,7 +73,6 @@ public class TeamParentResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class TeamParentResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

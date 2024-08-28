@@ -4,8 +4,10 @@ import com.dropbox.sign.model.ApiAppCreateRequest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.model.EventCallbackRequest;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -35,9 +37,9 @@ public class EventCallbackHelperTest {
 
             EventCallbackRequest callbackEvent = EventCallbackRequest.init(content.toString());
 
-            Assert.assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
-            Assert.assertFalse(EventCallbackHelper.isValid(reverseApiKey, callbackEvent));
-            Assert.assertEquals(
+            assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
+            assertFalse(EventCallbackHelper.isValid(reverseApiKey, callbackEvent));
+            assertEquals(
                 EventCallbackHelper.EVENT_TYPE_ACCOUNT_CALLBACK,
                 EventCallbackHelper.getCallbackType(callbackEvent)
             );
@@ -55,9 +57,9 @@ public class EventCallbackHelperTest {
 
             EventCallbackRequest callbackEvent = EventCallbackRequest.init(content.toString());
 
-            Assert.assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
-            Assert.assertFalse(EventCallbackHelper.isValid(reverseApiKey, callbackEvent));
-            Assert.assertEquals(
+            assertTrue(EventCallbackHelper.isValid(APIKEY, callbackEvent));
+            assertFalse(EventCallbackHelper.isValid(reverseApiKey, callbackEvent));
+            assertEquals(
                 EventCallbackHelper.EVENT_TYPE_APP_CALLBACK,
                 EventCallbackHelper.getCallbackType(callbackEvent)
             );

@@ -73,7 +73,6 @@ public class FileResponse {
    * @return fileUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "URL to the file.")
   @JsonProperty(JSON_PROPERTY_FILE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,7 +98,6 @@ public class FileResponse {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

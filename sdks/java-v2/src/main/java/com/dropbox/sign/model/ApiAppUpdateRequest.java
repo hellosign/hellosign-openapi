@@ -99,7 +99,6 @@ public class ApiAppUpdateRequest {
    * @return callbackUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The URL at which the API App should receive event callbacks.")
   @JsonProperty(JSON_PROPERTY_CALLBACK_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -125,7 +124,6 @@ public class ApiAppUpdateRequest {
    * @return customLogoFile
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LOGO_FILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -159,7 +157,6 @@ public class ApiAppUpdateRequest {
    * @return domains
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The domain names the ApiApp will be associated with.")
   @JsonProperty(JSON_PROPERTY_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -185,7 +182,6 @@ public class ApiAppUpdateRequest {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name you want to assign to the ApiApp.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -211,7 +207,6 @@ public class ApiAppUpdateRequest {
    * @return oauth
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OAUTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -237,7 +232,6 @@ public class ApiAppUpdateRequest {
    * @return options
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -263,7 +257,6 @@ public class ApiAppUpdateRequest {
    * @return whiteLabelingOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WHITE_LABELING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

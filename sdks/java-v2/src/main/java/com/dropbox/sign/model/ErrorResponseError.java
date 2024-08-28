@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains information about an error that occurred.
  */
-@ApiModel(description = "Contains information about an error that occurred.")
 @JsonPropertyOrder({
   ErrorResponseError.JSON_PROPERTY_ERROR_MSG,
   ErrorResponseError.JSON_PROPERTY_ERROR_NAME,
@@ -78,7 +77,6 @@ public class ErrorResponseError {
    * @return errorMsg
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Message describing an error.")
   @JsonProperty(JSON_PROPERTY_ERROR_MSG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -104,7 +102,6 @@ public class ErrorResponseError {
    * @return errorName
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -130,7 +127,6 @@ public class ErrorResponseError {
    * @return errorPath
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Path at which an error occurred.")
   @JsonProperty(JSON_PROPERTY_ERROR_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

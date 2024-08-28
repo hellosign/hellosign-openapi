@@ -69,7 +69,6 @@ public class FileResponseDataUri {
    * @return dataUri
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "File as base64 encoded string.")
   @JsonProperty(JSON_PROPERTY_DATA_URI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

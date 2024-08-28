@@ -73,7 +73,6 @@ public class OAuthTokenRefreshRequest {
    * @return grantType
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When refreshing an existing token use `refresh_token`.")
   @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -99,7 +98,6 @@ public class OAuthTokenRefreshRequest {
    * @return refreshToken
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The token provided when you got the expired access token.")
   @JsonProperty(JSON_PROPERTY_REFRESH_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

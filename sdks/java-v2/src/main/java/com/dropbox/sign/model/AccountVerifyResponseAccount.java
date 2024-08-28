@@ -69,7 +69,6 @@ public class AccountVerifyResponseAccount {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email address associated with the Account.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -82,7 +82,6 @@ public class SignatureRequestResponseDataValueDropdown extends SignatureRequestR
    * @return type
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An input field for dropdowns")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +107,6 @@ public class SignatureRequestResponseDataValueDropdown extends SignatureRequestR
    * @return value
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The value of the form field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

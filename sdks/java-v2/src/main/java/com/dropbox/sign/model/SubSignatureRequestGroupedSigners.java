@@ -80,7 +80,6 @@ public class SubSignatureRequestGroupedSigners {
    * @return group
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the group.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -114,7 +113,6 @@ public class SubSignatureRequestGroupedSigners {
    * @return signers
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Signers belonging to this Group.  **NOTE:** Only `name`, `email_address`, and `pin` are available to Grouped Signers. We will ignore all other properties, even though they are listed below.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -140,7 +138,6 @@ public class SubSignatureRequestGroupedSigners {
    * @return order
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The order the group is required to sign in. Use this instead of Signer-level `order`.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

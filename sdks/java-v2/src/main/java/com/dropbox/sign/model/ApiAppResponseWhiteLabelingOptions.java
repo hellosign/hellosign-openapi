@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An object with options to customize the app&#39;s signer page
  */
-@ApiModel(description = "An object with options to customize the app's signer page")
 @JsonPropertyOrder({
   ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_HEADER_BACKGROUND_COLOR,
   ApiAppResponseWhiteLabelingOptions.JSON_PROPERTY_LEGAL_VERSION,
@@ -122,7 +121,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return headerBackgroundColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HEADER_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,7 +146,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return legalVersion
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGAL_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,7 +171,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return linkColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINK_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -200,7 +196,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return pageBackgroundColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -226,7 +221,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return primaryButtonColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -252,7 +246,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return primaryButtonColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -278,7 +271,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return primaryButtonTextColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -304,7 +296,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return primaryButtonTextColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -330,7 +321,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return secondaryButtonColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -356,7 +346,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return secondaryButtonColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -382,7 +371,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return secondaryButtonTextColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -408,7 +396,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return secondaryButtonTextColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -434,7 +421,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return textColor1
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -460,7 +446,6 @@ public class ApiAppResponseWhiteLabelingOptions {
    * @return textColor2
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

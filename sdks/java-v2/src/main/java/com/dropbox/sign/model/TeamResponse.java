@@ -35,7 +35,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains information about your team and its members
  */
-@ApiModel(description = "Contains information about your team and its members")
 @JsonPropertyOrder({
   TeamResponse.JSON_PROPERTY_NAME,
   TeamResponse.JSON_PROPERTY_ACCOUNTS,
@@ -85,7 +84,6 @@ public class TeamResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of your Team")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -119,7 +117,6 @@ public class TeamResponse {
    * @return accounts
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -153,7 +150,6 @@ public class TeamResponse {
    * @return invitedAccounts
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in `GET /account`.")
   @JsonProperty(JSON_PROPERTY_INVITED_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -187,7 +183,6 @@ public class TeamResponse {
    * @return invitedEmails
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.")
   @JsonProperty(JSON_PROPERTY_INVITED_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

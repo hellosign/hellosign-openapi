@@ -4,8 +4,9 @@ import com.dropbox.sign.ApiClient;
 import com.dropbox.sign.TestHelper;
 import com.dropbox.sign.model.*;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 
@@ -24,7 +25,7 @@ public class UnclaimedDraftApiTest {
         UnclaimedDraftApi api = new UnclaimedDraftApi(apiClient);
         UnclaimedDraftCreateResponse response = api.unclaimedDraftCreate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -41,7 +42,7 @@ public class UnclaimedDraftApiTest {
         UnclaimedDraftApi api = new UnclaimedDraftApi(apiClient);
         UnclaimedDraftCreateResponse response = api.unclaimedDraftCreateEmbedded(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -58,7 +59,7 @@ public class UnclaimedDraftApiTest {
         UnclaimedDraftApi api = new UnclaimedDraftApi(apiClient);
         UnclaimedDraftCreateResponse response = api.unclaimedDraftCreateEmbeddedWithTemplate(request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -76,6 +77,6 @@ public class UnclaimedDraftApiTest {
         UnclaimedDraftApi api = new UnclaimedDraftApi(apiClient);
         UnclaimedDraftCreateResponse response = api.unclaimedDraftEditAndResend(signatureRequestId, request);
 
-        Assert.assertEquals(expectedResponse, response);
+        assertEquals(expectedResponse, response);
     }
 }

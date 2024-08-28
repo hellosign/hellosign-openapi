@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Template object with parameters: &#x60;template_id&#x60;.
  */
-@ApiModel(description = "Template object with parameters: `template_id`.")
 @JsonPropertyOrder({
   TemplateCreateResponseTemplate.JSON_PROPERTY_TEMPLATE_ID
 })
@@ -70,7 +69,6 @@ public class TemplateCreateResponseTemplate {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

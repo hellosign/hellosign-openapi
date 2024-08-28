@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Specific metadata about the event.
  */
-@ApiModel(description = "Specific metadata about the event.")
 @JsonPropertyOrder({
   EventCallbackRequestEventMetadata.JSON_PROPERTY_RELATED_SIGNATURE_ID,
   EventCallbackRequestEventMetadata.JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID,
@@ -82,7 +81,6 @@ public class EventCallbackRequestEventMetadata {
    * @return relatedSignatureId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Signature ID for a specific signer. Applicable to `signature_request_signed` and `signature_request_viewed` events.")
   @JsonProperty(JSON_PROPERTY_RELATED_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +106,6 @@ public class EventCallbackRequestEventMetadata {
    * @return reportedForAccountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Account ID the event was reported for.")
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,7 +131,6 @@ public class EventCallbackRequestEventMetadata {
    * @return reportedForAppId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "App ID the event was reported for.")
   @JsonProperty(JSON_PROPERTY_REPORTED_FOR_APP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,7 +156,6 @@ public class EventCallbackRequestEventMetadata {
    * @return eventMessage
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Message about a declined or failed (due to error) signature flow.")
   @JsonProperty(JSON_PROPERTY_EVENT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

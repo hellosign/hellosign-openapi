@@ -77,7 +77,6 @@ public class TeamMemberResponse {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Account id of the team member.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,7 +102,6 @@ public class TeamMemberResponse {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Email address of the team member.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,7 +127,6 @@ public class TeamMemberResponse {
    * @return role
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The specific role a member has on the team.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

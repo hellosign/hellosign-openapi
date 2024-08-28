@@ -73,7 +73,6 @@ public class SignatureRequestRemindRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the signer to send a reminder to.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -99,7 +98,6 @@ public class SignatureRequestRemindRequest {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the signer to send a reminder to. Include if two or more signers share an email address.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

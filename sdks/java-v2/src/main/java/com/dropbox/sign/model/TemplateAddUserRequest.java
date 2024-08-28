@@ -77,7 +77,6 @@ public class TemplateAddUserRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Account to give access to the Template. **NOTE:** The account id prevails if email address is also provided.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -103,7 +102,6 @@ public class TemplateAddUserRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,7 +127,6 @@ public class TemplateAddUserRequest {
    * @return skipNotification
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If set to `true`, the user does not receive an email notification when a template has been shared with them. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_SKIP_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

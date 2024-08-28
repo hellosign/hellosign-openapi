@@ -77,7 +77,6 @@ public class SubFormFieldGroup {
    * @return groupId
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ID of group. Use this to reference a specific group from the `group` value in `form_fields_per_document`.")
   @JsonProperty(JSON_PROPERTY_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -103,7 +102,6 @@ public class SubFormFieldGroup {
    * @return groupLabel
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name of the group")
   @JsonProperty(JSON_PROPERTY_GROUP_LABEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -129,7 +127,6 @@ public class SubFormFieldGroup {
    * @return requirement
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Examples: `require_0-1` `require_1` `require_1-ormore`  - Check out the list of [acceptable `requirement` checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable `requirement` radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.")
   @JsonProperty(JSON_PROPERTY_REQUIREMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

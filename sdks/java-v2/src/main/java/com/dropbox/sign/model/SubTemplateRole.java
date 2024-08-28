@@ -73,7 +73,6 @@ public class SubTemplateRole {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The role name of the signer that will be displayed when the template is used to create a signature request.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,7 +98,6 @@ public class SubTemplateRole {
    * @return order
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The order in which this signer role is required to sign.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

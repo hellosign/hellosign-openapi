@@ -124,7 +124,6 @@ public class SubSignatureRequestTemplateSigner {
    * @return role
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Must match an existing role in chosen Template(s). It's case-sensitive.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -150,7 +149,6 @@ public class SubSignatureRequestTemplateSigner {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the signer.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -176,7 +174,6 @@ public class SubSignatureRequestTemplateSigner {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the signer.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -202,7 +199,6 @@ public class SubSignatureRequestTemplateSigner {
    * @return pin
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The 4- to 12-character access code that will secure this signer's signature page.")
   @JsonProperty(JSON_PROPERTY_PIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -228,7 +224,6 @@ public class SubSignatureRequestTemplateSigner {
    * @return smsPhoneNumber
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer's consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -254,7 +249,6 @@ public class SubSignatureRequestTemplateSigner {
    * @return smsPhoneNumberType
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the feature used with the `sms_phone_number`. Default `authentication`.  If `authentication`, signer is sent a verification code via SMS that is required to access the document.  If `delivery`, a link to complete the signature request is delivered via SMS (_and_ email).")
   @JsonProperty(JSON_PROPERTY_SMS_PHONE_NUMBER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

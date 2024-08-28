@@ -90,7 +90,6 @@ public class ApiAppListResponse {
    * @return apiApps
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Contains information about API Apps.")
   @JsonProperty(JSON_PROPERTY_API_APPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,7 +115,6 @@ public class ApiAppListResponse {
    * @return listInfo
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,7 +148,6 @@ public class ApiAppListResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

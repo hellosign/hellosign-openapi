@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentDateSigned.JSON_PROPERTY_FONT_FAMILY,
@@ -150,7 +149,6 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A date. Use the `SubFormFieldsPerDocumentDateSigned` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -176,7 +174,6 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -202,7 +199,6 @@ public class SubFormFieldsPerDocumentDateSigned extends SubFormFieldsPerDocument
    * @return fontSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains pagination information about the data returned.
  */
-@ApiModel(description = "Contains pagination information about the data returned.")
 @JsonPropertyOrder({
   ListInfoResponse.JSON_PROPERTY_NUM_PAGES,
   ListInfoResponse.JSON_PROPERTY_NUM_RESULTS,
@@ -82,7 +81,6 @@ public class ListInfoResponse {
    * @return numPages
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Total number of pages available.")
   @JsonProperty(JSON_PROPERTY_NUM_PAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +106,6 @@ public class ListInfoResponse {
    * @return numResults
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Total number of objects available.")
   @JsonProperty(JSON_PROPERTY_NUM_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,7 +131,6 @@ public class ListInfoResponse {
    * @return page
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of the page being returned.")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,7 +156,6 @@ public class ListInfoResponse {
    * @return pageSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Objects returned per page.")
   @JsonProperty(JSON_PROPERTY_PAGE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

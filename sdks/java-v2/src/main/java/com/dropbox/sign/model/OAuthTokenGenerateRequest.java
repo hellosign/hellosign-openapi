@@ -85,7 +85,6 @@ public class OAuthTokenGenerateRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The client id of the app requesting authorization.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -111,7 +110,6 @@ public class OAuthTokenGenerateRequest {
    * @return clientSecret
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The secret token of your app.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -137,7 +135,6 @@ public class OAuthTokenGenerateRequest {
    * @return code
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The code passed to your callback when the user granted access.")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -163,7 +160,6 @@ public class OAuthTokenGenerateRequest {
    * @return grantType
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "When generating a new token use `authorization_code`.")
   @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -189,7 +185,6 @@ public class OAuthTokenGenerateRequest {
    * @return state
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Same as the state you specified earlier.")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

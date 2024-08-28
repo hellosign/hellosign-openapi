@@ -73,7 +73,6 @@ public class TemplateRemoveUserRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,7 +98,6 @@ public class TemplateRemoveUserRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

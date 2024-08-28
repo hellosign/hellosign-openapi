@@ -95,7 +95,6 @@ public class TemplateResponseDocument {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Name of the associated file.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -121,7 +120,6 @@ public class TemplateResponseDocument {
    * @return index
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Document ordering, the lowest index is displayed first and the highest last (0-based indexing).")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -155,7 +153,6 @@ public class TemplateResponseDocument {
    * @return fieldGroups
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of Form Field Group objects.")
   @JsonProperty(JSON_PROPERTY_FIELD_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -189,7 +186,6 @@ public class TemplateResponseDocument {
    * @return formFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_FORM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -223,7 +219,6 @@ public class TemplateResponseDocument {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of Form Field objects containing the name and type of each named field.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -257,7 +252,6 @@ public class TemplateResponseDocument {
    * @return staticFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.")
   @JsonProperty(JSON_PROPERTY_STATIC_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

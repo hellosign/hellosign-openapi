@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentCheckbox.JSON_PROPERTY_IS_CHECKED,
@@ -87,7 +86,6 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A yes/no checkbox. Use the `SubFormFieldsPerDocumentCheckbox` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -113,7 +111,6 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
    * @return isChecked
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`true` for checking the checkbox field by default, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_IS_CHECKED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -139,7 +136,6 @@ public class SubFormFieldsPerDocumentCheckbox extends SubFormFieldsPerDocumentBa
    * @return group
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "String referencing group defined in `form_field_groups` parameter.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

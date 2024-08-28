@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An object with options that override account settings.
  */
-@ApiModel(description = "An object with options that override account settings.")
 @JsonPropertyOrder({
   ApiAppResponseOptions.JSON_PROPERTY_CAN_INSERT_EVERYWHERE
 })
@@ -70,7 +69,6 @@ public class ApiAppResponseOptions {
    * @return canInsertEverywhere
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Boolean denoting if signers can \"Insert Everywhere\" in one click while signing a document")
   @JsonProperty(JSON_PROPERTY_CAN_INSERT_EVERYWHERE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

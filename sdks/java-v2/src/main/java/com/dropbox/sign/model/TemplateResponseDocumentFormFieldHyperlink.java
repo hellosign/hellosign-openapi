@@ -37,7 +37,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;TemplateResponseDocumentFormFieldBase&#x60;
  */
-@ApiModel(description = "This class extends `TemplateResponseDocumentFormFieldBase`")
 @JsonPropertyOrder({
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_TYPE,
   TemplateResponseDocumentFormFieldHyperlink.JSON_PROPERTY_AVG_TEXT_LENGTH,
@@ -96,7 +95,6 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this form field. See [field types](/api/reference/constants/#field-types).  * Text Field uses `TemplateResponseDocumentFormFieldText` * Dropdown Field uses `TemplateResponseDocumentFormFieldDropdown` * Hyperlink Field uses `TemplateResponseDocumentFormFieldHyperlink` * Checkbox Field uses `TemplateResponseDocumentFormFieldCheckbox` * Radio Field uses `TemplateResponseDocumentFormFieldRadio` * Signature Field uses `TemplateResponseDocumentFormFieldSignature` * Date Signed Field uses `TemplateResponseDocumentFormFieldDateSigned` * Initials Field uses `TemplateResponseDocumentFormFieldInitials`")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -122,7 +120,6 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * @return avgTextLength
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AVG_TEXT_LENGTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -148,7 +145,6 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * @return isMultiline
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this form field is multiline text.")
   @JsonProperty(JSON_PROPERTY_IS_MULTILINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -174,7 +170,6 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * @return originalFontSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Original font size used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_ORIGINAL_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -200,7 +195,6 @@ public class TemplateResponseDocumentFormFieldHyperlink extends TemplateResponse
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Font family used in this form field's text.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -116,7 +116,6 @@ public class SubFormFieldRuleAction {
    * @return hidden
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`true` to hide the target field when rule is satisfied, otherwise `false`.")
   @JsonProperty(JSON_PROPERTY_HIDDEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -142,7 +141,6 @@ public class SubFormFieldRuleAction {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -168,7 +166,6 @@ public class SubFormFieldRuleAction {
    * @return fieldId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "**field_id** or **group_id** is required, but not both.  Must reference the `api_id` of an existing field defined within `form_fields_per_document`.  Cannot use with `group_id`. Trigger and action fields must belong to the same signer.")
   @JsonProperty(JSON_PROPERTY_FIELD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -194,7 +191,6 @@ public class SubFormFieldRuleAction {
    * @return groupId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "**group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within `form_field_groups`.  Cannot use with `field_id`. Trigger and action fields and groups must belong to the same signer.")
   @JsonProperty(JSON_PROPERTY_GROUP_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

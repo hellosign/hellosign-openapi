@@ -90,7 +90,6 @@ public class TeamMembersResponse {
    * @return teamMembers
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Contains a list of team members and their roles for a specific team.")
   @JsonProperty(JSON_PROPERTY_TEAM_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,7 +115,6 @@ public class TeamMembersResponse {
    * @return listInfo
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,7 +148,6 @@ public class TeamMembersResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

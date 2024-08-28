@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
  */
-@ApiModel(description = "An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.")
 @JsonPropertyOrder({
   TemplateResponseAccountQuota.JSON_PROPERTY_TEMPLATES_LEFT,
   TemplateResponseAccountQuota.JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT,
@@ -82,7 +81,6 @@ public class TemplateResponseAccountQuota {
    * @return templatesLeft
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "API templates remaining.")
   @JsonProperty(JSON_PROPERTY_TEMPLATES_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +106,6 @@ public class TemplateResponseAccountQuota {
    * @return apiSignatureRequestsLeft
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "API signature requests remaining.")
   @JsonProperty(JSON_PROPERTY_API_SIGNATURE_REQUESTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,7 +131,6 @@ public class TemplateResponseAccountQuota {
    * @return documentsLeft
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Signature requests remaining.")
   @JsonProperty(JSON_PROPERTY_DOCUMENTS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,7 +156,6 @@ public class TemplateResponseAccountQuota {
    * @return smsVerificationsLeft
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "SMS verifications remaining.")
   @JsonProperty(JSON_PROPERTY_SMS_VERIFICATIONS_LEFT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

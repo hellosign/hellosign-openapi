@@ -84,7 +84,6 @@ public class FaxLineResponseFaxLine {
    * @return number
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -110,7 +109,6 @@ public class FaxLineResponseFaxLine {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Created at")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -136,7 +134,6 @@ public class FaxLineResponseFaxLine {
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Updated at")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -170,7 +167,6 @@ public class FaxLineResponseFaxLine {
    * @return accounts
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

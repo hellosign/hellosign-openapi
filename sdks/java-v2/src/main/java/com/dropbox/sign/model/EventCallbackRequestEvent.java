@@ -33,7 +33,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Basic information about the event that occurred.
  */
-@ApiModel(description = "Basic information about the event that occurred.")
 @JsonPropertyOrder({
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_TIME,
   EventCallbackRequestEvent.JSON_PROPERTY_EVENT_TYPE,
@@ -160,7 +159,6 @@ public class EventCallbackRequestEvent {
    * @return eventTime
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Time the event was created (using Unix time).")
   @JsonProperty(JSON_PROPERTY_EVENT_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -186,7 +184,6 @@ public class EventCallbackRequestEvent {
    * @return eventType
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Type of callback event that was triggered.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -212,7 +209,6 @@ public class EventCallbackRequestEvent {
    * @return eventHash
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Generated hash used to verify source of event data.")
   @JsonProperty(JSON_PROPERTY_EVENT_HASH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -238,7 +234,6 @@ public class EventCallbackRequestEvent {
    * @return eventMetadata
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

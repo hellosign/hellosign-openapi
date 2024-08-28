@@ -35,7 +35,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
  */
-@ApiModel(description = "An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses `SignatureRequestResponseCustomFieldText` * Checkbox Field uses `SignatureRequestResponseCustomFieldCheckbox`")
 @JsonPropertyOrder({
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_TYPE,
   SignatureRequestResponseCustomFieldBase.JSON_PROPERTY_NAME,
@@ -98,7 +97,6 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The type of this Custom Field. Only 'text' and 'checkbox' are currently supported.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -124,7 +122,6 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the Custom Field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -150,7 +147,6 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return required
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A boolean value denoting if this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -176,7 +172,6 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return apiId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -202,7 +197,6 @@ public class SignatureRequestResponseCustomFieldBase {
    * @return editor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the Role that is able to edit this field.")
   @JsonProperty(JSON_PROPERTY_EDITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

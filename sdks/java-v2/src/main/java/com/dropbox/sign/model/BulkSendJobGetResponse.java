@@ -87,7 +87,6 @@ public class BulkSendJobGetResponse {
    * @return bulkSendJob
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,7 +112,6 @@ public class BulkSendJobGetResponse {
    * @return listInfo
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -147,7 +145,6 @@ public class BulkSendJobGetResponse {
    * @return signatureRequests
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Contains information about the Signature Requests sent in bulk.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -181,7 +178,6 @@ public class BulkSendJobGetResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

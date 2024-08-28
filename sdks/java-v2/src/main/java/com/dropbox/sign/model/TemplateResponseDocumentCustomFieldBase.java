@@ -35,7 +35,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An array of Form Field objects containing the name and type of each named field.
  */
-@ApiModel(description = "An array of Form Field objects containing the name and type of each named field.")
 @JsonPropertyOrder({
   TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_TYPE,
   TemplateResponseDocumentCustomFieldBase.JSON_PROPERTY_API_ID,
@@ -118,7 +117,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -144,7 +142,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return apiId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -170,7 +167,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the Custom Field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -196,7 +192,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return signer
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The signer of the Custom Field. Can be `null` if field is a merge field (assigned to Sender).")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -222,7 +217,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return x
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The horizontal offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -248,7 +242,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return y
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The vertical offset in pixels for this form field.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -274,7 +267,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return width
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The width in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -300,7 +292,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return height
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The height in pixels of this form field.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -326,7 +317,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return required
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Boolean showing whether or not this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -352,7 +342,6 @@ public class TemplateResponseDocumentCustomFieldBase {
    * @return group
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the group this field is in. If this field is not a group, this defaults to `null`.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

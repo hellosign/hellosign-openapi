@@ -35,7 +35,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
  */
-@ApiModel(description = "An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.")
 @JsonPropertyOrder({
   SignatureRequestResponseDataBase.JSON_PROPERTY_API_ID,
   SignatureRequestResponseDataBase.JSON_PROPERTY_SIGNATURE_ID,
@@ -105,7 +104,6 @@ public class SignatureRequestResponseDataBase {
    * @return apiId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The unique ID for this field.")
   @JsonProperty(JSON_PROPERTY_API_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -131,7 +129,6 @@ public class SignatureRequestResponseDataBase {
    * @return signatureId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the signature to which this response is linked.")
   @JsonProperty(JSON_PROPERTY_SIGNATURE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -157,7 +154,6 @@ public class SignatureRequestResponseDataBase {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the form field.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -183,7 +179,6 @@ public class SignatureRequestResponseDataBase {
    * @return required
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A boolean value denoting if this field is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -209,7 +204,6 @@ public class SignatureRequestResponseDataBase {
    * @return type
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

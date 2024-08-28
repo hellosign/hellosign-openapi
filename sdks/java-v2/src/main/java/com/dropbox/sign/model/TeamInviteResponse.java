@@ -89,7 +89,6 @@ public class TeamInviteResponse {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Email address of the user invited to this team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,7 +114,6 @@ public class TeamInviteResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Id of the team.")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -141,7 +139,6 @@ public class TeamInviteResponse {
    * @return role
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Role of the user invited to this team.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -167,7 +164,6 @@ public class TeamInviteResponse {
    * @return sentAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the invitation was sent.")
   @JsonProperty(JSON_PROPERTY_SENT_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -193,7 +189,6 @@ public class TeamInviteResponse {
    * @return redeemedAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the invitation was redeemed.")
   @JsonProperty(JSON_PROPERTY_REDEEMED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -219,7 +214,6 @@ public class TeamInviteResponse {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when the invitation is expiring.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

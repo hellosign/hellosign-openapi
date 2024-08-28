@@ -69,7 +69,6 @@ public class FaxLineDeleteRequest {
    * @return number
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The Fax Line number.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

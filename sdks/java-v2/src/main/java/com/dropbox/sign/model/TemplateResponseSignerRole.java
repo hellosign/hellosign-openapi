@@ -73,7 +73,6 @@ public class TemplateResponseSignerRole {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of the Role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -99,7 +98,6 @@ public class TemplateResponseSignerRole {
    * @return order
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If signer order is assigned this is the 0-based index for this role.")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

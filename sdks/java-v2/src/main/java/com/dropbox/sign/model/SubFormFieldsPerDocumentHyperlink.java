@@ -36,7 +36,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This class extends &#x60;SubFormFieldsPerDocumentBase&#x60;.
  */
-@ApiModel(description = "This class extends `SubFormFieldsPerDocumentBase`.")
 @JsonPropertyOrder({
   SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_TYPE,
   SubFormFieldsPerDocumentHyperlink.JSON_PROPERTY_CONTENT,
@@ -158,7 +157,6 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A hyperlink field. Use the `SubFormFieldsPerDocumentHyperlink` class.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -184,7 +182,6 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return content
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Link Text.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -210,7 +207,6 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return contentUrl
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Link URL.")
   @JsonProperty(JSON_PROPERTY_CONTENT_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -236,7 +232,6 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return fontFamily
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Font family for the field.")
   @JsonProperty(JSON_PROPERTY_FONT_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,7 +257,6 @@ public class SubFormFieldsPerDocumentHyperlink extends SubFormFieldsPerDocumentB
    * @return fontSize
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The initial px font size for the field contents. Can be any integer value between `7` and `49`.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.")
   @JsonProperty(JSON_PROPERTY_FONT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

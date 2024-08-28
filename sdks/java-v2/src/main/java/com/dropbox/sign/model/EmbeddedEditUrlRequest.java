@@ -109,7 +109,6 @@ public class EmbeddedEditUrlRequest {
    * @return allowEditCcs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable/disable to add or change CC roles when editing the template.")
   @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_CCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -143,7 +142,6 @@ public class EmbeddedEditUrlRequest {
    * @return ccRoles
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The CC roles that must be assigned when using the template to send a signature request. To remove all CC roles, pass in a single role with no name. For use in a POST request.")
   @JsonProperty(JSON_PROPERTY_CC_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -169,7 +167,6 @@ public class EmbeddedEditUrlRequest {
    * @return editorOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EDITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -195,7 +192,6 @@ public class EmbeddedEditUrlRequest {
    * @return forceSignerRoles
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the template signer roles.")
   @JsonProperty(JSON_PROPERTY_FORCE_SIGNER_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -221,7 +217,6 @@ public class EmbeddedEditUrlRequest {
    * @return forceSubjectMessage
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Provide users the ability to review/edit the template subject and message.")
   @JsonProperty(JSON_PROPERTY_FORCE_SUBJECT_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -255,7 +250,6 @@ public class EmbeddedEditUrlRequest {
    * @return mergeFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add additional merge fields to the template, which can be used used to pre-fill data by passing values into signature requests made with that template.  Remove all merge fields on the template by passing an empty array `[]`.")
   @JsonProperty(JSON_PROPERTY_MERGE_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -281,7 +275,6 @@ public class EmbeddedEditUrlRequest {
    * @return previewOnly
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the preview experience (i.e. does not allow the requester's end user to add any additional fields via the editor).  **NOTE:** This parameter overwrites `show_preview=true` (if set).")
   @JsonProperty(JSON_PROPERTY_PREVIEW_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -307,7 +300,6 @@ public class EmbeddedEditUrlRequest {
    * @return showPreview
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "This allows the requester to enable the editor/preview experience.")
   @JsonProperty(JSON_PROPERTY_SHOW_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -333,7 +325,6 @@ public class EmbeddedEditUrlRequest {
    * @return showProgressStepper
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When only one step remains in the signature request process and this parameter is set to `false` then the progress stepper will be hidden.")
   @JsonProperty(JSON_PROPERTY_SHOW_PROGRESS_STEPPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -359,7 +350,6 @@ public class EmbeddedEditUrlRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, locked templates will only be available for editing if this is set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

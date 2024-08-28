@@ -4,8 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.dropbox.sign.model.SubFormFieldsPerDocumentBase;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -30,13 +31,13 @@ public class SubFormFieldsPerDocumentTest {
 
             SubFormFieldsPerDocumentBase base = SubFormFieldsPerDocumentBase.init(expected.toString());
 
-            Assert.assertTrue(Class.forName(packageNamePrefix + fieldName).isInstance(base));
+            assertTrue(Class.forName(packageNamePrefix + fieldName).isInstance(base));
 
             String serialized = mapper.writeValueAsString(base);
             JsonNode actual = mapper.readTree(serialized);
 
             // String comparison doesn't work due to json fields may be out of order
-            Assert.assertEquals(expected, actual);
+            assertEquals(expected, actual);
         }
     }
 
@@ -57,7 +58,7 @@ public class SubFormFieldsPerDocumentTest {
 
             SubFormFieldsPerDocumentBase result = SubFormFieldsPerDocumentBase.init(data.toString());
 
-            Assert.assertEquals(expected_signer, result.getSigner());
+            assertEquals(expected_signer, result.getSigner());
         }
     }
 
@@ -78,7 +79,7 @@ public class SubFormFieldsPerDocumentTest {
 
             SubFormFieldsPerDocumentBase result = SubFormFieldsPerDocumentBase.init(data.toString());
 
-            Assert.assertEquals(expected_signer, result.getSigner());
+            assertEquals(expected_signer, result.getSigner());
         }
     }
 }

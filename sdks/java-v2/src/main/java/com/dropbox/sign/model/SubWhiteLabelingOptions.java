@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An array of elements and values serialized to a string, to be used to customize the app&#39;s signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.
  */
-@ApiModel(description = "An array of elements and values serialized to a string, to be used to customize the app's signer page. (Only applies to some API plans)  Take a look at our [white labeling guide](https://developers.hellosign.com/api/reference/premium-branding/) to learn more.")
 @JsonPropertyOrder({
   SubWhiteLabelingOptions.JSON_PROPERTY_HEADER_BACKGROUND_COLOR,
   SubWhiteLabelingOptions.JSON_PROPERTY_LEGAL_VERSION,
@@ -161,7 +160,6 @@ public class SubWhiteLabelingOptions {
    * @return headerBackgroundColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HEADER_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -187,7 +185,6 @@ public class SubWhiteLabelingOptions {
    * @return legalVersion
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGAL_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -213,7 +210,6 @@ public class SubWhiteLabelingOptions {
    * @return linkColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINK_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -239,7 +235,6 @@ public class SubWhiteLabelingOptions {
    * @return pageBackgroundColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -265,7 +260,6 @@ public class SubWhiteLabelingOptions {
    * @return primaryButtonColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -291,7 +285,6 @@ public class SubWhiteLabelingOptions {
    * @return primaryButtonColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -317,7 +310,6 @@ public class SubWhiteLabelingOptions {
    * @return primaryButtonTextColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -343,7 +335,6 @@ public class SubWhiteLabelingOptions {
    * @return primaryButtonTextColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIMARY_BUTTON_TEXT_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -369,7 +360,6 @@ public class SubWhiteLabelingOptions {
    * @return secondaryButtonColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -395,7 +385,6 @@ public class SubWhiteLabelingOptions {
    * @return secondaryButtonColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -421,7 +410,6 @@ public class SubWhiteLabelingOptions {
    * @return secondaryButtonTextColor
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -447,7 +435,6 @@ public class SubWhiteLabelingOptions {
    * @return secondaryButtonTextColorHover
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECONDARY_BUTTON_TEXT_COLOR_HOVER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -473,7 +460,6 @@ public class SubWhiteLabelingOptions {
    * @return textColor1
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -499,7 +485,6 @@ public class SubWhiteLabelingOptions {
    * @return textColor2
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEXT_COLOR2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -525,7 +510,6 @@ public class SubWhiteLabelingOptions {
    * @return resetToDefault
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Resets white labeling options to defaults. Only useful when updating an API App.")
   @JsonProperty(JSON_PROPERTY_RESET_TO_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

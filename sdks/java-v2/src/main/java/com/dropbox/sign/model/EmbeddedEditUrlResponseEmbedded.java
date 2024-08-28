@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * An embedded template object.
  */
-@ApiModel(description = "An embedded template object.")
 @JsonPropertyOrder({
   EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EDIT_URL,
   EmbeddedEditUrlResponseEmbedded.JSON_PROPERTY_EXPIRES_AT
@@ -74,7 +73,6 @@ public class EmbeddedEditUrlResponseEmbedded {
    * @return editUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A template url that can be opened in an iFrame.")
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class EmbeddedEditUrlResponseEmbedded {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The specific time that the the `edit_url` link expires, in epoch.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

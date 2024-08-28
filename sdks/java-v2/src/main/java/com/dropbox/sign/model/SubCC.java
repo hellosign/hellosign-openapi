@@ -73,7 +73,6 @@ public class SubCC {
    * @return role
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Must match an existing CC role in chosen Template(s). Multiple CC recipients cannot share the same CC role.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -99,7 +98,6 @@ public class SubCC {
    * @return emailAddress
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The email address of the CC recipient.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

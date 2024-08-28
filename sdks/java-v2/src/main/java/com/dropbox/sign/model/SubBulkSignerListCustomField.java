@@ -73,7 +73,6 @@ public class SubBulkSignerListCustomField {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of the custom field. Must be the field's `name` or `api_id`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -99,7 +98,6 @@ public class SubBulkSignerListCustomField {
    * @return value
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The value of the custom field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

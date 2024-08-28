@@ -90,7 +90,6 @@ public class BulkSendJobListResponse {
    * @return bulkSendJobs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Contains a list of BulkSendJobs that the API caller has access to.")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOBS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -116,7 +115,6 @@ public class BulkSendJobListResponse {
    * @return listInfo
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIST_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,7 +148,6 @@ public class BulkSendJobListResponse {
    * @return warnings
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

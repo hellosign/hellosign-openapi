@@ -35,7 +35,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Template object with parameters: &#x60;template_id&#x60;, &#x60;edit_url&#x60;, &#x60;expires_at&#x60;.
  */
-@ApiModel(description = "Template object with parameters: `template_id`, `edit_url`, `expires_at`.")
 @JsonPropertyOrder({
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_TEMPLATE_ID,
   TemplateCreateEmbeddedDraftResponseTemplate.JSON_PROPERTY_EDIT_URL,
@@ -86,7 +85,6 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * @return templateId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the Template.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,7 +110,6 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * @return editUrl
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Link to edit the template.")
   @JsonProperty(JSON_PROPERTY_EDIT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,7 +135,6 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    * @return expiresAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "When the link expires.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -175,7 +171,6 @@ public class TemplateCreateEmbeddedDraftResponseTemplate {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A list of warnings.")
   @JsonProperty(JSON_PROPERTY_WARNINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

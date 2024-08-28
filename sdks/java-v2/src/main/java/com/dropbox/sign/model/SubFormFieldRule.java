@@ -85,7 +85,6 @@ public class SubFormFieldRule {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Must be unique across all defined rules.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -111,7 +110,6 @@ public class SubFormFieldRule {
    * @return triggerOperator
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Currently only `AND` is supported. Support for `OR` is being worked on.")
   @JsonProperty(JSON_PROPERTY_TRIGGER_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -145,7 +143,6 @@ public class SubFormFieldRule {
    * @return triggers
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of trigger definitions, the \"if this\" part of \"**if this**, then that\". Currently only a single trigger per rule is allowed.")
   @JsonProperty(JSON_PROPERTY_TRIGGERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -179,7 +176,6 @@ public class SubFormFieldRule {
    * @return actions
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "An array of action definitions, the \"then that\" part of \"if this, **then that**\". Any number of actions may be attached to a single rule.")
   @JsonProperty(JSON_PROPERTY_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

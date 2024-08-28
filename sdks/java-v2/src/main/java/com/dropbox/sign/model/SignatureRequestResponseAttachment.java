@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Signer attachments.
  */
-@ApiModel(description = "Signer attachments.")
 @JsonPropertyOrder({
   SignatureRequestResponseAttachment.JSON_PROPERTY_ID,
   SignatureRequestResponseAttachment.JSON_PROPERTY_SIGNER,
@@ -90,7 +89,6 @@ public class SignatureRequestResponseAttachment {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The unique ID for this attachment.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -116,7 +114,6 @@ public class SignatureRequestResponseAttachment {
    * @return signer
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The Signer this attachment is assigned to.")
   @JsonProperty(JSON_PROPERTY_SIGNER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -142,7 +139,6 @@ public class SignatureRequestResponseAttachment {
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The name of this attachment.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -168,7 +164,6 @@ public class SignatureRequestResponseAttachment {
    * @return required
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A boolean value denoting if this attachment is required.")
   @JsonProperty(JSON_PROPERTY_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -194,7 +189,6 @@ public class SignatureRequestResponseAttachment {
    * @return instructions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Instructions for Signer.")
   @JsonProperty(JSON_PROPERTY_INSTRUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -220,7 +214,6 @@ public class SignatureRequestResponseAttachment {
    * @return uploadedAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp when attachment was uploaded by Signer.")
   @JsonProperty(JSON_PROPERTY_UPLOADED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

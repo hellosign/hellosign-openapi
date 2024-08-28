@@ -77,7 +77,6 @@ public class FaxLineAddUserRequest {
    * @return number
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The Fax Line number.")
   @JsonProperty(JSON_PROPERTY_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -103,7 +102,6 @@ public class FaxLineAddUserRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "ab55cd14a97219e36b5ff5fe23f2f9329b0c1e97", value = "Account ID")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -129,7 +127,6 @@ public class FaxLineAddUserRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Email address")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

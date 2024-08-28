@@ -142,7 +142,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return templateIds
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Use `template_ids` to create a SignatureRequest from one or more templates, in the order in which the template will be used.")
   @JsonProperty(JSON_PROPERTY_TEMPLATE_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -168,7 +167,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return clientId
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Client id of the app you're using to create this embedded signature request. Used for security purposes.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -202,7 +200,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return signers
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Add Signers to your Templated-based Signature Request.")
   @JsonProperty(JSON_PROPERTY_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -228,7 +225,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return allowDecline
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows signers to decline to sign a document if `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_ALLOW_DECLINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -262,7 +258,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return ccs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Add CC email recipients. Required when a CC role exists for the Template.")
   @JsonProperty(JSON_PROPERTY_CCS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -296,7 +291,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return customFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array defining values and options for custom fields. Required when a custom field exists in the Template.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -330,7 +324,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return files
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `files[]` to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -364,7 +357,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return fileUrls
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use `file_urls[]` to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.")
   @JsonProperty(JSON_PROPERTY_FILE_URLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -390,7 +382,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The custom message in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -424,7 +415,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer's order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -450,7 +440,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return signingOptions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIGNING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -476,7 +465,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return subject
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The subject in the email that will be sent to the signers.")
   @JsonProperty(JSON_PROPERTY_SUBJECT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -502,7 +490,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return testMode
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Whether this is a test, the signature request will not be legally binding if set to `true`. Defaults to `false`.")
   @JsonProperty(JSON_PROPERTY_TEST_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -528,7 +515,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The title you want to assign to the SignatureRequest.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -554,7 +540,6 @@ public class SignatureRequestCreateEmbeddedWithTemplateRequest {
    * @return populateAutoFillFields
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer's information during signing.  **NOTE:** Keep your signer's information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.")
   @JsonProperty(JSON_PROPERTY_POPULATE_AUTO_FILL_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

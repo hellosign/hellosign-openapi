@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * This allows the requester to specify editor options when a preparing a document
  */
-@ApiModel(description = "This allows the requester to specify editor options when a preparing a document")
 @JsonPropertyOrder({
   SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_SIGNERS,
   SubEditorOptions.JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS
@@ -74,7 +73,6 @@ public class SubEditorOptions {
    * @return allowEditSigners
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows requesters to edit the list of signers")
   @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_SIGNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -100,7 +98,6 @@ public class SubEditorOptions {
    * @return allowEditDocuments
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Allows requesters to edit documents, including delete and add")
   @JsonProperty(JSON_PROPERTY_ALLOW_EDIT_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

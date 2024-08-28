@@ -86,7 +86,6 @@ public class TeamInfoResponse {
    * @return teamId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of a team")
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -112,7 +111,6 @@ public class TeamInfoResponse {
    * @return teamParent
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEAM_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,7 +136,6 @@ public class TeamInfoResponse {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name of a team")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -164,7 +161,6 @@ public class TeamInfoResponse {
    * @return numMembers
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of members within a team")
   @JsonProperty(JSON_PROPERTY_NUM_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -190,7 +186,6 @@ public class TeamInfoResponse {
    * @return numSubTeams
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Number of sub teams within a team")
   @JsonProperty(JSON_PROPERTY_NUM_SUB_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

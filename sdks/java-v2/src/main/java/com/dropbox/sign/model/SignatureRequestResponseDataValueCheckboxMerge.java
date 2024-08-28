@@ -82,7 +82,6 @@ public class SignatureRequestResponseDataValueCheckboxMerge extends SignatureReq
    * @return type
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A checkbox field that has default value set by the api")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +107,6 @@ public class SignatureRequestResponseDataValueCheckboxMerge extends SignatureReq
    * @return value
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The value of the form field.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

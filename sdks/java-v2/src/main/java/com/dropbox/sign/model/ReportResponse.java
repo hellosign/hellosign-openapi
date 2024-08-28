@@ -34,7 +34,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains information about the report request.
  */
-@ApiModel(description = "Contains information about the report request.")
 @JsonPropertyOrder({
   ReportResponse.JSON_PROPERTY_SUCCESS,
   ReportResponse.JSON_PROPERTY_START_DATE,
@@ -119,7 +118,6 @@ public class ReportResponse {
    * @return success
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A message indicating the requested operation's success")
   @JsonProperty(JSON_PROPERTY_SUCCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -145,7 +143,6 @@ public class ReportResponse {
    * @return startDate
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The (inclusive) start date for the report data in MM/DD/YYYY format.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -171,7 +168,6 @@ public class ReportResponse {
    * @return endDate
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The (inclusive) end date for the report data in MM/DD/YYYY format.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -205,7 +201,6 @@ public class ReportResponse {
    * @return reportType
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The type(s) of the report you are requesting. Allowed values are \"user_activity\" and \"document_status\". User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).")
   @JsonProperty(JSON_PROPERTY_REPORT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

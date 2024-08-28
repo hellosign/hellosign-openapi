@@ -32,7 +32,6 @@ import com.dropbox.sign.ApiException;
 /**
  * Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.
  */
-@ApiModel(description = "Contains information about the BulkSendJob such as when it was created and how many signature requests are queued.")
 @JsonPropertyOrder({
   BulkSendJobResponse.JSON_PROPERTY_BULK_SEND_JOB_ID,
   BulkSendJobResponse.JSON_PROPERTY_TOTAL,
@@ -82,7 +81,6 @@ public class BulkSendJobResponse {
    * @return bulkSendJobId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The id of the BulkSendJob.")
   @JsonProperty(JSON_PROPERTY_BULK_SEND_JOB_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -108,7 +106,6 @@ public class BulkSendJobResponse {
    * @return total
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The total amount of Signature Requests queued for sending.")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,7 +131,6 @@ public class BulkSendJobResponse {
    * @return isCreator
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "True if you are the owner of this BulkSendJob, false if it's been shared with you by a team member.")
   @JsonProperty(JSON_PROPERTY_IS_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -160,7 +156,6 @@ public class BulkSendJobResponse {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Time that the BulkSendJob was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

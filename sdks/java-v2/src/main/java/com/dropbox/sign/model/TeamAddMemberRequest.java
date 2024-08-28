@@ -116,7 +116,6 @@ public class TeamAddMemberRequest {
    * @return accountId
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`account_id` or `email_address` is required. If both are provided, the account id prevails.  Account id of the user to invite to your Team.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -142,7 +141,6 @@ public class TeamAddMemberRequest {
    * @return emailAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`account_id` or `email_address` is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.")
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -168,7 +166,6 @@ public class TeamAddMemberRequest {
    * @return role
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A role member will take in a new Team.  **NOTE:** This parameter is used only if `team_id` is provided.")
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
