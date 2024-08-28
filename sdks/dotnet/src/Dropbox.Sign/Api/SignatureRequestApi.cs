@@ -429,7 +429,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Embedded Bulk Send with Template
@@ -442,7 +442,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Bulk Send with Template
         /// </summary>
@@ -454,7 +454,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Bulk Send with Template
@@ -467,7 +467,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Cancel Incomplete Signature Request
         /// </summary>
@@ -479,7 +479,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel Incomplete Signature Request
@@ -492,7 +492,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Signature Request
         /// </summary>
@@ -504,7 +504,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Signature Request
@@ -517,7 +517,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Embedded Signature Request with Template
         /// </summary>
@@ -529,7 +529,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Embedded Signature Request with Template
@@ -542,7 +542,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Download Files
         /// </summary>
@@ -555,7 +555,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> SignatureRequestFilesAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> SignatureRequestFilesAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Download Files
@@ -569,7 +569,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> SignatureRequestFilesWithHttpInfoAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> SignatureRequestFilesWithHttpInfoAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Download Files as Data Uri
         /// </summary>
@@ -581,7 +581,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponseDataUri</returns>
-        System.Threading.Tasks.Task<FileResponseDataUri> SignatureRequestFilesAsDataUriAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponseDataUri> SignatureRequestFilesAsDataUriAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Download Files as Data Uri
@@ -594,7 +594,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponseDataUri)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileResponseDataUri>> SignatureRequestFilesAsDataUriWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileResponseDataUri>> SignatureRequestFilesAsDataUriWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Download Files as File Url
         /// </summary>
@@ -607,7 +607,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Download Files as File Url
@@ -621,7 +621,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Signature Request
         /// </summary>
@@ -633,7 +633,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestGetAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestGetAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Signature Request
@@ -646,7 +646,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestGetWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestGetWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Signature Requests
         /// </summary>
@@ -661,7 +661,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestListResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestListResponse> SignatureRequestListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestListResponse> SignatureRequestListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Signature Requests
@@ -677,7 +677,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestListResponse>> SignatureRequestListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestListResponse>> SignatureRequestListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Release On-Hold Signature Request
         /// </summary>
@@ -689,7 +689,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Release On-Hold Signature Request
@@ -702,7 +702,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Request Reminder
         /// </summary>
@@ -715,7 +715,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Request Reminder
@@ -729,7 +729,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove Signature Request Access
         /// </summary>
@@ -741,7 +741,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove Signature Request Access
@@ -754,7 +754,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send Signature Request
         /// </summary>
@@ -766,7 +766,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send Signature Request
@@ -779,7 +779,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Send with Template
         /// </summary>
@@ -791,7 +791,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Send with Template
@@ -804,7 +804,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Signature Request
         /// </summary>
@@ -817,7 +817,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Signature Request
@@ -831,7 +831,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1044,7 +1044,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkCreateEmbeddedWithTemplateAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = await SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestBulkCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1058,7 +1058,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestBulkCreateEmbeddedWithTemplateRequest signatureRequestBulkCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestBulkCreateEmbeddedWithTemplateRequest' is set
             if (signatureRequestBulkCreateEmbeddedWithTemplateRequest == null)
@@ -1222,7 +1222,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BulkSendJobSendResponse</returns>
-        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkSendJobSendResponse> SignatureRequestBulkSendWithTemplateAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse> localVarResponse = await SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(signatureRequestBulkSendWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1236,7 +1236,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BulkSendJobSendResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<BulkSendJobSendResponse>> SignatureRequestBulkSendWithTemplateWithHttpInfoAsync(SignatureRequestBulkSendWithTemplateRequest signatureRequestBulkSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestBulkSendWithTemplateRequest' is set
             if (signatureRequestBulkSendWithTemplateRequest == null)
@@ -1397,7 +1397,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SignatureRequestCancelAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await SignatureRequestCancelWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -1410,7 +1410,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestCancelWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -1572,7 +1572,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestCreateEmbeddedWithHttpInfoAsync(signatureRequestCreateEmbeddedRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1586,7 +1586,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithHttpInfoAsync(SignatureRequestCreateEmbeddedRequest signatureRequestCreateEmbeddedRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestCreateEmbeddedRequest' is set
             if (signatureRequestCreateEmbeddedRequest == null)
@@ -1756,7 +1756,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestCreateEmbeddedWithTemplateAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(signatureRequestCreateEmbeddedWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1770,7 +1770,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestCreateEmbeddedWithTemplateWithHttpInfoAsync(SignatureRequestCreateEmbeddedWithTemplateRequest signatureRequestCreateEmbeddedWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestCreateEmbeddedWithTemplateRequest' is set
             if (signatureRequestCreateEmbeddedWithTemplateRequest == null)
@@ -1941,7 +1941,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> SignatureRequestFilesAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> SignatureRequestFilesAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<System.IO.Stream> localVarResponse = await SignatureRequestFilesWithHttpInfoAsync(signatureRequestId, fileType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1956,7 +1956,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> SignatureRequestFilesWithHttpInfoAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<System.IO.Stream>> SignatureRequestFilesWithHttpInfoAsync(string signatureRequestId, string? fileType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2116,7 +2116,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponseDataUri</returns>
-        public async System.Threading.Tasks.Task<FileResponseDataUri> SignatureRequestFilesAsDataUriAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponseDataUri> SignatureRequestFilesAsDataUriAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FileResponseDataUri> localVarResponse = await SignatureRequestFilesAsDataUriWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2130,7 +2130,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponseDataUri)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponseDataUri>> SignatureRequestFilesAsDataUriWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponseDataUri>> SignatureRequestFilesAsDataUriWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2291,7 +2291,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileResponse</returns>
-        public async System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> SignatureRequestFilesAsFileUrlAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FileResponse> localVarResponse = await SignatureRequestFilesAsFileUrlWithHttpInfoAsync(signatureRequestId, forceDownload, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2306,7 +2306,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FileResponse>> SignatureRequestFilesAsFileUrlWithHttpInfoAsync(string signatureRequestId, int? forceDownload = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2464,7 +2464,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestGetAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestGetAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestGetWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2478,7 +2478,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestGetWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestGetWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -2650,7 +2650,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestListResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestListResponse> SignatureRequestListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestListResponse> SignatureRequestListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestListResponse> localVarResponse = await SignatureRequestListWithHttpInfoAsync(accountId, page, pageSize, query, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2667,7 +2667,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestListResponse>> SignatureRequestListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestListResponse>> SignatureRequestListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), string? query = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -2830,7 +2830,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestReleaseHoldAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestReleaseHoldWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2844,7 +2844,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestReleaseHoldWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -3016,7 +3016,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestRemindAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestRemindWithHttpInfoAsync(signatureRequestId, signatureRequestRemindRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3031,7 +3031,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestRemindWithHttpInfoAsync(string signatureRequestId, SignatureRequestRemindRequest signatureRequestRemindRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -3193,7 +3193,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SignatureRequestRemoveAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await SignatureRequestRemoveWithHttpInfoAsync(signatureRequestId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -3206,7 +3206,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> SignatureRequestRemoveWithHttpInfoAsync(string signatureRequestId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)
@@ -3362,7 +3362,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestSendWithHttpInfoAsync(signatureRequestSendRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3376,7 +3376,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithHttpInfoAsync(SignatureRequestSendRequest signatureRequestSendRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestSendRequest' is set
             if (signatureRequestSendRequest == null)
@@ -3546,7 +3546,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestSendWithTemplateAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestSendWithTemplateWithHttpInfoAsync(signatureRequestSendWithTemplateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3560,7 +3560,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestSendWithTemplateWithHttpInfoAsync(SignatureRequestSendWithTemplateRequest signatureRequestSendWithTemplateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestSendWithTemplateRequest' is set
             if (signatureRequestSendWithTemplateRequest == null)
@@ -3740,7 +3740,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SignatureRequestGetResponse</returns>
-        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SignatureRequestGetResponse> SignatureRequestUpdateAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse> localVarResponse = await SignatureRequestUpdateWithHttpInfoAsync(signatureRequestId, signatureRequestUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3755,7 +3755,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SignatureRequestGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<SignatureRequestGetResponse>> SignatureRequestUpdateWithHttpInfoAsync(string signatureRequestId, SignatureRequestUpdateRequest signatureRequestUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'signatureRequestId' is set
             if (signatureRequestId == null)

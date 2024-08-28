@@ -93,7 +93,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// OAuth Token Generate
@@ -106,7 +106,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// OAuth Token Refresh
         /// </summary>
@@ -118,7 +118,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// OAuth Token Refresh
@@ -131,7 +131,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -338,7 +338,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenGenerateAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse = await OauthTokenGenerateWithHttpInfoAsync(oAuthTokenGenerateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -352,7 +352,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenGenerateWithHttpInfoAsync(OAuthTokenGenerateRequest oAuthTokenGenerateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'oAuthTokenGenerateRequest' is set
             if (oAuthTokenGenerateRequest == null)
@@ -498,7 +498,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OAuthTokenResponse</returns>
-        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OAuthTokenResponse> OauthTokenRefreshAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse> localVarResponse = await OauthTokenRefreshWithHttpInfoAsync(oAuthTokenRefreshRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -512,7 +512,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OAuthTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<OAuthTokenResponse>> OauthTokenRefreshWithHttpInfoAsync(OAuthTokenRefreshRequest oAuthTokenRefreshRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'oAuthTokenRefreshRequest' is set
             if (oAuthTokenRefreshRequest == null)

@@ -220,7 +220,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Fax Line User
@@ -233,7 +233,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Available Fax Line Area Codes
         /// </summary>
@@ -248,7 +248,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
-        System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Available Fax Line Area Codes
@@ -264,7 +264,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Purchase Fax Line
         /// </summary>
@@ -276,7 +276,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Purchase Fax Line
@@ -289,7 +289,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Fax Line
         /// </summary>
@@ -301,7 +301,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task FaxLineDeleteAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task FaxLineDeleteAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Fax Line
@@ -314,7 +314,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Fax Line
         /// </summary>
@@ -326,7 +326,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Fax Line
@@ -339,7 +339,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Fax Lines
         /// </summary>
@@ -354,7 +354,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineListResponse</returns>
-        System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Fax Lines
@@ -370,7 +370,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Remove Fax Line Access
         /// </summary>
@@ -382,7 +382,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Remove Fax Line Access
@@ -395,7 +395,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -608,7 +608,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineAddUserAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineAddUserWithHttpInfoAsync(faxLineAddUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -622,7 +622,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineAddUserWithHttpInfoAsync(FaxLineAddUserRequest faxLineAddUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineAddUserRequest' is set
             if (faxLineAddUserRequest == null)
@@ -793,7 +793,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineAreaCodeGetResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineAreaCodeGetResponse> FaxLineAreaCodeGetAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse> localVarResponse = await FaxLineAreaCodeGetWithHttpInfoAsync(country, state, province, city, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -810,7 +810,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineAreaCodeGetResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineAreaCodeGetResponse>> FaxLineAreaCodeGetWithHttpInfoAsync(string country, string? state = default(string?), string? province = default(string?), string? city = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'country' is set
             if (country == null)
@@ -972,7 +972,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineCreateAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineCreateWithHttpInfoAsync(faxLineCreateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -986,7 +986,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineCreateWithHttpInfoAsync(FaxLineCreateRequest faxLineCreateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineCreateRequest' is set
             if (faxLineCreateRequest == null)
@@ -1143,7 +1143,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task FaxLineDeleteAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task FaxLineDeleteAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await FaxLineDeleteWithHttpInfoAsync(faxLineDeleteRequest, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -1156,7 +1156,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<Object>> FaxLineDeleteWithHttpInfoAsync(FaxLineDeleteRequest faxLineDeleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineDeleteRequest' is set
             if (faxLineDeleteRequest == null)
@@ -1306,7 +1306,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineGetAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineGetWithHttpInfoAsync(number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1320,7 +1320,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineGetWithHttpInfoAsync(string number, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'number' is set
             if (number == null)
@@ -1480,7 +1480,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineListResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineListResponse> FaxLineListAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineListResponse> localVarResponse = await FaxLineListWithHttpInfoAsync(accountId, page, pageSize, showTeamLines, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1497,7 +1497,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineListResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineListResponse>> FaxLineListWithHttpInfoAsync(string? accountId = default(string?), int? page = default(int?), int? pageSize = default(int?), bool? showTeamLines = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Dropbox.Sign.Client.RequestOptions localVarRequestOptions = new Dropbox.Sign.Client.RequestOptions();
@@ -1656,7 +1656,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FaxLineResponse</returns>
-        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FaxLineResponse> FaxLineRemoveUserAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Dropbox.Sign.Client.ApiResponse<FaxLineResponse> localVarResponse = await FaxLineRemoveUserWithHttpInfoAsync(faxLineRemoveUserRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1670,7 +1670,7 @@ namespace Dropbox.Sign.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FaxLineResponse)</returns>
-        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dropbox.Sign.Client.ApiResponse<FaxLineResponse>> FaxLineRemoveUserWithHttpInfoAsync(FaxLineRemoveUserRequest faxLineRemoveUserRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'faxLineRemoveUserRequest' is set
             if (faxLineRemoveUserRequest == null)

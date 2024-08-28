@@ -308,7 +308,6 @@ namespace Dropbox.Sign.Model
         {
             yield break;
         }
-
         public List<OpenApiType> GetOpenApiTypes()
         {
             var types = new List<OpenApiType>();
