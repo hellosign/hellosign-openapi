@@ -91,6 +91,7 @@
                     </execution>
                 </executions>
             </plugin>
+{{#useCustomTemplateCode}}
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -107,6 +108,7 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+{{/useCustomTemplateCode}}
             <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -279,12 +281,13 @@
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations-version}</version>
         </dependency>
-
+{{#useCustomTemplateCode}}
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.15</version>
         </dependency>
+{{/useCustomTemplateCode}}
 
         <!-- @Nullable annotation -->
         <dependency>
@@ -406,12 +409,14 @@
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
+{{#useCustomTemplateCode}}
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+{{/useCustomTemplateCode}}
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -435,6 +440,8 @@
         <scribejava-apis-version>8.3.1</scribejava-apis-version>
         {{/hasOAuthMethods}}
         <spotless.version>2.17.3</spotless.version>
+{{#useCustomTemplateCode}}
         <mockito.version>3.12.4</mockito.version>
+{{/useCustomTemplateCode}}
     </properties>
 </project>

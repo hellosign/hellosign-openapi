@@ -28,8 +28,6 @@ import java.io.Serializable;
 {{/serializableModel}}
 {{#jackson}}
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 {{#withXml}}
 import com.fasterxml.jackson.dataformat.xml.annotation.*;
 {{/withXml}}
@@ -52,6 +50,10 @@ import javax.validation.Valid;
 import org.hibernate.validator.constraints.*;
 {{/performBeanValidation}}
 import {{invokerPackage}}.JSON;
+{{#useCustomTemplateCode}}
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
+{{/useCustomTemplateCode}}
 
 {{#models}}
 {{#model}}

@@ -1,5 +1,10 @@
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
+{{^useCustomTemplateCode}}
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-bin.zip
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.6.1-bin.zip
+{{/useCustomTemplateCode}}
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists

@@ -1,4 +1,6 @@
+{{#useCustomTemplateCode}}
 import com.dropbox.sign.ApiException;
+{{/useCustomTemplateCode}}
 /**
  * {{description}}{{^description}}{{classname}}{{/description}}{{#isDeprecated}}
  * @deprecated{{/isDeprecated}}
@@ -8,10 +10,12 @@ import com.dropbox.sign.ApiException;
 {{#jackson}}
 @JsonPropertyOrder({
 {{#vars}}
-    {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
+  {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
 {{/vars}}
 })
+{{#useCustomTemplateCode}}
 @JsonIgnoreProperties(ignoreUnknown=true)
+{{/useCustomTemplateCode}}
 {{/jackson}}
 {{>additionalModelTypeAnnotations}}{{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{>xmlAnnotation}}
 public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
@@ -96,6 +100,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
   {{/readOnlyVars}}
   }{{/jackson}}{{/withXml}}{{/vendorExtensions.x-has-readonly-properties}}
+{{#useCustomTemplateCode}}
 
   /**
    * Attempt to instantiate and hydrate a new instance of this class
@@ -111,6 +116,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
       {{classname}}.class
     );
   }
+{{/useCustomTemplateCode}}
   {{#vars}}
 
   {{^isReadOnly}}
@@ -135,12 +141,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
   }
+{{#useCustomTemplateCode}}
   {{#vendorExtensions.x-int-or-string}}
   public {{classname}} {{name}}(Integer {{name}}) {
     this.{{name}} = String.valueOf({{name}});
     return this;
   }
   {{/vendorExtensions.x-int-or-string}}
+{{/useCustomTemplateCode}}
   {{#isArray}}
 
   public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
@@ -277,12 +285,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
+{{#useCustomTemplateCode}}
   {{#vendorExtensions.x-int-or-string}}
 
   public void {{setter}}(Integer {{name}}) {
     this.{{name}} = String.valueOf({{name}});
   }
   {{/vendorExtensions.x-int-or-string}}
+{{/useCustomTemplateCode}}
   {{/isReadOnly}}
 
   {{/vars}}
@@ -349,6 +359,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return sb.toString();
   }
 
+{{#useCustomTemplateCode}}
   public Map<String, Object> createFormData() throws ApiException {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
@@ -404,6 +415,7 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     return (int) Class.forName(java.util.List.class.getName()).getMethod("size").invoke(obj);
   }
 
+{{/useCustomTemplateCode}}
   /**
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).

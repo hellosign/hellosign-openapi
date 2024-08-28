@@ -78,8 +78,9 @@ import {{invokerPackage}}.auth.ApiKeyAuth;
 {{#hasOAuthMethods}}
 import {{invokerPackage}}.auth.OAuth;
 {{/hasOAuthMethods}}
-
+{{#useCustomTemplateCode}}
 import com.dropbox.sign.model.ErrorResponse;
+{{/useCustomTemplateCode}}
 
 /**
  * <p>ApiClient class.</p>
@@ -268,7 +269,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * <p>Setter for the field <code>httpClient</code>.</p>
    *
    * @param httpClient a {@link javax.ws.rs.client.Client} object.
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setHttpClient(Client httpClient) {
     this.httpClient = httpClient;
@@ -288,7 +294,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Sets the base URL to the location where the OpenAPI document is being served.
    *
    * @param basePath The base URL to the target host.
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
@@ -311,7 +322,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * <p>Setter for the field <code>servers</code>.</p>
    *
    * @param servers a {@link java.util.List} of servers.
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setServers(List<ServerConfiguration> servers) {
     this.servers = servers;
@@ -332,7 +348,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * <p>Setter for the field <code>serverIndex</code>.</p>
    *
    * @param serverIndex the server index
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setServerIndex(Integer serverIndex) {
     this.serverIndex = serverIndex;
@@ -353,7 +374,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * <p>Setter for the field <code>serverVariables</code>.</p>
    *
    * @param serverVariables a {@link java.util.Map} of server variables.
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setServerVariables(Map<String, String> serverVariables) {
     this.serverVariables = serverVariables;
@@ -400,7 +426,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set username for the first HTTP basic authentication.
    *
    * @param username Username
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setUsername(String username) {
     for (Authentication auth : authentications.values()) {
@@ -416,7 +447,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set password for the first HTTP basic authentication.
    *
    * @param password Password
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setPassword(String password) {
     for (Authentication auth : authentications.values()) {
@@ -432,7 +468,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set API key value for the first API key authentication.
    *
    * @param apiKey API key
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setApiKey(String apiKey) {
     for (Authentication auth : authentications.values()) {
@@ -448,7 +489,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to configure authentications which respects aliases of API keys.
    *
    * @param secrets Hash map from authentication name to its secret.
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient configureApiKeys(Map<String, String> secrets) {
     for (Map.Entry<String, Authentication> authEntry : authentications.entrySet()) {
@@ -469,7 +515,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set API key prefix for the first API key authentication.
    *
    * @param apiKeyPrefix API key prefix
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setApiKeyPrefix(String apiKeyPrefix) {
     for (Authentication auth : authentications.values()) {
@@ -485,7 +536,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set bearer token for the first Bearer authentication.
    *
    * @param bearerToken Bearer token
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setBearerToken(String bearerToken) {
     for (Authentication auth : authentications.values()) {
@@ -502,7 +558,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set access token for the first OAuth2 authentication.
    *
    * @param accessToken Access token
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setAccessToken(String accessToken) {
     for (Authentication auth : authentications.values()) {
@@ -519,7 +580,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    *
    * @param clientId the client ID
    * @param clientSecret the client secret
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setOauthCredentials(String clientId, String clientSecret) {
     for (Authentication auth : authentications.values()) {
@@ -536,7 +602,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    *
    * @param username the user name
    * @param password the user password
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setOauthPasswordFlow(String username, String password) {
     for (Authentication auth : authentications.values()) {
@@ -552,7 +623,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set the authorization code flow for the first OAuth2 authentication.
    *
    * @param code the authorization code
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setOauthAuthorizationCodeFlow(String code) {
     for (Authentication auth : authentications.values()) {
@@ -568,7 +644,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Helper method to set the scopes for the first OAuth2 authentication.
    *
    * @param scope the oauth scope
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setOauthScope(String scope) {
     for (Authentication auth : authentications.values()) {
@@ -585,7 +666,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Set the User-Agent header's value (by adding to the default header map).
    *
    * @param userAgent Http user agent
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setUserAgent(String userAgent) {
     this.userAgent = userAgent;
@@ -607,7 +693,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    *
    * @param key The header's key
    * @param value The header's value
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient addDefaultHeader(String key, String value) {
     defaultHeaderMap.put(key, value);
@@ -619,7 +710,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    *
    * @param key The cookie's key
    * @param value The cookie's value
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient addDefaultCookie(String key, String value) {
     defaultCookieMap.put(key, value);
@@ -639,7 +735,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Set the client config.
    *
    * @param clientConfig Set the client config
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setClientConfig(ClientConfig clientConfig) {
     this.clientConfig = clientConfig;
@@ -661,7 +762,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Enable/disable debugging for this API client.
    *
    * @param debugging To enable (true) or disable (false) debugging
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setDebugging(boolean debugging) {
     this.debugging = debugging;
@@ -685,7 +791,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Set temp folder path
    *
    * @param tempFolderPath Temp folder path
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setTempFolderPath(String tempFolderPath) {
     this.tempFolderPath = tempFolderPath;
@@ -707,7 +818,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * {@link Integer#MAX_VALUE}.
    *
    * @param connectionTimeout Connection timeout in milliseconds
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setConnectTimeout(int connectionTimeout) {
     this.connectionTimeout = connectionTimeout;
@@ -730,7 +846,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * {@link Integer#MAX_VALUE}.
    *
    * @param readTimeout Read timeout in milliseconds
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setReadTimeout(int readTimeout) {
     this.readTimeout = readTimeout;
@@ -751,7 +872,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * Set the date format used to parse/format date parameters.
    *
    * @param dateFormat Date format
+{{^useCustomTemplateCode}}
+   * @return a {@link org.openapitools.client.ApiClient} object.
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
    * @return a {@link {{invokerPackage}}.ApiClient} object.
+{{/useCustomTemplateCode}}
    */
   public ApiClient setDateFormat(DateFormat dateFormat) {
     this.dateFormat = dateFormat;
@@ -1225,7 +1351,12 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
         queryParams,
         allHeaderParams,
         cookieParams,
+{{^useCustomTemplateCode}}
+        serializeToString(body, formParams, contentType, isBodyNullable),
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         null,
+{{/useCustomTemplateCode}}
         method,
         target.getUri());
 
@@ -1273,9 +1404,22 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       } else {
         String message = "error";
         String respBody = null;
+{{#useCustomTemplateCode}}
         ErrorResponse errorResponse = null;
+{{/useCustomTemplateCode}}
+{{^useCustomTemplateCode}}
         if (response.hasEntity()) {
           try {
+            respBody = String.valueOf(response.readEntity(String.class));
+            message = respBody;
+          } catch (RuntimeException e) {
+            // e.printStackTrace();
+          }
+        }
+        throw new ApiException(
+            response.getStatus(), message, buildResponseHeaders(response), respBody);
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             if (response.getStatusInfo().getFamily() == Status.Family.CLIENT_ERROR) {
                 errorResponse = response.readEntity(ErrorResponse.class);
                 respBody = errorResponse.toString();
@@ -1290,6 +1434,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
         }
         throw new ApiException(
             response.getStatus(), message, buildResponseHeaders(response), respBody, errorResponse);
+{{/useCustomTemplateCode}}
       }
     } finally {
       try {
