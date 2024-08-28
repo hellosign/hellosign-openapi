@@ -13,15 +13,23 @@ export * from './{{ classFilename }}Interface'
 import * as http from 'http';
 
 export class HttpError extends Error {
-{{! CUSTOM - http.IncomingMessage -> AxiosResponse }}
+{{#vendorExtensions.x-ignore-block}}
+    constructor (public response: http.IncomingMessage, public body: any, public statusCode?: number) {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     constructor (public response: AxiosResponse, public body: any, public statusCode?: number) {
+{{! CUSTOM - END }}
         super('HTTP request failed');
         this.name = 'HttpError';
     }
 }
 
-{{! CUSTOM - '../model/models'; -> '../model' }}
+{{#vendorExtensions.x-ignore-block}}
+export { RequestFile } from '../model/models';
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 export { RequestFile } from '../model';
+{{! CUSTOM - END }}
 
 {{#vendorExtensions.x-ignore-block}}
 export const APIS = [{{#apis}}{{#operations}}{{ classname }}{{/operations}}{{^-last}}, {{/-last}}{{/apis}}];

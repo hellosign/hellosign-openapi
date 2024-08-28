@@ -1,7 +1,13 @@
 // This is the entrypoint for the package
-{{! CUSTOM - api/apis -> api/index }}
+{{#vendorExtensions.x-ignore-block}}
+export * from './api/apis';
+{{#models.0}}
+export * from './model/models';
+{{/models.0}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 export * from './api/index';
 {{#models.0}}
-{{! CUSTOM - model/models -> model/index }}
 export * from './model/index';
 {{/models.0}}
+{{! CUSTOM - END }}

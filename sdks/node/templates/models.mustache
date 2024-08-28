@@ -131,8 +131,8 @@ export class ObjectSerializer {
                 return discriminatorClass;
               }
             }
-{{! CUSTOM - END }}
 
+{{! CUSTOM - END }}
             if (discriminatorProperty == null) {
                 return expectedType; // the type does not have a discriminator. use it.
             } else {
@@ -248,16 +248,24 @@ export interface Authentication {
     /**
     * Apply authentication settings to header and query params.
     */
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
+{{#vendorExtensions.x-ignore-block}}
+    applyToRequest(requestOptions: localVarRequest.Options): Promise<void> | void;
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     applyToRequest(requestOptions: AxiosRequestConfig): Promise<void> | void;
+{{! CUSTOM - END }}
 }
 
 export class HttpBasicAuth implements Authentication {
     public username: string = '';
     public password: string = '';
 
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
+{{#vendorExtensions.x-ignore-block}}
+    applyToRequest(requestOptions: localVarRequest.Options): void {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
+{{! CUSTOM - END }}
         requestOptions.auth = {
             username: this.username, password: this.password
         }
@@ -267,8 +275,12 @@ export class HttpBasicAuth implements Authentication {
 export class HttpBearerAuth implements Authentication {
     public accessToken: string | (() => string) = '';
 
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
+{{#vendorExtensions.x-ignore-block}}
+    applyToRequest(requestOptions: localVarRequest.Options): void {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
+{{! CUSTOM - END }}
         if (requestOptions && requestOptions.headers) {
             const accessToken = typeof this.accessToken === 'function'
                             ? this.accessToken()
@@ -284,11 +296,19 @@ export class ApiKeyAuth implements Authentication {
     constructor(private location: string, private paramName: string) {
     }
 
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig }}
+{{#vendorExtensions.x-ignore-block}}
+    applyToRequest(requestOptions: localVarRequest.Options): void {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
+{{! CUSTOM - END }}
         if (this.location == "query") {
-{{! CUSTOM - requestOptions.qs -> requestOptions.params }}
+{{#vendorExtensions.x-ignore-block}}
+            (<any>requestOptions.qs)[this.paramName] = this.apiKey;
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
             (<any>requestOptions.params)[this.paramName] = this.apiKey;
+{{! CUSTOM - END }}
         } else if (this.location == "header" && requestOptions && requestOptions.headers) {
             requestOptions.headers[this.paramName] = this.apiKey;
         } else if (this.location == 'cookie' && requestOptions && requestOptions.headers) {
@@ -305,8 +325,12 @@ export class ApiKeyAuth implements Authentication {
 export class OAuth implements Authentication {
     public accessToken: string = '';
 
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig.params }}
+{{#vendorExtensions.x-ignore-block}}
+    applyToRequest(requestOptions: localVarRequest.Options): void {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
+{{! CUSTOM - END }}
         if (requestOptions && requestOptions.headers) {
             requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
         }
@@ -317,12 +341,20 @@ export class VoidAuth implements Authentication {
     public username: string = '';
     public password: string = '';
 
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig.params }}
+{{#vendorExtensions.x-ignore-block}}
+    applyToRequest(_: localVarRequest.Options): void {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     applyToRequest(_: AxiosRequestConfig): void {
+{{! CUSTOM - END }}
         // Do nothing
     }
 }
 
-{{! CUSTOM - localVarRequest.Options -> AxiosRequestConfig.params }}
+{{#vendorExtensions.x-ignore-block}}
+export type Interceptor = (requestOptions: localVarRequest.Options) => (Promise<void> | void);
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 export type Interceptor = (requestOptions: AxiosRequestConfig) => (Promise<void> | void);
+{{! CUSTOM - END }}
 {{/generateApis}}

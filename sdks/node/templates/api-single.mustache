@@ -59,8 +59,12 @@ export enum {{classname}}ApiKeys {
 
 export class {{classname}} {
     protected _basePath = defaultBasePath;
-{{! CUSTOM - any = {} -> any = { 'User-Agent': USER_AGENT } }}
+{{#vendorExtensions.x-ignore-block}}
+    protected _defaultHeaders : any = {};
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
+{{! CUSTOM - END }}
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
@@ -142,11 +146,16 @@ export class {{classname}} {
         this.authentications.default = auth;
     }
 
-{{! CUSTOM - BEGIN - API Key as username }}
+{{#vendorExtensions.x-ignore-block}}
+    public setApiKey(key: {{classname}}ApiKeys, value: string) {
+        (this.authentications as any)[{{classname}}ApiKeys[key]].apiKey = value;
+    }
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     public setApiKey(key: string) {
         this.authentications.api_key.username = key;
     }
-{{! CUSTOM - BEGIN }}
+{{! CUSTOM - END }}
 {{#hasAuthMethods}}
 {{#authMethods}}
 {{#isBasicBasic}}
@@ -207,13 +216,20 @@ export class {{classname}} {
 {{#hasProduces}}
         const produces = [{{#produces}}'{{{mediaType}}}'{{^-last}}, {{/-last}}{{/produces}}];
         // give precedence to 'application/json'
+{{#vendorExtensions.x-ignore-block}}
         if (produces.indexOf('application/json') >= 0) {
-{{! CUSTOM - use ['content-type'] }}
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
+        if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams['content-type'] = 'application/json';
         } else {
-{{! CUSTOM - use ['content-type'] }}
             localVarHeaderParams['content-type'] = produces.join(',');
         }
+{{! CUSTOM - END }}
 {{/hasProduces}}
         let localVarFormParams: any = {};
 {{! CUSTOM - BEGIN }}
@@ -322,8 +338,12 @@ export class {{classname}} {
         }
     {{/isApiKey}}
     {{#isBasicBasic}}
-{{! CUSTOM - remove password check }}
+{{#vendorExtensions.x-ignore-block}}
+        if (this.authentications.{{name}}.username && this.authentications.{{name}}.password) {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         if (this.authentications.{{name}}.username) {
+{{! CUSTOM - END }}
             authenticationPromise = authenticationPromise.then(() => this.authentications.{{name}}.applyToRequest(localVarRequestOptions));
         }
     {{/isBasicBasic}}
@@ -427,8 +447,8 @@ export class {{classname}} {
     }
 {{/operation}}
 }
-
 {{! CUSTOM - BEGIN }}
+
 function deserializeIfNeeded<T> (obj: T, classname: string): T {
   if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
     return ObjectSerializer.deserialize(obj, classname);

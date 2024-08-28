@@ -1,8 +1,12 @@
 {{>licenseInfo}}
 {{#models}}
 {{#model}}
-{{! CUSTOM - Add AttributeTypeMap, ObjectSerializer, ./models -> ./ }}
+{{#vendorExtensions.x-ignore-block}}
+import { RequestFile } from './models';
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from './';
+{{! CUSTOM - END }}
 {{#tsImports}}
 import { {{classname}} } from '{{filename}}';
 {{/tsImports}}
@@ -13,8 +17,12 @@ import { {{classname}} } from '{{filename}}';
 */
 {{/description}}
 {{^isEnum}}
-{{! CUSTOM - add x-base-class check }}
+{{#vendorExtensions.x-ignore-block}}
+export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
 export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-class}}class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
+{{! CUSTOM - END }}
 {{#vars}}
 {{#description}}
     /**
@@ -37,8 +45,12 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
     {{/discriminator}}
 
     {{^isArray}}
-{{! CUSTOM - use AttributeTypeMap interface }}
+{{#vendorExtensions.x-ignore-block}}
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     static attributeTypeMap: AttributeTypeMap = [
+{{! CUSTOM - END }}
         {{#vars}}
         {
             "name": "{{name}}",
@@ -49,8 +61,12 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         {{/vars}}
     ];
 
-{{! CUSTOM - add AttributeTypeMap interface }}
+{{#vendorExtensions.x-ignore-block}}
+    static getAttributeTypeMap() {
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     static getAttributeTypeMap(): AttributeTypeMap {
+{{! CUSTOM - END }}
         {{#parent}}
         return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
         {{/parent}}
@@ -92,8 +108,12 @@ export namespace {{classname}} {
     export enum {{enumName}} {
         {{#allowableValues}}
         {{#enumVars}}
-{{! CUSTOM - remove type of <any> }}
+{{#vendorExtensions.x-ignore-block}}
+        {{name}} = <any> {{{value}}}{{^-last}},{{/-last}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
         {{name}} = {{{value}}}{{^-last}},{{/-last}}
+{{! CUSTOM - END }}
         {{/enumVars}}
         {{/allowableValues}}
     }
@@ -106,8 +126,12 @@ export namespace {{classname}} {
 export enum {{classname}} {
     {{#allowableValues}}
     {{#enumVars}}
-{{! CUSTOM - remove type of <any> }}
+{{#vendorExtensions.x-ignore-block}}
+    {{name}} = <any> {{{value}}}{{^-last}},{{/-last}}
+{{/vendorExtensions.x-ignore-block}}
+{{! CUSTOM - BEGIN }}
     {{name}} = {{{value}}}{{^-last}},{{/-last}}
+{{! CUSTOM - END }}
     {{/enumVars}}
     {{/allowableValues}}
 }
