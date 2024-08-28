@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "allow_edit_signers", EmitDefaultValue = true)]
         public bool AllowEditSigners { get; set; }
         
-
         /// <summary>
         /// Allows requesters to edit documents, including delete and add
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "allow_edit_documents", EmitDefaultValue = true)]
         public bool AllowEditDocuments { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

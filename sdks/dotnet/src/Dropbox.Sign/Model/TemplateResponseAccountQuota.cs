@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int TemplatesLeft { get; set; }
         
-
         /// <summary>
         /// API signature requests remaining.
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int ApiSignatureRequestsLeft { get; set; }
         
-
         /// <summary>
         /// Signature requests remaining.
         /// </summary>
@@ -93,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int DocumentsLeft { get; set; }
         
-
         /// <summary>
         /// SMS verifications remaining.
         /// </summary>
@@ -101,7 +98,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int SmsVerificationsLeft { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

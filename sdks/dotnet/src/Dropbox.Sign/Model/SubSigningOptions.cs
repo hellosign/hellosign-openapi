@@ -118,7 +118,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "draw", EmitDefaultValue = true)]
         public bool Draw { get; set; }
         
-
         /// <summary>
         /// Allows using a smartphone to email the signature
         /// </summary>
@@ -126,7 +125,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public bool Phone { get; set; }
         
-
         /// <summary>
         /// Allows typing the signature
         /// </summary>
@@ -134,7 +132,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public bool Type { get; set; }
         
-
         /// <summary>
         /// Allows uploading the signature
         /// </summary>
@@ -142,7 +139,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "upload", EmitDefaultValue = true)]
         public bool Upload { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

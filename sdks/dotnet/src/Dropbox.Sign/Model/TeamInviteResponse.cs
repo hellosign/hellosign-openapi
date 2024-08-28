@@ -81,7 +81,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Id of the team.
         /// </summary>
@@ -89,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
         
-
         /// <summary>
         /// Role of the user invited to this team.
         /// </summary>
@@ -97,7 +95,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
         
-
         /// <summary>
         /// Timestamp when the invitation was sent.
         /// </summary>
@@ -105,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "sent_at", EmitDefaultValue = true)]
         public int SentAt { get; set; }
         
-
         /// <summary>
         /// Timestamp when the invitation was redeemed.
         /// </summary>
@@ -113,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "redeemed_at", EmitDefaultValue = true)]
         public int RedeemedAt { get; set; }
         
-
         /// <summary>
         /// Timestamp when the invitation is expiring.
         /// </summary>
@@ -121,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

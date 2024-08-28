@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// The order in which this signer role is required to sign.
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int? Order { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

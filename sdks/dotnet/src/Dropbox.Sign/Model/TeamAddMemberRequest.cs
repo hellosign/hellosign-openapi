@@ -114,7 +114,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// &#x60;account_id&#x60; or &#x60;email_address&#x60; is required, If both are provided, the account id prevails.  Email address of the user to invite to your Team.
         /// </summary>
@@ -122,7 +121,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

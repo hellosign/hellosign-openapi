@@ -127,7 +127,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
         
-
         /// <summary>
         /// **value** or **values** is required, but not both.  The value to match against **operator**.  - When **operator** is one of the following, **value** must be &#x60;String&#x60;:   - &#x60;is&#x60;   - &#x60;not&#x60;   - &#x60;match&#x60;  Otherwise, - **checkbox**: When **type** of trigger is **checkbox**, **value** must be &#x60;0&#x60; or &#x60;1&#x60; - **radio**: When **type** of trigger is **radio**, **value** must be &#x60;1&#x60;
         /// </summary>
@@ -135,7 +134,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
         
-
         /// <summary>
         /// **values** or **value** is required, but not both.  The values to match against **operator** when it is one of the following:  - &#x60;any&#x60; - &#x60;none&#x60;
         /// </summary>
@@ -143,7 +141,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "values", EmitDefaultValue = true)]
         public List<string> Values { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

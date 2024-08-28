@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
         
-
         /// <summary>
         /// The name of a team
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

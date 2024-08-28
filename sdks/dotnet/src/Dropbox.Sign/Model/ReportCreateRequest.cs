@@ -109,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "end_date", IsRequired = true, EmitDefaultValue = true)]
         public string EndDate { get; set; }
         
-
         /// <summary>
         /// The type(s) of the report you are requesting. Allowed values are &#x60;user_activity&#x60; and &#x60;document_status&#x60;. User activity reports contain list of all users and their activity during the specified date range. Document status report contain a list of signature requests created in the specified time range (and their status).
         /// </summary>
@@ -117,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "report_type", IsRequired = true, EmitDefaultValue = true)]
         public List<ReportCreateRequest.ReportTypeEnum> ReportType { get; set; }
         
-
         /// <summary>
         /// The (inclusive) start date for the report data in &#x60;MM/DD/YYYY&#x60; format.
         /// </summary>
@@ -125,7 +123,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "start_date", IsRequired = true, EmitDefaultValue = true)]
         public string StartDate { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -83,7 +83,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
         
-
         /// <summary>
         /// The email address of the CC recipient.
         /// </summary>
@@ -91,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

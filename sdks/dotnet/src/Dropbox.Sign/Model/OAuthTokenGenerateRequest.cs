@@ -104,7 +104,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
         
-
         /// <summary>
         /// The secret token of your app.
         /// </summary>
@@ -112,7 +111,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "client_secret", IsRequired = true, EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
         
-
         /// <summary>
         /// The code passed to your callback when the user granted access.
         /// </summary>
@@ -120,7 +118,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
         
-
         /// <summary>
         /// When generating a new token use &#x60;authorization_code&#x60;.
         /// </summary>
@@ -128,7 +125,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
         
-
         /// <summary>
         /// Same as the state you specified earlier.
         /// </summary>
@@ -136,7 +132,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public string State { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

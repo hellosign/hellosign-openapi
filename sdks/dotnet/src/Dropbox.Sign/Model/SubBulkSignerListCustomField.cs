@@ -83,7 +83,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// The value of the custom field.
         /// </summary>
@@ -91,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

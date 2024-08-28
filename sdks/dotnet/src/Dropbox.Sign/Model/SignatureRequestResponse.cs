@@ -120,7 +120,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool? TestMode { get; set; }
         
-
         /// <summary>
         /// The id of the SignatureRequest.
         /// </summary>
@@ -128,7 +127,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
         
-
         /// <summary>
         /// The email address of the initiator of the SignatureRequest.
         /// </summary>
@@ -136,7 +134,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "requester_email_address", EmitDefaultValue = true)]
         public string RequesterEmailAddress { get; set; }
         
-
         /// <summary>
         /// The title the specified Account uses for the SignatureRequest.
         /// </summary>
@@ -144,7 +141,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
         
-
         /// <summary>
         /// Default Label for account.
         /// </summary>
@@ -152,7 +148,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "original_title", EmitDefaultValue = true)]
         public string OriginalTitle { get; set; }
         
-
         /// <summary>
         /// The subject in the email that was initially sent to the signers.
         /// </summary>
@@ -160,7 +155,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
         
-
         /// <summary>
         /// The custom message in the email that was initially sent to the signers.
         /// </summary>
@@ -168,7 +162,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
         
-
         /// <summary>
         /// The metadata attached to the signature request.
         /// </summary>
@@ -176,7 +169,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Object Metadata { get; set; }
         
-
         /// <summary>
         /// Time the signature request was created.
         /// </summary>
@@ -184,7 +176,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
         
-
         /// <summary>
         /// The time when the signature request will expire unsigned signatures. See [Signature Request Expiration Date](https://developers.hellosign.com/docs/signature-request/expiration/) for details.
         /// </summary>
@@ -192,7 +183,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
         
-
         /// <summary>
         /// Whether or not the SignatureRequest has been fully executed by all signers.
         /// </summary>
@@ -200,7 +190,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_complete", EmitDefaultValue = true)]
         public bool IsComplete { get; set; }
         
-
         /// <summary>
         /// Whether or not the SignatureRequest has been declined by a signer.
         /// </summary>
@@ -208,7 +197,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_declined", EmitDefaultValue = true)]
         public bool IsDeclined { get; set; }
         
-
         /// <summary>
         /// Whether or not an error occurred (either during the creation of the SignatureRequest or during one of the signings).
         /// </summary>
@@ -216,7 +204,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "has_error", EmitDefaultValue = true)]
         public bool HasError { get; set; }
         
-
         /// <summary>
         /// The URL where a copy of the request&#39;s documents can be downloaded.
         /// </summary>
@@ -224,7 +211,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "files_url", EmitDefaultValue = true)]
         public string FilesUrl { get; set; }
         
-
         /// <summary>
         /// The URL where a signer, after authenticating, can sign the documents. This should only be used by users with existing Dropbox Sign accounts as they will be required to log in before signing.
         /// </summary>
@@ -232,7 +218,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signing_url", EmitDefaultValue = true)]
         public string SigningUrl { get; set; }
         
-
         /// <summary>
         /// The URL where the requester and the signers can view the current status of the SignatureRequest.
         /// </summary>
@@ -240,7 +225,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "details_url", EmitDefaultValue = true)]
         public string DetailsUrl { get; set; }
         
-
         /// <summary>
         /// A list of email addresses that were CCed on the SignatureRequest. They will receive a copy of the final PDF once all the signers have signed.
         /// </summary>
@@ -248,7 +232,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "cc_email_addresses", EmitDefaultValue = true)]
         public List<string> CcEmailAddresses { get; set; }
         
-
         /// <summary>
         /// The URL you want the signer redirected to after they successfully sign.
         /// </summary>
@@ -256,7 +239,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
         
-
         /// <summary>
         /// The path where the completed document can be downloaded
         /// </summary>
@@ -264,7 +246,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "final_copy_uri", EmitDefaultValue = true)]
         public string FinalCopyUri { get; set; }
         
-
         /// <summary>
         /// Templates IDs used in this SignatureRequest (if any).
         /// </summary>
@@ -272,7 +253,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template_ids", EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
         
-
         /// <summary>
         /// An array of Custom Field objects containing the name and type of each custom field.  * Text Field uses &#x60;SignatureRequestResponseCustomFieldText&#x60; * Checkbox Field uses &#x60;SignatureRequestResponseCustomFieldCheckbox&#x60;
         /// </summary>
@@ -280,7 +260,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SignatureRequestResponseCustomFieldBase> CustomFields { get; set; }
         
-
         /// <summary>
         /// Signer attachments.
         /// </summary>
@@ -288,7 +267,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "attachments", EmitDefaultValue = true)]
         public List<SignatureRequestResponseAttachment> Attachments { get; set; }
         
-
         /// <summary>
         /// An array of form field objects containing the name, value, and type of each textbox or checkmark field filled in by the signers.
         /// </summary>
@@ -296,7 +274,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "response_data", EmitDefaultValue = true)]
         public List<SignatureRequestResponseDataBase> ResponseData { get; set; }
         
-
         /// <summary>
         /// An array of signature objects, 1 for each signer.
         /// </summary>
@@ -304,7 +281,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signatures", EmitDefaultValue = true)]
         public List<SignatureRequestResponseSignatures> Signatures { get; set; }
         
-
         /// <summary>
         /// The ID of the Bulk Send job which sent the signature request, if applicable.
         /// </summary>
@@ -312,7 +288,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -75,7 +75,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// Email address of the team member.
         /// </summary>
@@ -83,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// The specific role a member has on the team.
         /// </summary>
@@ -91,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

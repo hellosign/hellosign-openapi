@@ -71,7 +71,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "data_uri", EmitDefaultValue = true)]
         public string DataUri { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

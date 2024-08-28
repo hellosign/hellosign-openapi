@@ -16,12 +16,12 @@
     <Version>{{packageVersion}}</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\{{packageName}}.xml</DocumentationFile>{{#licenseId}}
     <PackageLicenseExpression>{{.}}</PackageLicenseExpression>{{/licenseId}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     <RepositoryUrl>https://{{{gitHost}}}/{{{gitUserId}}}/{{{gitRepoId}}}.git</RepositoryUrl>
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     <RepositoryUrl>https://github.com/hellosign/dropbox-sign-dotnet.git</RepositoryUrl>
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     <RepositoryType>git</RepositoryType>{{#releaseNote}}
     <PackageReleaseNotes>{{.}}</PackageReleaseNotes>{{/releaseNote}}{{#packageTags}}
     <PackageTags>{{{.}}}</PackageTags>{{/packageTags}}{{#nrt}}

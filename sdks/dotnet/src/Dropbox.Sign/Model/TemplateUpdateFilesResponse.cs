@@ -70,7 +70,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template", EmitDefaultValue = true)]
         public TemplateUpdateFilesResponseTemplate Template { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

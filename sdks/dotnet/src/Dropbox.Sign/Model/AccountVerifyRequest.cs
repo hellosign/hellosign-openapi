@@ -76,7 +76,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

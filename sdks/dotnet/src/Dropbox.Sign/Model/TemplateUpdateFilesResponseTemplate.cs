@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
         
-
         /// <summary>
         /// A list of warnings.
         /// </summary>
@@ -82,7 +81,6 @@ namespace Dropbox.Sign.Model
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

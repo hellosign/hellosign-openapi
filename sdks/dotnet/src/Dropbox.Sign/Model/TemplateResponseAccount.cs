@@ -81,7 +81,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// The email address associated with the Account.
         /// </summary>
@@ -89,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
         /// </summary>
@@ -97,7 +95,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
         
-
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
         /// </summary>
@@ -105,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
         
-
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
         /// </summary>
@@ -113,14 +109,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Quotas
         /// </summary>
         [DataMember(Name = "quotas", EmitDefaultValue = true)]
         public TemplateResponseAccountQuota Quotas { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

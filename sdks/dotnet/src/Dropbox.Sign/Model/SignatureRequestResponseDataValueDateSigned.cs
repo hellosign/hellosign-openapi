@@ -82,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// The value of the form field.
         /// </summary>
@@ -90,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

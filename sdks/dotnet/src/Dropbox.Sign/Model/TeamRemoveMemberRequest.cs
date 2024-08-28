@@ -118,7 +118,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// **account_id** or **email_address** is required. If both are provided, the account id prevails.  Email address of the Account to remove from your Team.
         /// </summary>
@@ -126,7 +125,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// The email address of an Account on this Team to receive all documents, templates, and API apps (if applicable) from the removed Account. If not provided, and on an Enterprise plan, this data will remain with the removed Account.  **NOTE:** Only available for Enterprise plans.
         /// </summary>
@@ -134,7 +132,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "new_owner_email_address", EmitDefaultValue = true)]
         public string NewOwnerEmailAddress { get; set; }
         
-
         /// <summary>
         /// Id of the new Team.
         /// </summary>
@@ -142,7 +139,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "new_team_id", EmitDefaultValue = true)]
         public string NewTeamId { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

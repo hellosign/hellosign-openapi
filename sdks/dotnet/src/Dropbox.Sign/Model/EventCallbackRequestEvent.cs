@@ -240,7 +240,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "event_time", IsRequired = true, EmitDefaultValue = true)]
         public string EventTime { get; set; }
         
-
         /// <summary>
         /// Generated hash used to verify source of event data.
         /// </summary>
@@ -248,14 +247,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "event_hash", IsRequired = true, EmitDefaultValue = true)]
         public string EventHash { get; set; }
         
-
         /// <summary>
         /// Gets or Sets EventMetadata
         /// </summary>
         [DataMember(Name = "event_metadata", EmitDefaultValue = true)]
         public EventCallbackRequestEventMetadata EventMetadata { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

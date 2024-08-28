@@ -50,12 +50,12 @@
             {{#parent}}
             {{^isArray}}
             {{^isMap}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             foreach (var x in {{#discriminator}}base.{{/discriminator}}BaseValidate(validationContext))
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             foreach (var x in BaseValidate(validationContext))
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             {
                 yield return x;
             }

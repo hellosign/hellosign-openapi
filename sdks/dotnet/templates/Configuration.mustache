@@ -17,10 +17,10 @@ using System.Net.Security;
 {{#hasOAuthMethods}}using {{packageName}}.Client.Auth;
 {{/hasOAuthMethods}}
 {{/useRestSharp}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 using Newtonsoft.Json;
 using Dropbox.Sign.Model;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 namespace {{packageName}}.Client
 {
@@ -58,23 +58,23 @@ namespace {{packageName}}.Client
             {
                 return new ApiException(status,
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
                     response.RawContent, response.Headers);
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                     JsonConvert.DeserializeObject<ErrorResponse>(response.RawContent), response.Headers);
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             }
             {{^netStandard}}
             if (status == 0)
             {
                 return new ApiException(status,
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
                     string.Format("Error calling {0}: {1}", methodName, response.ErrorText), response.ErrorText);
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                     string.Format("Error calling {0}: {1}", methodName, response.ErrorText), JsonConvert.DeserializeObject<ErrorResponse>(response.ErrorText));
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             }
             {{/netStandard}}
             return null;

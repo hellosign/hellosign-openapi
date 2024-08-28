@@ -75,14 +75,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signature_requests", EmitDefaultValue = true)]
         public List<SignatureRequestResponse> SignatureRequests { get; set; }
         
-
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
         
-
         /// <summary>
         /// A list of warnings.
         /// </summary>
@@ -90,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

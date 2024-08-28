@@ -73,14 +73,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "team_invites", EmitDefaultValue = true)]
         public List<TeamInviteResponse> TeamInvites { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

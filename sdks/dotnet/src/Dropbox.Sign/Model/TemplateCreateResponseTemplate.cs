@@ -71,7 +71,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

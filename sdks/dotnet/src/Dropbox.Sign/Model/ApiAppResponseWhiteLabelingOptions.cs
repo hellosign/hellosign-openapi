@@ -96,98 +96,84 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "header_background_color", EmitDefaultValue = true)]
         public string HeaderBackgroundColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets LegalVersion
         /// </summary>
         [DataMember(Name = "legal_version", EmitDefaultValue = true)]
         public string LegalVersion { get; set; }
         
-
         /// <summary>
         /// Gets or Sets LinkColor
         /// </summary>
         [DataMember(Name = "link_color", EmitDefaultValue = true)]
         public string LinkColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets PageBackgroundColor
         /// </summary>
         [DataMember(Name = "page_background_color", EmitDefaultValue = true)]
         public string PageBackgroundColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets PrimaryButtonColor
         /// </summary>
         [DataMember(Name = "primary_button_color", EmitDefaultValue = true)]
         public string PrimaryButtonColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets PrimaryButtonColorHover
         /// </summary>
         [DataMember(Name = "primary_button_color_hover", EmitDefaultValue = true)]
         public string PrimaryButtonColorHover { get; set; }
         
-
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColor
         /// </summary>
         [DataMember(Name = "primary_button_text_color", EmitDefaultValue = true)]
         public string PrimaryButtonTextColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets PrimaryButtonTextColorHover
         /// </summary>
         [DataMember(Name = "primary_button_text_color_hover", EmitDefaultValue = true)]
         public string PrimaryButtonTextColorHover { get; set; }
         
-
         /// <summary>
         /// Gets or Sets SecondaryButtonColor
         /// </summary>
         [DataMember(Name = "secondary_button_color", EmitDefaultValue = true)]
         public string SecondaryButtonColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets SecondaryButtonColorHover
         /// </summary>
         [DataMember(Name = "secondary_button_color_hover", EmitDefaultValue = true)]
         public string SecondaryButtonColorHover { get; set; }
         
-
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColor
         /// </summary>
         [DataMember(Name = "secondary_button_text_color", EmitDefaultValue = true)]
         public string SecondaryButtonTextColor { get; set; }
         
-
         /// <summary>
         /// Gets or Sets SecondaryButtonTextColorHover
         /// </summary>
         [DataMember(Name = "secondary_button_text_color_hover", EmitDefaultValue = true)]
         public string SecondaryButtonTextColorHover { get; set; }
         
-
         /// <summary>
         /// Gets or Sets TextColor1
         /// </summary>
         [DataMember(Name = "text_color1", EmitDefaultValue = true)]
         public string TextColor1 { get; set; }
         
-
         /// <summary>
         /// Gets or Sets TextColor2
         /// </summary>
         [DataMember(Name = "text_color2", EmitDefaultValue = true)]
         public string TextColor2 { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

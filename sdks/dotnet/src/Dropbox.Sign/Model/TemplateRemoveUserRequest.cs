@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// The id or email address of the Account to remove access to the Template. The account id prevails if both are provided.
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

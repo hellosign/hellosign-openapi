@@ -170,10 +170,10 @@ namespace {{packageName}}.Client
     {
         private readonly string _baseUrl;
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         private readonly RestClient _restClient;
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
@@ -225,7 +225,7 @@ namespace {{packageName}}.Client
             _baseUrl = basePath;
         }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         /// <summary>
             /// Initializes a new instance of the <see cref="ApiClient" />. This should be used in unit tests only
             /// </summary>
@@ -241,7 +241,7 @@ namespace {{packageName}}.Client
             _restClient = mockClient;
         }
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         /// <summary>
         /// Constructs the RestSharp version of an http method
         /// </summary>
@@ -501,12 +501,12 @@ namespace {{packageName}}.Client
             }
 
             {{/hasOAuthMethods}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             using (RestClient client = new RestClient(clientOptions,
                 configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
             {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             RestClient client = _restClient;
             if (client == null)
             {
@@ -516,7 +516,7 @@ namespace {{packageName}}.Client
             }
 
             using (client)
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             {
                 InterceptRequest(request);
 

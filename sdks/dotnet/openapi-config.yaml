@@ -13,6 +13,7 @@ additionalProperties:
   targetFramework: net6.0
   packageGuid: "{F8C8232D-7020-4603-8E04-18D060AE530B}"
   legacyDiscriminatorBehavior: true
+  useCustomTemplateCode: true
 files:
   EventCallbackHelper.cs:
     templateType: SupportingFiles

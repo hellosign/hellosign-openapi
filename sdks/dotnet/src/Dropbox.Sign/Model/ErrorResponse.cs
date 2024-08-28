@@ -75,7 +75,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public ErrorResponseError Error { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -90,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
         
-
         /// <summary>
         /// The ID of the signature to which this response is linked.
         /// </summary>
@@ -98,7 +97,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signature_id", EmitDefaultValue = true)]
         public string SignatureId { get; set; }
         
-
         /// <summary>
         /// The name of the form field.
         /// </summary>
@@ -106,7 +104,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// A boolean value denoting if this field is required.
         /// </summary>
@@ -114,14 +111,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

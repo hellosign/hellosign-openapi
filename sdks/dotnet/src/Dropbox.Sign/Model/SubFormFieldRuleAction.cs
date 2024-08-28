@@ -102,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "hidden", IsRequired = true, EmitDefaultValue = true)]
         public bool Hidden { get; set; }
         
-
         /// <summary>
         /// **field_id** or **group_id** is required, but not both.  Must reference the &#x60;api_id&#x60; of an existing field defined within &#x60;form_fields_per_document&#x60;.  Cannot use with &#x60;group_id&#x60;. Trigger and action fields must belong to the same signer.
         /// </summary>
@@ -110,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "field_id", EmitDefaultValue = true)]
         public string FieldId { get; set; }
         
-
         /// <summary>
         /// **group_id** or **field_id** is required, but not both.  Must reference the ID of an existing group defined within &#x60;form_field_groups&#x60;.  Cannot use with &#x60;field_id&#x60;. Trigger and action fields and groups must belong to the same signer.
         /// </summary>
@@ -118,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "group_id", EmitDefaultValue = true)]
         public string GroupId { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

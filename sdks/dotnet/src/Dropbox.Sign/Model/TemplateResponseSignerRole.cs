@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// If signer order is assigned this is the 0-based index for this role.
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public int Order { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -81,7 +81,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
         
-
         /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
@@ -89,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
         
-
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to use for the template.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
@@ -97,7 +95,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
         
-
         /// <summary>
         /// The new default template email message.
         /// </summary>
@@ -105,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
         
-
         /// <summary>
         /// The new default template email subject.
         /// </summary>
@@ -113,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
         
-
         /// <summary>
         /// Whether this is a test, the signature request created from this draft will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
@@ -121,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

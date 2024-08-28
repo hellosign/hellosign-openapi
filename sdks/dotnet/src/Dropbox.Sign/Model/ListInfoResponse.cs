@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "num_pages", EmitDefaultValue = true)]
         public int NumPages { get; set; }
         
-
         /// <summary>
         /// Total number of objects available.
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "num_results", EmitDefaultValue = true)]
         public int? NumResults { get; set; }
         
-
         /// <summary>
         /// Number of the page being returned.
         /// </summary>
@@ -93,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int Page { get; set; }
         
-
         /// <summary>
         /// Objects returned per page.
         /// </summary>
@@ -101,7 +98,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "page_size", EmitDefaultValue = true)]
         public int PageSize { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -75,21 +75,18 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "team_members", EmitDefaultValue = true)]
         public List<TeamMemberResponse> TeamMembers { get; set; }
         
-
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

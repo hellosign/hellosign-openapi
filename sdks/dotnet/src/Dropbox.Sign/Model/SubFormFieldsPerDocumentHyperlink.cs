@@ -225,7 +225,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// Link Text.
         /// </summary>
@@ -233,7 +232,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "content", IsRequired = true, EmitDefaultValue = true)]
         public string Content { get; set; }
         
-
         /// <summary>
         /// Link URL.
         /// </summary>
@@ -241,7 +239,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "content_url", IsRequired = true, EmitDefaultValue = true)]
         public string ContentUrl { get; set; }
         
-
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
@@ -249,7 +246,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

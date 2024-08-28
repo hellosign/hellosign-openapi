@@ -276,7 +276,14 @@ namespace {{packageName}}.{{apiPackage}}
             {{/allParams}}
             {{packageName}}.Client.RequestOptions localVarRequestOptions = new {{packageName}}.Client.RequestOptions();
 
-{{! CUSTOM - BEGIN }}
+{{^useCustomTemplateCode}}
+            string[] _contentTypes = new string[] {
+                {{#consumes}}
+                "{{{mediaType}}}"{{^-last}},{{/-last}}
+                {{/consumes}}
+            };
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             {{#bodyParam}}
             var localVarContentType = "";
             var openApiTypes = {{paramName}}.GetOpenApiTypes();
@@ -292,16 +299,14 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/bodyParam}}
             {{^bodyParam}}
-{{! CUSTOM - END }}
             string[] _contentTypes = new string[] {
                 {{#consumes}}
                 "{{{mediaType}}}"{{^-last}},{{/-last}}
                 {{/consumes}}
             };
-{{! CUSTOM - BEGIN }}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             {{/bodyParam}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
             // to determine the Accept header
             string[] _accepts = new string[] {
@@ -310,9 +315,9 @@ namespace {{packageName}}.{{apiPackage}}
                 {{/produces}}
             };
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -425,11 +430,11 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/required}}
             {{/formParams}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             {{#bodyParam}}
             localVarRequestOptions.Data = {{paramName}};
             {{/bodyParam}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 
             localVarRequestOptions.Operation = "{{classname}}.{{operationId}}";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -573,7 +578,14 @@ namespace {{packageName}}.{{apiPackage}}
 
             {{packageName}}.Client.RequestOptions localVarRequestOptions = new {{packageName}}.Client.RequestOptions();
 
-{{! CUSTOM - BEGIN }}
+{{^useCustomTemplateCode}}
+            string[] _contentTypes = new string[] {
+                {{#consumes}}
+                "{{{mediaType}}}"{{^-last}}, {{/-last}}
+                {{/consumes}}
+            };
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             {{#bodyParam}}
             var localVarContentType = "";
             var openApiTypes = {{paramName}}.GetOpenApiTypes();
@@ -589,16 +601,14 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/bodyParam}}
             {{^bodyParam}}
-{{! CUSTOM - END }}
             string[] _contentTypes = new string[] {
                 {{#consumes}}
                 "{{{mediaType}}}"{{^-last}}, {{/-last}}
                 {{/consumes}}
             };
-{{! CUSTOM - BEGIN }}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             {{/bodyParam}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
             // to determine the Accept header
             string[] _accepts = new string[] {
@@ -607,9 +617,9 @@ namespace {{packageName}}.{{apiPackage}}
                 {{/produces}}
             };
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             var localVarContentType = {{packageName}}.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -740,11 +750,11 @@ namespace {{packageName}}.{{apiPackage}}
             }
             {{/required}}
             {{/formParams}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             {{#bodyParam}}
             localVarRequestOptions.Data = {{paramName}};
             {{/bodyParam}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 
             localVarRequestOptions.Operation = "{{classname}}.{{operationId}}";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubBulkSignerListCustomField> CustomFields { get; set; }
         
-
         /// <summary>
         /// Add Signers to your Templated-based Signature Request. Allows the requester to specify editor options when a preparing a document.  Currently only templates with a single role are supported. All signers must have the same &#x60;role&#x60; value.
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signers", EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

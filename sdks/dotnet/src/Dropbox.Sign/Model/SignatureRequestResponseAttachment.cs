@@ -96,7 +96,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
         
-
         /// <summary>
         /// The Signer this attachment is assigned to.
         /// </summary>
@@ -104,7 +103,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signer", IsRequired = true, EmitDefaultValue = true)]
         public string Signer { get; set; }
         
-
         /// <summary>
         /// The name of this attachment.
         /// </summary>
@@ -112,7 +110,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// A boolean value denoting if this attachment is required.
         /// </summary>
@@ -120,7 +117,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// Instructions for Signer.
         /// </summary>
@@ -128,7 +124,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "instructions", EmitDefaultValue = true)]
         public string Instructions { get; set; }
         
-
         /// <summary>
         /// Timestamp when attachment was uploaded by Signer.
         /// </summary>
@@ -136,7 +131,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "uploaded_at", EmitDefaultValue = true)]
         public int? UploadedAt { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

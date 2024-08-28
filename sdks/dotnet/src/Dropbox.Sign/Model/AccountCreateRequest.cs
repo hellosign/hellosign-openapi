@@ -82,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
         /// </summary>
@@ -90,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
         
-
         /// <summary>
         /// Used when creating a new account with OAuth authorization.  See [OAuth 2.0 Authorization](https://app.hellosign.com/api/oauthWalkthrough#OAuthAuthorization)
         /// </summary>
@@ -98,7 +96,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
         
-
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
@@ -106,7 +103,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

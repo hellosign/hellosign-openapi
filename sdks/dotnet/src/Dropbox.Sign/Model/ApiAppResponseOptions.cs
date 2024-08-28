@@ -71,7 +71,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "can_insert_everywhere", EmitDefaultValue = true)]
         public bool CanInsertEverywhere { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

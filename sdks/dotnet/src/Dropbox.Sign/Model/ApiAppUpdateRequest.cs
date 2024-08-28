@@ -83,7 +83,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
         
-
         /// <summary>
         /// An image file to use as a custom logo in embedded contexts. (Only applies to some API plans)
         /// </summary>
@@ -91,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "custom_logo_file", EmitDefaultValue = true)]
         public System.IO.Stream CustomLogoFile { get; set; }
         
-
         /// <summary>
         /// The domain names the ApiApp will be associated with.
         /// </summary>
@@ -99,7 +97,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "domains", EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
         
-
         /// <summary>
         /// The name you want to assign to the ApiApp.
         /// </summary>
@@ -107,28 +104,24 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Oauth
         /// </summary>
         [DataMember(Name = "oauth", EmitDefaultValue = true)]
         public SubOAuth Oauth { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = true)]
         public SubOptions Options { get; set; }
         
-
         /// <summary>
         /// Gets or Sets WhiteLabelingOptions
         /// </summary>
         [DataMember(Name = "white_labeling_options", EmitDefaultValue = true)]
         public SubWhiteLabelingOptions WhiteLabelingOptions { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

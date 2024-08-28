@@ -22,7 +22,7 @@ All URIs are relative to *{{{basePath}}}*
 {{{.}}}{{/notes}}
 
 ### Example
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -101,12 +101,12 @@ namespace Example
     }
 }
 ```
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 ```csharp
 REPLACE_ME_WITH_EXAMPLE_FOR__{{{operationId}}}_C#_CODE
 ```
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 #### Using the {{operationId}}WithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.

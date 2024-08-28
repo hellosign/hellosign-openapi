@@ -302,7 +302,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// Placeholder value for text field.
         /// </summary>
@@ -310,7 +309,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "placeholder", EmitDefaultValue = true)]
         public string Placeholder { get; set; }
         
-
         /// <summary>
         /// Auto fill type for populating fields automatically. Check out the list of [auto fill types](/api/reference/constants/#auto-fill-types) to learn more about the possible values.
         /// </summary>
@@ -318,7 +316,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "auto_fill_type", EmitDefaultValue = true)]
         public string AutoFillType { get; set; }
         
-
         /// <summary>
         /// Link two or more text fields. Enter data into one linked text field, which automatically fill all other linked text fields.
         /// </summary>
@@ -326,7 +323,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "link_id", EmitDefaultValue = true)]
         public string LinkId { get; set; }
         
-
         /// <summary>
         /// Masks entered data. For more information see [Masking sensitive information](https://faq.hellosign.com/hc/en-us/articles/360040742811-Masking-sensitive-information). &#x60;true&#x60; for masking the data in a text field, otherwise &#x60;false&#x60;.
         /// </summary>
@@ -334,21 +330,18 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "masked", EmitDefaultValue = true)]
         public bool Masked { get; set; }
         
-
         /// <summary>
         /// Gets or Sets ValidationCustomRegex
         /// </summary>
         [DataMember(Name = "validation_custom_regex", EmitDefaultValue = true)]
         public string ValidationCustomRegex { get; set; }
         
-
         /// <summary>
         /// Gets or Sets ValidationCustomRegexFormatLabel
         /// </summary>
         [DataMember(Name = "validation_custom_regex_format_label", EmitDefaultValue = true)]
         public string ValidationCustomRegexFormatLabel { get; set; }
         
-
         /// <summary>
         /// Content of a &#x60;me_now&#x60; text field
         /// </summary>
@@ -356,7 +349,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
         
-
         /// <summary>
         /// The initial px font size for the field contents. Can be any integer value between &#x60;7&#x60; and &#x60;49&#x60;.  **NOTE:** Font size may be reduced during processing in order to fit the contents within the dimensions of the field.
         /// </summary>
@@ -364,7 +356,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "font_size", EmitDefaultValue = true)]
         public int FontSize { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -91,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// The email address associated with the Account.
         /// </summary>
@@ -99,7 +98,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has been locked out of their account by a team admin.
         /// </summary>
@@ -107,7 +105,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool IsLocked { get; set; }
         
-
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid Dropbox Sign account.
         /// </summary>
@@ -115,7 +112,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_paid_hs", EmitDefaultValue = true)]
         public bool IsPaidHs { get; set; }
         
-
         /// <summary>
         /// Returns &#x60;true&#x60; if the user has a paid HelloFax account.
         /// </summary>
@@ -123,14 +119,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_paid_hf", EmitDefaultValue = true)]
         public bool IsPaidHf { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Quotas
         /// </summary>
         [DataMember(Name = "quotas", EmitDefaultValue = true)]
         public AccountResponseQuotas Quotas { get; set; }
         
-
         /// <summary>
         /// The URL that Dropbox Sign events will &#x60;POST&#x60; to.
         /// </summary>
@@ -138,7 +132,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
         
-
         /// <summary>
         /// The membership role for the team.
         /// </summary>
@@ -146,7 +139,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "role_code", EmitDefaultValue = true)]
         public string RoleCode { get; set; }
         
-
         /// <summary>
         /// The id of the team account belongs to.
         /// </summary>
@@ -154,7 +146,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "team_id", EmitDefaultValue = true)]
         public string TeamId { get; set; }
         
-
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
@@ -162,14 +153,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Usage
         /// </summary>
         [DataMember(Name = "usage", EmitDefaultValue = true)]
         public AccountResponseUsage Usage { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

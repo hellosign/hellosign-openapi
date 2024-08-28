@@ -82,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Used to create editable merge fields. When the value matches a role passed in with &#x60;signers&#x60;, that role can edit the data that was pre-filled to that field. This field is optional, but required when this custom field object is set to &#x60;required &#x3D; true&#x60;.  **NOTE:** Editable merge fields are only supported for single signer requests (or the first signer in ordered signature requests). If used when there are multiple signers in an unordered signature request, the editor value is ignored and the field won&#39;t be editable.
         /// </summary>
@@ -90,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
         
-
         /// <summary>
         /// Used to set an editable merge field when working with pre-filled data. When &#x60;true&#x60;, the custom field must specify a signer role in &#x60;editor&#x60;.
         /// </summary>
@@ -98,7 +96,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// The string that resolves (aka \&quot;pre-fills\&quot;) to the merge field on the final document(s) used for signing.
         /// </summary>
@@ -106,7 +103,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

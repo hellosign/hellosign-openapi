@@ -99,7 +99,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
         
-
         /// <summary>
         /// The title of the Template. This will also be the default subject of the message sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
         /// </summary>
@@ -107,7 +106,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
         
-
         /// <summary>
         /// The default message that will be sent to signers when using this Template to send a SignatureRequest. This can be overridden when sending the SignatureRequest.
         /// </summary>
@@ -115,7 +113,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
         
-
         /// <summary>
         /// Time the template was last updated.
         /// </summary>
@@ -123,7 +120,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
         
-
         /// <summary>
         /// &#x60;true&#x60; if this template was created using an embedded flow, &#x60;false&#x60; if it was created on our website.
         /// </summary>
@@ -131,7 +127,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_embedded", EmitDefaultValue = true)]
         public bool? IsEmbedded { get; set; }
         
-
         /// <summary>
         /// &#x60;true&#x60; if you are the owner of this template, &#x60;false&#x60; if it&#39;s been shared with you by a team member.
         /// </summary>
@@ -139,7 +134,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool? IsCreator { get; set; }
         
-
         /// <summary>
         /// Indicates whether edit rights have been granted to you by the owner (always &#x60;true&#x60; if that&#39;s you).
         /// </summary>
@@ -147,7 +141,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "can_edit", EmitDefaultValue = true)]
         public bool? CanEdit { get; set; }
         
-
         /// <summary>
         /// Indicates whether the template is locked. If &#x60;true&#x60;, then the template was created outside your quota and can only be used in &#x60;test_mode&#x60;. If &#x60;false&#x60;, then the template is within your quota and can be used to create signature requests.
         /// </summary>
@@ -155,7 +148,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_locked", EmitDefaultValue = true)]
         public bool? IsLocked { get; set; }
         
-
         /// <summary>
         /// The metadata attached to the template.
         /// </summary>
@@ -163,7 +155,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Object Metadata { get; set; }
         
-
         /// <summary>
         /// An array of the designated signer roles that must be specified when sending a SignatureRequest using this Template.
         /// </summary>
@@ -171,7 +162,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signer_roles", EmitDefaultValue = true)]
         public List<TemplateResponseSignerRole> SignerRoles { get; set; }
         
-
         /// <summary>
         /// An array of the designated CC roles that must be specified when sending a SignatureRequest using this Template.
         /// </summary>
@@ -179,7 +169,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "cc_roles", EmitDefaultValue = true)]
         public List<TemplateResponseCCRole> CcRoles { get; set; }
         
-
         /// <summary>
         /// An array describing each document associated with this Template. Includes form field data for each document.
         /// </summary>
@@ -187,7 +176,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "documents", EmitDefaultValue = true)]
         public List<TemplateResponseDocument> Documents { get; set; }
         
-
         /// <summary>
         /// Deprecated. Use &#x60;custom_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
         /// </summary>
@@ -196,7 +184,6 @@ namespace Dropbox.Sign.Model
         [Obsolete]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
         
-
         /// <summary>
         /// Deprecated. Use &#x60;form_fields&#x60; inside the [documents](https://developers.hellosign.com/api/reference/operation/templateGet/#!c&#x3D;200&amp;path&#x3D;template/documents&amp;t&#x3D;response) array instead.
         /// </summary>
@@ -205,7 +192,6 @@ namespace Dropbox.Sign.Model
         [Obsolete]
         public List<TemplateResponseDocumentFormFieldBase> NamedFormFields { get; set; }
         
-
         /// <summary>
         /// An array of the Accounts that can use this Template.
         /// </summary>
@@ -213,7 +199,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<TemplateResponseAccount> Accounts { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

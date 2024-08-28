@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "num_lines", EmitDefaultValue = true)]
         public int NumLines { get; set; }
         
-
         /// <summary>
         /// Number of characters per line.
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "num_chars_per_line", EmitDefaultValue = true)]
         public int NumCharsPerLine { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

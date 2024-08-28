@@ -71,7 +71,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "fax_pages_sent", EmitDefaultValue = true)]
         public int? FaxPagesSent { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

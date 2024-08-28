@@ -81,7 +81,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "api_signature_requests_left", EmitDefaultValue = true)]
         public int? ApiSignatureRequestsLeft { get; set; }
         
-
         /// <summary>
         /// Signature requests remaining.
         /// </summary>
@@ -89,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "documents_left", EmitDefaultValue = true)]
         public int? DocumentsLeft { get; set; }
         
-
         /// <summary>
         /// Total API templates allowed.
         /// </summary>
@@ -97,7 +95,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "templates_total", EmitDefaultValue = true)]
         public int? TemplatesTotal { get; set; }
         
-
         /// <summary>
         /// API templates remaining.
         /// </summary>
@@ -105,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "templates_left", EmitDefaultValue = true)]
         public int? TemplatesLeft { get; set; }
         
-
         /// <summary>
         /// SMS verifications  remaining.
         /// </summary>
@@ -113,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "sms_verifications_left", EmitDefaultValue = true)]
         public int? SmsVerificationsLeft { get; set; }
         
-
         /// <summary>
         /// Number of fax pages left
         /// </summary>
@@ -121,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "num_fax_pages_left", EmitDefaultValue = true)]
         public int? NumFaxPagesLeft { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

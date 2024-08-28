@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template_id", EmitDefaultValue = true)]
         public string TemplateId { get; set; }
         
-
         /// <summary>
         /// Link to edit the template.
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "edit_url", EmitDefaultValue = true)]
         public string EditUrl { get; set; }
         
-
         /// <summary>
         /// When the link expires.
         /// </summary>
@@ -93,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
         
-
         /// <summary>
         /// A list of warnings.
         /// </summary>
@@ -102,7 +99,6 @@ namespace Dropbox.Sign.Model
         [Obsolete]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

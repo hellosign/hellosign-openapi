@@ -72,14 +72,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "fax_line", EmitDefaultValue = true)]
         public FaxLineResponseFaxLine FaxLine { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public WarningResponse Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

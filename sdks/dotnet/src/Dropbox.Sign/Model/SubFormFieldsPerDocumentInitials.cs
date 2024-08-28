@@ -96,7 +96,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

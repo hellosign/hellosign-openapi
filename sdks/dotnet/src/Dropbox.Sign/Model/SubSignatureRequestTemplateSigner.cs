@@ -123,7 +123,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
         public string Role { get; set; }
         
-
         /// <summary>
         /// The name of the signer.
         /// </summary>
@@ -131,7 +130,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// The email address of the signer.
         /// </summary>
@@ -139,7 +137,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// The 4- to 12-character access code that will secure this signer&#39;s signature page.
         /// </summary>
@@ -147,7 +144,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "pin", EmitDefaultValue = true)]
         public string Pin { get; set; }
         
-
         /// <summary>
         /// An E.164 formatted phone number.  By using the feature, you agree you are responsible for obtaining a signer&#39;s consent to receive text messages from Dropbox Sign related to this signature request and confirm you have obtained such consent from all signers prior to enabling SMS delivery for this signature request. [Learn more](https://faq.hellosign.com/hc/en-us/articles/15815316468877-Dropbox-Sign-SMS-tools-add-on).  **NOTE:** Not available in test mode and requires a Standard plan or higher.
         /// </summary>
@@ -155,7 +151,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "sms_phone_number", EmitDefaultValue = true)]
         public string SmsPhoneNumber { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

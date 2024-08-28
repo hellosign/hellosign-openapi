@@ -102,14 +102,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// Gets or Sets AvgTextLength
         /// </summary>
         [DataMember(Name = "avg_text_length", EmitDefaultValue = true)]
         public TemplateResponseFieldAvgTextLength AvgTextLength { get; set; }
         
-
         /// <summary>
         /// Whether this form field is multiline text.
         /// </summary>
@@ -117,7 +115,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "isMultiline", EmitDefaultValue = true)]
         public bool IsMultiline { get; set; }
         
-
         /// <summary>
         /// Original font size used in this form field&#39;s text.
         /// </summary>
@@ -125,7 +122,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "originalFontSize", EmitDefaultValue = true)]
         public int OriginalFontSize { get; set; }
         
-
         /// <summary>
         /// Font family used in this form field&#39;s text.
         /// </summary>
@@ -133,7 +129,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "fontFamily", EmitDefaultValue = true)]
         public string FontFamily { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

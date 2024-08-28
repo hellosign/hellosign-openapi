@@ -78,7 +78,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", IsRequired = true, EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// The name of the signer to send a reminder to. Include if two or more signers share an email address.
         /// </summary>
@@ -86,7 +85,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

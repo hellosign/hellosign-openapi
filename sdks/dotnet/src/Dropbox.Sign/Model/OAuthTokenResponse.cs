@@ -78,21 +78,18 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
         
-
         /// <summary>
         /// Gets or Sets TokenType
         /// </summary>
         [DataMember(Name = "token_type", EmitDefaultValue = true)]
         public string TokenType { get; set; }
         
-
         /// <summary>
         /// Gets or Sets RefreshToken
         /// </summary>
         [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
         
-
         /// <summary>
         /// Number of seconds until the &#x60;access_token&#x60; expires. Uses epoch time.
         /// </summary>
@@ -100,14 +97,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "expires_in", EmitDefaultValue = true)]
         public int ExpiresIn { get; set; }
         
-
         /// <summary>
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name = "state", EmitDefaultValue = true)]
         public string State { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

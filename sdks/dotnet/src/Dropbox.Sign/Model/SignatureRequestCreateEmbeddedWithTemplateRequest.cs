@@ -114,7 +114,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "template_ids", IsRequired = true, EmitDefaultValue = true)]
         public List<string> TemplateIds { get; set; }
         
-
         /// <summary>
         /// Client id of the app you&#39;re using to create this embedded signature request. Used for security purposes.
         /// </summary>
@@ -122,7 +121,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "client_id", IsRequired = true, EmitDefaultValue = true)]
         public string ClientId { get; set; }
         
-
         /// <summary>
         /// Add Signers to your Templated-based Signature Request.
         /// </summary>
@@ -130,7 +128,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubSignatureRequestTemplateSigner> Signers { get; set; }
         
-
         /// <summary>
         /// Allows signers to decline to sign a document if &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
@@ -138,7 +135,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "allow_decline", EmitDefaultValue = true)]
         public bool AllowDecline { get; set; }
         
-
         /// <summary>
         /// Add CC email recipients. Required when a CC role exists for the Template.
         /// </summary>
@@ -146,7 +142,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "ccs", EmitDefaultValue = true)]
         public List<SubCC> Ccs { get; set; }
         
-
         /// <summary>
         /// An array defining values and options for custom fields. Required when a custom field exists in the Template.
         /// </summary>
@@ -154,7 +149,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<SubCustomField> CustomFields { get; set; }
         
-
         /// <summary>
         /// Use &#x60;files[]&#x60; to indicate the uploaded file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
@@ -162,7 +156,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<System.IO.Stream> Files { get; set; }
         
-
         /// <summary>
         /// Use &#x60;file_urls[]&#x60; to have Dropbox Sign download the file(s) to send for signature.  This endpoint requires either **files** or **file_urls[]**, but not both.
         /// </summary>
@@ -170,7 +163,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "file_urls", EmitDefaultValue = true)]
         public List<string> FileUrls { get; set; }
         
-
         /// <summary>
         /// The custom message in the email that will be sent to the signers.
         /// </summary>
@@ -178,7 +170,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
         
-
         /// <summary>
         /// Key-value data that should be attached to the signature request. This metadata is included in all API responses and events involving the signature request. For example, use the metadata field to store a signer&#39;s order number for look up when receiving events for the signature request.  Each request can include up to 10 metadata keys (or 50 nested metadata keys), with key names up to 40 characters long and values up to 1000 characters long.
         /// </summary>
@@ -186,14 +177,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "metadata", EmitDefaultValue = true)]
         public Dictionary<string, Object> Metadata { get; set; }
         
-
         /// <summary>
         /// Gets or Sets SigningOptions
         /// </summary>
         [DataMember(Name = "signing_options", EmitDefaultValue = true)]
         public SubSigningOptions SigningOptions { get; set; }
         
-
         /// <summary>
         /// The subject in the email that will be sent to the signers.
         /// </summary>
@@ -201,7 +190,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "subject", EmitDefaultValue = true)]
         public string Subject { get; set; }
         
-
         /// <summary>
         /// Whether this is a test, the signature request will not be legally binding if set to &#x60;true&#x60;. Defaults to &#x60;false&#x60;.
         /// </summary>
@@ -209,7 +197,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
         
-
         /// <summary>
         /// The title you want to assign to the SignatureRequest.
         /// </summary>
@@ -217,7 +204,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
         
-
         /// <summary>
         /// Controls whether [auto fill fields](https://faq.hellosign.com/hc/en-us/articles/360051467511-Auto-Fill-Fields) can automatically populate a signer&#39;s information during signing.  **NOTE:** Keep your signer&#39;s information safe by ensuring that the _signer on your signature request is the intended party_ before using this feature.
         /// </summary>
@@ -225,7 +211,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "populate_auto_fill_fields", EmitDefaultValue = true)]
         public bool PopulateAutoFillFields { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

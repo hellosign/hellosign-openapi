@@ -83,7 +83,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "grant_type", IsRequired = true, EmitDefaultValue = true)]
         public string GrantType { get; set; }
         
-
         /// <summary>
         /// The token provided when you got the expired access token.
         /// </summary>
@@ -91,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "refresh_token", IsRequired = true, EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

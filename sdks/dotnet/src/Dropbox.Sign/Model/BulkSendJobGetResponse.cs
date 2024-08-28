@@ -76,14 +76,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "bulk_send_job", EmitDefaultValue = true)]
         public BulkSendJobResponse BulkSendJob { get; set; }
         
-
         /// <summary>
         /// Gets or Sets ListInfo
         /// </summary>
         [DataMember(Name = "list_info", EmitDefaultValue = true)]
         public ListInfoResponse ListInfo { get; set; }
         
-
         /// <summary>
         /// Contains information about the Signature Requests sent in bulk.
         /// </summary>
@@ -91,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signature_requests", EmitDefaultValue = true)]
         public List<BulkSendJobGetResponseSignatureRequests> SignatureRequests { get; set; }
         
-
         /// <summary>
         /// A list of warnings.
         /// </summary>
@@ -99,7 +96,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -3,13 +3,13 @@
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 using System.Collections.Generic;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 namespace {{packageName}}.{{modelPackage}}
 {
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
     public struct OpenApiType
     {
         public string Name { set; get; }
@@ -23,7 +23,7 @@ namespace {{packageName}}.{{modelPackage}}
         List<OpenApiType> GetOpenApiTypes();
     }
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     /// <summary>
     ///  Abstract base class for oneOf, anyOf schemas in the OpenAPI specification
     /// </summary>

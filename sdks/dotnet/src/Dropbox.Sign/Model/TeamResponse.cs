@@ -77,14 +77,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
         
-
         /// <summary>
         /// A list of all Accounts that have an outstanding invitation to join your Team. Note that this response is a subset of the response parameters found in &#x60;GET /account&#x60;.
         /// </summary>
@@ -92,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "invited_accounts", EmitDefaultValue = true)]
         public List<AccountResponse> InvitedAccounts { get; set; }
         
-
         /// <summary>
         /// A list of email addresses that have an outstanding invitation to join your Team and do not yet have a Dropbox Sign account.
         /// </summary>
@@ -100,7 +97,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "invited_emails", EmitDefaultValue = true)]
         public List<string> InvitedEmails { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

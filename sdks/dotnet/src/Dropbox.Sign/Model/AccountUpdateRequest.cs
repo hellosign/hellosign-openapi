@@ -75,7 +75,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// The URL that Dropbox Sign should POST events to.
         /// </summary>
@@ -83,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
         
-
         /// <summary>
         /// The locale used in this Account. Check out the list of [supported locales](/api/reference/constants/#supported-locales) to learn more about the possible values.
         /// </summary>
@@ -91,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "locale", EmitDefaultValue = true)]
         public string Locale { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

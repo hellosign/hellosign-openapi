@@ -83,7 +83,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warning_msg", IsRequired = true, EmitDefaultValue = true)]
         public string WarningMsg { get; set; }
         
-
         /// <summary>
         /// Warning name
         /// </summary>
@@ -91,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warning_name", IsRequired = true, EmitDefaultValue = true)]
         public string WarningName { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -118,7 +118,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "document_index", IsRequired = true, EmitDefaultValue = true)]
         public int DocumentIndex { get; set; }
         
-
         /// <summary>
         /// An identifier for the field that is unique across all documents in the request.
         /// </summary>
@@ -126,7 +125,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "api_id", IsRequired = true, EmitDefaultValue = true)]
         public string ApiId { get; set; }
         
-
         /// <summary>
         /// Size of the field in pixels.
         /// </summary>
@@ -134,7 +132,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "height", IsRequired = true, EmitDefaultValue = true)]
         public int Height { get; set; }
         
-
         /// <summary>
         /// Whether this field is required.
         /// </summary>
@@ -142,7 +139,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", IsRequired = true, EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// Signer index identified by the offset in the signers parameter (0-based indexing), indicating which signer should fill out the field.  **NOTE:** To set the value of the field as the preparer you must set this to &#x60;me_now&#x60;  **NOTE:** If type is &#x60;text-merge&#x60; or &#x60;checkbox-merge&#x60;, you must set this to sender in order to use pre-filled data.
         /// </summary>
@@ -154,14 +150,12 @@ namespace Dropbox.Sign.Model
         }
 
         private string _signer;
-
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// Size of the field in pixels.
         /// </summary>
@@ -169,7 +163,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "width", IsRequired = true, EmitDefaultValue = true)]
         public int Width { get; set; }
         
-
         /// <summary>
         /// Location coordinates of the field in pixels.
         /// </summary>
@@ -177,7 +170,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "x", IsRequired = true, EmitDefaultValue = true)]
         public int X { get; set; }
         
-
         /// <summary>
         /// Location coordinates of the field in pixels.
         /// </summary>
@@ -185,7 +177,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "y", IsRequired = true, EmitDefaultValue = true)]
         public int Y { get; set; }
         
-
         /// <summary>
         /// Display name for the field.
         /// </summary>
@@ -193,7 +184,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Page in the document where the field should be placed (requires documents be PDF files).  - When the page number parameter is supplied, the API will use the new coordinate system. - Check out the differences between both [coordinate systems](https://faq.hellosign.com/hc/en-us/articles/217115577) and how to use them.
         /// </summary>
@@ -201,7 +191,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public int? Page { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

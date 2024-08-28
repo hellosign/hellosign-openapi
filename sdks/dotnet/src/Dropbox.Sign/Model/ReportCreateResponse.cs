@@ -72,7 +72,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "report", EmitDefaultValue = true)]
         public ReportResponse Report { get; set; }
         
-
         /// <summary>
         /// A list of warnings.
         /// </summary>
@@ -80,7 +79,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "warnings", EmitDefaultValue = true)]
         public List<WarningResponse> Warnings { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

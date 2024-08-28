@@ -90,7 +90,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "group_id", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
         
-
         /// <summary>
         /// Name of the group
         /// </summary>
@@ -98,7 +97,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "group_label", IsRequired = true, EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
         
-
         /// <summary>
         /// Examples: &#x60;require_0-1&#x60; &#x60;require_1&#x60; &#x60;require_1-ormore&#x60;  - Check out the list of [acceptable &#x60;requirement&#x60; checkbox type values](/api/reference/constants/#checkbox-field-grouping). - Check out the list of [acceptable &#x60;requirement&#x60; radio type fields](/api/reference/constants/#radio-field-grouping). - Radio groups require **at least** two fields per group.
         /// </summary>
@@ -106,7 +104,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "requirement", IsRequired = true, EmitDefaultValue = true)]
         public string Requirement { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

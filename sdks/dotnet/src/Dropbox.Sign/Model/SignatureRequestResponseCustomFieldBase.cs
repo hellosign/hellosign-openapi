@@ -93,7 +93,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// The name of the Custom Field.
         /// </summary>
@@ -101,7 +100,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// A boolean value denoting if this field is required.
         /// </summary>
@@ -109,7 +107,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// The unique ID for this field.
         /// </summary>
@@ -117,7 +114,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
         
-
         /// <summary>
         /// The name of the Role that is able to edit this field.
         /// </summary>
@@ -125,7 +121,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "editor", EmitDefaultValue = true)]
         public string Editor { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

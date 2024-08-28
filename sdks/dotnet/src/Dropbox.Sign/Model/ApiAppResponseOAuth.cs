@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
         
-
         /// <summary>
         /// The app&#39;s OAuth secret, or null if the app does not belong to user.
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "secret", EmitDefaultValue = true)]
         public string Secret { get; set; }
         
-
         /// <summary>
         /// Array of OAuth scopes used by the app.
         /// </summary>
@@ -93,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<string> Scopes { get; set; }
         
-
         /// <summary>
         /// Boolean indicating whether the app owner or the account granting permission is billed for OAuth requests.
         /// </summary>
@@ -101,7 +98,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "charges_users", EmitDefaultValue = true)]
         public bool ChargesUsers { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

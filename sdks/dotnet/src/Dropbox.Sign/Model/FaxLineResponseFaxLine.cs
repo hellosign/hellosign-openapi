@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "number", EmitDefaultValue = true)]
         public string Number { get; set; }
         
-
         /// <summary>
         /// Created at
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
         
-
         /// <summary>
         /// Updated at
         /// </summary>
@@ -93,14 +91,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "updated_at", EmitDefaultValue = true)]
         public int UpdatedAt { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Accounts
         /// </summary>
         [DataMember(Name = "accounts", EmitDefaultValue = true)]
         public List<AccountResponse> Accounts { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

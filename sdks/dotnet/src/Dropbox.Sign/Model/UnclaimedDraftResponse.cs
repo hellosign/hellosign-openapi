@@ -81,7 +81,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signature_request_id", EmitDefaultValue = true)]
         public string SignatureRequestId { get; set; }
         
-
         /// <summary>
         /// The URL to be used to claim this UnclaimedDraft.
         /// </summary>
@@ -89,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "claim_url", EmitDefaultValue = true)]
         public string ClaimUrl { get; set; }
         
-
         /// <summary>
         /// The URL you want signers redirected to after they successfully sign.
         /// </summary>
@@ -97,7 +95,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signing_redirect_url", EmitDefaultValue = true)]
         public string SigningRedirectUrl { get; set; }
         
-
         /// <summary>
         /// The URL you want signers redirected to after they successfully request a signature (Will only be returned in the response if it is applicable to the request.).
         /// </summary>
@@ -105,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "requesting_redirect_url", EmitDefaultValue = true)]
         public string RequestingRedirectUrl { get; set; }
         
-
         /// <summary>
         /// When the link expires.
         /// </summary>
@@ -113,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int? ExpiresAt { get; set; }
         
-
         /// <summary>
         /// Whether this is a test draft. Signature requests made from test drafts have no legal value.
         /// </summary>
@@ -121,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "test_mode", EmitDefaultValue = true)]
         public bool TestMode { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

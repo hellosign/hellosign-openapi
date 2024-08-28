@@ -12,10 +12,10 @@ using System.Text.RegularExpressions;
 {{#useCompareNetObjects}}
 using KellermanSoftware.CompareNetObjects;
 {{/useCompareNetObjects}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 using Newtonsoft.Json;
 using {{packageName}}.Model;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 namespace {{packageName}}.Client
 {
@@ -248,12 +248,12 @@ namespace {{packageName}}.Client
         /// </summary>
         /// <param name="enumVal"></param>
         /// <returns>EnumMember value as string otherwise null</returns>
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         private static string GetEnumMemberAttrValue(object enumVal)
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         public static string GetEnumMemberAttrValue(object enumVal)
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         {
             if (enumVal == null)
                 throw new ArgumentNullException(nameof(enumVal));
@@ -266,7 +266,7 @@ namespace {{packageName}}.Client
             }
             return null;
         }
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 
         /// <summary>
         /// Tests if value is a System.IO.Stream or list of System.IO.Stream
@@ -349,6 +349,6 @@ namespace {{packageName}}.Client
                 );
             }
         }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     }
 }

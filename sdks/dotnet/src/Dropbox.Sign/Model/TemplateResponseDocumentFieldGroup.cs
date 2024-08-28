@@ -73,14 +73,12 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Rule
         /// </summary>
         [DataMember(Name = "rule", EmitDefaultValue = true)]
         public TemplateResponseDocumentFieldGroupRule Rule { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

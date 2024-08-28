@@ -75,7 +75,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// The email address of the Account to give access to the Template. **NOTE:** The account id prevails if it is also provided.
         /// </summary>
@@ -83,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "email_address", EmitDefaultValue = true)]
         public string EmailAddress { get; set; }
         
-
         /// <summary>
         /// If set to &#x60;true&#x60;, the user does not receive an email notification when a template has been shared with them. Defaults to &#x60;false&#x60;.
         /// </summary>
@@ -91,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "skip_notification", EmitDefaultValue = true)]
         public bool SkipNotification { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

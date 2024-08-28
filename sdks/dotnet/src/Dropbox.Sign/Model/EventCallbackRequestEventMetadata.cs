@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "related_signature_id", EmitDefaultValue = true)]
         public string RelatedSignatureId { get; set; }
         
-
         /// <summary>
         /// Account ID the event was reported for.
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "reported_for_account_id", EmitDefaultValue = true)]
         public string ReportedForAccountId { get; set; }
         
-
         /// <summary>
         /// App ID the event was reported for.
         /// </summary>
@@ -93,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "reported_for_app_id", EmitDefaultValue = true)]
         public string ReportedForAppId { get; set; }
         
-
         /// <summary>
         /// Message about a declined or failed (due to error) signature flow.
         /// </summary>
@@ -101,7 +98,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "event_message", EmitDefaultValue = true)]
         public string EventMessage { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

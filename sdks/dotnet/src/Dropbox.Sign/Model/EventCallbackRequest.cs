@@ -81,28 +81,24 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "event", IsRequired = true, EmitDefaultValue = true)]
         public EventCallbackRequestEvent Event { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
         [DataMember(Name = "account", EmitDefaultValue = true)]
         public AccountResponse Account { get; set; }
         
-
         /// <summary>
         /// Gets or Sets SignatureRequest
         /// </summary>
         [DataMember(Name = "signature_request", EmitDefaultValue = true)]
         public SignatureRequestResponse SignatureRequest { get; set; }
         
-
         /// <summary>
         /// Gets or Sets Template
         /// </summary>
         [DataMember(Name = "template", EmitDefaultValue = true)]
         public TemplateResponse Template { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

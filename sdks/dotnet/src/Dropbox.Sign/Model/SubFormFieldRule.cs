@@ -97,7 +97,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
         
-
         /// <summary>
         /// Currently only &#x60;AND&#x60; is supported. Support for &#x60;OR&#x60; is being worked on.
         /// </summary>
@@ -105,7 +104,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "trigger_operator", IsRequired = true, EmitDefaultValue = true)]
         public string TriggerOperator { get; set; }
         
-
         /// <summary>
         /// An array of trigger definitions, the \&quot;if this\&quot; part of \&quot;**if this**, then that\&quot;. Currently only a single trigger per rule is allowed.
         /// </summary>
@@ -113,7 +111,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "triggers", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleTrigger> Triggers { get; set; }
         
-
         /// <summary>
         /// An array of action definitions, the \&quot;then that\&quot; part of \&quot;if this, **then that**\&quot;. Any number of actions may be attached to a single rule.
         /// </summary>
@@ -121,7 +118,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "actions", IsRequired = true, EmitDefaultValue = true)]
         public List<SubFormFieldRuleAction> Actions { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

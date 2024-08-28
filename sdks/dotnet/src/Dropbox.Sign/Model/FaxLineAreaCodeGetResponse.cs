@@ -70,7 +70,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "area_codes", EmitDefaultValue = true)]
         public List<int> AreaCodes { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

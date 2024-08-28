@@ -81,7 +81,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// Document ordering, the lowest index is displayed first and the highest last (0-based indexing).
         /// </summary>
@@ -89,7 +88,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "index", EmitDefaultValue = true)]
         public int Index { get; set; }
         
-
         /// <summary>
         /// An array of Form Field Group objects.
         /// </summary>
@@ -97,7 +95,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "field_groups", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFieldGroup> FieldGroups { get; set; }
         
-
         /// <summary>
         /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
@@ -105,7 +102,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "form_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentFormFieldBase> FormFields { get; set; }
         
-
         /// <summary>
         /// An array of Form Field objects containing the name and type of each named field.
         /// </summary>
@@ -113,7 +109,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "custom_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentCustomFieldBase> CustomFields { get; set; }
         
-
         /// <summary>
         /// An array describing static overlay fields. **NOTE:** Only available for certain subscriptions.
         /// </summary>
@@ -121,7 +116,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "static_fields", EmitDefaultValue = true)]
         public List<TemplateResponseDocumentStaticFieldBase> StaticFields { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

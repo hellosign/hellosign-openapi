@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "requirement", EmitDefaultValue = true)]
         public string Requirement { get; set; }
         
-
         /// <summary>
         /// Name of the group
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "groupLabel", EmitDefaultValue = true)]
         public string GroupLabel { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

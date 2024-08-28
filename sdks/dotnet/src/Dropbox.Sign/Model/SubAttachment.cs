@@ -82,7 +82,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// The signer&#39;s index in the &#x60;signers&#x60; parameter (0-based indexing).  **NOTE:** Only one signer can be assigned per attachment.
         /// </summary>
@@ -90,7 +89,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signer_index", IsRequired = true, EmitDefaultValue = true)]
         public int SignerIndex { get; set; }
         
-
         /// <summary>
         /// The instructions for uploading the attachment.
         /// </summary>
@@ -98,7 +96,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "instructions", EmitDefaultValue = true)]
         public string Instructions { get; set; }
         
-
         /// <summary>
         /// Determines if the attachment must be uploaded.
         /// </summary>
@@ -106,7 +103,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

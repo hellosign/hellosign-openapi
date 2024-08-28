@@ -100,7 +100,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// &#x60;true&#x60; for checking the checkbox field by default, otherwise &#x60;false&#x60;.
         /// </summary>
@@ -108,7 +107,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_checked", IsRequired = true, EmitDefaultValue = true)]
         public bool IsChecked { get; set; }
         
-
         /// <summary>
         /// String referencing group defined in &#x60;form_field_groups&#x60; parameter.
         /// </summary>
@@ -116,7 +114,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

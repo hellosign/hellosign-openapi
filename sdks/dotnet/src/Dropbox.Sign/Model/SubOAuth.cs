@@ -128,7 +128,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "callback_url", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
         
-
         /// <summary>
         /// A list of [OAuth scopes](/api/reference/tag/OAuth) to be granted to the app. (Required if &#x60;oauth[callback_url]&#x60; is provided).
         /// </summary>
@@ -136,7 +135,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "scopes", EmitDefaultValue = true)]
         public List<SubOAuth.ScopesEnum> Scopes { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

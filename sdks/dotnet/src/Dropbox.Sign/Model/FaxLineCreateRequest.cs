@@ -110,7 +110,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "area_code", IsRequired = true, EmitDefaultValue = true)]
         public int AreaCode { get; set; }
         
-
         /// <summary>
         /// City
         /// </summary>
@@ -118,7 +117,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
         
-
         /// <summary>
         /// Account ID
         /// </summary>
@@ -127,7 +125,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "account_id", EmitDefaultValue = true)]
         public string AccountId { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

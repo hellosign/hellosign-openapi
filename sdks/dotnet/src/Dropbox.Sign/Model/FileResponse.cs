@@ -73,7 +73,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "file_url", EmitDefaultValue = true)]
         public string FileUrl { get; set; }
         
-
         /// <summary>
         /// When the link expires.
         /// </summary>
@@ -81,7 +80,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "expires_at", EmitDefaultValue = true)]
         public int ExpiresAt { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

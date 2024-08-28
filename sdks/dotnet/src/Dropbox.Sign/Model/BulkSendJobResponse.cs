@@ -77,7 +77,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "bulk_send_job_id", EmitDefaultValue = true)]
         public string BulkSendJobId { get; set; }
         
-
         /// <summary>
         /// The total amount of Signature Requests queued for sending.
         /// </summary>
@@ -85,7 +84,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "total", EmitDefaultValue = true)]
         public int Total { get; set; }
         
-
         /// <summary>
         /// True if you are the owner of this BulkSendJob, false if it&#39;s been shared with you by a team member.
         /// </summary>
@@ -93,7 +91,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "is_creator", EmitDefaultValue = true)]
         public bool IsCreator { get; set; }
         
-
         /// <summary>
         /// Time that the BulkSendJob was created.
         /// </summary>
@@ -101,7 +98,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

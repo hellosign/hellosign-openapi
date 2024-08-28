@@ -85,7 +85,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "error_msg", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorMsg { get; set; }
         
-
         /// <summary>
         /// Name of the error.
         /// </summary>
@@ -93,7 +92,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "error_name", IsRequired = true, EmitDefaultValue = true)]
         public string ErrorName { get; set; }
         
-
         /// <summary>
         /// Path at which an error occurred.
         /// </summary>
@@ -101,7 +99,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "error_path", EmitDefaultValue = true)]
         public string ErrorPath { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

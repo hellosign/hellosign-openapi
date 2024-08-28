@@ -104,7 +104,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
         
-
         /// <summary>
         /// A unique id for the static field.
         /// </summary>
@@ -112,7 +111,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "api_id", EmitDefaultValue = true)]
         public string ApiId { get; set; }
         
-
         /// <summary>
         /// The name of the static field.
         /// </summary>
@@ -120,7 +118,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
         
-
         /// <summary>
         /// The signer of the Static Field.
         /// </summary>
@@ -128,7 +125,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "signer", EmitDefaultValue = true)]
         public string Signer { get; set; }
         
-
         /// <summary>
         /// The horizontal offset in pixels for this static field.
         /// </summary>
@@ -136,7 +132,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "x", EmitDefaultValue = true)]
         public int X { get; set; }
         
-
         /// <summary>
         /// The vertical offset in pixels for this static field.
         /// </summary>
@@ -144,7 +139,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "y", EmitDefaultValue = true)]
         public int Y { get; set; }
         
-
         /// <summary>
         /// The width in pixels of this static field.
         /// </summary>
@@ -152,7 +146,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "width", EmitDefaultValue = true)]
         public int Width { get; set; }
         
-
         /// <summary>
         /// The height in pixels of this static field.
         /// </summary>
@@ -160,7 +153,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "height", EmitDefaultValue = true)]
         public int Height { get; set; }
         
-
         /// <summary>
         /// Boolean showing whether or not this field is required.
         /// </summary>
@@ -168,7 +160,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "required", EmitDefaultValue = true)]
         public bool Required { get; set; }
         
-
         /// <summary>
         /// The name of the group this field is in. If this field is not a group, this defaults to &#x60;null&#x60;.
         /// </summary>
@@ -176,7 +167,6 @@ namespace Dropbox.Sign.Model
         [DataMember(Name = "group", EmitDefaultValue = true)]
         public string Group { get; set; }
         
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
