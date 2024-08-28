@@ -1,13 +1,13 @@
 // This is the entrypoint for the package
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 export * from './api/apis';
 {{#models.0}}
 export * from './model/models';
 {{/models.0}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 export * from './api/index';
 {{#models.0}}
 export * from './model/index';
 {{/models.0}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}

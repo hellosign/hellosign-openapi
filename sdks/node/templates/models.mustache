@@ -1,4 +1,4 @@
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#generateApis}}
 import localVarRequest from 'request';
 {{/generateApis}}
@@ -20,8 +20,8 @@ export interface RequestDetailedFile {
 }
 
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 import { AxiosRequestConfig } from 'axios';
 import * as fs from 'fs';
 import { enumsMap, typeMap } from "./";
@@ -47,19 +47,19 @@ interface AttributeType {
 export interface AttributeTypeMap extends Array<AttributeType>{}
 
 export type RequestFile = fs.ReadStream | RequestDetailedFile;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 {{! Object serialization only relevant if generating APIs, too }}
 {{#generateApis}}
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#models}}
 {{#model}}
 import { {{classname}} } from '{{{ classFilename }}}';
 {{/model}}
 {{/models}}
 
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 /* tslint:disable:no-unused-variable */
 let primitives = [
                     "string",
@@ -72,7 +72,7 @@ let primitives = [
                     "any"
                  ];
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 let enumsMap: {[index: string]: any} = {
     {{#models}}
         {{#model}}
@@ -99,7 +99,7 @@ let typeMap: {[index: string]: any} = {
         {{/model}}
     {{/models}}
 }
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 export class ObjectSerializer {
     public static findCorrectType(data: any, expectedType: string) {
         if (data == undefined) {
@@ -119,7 +119,7 @@ export class ObjectSerializer {
 
             // Check the discriminator
             let discriminatorProperty = typeMap[expectedType].discriminator;
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
             let discriminatorValue = data[discriminatorProperty];
 
             if (typeMap[expectedType].hasOwnProperty('discriminatorClassName')) {
@@ -132,7 +132,7 @@ export class ObjectSerializer {
               }
             }
 
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             if (discriminatorProperty == null) {
                 return expectedType; // the type does not have a discriminator. use it.
             } else {
@@ -182,17 +182,17 @@ export class ObjectSerializer {
             let instance: {[index: string]: any} = {};
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
                 instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                 let value = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
 
                 // Only add property if not null
                 if (value !== undefined) {
                   instance[attributeType.baseName] = value;
                 }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             }
             return instance;
         }
@@ -228,16 +228,16 @@ export class ObjectSerializer {
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             for (let index = 0; index < attributeTypes.length; index++) {
                 let attributeType = attributeTypes[index];
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
                 instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
                 const propertyKey = data[attributeType.baseName] !== undefined
                     ? attributeType.baseName
                     : attributeType.name;
 
                 instance[attributeType.name] = ObjectSerializer.deserialize(data[propertyKey], attributeType.type);
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             }
             return instance;
         }
@@ -248,24 +248,24 @@ export interface Authentication {
     /**
     * Apply authentication settings to header and query params.
     */
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     applyToRequest(requestOptions: localVarRequest.Options): Promise<void> | void;
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     applyToRequest(requestOptions: AxiosRequestConfig): Promise<void> | void;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 }
 
 export class HttpBasicAuth implements Authentication {
     public username: string = '';
     public password: string = '';
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     applyToRequest(requestOptions: localVarRequest.Options): void {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         requestOptions.auth = {
             username: this.username, password: this.password
         }
@@ -275,12 +275,12 @@ export class HttpBasicAuth implements Authentication {
 export class HttpBearerAuth implements Authentication {
     public accessToken: string | (() => string) = '';
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     applyToRequest(requestOptions: localVarRequest.Options): void {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         if (requestOptions && requestOptions.headers) {
             const accessToken = typeof this.accessToken === 'function'
                             ? this.accessToken()
@@ -296,19 +296,19 @@ export class ApiKeyAuth implements Authentication {
     constructor(private location: string, private paramName: string) {
     }
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     applyToRequest(requestOptions: localVarRequest.Options): void {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         if (this.location == "query") {
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             (<any>requestOptions.qs)[this.paramName] = this.apiKey;
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             (<any>requestOptions.params)[this.paramName] = this.apiKey;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         } else if (this.location == "header" && requestOptions && requestOptions.headers) {
             requestOptions.headers[this.paramName] = this.apiKey;
         } else if (this.location == 'cookie' && requestOptions && requestOptions.headers) {
@@ -325,12 +325,12 @@ export class ApiKeyAuth implements Authentication {
 export class OAuth implements Authentication {
     public accessToken: string = '';
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     applyToRequest(requestOptions: localVarRequest.Options): void {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     applyToRequest(requestOptions: AxiosRequestConfig): void {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         if (requestOptions && requestOptions.headers) {
             requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
         }
@@ -341,20 +341,20 @@ export class VoidAuth implements Authentication {
     public username: string = '';
     public password: string = '';
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     applyToRequest(_: localVarRequest.Options): void {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     applyToRequest(_: AxiosRequestConfig): void {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         // Do nothing
     }
 }
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 export type Interceptor = (requestOptions: localVarRequest.Options) => (Promise<void> | void);
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 export type Interceptor = (requestOptions: AxiosRequestConfig) => (Promise<void> | void);
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{/generateApis}}

@@ -1,12 +1,12 @@
 {{>licenseInfo}}
 {{#models}}
 {{#model}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 import { RequestFile } from './models';
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 import { RequestFile, AttributeTypeMap, ObjectSerializer } from './';
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{#tsImports}}
 import { {{classname}} } from '{{filename}}';
 {{/tsImports}}
@@ -17,24 +17,24 @@ import { {{classname}} } from '{{filename}}';
 */
 {{/description}}
 {{^isEnum}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-class}}class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{#vars}}
 {{#description}}
     /**
     * {{{.}}}
     */
 {{/description}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}}{{#defaultValue}} = {{#isEnum}}{{classname}}.{{/isEnum}}{{{.}}}{{/defaultValue}};
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{#vendorExtensions.x-int-or-string}}number | string{{/vendorExtensions.x-int-or-string}}{{^vendorExtensions.x-int-or-string}}{{{dataType}}}{{/vendorExtensions.x-int-or-string}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{/vars}}
 
     {{#discriminator}}
@@ -45,12 +45,12 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
     {{/discriminator}}
 
     {{^isArray}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     static attributeTypeMap: AttributeTypeMap = [
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         {{#vars}}
         {
             "name": "{{name}}",
@@ -61,12 +61,12 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         {{/vars}}
     ];
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     static getAttributeTypeMap() {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     static getAttributeTypeMap(): AttributeTypeMap {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         {{#parent}}
         return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
         {{/parent}}
@@ -75,7 +75,7 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         {{/parent}}
     }
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 {{#discriminator}}
     static discriminatorClassName(value: any): string | null {
         if ((value === undefined) || (value === null)) {
@@ -97,7 +97,7 @@ export {{#vendorExtensions.x-base-class}}abstract {{/vendorExtensions.x-base-cla
         return ObjectSerializer.deserialize(data, '{{classname}}');
     }
 {{/discriminator}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     {{/isArray}}
 }
 
@@ -108,12 +108,12 @@ export namespace {{classname}} {
     export enum {{enumName}} {
         {{#allowableValues}}
         {{#enumVars}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         {{name}} = <any> {{{value}}}{{^-last}},{{/-last}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         {{name}} = {{{value}}}{{^-last}},{{/-last}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         {{/enumVars}}
         {{/allowableValues}}
     }
@@ -126,12 +126,12 @@ export namespace {{classname}} {
 export enum {{classname}} {
     {{#allowableValues}}
     {{#enumVars}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     {{name}} = <any> {{{value}}}{{^-last}},{{/-last}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     {{name}} = {{{value}}}{{^-last}},{{/-last}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     {{/enumVars}}
     {{/allowableValues}}
 }

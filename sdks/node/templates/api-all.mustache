@@ -1,5 +1,5 @@
 {{#apiInfo}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 {{#apis}}
 {{#operations}}
 export * from './{{ classFilename }}';
@@ -9,34 +9,34 @@ import { {{ classname }} } from './{{ classFilename }}';
 export * from './{{ classFilename }}Interface'
 {{/withInterfaces}}
 {{/apis}}
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 import * as http from 'http';
 
 export class HttpError extends Error {
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     constructor (public response: http.IncomingMessage, public body: any, public statusCode?: number) {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     constructor (public response: AxiosResponse, public body: any, public statusCode?: number) {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         super('HTTP request failed');
         this.name = 'HttpError';
     }
 }
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 export { RequestFile } from '../model/models';
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 export { RequestFile } from '../model';
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 export const APIS = [{{#apis}}{{#operations}}{{ classname }}{{/operations}}{{^-last}}, {{/-last}}{{/apis}}];
-{{/vendorExtensions.x-ignore-block}}
+{{/useCustomTemplateCode}}
 {{/apiInfo}}
 
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 import { AxiosResponse } from "axios";
 import { AttributeTypeMap, ObjectSerializer, RequestDetailedFile } from "../model";
 import formData from "form-data";
@@ -170,4 +170,4 @@ function isBufferDetailedFile(obj: any): obj is RequestDetailedFile {
 }
 
 const shouldJsonify = (val: any): boolean => val === Object(val);
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}

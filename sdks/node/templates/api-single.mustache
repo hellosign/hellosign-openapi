@@ -1,5 +1,5 @@
 {{>licenseInfo}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
 import localVarRequest from 'request';
 import http from 'http';
 
@@ -14,8 +14,8 @@ import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/model
 {{/hasAuthMethods}}
 
 import { HttpError, RequestFile } from './apis';
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import http from 'http';
 
@@ -35,7 +35,7 @@ import {
     queryParamsSerializer,
     USER_AGENT,
 } from './';
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 let defaultBasePath = '{{{basePath}}}';
 
@@ -59,12 +59,12 @@ export enum {{classname}}ApiKeys {
 
 export class {{classname}} {
     protected _basePath = defaultBasePath;
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     protected _defaultHeaders : any = {};
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     protected _defaultHeaders : any = { 'User-Agent': USER_AGENT };
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
@@ -89,7 +89,7 @@ export class {{classname}} {
 
     protected interceptors: Interceptor[] = [];
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     constructor(basePath?: string);
 {{#authMethods}}
 {{#isBasicBasic}}
@@ -113,14 +113,14 @@ export class {{classname}} {
             }
         }
     }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     constructor(basePath?: string) {
         if (basePath) {
             this.basePath = basePath;
         }
     }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
     set useQuerystring(value: boolean) {
         this._useQuerystring = value;
@@ -146,16 +146,16 @@ export class {{classname}} {
         this.authentications.default = auth;
     }
 
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     public setApiKey(key: {{classname}}ApiKeys, value: string) {
         (this.authentications as any)[{{classname}}ApiKeys[key]].apiKey = value;
     }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     public setApiKey(key: string) {
         this.authentications.api_key.username = key;
     }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{#hasAuthMethods}}
 {{#authMethods}}
 {{#isBasicBasic}}
@@ -196,19 +196,19 @@ export class {{classname}} {
      {{#allParams}}
      * @param {{paramName}} {{description}}
      {{/allParams}}
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
      * @param options
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
      */
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
     public async {{nickname}} ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; {{#returnType}}body: {{{.}}}; {{/returnType}}{{^returnType}}body?: any; {{/returnType}} }> {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
     public async {{nickname}} ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}options: optionsI = {headers: {}}) : Promise<{{#returnType}}returnTypeT<{{{.}}}>{{/returnType}}{{^returnType}}returnTypeI{{/returnType}}> {
 {{#bodyParam}}
         {{{paramName}}} = deserializeIfNeeded({{paramName}}, "{{{dataType}}}");
 {{/bodyParam}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         const localVarPath = this.basePath + '{{{path}}}'{{#pathParams}}
             .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){{/pathParams}};
         let localVarQueryParameters: any = {};
@@ -216,25 +216,25 @@ export class {{classname}} {
 {{#hasProduces}}
         const produces = [{{#produces}}'{{{mediaType}}}'{{^-last}}, {{/-last}}{{/produces}}];
         // give precedence to 'application/json'
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
         } else {
             localVarHeaderParams.Accept = produces.join(',');
         }
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams['content-type'] = 'application/json';
         } else {
             localVarHeaderParams['content-type'] = produces.join(',');
         }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{/hasProduces}}
         let localVarFormParams: any = {};
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
         let localVarBodyParams: any = undefined;
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 
 {{#allParams}}
 {{#required}}
@@ -272,7 +272,7 @@ export class {{classname}} {
 {{/isFile}}
 
 {{/formParams}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         let localVarRequestOptions: localVarRequest.Options = {
             method: '{{httpMethod}}',
             qs: localVarQueryParameters,
@@ -288,8 +288,8 @@ export class {{classname}} {
 {{#bodyParam}}
             body: ObjectSerializer.serialize({{paramName}}, "{{{dataType}}}")
 {{/bodyParam}}
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         {{#bodyParam}}
         const result = generateFormData({{{paramName}}}, {{{dataType}}}.attributeTypeMap);
         localVarUseFormData = result.localVarUseFormData;
@@ -327,7 +327,7 @@ export class {{classname}} {
 {{#bodyParam}}
             data,
 {{/bodyParam}}
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         };
 
         let authenticationPromise = Promise.resolve();
@@ -338,12 +338,12 @@ export class {{classname}} {
         }
     {{/isApiKey}}
     {{#isBasicBasic}}
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
         if (this.authentications.{{name}}.username && this.authentications.{{name}}.password) {
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
         if (this.authentications.{{name}}.username) {
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
             authenticationPromise = authenticationPromise.then(() => this.authentications.{{name}}.applyToRequest(localVarRequestOptions));
         }
     {{/isBasicBasic}}
@@ -366,7 +366,7 @@ export class {{classname}} {
         }
 
         return interceptorPromise.then(() => {
-{{#vendorExtensions.x-ignore-block}}
+{{^useCustomTemplateCode}}
             if (Object.keys(localVarFormParams).length) {
                 if (localVarUseFormData) {
                     (<any>localVarRequestOptions).formData = localVarFormParams;
@@ -390,8 +390,8 @@ export class {{classname}} {
                     }
                 });
             });
-{{/vendorExtensions.x-ignore-block}}
-{{! CUSTOM - BEGIN }}
+{{/useCustomTemplateCode}}
+{{#useCustomTemplateCode}}
             return new Promise<{{#returnType}}returnTypeT<{{{.}}}>{{/returnType}}{{^returnType}}returnTypeI{{/returnType}}>((resolve, reject) => {
                 axios.request(localVarRequestOptions)
                     .then((response) => {
@@ -442,12 +442,12 @@ export class {{classname}} {
                         reject(error);
                     });
             });
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
         });
     }
 {{/operation}}
 }
-{{! CUSTOM - BEGIN }}
+{{#useCustomTemplateCode}}
 
 function deserializeIfNeeded<T> (obj: T, classname: string): T {
   if (obj !== null && obj !== undefined && obj.constructor.name !== classname) {
@@ -528,5 +528,5 @@ function handleErrorRangeResponse(
 
     return false;
 }
-{{! CUSTOM - END }}
+{{/useCustomTemplateCode}}
 {{/operations}}
